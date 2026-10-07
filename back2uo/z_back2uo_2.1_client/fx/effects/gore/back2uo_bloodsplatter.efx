@@ -1,0 +1,863 @@
+Particle
+{
+  name				      back2uo_bloodline
+	flags				      useAlpha impactFX
+	count				      4 8 	
+	delay 			    	15
+	life				      900 1100
+	radius				    2 4
+	cullrange			    1000
+	rotation			    128 -256
+	rotationDelta			43 -86
+	velocity			    100 75 57 25 -100 -50	
+	gravity				    -400
+
+	rgb
+	{
+		start			0.45 0.45 0.45
+		end				0.35 0 0
+		flags			linear
+	}
+	
+	alpha
+	{
+		start				1
+		end				1
+		flags			linear
+	}
+
+	size
+	{
+		start				5
+		end				15
+		flags			random linear 
+	}
+
+	shaders
+	[
+	 gfx/gore/back2uo_bloodsquirt.tga
+	]
+
+	impactfx
+	[
+		fx/effects/gore/back2uo_bloodsplash1
+	]	
+}
+
+Particle
+{
+	name				    back2uo_bloodtrail
+	flags				    useAlpha impactFX
+	life				    1000
+	rotation			  -360 360
+	rotationDelta		-5 5
+	gravity				  -240
+
+	rgb
+	{
+		start			0.45 0.45 0.45
+		end				0.35 0.35 0.35
+	}
+
+	alpha
+	{
+		start			0.7 0.8
+		end				0
+		parm			50 60
+	}
+
+	size
+	{
+		start			5
+		end				10 15
+		parm			10 15
+		flags			linear
+	}
+
+	shaders
+	[
+	  gfx/gore/back2uo_bloodsquirt.tga
+	]
+
+	impactfx
+	[
+		fx/effects/gore/back2uo_bloodsplash1
+	]
+}
+
+Particle
+{
+	name				            back2uo_bloodblast
+	flags				            useAlpha useRandomAlpha useRandomRotationDelta useRandomVelocity relative
+	spawnFlags			        orgOnCylinder axisFromSphere frustumCull
+	count			             	2 3
+	life				            200
+	spawnRange		         	0 1200
+	origin				          13 0 0 0 0 0
+	radius				          3 1
+	height				          3 1
+	rotation			          -360 360
+	spawnFrustumCullRadius	60.000000
+
+	rgb
+	{
+		curve
+		[
+			0 0.4275 0.04706 0.04706
+			1 0.5333 0.05882 0.1412
+		]
+	}
+
+	rgbRand
+	{
+		curve
+		[
+			0 1 1 1
+			1 0 0 0
+		]
+	}
+
+	alpha
+	{
+		curve
+		[
+			0 0.1832 0 0
+			0.2213 0.1881 0 0
+			0.5747 0.1832 0 0
+			0.8391 0.09406 0 0
+			1 0 0 0
+		]
+	}
+
+	alphaRand
+	{
+		curve
+		[
+			0 0.4356 0 0
+			0.3448 0.4208 0 0
+			0.6178 0.3515 0 0
+			0.8448 0.203 0 0
+			1 0 0 0
+		]
+	}
+
+	size
+	{
+		curve
+		[
+			0 0.1748 0 0
+			1 0.75 0 0
+		]
+
+		scale			20
+	}
+
+	sizeRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size2
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size2Rand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	length
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	lengthRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	rotationDelta
+	{
+		curve
+		[
+			0 -0.5 0 0
+			1 -0.5 0 0
+		]
+
+		scale			5
+	}
+
+	rotationDeltaRand
+	{
+		curve
+		[
+			0 0.5 0 0
+			1 0.5 0 0
+		]
+	}
+
+	velocityX
+	{
+		curve
+		[
+			0 -0.5 0 0
+			1 -0.5 0 0
+		]
+
+		scale			44
+	}
+
+	velocityY
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+
+		scale			44
+	}
+
+	velocityZ
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+
+		scale			44
+	}
+
+	velocityXRand
+	{
+		curve
+		[
+			0 -0.2045 0 0
+			1 -0.2045 0 0
+		]
+	}
+
+	velocityYRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocityZRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2X
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2Y
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2Z
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2XRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2YRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2ZRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	shaders
+	[
+		gfx_whitesmoke
+	]
+}
+
+Particle
+{
+	name				            back2uo_bloodsmoke
+	flags				            useAlpha useRandomVelocity relative
+	spawnFlags			        orgOnCylinder axisFromSphere frustumCull
+	count				            4 3
+	life				            200
+	spawnRange			        0 1200
+	radius				          10 1
+	height				          23 14
+	rotation			          123 -264
+	gravity				          -200
+	spawnFrustumCullRadius	60.000000
+
+	rgb
+	{
+		curve
+		[
+			0 0.4275 0.04706 0.04706
+			1 0.4667 0.05098 0.1255
+		]
+	}
+
+	rgbRand
+	{
+		curve
+		[
+			0 1 1 1
+			1 0 0 0
+		]
+	}
+
+	alpha
+	{
+		curve
+		[
+			0 1 0 0
+			0.6895 1 0 0
+			1 0 0 0
+		]
+	}
+
+	alphaRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size
+	{
+		curve
+		[
+			0 0.03659 0 0
+			1 0.75 0 0
+		]
+
+		scale			20
+	}
+
+	sizeRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size2
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size2Rand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	length
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	lengthRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	rotationDelta
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	rotationDeltaRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocityX
+	{
+		curve
+		[
+			0 -0.5 0 0
+			1 -0.5 0 0
+		]
+
+		scale			44
+	}
+
+	velocityY
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+
+		scale			44
+	}
+
+	velocityZ
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+
+		scale			44
+	}
+
+	velocityXRand
+	{
+		curve
+		[
+			0 0.5 0 0
+			1 0.5 0 0
+		]
+	}
+
+	velocityYRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocityZRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2X
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2Y
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2Z
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2XRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2YRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2ZRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	shaders
+	[
+		gfx_rain_spray
+	]
+}
+
+Particle
+{
+  name				            back2uo_bloodcol
+  flags				            useAlpha useRandomRotationDelta useRandomVelocity impactFX
+	spawnFlags			        frustumCull
+	nonUniformScale		      1
+	count				            4 8
+	life				            200 250
+	delay				            125 0
+	spawnRange			        0 1200
+	origin				          -1.5 -2.5 -2.5 32 2.5 2.5
+	rotation			          -5 5
+	gravity				          -600 -450
+	spawnFrustumCullRadius	60.000000
+
+	rgb
+	{
+		start			0.45 0.45 0.45
+		end				0.35 0.35 0.35
+	}
+
+	alpha
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	alphaRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size
+	{
+		curve
+		[
+			0 0.08036 0 0
+			1 0.75 0 0
+		]
+
+		scale			5
+	}
+
+	sizeRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	size2
+	{
+		curve
+		[
+			0 0.25 0 0
+			1 0.75 0 0
+		]
+
+		scale			8
+	}
+
+	size2Rand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	length
+	{
+		curve
+		[
+			0 0.75 0 0
+			0 0.75 0 0
+		]
+
+		scale			1.333
+	}
+
+	lengthRand
+	{
+		curve
+		[
+			0 1 0 0
+			1 0 0 0
+		]
+	}
+
+	rotationDelta
+	{
+		curve
+		[
+			0 -0.5 0 0
+			0.05263 -0.4642 0 0
+			0.1053 -0.4311 0 0
+			0.1579 -0.4002 0 0
+			0.2105 -0.3716 0 0
+			0.2632 -0.345 0 0
+			0.3158 -0.3204 0 0
+			0.3684 -0.2975 0 0
+			0.4211 -0.2762 0 0
+			0.4737 -0.2565 0 0
+			0.5263 -0.2381 0 0
+			0.5789 -0.2211 0 0
+			0.6316 -0.2053 0 0
+			0.6842 -0.1906 0 0
+			0.7368 -0.177 0 0
+			0.7895 -0.1643 0 0
+			0.8421 -0.1526 0 0
+			0.8947 -0.1417 0 0
+			0.9474 -0.1315 0 0
+			1 -0.1221 0 0
+		]
+
+		scale			1.5
+	}
+
+	rotationDeltaRand
+	{
+		curve
+		[
+			0 0.5 0 0
+			0.05263 0.448 0 0
+			0.1053 0.4014 0 0
+			0.1579 0.3597 0 0
+			0.2105 0.3223 0 0
+			0.2632 0.2887 0 0
+			0.3158 0.2587 0 0
+			0.3684 0.2318 0 0
+			0.4211 0.2077 0 0
+			0.4737 0.1861 0 0
+			0.5263 0.1667 0 0
+			0.5789 0.1494 0 0
+			0.6316 0.1339 0 0
+			0.6842 0.1199 0 0
+			0.7368 0.1075 0 0
+			0.7895 0.09629 0 0
+			0.8421 0.08628 0 0
+			0.8947 0.0773 0 0
+			0.9474 0.06927 0 0
+			1 0.06206 0 0
+		]
+	}
+
+	velocityX
+	{
+		curve
+		[
+			0 0.1481 0 0
+			1 0.1481 0 0
+		]
+
+		scale			40
+	}
+
+	velocityY
+	{
+		curve
+		[
+			0 -0.07407 0 0
+			1 -0.07407 0 0
+		]
+
+		scale			27
+	}
+
+	velocityZ
+	{
+		curve
+		[
+			0 -0.07407 0 0
+			1 -0.07407 0 0
+		]
+
+		scale			27
+	}
+
+	velocityXRand
+	{
+		curve
+		[
+			0 0.5 0 0
+			1 0.5 0 0
+		]
+	}
+
+	velocityYRand
+	{
+		curve
+		[
+			0 0.07407 0 0
+			1 0.07407 0 0
+		]
+	}
+
+	velocityZRand
+	{
+		curve
+		[
+			0 0.07407 0 0
+			1 0.07407 0 0
+		]
+	}
+
+	velocity2X
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2Y
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2Z
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2XRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2YRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	velocity2ZRand
+	{
+		curve
+		[
+			0 0 0 0
+			1 0 0 0
+		]
+	}
+
+	shaders
+	[
+	  gfx/gore/back2uo_bloodsquirt.tga
+	]
+
+	impactfx
+	[
+		fx/effects/gore/back2uo_bloodsplash3
+	]
+}

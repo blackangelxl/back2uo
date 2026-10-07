@@ -1,0 +1,259 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod2\bin\StringEd.cfg"
+FILENOTES           "Strings used in the weapon settings go in this file."
+
+REFERENCE           30CAL
+LANG_ENGLISH        "30cal"
+LANG_GERMAN         ".30kal"
+
+REFERENCE           SUPPORTGUNNER
+LANG_ENGLISH        "Support Gunner"
+LANG_GERMAN         "Hilfsschütze"
+
+REFERENCE           BAR
+LANG_ENGLISH        "BAR"
+LANG_GERMAN         "#same"
+
+REFERENCE           BREN
+LANG_ENGLISH        "Bren LMG"
+LANG_GERMAN         "#same"
+
+REFERENCE           COLT45
+LANG_ENGLISH        "Colt .45"
+LANG_GERMAN         "#same"
+
+REFERENCE           RIFLEMAN
+LANG_ENGLISH        "Rifleman"
+LANG_GERMAN         "Schütze"
+
+REFERENCE           LEEENFIELD
+LANG_ENGLISH        "Lee-Enfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           FG42
+LANG_ENGLISH        "FG42"
+LANG_GERMAN         "#same"
+
+REFERENCE           KAR98K
+LANG_ENGLISH        "Kar98k"
+LANG_GERMAN         "#same"
+
+REFERENCE           LUGER
+LANG_ENGLISH        "Luger"
+LANG_GERMAN         "#same"
+
+REFERENCE           M1A1CARBINE
+LANG_ENGLISH        "M1A1 Carbine"
+LANG_GERMAN         "M1A1 Karabiner"
+
+REFERENCE           M1GARAND
+LANG_ENGLISH        "M1 Garand"
+LANG_GERMAN         "#same"
+
+REFERENCE           MOSINNAGANT
+LANG_ENGLISH        "Mosin-Nagant"
+LANG_GERMAN         "#same"
+
+REFERENCE           SCOPEDMOSINNAGANT
+LANG_ENGLISH        "Scoped Mosin-Nagant"
+LANG_GERMAN         "Zielfernrohr-Mosin-Nagant"
+
+REFERENCE           SNIPER
+LANG_ENGLISH        "Sniper"
+LANG_GERMAN         "Scharfschütze"
+
+REFERENCE           SUBMACHINEGUNNER
+LANG_ENGLISH        "Submachine Gunner"
+LANG_GERMAN         "MP-Schütze"
+
+REFERENCE           MP40
+LANG_ENGLISH        "MP40"
+LANG_GERMAN         "#same"
+
+REFERENCE           MP44
+LANG_ENGLISH        "MP44"
+LANG_GERMAN         "#same"
+
+REFERENCE           PPSH
+LANG_ENGLISH        "PPSh"
+LANG_GERMAN         "#same"
+
+REFERENCE           SPRINGFIELD
+LANG_ENGLISH        "Springfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           MOSINNAGANTAMMO
+LANG_ENGLISH        "Mosin Nagant Ammo"
+LANG_GERMAN         "Mosin Nagant-Munition"
+
+REFERENCE           STEN
+LANG_ENGLISH        "Sten"
+LANG_GERMAN         "#same"
+
+REFERENCE           ARMYENGINEER
+LANG_ENGLISH        "Army Engineer"
+LANG_GERMAN         "Pionier"
+
+REFERENCE           THOMPSON
+LANG_ENGLISH        "Thompson"
+LANG_GERMAN         "#same"
+
+REFERENCE           FASTAUTO
+LANG_ENGLISH        "Fast-Auto"
+LANG_GERMAN         "Schnelle Automatik"
+
+REFERENCE           SLOWAUTO
+LANG_ENGLISH        "Slow-Auto"
+LANG_GERMAN         "Langsame Automatik"
+
+REFERENCE           FULLAUTO
+LANG_ENGLISH        "Full-Auto"
+LANG_GERMAN         "Vollautomatik"
+
+REFERENCE           SEMIAUTO
+LANG_ENGLISH        "Semi-Auto"
+LANG_GERMAN         "Halbautomatik"
+
+REFERENCE           M2FRAGGRENADE
+LANG_ENGLISH        "M2 Frag Grenade"
+LANG_GERMAN         "M2-Granate"
+
+REFERENCE           MK1_FRAG_GRENADE
+LANG_ENGLISH        "MK1 Frag Grenade"
+LANG_GERMAN         "MK1-Granate"
+
+REFERENCE           RUSSIANGRENADE
+LANG_ENGLISH        "RGD-33 Stick Grenade"
+LANG_GERMAN         "RGD-33 Stabgranate"
+
+REFERENCE           GERMANGRENADE
+LANG_ENGLISH        "Stielhandgranate"
+LANG_GERMAN         "#same"
+
+REFERENCE           PANZERSCHRECK
+LANG_ENGLISH        "Panzerschreck"
+LANG_GERMAN         "#same"
+
+REFERENCE           PANZERFAUST
+LANG_ENGLISH        "Panzerfaust 60"
+LANG_GERMAN         "#same"
+
+REFERENCE           SCOPEDKAR98K
+LANG_ENGLISH        "Scoped Kar98k"
+LANG_GERMAN         "Zielfernrohr-Kar98k"
+
+REFERENCE           SCOPEDG43
+LANG_ENGLISH        "Scoped G43"
+LANG_GERMAN         "Zielfernrohr-G43"
+
+REFERENCE           HOLDPIN
+LANG_ENGLISH        "Hold-Pin"
+LANG_GERMAN         "Stift stecken lassen"
+
+REFERENCE           COOKOFF
+LANG_ENGLISH        "Cook-Off"
+LANG_GERMAN         "Stift ziehen"
+
+REFERENCE           MEDICPLACEHOLDER
+LANG_ENGLISH        "Medic"
+LANG_GERMAN         "Sanitäter"
+
+REFERENCE           FRAGGRENADE
+LANG_ENGLISH        "Frag"
+LANG_GERMAN         "Splitter"
+
+REFERENCE           SMOKEGRENADE
+LANG_ENGLISH        "Smoke"
+LANG_GERMAN         "Rauch"
+
+REFERENCE           SHOTGUN
+LANG_ENGLISH        "M1897 Trench Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           BINOCULARS
+LANG_ENGLISH        "Binoculars"
+LANG_GERMAN         "Fernglas"
+
+REFERENCE           G43
+LANG_ENGLISH        "Gewehr 43"
+LANG_GERMAN         "#same"
+
+REFERENCE           GREASEGUN
+LANG_ENGLISH        "Grease Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           PPS42
+LANG_ENGLISH        "PPS42"
+LANG_GERMAN         "#same"
+
+REFERENCE           SVT40
+LANG_ENGLISH        "SVT40"
+LANG_GERMAN         "#same"
+
+REFERENCE           TT30
+LANG_ENGLISH        "TT30"
+LANG_GERMAN         "#same"
+
+REFERENCE           WEBLEY
+LANG_ENGLISH        "Webley"
+LANG_GERMAN         "#same"
+
+REFERENCE           SCOPEDLEEENFIELD
+LANG_ENGLISH        "Scoped Lee-Enfield"
+LANG_GERMAN         "Zielfernrohr-Lee-Enfield"
+
+REFERENCE           SCOPEDG43
+LANG_ENGLISH        "Scoped Gewehr 43"
+LANG_GERMAN         "Zielfernrohr-Gewehr 43"
+
+REFERENCE           DEFAULTWEAPON
+LANG_ENGLISH        "Default Weapon"
+LANG_GERMAN         "Standardwaffe"
+
+REFERENCE           ANM8_SMOKE_GRENADE
+LANG_ENGLISH        "AN-M8 Smoke Grenade"
+LANG_GERMAN         "AN-M8 Rauchgranate"
+
+REFERENCE           NO77_WP_SMOKE_GRENADE
+LANG_ENGLISH        "No.77 WP Smoke Grenade"
+LANG_GERMAN         "Nr. 77 WP Rauchgranate"
+
+REFERENCE           NEBELHANDGRANATE
+LANG_ENGLISH        "Nebelhandgranate"
+LANG_GERMAN         "#same"
+
+REFERENCE           RGD1_SMOKE_GRENADE
+LANG_ENGLISH        "RGD-1 Smoke Grenade"
+LANG_GERMAN         "RGD-1 Rauchgranate"
+
+REFERENCE           POTATO
+LANG_ENGLISH        "Potato"
+LANG_GERMAN         "Granate"
+
+REFERENCE           NO_AMMO
+LANG_ENGLISH        "No Ammo"
+LANG_GERMAN         "Keine Munition"
+
+REFERENCE           NO_FRAG_GRENADE
+LANG_ENGLISH        "No Frag Grenades Remaining"
+LANG_GERMAN         "Keine Splittergranaten übrig."
+
+REFERENCE           NO_SMOKE_GRENADE
+LANG_ENGLISH        "No Smoke Grenades Remaining"
+LANG_GERMAN         "Keine Rauchgranaten übrig."
+
+
+ENDMARKER
+
+

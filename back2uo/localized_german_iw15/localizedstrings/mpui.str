@@ -1,0 +1,896 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod2\bin\StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           DEATHMATCH
+LANG_ENGLISH        "Deathmatch"
+LANG_GERMAN         "Deathmatch"
+
+REFERENCE           TEAM_DEATHMATCH
+LANG_ENGLISH        "Team-Deathmatch"
+LANG_GERMAN         "Team-Deathmatch"
+
+REFERENCE           CAPTURE_THE_FLAG
+LANG_ENGLISH        "Capture The Flag"
+LANG_GERMAN         "Capture The Flag"
+
+REFERENCE           HEADQUARTERS
+LANG_ENGLISH        "Headquarter"
+LANG_GERMAN         "Hauptquartier"
+
+REFERENCE           SEARCH_AND_DESTROY
+LANG_ENGLISH        "Search and Destroy"
+LANG_GERMAN         "Suchen und Zerstören"
+
+REFERENCE           SQUADWARFARE
+LANG_ENGLISH        "Squad Warfare"
+LANG_GERMAN         "Truppschlacht"
+
+REFERENCE           MAIN_MENU
+LANG_ENGLISH        "Main Menu"
+LANG_GERMAN         "Hauptmenü"
+
+REFERENCE           TEAM
+LANG_ENGLISH        "Team"
+LANG_GERMAN         "#same"
+
+REFERENCE           WEAPON
+LANG_ENGLISH        "Weapon"
+LANG_GERMAN         "Waffe"
+
+REFERENCE           VIEW_MAP
+LANG_ENGLISH        "View Map"
+LANG_GERMAN         "Karte ansehen"
+
+REFERENCE           CALL_VOTE
+LANG_ENGLISH        "Call Vote"
+LANG_GERMAN         "Abstimmung"
+
+REFERENCE           AUTOASSIGN
+LANG_ENGLISH        "Auto-Assign"
+LANG_GERMAN         "Auto-Zuweisen"
+
+REFERENCE           AMERICAN
+LANG_ENGLISH        "American"
+LANG_GERMAN         "Amerikaner"
+
+REFERENCE           BRITISH
+LANG_ENGLISH        "British"
+LANG_GERMAN         "Briten"
+
+REFERENCE           RUSSIAN
+LANG_ENGLISH        "Russian"
+LANG_GERMAN         "Russen"
+
+REFERENCE           GERMAN
+LANG_ENGLISH        "German"
+LANG_GERMAN         "Deutsche"
+
+REFERENCE           SPECTATE
+LANG_ENGLISH        "Spectate"
+LANG_GERMAN         "Zuschauen"
+
+REFERENCE           M1A1_CARBINE
+LANG_ENGLISH        "M1A1 Carbine"
+LANG_GERMAN         "M1A1 Karabiner"
+
+REFERENCE           M1_GARAND
+LANG_ENGLISH        "M1 Garand"
+LANG_GERMAN         "#same"
+
+REFERENCE           THOMPSON
+LANG_ENGLISH        "Thompson"
+LANG_GERMAN         "#same"
+
+REFERENCE           BAR
+LANG_ENGLISH        "BAR"
+LANG_GERMAN         "#same"
+
+REFERENCE           SPRINGFIELD
+LANG_ENGLISH        "Springfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           LEEENFIELD
+LANG_ENGLISH        "Lee-Enfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           SCOPED_LEEENFIELD
+LANG_ENGLISH        "Scoped Lee-Enfield"
+LANG_GERMAN         "Zielfernrohr-Lee-Enfield"
+
+REFERENCE           STEN
+LANG_ENGLISH        "Sten"
+LANG_GERMAN         "#same"
+
+REFERENCE           BREN_LMG
+LANG_ENGLISH        "Bren LMG"
+LANG_GERMAN         "#same"
+
+REFERENCE           MOSINNAGANT
+LANG_ENGLISH        "Mosin-Nagant"
+LANG_GERMAN         "#same"
+
+REFERENCE           PPSH
+LANG_ENGLISH        "PPSh"
+LANG_GERMAN         "#same"
+
+REFERENCE           SCOPED_MOSINNAGANT
+LANG_ENGLISH        "Scoped Mosin-Nagant"
+LANG_GERMAN         "Zielfernrohr-Mosin-Nagant"
+
+REFERENCE           KAR98K
+LANG_ENGLISH        "Kar98k"
+LANG_GERMAN         "#same"
+
+REFERENCE           MP40
+LANG_ENGLISH        "MP40"
+LANG_GERMAN         "#same"
+
+REFERENCE           MP44
+LANG_ENGLISH        "MP44"
+LANG_GERMAN         "#same"
+
+REFERENCE           SCOPED_KAR98K
+LANG_ENGLISH        "Scoped Kar98k"
+LANG_GERMAN         "Zielf.-Kar98k"
+
+REFERENCE           GREASEGUN
+LANG_ENGLISH        "Grease Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           SHOTGUN
+LANG_ENGLISH        "M1897 Trench Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           G43
+LANG_ENGLISH        "Gewehr 43"
+LANG_GERMAN         "#same"
+
+REFERENCE           PPS42
+LANG_ENGLISH        "PPS42"
+LANG_GERMAN         "#same"
+
+REFERENCE           TOKAREV_SVT40
+LANG_ENGLISH        "Tokarev SVT-40"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_AMERICAN
+LANG_ENGLISH        "1. American"
+LANG_GERMAN         "1. Amerikaner"
+
+REFERENCE           2_AMERICAN
+LANG_ENGLISH        "2. American"
+LANG_GERMAN         "2. Amerikaner"
+
+REFERENCE           1_BRITISH
+LANG_ENGLISH        "1. British"
+LANG_GERMAN         "1. Briten"
+
+REFERENCE           2_BRITISH
+LANG_ENGLISH        "2. British"
+LANG_GERMAN         "2. Briten"
+
+REFERENCE           1_RUSSIAN
+LANG_ENGLISH        "1. Russian"
+LANG_GERMAN         "1. Russen"
+
+REFERENCE           2_RUSSIAN
+LANG_ENGLISH        "2. Russian"
+LANG_GERMAN         "2. Russen"
+
+REFERENCE           2_GERMAN
+LANG_ENGLISH        "2. German"
+LANG_GERMAN         "2. Deutsche"
+
+REFERENCE           3_GERMAN
+LANG_ENGLISH        "3. German"
+LANG_GERMAN         "3. Deutsche"
+
+REFERENCE           1_AUTOASSIGN
+LANG_ENGLISH        "1. Auto-Assign"
+LANG_GERMAN         "1. Auto-Zuweisen"
+
+REFERENCE           2_AUTOASSIGN
+LANG_ENGLISH        "2. Auto-Assign"
+LANG_GERMAN         "2. Auto-Zuweisen"
+
+REFERENCE           3_AUTOASSIGN
+LANG_ENGLISH        "3. Auto-Assign"
+LANG_GERMAN         "3. Auto-Zuweisen"
+
+REFERENCE           2_SPECTATE
+LANG_ENGLISH        "2. Spectate"
+LANG_GERMAN         "2. Zuschauen"
+
+REFERENCE           4_SPECTATE
+LANG_ENGLISH        "4. Spectate"
+LANG_GERMAN         "4. Zuschauen"
+
+REFERENCE           1_M1A1_CARBINE
+LANG_ENGLISH        "1. M1A1 Carbine"
+LANG_GERMAN         "1. M1A1 Karabiner"
+
+REFERENCE           2_M1A1_CARBINE
+LANG_ENGLISH        "2. M1A1 Carbine"
+LANG_GERMAN         "2. M1A1 Karabiner"
+
+REFERENCE           3_M1A1_CARBINE
+LANG_ENGLISH        "3. M1A1 Carbine"
+LANG_GERMAN         "3. M1A1 Karabiner"
+
+REFERENCE           5_M1A1_CARBINE
+LANG_ENGLISH        "5. M1A1 Carbine"
+LANG_GERMAN         "5. M1A1 Karabiner"
+
+REFERENCE           2_M1_GARAND
+LANG_ENGLISH        "2. M1 Garand"
+LANG_GERMAN         "#same"
+
+REFERENCE           3_M1_GARAND
+LANG_ENGLISH        "3. M1 Garand"
+LANG_GERMAN         "#same"
+
+REFERENCE           6_M1_GARAND
+LANG_ENGLISH        "6. M1 Garand"
+LANG_GERMAN         "#same"
+
+REFERENCE           3_THOMPSON
+LANG_ENGLISH        "3. Thompson"
+LANG_GERMAN         "#same"
+
+REFERENCE           6_THOMPSON
+LANG_ENGLISH        "6. Thompson"
+LANG_GERMAN         "#same"
+
+REFERENCE           7_THOMPSON
+LANG_ENGLISH        "7. Thompson"
+LANG_GERMAN         "#same"
+
+REFERENCE           4_BAR
+LANG_ENGLISH        "4. BAR"
+LANG_GERMAN         "#same"
+
+REFERENCE           7_BAR
+LANG_ENGLISH        "7. BAR"
+LANG_GERMAN         "#same"
+
+REFERENCE           8_BAR
+LANG_ENGLISH        "8. BAR"
+LANG_GERMAN         "#same"
+
+REFERENCE           5_SPRINGFIELD
+LANG_ENGLISH        "5. Springfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           9_SPRINGFIELD
+LANG_ENGLISH        "9. Springfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_LEEENFIELD
+LANG_ENGLISH        "1. Lee-Enfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           2_LEEENFIELD
+LANG_ENGLISH        "2. Lee-Enfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           5_LEEENFIELD
+LANG_ENGLISH        "5. Lee-Enfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           4_SCOPED_LEEENFIELD
+LANG_ENGLISH        "4. Scoped Lee-Enfield"
+LANG_GERMAN         "4. Zielfernrohr-Lee-Enfield"
+
+REFERENCE           1_STEN
+LANG_ENGLISH        "1. Sten"
+LANG_GERMAN         "#same"
+
+REFERENCE           2_STEN
+LANG_ENGLISH        "2. Sten"
+LANG_GERMAN         "#same"
+
+REFERENCE           6_STEN
+LANG_ENGLISH        "6. Sten"
+LANG_GERMAN         "#same"
+
+REFERENCE           7_BREN_LMG
+LANG_ENGLISH        "7. Bren LMG"
+LANG_GERMAN         "#same"
+
+REFERENCE           3_BREN_LMG
+LANG_ENGLISH        "3. Bren LMG"
+LANG_GERMAN         "#same"
+
+REFERENCE           4_SPRINGFIELD
+LANG_ENGLISH        "4. Springfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           8_SPRINGFIELD
+LANG_ENGLISH        "8. Springfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_MOSINNAGANT
+LANG_ENGLISH        "1. Mosin-Nagant"
+LANG_GERMAN         "#same"
+
+REFERENCE           2_MOSINNAGANT
+LANG_ENGLISH        "2. Mosin-Nagant"
+LANG_GERMAN         "#same"
+
+REFERENCE           5_MOSINNAGANT
+LANG_ENGLISH        "5. Mosin-Nagant"
+LANG_GERMAN         "#same"
+
+REFERENCE           2_PPSH
+LANG_ENGLISH        "2. PPSh"
+LANG_GERMAN         "#same"
+
+REFERENCE           6_PPSH
+LANG_ENGLISH        "6. PPSh"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_PPS42
+LANG_ENGLISH        "1. PPS42"
+LANG_GERMAN         "#same"
+
+REFERENCE           3_SCOPED_MOSINNAGANT
+LANG_ENGLISH        "3. Scoped Mosin-Nagant"
+LANG_GERMAN         "3. Zielf.-Mosin-Nagant"
+
+REFERENCE           4_SCOPED_MOSINNAGANT
+LANG_ENGLISH        "4. Scoped Mosin-Nagant"
+LANG_GERMAN         "4. Zielf.-Mosin-Nagant"
+
+REFERENCE           7_SCOPED_MOSINNAGANT
+LANG_ENGLISH        "7. Scoped Mosin-Nagant"
+LANG_GERMAN         "7. Zielfernrohr-Mosin-Nagant"
+
+REFERENCE           3_TOKAREV_SVT40
+LANG_ENGLISH        "3. Tokarev SVT-40"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_KAR98K
+LANG_ENGLISH        "1. Kar98k"
+LANG_GERMAN         "#same"
+
+REFERENCE           2_KAR98K
+LANG_ENGLISH        "2. Kar98k"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_MP40
+LANG_ENGLISH        "1. MP40"
+LANG_GERMAN         "#same"
+
+REFERENCE           2_MP40
+LANG_ENGLISH        "2. MP40"
+LANG_GERMAN         "#same"
+
+REFERENCE           3_MP44
+LANG_ENGLISH        "3. MP44"
+LANG_GERMAN         "#same"
+
+REFERENCE           6_MP44
+LANG_ENGLISH        "6. MP44"
+LANG_GERMAN         "#same"
+
+REFERENCE           4_SCOPED_KAR98K
+LANG_ENGLISH        "4. Scoped Kar98k"
+LANG_GERMAN         "4. Zielf.-Kar98k"
+
+REFERENCE           3_G43
+LANG_ENGLISH        "3. Gewehr 43"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_GREASEGUN
+LANG_ENGLISH        "1. Grease Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           5_SHOTGUN
+LANG_ENGLISH        "5. M1897 Trench Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           8_PANZERSCHRECK
+LANG_ENGLISH        "8. Panzerschreck"
+LANG_GERMAN         "8. Panzerschreck"
+
+REFERENCE           9_PANZERSCHRECK
+LANG_ENGLISH        "9. Panzerschreck"
+LANG_GERMAN         "9. Panzerschreck"
+
+REFERENCE           CHANGE_MAP
+LANG_ENGLISH        "Change Map"
+LANG_GERMAN         "Karte wechseln"
+
+REFERENCE           3_CHANGE_MAP
+LANG_ENGLISH        "3. Change Map"
+LANG_GERMAN         "3. Karte wechseln"
+
+REFERENCE           CHANGE_GAME_TYPEMAP
+LANG_ENGLISH        "Change Game Type/Map"
+LANG_GERMAN         "Spieltyp/Karte wechseln"
+
+REFERENCE           4_CHANGE_GAME_TYPEMAP
+LANG_ENGLISH        "4. Change Game Type/Map"
+LANG_GERMAN         "4. Spieltyp/Karte wechseln"
+
+REFERENCE           CHANGE_GAME_TYPE
+LANG_ENGLISH        "Change Game Type"
+LANG_GERMAN         "Spieltyp ändern"
+
+REFERENCE           KICK_PLAYER
+LANG_ENGLISH        "Kick Player"
+LANG_GERMAN         "Spieler rauswerfen"
+
+REFERENCE           5_KICK_PLAYER
+LANG_ENGLISH        "5. Kick Player"
+LANG_GERMAN         "5. Spieler rauswerfen"
+
+REFERENCE           CHANGE_WEAPON_TYP
+LANG_ENGLISH        "Change Weapon Type"
+LANG_GERMAN         "Waffentyp wechseln"
+
+REFERENCE           6_CHANGE_WEAPON_TYP
+LANG_ENGLISH        "6. Change Weapon Type"
+LANG_GERMAN         "6. Waffentyp wechseln"
+
+REFERENCE           OK
+LANG_ENGLISH        "Ok"
+LANG_GERMAN         "#same"
+
+REFERENCE           ACCURACY_DAMAGE_MOBILITY
+LANG_ENGLISH        "Accuracy:\nDamage:\nMobility:"
+LANG_GERMAN         "Präsizion:\nSchaden:\nMobilität:"
+
+REFERENCE           THE_M1A1_CARBINE_IS_A
+LANG_ENGLISH        "The M1A1 Carbine is a lightweight and accurate semi-automatic rifle. It lacks the stopping power of larger rifles, but its compact size provides greater mobility."
+LANG_GERMAN         "Der M1A1 Karabiner ist ein leichtes und präzises Halbautomatik-Gewehr. Er hat nicht die Durchschlagskraft von größeren Gewehren, doch durch die kompakte Größe gestattet er eine gute Mobilität."
+
+REFERENCE           THE_M1_GARAND_IS_A_POWERFUL
+LANG_ENGLISH        "The M1 Garand is a powerful and accurate semi-automatic rifle. Its primary drawback is that the en-bloc clip cannot be quickly reloaded when partially empty."
+LANG_GERMAN         "Das M1 Garand ist ein feuerkräftiges Halbautomatik-Gewehr. Der Nachteil der Waffe ist, dass das Magazin nicht gewechselt werden kann, wenn es erst halb leer ist."
+
+REFERENCE           THE_THOMPSON_IS_DEADLY
+LANG_ENGLISH        "The Thompson is deadly in close quarters, firing the powerful .45 ACP round. It is notoriously inaccurate beyond short ranges but compensates with a high rate of fire."
+LANG_GERMAN         "Die Thompson ist mit ihren .45-Patronen äußerst gefährlich auf kurze Distanz. Auf größere Entfernungen ist sie sehr unpräzise, doch macht sie dies mit einer hohen Feuerrate wett."
+
+REFERENCE           THE_BROWNING_AUTOMATIC
+LANG_ENGLISH        "The Browning Automatic Rifle is a squad support weapon, used to lay down accurate suppression fire at enemy positions. It is most effective when used while prone."
+LANG_GERMAN         "Das Browning-Automatikgewehr ist eine Unterstützungswaffe, mit dem der Schütze ein präzises Sperrfeuer auf feindliche Stellungen legen kann. Am effektivsten ist sie im liegenden Einsatz."
+
+REFERENCE           THIS_IS_A_SNIPER_RIFLE
+LANG_ENGLISH        "This is a sniper rifle equipped with a 4x zoom scope. It is best used while prone. As a bolt-action weapon, it has a slow rate of fire and reloads one round at a time."
+LANG_GERMAN         "Ein Scharfschützengewehr mit 4x-Zielfernrohr zum optimalen Einsatz im Liegen. Mit ihrem Kammerverschluss hat es eine langsame Feuerrate und kann nur eine Patrone fassen."
+
+REFERENCE           THE_LEEENFIELD_RIFLE
+LANG_ENGLISH        "The Lee-Enfield rifle is a bolt-action rifle, powerful and effective at long range. It carries up to ten rounds, loaded by two 5-round stripper clips."
+LANG_GERMAN         "Das Lee-Enfield-Mehrladegewehr ist besonders auf große Reichweite effektiv. Es fasst bis zu zehn Patronen und wird mit zwei Magazinen zu fünf Schuss geladen."
+
+REFERENCE           THE_STEN_MARK_2_IS_A
+LANG_ENGLISH        "The Sten Mark 2 is a 9mm submachine gun effective for clearing out rooms and trenches. Its light weight and compact frame provide excellent mobility."
+LANG_GERMAN         "Die Sten Mark 2 ist eine 9mm-Maschinenpistole für das Sichern von Räumen und Schützengräben. Durch ihr leichtes Gewicht gestattet sie eine ausgezeichnete Mobilität."
+
+REFERENCE           THE_BREN_IS_AN_EXCELLENT
+LANG_ENGLISH        "The Bren is an excellent machine gun in the role of squad support. Its large size limits mobility, but allows it to deliver accurate automatic fire when fired while prone."
+LANG_GERMAN         "Die Bren ist ein ausgezeichnetes Maschinengewehr für die Unterstützung eines Trupps. Ihre Größe schränkt die Mobilität stark ein, doch kann man mit ihr aus liegender Position präzise feuern."
+
+REFERENCE           THE_MOSINNAGANT_IS_A
+LANG_ENGLISH        "The Mosin-Nagant is a bolt-action rifle capable of very accurate and powerful long range fire. However, its low rate of fire is a liability in close range combat."
+LANG_GERMAN         "Das Mosin-Nagant-Mehrladegewehr ist auf große Reichweite äußerst präzise und durchschlagkräftig. Seine niedrige Feuerrate ist im Nahkampf jedoch ein Problem."
+
+REFERENCE           THE_PPSH41_SUBMACHINE
+LANG_ENGLISH        "The PPSh41 submachine gun holds 71 rounds of Soviet pistol ammo and has a very high rate of fire. It is ineffective at long range and fires a relatively weaker round."
+LANG_GERMAN         "Die PPSh41-Maschinenpistole fasst 71 Patronen sowjetischer Munition und besitzt eine hohe Feuerrate. Sie ist ineffektiv auf große Distanz und feuert nicht sehr wirkungsvolle Patronen."
+
+REFERENCE           THE_SCOPED_MOSINNAGANT
+LANG_ENGLISH        "The Scoped Mosin-Nagant is the sniper variant of the Mosin-Nagant, carrying a 4x-zoom scope."
+LANG_GERMAN         "Das Zielfernrohr-Mosin-Nagant ist die Scharfschützen-Variante des Mosin-Nagant mit einem 4x-Zielfernrohr."
+
+REFERENCE           THE_KAR98K_IS_THE_STANDARD
+LANG_ENGLISH        "The Kar98k is the standard issue German infantry rifle. It is accurate and deadly at long range, but suffers from a slow rate of fire due to its bolt-action mechanism."
+LANG_GERMAN         "Das Kar98k ist das deutsche Standard-Infanteriegewehr. Es ist präzise und tödlich auf große Reichweite, doch besitzt es durch seinen Kammerverschluss nur eine geringe Feuerrate."
+
+REFERENCE           THE_MP40_SUBMACHINE_GUN
+LANG_ENGLISH        "The MP40 submachine gun is an effective room clearing weapon. It has a relatively minimal muzzle climb even when fired fully automatic in extended bursts."
+LANG_GERMAN         "Die MP40-Maschinenpistole ist zum Sichern von Räumen geeignet. Sie besitzt nur einen leichten Rückstoß, selbst wenn man eine längere Zeit vollautomatisch feuert."
+
+REFERENCE           THE_MP44_IS_AN_ASSAULT
+LANG_ENGLISH        "The MP44 is an assault rifle that fires a unique 'short' rifle round. Up close, it can be used as a submachine gun, while at longer ranges it can operate as a rifle."
+LANG_GERMAN         "Das MP44 ist ein Sturmgewehr, das eine einzelne 'kurze' Magazinpatrone feuert. Auf kurze Entfernung kann es als Maschinenpistole eingesetzt werden, auf größere Distanz als Gewehr."
+
+REFERENCE           THIS_KAR98K_VARIANT_USES
+LANG_ENGLISH        "This Kar98k variant uses the ZF-41 scope. Due to the high zoom, the scoped view is steadiest while prone. The scope's position forces rounds to be reloaded one at a time."
+LANG_GERMAN         "Diese Kar98k-Variante benutzt ein ZF-41-Zielfernrohr. Diese Waffe sollte im Liegen eingesetzt werden. Durch die Platzierung des Zielfernrohrs fasst sie nur eine Patrone."
+
+REFERENCE           THE_SPRINGFIELD_M1903
+LANG_ENGLISH        "The Springfield M1903 is a sniper rifle equipped with a 4x zoom scope. As a bolt-action weapon, it has a slow rate of fire and reloads one round at a time. It is best used while prone."
+LANG_GERMAN         "Das Springfield M1903 ist ein Präzisionsgewehr mit 4x-Zielfernrohr. Durch den Kammerverschluss besitzt es nur eine geringe Feuerrate und fasst eine Patrone. Die Waffe sollte im Liegen benutzt werden."
+
+REFERENCE           TEMPORARY_BAN
+LANG_ENGLISH        "Temporary Ban"
+LANG_GERMAN         "Temporär bannen"
+
+REFERENCE           TEMPORARILY_BAN_PLAYER
+LANG_ENGLISH        "Temporarily Ban Player"
+LANG_GERMAN         "Spieler temporär bannen"
+
+REFERENCE           NEXT_MAP
+LANG_ENGLISH        "Next Map"
+LANG_GERMAN         "Nächste Karte"
+
+REFERENCE           2_NEXT_MAP
+LANG_ENGLISH        "2. Next Map"
+LANG_GERMAN         "2. Nächste Karte"
+
+REFERENCE           NEWREF
+LANG_ENGLISH        "Random"
+LANG_GERMAN         "Zufall"
+
+REFERENCE           CHANGE_GAMETYPEMAP
+LANG_ENGLISH        "Change Gametype/Map"
+LANG_GERMAN         "Spieltyp/Karte wechseln"
+
+REFERENCE           ON
+LANG_ENGLISH        "On"
+LANG_GERMAN         "Ein"
+
+REFERENCE           OFF
+LANG_ENGLISH        "Off"
+LANG_GERMAN         "Aus"
+
+REFERENCE           REFLECT
+LANG_ENGLISH        "Reflect"
+LANG_GERMAN         "Reflektieren"
+
+REFERENCE           ENABLE_VOTING
+LANG_ENGLISH        "Enable Voting"
+LANG_GERMAN         "Abstimmung zulassen"
+
+REFERENCE           RECONNECT_LIMIT
+LANG_ENGLISH        "Reconnect Limit"
+LANG_GERMAN         "Wiederanschluss-Limit"
+
+REFERENCE           RESTART_MAP
+LANG_ENGLISH        "Restart Map"
+LANG_GERMAN         "Karte neu starten"
+
+REFERENCE           1_RESTART_MAP
+LANG_ENGLISH        "1. Restart Map"
+LANG_GERMAN         "1. Karte neu starten"
+
+REFERENCE           AMERICAN_WEAPON
+LANG_ENGLISH        "Weapon while American"
+LANG_GERMAN         "Waffen als Amerikaner"
+
+REFERENCE           GERMAN_WEAPON
+LANG_ENGLISH        "Weapon while German"
+LANG_GERMAN         "Waffen als Deutscher"
+
+REFERENCE           RUSSIAN_WEAPON
+LANG_ENGLISH        "Weapon while Russian"
+LANG_GERMAN         "Waffen als Russe"
+
+REFERENCE           BRITISH_WEAPON
+LANG_ENGLISH        "Weapon while British"
+LANG_GERMAN         "Waffen als Brite"
+
+REFERENCE           PLAYERSUSING
+LANG_ENGLISH        "Players Using:"
+LANG_GERMAN         "Spieler benutzen:"
+
+REFERENCE           CLICK_TO_CONTINUE
+LANG_ENGLISH        "Click to Continue"
+LANG_GERMAN         "Klicken zum Fortsetzen"
+
+REFERENCE           PRESS_A_TO_CONTINUE
+LANG_ENGLISH        "Press (A) to Continue"
+LANG_GERMAN         "(A) drücken zum Fortsetzen"
+
+REFERENCE           PUNKBUSTER
+LANG_ENGLISH        "PunkBuster"
+LANG_GERMAN         "#same"
+
+REFERENCE           ENABLEPUNKBUSTERTOCONNECT
+LANG_ENGLISH        "You must enable PunkBuster on the client to connect to a PunkBuster enabled server.\nEnable PunkBuster and connect?"
+LANG_GERMAN         "Sie müssen PunkBuster auf dem Client-Rechner aktivieren, um sich auf einen PunkBuster-Server anzumelden.\nPunkBuster aktivieren und anmelden?"
+
+REFERENCE           SYNCPUNKBUSTERSTARTLISTENSERVER
+LANG_ENGLISH        "You must enable PunkBuster on the client before starting a non-dedicated server.\nEnable PunkBuster and start?"
+LANG_GERMAN         "Sie müssen PunkBuster auf dem Client-Rechner aktivieren, bevor Sie einen nicht dedizierten Server starten.\nPunkBuster aktivieren und starten?"
+
+REFERENCE           PUNKBUSTERWITHCOLON
+LANG_ENGLISH        "PunkBuster:"
+LANG_GERMAN         "#same"
+
+REFERENCE           PUNKBUSTERWITHCOLONANDTWOSPACES
+LANG_ENGLISH        "PunkBuster:  "
+LANG_GERMAN         "#same"
+
+REFERENCE           1_SERVER_INFOS
+LANG_ENGLISH        "1. Server Information"
+LANG_GERMAN         "1. Server Information"
+
+REFERENCE           2_CHANGE_WEAPON
+LANG_ENGLISH        "2. Change Weapon"
+LANG_GERMAN         "2. Waffe wechseln"
+
+REFERENCE           3_CHANGE_TEAM
+LANG_ENGLISH        "3. Change Team"
+LANG_GERMAN         "3. Team wechseln"
+
+REFERENCE           4_MUTE_PLAYERS
+LANG_ENGLISH        "4. Mute Players"
+LANG_GERMAN         "4. Spieler stumm schalten"
+
+REFERENCE           5_CALL_VOTE
+LANG_ENGLISH        "5. Call Vote"
+LANG_GERMAN         "5. Abstimmung verlangen"
+
+REFERENCE           6_LEAVE_GAME
+LANG_ENGLISH        "6. Leave Game"
+LANG_GERMAN         "6. Spiel verlassen"
+
+REFERENCE           7_MY_FAVORITE_SERVER
+LANG_ENGLISH        "7. Add Server to my Favoritelist"
+LANG_GERMAN         "7. Server zu meiner Favoritenliste hinzufügen"
+
+REFERENCE           CHANGE_WEAPON
+LANG_ENGLISH        "Change Weapon"
+LANG_GERMAN         "Waffe ändern"
+
+REFERENCE           CHANGE_TEAM
+LANG_ENGLISH        "Change Team"
+LANG_GERMAN         "Team wechseln"
+
+REFERENCE           LEAVE_GAME
+LANG_ENGLISH        "Leave Game"
+LANG_GERMAN         "Spiel verlassen"
+
+REFERENCE           LEAVE_GAME1
+LANG_ENGLISH        "Leave Game?"
+LANG_GERMAN         "Spiel verlassen?"
+
+REFERENCE           THUMBSTICK_LAYOUT
+LANG_ENGLISH        "Stick Layout:"
+LANG_GERMAN         "Stick-Belegung:"
+
+REFERENCE           BUTTON_LAYOUT
+LANG_ENGLISH        "Button Layout:"
+LANG_GERMAN         "Controller-Belegung:"
+
+REFERENCE           LOOK_SENSITIVITY
+LANG_ENGLISH        "Look Sensitivity:"
+LANG_GERMAN         "Sichtempfindlichkeit:"
+
+REFERENCE           LOOK_INVERSION
+LANG_ENGLISH        "Look Inversion:"
+LANG_GERMAN         "Sichtumkehrung:"
+
+REFERENCE           CONTROLLER_VIBRATION
+LANG_ENGLISH        "Controller Vibration:"
+LANG_GERMAN         "Controller-Vibration:"
+
+REFERENCE           END_GAME
+LANG_ENGLISH        "End Game"
+LANG_GERMAN         "Spiel beenden"
+
+REFERENCE           END_GAME1
+LANG_ENGLISH        "End Game?"
+LANG_GERMAN         "Spiel beenden?"
+
+REFERENCE           RUSSIAN_WEAPONS
+LANG_ENGLISH        "Russian Weapons"
+LANG_GERMAN         "Russische Waffen"
+
+REFERENCE           GERMAN_WEAPONS
+LANG_ENGLISH        "German Weapons"
+LANG_GERMAN         "Deutsche Waffen"
+
+REFERENCE           BRITISH_WEAPONS
+LANG_ENGLISH        "British Weapons"
+LANG_GERMAN         "Britische Waffen"
+
+REFERENCE           AMERICAN_WEAPONS
+LANG_ENGLISH        "American Weapons"
+LANG_GERMAN         "Amerikanische Waffen"
+
+REFERENCE           TEAMS
+LANG_ENGLISH        "Teams"
+LANG_GERMAN         "#same"
+
+REFERENCE           1_YES
+LANG_ENGLISH        "1. Yes"
+LANG_GERMAN         "1. Ja"
+
+REFERENCE           2_NO
+LANG_ENGLISH        "2. No"
+LANG_GERMAN         "2. Nein"
+
+REFERENCE           MUTE_PLAYERS
+LANG_ENGLISH        "Mute Players"
+LANG_GERMAN         "Spieler stumm schalten"
+
+REFERENCE           ENABLE_VOICE_CHAT
+LANG_ENGLISH        "Enable Voice Chat"
+LANG_GERMAN         "Sprach-Chat einsch."
+
+REFERENCE           DISABLE_VOICE_CHAT
+LANG_ENGLISH        "Disable Voice Chat"
+LANG_GERMAN         "Sprach-Chat aussch."
+
+REFERENCE           SAY_HELLO
+LANG_ENGLISH        "Hello "
+LANG_GERMAN         "Hallo "
+
+REFERENCE           WEAPON_ACCURACY
+LANG_ENGLISH        "Accuracy:"
+LANG_GERMAN         "Präsizion:"
+
+REFERENCE           WEAPON_DAMAGE
+LANG_ENGLISH        "Damage:"
+LANG_GERMAN         "Schaden:"
+
+REFERENCE           WEAPON_MOBILITY
+LANG_ENGLISH        "Mobility:"
+LANG_GERMAN         "Mobilität:"
+
+REFERENCE           WEAPON_STATUS
+LANG_ENGLISH        "Status:"
+LANG_GERMAN         "Status:"
+
+REFERENCE           WEAPON_STAERKE
+LANG_ENGLISH        "Strength:"
+LANG_GERMAN         "Stärke:"
+
+REFERENCE           WEAPON_AKTIV
+LANG_ENGLISH        "Activated"
+LANG_GERMAN         "Aktiviert"
+
+REFERENCE           WEAPON_DEAKTIV
+LANG_ENGLISH        "Deactivated"
+LANG_GERMAN         "Deaktiviert"
+
+REFERENCE           ONLY_MG
+LANG_ENGLISH        "Only MG Weapons"
+LANG_GERMAN         "Nur MG Waffen"
+
+REFERENCE           ONLY_MG_BAR
+LANG_ENGLISH        "1. BAR"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_BREN_LMG
+LANG_ENGLISH        "2. Bren LMG"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_GREASEGUN
+LANG_ENGLISH        "3. Grease Gun"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_MP40
+LANG_ENGLISH        "4. MP40"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_MP44
+LANG_ENGLISH        "5. MP44"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_PPSH
+LANG_ENGLISH        "6. PPSh"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_PPS42
+LANG_ENGLISH        "7. PPS42"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_STEN
+LANG_ENGLISH        "8. Sten"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_MG_THOMPSON
+LANG_ENGLISH        "9. Thompson"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_RIFLE
+LANG_ENGLISH        "Only Rifle Weapons"
+LANG_GERMAN         "Nur Rifle Waffen"
+
+REFERENCE           ONLY_RIFLE_G43
+LANG_ENGLISH        "1. Gewehr 43"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_RIFLE_KAR98K
+LANG_ENGLISH        "2. Kar98k"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_RIFLE_LEEENFIELD
+LANG_ENGLISH        "3. Lee-Enfield"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_RIFLE_M1_GARAND
+LANG_ENGLISH        "4. M1 Garand"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_RIFLE_M1A1_CARBINE
+LANG_ENGLISH        "5. M1A1 Carbine"
+LANG_GERMAN         "5. M1A1 Karabiner"
+
+REFERENCE           ONLY_RIFLE_MOSINNAGANT
+LANG_ENGLISH        "6. Mosin-Nagant"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_RIFLE_TOKAREV_SVT40
+LANG_ENGLISH        "7. Tokarev SVT-40"
+LANG_GERMAN         "#same"
+
+REFERENCE           ONLY_SNIPER
+LANG_ENGLISH        "Only Sniper Weapons"
+LANG_GERMAN         "Nur Sniper Waffen"
+
+REFERENCE           ONLY_SNIPER_SCOPED_LEEENFIELD
+LANG_ENGLISH        "1. Scoped Lee-Enfield"
+LANG_GERMAN         "1. Zielfernrohr-Lee-Enfield"
+
+REFERENCE           ONLY_SNIPER_SCOPED_G43SNIPER
+LANG_ENGLISH        "2. Scoped G43"
+LANG_GERMAN         "2. Zielf.-G43"
+
+REFERENCE           ONLY_SNIPER_SCOPED_KAR98K
+LANG_ENGLISH        "3. Scoped Kar98k"
+LANG_GERMAN         "3. Zielf.-Kar98k"
+
+REFERENCE           ONLY_SNIPER_SCOPED_MOSINNAGANT
+LANG_ENGLISH        "4. Scoped Mosin-Nagant"
+LANG_GERMAN         "4. Zielfernrohr-Mosin-Nagant"
+
+REFERENCE           ONLY_PISTOL
+LANG_ENGLISH        "Only Pistol Weapons"
+LANG_GERMAN         "Nur Pistolen"
+
+REFERENCE           ONLY_PISTOL_COLT
+LANG_ENGLISH        "1. Colt"
+LANG_GERMAN         "1. Colt"
+
+REFERENCE           ONLY_PISTOL_LUGER
+LANG_ENGLISH        "2. Luger"
+LANG_GERMAN         "2. Luger"
+
+REFERENCE           ONLY_PISTOL_TT30
+LANG_ENGLISH        "3. TT30"
+LANG_GERMAN         "3. TT30"
+
+REFERENCE           ONLY_PISTOL_WEBLEY
+LANG_ENGLISH        "4. Webley"
+LANG_GERMAN         "4. Webley"
+
+REFERENCE           SNIPER_SCOPED_G43SNIPER_RUSSIAN
+LANG_ENGLISH        "7. Scoped G43"
+LANG_GERMAN         "7. Zielf.-G43"
+
+REFERENCE           SNIPER_SCOPED_G43SNIPER_AMERICAN
+LANG_ENGLISH        "8. Scoped G43"
+LANG_GERMAN         "8. Zielf.-G43"
+
+REFERENCE           SNIPER_SCOPED_G43SNIPER_BRITISH
+LANG_ENGLISH        "8. Scoped G43"
+LANG_GERMAN         "8. Zielf.-G43"
+
+REFERENCE           SNIPER_SCOPED_G43SNIPER_GERMAN
+LANG_ENGLISH        "7. Scoped G43"
+LANG_GERMAN         "7. Zielf.-G43"
+
+REFERENCE           ONLY_SNIPER_SPRINGFIELD
+LANG_ENGLISH        "5. Springfield"
+LANG_GERMAN         "#same"
+
+ENDMARKER

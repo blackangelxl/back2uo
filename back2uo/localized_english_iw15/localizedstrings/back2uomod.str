@@ -1,0 +1,307 @@
+//////////////////////////////////////
+// Back2Uo Mod - Localized Strings //
+////////////////////////////////////
+
+//////////////////////
+//-Player Messages-//
+////////////////////
+
+REFERENCE			PLAYER_SPECTATOR
+LANG_ENGLISH		"^7&&1 change to Spectator Mode."
+
+REFERENCE			PLAYER_CONNECT
+LANG_ENGLISH		"^7&&1 joins the Game."
+
+REFERENCE			PLAYER_DISCONNECT
+LANG_ENGLISH		"^7&&1 leaves the Server."
+
+////////////////////////
+//-Anti Player "AFK"-//
+//////////////////////
+
+REFERENCE			AFK_WARNING_MSG
+LANG_ENGLISH		"^1AFK Warning !!!\n ^7You have 10 Seconds, else banished you into Spectator Mode."
+
+REFERENCE			AFK_SWICHTING_MSG
+LANG_ENGLISH		"^7You were banished into Spectator Mode."
+
+///////////////////////////
+//-Anti Player "Camper"-//
+/////////////////////////
+
+REFERENCE			CAMPING_WARNING_MSG
+LANG_ENGLISH		"^1Camper Warning !!!\n ^7Move your Ass, Camping is not allow."
+
+REFERENCE			CAMPING_MARKED_MSG
+LANG_ENGLISH		"^7You was marked for &&1 Seconds on Compass!"
+
+REFERENCE			CAMPING_SURVIVED_MSG
+LANG_ENGLISH		"^1Nice Luck !!!\n ^7You have Camping survived."
+
+//////////////////////
+//-Spawn Protektor-//
+////////////////////
+
+REFERENCE			SPAWN_ENABLE_MSG
+LANG_ENGLISH		"^7Spawn Protection activate."
+
+REFERENCE			SPAWN_DISABLED_MSG
+LANG_ENGLISH		"^7Spawn Protection deactivate."
+
+REFERENCE			SPAWN_PLAYER_ATTACKE
+LANG_ENGLISH		"^1Player stands under Spawn Protection !!!"
+
+////////////////
+//-Artillery-//
+//////////////
+
+REFERENCE			ARTILLERY_GO
+LANG_ENGLISH		"^7Artillery is ready!"
+
+REFERENCE			ARTILLERY_USE
+LANG_ENGLISH		"^7Push USE [[{+activate}]] to request Artillery."
+
+REFERENCE			ARTILLERY_FIRING
+LANG_ENGLISH		"^7Artillery was request!"
+
+REFERENCE			ARTILLERY_DANGER
+LANG_ENGLISH		"^1Attention !!!\n ^7The Artillery has Impact in your topical Position."
+
+////////////////
+// Binocular //
+//////////////
+
+REFERENCE			BINOCULAR_DISTANCE
+LANG_ENGLISH		"^7Artillery Target in: "
+
+REFERENCE			BINOCULAR_METERS
+LANG_ENGLISH		" ^7Meter(s)"
+
+REFERENCE			BINOCULAR_UNKNOWN
+LANG_ENGLISH		"^7No Value"
+
+//////////
+// Hit //
+////////
+
+REFERENCE			HIT_METER
+LANG_ENGLISH		" ^3Meters ^7- ^3"
+
+REFERENCE			HIT_METER2
+LANG_ENGLISH		" ^3Meters removes"
+
+REFERENCE			HIT_HELMET
+LANG_ENGLISH		"Helmet"
+
+REFERENCE			HIT_HEAD
+LANG_ENGLISH		"Head"
+
+REFERENCE			HIT_NECK
+LANG_ENGLISH		"Neck"
+
+REFERENCE			HIT_TORSO_UPPER
+LANG_ENGLISH		"Torso upper"
+
+REFERENCE			HIT_TORSO_LOWER
+LANG_ENGLISH		"Torso lower"
+
+REFERENCE			HIT_LEFT_ARM_UPPER
+LANG_ENGLISH		"left Arm upper"
+
+REFERENCE			HIT_LEFT_ARM_LOWER
+LANG_ENGLISH		"left Arm lower"
+
+REFERENCE			HIT_RIGHT_ARM_UPPER
+LANG_ENGLISH		"right Arm upper"
+
+REFERENCE			HIT_RIGHT_ARM_LOWER
+LANG_ENGLISH		"right Arm lower"
+
+REFERENCE			HIT_LEFT_HAND
+LANG_ENGLISH		"left Hand"
+
+REFERENCE			HIT_RIGHT_HAND
+LANG_ENGLISH		"right Hand"
+
+REFERENCE			HIT_LEFT_LEG_UPPER
+LANG_ENGLISH		"left Leg upper"
+
+REFERENCE			HIT_LEFT_LEG_LOWER
+LANG_ENGLISH		"left Leg lower"
+
+REFERENCE			HIT_RIGHT_LEG_UPPER
+LANG_ENGLISH		"right Leg upper"
+
+REFERENCE			HIT_RIGHT_LEG_LOWER
+LANG_ENGLISH		"right Leg lower"
+
+REFERENCE			HIT_LEFT_FOOT
+LANG_ENGLISH		"left Foot"
+
+REFERENCE			HIT_RIGHT_FOOT
+LANG_ENGLISH		"right Foot"
+
+//////////////
+// Ranking //
+////////////
+
+REFERENCE     RANKING_UP
+LANG_ENGLISH  "^7You receive a new Rank!"
+
+REFERENCE     RANKING_DOWN
+LANG_ENGLISH  "^7You lost a Rank!"
+
+REFERENCE     RANKING_MUN
+LANG_ENGLISH  "^7You receive more Ammo!"
+
+REFERENCE     RANKING_GRA
+LANG_ENGLISH  "^7You receive more Granades!"
+
+
+///////////////////
+//-Map Rotation-//
+/////////////////
+
+REFERENCE			NEXT_MAP
+LANG_ENGLISH		"^7Next Map: ( ^2"
+
+///////////////
+//-Map Name-//
+/////////////
+
+REFERENCE			MAP_MP_FARMHOUSE
+LANG_ENGLISH		"Farmhouse"
+
+REFERENCE			MAP_MP_BRECOURT
+LANG_ENGLISH		"Brecourt"
+
+REFERENCE			MAP_MP_BURGUNDY
+LANG_ENGLISH		"Burgundy" 
+
+REFERENCE			MAP_MP_TRAINSTATION
+LANG_ENGLISH		"Trainstation"
+
+REFERENCE			MAP_MP_CARENTAN
+LANG_ENGLISH		"Carentan"
+
+REFERENCE			MAP_MP_DECOY
+LANG_ENGLISH		"Decoy"
+
+REFERENCE			MAP_MP_LENINGRAD
+LANG_ENGLISH		"Leningrad"
+
+REFERENCE			MAP_MP_MATMATA
+LANG_ENGLISH		"Matmata"
+
+REFERENCE			MAP_MP_DOWNTOWN
+LANG_ENGLISH		"Downtown"
+
+REFERENCE			MAP_MP_DAWNVILLE
+LANG_ENGLISH		"Dawnville"
+
+REFERENCE			MAP_MP_RAILYARD
+LANG_ENGLISH		"Railyard"
+
+REFERENCE			MAP_MP_TOUJANE
+LANG_ENGLISH		"Toujane"
+
+REFERENCE			MAP_MP_BREAKOUT
+LANG_ENGLISH		"Brecourt"
+
+REFERENCE			MAP_MP_HARBOR
+LANG_ENGLISH		"Harbor"
+
+REFERENCE			MAP_MP_RHINE
+LANG_ENGLISH		"Rhine"
+
+///////////////
+//-Gametype-//
+/////////////
+
+REFERENCE			GT_DM
+LANG_ENGLISH		"DM"
+
+REFERENCE			GT_TDM
+LANG_ENGLISH		"TDM"
+
+REFERENCE			GT_SD
+LANG_ENGLISH		"S&D"
+
+REFERENCE			GT_HQ
+LANG_ENGLISH		"HQ"
+
+REFERENCE			GT_CTF
+LANG_ENGLISH		"CTF"
+
+//////////////////
+//-Back2Uo Mod-//
+////////////////
+
+REFERENCE			VALUE_DRAW
+LANG_ENGLISH		"Value: "
+
+REFERENCE			MOD_CREDITS
+LANG_ENGLISH		"^4Back^12^4Uo ^1Mod ^7v.2.1 ^3Public Beta"
+
+//////////////////
+//-Sprint Tast-//
+////////////////
+
+REFERENCE			NOSPRINT_TAST
+LANG_ENGLISH		"Sprinting is not possible"
+
+////////////////////
+//-Object Pickup-//
+//////////////////
+
+REFERENCE           SWAPWEAPONS
+LANG_ENGLISH        "Press USE [[{+activate}]] to swap for"
+
+REFERENCE           HEALTHPACK_PICKUP
+LANG_ENGLISH        "A Healthpack to pickup."
+
+REFERENCE           HEALTHPACK_SMALL
+LANG_ENGLISH        "Small -"
+
+REFERENCE           HEALTHPACK_MEDIUM
+LANG_ENGLISH        "Medium -"
+
+REFERENCE           HEALTHPACK_LARGE
+LANG_ENGLISH        "Large -"
+
+///////////////////
+//-Point System-//
+/////////////////
+
+REFERENCE           RANKINGPOINTS_ADD
+LANG_ENGLISH        "They receive Points for "
+
+REFERENCE           RANKINGPOINTS_SUB
+LANG_ENGLISH        "They lose Points for the "
+
+REFERENCE           RANKINGPOINTS_FOR_PLANT
+LANG_ENGLISH        "Bomb planted!"
+
+REFERENCE           RANKINGPOINTS_FOR_DEFUSE
+LANG_ENGLISH        "Bomb defused!"
+
+REFERENCE           RANKINGPOINTS_FOR_CAPTURE
+LANG_ENGLISH        "Capture a Flag!"
+
+REFERENCE           RANKINGPOINTS_FOR_DEFENDING
+LANG_ENGLISH        "Defending a Flag!"
+
+REFERENCE           RANKINGPOINTS_FOR_SURVIVE
+LANG_ENGLISH        "Survive a Round!"
+
+REFERENCE           RANKINGPOINTS_FOR_SUICIDE
+LANG_ENGLISH        "Suicide!"
+
+/////////////////
+//-Taunt Menu-//
+///////////////
+
+REFERENCE			TAUNT_COMMENTS
+LANG_ENGLISH		"4. Extra Comments"
+
+ENDMARKER

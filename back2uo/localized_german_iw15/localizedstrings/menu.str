@@ -1,0 +1,3285 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod2\bin\StringEd.cfg"
+FILENOTES           "Strings displayed in the menus go in this file."
+
+REFERENCE           MULTI_GPU
+LANG_ENGLISH        "Using Multiple Video Cards"
+LANG_GERMAN         "Verwendung mehrerer Grafikkarten"
+
+REFERENCE           YES
+LANG_ENGLISH        "Yes"
+LANG_GERMAN         "Ja"
+
+REFERENCE           MULTIPLAYER
+LANG_ENGLISH        "Multiplayer"
+LANG_GERMAN         "Mehrspieler"
+
+REFERENCE           QUIT
+LANG_ENGLISH        "Quit"
+LANG_GERMAN         "Ende"
+
+REFERENCE           OPTIONS
+LANG_ENGLISH        "Options"
+LANG_GERMAN         "Optionen"
+
+REFERENCE           SAVELOADGAME
+LANG_ENGLISH        "Save/Load Game"
+LANG_GERMAN         "Spiel laden/speichern"
+
+REFERENCE           LOADGAME
+LANG_ENGLISH        "Load Game"
+LANG_GERMAN         "Spiel laden"
+
+REFERENCE           NEWGAME
+LANG_ENGLISH        "New Game"
+LANG_GERMAN         "Neues Spiel"
+
+REFERENCE           TRAINING
+LANG_ENGLISH        "Training"
+LANG_GERMAN         "#same"
+
+REFERENCE           RESUMEGAME
+LANG_ENGLISH        "Resume Game"
+LANG_GERMAN         "Spiel fortsetzen"
+
+REFERENCE           BACKTOGAME
+LANG_ENGLISH        "Back To Game"
+LANG_GERMAN         "Zurück zum Spiel"
+
+REFERENCE           CURRENTLYINAGAME
+LANG_ENGLISH        "You are currently in a game"
+LANG_GERMAN         "Sie sind momentan in einem Spiel"
+
+REFERENCE           DOYOUWISHTOCONTINUE
+LANG_ENGLISH        "Do you wish to continue?"
+LANG_GERMAN         "Möchten Sie fortsetzen?"
+
+REFERENCE           CHOOSESKILLLEVEL
+LANG_ENGLISH        "Choose Your Skill Level"
+LANG_GERMAN         "Wählen Sie den Schwierigkeitsgrad"
+
+REFERENCE           GREENHORN
+LANG_ENGLISH        "Greenhorn"
+LANG_GERMAN         "Grünschnabel"
+
+REFERENCE           REGULAR
+LANG_ENGLISH        "Regular"
+LANG_GERMAN         "Soldat"
+
+REFERENCE           HARDENED
+LANG_ENGLISH        "Hardened"
+LANG_GERMAN         "Söldner"
+
+REFERENCE           VETERAN
+LANG_ENGLISH        "Veteran"
+LANG_GERMAN         "#same"
+
+REFERENCE           BACK
+LANG_ENGLISH        "Back"
+LANG_GERMAN         "Zurück"
+
+REFERENCE           STARTTRAINING
+LANG_ENGLISH        "Start training?"
+LANG_GERMAN         "Training starten?"
+
+REFERENCE           SWITCHTOMULTIPLAYER
+LANG_ENGLISH        "Switch to Multiplayer?"
+LANG_GERMAN         "Zum Mehrspieler wechseln?"
+
+REFERENCE           NO
+LANG_ENGLISH        "No"
+LANG_GERMAN         "Nein"
+
+REFERENCE           SAVEGAMELIST
+LANG_ENGLISH        "Save Game List"
+LANG_GERMAN         "Spielstand-Liste"
+
+REFERENCE           SHOWAUTOSAVES
+LANG_ENGLISH        "Show Auto Saves"
+LANG_GERMAN         "Auto-Spielstände zeigen"
+
+REFERENCE           SHOWMANUALSAVES
+LANG_ENGLISH        "Show Manual Saves"
+LANG_GERMAN         "Eigene Spielstände zeigen"
+
+REFERENCE           NAME
+LANG_ENGLISH        "Name"
+LANG_GERMAN         "#same"
+
+REFERENCE           DATE
+LANG_ENGLISH        "Date"
+LANG_GERMAN         "Datum"
+
+REFERENCE           SAVEAS
+LANG_ENGLISH        "Save As:"
+LANG_GERMAN         "Speichern unter:"
+
+REFERENCE           DELETE
+LANG_ENGLISH        "Delete"
+LANG_GERMAN         "Löschen"
+
+REFERENCE           LOAD
+LANG_ENGLISH        "Load"
+LANG_GERMAN         "Laden"
+
+REFERENCE           SAVE
+LANG_ENGLISH        "Save"
+LANG_GERMAN         "Speichern"
+
+REFERENCE           DEL_SEL_SAVEGAME
+LANG_ENGLISH        "Delete selected save game?"
+LANG_GERMAN         "Gewählten Spielstand löschen?"
+
+REFERENCE           OVERWRITE_EXISTING_FILE
+LANG_ENGLISH        "Overwrite existing file?"
+LANG_GERMAN         "Bestehende Datei überschreiben?"
+
+REFERENCE           OK
+LANG_ENGLISH        "OK"
+LANG_GERMAN         "#same"
+
+REFERENCE           YOU_MUST_SPECIFY_A_FILENAME
+LANG_ENGLISH        "You must specify a filename!"
+LANG_GERMAN         "Sie müssen einen Dateinamen angeben!"
+
+REFERENCE           ARE_YOU_SURE_QUIT
+LANG_ENGLISH        "Are you sure you want to quit?"
+LANG_GERMAN         "Möchten Sie das Spiel wirklich beenden?"
+
+REFERENCE           CONTROLS
+LANG_ENGLISH        "Controls"
+LANG_GERMAN         "Steuerung"
+
+REFERENCE           LOOK
+LANG_ENGLISH        "Look"
+LANG_GERMAN         "Sicht"
+
+REFERENCE           MOVE
+LANG_ENGLISH        "Move"
+LANG_GERMAN         "Bewegung"
+
+REFERENCE           SHOOT
+LANG_ENGLISH        "Shoot"
+LANG_GERMAN         "Schießen"
+
+REFERENCE           SAVE_INTERACT
+LANG_ENGLISH        "Save/Interact"
+LANG_GERMAN         "Speichern/Interaktion"
+
+REFERENCE           CONTROL_DEFAULTS
+LANG_ENGLISH        "Control Defaults"
+LANG_GERMAN         "Standardsteuerung"
+
+REFERENCE           SYSTEM
+LANG_ENGLISH        "System"
+LANG_GERMAN         "#same"
+
+REFERENCE           GRAPHICS
+LANG_ENGLISH        "Graphics"
+LANG_GERMAN         "Grafik"
+
+REFERENCE           SOUND
+LANG_ENGLISH        "Sound"
+LANG_GERMAN         "#same"
+
+REFERENCE           PERFORMANCE
+LANG_ENGLISH        "Performance"
+LANG_GERMAN         "Leistung"
+
+REFERENCE           DRIVERINFO
+LANG_ENGLISH        "Driver Info"
+LANG_GERMAN         "Treiberinfo"
+
+REFERENCE           RESET_SYSTEM_DEFAULTS
+LANG_ENGLISH        "Optimal System Settings"
+LANG_GERMAN         "Optimale Systemeinstellungen"
+
+REFERENCE           CREDITS
+LANG_ENGLISH        "Credits"
+LANG_GERMAN         "#same"
+
+REFERENCE           RESET_TO_DEFAULTS
+LANG_ENGLISH        "Reset to Default"
+LANG_GERMAN         "Zurücksetzen auf Standard-"
+
+REFERENCE           THIS_WILL_RESTORE_ALL_SETTINGS
+LANG_ENGLISH        "Each setting will be restored"
+LANG_GERMAN         "Dies stellt alle Einstellungen auf"
+
+REFERENCE           TO_THEIR_DEFAULT_VALUE
+LANG_ENGLISH        "to its default value."
+LANG_GERMAN         "auf den Standard zurück."
+
+REFERENCE           ARE_YOU_SURE
+LANG_ENGLISH        "Are you sure?"
+LANG_GERMAN         "Sind Sie sicher?"
+
+REFERENCE           YOUR_CONTROLS_ARE_NOW_SET
+LANG_ENGLISH        "Your controls are now set"
+LANG_GERMAN         "Die Steuerung wurde auf"
+
+REFERENCE           TO_THEIR_ORIGINAL_DEFAULT_VALUES
+LANG_ENGLISH        "to their original default values."
+LANG_GERMAN         "den Standard zurückgesetzt."
+
+REFERENCE           CLOSE
+LANG_ENGLISH        "Close"
+LANG_GERMAN         "Schließen"
+
+REFERENCE           OPTIONS_SYSTEM
+LANG_ENGLISH        "Options - System"
+LANG_GERMAN         "Optionen - System"
+
+REFERENCE           SET_RECOMMENDED
+LANG_ENGLISH        "Set Recommended"
+LANG_GERMAN         "Empfehlungen verwenden"
+
+REFERENCE           QUALITY
+LANG_ENGLISH        "Quality"
+LANG_GERMAN         "Qualität"
+
+REFERENCE           QUALITY_RECOMMENDED
+LANG_ENGLISH        "Quality:  Recommended"
+LANG_GERMAN         "Qualität: Empfohlen"
+
+REFERENCE           VIDEO_MODE
+LANG_ENGLISH        "Video Mode"
+LANG_GERMAN         "Grafikmodus"
+
+REFERENCE           COLOR_DEPTH
+LANG_ENGLISH        "Color Depth"
+LANG_GERMAN         "Farbtiefe"
+
+REFERENCE           FULLSCREEN
+LANG_ENGLISH        "Full Screen"
+LANG_GERMAN         "Vollbild"
+
+REFERENCE           GEOMETRIC_DETAIL
+LANG_ENGLISH        "Geometric Detail"
+LANG_GERMAN         "Geometriedetail"
+
+REFERENCE           CHARACTER_TEXTURES
+LANG_ENGLISH        "Character Textures"
+LANG_GERMAN         "Charakter-Texturen"
+
+REFERENCE           GENERAL_TEXTURES
+LANG_ENGLISH        "General Textures"
+LANG_GERMAN         "Allgemeine Texturen"
+
+REFERENCE           TEXTURE_FILTER
+LANG_ENGLISH        "Texture Filter"
+LANG_GERMAN         "Texturfilter"
+
+REFERENCE           TEXTURE_QUALITY
+LANG_ENGLISH        "Texture Quality"
+LANG_GERMAN         "Texturqualität"
+
+REFERENCE           NVIDIA_DISTANCE_FOG
+LANG_ENGLISH        "Nvidia Distance Fog"
+LANG_GERMAN         "Nvidia-Distanznebel"
+
+REFERENCE           BRIGHTNESS
+LANG_ENGLISH        "Brightness"
+LANG_GERMAN         "Helligkeit"
+
+REFERENCE           LANGUAGE
+LANG_ENGLISH        "Language"
+LANG_GERMAN         "Sprache"
+
+REFERENCE           APPLY_LANGUAGE_CHANGE
+LANG_ENGLISH        "Apply Language Change"
+LANG_GERMAN         "Sprachänderung übernehmen"
+
+REFERENCE           APPLY
+LANG_ENGLISH        "Apply"
+LANG_GERMAN         "Übernehmen"
+
+REFERENCE           YOUR_SETTINGS_ARE_NOW_SET
+LANG_ENGLISH        "Your settings are now set"
+LANG_GERMAN         "Die Einstellungen wurden vorgenommen"
+
+REFERENCE           OPTIONS_CONTROLS
+LANG_ENGLISH        "Options - Controls"
+LANG_GERMAN         "Optionen - Steuerung"
+
+REFERENCE           LOOK_UP
+LANG_ENGLISH        "Look Up"
+LANG_GERMAN         "Nach oben sehen"
+
+REFERENCE           LOOK_DOWN
+LANG_ENGLISH        "Look Down"
+LANG_GERMAN         "Nach unten sehen"
+
+REFERENCE           MOUSE_LOOK
+LANG_ENGLISH        "Mouse Look"
+LANG_GERMAN         "Mausblick"
+
+REFERENCE           CENTER_VIEW
+LANG_ENGLISH        "Center View"
+LANG_GERMAN         "Sicht zentrieren"
+
+REFERENCE           FREE_LOOK
+LANG_ENGLISH        "Free Look"
+LANG_GERMAN         "Freier Blick"
+
+REFERENCE           INVERT_MOUSE
+LANG_ENGLISH        "Invert Mouse"
+LANG_GERMAN         "Maus umkehren"
+
+REFERENCE           SMOOTH_MOUSE
+LANG_ENGLISH        "Smooth Mouse"
+LANG_GERMAN         "Mausausgleich"
+
+REFERENCE           MOUSE_SENSITIVITY
+LANG_ENGLISH        "Mouse Sensitivity"
+LANG_GERMAN         "Mausempfindlichkeit"
+
+REFERENCE           SHOW_OBJECTIVES_SCORES
+LANG_ENGLISH        "Show Objectives/Scores"
+LANG_GERMAN         "Ziele/Punkte zeigen"
+
+REFERENCE           USE
+LANG_ENGLISH        "Use"
+LANG_GERMAN         "Benutzen"
+
+REFERENCE           QUICK_SAVE
+LANG_ENGLISH        "Quick Save"
+LANG_GERMAN         "Schnellspeichern"
+
+REFERENCE           QUICK_LOAD
+LANG_ENGLISH        "Quick Load"
+LANG_GERMAN         "Schnellladen"
+
+REFERENCE           SCREENSHOT
+LANG_ENGLISH        "Screenshot"
+LANG_GERMAN         "#same"
+
+REFERENCE           FORWARD
+LANG_ENGLISH        "Forward"
+LANG_GERMAN         "Vorwärts"
+
+REFERENCE           BACKPEDAL
+LANG_ENGLISH        "Backpedal"
+LANG_GERMAN         "Rückwärts"
+
+REFERENCE           MOVE_LEFT
+LANG_ENGLISH        "Move Left"
+LANG_GERMAN         "Nach links"
+
+REFERENCE           MOVE_RIGHT
+LANG_ENGLISH        "Move Right"
+LANG_GERMAN         "Nach rechts"
+
+REFERENCE           LEAN_LEFT
+LANG_ENGLISH        "Lean Left"
+LANG_GERMAN         "Links lehnen"
+
+REFERENCE           LEAN_RIGHT
+LANG_ENGLISH        "Lean Right"
+LANG_GERMAN         "Rechts lehnen"
+
+REFERENCE           STAND
+LANG_ENGLISH        "Stand"
+LANG_GERMAN         "Aufstehen"
+
+REFERENCE           CROUCH
+LANG_ENGLISH        "Crouch"
+LANG_GERMAN         "Ducken"
+
+REFERENCE           PRONE
+LANG_ENGLISH        "Prone"
+LANG_GERMAN         "Hinlegen"
+
+REFERENCE           JUMP_STANCE_UP
+LANG_ENGLISH        "Jump/Stance Up"
+LANG_GERMAN         "Sprung/eine Haltung hoch"
+
+REFERENCE           STANCE_DOWN
+LANG_ENGLISH        "Stance Down"
+LANG_GERMAN         "Eine Haltung runter"
+
+REFERENCE           STANCE_UP
+LANG_ENGLISH        "Stance Up"
+LANG_GERMAN         "Eine Haltung hoch"
+
+REFERENCE           TOGGLE_CROUCH
+LANG_ENGLISH        "Toggle Crouch"
+LANG_GERMAN         "Ducken ein/aus"
+
+REFERENCE           TOGGLE_PRONE
+LANG_ENGLISH        "Toggle Prone"
+LANG_GERMAN         "Hinlegen ein/aus"
+
+REFERENCE           HOLD_DOWN_CROUCH
+LANG_ENGLISH        "Hold Down Crouch"
+LANG_GERMAN         "Ducken halten"
+
+REFERENCE           HOLD_DOWN_PRONE
+LANG_ENGLISH        "Hold Down Prone"
+LANG_GERMAN         "Hinlegen halten"
+
+REFERENCE           TURN_LEFT
+LANG_ENGLISH        "Turn Left"
+LANG_GERMAN         "Links drehen"
+
+REFERENCE           TURN_RIGHT
+LANG_ENGLISH        "Turn Right"
+LANG_GERMAN         "Rechts drehen"
+
+REFERENCE           STRAFE
+LANG_ENGLISH        "Strafe"
+LANG_GERMAN         "Seitlich"
+
+REFERENCE           WALL_MARKS
+LANG_ENGLISH        "Wall Marks"
+LANG_GERMAN         "Trefferspuren"
+
+REFERENCE           EJECTING_BRASS
+LANG_ENGLISH        "Ejecting Brass"
+LANG_GERMAN         "Patronenhülsen"
+
+REFERENCE           DYNAMIC_LIGHTS
+LANG_ENGLISH        "Dynamic Lights"
+LANG_GERMAN         "Dynamische Lichter"
+
+REFERENCE           LOW_QUALITY_SKY
+LANG_ENGLISH        "Low Quality Sky"
+LANG_GERMAN         "Geringe Himmelsqualität"
+
+REFERENCE           SYNC_EVERY_FRAME
+LANG_ENGLISH        "Sync Every Frame"
+LANG_GERMAN         "Bild-Synchronisation"
+
+REFERENCE           NVIDIA_FOG_TYPE
+LANG_ENGLISH        "Nvidia fog type"
+LANG_GERMAN         "Nvidia-Nebeltyp"
+
+REFERENCE           ATTACK
+LANG_ENGLISH        "Attack"
+LANG_GERMAN         "Angriff"
+
+REFERENCE           TOGGLE_AIM_DOWN_THE_SIGHT
+LANG_ENGLISH        "Toggle Aim Down the Sight"
+LANG_GERMAN         "Zielvorrichtung ein/aus"
+
+REFERENCE           AIM_DOWN_THE_SIGHT
+LANG_ENGLISH        "Aim Down the Sight"
+LANG_GERMAN         "Zielvorrichtung"
+
+REFERENCE           MELEE_ATTACK
+LANG_ENGLISH        "Melee Attack"
+LANG_GERMAN         "Kolbenschlag"
+
+REFERENCE           RELOAD_WEAPON
+LANG_ENGLISH        "Reload Weapon"
+LANG_GERMAN         "Waffe nachladen"
+
+REFERENCE           TOGGLE_SEMIAUTOMATIC
+LANG_ENGLISH        "Toggle Semi-Automatic "
+LANG_GERMAN         "Halbautomatik ein/aus"
+
+REFERENCE           SELECT_FIRST_WEAPON
+LANG_ENGLISH        "Select First Weapon"
+LANG_GERMAN         "Erste Waffe wählen"
+
+REFERENCE           SELECT_SECOND_WEAPON
+LANG_ENGLISH        "Select Second Weapon"
+LANG_GERMAN         "Zweite Waffe wählen"
+
+REFERENCE           SELECT_PISTOL
+LANG_ENGLISH        "Select Pistol"
+LANG_GERMAN         "Pistole wählen"
+
+REFERENCE           SELECT_GRENADE
+LANG_ENGLISH        "Select Grenade"
+LANG_GERMAN         "Granate wählen"
+
+REFERENCE           NEXT_WEAPON
+LANG_ENGLISH        "Next Weapon"
+LANG_GERMAN         "Nächste Waffe"
+
+REFERENCE           PREVIOUS_WEAPON
+LANG_ENGLISH        "Previous Weapon"
+LANG_GERMAN         "Vorherige Waffe"
+
+REFERENCE           LAST_WEAPON_USED
+LANG_ENGLISH        "Last Weapon Used"
+LANG_GERMAN         "Letzte benutzte Waffe"
+
+REFERENCE           EFFECTS_VOLUME
+LANG_ENGLISH        "Effects Volume"
+LANG_GERMAN         "Effektlautstärke"
+
+REFERENCE           MUSIC_VOLUME
+LANG_ENGLISH        "Music Volume"
+LANG_GERMAN         "Musiklautstärke"
+
+REFERENCE           SOUND_QUALITY
+LANG_ENGLISH        "Sound Quality"
+LANG_GERMAN         "Soundqualität"
+
+REFERENCE           SOUND_PROVIDER
+LANG_ENGLISH        "Sound Provider"
+LANG_GERMAN         "Soundmodus"
+
+REFERENCE           THIS_WILL_APPLY_SOUND
+LANG_ENGLISH        "This will apply sound"
+LANG_GERMAN         "Dies übernimmt die Sound-"
+
+REFERENCE           SETTINGS_AND_RETURN
+LANG_ENGLISH        "settings and return"
+LANG_GERMAN         "einstellungen und kehrt"
+
+REFERENCE           TO_THE_MAIN_MENU
+LANG_ENGLISH        "to the Main Menu."
+LANG_GERMAN         "zum Hauptmenü zurück."
+
+REFERENCE           NOTICE
+LANG_ENGLISH        "Notice"
+LANG_GERMAN         "Hinweis"
+
+REFERENCE           ERROR
+LANG_ENGLISH        "Error"
+LANG_GERMAN         "Fehler"
+
+REFERENCE           EXIT
+LANG_ENGLISH        "Exit"
+LANG_GERMAN         "Ende"
+
+REFERENCE           THIS_WILL_APPLY_VIDEO
+LANG_ENGLISH        "This will apply video"
+LANG_GERMAN         "Dies übernimmt die Grafik-"
+
+REFERENCE           RESTART_LEVEL
+LANG_ENGLISH        "Restart Level"
+LANG_GERMAN         "Level neu starten"
+
+REFERENCE           LOAD_LAST_SAVE
+LANG_ENGLISH        "Load Last Save"
+LANG_GERMAN         "Letzten Spielstand laden"
+
+REFERENCE           MAIN_MENU
+LANG_ENGLISH        "Main Menu"
+LANG_GERMAN         "Hauptmenü"
+
+REFERENCE           CLICK_TO_START_THE_MISSION
+LANG_ENGLISH        "Click to Start the Mission"
+LANG_GERMAN         "Klicken zum Starten"
+
+REFERENCE           NEXT_LEVEL
+LANG_ENGLISH        "Next Level"
+LANG_GERMAN         "Nächster Level"
+
+REFERENCE           THIS_WILL_SET
+LANG_ENGLISH        "This will set"
+LANG_GERMAN         "Dies nimmt die empfohlenen"
+
+REFERENCE           RECOMMENDED_VIDEO_SETTINGS
+LANG_ENGLISH        "recommended video settings"
+LANG_GERMAN         "Grafikeinstellungen vor und"
+
+REFERENCE           AND_RETURN_TO_THE_MAIN_MENU
+LANG_ENGLISH        "and return to the Main Menu."
+LANG_GERMAN         "kehrt zum Hauptmenü zurück."
+
+REFERENCE           JOIN_AN_INTERNET_GAME
+LANG_ENGLISH        "Join an Internet Game"
+LANG_GERMAN         "Teilnahme Internet-Spiel"
+
+REFERENCE           JOIN_A_LAN_GAME
+LANG_ENGLISH        "Join a LAN Game"
+LANG_GERMAN         "Teilnahme LAN-Spiel"
+
+REFERENCE           DISCONNECT
+LANG_ENGLISH        "Disconnect"
+LANG_GERMAN         "Trennen"
+
+REFERENCE           START_NEW_SERVER
+LANG_ENGLISH        "Start New Server"
+LANG_GERMAN         "Neuen Server starten"
+
+REFERENCE           MULTIPLAYER_OPTIONS
+LANG_ENGLISH        "Multiplayer Options"
+LANG_GERMAN         "Mehrspieler-Optionen"
+
+REFERENCE           MODS
+LANG_ENGLISH        "Mods"
+LANG_GERMAN         "#same"
+
+REFERENCE           MODSWITHCOLON
+LANG_ENGLISH        "Mods:"
+LANG_GERMAN         "#same"
+
+REFERENCE           SINGLE_PLAYER
+LANG_ENGLISH        "Single Player"
+LANG_GERMAN         "Einzelspieler"
+
+REFERENCE           CLICK_FOR_AUTOUPDATE
+LANG_ENGLISH        "Click for Auto-Update"
+LANG_GERMAN         "Anklicken für Auto-Update"
+
+REFERENCE           SWITCH_TO_SINGLE_PLAYER
+LANG_ENGLISH        "Switch to Single Player?"
+LANG_GERMAN         "Zum Einzelspieler wechseln?"
+
+REFERENCE           DOWNLOAD_AUTOUPDATE_PATCH
+LANG_ENGLISH        "Download Auto-Update Patch?"
+LANG_GERMAN         "Auto-Update-Patch herunterladen?"
+
+REFERENCE           VERSION_INSTALLED
+LANG_ENGLISH        "Version Installed:"
+LANG_GERMAN         "Installierte Version:"
+
+REFERENCE           VERSION_AVAILABLE
+LANG_ENGLISH        "Version Available:"
+LANG_GERMAN         "Verfügbare Version:"
+
+REFERENCE           CDKEY
+LANG_ENGLISH        "CD KEY"
+LANG_GERMAN         "CODE"
+
+REFERENCE           ENTER_YOUR_ENCRYPTION_KEY_IN_THE_FIELD_BELOW
+LANG_ENGLISH        "Enter your encryption key in the field below."
+LANG_GERMAN         "Geben Sie Ihren Code in das Feld unterhalb ein."
+
+REFERENCE           KEY
+LANG_ENGLISH        "Key:"
+LANG_GERMAN         "Code:"
+
+REFERENCE           CANCEL
+LANG_ENGLISH        "Cancel"
+LANG_GERMAN         "Abbrechen"
+
+REFERENCE           VERIFY
+LANG_ENGLISH        "Verify"
+LANG_GERMAN         "Überprüfen"
+
+REFERENCE           NEW_FAVORITE
+LANG_ENGLISH        "New Favorite"
+LANG_GERMAN         "Neuer Favorit"
+
+REFERENCE           NAME1
+LANG_ENGLISH        "Name: "
+LANG_GERMAN         "#same"
+
+REFERENCE           IP_ADDRESS
+LANG_ENGLISH        "IP Address: "
+LANG_GERMAN         "IP-Adresse: "
+
+REFERENCE           FILTER_SERVERS
+LANG_ENGLISH        "Filter Servers"
+LANG_GERMAN         "Server filtern"
+
+REFERENCE           VIEW_EMPTY
+LANG_ENGLISH        "View Empty:"
+LANG_GERMAN         "Leere zeigen:"
+
+REFERENCE           VIEW_FULL
+LANG_ENGLISH        "View Full:"
+LANG_GERMAN         "Volle zeigen:"
+
+REFERENCE           SHOW_MAX_LIVES
+LANG_ENGLISH        "Show Max Lives:"
+LANG_GERMAN         "Max. Leben zeigen:"
+
+REFERENCE           SHOW_TOURNEY
+LANG_ENGLISH        "Show Tourney:"
+LANG_GERMAN         "Turnier zeigen:"
+
+REFERENCE           TYPE
+LANG_ENGLISH        "Type:"
+LANG_GERMAN         "Typ:"
+
+REFERENCE           SERVER NAME
+LANG_ENGLISH        "Server Name"
+LANG_GERMAN         "Servername"
+
+REFERENCE           MAP_NAME
+LANG_ENGLISH        "Map Name"
+LANG_GERMAN         "Kartenname"
+
+REFERENCE           NUMPLAYERS
+LANG_ENGLISH        "#Players"
+LANG_GERMAN         "Spielerzahl"
+
+REFERENCE           PING
+LANG_ENGLISH        "Ping"
+LANG_GERMAN         "#same"
+
+REFERENCE           GET_NEW_LIST
+LANG_ENGLISH        "Get New List"
+LANG_GERMAN         "Listenabfrage"
+
+REFERENCE           REFRESH_LIST
+LANG_ENGLISH        "Refresh List"
+LANG_GERMAN         "Liste aktualisieren"
+
+REFERENCE           PASSWORD
+LANG_ENGLISH        "Password"
+LANG_GERMAN         "Passwort"
+
+REFERENCE           ADD_TO_FAVORITES
+LANG_ENGLISH        "Add To Favorites"
+LANG_GERMAN         "Zu Favoriten hinzufügen"
+
+REFERENCE           DEL_FAVORITE
+LANG_ENGLISH        "Del. Favorite"
+LANG_GERMAN         "Favorit löschen"
+
+REFERENCE           SERVER_INFO
+LANG_ENGLISH        "Server Info"
+LANG_GERMAN         "Serverinfo"
+
+REFERENCE           FIND_FRIEND
+LANG_ENGLISH        "Find Friend"
+LANG_GERMAN         "Freund finden"
+
+REFERENCE           ACCEPT
+LANG_ENGLISH        "Accept"
+LANG_GERMAN         "Annehmen"
+
+REFERENCE           CONNECTION_TYPE
+LANG_ENGLISH        "Connection Type:"
+LANG_GERMAN         "Verbindungstyp:"
+
+REFERENCE           LAUNCH
+LANG_ENGLISH        "Launch"
+LANG_GERMAN         "Starten"
+
+REFERENCE           SELECT_MOD_NAME_TO_LAUNCH
+LANG_ENGLISH        "Select MOD name to Launch"
+LANG_GERMAN         "MOD-Name zum Starten wählen"
+
+REFERENCE           JOIN_SERVER
+LANG_ENGLISH        "Join Server"
+LANG_GERMAN         "Mitspielen"
+
+REFERENCE           CREATE_SERVER
+LANG_ENGLISH        "Create Server"
+LANG_GERMAN         "Server erstellen"
+
+REFERENCE           ENTER CD-KEY
+LANG_ENGLISH        "Enter CD-Key"
+LANG_GERMAN         "Code eingeben"
+
+REFERENCE           SHOW_SCORES
+LANG_ENGLISH        "Show Scores:"
+LANG_GERMAN         "Punkte zeigen:"
+
+REFERENCE           CHAT
+LANG_ENGLISH        "Chat"
+LANG_GERMAN         "#same"
+
+REFERENCE           TEAM_CHAT
+LANG_ENGLISH        "Team Chat"
+LANG_GERMAN         "Team-Chat"
+
+REFERENCE           QUICK_CHAT
+LANG_ENGLISH        "Quick Chat"
+LANG_GERMAN         "Schnell-Chat"
+
+REFERENCE           SHOW_COMPASS
+LANG_ENGLISH        "Show Compass:"
+LANG_GERMAN         "Kompass zeigen:"
+
+REFERENCE           TEAM_OVERLAY
+LANG_ENGLISH        "Team Overlay:"
+LANG_GERMAN         "Team-Infos:"
+
+REFERENCE           CHAT_ICON_TIME
+LANG_ENGLISH        "Chat Icon Time:"
+LANG_GERMAN         "Chat-Symbol-Zeit:"
+
+REFERENCE           NET_DATA_RATE
+LANG_ENGLISH        "Net Data Rate:"
+LANG_GERMAN         "Netzwerk-Datenrate:"
+
+REFERENCE           PLAYER_NAME
+LANG_ENGLISH        "Player Name"
+LANG_GERMAN         "Spielername"
+
+REFERENCE           REFRESH
+LANG_ENGLISH        "Refresh"
+LANG_GERMAN         "Aktualisieren"
+
+REFERENCE           CONTINUE
+LANG_ENGLISH        "Continue"
+LANG_GERMAN         "Fortsetzen"
+
+REFERENCE           HIGHQUALITY
+LANG_ENGLISH        "High Quality"
+LANG_GERMAN         "Hohe Qualität"
+
+REFERENCE           NORMAL
+LANG_ENGLISH        "Normal"
+LANG_GERMAN         "#same"
+
+REFERENCE           FAST
+LANG_ENGLISH        "Fast"
+LANG_GERMAN         "Schnell"
+
+REFERENCE           FASTEST
+LANG_ENGLISH        "Fastest"
+LANG_GERMAN         "Schnellste"
+
+REFERENCE           CUSTOM
+LANG_ENGLISH        "Custom"
+LANG_GERMAN         "Benutzerdefiniert"
+
+REFERENCE           INTERACT
+LANG_ENGLISH        "Interact"
+LANG_GERMAN         "Interaktion"
+
+REFERENCE           SET_DEFAULT_CONTROLS
+LANG_ENGLISH        "Set Default Controls"
+LANG_GERMAN         "Standardsteuerung"
+
+REFERENCE           STANDJUMP
+LANG_ENGLISH        "Stand/Jump"
+LANG_GERMAN         "Aufstehen/Sprung"
+
+REFERENCE           GO_TO_CROUCH
+LANG_ENGLISH        "Go to Crouch"
+LANG_GERMAN         "Auf Ducken wechseln"
+
+REFERENCE           GO_TO_PRONE
+LANG_ENGLISH        "Go to Prone"
+LANG_GERMAN         "Auf Hinlegen wechseln"
+
+REFERENCE           LOAD_SELECTED_GAME
+LANG_ENGLISH        "Load selected game?"
+LANG_GERMAN         "Gewähltes Spiel laden?"
+
+REFERENCE           DEL_SEL_FAVORITE
+LANG_ENGLISH        "Delete selected favorite from list?"
+LANG_GERMAN         "Gewählten Favoriten aus der Liste löschen?"
+
+REFERENCE           VOTE_YES
+LANG_ENGLISH        "Vote Yes"
+LANG_GERMAN         "Mit Ja stimmen"
+
+REFERENCE           VOTE_NO
+LANG_ENGLISH        "Vote No"
+LANG_GERMAN         "Mit Nein stimmen"
+
+REFERENCE           CHANGE_RATE_OF_FIRE
+LANG_ENGLISH        "Change Rate of Fire"
+LANG_GERMAN         "Feuerrate ändern"
+
+REFERENCE           DRAW_HUD
+LANG_ENGLISH        "Draw HUD"
+LANG_GERMAN         "HUD anzeigen"
+
+REFERENCE           DRAW_CROSSHAIR
+LANG_ENGLISH        "Draw Crosshair"
+LANG_GERMAN         "Fadenkreuz anzeigen"
+
+REFERENCE           QUICK_REFRESH
+LANG_ENGLISH        "Quick Refresh"
+LANG_GERMAN         "Schnelle Aktualisierung"
+
+REFERENCE           WORLD_DYNAMIC_LIGHT_QUALITY
+LANG_ENGLISH        "World Dynamic Light Quality"
+LANG_GERMAN         "Qualität dynamischer Lichter"
+
+REFERENCE           SHOW_BLOOD
+LANG_ENGLISH        "Show Blood"
+LANG_GERMAN         "Blut zeigen"
+
+REFERENCE           THIS_WILL_APPLY_THE
+LANG_ENGLISH        "This will apply the"
+LANG_GERMAN         "Dies übernimmt die Sprach-"
+
+REFERENCE           LANGUAGE_CHANGE_AND_RETURN
+LANG_ENGLISH        "language change and return"
+LANG_GERMAN         "einstellungen und kehrt"
+
+REFERENCE           640480
+LANG_ENGLISH        "640*480"
+LANG_GERMAN         "#same"
+
+REFERENCE           800600
+LANG_ENGLISH        "800*600"
+LANG_GERMAN         "#same"
+
+REFERENCE           1024768
+LANG_ENGLISH        "1024*768"
+LANG_GERMAN         "#same"
+
+REFERENCE           1152864
+LANG_ENGLISH        "1152*864"
+LANG_GERMAN         "#same"
+
+REFERENCE           12801024
+LANG_ENGLISH        "1280*1024"
+LANG_GERMAN         "#same"
+
+REFERENCE           16001200
+LANG_ENGLISH        "1600*1200"
+LANG_GERMAN         "#same"
+
+REFERENCE           20481536
+LANG_ENGLISH        "2048*1536"
+LANG_GERMAN         "#same"
+
+REFERENCE           LOW
+LANG_ENGLISH        "Low"
+LANG_GERMAN         "Gering"
+
+REFERENCE           HIGH
+LANG_ENGLISH        "High"
+LANG_GERMAN         "Hoch"
+
+REFERENCE           EXTRA
+LANG_ENGLISH        "Extra"
+LANG_GERMAN         "#same"
+
+REFERENCE           BILINEAR
+LANG_ENGLISH        "Bilinear"
+LANG_GERMAN         "#same"
+
+REFERENCE           TRILINEAR
+LANG_ENGLISH        "Trilinear"
+LANG_GERMAN         "#same"
+
+REFERENCE           ANISOTROPIC
+LANG_ENGLISH        "Anisotropic"
+LANG_GERMAN         "Anisotrop"
+
+REFERENCE           DEFAULT
+LANG_ENGLISH        "Default"
+LANG_GERMAN         "Standard"
+
+REFERENCE           16BIT
+LANG_ENGLISH        "16 bit"
+LANG_GERMAN         "16-Bit"
+
+REFERENCE           32BIT
+LANG_ENGLISH        "32 bit"
+LANG_GERMAN         "32-Bit"
+
+REFERENCE           ENGLISH
+LANG_ENGLISH        "English"
+LANG_GERMAN         "Englisch"
+
+REFERENCE           FRENCH
+LANG_ENGLISH        "French"
+LANG_GERMAN         "Französisch"
+
+REFERENCE           GERMAN
+LANG_ENGLISH        "German"
+LANG_GERMAN         "Deutsch"
+
+REFERENCE           ITALIAN
+LANG_ENGLISH        "Italian"
+LANG_GERMAN         "Italienisch"
+
+REFERENCE           SPANISH
+LANG_ENGLISH        "Spanish"
+LANG_GERMAN         "Spanisch"
+
+REFERENCE           BRITISH
+LANG_ENGLISH        "British"
+LANG_GERMAN         "Britisches Englisch"
+
+REFERENCE           RUSSIAN
+LANG_ENGLISH        "Russian"
+LANG_GERMAN         "Russsisch"
+
+REFERENCE           KOREAN
+LANG_ENGLISH        "Korean"
+LANG_GERMAN         "Koreanisch"
+
+REFERENCE           TAIWANESE
+LANG_ENGLISH        "Taiwanese"
+LANG_GERMAN         "Taiwanesisch"
+
+REFERENCE           JAPANESE
+LANG_ENGLISH        "Japanese"
+LANG_GERMAN         "Japanesisch"
+
+REFERENCE           CHINESE
+LANG_ENGLISH        "Chinese"
+LANG_GERMAN         "Chinesisch"
+
+REFERENCE           THAI
+LANG_ENGLISH        "Thai"
+LANG_GERMAN         "#same"
+
+REFERENCE           ON
+LANG_ENGLISH        "On"
+LANG_GERMAN         "An"
+
+REFERENCE           OFF
+LANG_ENGLISH        "Off"
+LANG_GERMAN         "Aus"
+
+REFERENCE           EVERYTHING
+LANG_ENGLISH        "Everything"
+LANG_GERMAN         "Immer"
+
+REFERENCE           MODELS_ONLY
+LANG_ENGLISH        "Models Only"
+LANG_GERMAN         "Nur Modelle"
+
+REFERENCE           NONE
+LANG_ENGLISH        "None"
+LANG_GERMAN         "Ohne"
+
+REFERENCE           NICEST
+LANG_ENGLISH        "Nicest"
+LANG_GERMAN         "Schön"
+
+REFERENCE           NV_RADIAL
+LANG_ENGLISH        "NV Radial"
+LANG_GERMAN         "NV radial"
+
+REFERENCE           NV_PLANE
+LANG_ENGLISH        "NV Plane"
+LANG_GERMAN         "NV flach"
+
+REFERENCE           11KHZ__
+LANG_ENGLISH        "11khz (Low Quality, Least Memory)"
+LANG_GERMAN         "11 kHz (geringe Qualität, wenig Speicher)"
+
+REFERENCE           22KHZ__
+LANG_ENGLISH        "22khz (Normal Quality, Medium Memory)"
+LANG_GERMAN         "22 kHz (normale Qualität, mittlerer Speicher)"
+
+REFERENCE           44KHZ__
+LANG_ENGLISH        "44khz (High Quality, Most Memory)"
+LANG_GERMAN         "44 kHz (hohe Qualität, viel Speicher)"
+
+REFERENCE           CREATIVE_LABS_EAX_3
+LANG_ENGLISH        "Creative Labs EAX 3 (TM)"
+LANG_GERMAN         "#same"
+
+REFERENCE           CREATIVE_LABS_EAX_2
+LANG_ENGLISH        "Creative Labs EAX 2 (TM)"
+LANG_GERMAN         "#same"
+
+REFERENCE           CREATIVE_LABS_EAX
+LANG_ENGLISH        "Creative Labs EAX (TM)"
+LANG_GERMAN         "#same"
+
+REFERENCE           MILES_FAST_2D_POSITIONAL_AUDIO
+LANG_ENGLISH        "Miles Fast 2D Positional Audio"
+LANG_GERMAN         "#same"
+
+REFERENCE           GAME_TYPE_SETTINGS
+LANG_ENGLISH        "Game Type Settings"
+LANG_GERMAN         "Spieltyp-Einstellungen"
+
+REFERENCE           SERVER_SETTINGS
+LANG_ENGLISH        "Server Settings"
+LANG_GERMAN         "Servereinstellungen"
+
+REFERENCE           GAME_TYPE
+LANG_ENGLISH        "Game Type:  "
+LANG_GERMAN         "Spieltyp:  "
+
+REFERENCE           SERVER_NAME
+LANG_ENGLISH        "Server Name:  "
+LANG_GERMAN         "Servername:  "
+
+REFERENCE           DEDICATED
+LANG_ENGLISH        "Dedicated:  "
+LANG_GERMAN         "Dediziert:  "
+
+REFERENCE           PURE
+LANG_ENGLISH        "Pure:  "
+LANG_GERMAN         "Unmodifiziert:  "
+
+REFERENCE           MAXIMUM_PLAYERS
+LANG_ENGLISH        "Maximum Players:  "
+LANG_GERMAN         "Spielerlimit:  "
+
+REFERENCE           MINIMUM_PING
+LANG_ENGLISH        "Minimum Ping:  "
+LANG_GERMAN         "Ping-Minimum:  "
+
+REFERENCE           MAXIMUM_PING
+LANG_ENGLISH        "Maximum Ping:  "
+LANG_GERMAN         "Ping-Maximum:  "
+
+REFERENCE           MAXIMUM_RATE
+LANG_ENGLISH        "Maximum Rate:  "
+LANG_GERMAN         "Maximum-Rate:  "
+
+REFERENCE           PASSWORD1
+LANG_ENGLISH        "Password:  "
+LANG_GERMAN         "Passwort:  "
+
+REFERENCE           BOTH
+LANG_ENGLISH        "Both"
+LANG_GERMAN         "Beide"
+
+REFERENCE           288K
+LANG_ENGLISH        "<=28.8k"
+LANG_GERMAN         "<=28,8k"
+
+REFERENCE           336K
+LANG_ENGLISH        "33.6k"
+LANG_GERMAN         "33,6k"
+
+REFERENCE           56K
+LANG_ENGLISH        "56k"
+LANG_GERMAN         "#same"
+
+REFERENCE           ISDN
+LANG_ENGLISH        "ISDN"
+LANG_GERMAN         "#same"
+
+REFERENCE           LAN_CABLE_XDSL
+LANG_ENGLISH        "LAN/Cable/DSL"
+LANG_GERMAN         "LAN/KABEL/DSL"
+
+REFERENCE           SCORE_LIMIT_PLAYER_POINTS
+LANG_ENGLISH        "Score Limit (player points):  "
+LANG_GERMAN         "Punktlimit (Spielerpunkte):  "
+
+REFERENCE           SCORE_LIMIT_TEAM_POINTS
+LANG_ENGLISH        "Score Limit (team points):  "
+LANG_GERMAN         "Punktlimit (Teampunkte):  "
+
+REFERENCE           TIME_LIMIT
+LANG_ENGLISH        "Time Limit (minutes):  "
+LANG_GERMAN         "Zeitlimit (Minuten):  "
+
+REFERENCE           FORCE_RESPAWNING
+LANG_ENGLISH        "Force Respawning:  "
+LANG_GERMAN         "Einstieg erzwingen:  "
+
+REFERENCE           FRIENDLY_INDICATORS
+LANG_ENGLISH        "Friendly Indicators:  "
+LANG_GERMAN         "Freundanzeigen:  "
+
+REFERENCE           CARRIER_INDICATOR
+LANG_ENGLISH        "Carrier Indicator:  "
+LANG_GERMAN         "Trägeranzeige:  "
+
+REFERENCE           GRACE_PERIOD
+LANG_ENGLISH        "Grace Period (seconds):  "
+LANG_GERMAN         "Schonzeit (Sekunden):  "
+
+REFERENCE           ROUND_LENGTH
+LANG_ENGLISH        "Round Length (minutes):  "
+LANG_GERMAN         "Rundenlänge (Minuten):  "
+
+REFERENCE           ROUND_LIMIT
+LANG_ENGLISH        "Round Limit (rounds):  "
+LANG_GERMAN         "Rundenlimit (Runden):  "
+
+REFERENCE           GO_TO_SINGLE_PLAYER_CALL_OF_DUTY
+LANG_ENGLISH        "Go to single player Call of Duty?"
+LANG_GERMAN         "Zum Einzelspieler-Call of Duty wechseln?"
+
+REFERENCE           TO_THE_GAME
+LANG_ENGLISH        "to the game."
+LANG_GERMAN         "zum Spiel zurück."
+
+REFERENCE           NUMBER_OF_CORPSES
+LANG_ENGLISH        "Number of Corpses"
+LANG_GERMAN         "Zahl der Gefallenen"
+
+REFERENCE           TINY
+LANG_ENGLISH        "Tiny"
+LANG_GERMAN         "Winzig"
+
+REFERENCE           SMALL
+LANG_ENGLISH        "Small"
+LANG_GERMAN         "Klein"
+
+REFERENCE           MEDIUM
+LANG_ENGLISH        "Medium"
+LANG_GERMAN         "Mittel"
+
+REFERENCE           LARGE
+LANG_ENGLISH        "Large"
+LANG_GERMAN         "Groß"
+
+REFERENCE           INSANE
+LANG_ENGLISH        "Insane"
+LANG_GERMAN         "Riesig"
+
+REFERENCE           SETTINGS_WILL_BE_REAPPLIED
+LANG_ENGLISH        "Settings will be applied"
+LANG_GERMAN         "Die Einstellungen werden"
+
+REFERENCE           NEXT_TIME_THE_SERVER
+LANG_ENGLISH        "next time the game"
+LANG_GERMAN         "beim Neustart des"
+
+REFERENCE           IS_STARTED
+LANG_ENGLISH        "is started."
+LANG_GERMAN         "Spiels übernommen."
+
+REFERENCE           JOIN
+LANG_ENGLISH        "Join"
+LANG_GERMAN         "Mitspielen"
+
+REFERENCE           ALL_CURRENT_PROGRESS_WILL_BE_LOST
+LANG_ENGLISH        "All current progress will be lost."
+LANG_GERMAN         "Die aktuellen Fortschritte gehen verloren."
+
+REFERENCE           PLAY_DEMO_LEVEL
+LANG_ENGLISH        "Play Demo Level"
+LANG_GERMAN         "Demo-Level spielen"
+
+REFERENCE           ENABLE_CONSOLE
+LANG_ENGLISH        "Enable Console"
+LANG_GERMAN         "Konsole aktivieren"
+
+REFERENCE           SUBTITLES
+LANG_ENGLISH        "Subtitles"
+LANG_GERMAN         "Untertitel"
+
+REFERENCE           LOD
+LANG_ENGLISH        "LOD:  "
+LANG_GERMAN         "Detailanpassung:  "
+
+REFERENCE           AGGRESSIVE
+LANG_ENGLISH        "Aggressive"
+LANG_GERMAN         "Aggressiv"
+
+REFERENCE           JOIN_A_GAME
+LANG_ENGLISH        "Join a Game"
+LANG_GERMAN         "Mitspielen"
+
+REFERENCE           RESUMEGAME_Q
+LANG_ENGLISH        "Resume Game?"
+LANG_GERMAN         "Spiel fortsetzen?"
+
+REFERENCE           CONNECTION
+LANG_ENGLISH        "Connection"
+LANG_GERMAN         "Verbindung"
+
+REFERENCE           TYPE1
+LANG_ENGLISH        "Type"
+LANG_GERMAN         "Typ"
+
+REFERENCE           RESET_TO
+LANG_ENGLISH        "Reset to"
+LANG_GERMAN         "Zurücksetzen auf"
+
+REFERENCE           TO_ITS_OPTIMAL_VALUE
+LANG_ENGLISH        "to its optimal value."
+LANG_GERMAN         "den optimalen Wert."
+
+REFERENCE           RESTART_LEVEL_Q
+LANG_ENGLISH        "Restart Level?"
+LANG_GERMAN         "Level neu starten?"
+
+REFERENCE           START
+LANG_ENGLISH        "Start"
+LANG_GERMAN         "#same"
+
+REFERENCE           LAN
+LANG_ENGLISH        "LAN"
+LANG_GERMAN         "#same"
+
+REFERENCE           INTERNET
+LANG_ENGLISH        "Internet"
+LANG_GERMAN         "#same"
+
+REFERENCE           LEVEL_OF_DETAIL
+LANG_ENGLISH        "Level of Detail:  "
+LANG_GERMAN         "Detailstufe:  "
+
+REFERENCE           ADD_SELECTED_SERVER_TO_FAVORITES
+LANG_ENGLISH        "Add selected server to favorites?"
+LANG_GERMAN         "Server zu den Favoriten hinzufügen?"
+
+REFERENCE           REFLECT
+LANG_ENGLISH        "Reflect"
+LANG_GERMAN         "Reflektieren"
+
+REFERENCE           SHARED
+LANG_ENGLISH        "Shared"
+LANG_GERMAN         "Geteilt"
+
+REFERENCE           ALLOW_VOTING
+LANG_ENGLISH        "Allow Voting:  "
+LANG_GERMAN         "Abstimmung zulassen:  "
+
+REFERENCE           AUTO_UPDATE
+LANG_ENGLISH        "Auto-Update"
+LANG_GERMAN         "#same"
+
+REFERENCE           ALLOW_SNIPER_RIFLES
+LANG_ENGLISH        "Allow Sniper Rifles:  "
+LANG_GERMAN         "Scharfschützeng. zulassen:  "
+
+REFERENCE           ALLOW_PANZERFAUSTS
+LANG_ENGLISH        "Allow Panzerfausts:  "
+LANG_GERMAN         "Panzerfäuste zulassen:  "
+
+REFERENCE           ALLOW_FG42S
+LANG_ENGLISH        "Allow FG42s:  "
+LANG_GERMAN         "FG42 zulassen:  "
+
+REFERENCE           VIEW_PASSWORD
+LANG_ENGLISH        "With Password:"
+LANG_GERMAN         "Mit Passwort:"
+
+REFERENCE           VIEW_NOPASSWORD
+LANG_ENGLISH        "Without Password:"
+LANG_GERMAN         "Ohne Passwort:"
+
+REFERENCE           VIEW_PURE
+LANG_ENGLISH        "Pure Servers only:"
+LANG_GERMAN         "Unmodifizierte Server:"
+
+REFERENCE           VIEW_FRIENDLY_FIRE
+LANG_ENGLISH        "Friendly Fire:"
+LANG_GERMAN         "Teambeschuss:"
+
+REFERENCE           VIEW_KILLCAM
+LANG_ENGLISH        "Killcam:"
+LANG_GERMAN         "Abschusskamera:"
+
+REFERENCE           ALL
+LANG_ENGLISH        "All"
+LANG_GERMAN         "Alle"
+
+REFERENCE           MASTER_VOLUME
+LANG_ENGLISH        "Master Volume"
+LANG_GERMAN         "Gesamtlautstärke"
+
+REFERENCE           MODEL_DETAIL
+LANG_ENGLISH        "Model Detail"
+LANG_GERMAN         "Modelldetail"
+
+REFERENCE           MINIMUM
+LANG_ENGLISH        "Minimum"
+LANG_GERMAN         "#same"
+
+REFERENCE           UNLIMITED
+LANG_ENGLISH        "Unlimited"
+LANG_GERMAN         "Unbegrenzt"
+
+REFERENCE           MAXIMUM
+LANG_ENGLISH        "Maximum"
+LANG_GERMAN         "#same"
+
+REFERENCE           POLISH
+LANG_ENGLISH        "Polish"
+LANG_GERMAN         "Bestens"
+
+REFERENCE           SAFE
+LANG_ENGLISH        "Safe"
+LANG_GERMAN         "Sicher"
+
+REFERENCE           SAFE_MODE
+LANG_ENGLISH        "Safe Mode"
+LANG_GERMAN         "Abgesicherter Modus"
+
+REFERENCE           DEDICATEDONLY
+LANG_ENGLISH        "Dedicated Only:"
+LANG_GERMAN         "Nur dediziert:"
+
+REFERENCE           AUTOBALANCE_TEAMS
+LANG_ENGLISH        "Auto-Balance Teams:  "
+LANG_GERMAN         "Auto-Teamausgleich:  "
+
+REFERENCE           ALLOW_ENEMY_SPECTATING
+LANG_ENGLISH        "Allow Enemy Spectating:  "
+LANG_GERMAN         "Feind-Zuschauer zulassen:  "
+
+REFERENCE           ALLOW_FREE_SPECTATING
+LANG_ENGLISH        "Allow Free Spectating:  "
+LANG_GERMAN         "Freies Zuschauen zulassen:  "
+
+REFERENCE           ALLOW_DOWNLOAD
+LANG_ENGLISH        "Allow Downloading"
+LANG_GERMAN         "Download zulassen"
+
+REFERENCE           PRESS_START
+LANG_ENGLISH        "Press START"
+LANG_GERMAN         "START drücken"
+
+REFERENCE           PLAYTOUJANE
+LANG_ENGLISH        "Play Toujane"
+LANG_GERMAN         "Toujane spielen"
+
+REFERENCE           SPLIT_SCREEN
+LANG_ENGLISH        "Split Screen"
+LANG_GERMAN         "Geteilter Bildschirm"
+
+REFERENCE           START_GAME
+LANG_ENGLISH        "Start Game"
+LANG_GERMAN         "Spiel starten"
+
+REFERENCE           JOIN_GAME
+LANG_ENGLISH        "Join Game"
+LANG_GERMAN         "Spiel beitreten"
+
+REFERENCE           CYCLE_ITEMS
+LANG_ENGLISH        "Cycle Items:  "
+LANG_GERMAN         "Gegenstand wechseln:"
+
+REFERENCE           USE_ITEM
+LANG_ENGLISH        "Use Item:  "
+LANG_GERMAN         "Gegenstand verwenden:"
+
+REFERENCE           HOLD_BREATH
+LANG_ENGLISH        "Hold Breath"
+LANG_GERMAN         "Atem anhalten"
+
+REFERENCE           MELEE_BREATH
+LANG_ENGLISH        "Melee/Hold Breath"
+LANG_GERMAN         "Nahkampf/Atem anhalten"
+
+REFERENCE           VOICECHAT
+LANG_ENGLISH        "Voice Chat"
+LANG_GERMAN         "Sprach-Chat"
+
+REFERENCE           VOICECHAT_RECORD_LEVEL
+LANG_ENGLISH        "Record Level"
+LANG_GERMAN         "Aufnahmepegel"
+
+REFERENCE           VOICECHAT_LEVEL_ADJUST
+LANG_ENGLISH        "Level Adjust"
+LANG_GERMAN         "Pegelanpassung"
+
+REFERENCE           VOICECHAT_LEVEL_INDICATOR
+LANG_ENGLISH        "Level Indicator"
+LANG_GERMAN         "Pegelanzeige"
+
+REFERENCE           MULTIPLAYER_OPTIONS_HEADING
+LANG_ENGLISH        "Multiplayer Options"
+LANG_GERMAN         "Mehrspieler-Optionen"
+
+REFERENCE           VOICE
+LANG_ENGLISH        "Voice"
+LANG_GERMAN         "Sprache"
+
+REFERENCE           VOICE_CHAT_BUTTON
+LANG_ENGLISH        "Voice Chat"
+LANG_GERMAN         "Sprach-Chat"
+
+REFERENCE           VOICE_CHAT_ENABLE
+LANG_ENGLISH        "Voice Chat:"
+LANG_GERMAN         "Sprach-Chat:"
+
+REFERENCE           CAMPAIGN
+LANG_ENGLISH        "Campaign"
+LANG_GERMAN         "Kampagne"
+
+REFERENCE           LOOK_SENSITIVITY
+LANG_ENGLISH        "Look Sensitivity"
+LANG_GERMAN         "Sichtempfindlichkeit"
+
+REFERENCE           VERY_HIGH
+LANG_ENGLISH        "Very High"
+LANG_GERMAN         "Sehr hoch"
+
+REFERENCE           LOOK_INVERSION
+LANG_ENGLISH        "Look Inversion"
+LANG_GERMAN         "Sichtumkehrung"
+
+REFERENCE           ENABLED
+LANG_ENGLISH        "Enabled"
+LANG_GERMAN         "Aktiviert"
+
+REFERENCE           ENABLED_DEFAULT
+LANG_ENGLISH        "Enabled (Default)"
+LANG_GERMAN         "Aktiviert (Standard)"
+
+REFERENCE           DISABLED
+LANG_ENGLISH        "Disabled"
+LANG_GERMAN         "Deaktiviert"
+
+REFERENCE           DISABLED_DEFAULT
+LANG_ENGLISH        "Disabled (Default)"
+LANG_GERMAN         "Deaktiviert (Standard)"
+
+REFERENCE           CONTROLLER_VIBRATION
+LANG_ENGLISH        "Controller Vibration"
+LANG_GERMAN         "Controller-Vibration"
+
+REFERENCE           THUMBSTICK_LAYOUT
+LANG_ENGLISH        "Stick Layout"
+LANG_GERMAN         "Stick-Belegung"
+
+REFERENCE           CLASSIC
+LANG_ENGLISH        "Classic"
+LANG_GERMAN         "Klassisch"
+
+REFERENCE           LEFTY
+LANG_ENGLISH        "Lefty"
+LANG_GERMAN         "Linkshänder"
+
+REFERENCE           FINEST_HOUR
+LANG_ENGLISH        "Finest Hour"
+LANG_GERMAN         "#same"
+
+REFERENCE           DIVER
+LANG_ENGLISH        "Diver"
+LANG_GERMAN         "Taucher"
+
+REFERENCE           BUTTON_LAYOUT
+LANG_ENGLISH        "Button Layout"
+LANG_GERMAN         "Controller-Belegung"
+
+REFERENCE           SOUTHPAW
+LANG_ENGLISH        "Southpaw"
+LANG_GERMAN         "Linkshänder"
+
+REFERENCE           LEGACY
+LANG_ENGLISH        "Legacy"
+LANG_GERMAN         "Vorgänger"
+
+REFERENCE           LEGACY_SOUTHPAW
+LANG_ENGLISH        "Legacy Southpaw"
+LANG_GERMAN         "Vorgänger - Linkshänder"
+
+REFERENCE           SYSTEM_LINK
+LANG_ENGLISH        "System Link"
+LANG_GERMAN         "#same"
+
+REFERENCE           JOIN_GAME1
+LANG_ENGLISH        "Join Game"
+LANG_GERMAN         "Spiel beitreten"
+
+REFERENCE           CREATE_GAME
+LANG_ENGLISH        "Create Game"
+LANG_GERMAN         "Spiel erstellen"
+
+REFERENCE           SOVIETS
+LANG_ENGLISH        "Soviets"
+LANG_GERMAN         "Russen"
+
+REFERENCE           AMERICANS
+LANG_ENGLISH        "Americans"
+LANG_GERMAN         "Amerikaner"
+
+REFERENCE           SELECT_NEXT_MISSION
+LANG_ENGLISH        "Select Next Mission"
+LANG_GERMAN         "Nächste Mission wählen"
+
+REFERENCE           1941
+LANG_ENGLISH        "1941"
+LANG_GERMAN         "#same"
+
+REFERENCE           1942
+LANG_ENGLISH        "1942"
+LANG_GERMAN         "#same"
+
+REFERENCE           1943
+LANG_ENGLISH        "1943"
+LANG_GERMAN         "#same"
+
+REFERENCE           1944
+LANG_ENGLISH        "1944"
+LANG_GERMAN         "#same"
+
+REFERENCE           1945
+LANG_ENGLISH        "1945"
+LANG_GERMAN         "#same"
+
+REFERENCE           COMPLETED
+LANG_ENGLISH        "Completed"
+LANG_GERMAN         "Abgeschlossen"
+
+REFERENCE           LOCKED
+LANG_ENGLISH        "Locked"
+LANG_GERMAN         "Gesperrt"
+
+REFERENCE           UNLOCK
+LANG_ENGLISH        "Unlock"
+LANG_GERMAN         "Freisch."
+
+REFERENCE           RESET
+LANG_ENGLISH        "Reset"
+LANG_GERMAN         "Standard"
+
+REFERENCE           LOAD_MISSION
+LANG_ENGLISH        "Load Mission?"
+LANG_GERMAN         "Mission laden?"
+
+REFERENCE           STATUS
+LANG_ENGLISH        "Status:"
+LANG_GERMAN         "#same"
+
+REFERENCE           NOT_STARTED
+LANG_ENGLISH        "Not Started"
+LANG_GERMAN         "Nicht gestartet"
+
+REFERENCE           IN_PROGRESS
+LANG_ENGLISH        "In Progress"
+LANG_GERMAN         "Läuft"
+
+REFERENCE           COMPLETED_GREENHORN
+LANG_ENGLISH        "Completed Greenhorn"
+LANG_GERMAN         "Grünschnabel abgeschlossen"
+
+REFERENCE           COMPLETED_REGULAR
+LANG_ENGLISH        "Completed Regular"
+LANG_GERMAN         "Soldat abgeschlossen"
+
+REFERENCE           COMPLETED_HARDENED
+LANG_ENGLISH        "Completed Hardened"
+LANG_GERMAN         "Söldner abgeschlossen"
+
+REFERENCE           COMPLETED_VETERAN
+LANG_ENGLISH        "Completed Veteran"
+LANG_GERMAN         "Veteran abgeschlossen"
+
+REFERENCE           ASPECT_RATIO
+LANG_ENGLISH        "Aspect Ratio"
+LANG_GERMAN         "Bildformat"
+
+REFERENCE           TEXTURE_RESOLUTION
+LANG_ENGLISH        "Texture Resolution"
+LANG_GERMAN         "Texturauflösung"
+
+REFERENCE           NORMAL_MAP_RESOLUTION
+LANG_ENGLISH        "Normal Map Resolution"
+LANG_GERMAN         "Normale Kartenauflösung"
+
+REFERENCE           SPECULAR_MAP_RESOLUTION
+LANG_ENGLISH        "Specular Map Resolution"
+LANG_GERMAN         "Spekular-Kartenauflösung"
+
+REFERENCE           VERY_LOW
+LANG_ENGLISH        "Very Low"
+LANG_GERMAN         "Sehr gering"
+
+REFERENCE           AUTO
+LANG_ENGLISH        "Auto"
+LANG_GERMAN         "Automatisch"
+
+REFERENCE           STANDARD
+LANG_ENGLISH        "Standard"
+LANG_GERMAN         "#same"
+
+REFERENCE           WIDE_16_9
+LANG_ENGLISH        "Wide 16:9"
+LANG_GERMAN         "16:9"
+
+REFERENCE           WIDE_16_10
+LANG_ENGLISH        "Wide 16:10"
+LANG_GERMAN         "16:10"
+
+REFERENCE           MENU_COULDNT_BE_FOUND
+LANG_ENGLISH        "Menu couldn't be found!"
+LANG_GERMAN         "Menü konnte nicht gefunden werden!"
+
+REFERENCE           STANCE_UP_JUMP
+LANG_ENGLISH        "Stance Up/Jump"
+LANG_GERMAN         "Eine Haltung hoch/Sprung"
+
+REFERENCE           USE_RELOAD
+LANG_ENGLISH        "Use/Reload"
+LANG_GERMAN         "Benutzen/Nachladen"
+
+REFERENCE           SWITCH_WEAPON
+LANG_ENGLISH        "Switch Weapon"
+LANG_GERMAN         "Waffe wechseln"
+
+REFERENCE           THROW_GRENADE
+LANG_ENGLISH        "Throw Grenade"
+LANG_GERMAN         "Granate werfen"
+
+REFERENCE           CHANGE_GRENADE_TYPE
+LANG_ENGLISH        "Change Grenade Type"
+LANG_GERMAN         "Granatentyp wechseln"
+
+REFERENCE           AIM_DOWN_SIGHT
+LANG_ENGLISH        "Aim Down Sight"
+LANG_GERMAN         "Zielvorrichtung"
+
+REFERENCE           FIRE_WEAPON
+LANG_ENGLISH        "Fire Weapon"
+LANG_GERMAN         "Waffe feuern"
+
+REFERENCE           OBJECTIVES_MENU
+LANG_ENGLISH        "Objectives/Menu"
+LANG_GERMAN         "Ziele/Menü"
+
+REFERENCE           CHANGE_DIFFICULTY
+LANG_ENGLISH        "Change Difficulty"
+LANG_GERMAN         "Schwierigkeit ändern"
+
+REFERENCE           RIGHT
+LANG_ENGLISH        "Right"
+LANG_GERMAN         "Rechts"
+
+REFERENCE           MOVE_FORWARD
+LANG_ENGLISH        "Move Forward"
+LANG_GERMAN         "Vorwärts"
+
+REFERENCE           ROTATE_LEFT_RIGHT
+LANG_ENGLISH        "Rotate Left/Right"
+LANG_GERMAN         "Links/rechts drehen"
+
+REFERENCE           MOVE_BACK
+LANG_ENGLISH        "Move Back"
+LANG_GERMAN         "Rückwärts"
+
+REFERENCE           STRAFE_LEFT_RIGHT
+LANG_ENGLISH        "Strafe Left/Right"
+LANG_GERMAN         "Seitlich links/rechts"
+
+REFERENCE           WAITING_FOR_MORE_PLAYERS
+LANG_ENGLISH        "Waiting for more players"
+LANG_GERMAN         "Warten auf weitere Spieler ..."
+
+REFERENCE           MATCH_BEGINNING_IN
+LANG_ENGLISH        "Match beginning in:"
+LANG_GERMAN         "Spiel beginnt in:"
+
+REFERENCE           XBOX_LIVE
+LANG_ENGLISH        "Xbox Live"
+LANG_GERMAN         "#same"
+
+REFERENCE           XBOX_LIVE_LOBBY
+LANG_ENGLISH        "Xbox Live Lobby"
+LANG_GERMAN         "Xbox Live-Lobby"
+
+REFERENCE           QUICK_MATCH_STANDARD
+LANG_ENGLISH        "Quick Match: Standard"
+LANG_GERMAN         "Schnelles Spiel: Standard"
+
+REFERENCE           PLAY_A_QUICK_MATCH_WHICH_WILL_NOT_AFFECT_YOUR_RANK
+LANG_ENGLISH        "Play a Quick Match which will not affect your Rank"
+LANG_GERMAN         "Schnelles Spiel, ohne dass Ihr Rang beeinflusst wird"
+
+REFERENCE           QUICK_MATCH_RANKED
+LANG_ENGLISH        "Quick Match: Ranked"
+LANG_GERMAN         "Schnelles Spiel: Rangliste"
+
+REFERENCE           PLAY_A_QUICK_MATCH_WHICH_WILL_AFFECT_YOUR_RANK
+LANG_ENGLISH        "Play a Quick Match which will affect your Rank"
+LANG_GERMAN         "Schnelles Spiel, wobei Ihr Rang beeinflusst wird"
+
+REFERENCE           CUSTOM_MATCH_STANDARD
+LANG_ENGLISH        "Custom Match: Standard"
+LANG_GERMAN         "Benutzerdefiniertes Spiel: Standard"
+
+REFERENCE           PLAY_A_CUSTOM_MATCH_WHICH_WILL_NOT_AFFECT_YOUR_RANK
+LANG_ENGLISH        "Play a Custom Match which will not affect your Rank"
+LANG_GERMAN         "Benutzerdefiniertes Spiel, ohne dass Ihr Rang beeinflusst wird"
+
+REFERENCE           CUSTOM_MATCH_RANKED
+LANG_ENGLISH        "Custom Match: Ranked"
+LANG_GERMAN         "Benutzerdefiniertes Spiel: Rangliste"
+
+REFERENCE           PLAY_A_CUSTOM_MATCH_WHICH_WILL_AFFECT_YOUR_RANK
+LANG_ENGLISH        "Play a Custom Match which will affect your Rank"
+LANG_GERMAN         "Benutzerdefiniertes Spiel, wobei Ihr Rang beeinflusst wird"
+
+REFERENCE           TIME_LIMIT1
+LANG_ENGLISH        "Time Limit"
+LANG_GERMAN         "Zeitlimit"
+
+REFERENCE           2_MINUTES
+LANG_ENGLISH        "2 Minutes"
+LANG_GERMAN         "2 Minuten"
+
+REFERENCE           3_MINUTES
+LANG_ENGLISH        "3 Minutes"
+LANG_GERMAN         "3 Minuten"
+
+REFERENCE           4_MINUTES
+LANG_ENGLISH        "4 Minutes"
+LANG_GERMAN         "4 Minuten"
+
+REFERENCE           4_MINUTES_DEFAULT
+LANG_ENGLISH        "4 Minutes (Default)"
+LANG_GERMAN         "4 Minuten (Standard)"
+
+REFERENCE           5_MINUTES
+LANG_ENGLISH        "5 Minutes"
+LANG_GERMAN         "5 Minuten"
+
+REFERENCE           10_MINUTES
+LANG_ENGLISH        "10 Minutes"
+LANG_GERMAN         "10 Minuten"
+
+REFERENCE           15_MINUTES
+LANG_ENGLISH        "15 Minutes"
+LANG_GERMAN         "15 Minuten"
+
+REFERENCE           15_MINUTES_DEFAULT
+LANG_ENGLISH        "15 Minutes (Default)"
+LANG_GERMAN         "15 Minuten (Standard)"
+
+REFERENCE           30_MINUTES
+LANG_ENGLISH        "30 Minutes"
+LANG_GERMAN         "30 Minuten"
+
+REFERENCE           30_MINUTES_DEFAULT
+LANG_ENGLISH        "30 Minutes (Default)"
+LANG_GERMAN         "30 Minuten (Standard)"
+
+REFERENCE           45_MINUTES
+LANG_ENGLISH        "45 Minutes"
+LANG_GERMAN         "45 Minuten"
+
+REFERENCE           1_HOUR
+LANG_ENGLISH        "1 Hour"
+LANG_GERMAN         "1 Stunde"
+
+REFERENCE           SCORE_LIMIT
+LANG_ENGLISH        "Score Limit"
+LANG_GERMAN         "Punktlimit"
+
+REFERENCE           5_POINTS
+LANG_ENGLISH        "5 Points"
+LANG_GERMAN         "5 Punkte"
+
+REFERENCE           5_POINTS_DEFAULT
+LANG_ENGLISH        "5 Points (Default)"
+LANG_GERMAN         "5 Punkte (Standard)"
+
+REFERENCE           10_POINTS
+LANG_ENGLISH        "10 Points"
+LANG_GERMAN         "10 Punkte"
+
+REFERENCE           10_POINTS_DEFAULT
+LANG_ENGLISH        "10 Points (Default)"
+LANG_GERMAN         "10 Punkte (Standard)"
+
+REFERENCE           15_POINTS
+LANG_ENGLISH        "15 Points"
+LANG_GERMAN         "15 Punkte"
+
+REFERENCE           20_POINTS
+LANG_ENGLISH        "20 Points"
+LANG_GERMAN         "20 Punkte"
+
+REFERENCE           25_POINTS
+LANG_ENGLISH        "25 Points"
+LANG_GERMAN         "25 Punkte"
+
+REFERENCE           25_POINTS_DEFAULT
+LANG_ENGLISH        "25 Points (Default)"
+LANG_GERMAN         "25 Punkte (Standard)"
+
+REFERENCE           30_POINTS
+LANG_ENGLISH        "30 Points"
+LANG_GERMAN         "30 Punkte"
+
+REFERENCE           50_POINTS
+LANG_ENGLISH        "50 Points"
+LANG_GERMAN         "50 Punkte"
+
+REFERENCE           50_POINTS_DEFAULT
+LANG_ENGLISH        "50 Points (Default)"
+LANG_GERMAN         "50 Punkte (Standard)"
+
+REFERENCE           100_POINTS
+LANG_ENGLISH        "100 Points"
+LANG_GERMAN         "100 Punkte"
+
+REFERENCE           100_POINTS_DEFAULT
+LANG_ENGLISH        "100 Points (Default)"
+LANG_GERMAN         "100 Punkte (Standard)"
+
+REFERENCE           200_POINTS
+LANG_ENGLISH        "200 Points"
+LANG_GERMAN         "200 Punkte"
+
+REFERENCE           300_POINTS
+LANG_ENGLISH        "300 Points"
+LANG_GERMAN         "300 Punkte"
+
+REFERENCE           300_POINTS_DEFAULT
+LANG_ENGLISH        "300 Points (Default)"
+LANG_GERMAN         "300 Punkte (Standard)"
+
+REFERENCE           400_POINTS
+LANG_ENGLISH        "400 Points"
+LANG_GERMAN         "400 Punkte"
+
+REFERENCE           400_POINTS_DEFAULT
+LANG_ENGLISH        "400 Points (Default)"
+LANG_GERMAN         "400 Punkte (Standard)"
+
+REFERENCE           450_POINTS
+LANG_ENGLISH        "450 Points"
+LANG_GERMAN         "450 Punkte"
+
+REFERENCE           450_POINTS_DEFAULT
+LANG_ENGLISH        "450 Points (Default)"
+LANG_GERMAN         "450 Punkte (Standard)"
+
+REFERENCE           600_POINTS
+LANG_ENGLISH        "600 Points"
+LANG_GERMAN         "600 Punkte"
+
+REFERENCE           600_POINTS_DEFAULT
+LANG_ENGLISH        "600 Points (Default)"
+LANG_GERMAN         "600 Punkte (Standard)"
+
+REFERENCE           800_POINTS
+LANG_ENGLISH        "800 Points"
+LANG_GERMAN         "800 Punkte"
+
+REFERENCE           1000_POINTS
+LANG_ENGLISH        "1000 Points"
+LANG_GERMAN         "1000 Punkte"
+
+REFERENCE           SIGN_IN
+LANG_ENGLISH        "Sign In"
+LANG_GERMAN         "Anmelden"
+
+REFERENCE           QUICK_OPTIONS
+LANG_ENGLISH        "Quick Options"
+LANG_GERMAN         "Schnelloptionen"
+
+REFERENCE           5_ROUNDS
+LANG_ENGLISH        "5 Rounds"
+LANG_GERMAN         "5 Runden"
+
+REFERENCE           10_ROUNDS
+LANG_ENGLISH        "10 Rounds"
+LANG_GERMAN         "10 Runden"
+
+REFERENCE           15_ROUNDS
+LANG_ENGLISH        "15 Rounds"
+LANG_GERMAN         "15 Runden"
+
+REFERENCE           20_ROUNDS
+LANG_ENGLISH        "20 Rounds"
+LANG_GERMAN         "20 Runden"
+
+REFERENCE           ROUND_LENGTH1
+LANG_ENGLISH        "Round Length"
+LANG_GERMAN         "Rundenlänge"
+
+REFERENCE           ROUND_LIMIT1
+LANG_ENGLISH        "Round Limit"
+LANG_GERMAN         "Rundenlimit"
+
+REFERENCE           PLAYERS
+LANG_ENGLISH        "Players"
+LANG_GERMAN         "Spieler"
+
+REFERENCE           MODIFIERS
+LANG_ENGLISH        "Modifiers"
+LANG_GERMAN         "Modifikatoren"
+
+REFERENCE           MAPS
+LANG_ENGLISH        "Maps"
+LANG_GERMAN         "Karten"
+
+REFERENCE           RANDOM
+LANG_ENGLISH        "Random"
+LANG_GERMAN         "Zufall"
+
+REFERENCE           BELTOT_FRANCE
+LANG_ENGLISH        "Beltot, France"
+LANG_GERMAN         "Beltot, Frankreich"
+
+REFERENCE           BRECOURT_FRANCE
+LANG_ENGLISH        "Brecourt, France"
+LANG_GERMAN         "Brecourt, Frankreich"
+
+REFERENCE           BURGUNDY_FRANCE
+LANG_ENGLISH        "Burgundy, France"
+LANG_GERMAN         "Burgund, Frankreich"
+
+REFERENCE           CARENTAN_FRANCE
+LANG_ENGLISH        "Carentan, France"
+LANG_GERMAN         "Carentan, Frankreich"
+
+REFERENCE           NORTHERN_CAEN_FRANCE
+LANG_ENGLISH        "Northern Caen, France"
+LANG_GERMAN         "Nord-Caen, Frankreich"
+
+REFERENCE           CAEN_FRANCE
+LANG_ENGLISH        "Caen, France"
+LANG_GERMAN         "Caen, Frankreich"
+
+REFERENCE           ST_MERE_EGLISE_FRANCE
+LANG_ENGLISH        "St. Mere Eglise, France"
+LANG_GERMAN         "Ste-Mère-Eglise, Frankreich"
+
+REFERENCE           MATMATA_TUNISIA
+LANG_ENGLISH        "Matmata, Tunisia"
+LANG_GERMAN         "Matmata, Tunesien"
+
+REFERENCE           TOUJANE_TUNISIA
+LANG_ENGLISH        "Toujane, Tunisia"
+LANG_GERMAN         "Toujane, Tunesien"
+
+REFERENCE           EL_ALAMEIN_EGYPT
+LANG_ENGLISH        "El Alamein, Egypt"
+LANG_GERMAN         "El-Alamein, Ägypten"
+
+REFERENCE           LENINGRAD_RUSSIA
+LANG_ENGLISH        "Leningrad, Russia"
+LANG_GERMAN         "Leningrad, Russland"
+
+REFERENCE           MOSCOW_RUSSIA
+LANG_ENGLISH        "Moscow, Russia"
+LANG_GERMAN         "Moskau, Russland"
+
+REFERENCE           STALINGRAD_RUSSIA
+LANG_ENGLISH        "Stalingrad, Russia"
+LANG_GERMAN         "Stalingrad, Russland"
+
+REFERENCE           VILLERSBOCAGE_FRANCE
+LANG_ENGLISH        "Villers-Bocage, France"
+LANG_GERMAN         "Villers-Bocage, Frankreich"
+
+REFERENCE           BELTOT_FRANCE_MP
+LANG_ENGLISH        "Beltot, France"
+LANG_GERMAN         "Beltot, Frankreich"
+
+REFERENCE           BRECOURT_FRANCE_MP
+LANG_ENGLISH        "Brecourt, France"
+LANG_GERMAN         "Brecourt, Frankreich"
+
+REFERENCE           BURGUNDY_FRANCE_MP
+LANG_ENGLISH        "Burgundy, France"
+LANG_GERMAN         "Burgund, Frankreich"
+
+REFERENCE           CARENTAN_FRANCE_MP
+LANG_ENGLISH        "Carentan, France"
+LANG_GERMAN         "Carentan, Frankreich"
+
+REFERENCE           NORTHERN_CAEN_FRANCE_MP
+LANG_ENGLISH        "Northern Caen, France"
+LANG_GERMAN         "Nord-Caen, Frankreich"
+
+REFERENCE           CAEN_FRANCE_MP
+LANG_ENGLISH        "Caen, France"
+LANG_GERMAN         "Caen, Frankreich"
+
+REFERENCE           ST_MERE_EGLISE_FRANCE_MP
+LANG_ENGLISH        "St. Mere Eglise, France"
+LANG_GERMAN         "Ste-Mère-Eglise, Frankreich"
+
+REFERENCE           MATMATA_TUNISIA_MP
+LANG_ENGLISH        "Matmata, Tunisia"
+LANG_GERMAN         "Matmata, Tunesien"
+
+REFERENCE           TOUJANE_TUNISIA_MP
+LANG_ENGLISH        "Toujane, Tunisia"
+LANG_GERMAN         "Toujane, Tunesien"
+
+REFERENCE           EL_ALAMEIN_EGYPT_MP
+LANG_ENGLISH        "El Alamein, Egypt"
+LANG_GERMAN         "El-Alamein, Ägypten"
+
+REFERENCE           LENINGRAD_RUSSIA_MP
+LANG_ENGLISH        "Leningrad, Russia"
+LANG_GERMAN         "Leningrad, Russland"
+
+REFERENCE           MOSCOW_RUSSIA_MP
+LANG_ENGLISH        "Moscow, Russia"
+LANG_GERMAN         "Moskau, Russland"
+
+REFERENCE           STALINGRAD_RUSSIA_MP
+LANG_ENGLISH        "Stalingrad, Russia"
+LANG_GERMAN         "Stalingrad, Russland"
+
+REFERENCE           VILLERSBOCAGE_FRANCE_MP
+LANG_ENGLISH        "Villers-Bocage, France"
+LANG_GERMAN         "Villers-Bocage, Frankreich"
+
+REFERENCE           GAME_TYPES
+LANG_ENGLISH        "Game Types"
+LANG_GERMAN         "Spieltypen"
+
+REFERENCE           A_GAME_TYPE_WILL_BE_SELECTED_AT_RANDOM
+LANG_ENGLISH        "A game type will be selected at random."
+LANG_GERMAN         "Es wird ein zufälliger Spieltyp ausgewählt."
+
+REFERENCE           DEATHMATCH
+LANG_ENGLISH        "Deathmatch"
+LANG_GERMAN         "#same"
+
+REFERENCE           YOU_ARE_ALL_ALONE_ELIMINATE_EVERYONE_ELSE
+LANG_ENGLISH        "You are all alone.  Eliminate everyone else."
+LANG_GERMAN         "Sie sind auf sich allein gestellt. Schalten Sie alle anderen aus."
+
+REFERENCE           TEAM_DEATHMATCH
+LANG_ENGLISH        "Team Deathmatch"
+LANG_GERMAN         "Team-Deathmatch"
+
+REFERENCE           AXIS_VS_ALLIES_ELIMINATE_THE_ENEMY_TEAM
+LANG_ENGLISH        "Axis vs. Allies.  Eliminate the enemy team."
+LANG_GERMAN         "Die Achsenmächte gegen die Alliierten. Schalten Sie das gegnerische Team aus."
+
+REFERENCE           CAPTURE_THE_FLAG
+LANG_ENGLISH        "Capture the Flag"
+LANG_GERMAN         "#same"
+
+REFERENCE           CTF_DESC
+LANG_ENGLISH        "Get the enemy flag while defending your flag.  Touching your flag while holding the enemy flag is a capture."
+LANG_GERMAN         "Erobern Sie die feindliche Flagge und verteidigen Sie Ihre. Berühren Sie Ihre eigene Flagge, wenn Sie die feindliche Flagge haben, gilt dies als Eroberung."
+
+REFERENCE           HEADQUARTERS
+LANG_ENGLISH        "Headquarters"
+LANG_GERMAN         "Hauptquartier"
+
+REFERENCE           HQ_DESC
+LANG_ENGLISH        "Teams race to set up a radio and defend it for points.  If the enemy team sets up a radio, you must destroy it."
+LANG_GERMAN         "Die Teams versuchen, als erstes ein Funkgerät aufzustellen und so Punkte zu sammeln. Gelingt dies dem anderen Team, müssen Sie es zerstören."
+
+REFERENCE           SEARCH_AND_DESTROY
+LANG_ENGLISH        "Search and Destroy"
+LANG_GERMAN         "Suchen und Zerstören"
+
+REFERENCE           SD_DESC
+LANG_ENGLISH        "The Allies try to destroy Axis held objectives by planting explosives.  Axis must defuse the explosives if they are planted."
+LANG_GERMAN         "Die Alliierten versuchen, von den Achsenmächten besetzte Ziele mit Sprengladungen zu zerstören. Die Achsenmächte müssen alle platzierten Ladungen entschärfen."
+
+REFERENCE           CUSTOM_MATCH
+LANG_ENGLISH        "Custom Match"
+LANG_GERMAN         "Benutzerdefiniertes Spiel"
+
+REFERENCE           START_GAME_LOBBY
+LANG_ENGLISH        "Start Game Lobby"
+LANG_GERMAN         "Spiel-Lobby starten"
+
+REFERENCE           CHANGE_GAME_TYPE
+LANG_ENGLISH        "Change Game Type"
+LANG_GERMAN         "Spieltyp ändern"
+
+REFERENCE           GAME_SETUP
+LANG_ENGLISH        "Game Setup"
+LANG_GERMAN         "Spiel-Setup"
+
+REFERENCE           LOCATION
+LANG_ENGLISH        "Location:"
+LANG_GERMAN         "Ort:"
+
+REFERENCE           APPLY_SETTINGS
+LANG_ENGLISH        "Apply Settings?"
+LANG_GERMAN         "Einstellungen übernehmen?"
+
+REFERENCE           SETTINGS_WILL_BE_APPLIED_NEXT_TIME
+LANG_ENGLISH        "Settings will be applied next time"
+LANG_GERMAN         "Die Einstellungen werden beim nächsten"
+
+REFERENCE           THE_SERVER_IS_STARTED
+LANG_ENGLISH        "the game is started."
+LANG_GERMAN         "Starten des Spiels übernonommen."
+
+REFERENCE           VOICE_CHAT_WILL_BE_DISABLED_BECAUSE
+LANG_ENGLISH        "Voice chat will be disabled because"
+LANG_GERMAN         "Der Sprach-Chat wurde deaktiviert, weil "
+
+REFERENCE           YOUR_NETWORK_SETTINGS
+LANG_ENGLISH        "your network settings"
+LANG_GERMAN         "Ihre Netzwerkeinstellungen"
+
+REFERENCE           ARE_TOO_LOW_TO_SUPPORT_VOICE_CHAT
+LANG_ENGLISH        "are too low to support voice chat."
+LANG_GERMAN         "für den Sprach-Chat zu schlecht sind."
+
+REFERENCE           VOICE_CHAT
+LANG_ENGLISH        "Voice Chat"
+LANG_GERMAN         "Sprach-Chat"
+
+REFERENCE           CHANGE_WEAPON
+LANG_ENGLISH        "Change Weapon"
+LANG_GERMAN         "Waffe ändern"
+
+REFERENCE           APPLY_LANGUAGE_SETTINGS
+LANG_ENGLISH        "Apply Language Settings?"
+LANG_GERMAN         "Spracheinstellung übernehmen?"
+
+REFERENCE           THE_WINTER_WAR
+LANG_ENGLISH        "The Winter War"
+LANG_GERMAN         "Der Krieg im Winter"
+
+REFERENCE           MISSION_01_LOCATION
+LANG_ENGLISH        "Near Moscow, U.S.S.R. - 1941"
+LANG_GERMAN         "Nahe Moskau, U.D.S.S.R. - 1941"
+
+REFERENCE           MISSION_01_01_TITLE
+LANG_ENGLISH        "Red Army Training"
+LANG_GERMAN         "Training der Roten Armee"
+
+REFERENCE           MISSION_01_01_DESC
+LANG_ENGLISH        "Learn how to fight for the Motherland."
+LANG_GERMAN         "Lernen Sie, für Mütterchen Russland zu kämpfen."
+
+REFERENCE           MISSION_01_02
+LANG_ENGLISH        "Demolition"
+LANG_GERMAN         "Demolierung"
+
+REFERENCE           MISSION_01_02_DESC
+LANG_ENGLISH        "Repel the enemy assault and demolish their hardpoint."
+LANG_GERMAN         "Wehren Sie den feindlichen Angriff ab und zerstören Sie die befestigte Stellung."
+
+REFERENCE           MISSION_02
+LANG_ENGLISH        "The Battle of El Alamein"
+LANG_GERMAN         "Die Schlacht von El-Alamein"
+
+REFERENCE           MISSION_02_LOCATION
+LANG_ENGLISH        "Northern Egypt - 1942"
+LANG_GERMAN         "Nordägypten - 1942"
+
+REFERENCE           MISSION_02_01_TITLE
+LANG_ENGLISH        "The Diversionary Raid"
+LANG_GERMAN         "Die Ablenkung"
+
+REFERENCE           MISSION_02_01_DESC
+LANG_ENGLISH        "Rush the trenches and raid the enemy supply depot."
+LANG_GERMAN         "Rücken Sie schnell durch die Gräben vor und überfallen Sie das feindliche Versorgungslager."
+
+REFERENCE           MISSION_02_02_TITLE
+LANG_ENGLISH        "Holding the Line"
+LANG_GERMAN         "Die Linie halten"
+
+REFERENCE           MISSION_02_02_DESC
+LANG_ENGLISH        "Defend a small desert village on the British line south of El Alamein."
+LANG_GERMAN         "Verteidigen Sie eine kleine Wüstensiedlung auf der britischen Linie südlich von El-Alamein."
+
+REFERENCE           MISSION_02_03_TITLE
+LANG_ENGLISH        "Operation Supercharge"
+LANG_GERMAN         "#same"
+
+REFERENCE           MISSION_02_03_DESC
+LANG_ENGLISH        "Assist your tanks in breaking through the Alamein line."
+LANG_GERMAN         "Helfen Sie den Panzern, die Linie von El-Alamein zu durchbrechen."
+
+REFERENCE           MISSION_02_04_TITLE
+LANG_ENGLISH        "The End of the Beginning"
+LANG_GERMAN         "Das Ende des Anfangs"
+
+REFERENCE           MISSION_02_04_DESC
+LANG_ENGLISH        "Capture the town of El Daba on the Mediterranean coast."
+LANG_GERMAN         "Nehmen Sie die Stadt El Daba an der Mittelmeerküste ein."
+
+REFERENCE           MISSION_03_TITLE
+LANG_ENGLISH        ""Not One Step Backwards!""
+LANG_GERMAN         "Nicht einen Schritt zurück!"
+
+REFERENCE           MISSION_03_LOCATION
+LANG_ENGLISH        "Stalingrad, U.S.S.R. - 1942"
+LANG_GERMAN         "Stalingrad, U.D.S.S.R. - 1942"
+
+REFERENCE           MISSION_03_01_TITLE
+LANG_ENGLISH        "Repairing the Wire"
+LANG_GERMAN         "Telefonkabel-Reparatur"
+
+REFERENCE           MISSION_03_LEVEL_01_DESC
+LANG_ENGLISH        "Repair the severed field phone line and destroy enemy tanks with sticky bombs."
+LANG_GERMAN         "Reparieren Sie die gerissene Telefonleitung und zerstören Sie feindliche Panzer mit Haftbomben."
+
+REFERENCE           MISSION_03_LEVEL_02_TITLE
+LANG_ENGLISH        "Railroad Station No. 1"
+LANG_GERMAN         "Bahnstation Nr. 1"
+
+REFERENCE           MISSION_03_LEVEL_02_DESC
+LANG_ENGLISH        "Infiltrate via the pipeline and retake the trainyard."
+LANG_GERMAN         "Rücken Sie durch die Pipeline vor und erobern Sie das Bahngelände zurück."
+
+REFERENCE           MISSION_04_TITLE
+LANG_ENGLISH        "Fortress Stalingrad"
+LANG_GERMAN         "Festung Stalingrad"
+
+REFERENCE           MISSION_04_LOCATION
+LANG_ENGLISH        "Stalingrad, U.S.S.R. - 1943"
+LANG_GERMAN         "Stalingrad, U.D.S.S.R. - 1943"
+
+REFERENCE           MISSION_04_LEVEL_01_TITLE
+LANG_ENGLISH        "Downtown Assault"
+LANG_GERMAN         "Angriff auf die Innenstadt"
+
+REFERENCE           MISSION_04_LEVEL_01_DESC
+LANG_ENGLISH        "Retake a series of apartment blocks in the city, and then support an attack on the enemy supply depot."
+LANG_GERMAN         "Erobern Sie eine Reihe von Apartmentblocks in der Stadt zurück und unterstützen Sie einen Angriff auf das feindliche Versorgungslager."
+
+REFERENCE           MISSION_04_LEVEL_02_TITLE
+LANG_ENGLISH        "Stalingrad City Hall"
+LANG_GERMAN         "Rathaus von Stalingrad"
+
+REFERENCE           MISSION_04_LEVEL_02_DESC
+LANG_ENGLISH        "Fight through the streets to City Hall."
+LANG_GERMAN         "Kämpfen Sie sich durch die Straßen zum Rathaus vor."
+
+REFERENCE           MISSION_04_LEVEL_03_TITLE
+LANG_ENGLISH        "Comrade Sniper"
+LANG_GERMAN         "Genosse Scharfschütze"
+
+REFERENCE           MISSION_04_LEVEL_03_DESC
+LANG_ENGLISH        "Use a sniper rifle to support the defense of City Hall."
+LANG_GERMAN         "Benutzen Sie ein Scharfschützengewehr, um das Rathaus zu verteidigen."
+
+REFERENCE           MISSION_05_TITLE
+LANG_ENGLISH        "The Tank Squadrons"
+LANG_GERMAN         "Die Panzergeschwader"
+
+REFERENCE           MISSION_05_LOCATION
+LANG_ENGLISH        "Northeastern Libya - 1943"
+LANG_GERMAN         "Nordost-Libyen - 1943"
+
+REFERENCE           MISSION_05_LEVEL_01_TITLE
+LANG_ENGLISH        "Crusader Charge"
+LANG_GERMAN         "Crusader-Angriff"
+
+REFERENCE           MISSION_05_LEVEL_01_DESC
+LANG_ENGLISH        "Engage the superior tanks of the Afrika Korps in the Libyan desert."
+LANG_GERMAN         "Greifen Sie in der libyschen Wüste die überlegenen Panzer des Afrikakorps an."
+
+REFERENCE           MISSION_05_LEVEL_02_TITLE
+LANG_ENGLISH        ""88 Ridge""
+LANG_GERMAN         "88er-Kamm"
+
+REFERENCE           MISSION_05_LEVEL_02_DESC
+LANG_ENGLISH        "Outflank and destroy 88mm anti-tank guns on a desert ridge in Libya."
+LANG_GERMAN         "Flankieren und zerstören Sie 88mm-Panzerabwehrwaffen auf einem Wüstenkamm in Libyen."
+
+REFERENCE           MISSION_06_TITLE
+LANG_ENGLISH        "Rommel's Last Stand"
+LANG_GERMAN         "Das letzte Gefecht"
+
+REFERENCE           MISSION_06_LOCATION
+LANG_ENGLISH        "Central Tunisia - 1943"
+LANG_GERMAN         "Zentraltunesien - 1943"
+
+REFERENCE           MISSION_06_LEVEL_01_TITLE
+LANG_ENGLISH        "Armored Car Escape"
+LANG_GERMAN         "Flucht im Panzerwagen"
+
+REFERENCE           MISSION_06_LEVEL_01_DESC
+LANG_ENGLISH        "Withdraw from Toujane in a captured armored car."
+LANG_GERMAN         "Ziehen Sie sich in einem eroberten Panzerwagen aus Toujane zurück."
+
+REFERENCE           MISSION_06_LEVEL_02_TITLE
+LANG_ENGLISH        "Retaking Toujane"
+LANG_GERMAN         "Rückeroberung von Toujane"
+
+REFERENCE           MISSION_06_LEVEL_02_DESC
+LANG_ENGLISH        "Drive the Afrika Korps out of the town of Toujane."
+LANG_GERMAN         "Vertreiben Sie das Afrikakorps aus der Stadt Toujane."
+
+REFERENCE           MISSION_06_LEVEL_03_TITLE
+LANG_ENGLISH        "Assault on Matmata"
+LANG_GERMAN         "Angriff auf Matmata"
+
+REFERENCE           MISSION_06_LEVEL_03_DESC
+LANG_ENGLISH        "Secure the Matmata route to Tunis, and shoot down enemy planes using an anti-aircraft gun."
+LANG_GERMAN         "Sichern Sie die Matmata-Route nach Tunis und schießen Sie feindliche Flugzeuge mit einer Flugabwehrwaffe ab."
+
+REFERENCE           MISSION_07_TITLE
+LANG_ENGLISH        "D-Day"
+LANG_GERMAN         "#same"
+
+REFERENCE           MISSION_07_LOCATION
+LANG_ENGLISH        "Normandy, France - 1944"
+LANG_GERMAN         "Normandie, Frankreich - 1944"
+
+REFERENCE           MISSION_07_LEVEL_01_TITLE
+LANG_ENGLISH        "The Battle of Pointe du Hoc"
+LANG_GERMAN         "Die Schlacht von Pointe du Hoc"
+
+REFERENCE           MISSION_07_LEVEL_01_DESC
+LANG_ENGLISH        "Locate and destroy the coastal guns and secure the enemy held bunkers."
+LANG_GERMAN         "Finden und zerstören Sie die Küstengeschütze und sichern Sie die Bunker des Feindes."
+
+REFERENCE           MISSION_07_LEVEL_02_TITLE
+LANG_ENGLISH        "Defending the Pointe"
+LANG_GERMAN         "Die Verteidigung von Pointe"
+
+REFERENCE           NMISSION_07_LEVEL_02_DESC
+LANG_ENGLISH        "Repel a major counterattack at Pointe du Hoc."
+LANG_GERMAN         "Schlagen Sie einen großen Gegenangriff bei Pointe du Hoc zurück."
+
+REFERENCE           MISSION_07_LEVEL_03_TITLE
+LANG_ENGLISH        "The Silo"
+LANG_GERMAN         "Der Silo"
+
+REFERENCE           MISSION_07_LEVEL_03_DESC
+LANG_ENGLISH        "Capture the village, then snipe enemy mortar teams from the top of the destroyed silo during the counterattack."
+LANG_GERMAN         "Nehmen Sie das Dorf ein, schalten Sie dann als Scharfschütze die feindlichen Mörserteams von der Spitze des Silos beim Gegenangriff aus."
+
+REFERENCE           MISSION_08_TITLE
+LANG_ENGLISH        "The Battle for Caen"
+LANG_GERMAN         "Die Schlacht um Caen"
+
+REFERENCE           MISSION_08_LOCATION
+LANG_ENGLISH        "Normandy, France - 1944"
+LANG_GERMAN         "Normandie, Frankreich - 1944"
+
+REFERENCE           MISSION_08_LEVEL_01_TITLE
+LANG_ENGLISH        "Prisoners of War"
+LANG_GERMAN         "Kriegsgefangene"
+
+REFERENCE           MISSION_08_LEVEL_01_DESC
+LANG_ENGLISH        "Reconnoiter the town of Beltot and then obtain a truck to transport wounded Americans."
+LANG_GERMAN         "Kundschaften Sie die Stadt Beltot aus und beschaffen Sie sich einen Laster, um verwundete Amerikaner zu transportieren."
+
+REFERENCE           MISSION_08_LEVEL_02_TITLE
+LANG_ENGLISH        "The Crossroads"
+LANG_GERMAN         "Die Kreuzung"
+
+REFERENCE           MISSION_08_LEVEL_02_DESC
+LANG_ENGLISH        "Secure the crossroads at Anctoville and neutralize a German wireless station."
+LANG_GERMAN         "Sichern Sie die Kreuzung bei Anctoville und neutralisieren Sie eine deutsche Funkstation."
+
+REFERENCE           MISSION_08_LEVEL_03_TITLE
+LANG_ENGLISH        ""The Tiger""
+LANG_GERMAN         "Der Tiger"
+
+REFERENCE           MISSION_08_LEVEL_03_DESC
+LANG_ENGLISH        "Capture the town hall, church, post office, and German field HQ in the town of St. Louet. "
+LANG_GERMAN         "Nehmen Sie das Rathaus, die Kirche, die Post und das deutsche Feld-HQ in St. Louet ein."
+
+REFERENCE           MISSION_08_LEVEL_04_TITLE
+LANG_ENGLISH        ""The Brigade Box""
+LANG_GERMAN         "Die Brigade-Anweisung"
+
+REFERENCE           MISSION_08_LEVEL_04_DESC
+LANG_ENGLISH        "Capture a German field HQ, then repel the enemy counterattacks."
+LANG_GERMAN         "Besetzen Sie ein deutsches Feld-HQ und drängen Sie die feindlichen Gegenangriffe zurück."
+
+REFERENCE           MISSION_09_TITLE
+LANG_ENGLISH        "Hill 400"
+LANG_GERMAN         "Der Hügel"
+
+REFERENCE           MISSION_09_LOCATION
+LANG_ENGLISH        "Hurtgen Forest, Germany  - 1944"
+LANG_GERMAN         "Hürtgenwald, Deutschland  - 1944"
+
+REFERENCE           MISSION_09_LEVEL_01_TITLE
+LANG_ENGLISH        "Bergstein"
+LANG_GERMAN         "#same"
+
+REFERENCE           MISSION_09_LEVEL_01_DESC
+LANG_ENGLISH        "Clear the town at the foot of Hill 400, room by room, house by house."
+LANG_GERMAN         "Räumen Sie die Stadt am Fuß des Hügels Raum für Raum, Haus für Haus."
+
+REFERENCE           MISSION_09_LEVEL_02_TITLE
+LANG_ENGLISH        ""Rangers Lead The Way""
+LANG_GERMAN         "Die Ranger übernehmen"
+
+REFERENCE           MISSION_09_LEVEL_02_DESC
+LANG_ENGLISH        "Fight your way to the top and eliminate the German forces holding the hill."
+LANG_GERMAN         "Kämpfen Sie sich nach oben vor und schalten Sie die Deutschen auf dem Hügel aus."
+
+REFERENCE           MISSION_09_LEVEL_03_TITLE
+LANG_ENGLISH        "The Battle for Hill 400"
+LANG_GERMAN         "Die Schlacht um den Hügel"
+
+REFERENCE           MISSION_09_LEVEL_03_DESC
+LANG_ENGLISH        "Repel multiple counterattacks at the top of Hill 400 until friendly forces arrive."
+LANG_GERMAN         "Schlagen Sie mehrere Gegenangriffe auf dem Hügel zurück, bis die Verbündeten eintreffen."
+
+REFERENCE           MISSION_10_TITLE
+LANG_ENGLISH        "Crossing the Rhine"
+LANG_GERMAN         "Die Rheinüberquerung"
+
+REFERENCE           MISSION_10_LOCATION
+LANG_ENGLISH        "Wallendar, Germany - 1945"
+LANG_GERMAN         "Vallendar, Deutschland - 1945"
+
+REFERENCE           MISSION_10_LEVEL_01_TITLE
+LANG_ENGLISH        "The Crossing Point"
+LANG_GERMAN         "Der Überquerungspunkt"
+
+REFERENCE           MISSION_10_LEVEL_01_DESC
+LANG_ENGLISH        "Capture the German town of Wallendar and secure a crossing point on the Rhine River for the Allies."
+LANG_GERMAN         "Nehmen Sie die deutsche Stadt Vallendar ein und sichern Sie einen Überquerungspunkt am Rhein für die Alliierten."
+
+REFERENCE           SELECT_LEVEL
+LANG_ENGLISH        "Select Level"
+LANG_GERMAN         "Level wählen"
+
+REFERENCE           BINOCULARS
+LANG_ENGLISH        "Binoculars"
+LANG_GERMAN         "Fernglas"
+
+REFERENCE           VETERAN_DESC
+LANG_ENGLISH        "You will not survive."
+LANG_GERMAN         "Sie werden nicht überleben!"
+
+REFERENCE           SKILLED
+LANG_ENGLISH        "Skilled"
+LANG_GERMAN         "Kämpfer"
+
+REFERENCE           REGULAR_DESC
+LANG_ENGLISH        "You will crush the German"
+LANG_GERMAN         "Sie werden die deutsche Kriegsmaschinerie"
+
+REFERENCE           SKILLED_DESC
+LANG_ENGLISH        "Your abilities in combat"
+LANG_GERMAN         "Ihre Kampffähigkeiten"
+
+REFERENCE           HARDENED_DESC
+LANG_ENGLISH        "Your skills will be strained."
+LANG_GERMAN         "Ihre Fähigkeiten werden strapaziert."
+
+REFERENCE           AIM_DOWN_THE_SIGHT_AUTOAIM
+LANG_ENGLISH        "Autoaim when Aiming Down the Sight"
+LANG_GERMAN         "Autozielen bei Zielvorrichtung"
+
+REFERENCE           DIFFICULTY_REGULAR
+LANG_ENGLISH        "Difficulty: Regular"
+LANG_GERMAN         "Schwierigkeit: Soldat"
+
+REFERENCE           DIFFICULTY_SKILLED
+LANG_ENGLISH        "Difficulty: Skilled"
+LANG_GERMAN         "Schwierigkeit: Kämpfer"
+
+REFERENCE           DIFFICULTY_HARDENED
+LANG_ENGLISH        "Difficulty: Hardened"
+LANG_GERMAN         "Schwierigkeit: Söldner"
+
+REFERENCE           DIFFICULTY_VETERAN
+LANG_ENGLISH        "Difficulty: Veteran"
+LANG_GERMAN         "Schwierigkeit: Veteran"
+
+REFERENCE           COMPLETED_SKILLED
+LANG_ENGLISH        "Completed Skilled"
+LANG_GERMAN         "Kämpfer abgeschlossen"
+
+REFERENCE           REGULAR_DESC_2
+LANG_ENGLISH        "war machine without difficulty."
+LANG_GERMAN         "ohne Schwierigkeiten besiegen."
+
+REFERENCE           SKILLED_DESC_2
+LANG_ENGLISH        "will be tested."
+LANG_GERMAN         "werden auf die Probe gestellt."
+
+REFERENCE           HARDENED_DESC_2
+LANG_ENGLISH        "to the breaking point."
+LANG_GERMAN         "Äußersten strapaziert."
+
+REFERENCE           REGULAR_DESC_3
+LANG_ENGLISH        "For players who are new"
+LANG_GERMAN         "Für alle Spieler, die noch nie"
+
+REFERENCE           REGULAR_DESC_4
+LANG_ENGLISH        "to first person action games."
+LANG_GERMAN         "derartige Spiele gespielt haben."
+
+REFERENCE           MISSION_SELECT
+LANG_ENGLISH        "Mission Select"
+LANG_GERMAN         "Missionswahl"
+
+REFERENCE           USA_NAME
+LANG_ENGLISH        "Corporal Bill Taylor"
+LANG_GERMAN         "#same"
+
+REFERENCE           BRIT_NAME
+LANG_ENGLISH        "Sergeant John Davis"
+LANG_GERMAN         "#same"
+
+REFERENCE           BRIT_NAME_2
+LANG_ENGLISH        "Commander David Welsh, "Fox Three""
+LANG_GERMAN         "#same"
+
+REFERENCE           USSR_NAME
+LANG_ENGLISH        "Private Vasili Ivanovich Koslov"
+LANG_GERMAN         "#same"
+
+REFERENCE           WEAPON_MENU
+LANG_ENGLISH        "Weapon Menu"
+LANG_GERMAN         "Waffenmenü"
+
+REFERENCE           NUMBER_OF_DYNAMIC_LIGHTS
+LANG_ENGLISH        "Number of Dynamic Lights"
+LANG_GERMAN         "Anzahl dynamischer Lichter"
+
+REFERENCE           RED
+LANG_ENGLISH        "Red"
+LANG_GERMAN         "Rot"
+
+REFERENCE           ENABLE_CROSSHAIR
+LANG_ENGLISH        "Enable Crosshair"
+LANG_GERMAN         "Fadenkreuz einschalten"
+
+REFERENCE           CROSSHAIR_COLOR
+LANG_ENGLISH        "Crosshair Color"
+LANG_GERMAN         "Fadenkreuzfarbe"
+
+REFERENCE           FORCE_DX7_MODE
+LANG_ENGLISH        "Force DirectX® 7 Mode"
+LANG_GERMAN         "DirectX® 7-Modus erzwingen"
+
+REFERENCE           AUTOMATIC
+LANG_ENGLISH        "Automatic"
+LANG_GERMAN         "Automatisch"
+
+REFERENCE           MANUAL
+LANG_ENGLISH        "Manual"
+LANG_GERMAN         "Manuell"
+
+REFERENCE           MISSION_SELECT_MENU
+LANG_ENGLISH        "Mission Select Menu"
+LANG_GERMAN         "Missionsauswahlmenü"
+
+REFERENCE           NEXT_MISSION
+LANG_ENGLISH        "Next Mission"
+LANG_GERMAN         "Nächste Mission"
+
+REFERENCE           CONTINUE_MISSION
+LANG_ENGLISH        "Continue Mission"
+LANG_GERMAN         "Mission fortsetzen"
+
+REFERENCE           PROFILE_WARNING
+LANG_ENGLISH        "You are not signed in to a current profile.\nIf you do not sign in you will be unable\nto save your progress. \nDo you wish to continue?"
+LANG_GERMAN         "Sie sind momentan mit keinem Profil angemeldet. Wenn Sie sich nicht anmelden, können Sie keine Spielfortschritte speichern.\nMöchten Sie fortsetzen?"
+
+REFERENCE           QUIT_WARNING
+LANG_ENGLISH        "Are you sure you want to quit?"
+LANG_GERMAN         "Möchten Sie das Spiel wirklich beenden?"
+
+REFERENCE           WARNING
+LANG_ENGLISH        "Warning"
+LANG_GERMAN         "Warnung"
+
+REFERENCE           CAPTURE_LIMIT
+LANG_ENGLISH        "Capture Limit:  "
+LANG_GERMAN         "Capture-Limit:  "
+
+REFERENCE           CONTINUE_RESTART
+LANG_ENGLISH        "Continue restart?"
+LANG_GERMAN         "Neustart fortsetzen?"
+
+REFERENCE           RESTART_TEXT_1
+LANG_ENGLISH        "If you restart now, you will lose "
+LANG_GERMAN         "Wenn Sie jetzt neu starten,"
+
+REFERENCE           RESTART_TEXT_2
+LANG_ENGLISH        "any progress that you have made "
+LANG_GERMAN         "verlieren Sie alle Fortschritte"
+
+REFERENCE           RESTART_TEXT_3
+LANG_ENGLISH        "in this mission."
+LANG_GERMAN         "der aktuellen Mission."
+
+REFERENCE           CONTINUE_SAVING
+LANG_ENGLISH        "Continue saving?"
+LANG_GERMAN         "Wirklich speichern?"
+
+REFERENCE           SAVEQUIT_TEXT_1
+LANG_ENGLISH        "If you save now, "
+LANG_GERMAN         "Wenn Sie jetzt speichern,"
+
+REFERENCE           SAVEQUIT_TEXT_2
+LANG_ENGLISH        "you will lose any progress "
+LANG_GERMAN         "verlieren Sie alle Fortschritte"
+
+REFERENCE           SAVEQUIT_TEXT_3
+LANG_ENGLISH        "since your last checkpoint. "
+LANG_GERMAN         "seit dem letzten Kontrollpunkt."
+
+REFERENCE           CROSSHAIR
+LANG_ENGLISH        "Crosshair"
+LANG_GERMAN         "Fadenkreuz"
+
+REFERENCE           SCORE_LIMIT1
+LANG_ENGLISH        "Score Limit:"
+LANG_GERMAN         "Punktlimit:"
+
+REFERENCE           TIME_LIMIT2
+LANG_ENGLISH        "Time Limit:"
+LANG_GERMAN         "Zeitlimit:"
+
+REFERENCE           ROUND_LIMIT2
+LANG_ENGLISH        "Round Limit:"
+LANG_GERMAN         "Rundenlimit:"
+
+REFERENCE           ROUND_LENGTH2
+LANG_ENGLISH        "Round Length:"
+LANG_GERMAN         "Rundenlänge:"
+
+REFERENCE           REFLECTED_DAMAGE
+LANG_ENGLISH        "Reflected Damage"
+LANG_GERMAN         "Reflektierter Schaden"
+
+REFERENCE           SHARED_DAMAGE
+LANG_ENGLISH        "Shared Damage"
+LANG_GERMAN         "Geteilter Schaden"
+
+REFERENCE           SERVER_INFORMATION
+LANG_ENGLISH        "Server Information"
+LANG_GERMAN         "Serverinformation"
+
+REFERENCE           SELECT_SAVE_DEVICE
+LANG_ENGLISH        "Select Save Device"
+LANG_GERMAN         "Speichermedium wählen"
+
+REFERENCE           SAVE_ERROR
+LANG_ENGLISH        "Unable to write to default save device."
+LANG_GERMAN         "Kann nicht auf Standardspeichermedium schreiben."
+
+REFERENCE           EXTRA_LOW
+LANG_ENGLISH        "Extra Low"
+LANG_GERMAN         "Besonders gering"
+
+REFERENCE           RETRY_SAVE
+LANG_ENGLISH        "Retry Save"
+LANG_GERMAN         "Speichern wiederholen"
+
+REFERENCE           QUIT_NO_SAVE
+LANG_ENGLISH        "Quit without saving"
+LANG_GERMAN         "Ohne speichern beenden"
+
+REFERENCE           RESUMEGAME_NOSAVE
+LANG_ENGLISH        "Resume without saving."
+LANG_GERMAN         "Ohne Speichern fortsetzen"
+
+REFERENCE           FIND_GAME
+LANG_ENGLISH        "Find Game"
+LANG_GERMAN         "Spiel suchen"
+
+REFERENCE           SCOREBOARD
+LANG_ENGLISH        "Scoreboard"
+LANG_GERMAN         "Punkteübersicht"
+
+REFERENCE           EASY
+LANG_ENGLISH        "Easy"
+LANG_GERMAN         "Leicht"
+
+REFERENCE           DIFFICULTY_EASY
+LANG_ENGLISH        "Difficulty: Easy"
+LANG_GERMAN         "Schwierigkeit: Leicht"
+
+REFERENCE           COMPLETED_EASY
+LANG_ENGLISH        "Completed Easy"
+LANG_GERMAN         "Leicht abgeschlossen"
+
+REFERENCE           COMPLETED_CHEAT
+LANG_ENGLISH        "Cheat Unlocked"
+LANG_GERMAN         "Cheat freigeschaltet"
+
+REFERENCE           HOST_NAME
+LANG_ENGLISH        "Host"
+LANG_GERMAN         "#same"
+
+REFERENCE           WAITING_FOR_PLAYERS_TO_BE_READY
+LANG_ENGLISH        "Need &&1 players to be ready"
+LANG_GERMAN         "Noch &&1 Spieler benötigt"
+
+REFERENCE           WAITING_FOR_PLAYER_TO_BE_READY
+LANG_ENGLISH        "Need 1 more player to be ready"
+LANG_GERMAN         "Noch 1 Spieler benötigt"
+
+REFERENCE           MATCH_WILL_BEGIN
+LANG_ENGLISH        "The match is about to begin"
+LANG_GERMAN         "Das Spiel beginnt jetzt ..."
+
+REFERENCE           SEARCHING_FOR_LOBBY
+LANG_ENGLISH        "Joining game lobby"
+LANG_GERMAN         "Betreten der Spiellobby ..."
+
+REFERENCE           ZFEATHER_SMOKE
+LANG_ENGLISH        "Soften Smoke Edges"
+LANG_GERMAN         "Weiche Rauchkanten"
+
+REFERENCE           WORLD_ONLY
+LANG_ENGLISH        "World Only"
+LANG_GERMAN         "Nur Spielwelt"
+
+REFERENCE           TM
+LANG_ENGLISH        "TM"
+LANG_GERMAN         "#same"
+
+REFERENCE           R_CIRCLE
+LANG_ENGLISH        "®"
+LANG_GERMAN         "#same"
+
+REFERENCE           PLAYER_SELECT
+LANG_ENGLISH        "Player Select"
+LANG_GERMAN         "Spielerwahl"
+
+REFERENCE           NEW
+LANG_ENGLISH        "New"
+LANG_GERMAN         "Neu"
+
+REFERENCE           NEW_PLAYER_NAME
+LANG_ENGLISH        "New Player Name"
+LANG_GERMAN         "Neuer Spielername:"
+
+REFERENCE           DELETE_PROFILE
+LANG_ENGLISH        "Delete selected profile?"
+LANG_GERMAN         "Gewähltes Profil löschen?"
+
+REFERENCE           A_PROFILE_WITH_THE_SAME_NAME_ALREADY_EXISTS
+LANG_ENGLISH        "A profile with the same name already exists"
+LANG_GERMAN         "Ein Profil mit diesem Namen besteht bereits."
+
+REFERENCE           PROFILE_CREATE_TOO_MANY
+LANG_ENGLISH        "There are no free profile slots.\n\nRemove an old profile first."
+LANG_GERMAN         "Keine freien Profilplätze.\n\nLöschen Sie ein altes Profil."
+
+REFERENCE           PROFILE_CREATION_FAILED
+LANG_ENGLISH        "Profile creation failed.\n\nMake sure the disk isn't full and\nthat you have file write priviledges.\n"
+LANG_GERMAN         "Profilerstellung gescheitert.\n\nDie Festplatte darf nicht voll sein\nund Sie benötigen Schreibrechte.\n"
+
+REFERENCE           PROFILE_DELETION_FAILED
+LANG_ENGLISH        "Profile deletion failed.\n\nThere may be some read-only files,\nor you may not have file write priviledges.\n"
+LANG_GERMAN         "Profilerstellung gescheitert.\n\nDateien könnten schreibgeschützt sein\noder Sie haben keine Schreibrechte.\n"
+
+REFERENCE           THROW_SMOKE_GRENADE
+LANG_ENGLISH        "Throw Smoke Grenade"
+LANG_GERMAN         "Rauchgrante werfen"
+
+REFERENCE           THROW_FRAG_GRENADE
+LANG_ENGLISH        "Throw Frag Grenade"
+LANG_GERMAN         "Splittergranate werfen"
+
+REFERENCE           LOADING_DOTS
+LANG_ENGLISH        "Loading..."
+LANG_GERMAN         "Laden ..."
+
+REFERENCE           CONNECTION_COLON
+LANG_ENGLISH        "Connection:  "
+LANG_GERMAN         "Verbindung:  "
+
+REFERENCE           RANKING
+LANG_ENGLISH        "Ranking:"
+LANG_GERMAN         "Rang:"
+
+REFERENCE           QUIT_TEXT_1
+LANG_ENGLISH        "If you quit now, you will lose "
+LANG_GERMAN         "Wenn Sie jetzt beenden,"
+
+REFERENCE           CONTINUE_QUIT
+LANG_ENGLISH        "Quit Game?"
+LANG_GERMAN         "Spiel beenden?"
+
+REFERENCE           RETURN
+LANG_ENGLISH        "Return to game"
+LANG_GERMAN         "Zurück zum Spiel"
+
+REFERENCE           FIND_RANKED_GAME
+LANG_ENGLISH        "Find Ranked Game"
+LANG_GERMAN         "Ranglistenspiel suchen"
+
+REFERENCE           FIND_STANDARD_GAME
+LANG_ENGLISH        "Find Standard Game"
+LANG_GERMAN         "Standardspiel suchen"
+
+REFERENCE           UNRANKED_DESCRIPTION
+LANG_ENGLISH        "Find an unranked match in which you can invite friends."
+LANG_GERMAN         "Finden Sie ein Spiel ohne Rangliste, zu dem Sie Freunde einladen können."
+
+REFERENCE           RANKED_DESCRIPTION
+LANG_ENGLISH        "Find a ranked match for competitive play. Friends can not be invited to ranked matches."
+LANG_GERMAN         "Finden Sie ein Ranglistenspiel als Herausforderung. Freunde können nicht zu Ranglistenspielen eingeladen werden."
+
+REFERENCE           SELECT_GAMETYPE
+LANG_ENGLISH        "Select the game type to play."
+LANG_GERMAN         "Wählen Sie den gewünschten Spieltyp."
+
+REFERENCE           SPECIAL_FEATURES
+LANG_ENGLISH        "Special Features"
+LANG_GERMAN         "Extras"
+
+REFERENCE           MELEE_STEADY
+LANG_ENGLISH        "Melee/Steady Sniper Rifle"
+LANG_GERMAN         "Nahkampf/S.-Gewehr ruhig halten"
+
+REFERENCE           STEADY_SNIPER_RIFLE
+LANG_ENGLISH        "Steady Sniper Rifle"
+LANG_GERMAN         "S.-Gewehr ruhig halten"
+
+REFERENCE           GAME_OPTIONS
+LANG_ENGLISH        "Game Options"
+LANG_GERMAN         "Spieloptionen"
+
+REFERENCE           CREATE_PLAYER_PROFILE
+LANG_ENGLISH        "Create Player Profile"
+LANG_GERMAN         "Spielerprofil erstellen"
+
+REFERENCE           ANTIALIASING
+LANG_ENGLISH        "Anti-aliasing"
+LANG_GERMAN         "Antialiasing"
+
+REFERENCE           2X
+LANG_ENGLISH        "2x"
+LANG_GERMAN         "#same"
+
+REFERENCE           4X
+LANG_ENGLISH        "4x"
+LANG_GERMAN         "#same"
+
+REFERENCE           OPTIMIZE_FOR_DUAL_VIDEO_CARDS
+LANG_ENGLISH        "Optimize for SLI"
+LANG_GERMAN         "Optimierung für SLI"
+
+REFERENCE           CLICK_TO_CONTINUE
+LANG_ENGLISH        "Click to Continue"
+LANG_GERMAN         "Klicken zum Fortsetzen"
+
+REFERENCE           NEED_PLAYER_PROFILE
+LANG_ENGLISH        "You need a player profile to play Call of Duty 2."
+LANG_GERMAN         "Sie benötigen ein Spielerprofil für Call of Duty 2."
+
+REFERENCE           SELECT_PROFILE
+LANG_ENGLISH        "Select Profile"
+LANG_GERMAN         "Profil wählen"
+
+REFERENCE           KEY_CODE
+LANG_ENGLISH        "Key Code"
+LANG_GERMAN         "Code"
+
+REFERENCE           ENTER_KEY_CODE
+LANG_ENGLISH        "Enter Key Code"
+LANG_GERMAN         "Code eingeben"
+
+REFERENCE           ENTER_YOUR_KEY_CODE_IN_THE_FIELD_BELOW
+LANG_ENGLISH        "Enter your key code in the field below."
+LANG_GERMAN         "Code im Feld unterhalb eingeben."
+
+REFERENCE           11KHZ
+LANG_ENGLISH        "11KHZ (Low Quality)"
+LANG_GERMAN         "11 kHz (Geringe Qualität)"
+
+REFERENCE           22KHZ
+LANG_ENGLISH        "22KHZ (Medium Quality)"
+LANG_GERMAN         "22 kHz (Mittlere Qualität)"
+
+REFERENCE           44KHZ
+LANG_ENGLISH        "44KHZ (High Quality)"
+LANG_GERMAN         "44 kHz (Hohe Qualität)"
+
+REFERENCE           CANT_SWITCH_PROFILES_INGAME
+LANG_ENGLISH        "Cannot switch player profiles while in game."
+LANG_GERMAN         "Profilwechsel während des Spiels nicht möglich"
+
+REFERENCE           QUIT_CURRENT_GAME
+LANG_ENGLISH        "Quit Current Game?"
+LANG_GERMAN         "Laufendes Spiel beenden?"
+
+REFERENCE           CANT_CHANGE_SETTINGS_WHILE_DEAD
+LANG_ENGLISH        "Can't change settings while dead"
+LANG_GERMAN         "Änderungen nur bei aktivem Spieler möglich"
+
+REFERENCE           PROGRESS_WILL_BE_LOST
+LANG_ENGLISH        "Loading a level will cause you to lose your progress in a level you have not yet completed."
+LANG_GERMAN         "Durch das Laden gehen sämtliche Fortschritte in einem Level verloren, den Sie noch nicht beendet haben."
+
+REFERENCE           VICTORY_BRITISH_UNLOCKED
+LANG_ENGLISH        "The British campaign has been unlocked in the Mission Select Menu."
+LANG_GERMAN         "Die britische Kampagne wurde im Missionsauswahlbildschirm freigeschaltet!"
+
+REFERENCE           VICTORY_AMERICAN_UNLOCKED
+LANG_ENGLISH        "The American campaign has been unlocked in the Mission Select Menu."
+LANG_GERMAN         "Die amerikanische Kampagne wurde im Missionsauswahlbildschirm freigeschaltet!"
+
+REFERENCE           VICTORY_BRITISH_COMPLETED
+LANG_ENGLISH        "You have completed the British campaign."
+LANG_GERMAN         "Sie haben die britische Kampagne abgeschlossen!"
+
+REFERENCE           VICTORY_RUSSIAIN_COMPLETED
+LANG_ENGLISH        "You have completed the Russian campaign."
+LANG_GERMAN         "Sie haben die russische Kampagne abgeschlossen!"
+
+REFERENCE           VICTORY_AMERICAN_RUSSIAN
+LANG_ENGLISH        "You have completed the Russian campaign. The American campaign has been unlocked in the Mission Select Menu."
+LANG_GERMAN         "Russische Kampagne abgeschlossen. Amerikanische Kampagne freigeschaltet!"
+
+REFERENCE           CONGRATULATIONS
+LANG_ENGLISH        "Congratulations"
+LANG_GERMAN         "Herzlichen Glückwunsch"
+
+REFERENCE           FIND_STANDARD_MATCH
+LANG_ENGLISH        "Find Standard Match"
+LANG_GERMAN         "Standard-Spiel finden"
+
+REFERENCE           FIND_RANKED_MATCH
+LANG_ENGLISH        "Find Ranked Match"
+LANG_GERMAN         "Ranglisten-Spiel finden"
+
+REFERENCE           CAN_NOT_CHANGE_SETTINGS
+LANG_ENGLISH        "Can not change settings"
+LANG_GERMAN         "Einstellungsänderungen bei"
+
+REFERENCE           WHILE_RUNNING_A_SERVER
+LANG_ENGLISH        "while running a server."
+LANG_GERMAN         "laufendem Server nicht möglich."
+
+REFERENCE           SHADOWS
+LANG_ENGLISH        "Shadows"
+LANG_GERMAN         "Schatten"
+
+REFERENCE           SCREEN_REFRESH_RATE
+LANG_ENGLISH        "Screen Refresh Rate"
+LANG_GERMAN         "Bildwiederholfrequenz"
+
+REFERENCE           EXTRAS
+LANG_ENGLISH        "Extras"
+LANG_GERMAN         "#same"
+
+REFERENCE           CROUCH_PRONE
+LANG_ENGLISH        "Crouch/Prone"
+LANG_GERMAN         "Ducken/Hinlegen"
+
+REFERENCE           JUMP
+LANG_ENGLISH        "Jump"
+LANG_GERMAN         "Springen"
+
+REFERENCE           RENDERING_METHOD_PREFERENCE
+LANG_ENGLISH        "Rendering Method Preference"
+LANG_GERMAN         "Rendermethode"
+
+REFERENCE           DIRECTX_7
+LANG_ENGLISH        "DirectX® 7"
+LANG_GERMAN         "#same"
+
+REFERENCE           DIRECTX_9
+LANG_ENGLISH        "DirectX® 9"
+LANG_GERMAN         "#same"
+
+REFERENCE           GRAPHICS_WARNING
+LANG_ENGLISH        "We recommend using "Optimal System Settings."  Manually changing settings could result in poor performance."
+LANG_GERMAN         "Sie sollten 'Optimale Systemeinstellungen' wählen. Manuelle Änderungen können zu einer langsameren Geschwindigkeit führen."
+
+REFERENCE           INGAME_DIFFICULTY_CHANGING
+LANG_ENGLISH        "Changing difficulty will restart the current level."
+LANG_GERMAN         "Das Ändern des Schwierigkeitsgrads startet den Level neu."
+
+REFERENCE           DESCRIPTION_PLAYERMATCH
+LANG_ENGLISH        "Play for fun with people who share similar profiles."
+LANG_GERMAN         "Spielen Sie zum Spaß gegen Gegner mit ähnlichen Profilen."
+
+REFERENCE           DESCRIPTION_RANKEDMATCH
+LANG_ENGLISH        "Play competitive matches to improve your TrueSkill™ rankings."
+LANG_GERMAN         "Spielen Sie Herausforderungen, um Ihren TrueSkill™-Rang zu verbessern."
+
+REFERENCE           DESCRIPTION_QUICKMATCH
+LANG_ENGLISH        "Get into a game quickly. Game settings are chosen randomly."
+LANG_GERMAN         "Stürzen Sie sich gleich ins Spiel. Die Spieleinstellungen werden zufällig bestimmt."
+
+REFERENCE           DESCRIPTION_CUSTOMMATCH
+LANG_ENGLISH        "Find a session with the game settings you specify."
+LANG_GERMAN         "Finden Sie eine Spielsitzung mit vorher definierten Einstellungen."
+
+REFERENCE           SELECT_GAME_TYPE
+LANG_ENGLISH        "Select Game Type"
+LANG_GERMAN         "Spieltyp wählen"
+
+REFERENCE           SELECT_MATCH_TYPE
+LANG_ENGLISH        "Select Match Type"
+LANG_GERMAN         "Match-Typ wählen"
+
+REFERENCE           PLAYER_MATCH
+LANG_ENGLISH        "Player Match"
+LANG_GERMAN         "Mitspieler-Suche"
+
+REFERENCE           RANKED_MATCH
+LANG_ENGLISH        "Ranked Match"
+LANG_GERMAN         "Ranglisten-Spiel"
+
+REFERENCE           QUICK_MATCH
+LANG_ENGLISH        "Quick Match"
+LANG_GERMAN         "Schnelles Spiel"
+
+REFERENCE           SPECTATOR_MODE
+LANG_ENGLISH        "Spectator Mode"
+LANG_GERMAN         "Zuschauermodus"
+
+REFERENCE           GAME_EXPERIENCE_MAY_CHANGE
+LANG_ENGLISH        "Game experience may change during online play."
+LANG_GERMAN         "Das Spielerlebnis kann sich während des Online-Spiels ändern."
+
+REFERENCE           TEXTURE_SETTINGS
+LANG_ENGLISH        "Texture Settings"
+LANG_GERMAN         "Textureinstellungen"
+
+
+REFERENCE			      BACK2UO_SERVERINFOS
+LANG_ENGLISH		    "Server Informations"
+LANG_GERMAN         "Server Informationen"
+
+REFERENCE			      BACK2UO_CODSERVER_SETTINGS
+LANG_ENGLISH		    "COD 2 Server Settings"
+LANG_GERMAN         "COD 2 Server Einstellungen"
+
+REFERENCE			      BACK2UO_SETTINGS
+LANG_ENGLISH		    "Back2Uo Reloaded Server Setting"
+LANG_GERMAN         "Back2Uo Reloaded Server Einstellungen"
+
+REFERENCE           BACK2UO_ON
+LANG_ENGLISH        "^2ON"
+LANG_GERMAN         "^2AN"
+
+REFERENCE           BACK2UO_OFF
+LANG_ENGLISH        "^1OFF"
+LANG_GERMAN         "^1AUS"
+
+REFERENCE           BACK2UO_REFLECT
+LANG_ENGLISH        "REFLECT"
+LANG_GERMAN         "REFLEKTIEREN"
+
+REFERENCE           BACK2UO_SHARED
+LANG_ENGLISH        "SHARED"
+LANG_GERMAN         "GETEILT"
+
+REFERENCE			      BACK2UO_BACK
+LANG_ENGLISH		    "Back"
+LANG_GERMAN 		    "Zurück"
+
+
+REFERENCE			      BACK2UO_HUD_TITLE
+LANG_ENGLISH		    "^3HUD Elements"
+LANG_GERMAN         "^3HUD Elemente"
+
+REFERENCE			      BACK2UO_AMBIENTE_ICONS
+LANG_ENGLISH		    "Ambiente Icons:"
+LANG_GERMAN 		    "Ambiente Icons:"
+ 
+REFERENCE			      BACK2UO_BLOOD_SCREEN
+LANG_ENGLISH		    "Blood Splatter:"
+LANG_GERMAN 		    "Blut Spritzer:" 
+
+REFERENCE			      BACK2UO_HEALTHBAR
+LANG_ENGLISH		    "Healthbar:"
+LANG_GERMAN         "Energie Anzeige:"
+
+REFERENCE			      BACK2UO_PLAYER_STANCE
+LANG_ENGLISH		    "Player Stance:"
+LANG_GERMAN 		    "Körperhaltungs Anzeige:"
+ 
+REFERENCE			      BACK2UO_RANKING_SYSTEM
+LANG_ENGLISH		    "Ranking System:"
+LANG_GERMAN 		    "Rang System:" 
+ 
+REFERENCE			      BACK2UO_SCORE_SCREEN
+LANG_ENGLISH		    "Score Element:"
+LANG_GERMAN         "Punkte Anzeige:"
+
+REFERENCE			      BACK2UO_MESSAGES_TITLE
+LANG_ENGLISH		    "^3Messages"
+LANG_GERMAN         "^3Nachrichten"
+
+REFERENCE			      BACK2UO_CLAN_MESSAGES
+LANG_ENGLISH		    "Clan Messages:"
+LANG_GERMAN 		    "Clan Nachrichten:"
+
+REFERENCE			      BACK2UO_NEXTMAP_MESSAGES
+LANG_ENGLISH		    "Next Map Messages:"
+LANG_GERMAN 		    "Nächste Map Nachrichten:"
+
+REFERENCE			      BACK2UO_SERVER_MESSAGES
+LANG_ENGLISH		    "Server Messages:"
+LANG_GERMAN 		    "Server Nachrichten:"
+ 
+REFERENCE			      BACK2UO_WELLCOME_MESSAGES
+LANG_ENGLISH		    "Wellcome Messages:"
+LANG_GERMAN 		    "Willkommens Nachrichten:" 
+
+
+REFERENCE			      BACK2UO_EFFECTS_TITLE
+LANG_ENGLISH		    "^3Effects"
+LANG_GERMAN         "^3Effekte"
+
+REFERENCE			      BACK2UO_AIRPLANE_EFFECT
+LANG_ENGLISH		    "Airplanes:"
+LANG_GERMAN 		    "Flugzeuge:"
+
+REFERENCE			      BACK2UO_ARTILLERY_EFFECT
+LANG_ENGLISH		    "Artillery:"
+LANG_GERMAN 		    "Artillerie:"
+
+REFERENCE			      BACK2UO_FLAK_EFFECT
+LANG_ENGLISH		    "Flak:"
+LANG_GERMAN 		    "Flak:"
+ 
+REFERENCE			      BACK2UO_MORTAR_EFFECT
+LANG_ENGLISH		    "Mortars:"
+LANG_GERMAN 		    "Mörser:" 
+ 
+REFERENCE			      BACK2UO_WEATHER_EFFECT
+LANG_ENGLISH		    "Weather Effects:"
+LANG_GERMAN 		    "Wetter Effekte:"  
+
+REFERENCE			      BACK2UO_MEDIPACKS
+LANG_ENGLISH		    "Medipacks:"
+LANG_GERMAN 		    "Lebens Pakete:" 
+
+
+REFERENCE			      BACK2UO_SYSTEMS_TITLE
+LANG_ENGLISH		    "^3Systems"
+LANG_GERMAN         "^3Systeme"
+
+REFERENCE			      BACK2UO_ANTIAFK_SYSTEM
+LANG_ENGLISH		    "Anti AFK:"
+LANG_GERMAN 		    "Anti AFK:"
+
+REFERENCE			      BACK2UO_ANTICAMPER_SYSTEM
+LANG_ENGLISH		    "Anti Camper:"
+LANG_GERMAN 		    "Anti Camper:"
+
+REFERENCE			      BACK2UO_AUTOTEAM_CHANCE
+LANG_ENGLISH		    "Auto Team Chance:"
+LANG_GERMAN 		    "Auto Team Wechsel:"
+ 
+REFERENCE			      BACK2UO_MAPVOTE_SYSTEM
+LANG_ENGLISH		    "Map Vote:"
+LANG_GERMAN 		    "Map Vote:" 
+ 
+REFERENCE			      BACK2UO_SAVESPAWN_SYSTEM
+LANG_ENGLISH		    "Spawn Save:"
+LANG_GERMAN 		    "Spawn Schutz:"  
+
+
+REFERENCE			      BACK2UO_COD_TITLE
+LANG_ENGLISH		    "^3COD 2 Elements"
+LANG_GERMAN         "^3COD 2 Elemente"
+
+REFERENCE			      FRIEND_ICONS
+LANG_ENGLISH		    "Show Friend Icons:"
+LANG_GERMAN 		    "Freunde Icon Anzeige:"
+
+REFERENCE           FRIENDLY_FIRE
+LANG_ENGLISH        "Friendly Fire:  "
+LANG_GERMAN         "Teambeschuss:"
+
+REFERENCE			      GRENADES_INDE
+LANG_ENGLISH		    "Grenades Indicator:"
+LANG_GERMAN 		    "Granaten Fluganzeige:"
+
+REFERENCE			      HUD_BOMBPOINTS
+LANG_ENGLISH		    "Show Bombpoint Icons:"
+LANG_GERMAN 		    "Zeige Bombenpunkt Icons:"
+
+REFERENCE			      HUD_GRENADES
+LANG_ENGLISH		    "Hud Grenades:"
+LANG_GERMAN 		    "Hud Granaten:"
+
+REFERENCE           KILLCAM
+LANG_ENGLISH        "Killcam:"
+LANG_GERMAN         "Abschusskamera:"
+
+REFERENCE			      RED_RADARPOINTS
+LANG_ENGLISH		    "Red Compass Points:"
+LANG_GERMAN 		    "Rote Compass Punkte:"
+
+REFERENCE			      SKULL_ICONS
+LANG_ENGLISH		    "Show Skull Icons:"
+LANG_GERMAN 		    "Totenkopf Icon Anzeige:"
+
+REFERENCE			      BACK2UO_CREDITS
+LANG_ENGLISH		    "This Server is running with ^4Back^12^4Uo ^1Mod ^7v.2.1.\n\n^7Created by: Mod-United\n^7Scripting by: [Modu]Wulf\nGraphics by: Le-Style\n\n^7With Questions or Interest, write a E-Mail to\n^3admins@mod-united.de ^7or visits us ^3www.mod-united.de ^7!!!"
+LANG_GERMAN 		    "Dieser Server läuft mit dem ^4Back^12^4Uo ^1Mod ^7v.2.1.\n\n^7Erstellt von: Mod-United\n^7Skripting von: [Modu]Wulf\nGrafiken von: Le-Style\n\n^7Bei Fragen oder Interesse, schreibt eine E-Mail an\n^3admins@mod-united.de ^7oder besucht uns unter ^3www.mod-united.de ^7!!!"
+
+REFERENCE			      BACK2UO_ACTIONINFO_TITLE
+LANG_ENGLISH		    "^3Game Instructions"
+LANG_GERMAN 		    "^3Spiel Anleitung"
+
+REFERENCE			      BACK2UO_ACTIONINFO_SPRINT
+LANG_ENGLISH		    "Around to Sprint,\nyou run into a direction and hold pressed USE KEY!"
+LANG_GERMAN         "Um zu Sprinten,\nlaufen Sie in eine Richtung und\nhalten Sie BENUTZEN TASTE gedrückt!" 
+
+REFERENCE			      BACK2UO_ACTIONINFO_ARTILLERY
+LANG_ENGLISH		    "Around to fire the Artillery,\nselect your Binocular and pressed USE KEY to\nconfirm the position!"
+LANG_GERMAN         "Um die Artillerie abzufeuern,\nwählen Sie Ihr Binocular aus und drücken Sie\nBENUTZEN TASTE um die Position zu bestätigen!" 
+
+ENDMARKER

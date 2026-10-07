@@ -1,0 +1,781 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE		      48 64
+#define ORIGIN_CHOICE1				80 84
+#define ORIGIN_CHOICE2				80 108
+#define ORIGIN_CHOICE3				80 132
+#define ORIGIN_CHOICE4				80 156
+
+#define ORIGIN_WEAPONIMAGE			    296 84
+#define ORIGIN_WEAPONPROPERTIESTEXT	296 290
+#define ORIGIN_WEAPONACCURACY		    395 277
+#define ORIGIN_WEAPONDAMAGE			    395 301
+#define ORIGIN_WEAPONMOBILITY		    395 325
+#define ORIGIN_WEAPONSTATUS 		    395 349
+#define ORIGIN_GRENADESLOT1			    296 144
+#define ORIGIN_GRENADESLOT2			    312 144
+#define ORIGIN_GRENADESLOT3			    328 144
+
+{
+	menuDef
+	{
+		name			"weapons_only_pistol"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5.0
+		onEsc 
+		{
+			close weapons_only_pistol;
+		}
+		onOpen 
+		{
+			show luger_info;	
+			show weapon_propertiestext;
+			show back2uo_logo;
+		}
+		onClose
+		{
+		  hide luger_info;
+      hide tt30_info;       
+      hide webley_info;
+			hide colt_info;				
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+				
+    #include "ui_mp/bars_blank.menu"
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@MPUI_ONLY_PISTOL"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE		
+			decoration
+		}
+
+// MENU CHOICES
+		
+    execKey "1" { play "mouse_click"; scriptMenuResponse "colt_mp"; }
+    execKey "2" { play "mouse_click"; scriptMenuResponse "luger_mp"; } 
+    execKey "3" { play "mouse_click"; scriptMenuResponse "tt30_mp"; }
+    execKey "4" { play "mouse_click"; scriptMenuResponse "webley_mp"; }
+
+    ///-Colt-/// 
+		itemDef 
+		{
+			name			"button_colt"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_COLT"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_colt"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "colt_mp";
+			}
+			onFocus
+			{
+			  hide luger_info;
+        hide tt30_info;       
+        hide webley_info;
+				play "mouse_over";
+				show colt_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_colt"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_COLT"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_colt"
+			showDvar		{ "0" }
+			onFocus
+			{
+			  hide luger_info;
+        hide tt30_info;       
+        hide webley_info;
+				show colt_info;
+				show weapon_propertiestext;
+				show weapon_deaktiv_info;
+			}
+		}
+		
+    ///-Luger-/// 
+		itemDef 
+		{
+			name			"button_luger"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_LUGER"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_luger"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "luger_mp";
+			}
+			onFocus
+			{
+			  hide colt_info;
+        hide tt30_info;       
+        hide webley_info;
+				play "mouse_over";
+				show luger_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_luger"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_LUGER"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_luger"
+			showDvar		{ "0" }
+			onFocus
+			{
+			  hide colt_info;
+        hide tt30_info;       
+        hide webley_info;
+				show luger_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}		
+    
+    ///-Tt30-/// 
+		itemDef 
+		{
+			name			"button_tt30"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_TT30"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_TT30"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "tt30_mp";
+			}
+			onFocus
+			{
+			  hide colt_info;
+        hide luger_info;       
+        hide webley_info;
+				play "mouse_over";
+				show tt30_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_tt30"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_TT30"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_TT30"
+			showDvar		{ "0" }
+			onFocus
+			{
+			  hide colt_info;
+        hide luger_info;       
+        hide webley_info;
+				show tt30_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+    
+    ///-Webley-/// 
+		itemDef 
+		{
+			name			"button_webley"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE4
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_WEBLEY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_webley"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "webley_mp";
+			}
+			onFocus
+			{
+			  hide colt_info;
+        hide luger_info;       
+        hide tt30_info;
+				play "mouse_over";
+				show webley_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_webley"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE4
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_PISTOL_WEBLEY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_webley"
+			showDvar		{ "0" }
+			onFocus
+			{
+			  hide colt_info;
+        hide luger_info;       
+        hide tt30_info;
+				show webley_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		} 
+		
+		itemDef 
+		{
+		 name			    "button_back"
+     visible			1
+     rect			    470 0 128 24
+     origin			  48 417
+     forecolor		GLOBAL_UNFOCUSED_COLOR
+     type			    ITEM_TYPE_BUTTON
+     text			    "@MENU_BACK2UO_BACK"
+     textfont		  UI_FONT_NORMAL
+     textscale		GLOBAL_HEADER_SIZE
+     textalign		0
+     textalignx		0
+     textaligny		24
+
+		 action
+		 {
+			play "mouse_click";
+			close weapons_only_pistol;
+			open ingame;
+		 }
+		 onFocus
+		 {
+			play "mouse_over";
+		 }
+		}		
+		
+		itemDef 
+		{
+			#include "ui_mp/button_mainmenu.menu"
+
+			action
+			{
+				play "mouse_click";
+				close ingame;
+				open main;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+// WEAPON IMAGES
+
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			-5 10 168 84
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_colt"
+			decoration
+		}
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			-5 10 168 84
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_lugger"
+			decoration
+		}		
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			-5 10 168 84
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_TT30"
+			decoration
+		}
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			-5 10 168 84
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_webley"
+			decoration
+		}	
+		
+*/
+// WEAPON PROPERTIES
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONACCURACY
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_ACCURACY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONDAMAGE
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_DAMAGE"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONMOBILITY
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_MOBILITY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONSTATUS
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_STATUS"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"weapon_aktiv_info"
+			visible 		0
+			rect			0 13 0 0
+			origin			ORIGIN_WEAPONSTATUS
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_AKTIV"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		itemDef
+		{
+			name			"weapon_deaktiv_info"
+			visible 		0
+			rect			0 13 0 0
+			origin			ORIGIN_WEAPONSTATUS
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_DEAKTIV"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		///-COLT-///
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 60 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 110 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}		
+		
+				
+		///-LUGER-///
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 90 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 60 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 110 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}		
+    		
+		///-TT30-///
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 60 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 110 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+    ///-WEBLEY-///
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 100 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 60 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 110 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+			
+
+// GRENADE LOADOUT
+
+		itemDef
+		{
+			name			"colt_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@british_grenade_C.tga"
+			decoration
+		}		
+		itemDef
+		{
+			name			"luger_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@steilhandgrenate_C.tga"
+			decoration
+		}		
+		itemDef
+		{
+			name			"tt30_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@steilhandgrenate_C.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"webley_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@russian_grenade_C.tga"
+			decoration
+		}    	                		
+	}
+}

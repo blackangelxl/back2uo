@@ -1,0 +1,380 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE							           20	 64
+#define ORIGIN_BACK2UO_CREDITS               25	 85
+#define ORIGIN_BACK2UOTITLE				           20	180
+
+#define ORIGIN_GAMETYPE_TITLE                25 200
+#define ORIGIN_GAMETYPE_INFO                 30 220
+#define ORIGIN_GAMETYPE_SETTINGS             30 240
+
+#define ORIGIN_BACK2UO_COD_TITLE			       25 300
+#define ORIGIN_BACK2UO_COD_SETTINGS			     30	315
+
+#define ORIGIN_BACK2UO_ANLEITUNG_TITLE			368 313
+#define ORIGIN_BACK2UO_ANLEITUNG1           415 327
+#define ORIGIN_BACK2UO_ANLEITUNG2           415 365
+
+//////////////////		
+// Serverinfos //		
+////////////////	
+{
+	menuDef
+	{
+		name			 "serverinfos_mod_tdm"
+		rect			 0 0 640 480
+		focuscolor GLOBAL_FOCUSED_COLOR
+		style			 WINDOW_STYLE_EMPTY
+		blurWorld	 5.0		
+		onEsc
+		{
+			close serverinfos_mod_tdm;
+		}
+		
+		onOpen 
+		{
+			show back2uo_logo;
+			show back2uo_sprint_bild;
+		  show back2uo_artillerie_bild;
+		}		
+		
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+		
+    #include "ui_mp/bars_blank.menu"     
+		
+  ////////////////		
+  // Kopfzeile //		
+  //////////////		
+
+    // Back2Uo Serverinfo
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@MENU_BACK2UO_SERVERINFOS"
+			textfont		.22
+			textscale		GLOBAL_HEADER_SIZE
+			decoration
+		}
+		
+		// Back2Uo Credits
+		itemDef
+		{
+      visible			1
+			origin			ORIGIN_BACK2UO_CREDITS
+			forecolor		1 1 1 1
+			text				"@MENU_BACK2UO_CREDITS"
+			textfont			UI_FONT_NORMAL
+			textscale		.20
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}		
+		
+	/////////////////////////////
+	//-Spieltyp Informationen-//
+	///////////////////////////		
+  
+  
+    // Spieltyp Titel
+    itemDef
+		{
+			visible			1
+			origin			ORIGIN_GAMETYPE_TITLE
+			forecolor		1 1 1 1
+			text			  "@MPUI_TEAM_DEATHMATCH"
+			textfont		UI_FONT_NORMAL
+			textscale		.30
+			decoration
+		}	
+		
+    // Spieltyp Anleitung
+		itemDef
+		{
+			visible			1
+			origin			ORIGIN_GAMETYPE_INFO
+			forecolor		1 1 1 1
+			text			  "@MP_GAIN_POINTS_BY_ELIMINATING1_NOSCORE"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+    // Spieltyp Score Limit
+		itemDef 
+		{
+			visible			1
+			rect			  0 0 350 12
+			origin			ORIGIN_GAMETYPE_SETTINGS
+			forecolor		1 1 1 1
+			type			  ITEM_TYPE_NUMERICFIELD
+			text			  "@MENU_SCORE_LIMIT_TEAM_POINTS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar			  "ui_tdm_scorelimit"
+			decoration
+		}
+
+    // Spieltyp Time Limit
+		itemDef 
+		{
+			visible			1
+			rect			  0 15 350 12
+			origin			ORIGIN_GAMETYPE_SETTINGS
+			forecolor		1 1 1 1
+			type			  ITEM_TYPE_NUMERICFIELD
+			text			  "@MENU_TIME_LIMIT"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar			  "ui_tdm_timelimit"
+			decoration
+		}		
+		
+	/////////////////////////////
+	//-Back2Uo COD 2 Elements-//
+	///////////////////////////	
+			
+	 // Back2Uo COD Title
+	 itemDef
+	 {
+			visible 		1
+			origin			ORIGIN_BACK2UO_COD_TITLE
+			forecolor		1 1 1 1
+			text				"@MENU_BACK2UO_COD_TITLE"
+			textfont		UI_FONT_NORMAL
+			textscale		.30
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+	 }
+       		
+    
+		// Death Icons
+		itemDef
+		{
+			visible			1
+			rect				0 0 350 12
+			origin			ORIGIN_BACK2UO_COD_SETTINGS
+			forecolor		1 1 1 1
+			type				ITEM_TYPE_MULTI
+			text				"@MENU_SKULL_ICONS"
+			textfont			UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar				"ui_skullicons"
+			dvarFloatList		{ "@MENU_BACK2UO_OFF" 0 "@MENU_BACK2UO_ON" 1 }
+			decoration
+		}    
+
+		// Friend Icons
+		itemDef
+		{
+			visible			1
+			rect				0 15 350 12
+			origin			ORIGIN_BACK2UO_COD_SETTINGS
+			forecolor		1 1 1 1
+			type				ITEM_TYPE_MULTI
+			text				"@MENU_FRIEND_ICONS"
+			textfont			UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar				"ui_friendicons"
+			dvarFloatList		{ "@MENU_BACK2UO_OFF" 0 "@MENU_BACK2UO_ON" 1 }
+			decoration
+		}
+		
+    // Friendly Fire
+		itemDef
+		{
+			visible			1
+			rect				0 30 350 12
+			origin			ORIGIN_BACK2UO_COD_SETTINGS
+			forecolor		1 1 1 1
+			type				ITEM_TYPE_MULTI
+			text				"@MENU_FRIENDLY_FIRE"
+			textfont			UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar				"ui_friendlyfire"
+			dvarFloatList		{ "@MENU_BACK2UO_OFF" 0 "@MENU_BACK2UO_ON" 1 "@MENU_BACK2UO_REFLECT" 2 "@MENU_BACK2UO_SHARED" 3 }
+			decoration
+		}
+
+		// Granade Indecator
+		itemDef
+		{
+			visible			1
+			rect				0 45 350 12
+			origin			ORIGIN_BACK2UO_COD_SETTINGS
+			forecolor		1 1 1 1
+			type				ITEM_TYPE_MULTI
+			text				"@MENU_GRENADES_INDE"
+			textfont			UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar				"ui_grenadesinde"
+			dvarFloatList		{ "@MENU_BACK2UO_OFF" 0 "@MENU_BACK2UO_ON" 1 }
+			decoration
+		}
+				
+    // Kill Cam
+		itemDef
+		{
+			visible			1
+			rect				0 60 350 12
+			origin			ORIGIN_BACK2UO_COD_SETTINGS
+			forecolor		1 1 1 1
+			type				ITEM_TYPE_MULTI
+			text				"@MENU_KILLCAM"
+			textfont			UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			dvar				"ui_killcam"
+			dvarFloatList		{ "@MENU_BACK2UO_OFF" 0 "@MENU_BACK2UO_ON" 1 }
+			decoration
+		}	
+		
+	///////////////////////////
+	//-Back2Uo Action Infos-//
+	/////////////////////////	
+	    
+	  // Black Background
+	  itemDef 
+	  {
+		 style			  WINDOW_STYLE_FILLED
+		 rect			    364 299 402 92
+		 backcolor		1 1 1 0.2
+		 visible			1
+		 decoration
+	  }    	
+	
+	  // Black Background
+	  itemDef 
+	  {
+		 style			  WINDOW_STYLE_FILLED
+		 rect			    365 300 400 90
+		 backcolor		0 0 0 0.5
+		 visible			1
+		 decoration
+	  }	
+    
+	  // Back2Uo Action Info Title
+	  itemDef
+	  {
+			visible 		1
+			origin			ORIGIN_BACK2UO_ANLEITUNG_TITLE
+			forecolor		1 1 1 1
+			text				"@MENU_BACK2UO_ACTIONINFO_TITLE"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalign		ITEM_ALIGN_LEFT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			decoration
+	  }	    	
+  
+	  // Sprinten Bild
+	  itemDef
+	  {
+     name			    "back2uo_sprint_bild"
+		 visible 		  1
+		 rect			    370 312 40 40 
+	 	 style			  WINDOW_STYLE_SHADER
+		 background   "gfx/custom/back2uo_actioninfo_sprint.tga"	
+		 decoration
+	  }  
+  
+    // Sprinten Anleitung
+		itemDef
+		{
+			visible			1
+			origin			ORIGIN_BACK2UO_ANLEITUNG1
+			forecolor		1 1 1 1
+			text			  "@MENU_BACK2UO_ACTIONINFO_SPRINT"
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalign		ITEM_ALIGN_LEFT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			decoration
+		}  
+    
+	  // Artillerie Bild
+	  itemDef
+	  {  	   
+		 name			    "back2uo_artillerie_bild"
+		 visible 		  1
+		 rect			    370 350 40 40 
+	 	 style			  WINDOW_STYLE_SHADER
+		 background   "gfx/custom/back2uo_actioninfo_artillery.tga"	
+		 decoration
+	  }      	
+		
+    // Artillerie Anleitung
+		itemDef
+		{
+			visible			1
+			origin			ORIGIN_BACK2UO_ANLEITUNG2
+			forecolor		1 1 1 1
+			text			  "@MENU_BACK2UO_ACTIONINFO_ARTILLERY"
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalign		ITEM_ALIGN_LEFT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			decoration
+		} 		
+						
+  ///////////	
+  // EXIT //
+  /////////
+
+		itemDef 
+		{
+		 name			    "button_back"
+     visible			1
+     rect			    470 0 128 24
+     origin			  48 417
+     forecolor		GLOBAL_UNFOCUSED_COLOR
+     type			    ITEM_TYPE_BUTTON
+     text			    "@MENU_BACK2UO_BACK"
+     textfont		  UI_FONT_NORMAL
+     textscale		GLOBAL_HEADER_SIZE
+     textalign		0
+     textalignx		0
+     textaligny		24
+
+		 action
+		 {
+			play "mouse_click";
+			close serverinfos_mod_tdm;
+			open ingame;
+		 }
+		 onFocus
+		 {
+			play "mouse_over";
+		 }
+		}
+
+    itemDef 
+		{
+		  #include "ui_mp/button_mainmenu.menu"
+		  
+			action
+			{
+				close serverinfos_mod_tdm;
+				open main;
+			}
+
+		}	
+	}
+}

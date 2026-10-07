@@ -1,0 +1,59 @@
+  // Background Image
+	itemDef 
+	{							
+	 name			   "background"
+	 decoration
+	 visible 		 1
+ 	 //rect			   -128 0 896 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+ 	 rect			    0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+	 style        WINDOW_STYLE_SHADER
+	 background   "gfx/custom/back2uo_menubackground.tga"
+  }   
+ 
+  // Lines
+	itemDef 
+	{
+		style			WINDOW_STYLE_FILLED
+		rect			-128 64 896 1
+		backcolor		.65 .65 .65 1
+		visible			1
+		decoration
+	}
+	
+	itemDef 
+	{
+		style			WINDOW_STYLE_FILLED
+		rect			-128 415 896 1
+		backcolor		.65 .65 .65 1
+		visible			1
+		decoration
+	}
+	
+	// Back2Uo Image
+	itemDef
+	{
+		name			   "back2uo_logo"
+		visible 		 0
+		rect			   438 -12 205 103 // 475 3 160 80
+	 	style			   WINDOW_STYLE_SHADER
+		background   "gfx/custom/back2uo_logo.tga"	
+		decoration
+	}		 				          
+
+  // Black bars
+	//itemDef 
+	//{
+		//style			WINDOW_STYLE_FILLED
+		//rect			-128 0 896 65
+		//backcolor		0 0 0 1
+		//visible			1
+		//decoration	
+	//}
+	//itemDef 
+	//{
+		//style			WINDOW_STYLE_FILLED
+		//rect			-128 416 896 64
+		//backcolor		0 0 0 1
+		//visible			1
+		//decoration
+	//}

@@ -1,0 +1,159 @@
+/*
+	Back2Uo v2.1 - Legacy copy of the stock maps\mp\_load.gsc
+
+	This file is NOT loaded by the engine: the ".gsc_old" extension is never compiled, so
+	"maps\mp\_load::main()" calls from the gametypes resolve to the stock _load.gsc.
+	It is kept only for reference. The content is the stock map loader: minefields,
+	shutters, lantern effects, createfx mode and exploder setup (level._script_exploders).
+*/
+
+/*
+=============
+main
+
+Map load entry point: starts minefields and shutters, spawns lantern glow effects,
+deletes exploder placeholder models, enters createfx mode if the cvar is set,
+hooks exploder triggers and collects all exploder entities.
+Called on: level
+=============
+*/
+main()
+{
+	// Disabled: single player campaign cvar, not used in MP
+	//setcvar("ui_campaign", level.campaign);
+
+	level.xenon = (getcvar ("xenonGame") == "true");
+
+	thread maps\mp\_minefields::minefields();
+	thread maps\mp\_shutter::main();
+
+	lanterns = getentarray("lantern_glowFX_origin","targetname");
+	for( i = 0 ; i < lanterns.size ; i++ )
+		lanterns[i] thread lanterns();
+
+	// Hide exploder models.
+	ents = getentarray("script_brushmodel", "classname");
+	smodels = getentarray("script_model", "classname");
+	for(i = 0; i < smodels.size; i++)
+		ents[ents.size] = smodels[i];
+
+	// Exploder pieces are deleted instead of hidden (the hide/notsolid calls are disabled)
+	for(i = 0; i < ents.size; i++)
+	{
+		if(isdefined(ents[i].script_exploder))
+		{
+			if((ents[i].model == "xmodel/fx") && ((!isdefined(ents[i].targetname)) || (ents[i].targetname != "exploderchunk")))
+				//ents[i] hide();
+				ents[i] delete();
+			else if((isdefined(ents[i].targetname)) && (ents[i].targetname == "exploder"))
+			{
+				//ents[i] hide();
+				//ents[i] notsolid();
+				ents[i] delete();
+			}
+			else if((isdefined(ents[i].targetname)) && (ents[i].targetname == "exploderchunk"))
+			{
+				//ents[i] hide();
+				//ents[i] notsolid();
+				ents[i] delete();
+			}
+		}
+	}
+
+	ents = undefined;
+
+	// createfx editor mode: wait for the first player and hand over to the effect editor
+	level.createFX_enabled = (getcvar("createfx") != "");
+	if(level.createFX_enabled)
+	{
+		level waittill("connected", player);
+		level.player = player;
+
+		maps\mp\_createfx::createfx();
+	}
+
+	// Do various things on triggers: every trigger type with a script_exploder fires that exploder
+	for(p = 0; p < 5; p++)
+	{
+		switch (p)
+		{
+		case 0:
+			triggertype = "trigger_multiple";
+			break;
+
+		case 1:
+			triggertype = "trigger_once";
+			break;
+
+		case 2:
+			triggertype = "trigger_use";
+			break;
+
+		case 3:
+			triggertype = "trigger_radius";
+			break;
+
+		default:
+			assert(p == 4);
+			triggertype = "trigger_damage";
+			break;
+		}
+
+		triggers = getentarray(triggertype, "classname");
+		for(i = 0; i < triggers.size; i++)
+		{
+			if(isdefined(triggers[i].script_exploder))
+				level thread exploder(triggers[i]);
+		}
+	}
+
+	// Collect all exploder entities for maps\mp\_utility::exploder()
+	level._script_exploders = [];
+
+	potentialExploders = getentarray("script_brushmodel", "classname");
+	for(i = 0; i < potentialExploders.size; i++)
+	{
+		if(isdefined(potentialExploders[i].script_exploder))
+			level._script_exploders[level._script_exploders.size] = potentialExploders[i];
+	}
+
+	potentialExploders = getentarray("script_model", "classname");
+	for(i = 0; i < potentialExploders.size; i++)
+	{
+		if(isdefined(potentialExploders[i].script_exploder))
+			level._script_exploders[level._script_exploders.size] = potentialExploders[i];
+	}
+}
+
+/*
+=============
+exploder
+
+Waits for the trigger and fires its exploder once. All other triggers with the same
+exploder number are stopped through the "killexplodertriggers<num>" notify.
+Params: trigger - trigger entity with script_exploder
+=============
+*/
+exploder(trigger)
+{
+	level endon("killexplodertriggers"+trigger.script_exploder);
+	trigger waittill("trigger");
+	//	println("TRIGGERED");
+	maps\mp\_utility::exploder(trigger.script_exploder);
+	level notify ("killexplodertriggers"+trigger.script_exploder);
+}
+
+/*
+=============
+lanterns
+
+Loads the lantern glow effect once and loops it at the lantern origin.
+Called on: lantern origin entity
+=============
+*/
+lanterns()
+{
+	if (!isdefined(level._effect["lantern_light"]))
+		level._effect["lantern_light"]	= loadfx("fx/props/glow_latern.efx");
+	maps\mp\_fx::loopfx("lantern_light", self.origin, 0.3, self.origin + (0,0,1));
+}

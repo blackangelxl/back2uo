@@ -1,0 +1,651 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod2\bin\StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           SERVERISFULL
+LANG_ENGLISH        "Server is full."
+LANG_GERMAN         "Server ist voll."
+
+REFERENCE           KEYWAIT
+LANG_ENGLISH        "Waiting for new key. Press ESCAPE to cancel or BACKSPACE to clear"
+LANG_GERMAN         "Warten auf neue Taste. ESC zum Abbrechen, RÜCKTASTE zum Löschen."
+
+REFERENCE           KEYCHANGE
+LANG_ENGLISH        "Press ENTER or CLICK to change"
+LANG_GERMAN         "EINGABETASTE oder KLICKEN zum Ändern."
+
+REFERENCE           YES
+LANG_ENGLISH        "Yes"
+LANG_GERMAN         "Ja"
+
+REFERENCE           NO
+LANG_ENGLISH        "No"
+LANG_GERMAN         "Nein"
+
+REFERENCE           ALL
+LANG_ENGLISH        "All"
+LANG_GERMAN         "Alle"
+
+REFERENCE           WAITINGFORMASTERSERVERRESPONSE
+LANG_ENGLISH        "Waiting for response from Master Server"
+LANG_GERMAN         "Warten auf Antwort vom Masterserver"
+
+REFERENCE           GETTINGINFOFORSERVERS
+LANG_ENGLISH        "Getting info for &&1 servers (ESC to cancel)"
+LANG_GERMAN         "Datenabfrage von &&1 Servern (ESC zum Abbrechen)"
+
+REFERENCE           REFRESHTIME
+LANG_ENGLISH        "Refresh Time: &&1"
+LANG_GERMAN         "Aktualisierungszeit: &&1"
+
+REFERENCE           CDKEYVALID
+LANG_ENGLISH        "Key code appears to be valid."
+LANG_GERMAN         "Code scheint gültig zu sein."
+
+REFERENCE           CDKEYINVALID
+LANG_ENGLISH        "Key code does not appear to be valid."
+LANG_GERMAN         "Code scheint ungültig zu sein."
+
+REFERENCE           ERR_NO_LAST_SAVE
+LANG_ENGLISH        "The lastsave game seems to have been deleted. Load a different save game from the Load Game menu, or start a new game."
+LANG_GERMAN         "Der letzte Spielstand scheint gelöscht worden zu sein. Laden Sie einen anderen Spielstand über das Lademenü oder starten Sie ein neues Spiel."
+
+REFERENCE           FAVORITELISTFULL
+LANG_ENGLISH        "Favorite list is full."
+LANG_GERMAN         "Favoritenliste ist voll."
+
+REFERENCE           FAVORITEADDED
+LANG_ENGLISH        "Added favorite server."
+LANG_GERMAN         "Server-Favorit hinzugefügt"
+
+REFERENCE           DOWNLOADINGUPDATE
+LANG_ENGLISH        "Downloading Update: &&1"
+LANG_GERMAN         "Update-Download: &&1"
+
+REFERENCE           CONNECTINGTO
+LANG_ENGLISH        "Connecting to &&1"
+LANG_GERMAN         "Verbinden mit &&1"
+
+REFERENCE           AWAITINGCONNECTION
+LANG_ENGLISH        "Awaiting connection...&&1"
+LANG_GERMAN         "Warten auf Verbindung ... &&1"
+
+REFERENCE           AWAITINGCHALLENGE
+LANG_ENGLISH        "Awaiting challenge...&&1"
+LANG_GERMAN         "Warten auf Herausforderung ... &&1"
+
+REFERENCE           AWAITINGGAMESTATE
+LANG_ENGLISH        "Awaiting gamestate..."
+LANG_GERMAN         "Warten auf Spielstatus ..."
+
+REFERENCE           SAYTEAM
+LANG_ENGLISH        "say_team"
+LANG_GERMAN         "Team-Chat"
+
+REFERENCE           SAY
+LANG_ENGLISH        "say"
+LANG_GERMAN         "Chat"
+
+REFERENCE           GAMESAVED
+LANG_ENGLISH        "Game Saved"
+LANG_GERMAN         "Spiel gespeichert"
+
+REFERENCE           PLAYERKICKED
+LANG_ENGLISH        "Player kicked."
+LANG_GERMAN         "Spieler rausgeworfen."
+
+REFERENCE           CANNOTKICKHOSTPLAYER
+LANG_ENGLISH        "Cannot kick the host player."
+LANG_GERMAN         "Der Host kann nicht rausgeworfen werden."
+
+REFERENCE           SERVERKILLED
+LANG_ENGLISH        "Server killed."
+LANG_GERMAN         "Server ausgeschaltet."
+
+REFERENCE           SERVERQUIT
+LANG_ENGLISH        "Server quit"
+LANG_GERMAN         "Server hat das Spiel beendet"
+
+REFERENCE           DISCONNECTEDFROMOWNLISTENSERVER
+LANG_ENGLISH        "Client told to disconnect from its own listen server."
+LANG_GERMAN         "Client (selber Server) musste sich bei sich selber abmelden."
+
+REFERENCE           ENDOFGAME
+LANG_ENGLISH        "end of game"
+LANG_GERMAN         "Spielende"
+
+REFERENCE           SERVERDIDNTHAVECD
+LANG_ENGLISH        "Server didn't have CD"
+LANG_GERMAN         "Server hat keine CD."
+
+REFERENCE           SERVERRESTARTTIMEWRAP
+LANG_ENGLISH        "Restarting server due to time wrapping"
+LANG_GERMAN         "Serverneustart aufgrund langer Laufzeit."
+
+REFERENCE           SERVERRESTARTMISC
+LANG_ENGLISH        "Restarting server due to &&1 wrapping."
+LANG_GERMAN         "Serverneustart aufgrund von Laufzeit: &&1."
+
+REFERENCE           INVALIDUPDATESERVERDOWNLOAD
+LANG_ENGLISH        "Invalid download from update server"
+LANG_GERMAN         "Ungültiger Download vom Update-Server"
+
+REFERENCE           AUTODL_CLIENTDISABLED
+LANG_ENGLISH        ""
+LANG_GERMAN         ""
+
+REFERENCE           CANTAUTODLGAMEPAK
+LANG_ENGLISH        "Cannot auto-download game IWD file &&1."
+LANG_GERMAN         "Spiel-IWD-Datei &&1 konnte nicht heruntergeladen werden."
+
+REFERENCE           AUTODL_SERVERDISABLED_PURE
+LANG_ENGLISH        "Could not download &&1 because autodownloading is disabled on the server.\n\nYou will need to get this file elsewhere before you can connect to this pure server."
+LANG_GERMAN         "Konnte &&1 nicht herunterladen, da automatische Downloads vom Server deaktiviert wurden.\n\nSie müssen sich diese Datei von anderer Stelle besorgen, bevor Sie sich mit diesem unmodifizierten Server verbinden können."
+
+REFERENCE           AUTODL_SERVERDISABLED
+LANG_ENGLISH        "Could not download &&1 because autodownloading is disabled on the server.\n\nSet autodownload to No in your settings and you might be able to connect if you do have the file."
+LANG_GERMAN         "Konnte &&1 nicht herunterladen, da automatische Downloads vom Server deaktiviert wurden.\n\nDeaktivieren Sie den automatischen Download, wenn Sie die Datei haben, dann können Sie sich vielleicht anschließen."
+
+REFERENCE           AUTODL_FILENOTONSERVER
+LANG_ENGLISH        "File &&1 not found on server for autodownloading."
+LANG_GERMAN         "Datei &&1 für den automatischen Download nicht auf dem Server gefunden."
+
+REFERENCE           DISCONNECTED
+LANG_ENGLISH        "Game session no longer available"
+LANG_GERMAN         "Spielsitzung nicht länger verfügbar"
+
+REFERENCE           UNPURECLIENTDETECTED
+LANG_ENGLISH        "Impure client detected. Invalid .IWD files referenced!"
+LANG_GERMAN         "Modifizierter Client entdeckt. Ungültige .IWD-Datei!"
+
+REFERENCE           LOSTRELIABLECOMMANDS
+LANG_ENGLISH        "Lost reliable commands"
+LANG_GERMAN         "Keine verlässlichen Befehle."
+
+REFERENCE           CANNOTVALIDATEPURECLIENT
+LANG_ENGLISH        "Cannot validate pure client!"
+LANG_GERMAN         "(Un)modifizierte Dateien können nicht überprüft werden!"
+
+REFERENCE           SERVERCOMMANDOVERFLOW
+LANG_ENGLISH        "Server command overflow"
+LANG_GERMAN         "Server-Befehlsüberlauf"
+
+REFERENCE           TIMEDOUT
+LANG_ENGLISH        "Timed out"
+LANG_GERMAN         "Zeitüberschreitung"
+
+REFERENCE           SERVERMESSAGEOVERFLOW
+LANG_ENGLISH        "Server message overflow"
+LANG_GERMAN         "Server-Nachrichtenüberlauf"
+
+REFERENCE           LOCAL
+LANG_ENGLISH        "Local"
+LANG_GERMAN         "Lokal"
+
+REFERENCE           INTERNET
+LANG_ENGLISH        "Internet"
+LANG_GERMAN         "#same"
+
+REFERENCE           FAVORITES
+LANG_ENGLISH        "Favorites"
+LANG_GERMAN         "Favoriten"
+
+REFERENCE           NETSOURCE
+LANG_ENGLISH        "Source:     &&1"
+LANG_GERMAN         "Quelle:     &&1"
+
+REFERENCE           SERVERFILTER
+LANG_ENGLISH        "Filter: &&1"
+LANG_GERMAN         "#same"
+
+REFERENCE           NOSAVEGAMES
+LANG_ENGLISH        "(no savegames)"
+LANG_GERMAN         "(keine Spielstände)"
+
+REFERENCE           AWAITINGCDKEYAUTH
+LANG_ENGLISH        "Awaiting key code authorization"
+LANG_GERMAN         "Warten auf Code-Autorisierung"
+
+REFERENCE           SERVERDISCONNECTREASON
+LANG_ENGLISH        "Server Disconnected - &&1"
+LANG_GERMAN         "Serververbindung getrennt - &&1"
+
+REFERENCE           SERVER_DISCONNECTED
+LANG_ENGLISH        "Server Disconnected"
+LANG_GERMAN         "Serververbindung getrennt"
+
+REFERENCE           ERR_MSS_INIT_FAILED_MP
+LANG_ENGLISH        "Miles sound system initialization failed.\nThe single player game does not work properly without sound.\nMake sure you have your sound card's latest drivers and DirectX installed."
+LANG_GERMAN         "Miles Sound System konnte nicht initialisiert werden.\nDer Einzelspieler-Modus funktioniert nicht richtig ohne Sound.\nBitte überprüfen Sie, dass Sie die aktuellen Treiber und DirectX installiert haben."
+
+REFERENCE           ERR_COULDNT_LOAD
+LANG_ENGLISH        "Couldn't load &&1"
+LANG_GERMAN         "&&1 konnte nicht geladen werden."
+
+REFERENCE           ERR_CORRECT_FOLDER
+LANG_ENGLISH        "Make sure Call of Duty is run from the correct folder."
+LANG_GERMAN         "Achten Sie darauf, dass Call of Duty vom richtigen Verzeichnis aus gestartet wurde."
+
+REFERENCE           ERR_OUT_OF_MEMORY
+LANG_ENGLISH        "Out of memory."
+LANG_GERMAN         "Speichermangel."
+
+REFERENCE           ERR_HUNK_ALLOC_FAILED
+LANG_ENGLISH        "Hunk data failed to allocate &&1 megs."
+LANG_GERMAN         "Es konnten nicht &&1 MB reserviert werden."
+
+REFERENCE           ERR_COULDNT_LOAD_OPENGL
+LANG_ENGLISH        "Could not load OpenGL.  Make sure that you have the latest drivers for your video card from the manufacturer's web site."
+LANG_GERMAN         "OpenGL konnte nicht geladen werden. Überprüfen Sie, dass Sie die neuesten Treiber vom Hersteller Ihrer Grafikkarte aus dem Internet geladen haben."
+
+REFERENCE           ERR_COULDNT_REGISTER_WINDOW
+LANG_ENGLISH        "Could not register a window class. This is a Microsoft Windows(TM) error. You may need to reboot."
+LANG_GERMAN         "Windows-Klasse konnte nicht registriert werden. Dies ist ein Microsoft Windows-Fehler. Sie müssen das System neu starten."
+
+REFERENCE           ERR_COULDNT_CREATE_WINDOW
+LANG_ENGLISH        "Could not create a window. This is a Microsoft Windows(TM) error. You may need to reboot."
+LANG_GERMAN         "Fenster konnte nicht erstellt werden. Dies ist ein Microsoft Windows-Fehler. Sie müssen das System neu starten."
+
+REFERENCE           ERR_GET_NEWEST_DRIVERS
+LANG_ENGLISH        "You should install the latest drivers for your video card, being sure to uninstall the old drivers first.  If you already have the latest drivers, you should completely uninstall the drivers and then reinstall them.  This fixes most problems.  If the game still doesn't work, it may be that your video card does not have the minimum features required.  Please check the readme for more information, including a list of supported video cards."
+LANG_GERMAN         "Sie sollten die aktuellen Treiber Ihrer Grafikkarte installieren und zuvor alte Treiber deinstallieren. Wenn Sie bereits die neuesten Treiber verwenden, deinstallieren Sie sie zunächst vollständig und installieren Sie sie dann erneut. Dies sollte die meisten Probleme beheben. Falls das Spiel immer noch nicht funktioniert, besitzt Ihre Grafikkarte vielleicht nicht alle erforderlichen Funktionen. Weitere Hinweise dazu finden Sie in der Readme-Datei, unter anderem eine Liste der unterstützten Grafikkarten."
+
+REFERENCE           ERR_VIDEOCARD_MISSING_FEATURE
+LANG_ENGLISH        "Your video card appears to be missing one or more features required to run Call of Duty."
+LANG_GERMAN         "Ihre Grafikkarte scheint mindestens eines der Grafikfeatures von Call of Duty nicht zu unterstützen."
+
+REFERENCE           ERR_MULTITEX_INIT_FAIL
+LANG_ENGLISH        "OpenGL 1.3 multitexture found, but it failed to initialize."
+LANG_GERMAN         "OpenGL 1.3-Multitextur gefunden, konnte aber nicht initialisiert werden."
+
+REFERENCE           ERR_MULTITEX_BAD_MAX
+LANG_ENGLISH        "OpenGL 1.3 multitexture found, but it doesn't allow multiple textures."
+LANG_GERMAN         "OpenGL 1.3-Multitextur gefunden, aber Multitexturen nicht erlaubt."
+
+REFERENCE           ERR_ARB_MULTITEX_INIT_FAILED
+LANG_ENGLISH        "GL_ARB_multitexture found, but it failed to initialize."
+LANG_GERMAN         "GL_ARB-Multitextur gefunden, konnte aber nicht initialisiert werden."
+
+REFERENCE           ERR_ARB_MULTITEX_BAD_MAX
+LANG_ENGLISH        "GL_ARB_multitexture found, but it doesn't allow multiple textures."
+LANG_GERMAN         "GL_ARB-Multitextur gefunden, aber Multitexturen nicht erlaubt."
+
+REFERENCE           ERR_BAD_WINDOWS_VER
+LANG_ENGLISH        "Your version of Microsoft Windows(TM) does not support Call of Duty."
+LANG_GERMAN         "Ihre Version von Microsoft Windows funktioniert nicht mit Call of Duty."
+
+REFERENCE           ERR_COULDNT_INIT_REFRESH
+LANG_ENGLISH        "Couldn't initialize refresh"
+LANG_GERMAN         "Aktualisierung konnte nicht durchgeführt werden"
+
+REFERENCE           ERR_JOURNAL_FILE_READ
+LANG_ENGLISH        "Error reading from journal file"
+LANG_GERMAN         "Fehler beim Lesen der Journaldatei"
+
+REFERENCE           ERR_JOURNAL_FILE_WRITE
+LANG_ENGLISH        "Error writing to journal file"
+LANG_GERMAN         "Fehler beim Schreiben der Journaldatei"
+
+REFERENCE           ERR_NOT_FOUND
+LANG_ENGLISH        "&&1 not found."
+LANG_GERMAN         "&&1 nicht gefunden."
+
+REFERENCE           ERR_COULDNT_CONFIGURE
+LANG_ENGLISH        "Couldn't configure:"
+LANG_GERMAN         "Konfiguration nicht möglich:"
+
+REFERENCE           ERR_HUNGUSAGE_CORRUPT
+LANG_ENGLISH        "hunkusage.dat file is corrupt."
+LANG_GERMAN         "hunkusage.dat-Datei beschädigt."
+
+REFERENCE           ERR_CANT_CREATE
+LANG_ENGLISH        "Cannot create &&1."
+LANG_GERMAN         "Kann &&1 nicht erstellen."
+
+REFERENCE           ERR_CANT_WRITE
+LANG_ENGLISH        "Cannot write to &&1."
+LANG_GERMAN         "Kann nicht in &&1 schreiben."
+
+REFERENCE           ERR_HUNKUSAGE_CANT_WRITE
+LANG_ENGLISH        "Cannot write to hunkusage.dat, check disk full."
+LANG_GERMAN         "Kann hunkusage.dat nicht schreiben, ist die Festplatte voll?"
+
+REFERENCE           ERR_CLIENT_CMD_OVERFLOW
+LANG_ENGLISH        "Client command overflow"
+LANG_GERMAN         "Client-Befehlsüberlauf"
+
+REFERENCE           ERR_RELIABLE_CYCLED_OUT
+LANG_ENGLISH        "A reliable command was cycled out."
+LANG_GERMAN         "Ein verlässlicher Befehl lief aus dem Ruder."
+
+REFERENCE           ERR_NOT_RECEIVED
+LANG_ENGLISH        "Requested a command not received."
+LANG_GERMAN         "Angeforderten Befehl nicht erhalten."
+
+REFERENCE           ERR_INVALID_CD_KEY
+LANG_ENGLISH        "Key Code is not valid.\nPlease enter your Key Code in the Multiplayer Options/Enter Key Code menu and then try connecting to the server again."
+LANG_GERMAN         "Code ungültig.\nBitte geben Sie den Code in den Mehrspieler-Optionen unter 'Code eingeben' ein und versuchen Sie es dann noch einmal."
+
+REFERENCE           ERR_WRONG_MAP_VERSION_NUM
+LANG_ENGLISH        "Map &&1 has the wrong version number."
+LANG_GERMAN         "Karte &&1 hat die falsche Versionsnummer."
+
+REFERENCE           ERR_SHOULD_BE
+LANG_ENGLISH        "should be"
+LANG_GERMAN         "sollte sein:"
+
+REFERENCE           ERR_BAD_GAME_FOLDER
+LANG_ENGLISH        "Invalid game folder"
+LANG_GERMAN         "Ungültiges Spielverzeichnis"
+
+REFERENCE           ERR_GAME_FAILED_PURE_CHECK
+LANG_ENGLISH        "Game code(&&1) failed Pure Server check"
+LANG_GERMAN         "Spieldaten (&&1) scheinen modifiziert zu sein."
+
+REFERENCE           ERR_COULDNT_START_PROCESS
+LANG_ENGLISH        "Could not start process: &&1"
+LANG_GERMAN         "Kann Prozess nicht starten: &&1"
+
+REFERENCE           ERR_COULDNT_OPEN_URL
+LANG_ENGLISH        "Could not open url: '&&1'"
+LANG_GERMAN         "Kann url nicht öffnen: '&&1'"
+
+REFERENCE           SERVER_FATAL_CRASHED
+LANG_ENGLISH        "Server fatal crashed:"
+LANG_GERMAN         "Fataler Serverabsturz:"
+
+REFERENCE           ERR_CDKEY_IN_USE
+LANG_ENGLISH        "Key Code in use. Please try reconnecting later."
+LANG_GERMAN         "Code wird verwendet. Versuchen Sie es später noch einmal."
+
+REFERENCE           ERR_NOT_A_DEMO_SERVER
+LANG_ENGLISH        "Server is not a demo server."
+LANG_GERMAN         "Server ist kein Demo-Server."
+
+REFERENCE           SERVER_IS_DIFFERENT_VER
+LANG_ENGLISH        "Server is a different version:\n&&1"
+LANG_GERMAN         "Server hat eine andere Version:\n&&1"
+
+REFERENCE           BAD_CHALLENGE
+LANG_ENGLISH        "No or bad challenge for address."
+LANG_GERMAN         "Keine oder fehlerhafte Herausforderung für Adresse."
+
+REFERENCE           ERR_HIGH_PING_ONLY
+LANG_ENGLISH        "Server is for high ping players only."
+LANG_GERMAN         "Server gestattet nur hohe Ping-Werte."
+
+REFERENCE           ERR_LOW_PING_ONLY
+LANG_ENGLISH        "Server is for low ping players only."
+LANG_GERMAN         "Server gestattet nur geringe Ping-Werte."
+
+REFERENCE           DISCONNECTED_FROM_SERVER
+LANG_ENGLISH        "Disconnected from server"
+LANG_GERMAN         "Serververbindung unterbrochen"
+
+REFERENCE           MONTH_ABV_JANUARY
+LANG_ENGLISH        "Jan"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_FEBRUARY
+LANG_ENGLISH        "Feb"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_MARCH
+LANG_ENGLISH        "Mar"
+LANG_GERMAN         "Mär"
+
+REFERENCE           MONTH_ABV_APRIL
+LANG_ENGLISH        "Apr"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_MAY
+LANG_ENGLISH        "May"
+LANG_GERMAN         "Mai"
+
+REFERENCE           MONTH_ABV_JUN
+LANG_ENGLISH        "Jun"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_JUNE
+LANG_ENGLISH        "Jun"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_JULY
+LANG_ENGLISH        "Jul"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_AUGUST
+LANG_ENGLISH        "Aug"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_SEPTEMBER
+LANG_ENGLISH        "Sep"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_OCTOBER
+LANG_ENGLISH        "Oct"
+LANG_GERMAN         "Okt"
+
+REFERENCE           MONTH_ABV_NOVEMBER
+LANG_ENGLISH        "Nov"
+LANG_GERMAN         "#same"
+
+REFERENCE           MONTH_ABV_DECEMBER
+LANG_ENGLISH        "Dec"
+LANG_GERMAN         "Dez"
+
+REFERENCE           COD_MULTIPLAYER
+LANG_ENGLISH        "COD2 Multiplayer"
+LANG_GERMAN         "COD2-Mehrspieler"
+
+REFERENCE           SV_INFO_SERVERNAME
+LANG_ENGLISH        "Server Name"
+LANG_GERMAN         "Servername"
+
+REFERENCE           SV_INFO_ADDRESS
+LANG_ENGLISH        "IP Address"
+LANG_GERMAN         "IP-Adresse"
+
+REFERENCE           SV_INFO_GAMENAME
+LANG_ENGLISH        "Game Name"
+LANG_GERMAN         "Spielname"
+
+REFERENCE           SV_INFO_GAMETYPE
+LANG_ENGLISH        "Game Type"
+LANG_GERMAN         "Spieltyp"
+
+REFERENCE           SV_INFO_MAP
+LANG_ENGLISH        "Map"
+LANG_GERMAN         "Karte"
+
+REFERENCE           SV_INFO_VERSION
+LANG_ENGLISH        "Version"
+LANG_GERMAN         "#same"
+
+REFERENCE           SV_INFO_PROTOCOL
+LANG_ENGLISH        "Protocol Version"
+LANG_GERMAN         "Protokollversion"
+
+REFERENCE           SV_INFO_NUM
+LANG_ENGLISH        "num"
+LANG_GERMAN         "Num"
+
+REFERENCE           SV_INFO_SCORE
+LANG_ENGLISH        "score"
+LANG_GERMAN         "Punkte"
+
+REFERENCE           SV_INFO_PING
+LANG_ENGLISH        "ping"
+LANG_GERMAN         "Ping"
+
+REFERENCE           SV_INFO_NAME
+LANG_ENGLISH        "name"
+LANG_GERMAN         "Name"
+
+REFERENCE           SV_INFO_MAXPING
+LANG_ENGLISH        "Max Ping"
+LANG_GERMAN         "Max. Ping"
+
+REFERENCE           SV_INFO_MINPING
+LANG_ENGLISH        "Min Ping"
+LANG_GERMAN         "Min. Ping"
+
+REFERENCE           SV_INFO_MAXRATE
+LANG_ENGLISH        "Max Rate"
+LANG_GERMAN         "Max. Rate"
+
+REFERENCE           SV_INFO_FLOODPROTECT
+LANG_ENGLISH        "Flood Protect"
+LANG_GERMAN         "Überlaufschutz"
+
+REFERENCE           SV_INFO_ALLOWANON
+LANG_ENGLISH        "Allow Anonymous"
+LANG_GERMAN         "Anonymität zulassen"
+
+REFERENCE           SV_INFO_MAXCLIENTS
+LANG_ENGLISH        "Max Clients"
+LANG_GERMAN         "Max. Clients"
+
+REFERENCE           SV_INFO_PRIVATECLIENTS
+LANG_ENGLISH        "Private Clients"
+LANG_GERMAN         "#same"
+
+REFERENCE           SV_INFO_FRIENDLY_FIRE
+LANG_ENGLISH        "Friendly Fire"
+LANG_GERMAN         "Teambeschuss"
+
+REFERENCE           SV_INFO_MOD
+LANG_ENGLISH        "Mod"
+LANG_GERMAN         "#same"
+
+REFERENCE           SV_INFO_KILLCAM
+LANG_ENGLISH        "Killcam"
+LANG_GERMAN         "Abschusskamera"
+
+REFERENCE           GIGABYTE
+LANG_ENGLISH        "GB"
+LANG_GERMAN         "#same"
+
+REFERENCE           MEGABYTE
+LANG_ENGLISH        "MB"
+LANG_GERMAN         "#same"
+
+REFERENCE           KILOBYTE
+LANG_ENGLISH        "KB"
+LANG_GERMAN         "#same"
+
+REFERENCE           BYTES
+LANG_ENGLISH        "bytes"
+LANG_GERMAN         "Bytes"
+
+REFERENCE           HOURS
+LANG_ENGLISH        "hr"
+LANG_GERMAN         "Std."
+
+REFERENCE           MINUTES
+LANG_ENGLISH        "min"
+LANG_GERMAN         "Min"
+
+REFERENCE           SECONDS
+LANG_ENGLISH        "sec"
+LANG_GERMAN         "Sek"
+
+REFERENCE           DOWNLOADING
+LANG_ENGLISH        "Downloading:"
+LANG_GERMAN         "Download:"
+
+REFERENCE           EST_TIME_LEFT
+LANG_ENGLISH        "Estimated time left:"
+LANG_GERMAN         "Geschätzte Restdauer:"
+
+REFERENCE           TRANS_RATE
+LANG_ENGLISH        "Transfer rate:"
+LANG_GERMAN         "Übertragungsrate:"
+
+REFERENCE           ESTIMATING
+LANG_ENGLISH        "estimating"
+LANG_GERMAN         "Schätzung"
+
+REFERENCE           OF
+LANG_ENGLISH        "of"
+LANG_GERMAN         "von"
+
+REFERENCE           COPIED
+LANG_ENGLISH        "copied"
+LANG_GERMAN         "kopiert"
+
+REFERENCE           BADSERVERADDRESS
+LANG_ENGLISH        "Bad server address."
+LANG_GERMAN         "Fehlerhafte Serveradresse."
+
+REFERENCE           ERR_BAD_CDKEY
+LANG_ENGLISH        "Bad Key Code."
+LANG_GERMAN         "Fehlerhafter Code"
+
+REFERENCE           ERR_SERVER_TIMEOUT
+LANG_ENGLISH        "Server connection timed out."
+LANG_GERMAN         "Zeitüberschreitung bei Serververbindung."
+
+REFERENCE           SV_INFO_PASSWORD
+LANG_ENGLISH        "Password Protected"
+LANG_GERMAN         "Passwortschutz"
+
+REFERENCE           FAVORITEINLIST
+LANG_ENGLISH        "This server is already a favorite server."
+LANG_GERMAN         "Dieser Server ist bereits ein Favorit."
+
+REFERENCE           SV_INFO_PURE
+LANG_ENGLISH        "Pure Server"
+LANG_GERMAN         "Unmod. Server"
+
+REFERENCE           FAVORITENAMEEMPTY
+LANG_ENGLISH        "Server name is empty."
+LANG_GERMAN         "Servername ist leer."
+
+REFERENCE           FAVORITEADDRESSEMPTY
+LANG_ENGLISH        "Server address is empty."
+LANG_GERMAN         "Serveradresse ist leer."
+
+REFERENCE           SV_INFO_ANTILAG
+LANG_ENGLISH        "Anti Lag"
+LANG_GERMAN         "Verzögerungsschutz"
+
+REFERENCE           SV_INFO_VOICE
+LANG_ENGLISH        "Voice"
+LANG_GERMAN         "Sprache"
+
+REFERENCE           TRANSMITERROR
+LANG_ENGLISH        "Disconnected due to transmission error"
+LANG_GERMAN         "Verbindungsunterbrechung durch Übertragungsfehler"
+
+REFERENCE           CHECKPOINT_REACHED
+LANG_ENGLISH        "Checkpoint Reached"
+LANG_GERMAN         "Kontrollpunkt erreicht"
+
+REFERENCE           HOSTUNREACH
+LANG_ENGLISH        "Host is not responding"
+LANG_GERMAN         "Der Host antwortet nicht."
+
+REFERENCE           MATCHENDED
+LANG_ENGLISH        "The match has ended"
+LANG_GERMAN         "Das Spiel ist beendet."
+
+REFERENCE           LOSTCONNECTION
+LANG_ENGLISH        "Network connection lost"
+LANG_GERMAN         "Netzwerkverbindung verloren"
+
+
+ENDMARKER
+
+

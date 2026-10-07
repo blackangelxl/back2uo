@@ -1,0 +1,355 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod2\bin\StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           QUICK_MESSAGE
+LANG_ENGLISH        "Quick Message"
+LANG_GERMAN         "Schnellnachricht"
+
+REFERENCE           1_COMMANDS
+LANG_ENGLISH        "1. Commands"
+LANG_GERMAN         "1. Befehle"
+
+REFERENCE           2_STATEMENTS
+LANG_ENGLISH        "2. Statements"
+LANG_GERMAN         "2. Kommentare"
+
+REFERENCE           3_RESPONSES
+LANG_ENGLISH        "3. Responses"
+LANG_GERMAN         "3. Antworten"
+
+REFERENCE           ESC_EXIT
+LANG_ENGLISH        "Esc. Exit"
+LANG_GERMAN         "Esc. Beenden"
+
+REFERENCE           1_FOLLOW_ME
+LANG_ENGLISH        "1. Follow me!"
+LANG_GERMAN         "1. Mir nach!"
+
+REFERENCE           2_MOVE_IN
+LANG_ENGLISH        "2. Move in!"
+LANG_GERMAN         "2. Vorwärts!"
+
+REFERENCE           3_FALL_BACK
+LANG_ENGLISH        "3. Fall back!"
+LANG_GERMAN         "3. Zurückfallen!"
+
+REFERENCE           4_SUPPRESSING_FIRE
+LANG_ENGLISH        "4. Suppressing fire!"
+LANG_GERMAN         "4. Sperrfeuer!"
+
+REFERENCE           5_ATTACK_LEFT_FLANK
+LANG_ENGLISH        "5. Attack left flank!"
+LANG_GERMAN         "5. Linke Flanke angreifen!"
+
+REFERENCE           6_ATTACK_RIGHT_FLANK
+LANG_ENGLISH        "6. Attack right flank!"
+LANG_GERMAN         "6. Rechte Flanke angreifen!"
+
+REFERENCE           7_HOLD_THIS_POSITION
+LANG_ENGLISH        "7. Hold this position!"
+LANG_GERMAN         "7. Diese Position halten!"
+
+REFERENCE           8_REGROUP
+LANG_ENGLISH        "8. Regroup!"
+LANG_GERMAN         "8. Neu formieren!"
+
+REFERENCE           5_SQUAD_ATTACK_LEFT_FLANK
+LANG_ENGLISH        "5. Squad, attack left flank!"
+LANG_GERMAN         "5. Trupp, linke Flanke angreifen!"
+
+REFERENCE           6_SQUAD_ATTACK_RIGHT_FLANK
+LANG_ENGLISH        "6. Squad, attack right flank!"
+LANG_GERMAN         "6. Trupp, rechte Flanke angreifen!"
+
+REFERENCE           7_SQUAD_HOLD_THIS_POSITION
+LANG_ENGLISH        "7. Squad, hold this position!"
+LANG_GERMAN         "7. Trupp, diese Position halten!"
+
+REFERENCE           8_SQUAD_REGROUP
+LANG_ENGLISH        "8. Squad, regroup!"
+LANG_GERMAN         "8. Trupp, neu formieren!"
+
+REFERENCE           1_ENEMY_SPOTTED
+LANG_ENGLISH        "1. Enemy spotted!"
+LANG_GERMAN         "1. Feind gesichtet!"
+
+REFERENCE           2_ENEMY_DOWN
+LANG_ENGLISH        "2. Enemy down!"
+LANG_GERMAN         "2. Feind am Boden!"
+
+REFERENCE           3_IM_IN_POSITION
+LANG_ENGLISH        "3. I'm in position."
+LANG_GERMAN         "3. Ich bin in Position!"
+
+REFERENCE           4_AREA_SECURE
+LANG_ENGLISH        "4. Area secure!"
+LANG_GERMAN         "4. Gebiet gesichert!"
+
+REFERENCE           5_GRENADE
+LANG_ENGLISH        "5. Grenade!"
+LANG_GERMAN         "5. Granate!"
+
+REFERENCE           6_SNIPER
+LANG_ENGLISH        "6. Sniper!"
+LANG_GERMAN         "6. Scharfschütze!"
+
+REFERENCE           7_NEED_REINFORCEMENTS
+LANG_ENGLISH        "7. Need reinforcements!"
+LANG_GERMAN         "7. Brauche Verstärkung!"
+
+REFERENCE           8_HOLD_YOUR_FIRE
+LANG_ENGLISH        "8. Hold your fire!"
+LANG_GERMAN         "8. Feuer einstellen!"
+
+REFERENCE           1_YES_SIR
+LANG_ENGLISH        "1. Yes Sir!"
+LANG_GERMAN         "1. Jawohl, Sir!"
+
+REFERENCE           2_NO_SIR
+LANG_ENGLISH        "2. No Sir!"
+LANG_GERMAN         "2. Nein, Sir!"
+
+REFERENCE           3_IM_ON_MY_WAY
+LANG_ENGLISH        "3. I'm on my way."
+LANG_GERMAN         "3. Bin auf dem Weg"
+
+REFERENCE           3_ON_MY_WAY
+LANG_ENGLISH        "3. On my way."
+LANG_GERMAN         "3. Bin auf dem Weg."
+
+REFERENCE           4_SORRY
+LANG_ENGLISH        "4. Sorry."
+LANG_GERMAN         "4. Entschuldigung."
+
+REFERENCE           5_GREAT_SHOT
+LANG_ENGLISH        "5. Great shot!"
+LANG_GERMAN         "5. Toller Schuss!"
+
+REFERENCE           6_TOOK_LONG_ENOUGH
+LANG_ENGLISH        "6. Took long enough!"
+LANG_GERMAN         "6. Hat lange genug gedauert!"
+
+REFERENCE           7_ARE_YOU_CRAZY
+LANG_ENGLISH        "7. Are you crazy?"
+LANG_GERMAN         "7. Bist du verrückt?"
+
+REFERENCE           FOLLOW_ME
+LANG_ENGLISH        "Follow Me!"
+LANG_GERMAN         "Mir nach!"
+
+REFERENCE           MOVE_IN
+LANG_ENGLISH        "Move in!"
+LANG_GERMAN         "Vorwärts!"
+
+REFERENCE           FALL_BACK
+LANG_ENGLISH        "Fall back!"
+LANG_GERMAN         "Zurückfallen!"
+
+REFERENCE           SUPPRESSING_FIRE
+LANG_ENGLISH        "Suppressing fire!"
+LANG_GERMAN         "Sperrfeuer!"
+
+REFERENCE           ATTACK_RIGHT_FLANK
+LANG_ENGLISH        "Attack right flank!"
+LANG_GERMAN         "Rechte Flanke angreifen!"
+
+REFERENCE           ATTACK_LEFT_FLANK
+LANG_ENGLISH        "Attack left flank!"
+LANG_GERMAN         "Linke Flanke angreifen!"
+
+REFERENCE           HOLD_THIS_POSITION
+LANG_ENGLISH        "Hold this position!"
+LANG_GERMAN         "Diese Position halten!"
+
+REFERENCE           REGROUP
+LANG_ENGLISH        "Regroup!"
+LANG_GERMAN         "Neu formieren!"
+
+REFERENCE           STICK_TOGETHER
+LANG_ENGLISH        "Stick together!"
+LANG_GERMAN         "Zusammenbleiben!"
+
+REFERENCE           SQUAD_ATTACK_RIGHT_FLANK
+LANG_ENGLISH        "Squad, attack right flank!"
+LANG_GERMAN         "Trupp, rechte Flanke angreifen!"
+
+REFERENCE           SQUAD_ATTACK_LEFT_FLANK
+LANG_ENGLISH        "Squad, attack left flank!"
+LANG_GERMAN         "Trupp, linke Flanke angreifen!"
+
+REFERENCE           SQUAD_HOLD_THIS_POSITION
+LANG_ENGLISH        "Squad, hold this position!"
+LANG_GERMAN         "Trupp, diese Position halten!"
+
+REFERENCE           SQUAD_REGROUP
+LANG_ENGLISH        "Squad, regroup!"
+LANG_GERMAN         "Trupp, neu formieren!"
+
+REFERENCE           SQUAD_STICK_TOGETHER
+LANG_ENGLISH        "Squad, stick together!"
+LANG_GERMAN         "Zusammenbleiben!"
+
+REFERENCE           ENEMY_SPOTTED
+LANG_ENGLISH        "Enemy spotted!"
+LANG_GERMAN         "Feind gesichtet!"
+
+REFERENCE           ENEMY_DOWN
+LANG_ENGLISH        "Enemy down!"
+LANG_GERMAN         "Feind am Boden!"
+
+REFERENCE           IM_IN_POSITION
+LANG_ENGLISH        "I'm in position."
+LANG_GERMAN         "Ich bin in Position!"
+
+REFERENCE           AREA_SECURE
+LANG_ENGLISH        "Area secure!"
+LANG_GERMAN         "Gebiet gesichert!"
+
+REFERENCE           GRENADE
+LANG_ENGLISH        "Grenade!"
+LANG_GERMAN         "Granate!"
+
+REFERENCE           ENEMY_GRENADE
+LANG_ENGLISH        "Enemy grenade!"
+LANG_GERMAN         "Feindliche Granate!"
+
+REFERENCE           SNIPER
+LANG_ENGLISH        "Sniper!"
+LANG_GERMAN         "Scharfschütze!"
+
+REFERENCE           NEED_REINFORCEMENTS
+LANG_ENGLISH        "Need reinforcements!"
+LANG_GERMAN         "Brauche Verstärkung!"
+
+REFERENCE           HOLD_YOUR_FIRE
+LANG_ENGLISH        "Hold your fire!"
+LANG_GERMAN         "Feuer einstellen!"
+
+REFERENCE           YES_SIR
+LANG_ENGLISH        "Yes Sir!"
+LANG_GERMAN         "Jawohl, Sir!"
+
+REFERENCE           NO_SIR
+LANG_ENGLISH        "No Sir!"
+LANG_GERMAN         "Nein, Sir!"
+
+REFERENCE           IM_ON_MY_WAY
+LANG_ENGLISH        "I'm on my way."
+LANG_GERMAN         "Bin auf dem Weg"
+
+REFERENCE           ON_MY_WAY
+LANG_ENGLISH        "On my way."
+LANG_GERMAN         "Bin auf dem Weg."
+
+REFERENCE           SORRY
+LANG_ENGLISH        "Sorry."
+LANG_GERMAN         "Entschuldigung."
+
+REFERENCE           GREAT_SHOT
+LANG_ENGLISH        "Great shot!"
+LANG_GERMAN         "Toller Schuss!"
+
+REFERENCE           TOOK_YOU_LONG_ENOUGH
+LANG_ENGLISH        "Took you long enough!"
+LANG_GERMAN         "Hat lange genug gedauert!"
+
+REFERENCE           TOOK_LONG_ENOUGH
+LANG_ENGLISH        "Took long enough!"
+LANG_GERMAN         "Hat lange genug gedauert!"
+
+REFERENCE           YOURE_CRAZY
+LANG_ENGLISH        "You're crazy!"
+LANG_GERMAN         "Das ist Wahnsinn!"
+
+REFERENCE           YOU_OUTTA_YOUR_MIND
+LANG_ENGLISH        "You outta your mind?"
+LANG_GERMAN         "Das ist verrückt!"
+
+REFERENCE           YOURE_NUTS
+LANG_ENGLISH        "You're nuts!"
+LANG_GERMAN         "Einfach verrückt!"
+
+REFERENCE           ARE_YOU_CRAZY
+LANG_ENGLISH        "Are you crazy?"
+LANG_GERMAN         "Bist du verrückt?"
+
+
+REFERENCE           BACK2UO_ATTENTIONGRANADE
+LANG_ENGLISH        "1. Attention !!! I throw a Grenade  !!!"
+LANG_GERMAN         "1. Achtung !!! Ich werfe eine Granate !!!"
+
+REFERENCE           BACK2UO_ATTENTIONGRANADE2
+LANG_ENGLISH        "Attention !!! I throw a Grenade !!!"
+LANG_GERMAN         "Achtung !!! Ich werfe eine Granate !!!"
+
+REFERENCE           BACK2UO_ATTENTIONGRANADEISCOMMING
+LANG_ENGLISH        "2. Danger !!! Granade is coming !!!" 
+LANG_GERMAN         "2. Vorsicht !!! Granate im Anflug !!!"
+
+REFERENCE           BACK2UO_ATTENTIONGRANADEISCOMMING2
+LANG_ENGLISH        "Danger !!! Granade is coming !!!" 
+LANG_GERMAN         "Vorsicht !!! Granate im Anflug !!!"
+
+REFERENCE           BACK2UO_ATTENTIONSMOKE
+LANG_ENGLISH        "3. Attention !!! I throw a Smokegrenade !!!"
+LANG_GERMAN         "3. Achtung !!! ich werfe eine Rauchgranate !!!"
+
+REFERENCE           BACK2UO_ATTENTIONSMOKE2
+LANG_ENGLISH        "Attention !!! I throw a Smokegrenade !!!"
+LANG_GERMAN         "Achtung !!! ich werfe eine Rauchgranate !!!"
+
+REFERENCE           BACK2UO_ATTENTIONSMOKEDUST
+LANG_ENGLISH        "4. Caution !!! Smoke development !!!"
+LANG_GERMAN         "4. Vorsicht !!! Rauchentwicklung !!!"
+
+REFERENCE           BACK2UO_ATTENTIONSMOKEDUST2
+LANG_ENGLISH        "Caution !!! Smoke development !!!"
+LANG_GERMAN         "Vorsicht !!! Rauchentwicklung !!!"
+
+REFERENCE           BACK2UO_PANZERFAUSTSUPPORT
+LANG_ENGLISH        "5. Need Panzerfaust Support !!!"
+LANG_GERMAN         "5. Brauche Panzerfaust Unterstuetzung !!!"
+
+REFERENCE           BACK2UO_PANZERFAUSTSUPPORT2
+LANG_ENGLISH        "Need Panzerfaust Support !!!"
+LANG_GERMAN         "Brauche Panzerfaust Unterstuetzung !!!"
+
+REFERENCE           BACK2UO_ARTILLERYSUPPORT
+LANG_ENGLISH        "6. Need Artillery Support !!!"
+LANG_GERMAN         "6. Brauche Artillerie Unterstuetzung !!!"
+
+REFERENCE           BACK2UO_ARTILLERYSUPPORT2
+LANG_ENGLISH        "Need Artillery Support !!!"
+LANG_GERMAN         "Brauche Artillerie Unterstuetzung !!!"
+
+REFERENCE           BACK2UO_THANKSYOU
+LANG_ENGLISH        "7. Thank You !!!"
+LANG_GERMAN         "7. Vielen Dank !!!"
+
+REFERENCE           BACK2UO_THANKSYOU2
+LANG_ENGLISH        "Thank You !!!"
+LANG_GERMAN         "Vielen Dank !!!"
+
+REFERENCE           BACK2UO_THANKS
+LANG_ENGLISH        "8. Thanks !!!"
+LANG_GERMAN         "8. Danke !!!"
+
+REFERENCE           BACK2UO_THANKS2
+LANG_ENGLISH        "Thanks !!!"
+LANG_GERMAN         "Danke !!!"
+
+ENDMARKER
+
+

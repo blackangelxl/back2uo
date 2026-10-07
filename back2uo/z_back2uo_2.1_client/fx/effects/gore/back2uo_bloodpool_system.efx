@@ -1,0 +1,37 @@
+Particle
+{
+ name				  back2uo_bloodpool
+ flags				usePhysics impactKills impactFx useAlpha
+ count				1
+ life				      1000
+ gravity				-800
+
+ rgb
+ {
+  start				0.2200 0.06600 0.06600
+  end					0.2900 0 0
+  flags				linear
+ }
+
+ alpha
+ {
+  end					0
+  parm				40 50
+  flags				nonlinear
+ }
+
+ size
+ {
+  start				2 4
+ }
+
+ shaders
+ [
+  gfx_snow_sheet
+ ]
+
+ impactfx
+ [
+  fx/effects/gore/back2uo_bloodpool.efx
+ ]
+}

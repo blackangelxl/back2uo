@@ -1,0 +1,1067 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE		      48 64
+#define ORIGIN_CHOICE1				80 84
+#define ORIGIN_CHOICE2				80 108
+#define ORIGIN_CHOICE3				80 132
+#define ORIGIN_CHOICE4				80 156
+#define ORIGIN_CHOICE5				80 180
+
+#define ORIGIN_WEAPONIMAGE			    296 84
+#define ORIGIN_WEAPONTEXT			      296 220
+#define ORIGIN_WEAPONPROPERTIESTEXT	296 290
+#define ORIGIN_WEAPONACCURACY		    395 277
+#define ORIGIN_WEAPONDAMAGE			    395 301
+#define ORIGIN_WEAPONMOBILITY		    395 325
+#define ORIGIN_WEAPONSTATUS 		    395 349
+#define ORIGIN_GRENADESLOT1			    296 144
+#define ORIGIN_GRENADESLOT2			    312 144
+#define ORIGIN_GRENADESLOT3			    328 144
+
+{
+	menuDef
+	{
+		name			"weapons_only_sniper"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5.0
+		onEsc 
+		{
+			close weapons_only_sniper;
+		}
+		onOpen 
+		{
+			show enfieldsniper_info;	
+			show weapon_propertiestext;
+			show back2uo_logo;
+		}
+		onClose
+		{
+			hide g43sniper_info;
+      hide kar98ksniper_info;       
+      hide nagantsniper_info;
+      hide springfield_info;					
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+				
+    #include "ui_mp/bars_blank.menu"
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@MPUI_ONLY_SNIPER"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE		
+			decoration
+		}
+
+// MENU CHOICES
+		
+    execKey "1" { play "mouse_click"; scriptMenuResponse "enfield_scope_mp"; }
+    execKey "2" { play "mouse_click"; scriptMenuResponse "g43_sniper_mp"; } 
+    execKey "3" { play "mouse_click"; scriptMenuResponse "kar98k_sniper_mp"; }
+    execKey "4" { play "mouse_click"; scriptMenuResponse "mosin_nagant_sniper_mp"; }
+    execKey "5" { play "mouse_click"; scriptMenuResponse "springfield_mp" }
+
+    ///-Enfield Scope-/// 
+		itemDef 
+		{
+			name			"button_enfieldscoped"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_LEEENFIELD"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_enfieldsniper"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "enfield_scope_mp";
+			}
+			onFocus
+			{
+			  hide g43sniper_info;
+        hide kar98ksniper_info;       
+        hide nagantsniper_info;
+        hide springfield_info;
+				hide weapon_deaktiv_info;
+				play "mouse_over";
+				show enfieldsniper_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_enfieldscoped"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_LEEENFIELD"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_enfieldsniper"
+			showDvar		{ "0" }
+			onFocus
+			{
+			  hide g43sniper_info;
+        hide kar98ksniper_info;
+        hide nagantsniper_info;
+        hide springfield_info;
+				hide weapon_aktiv_info;
+				show enfieldsniper_info;
+				show weapon_propertiestext;
+				show weapon_deaktiv_info;
+			}
+		}
+		
+    ///-G43 Sniper-/// 
+		itemDef 
+		{
+			name			"button_g43sniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_G43SNIPER"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_g43sniper"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "g43_sniper_mp";
+			}
+			onFocus
+			{
+			  hide enfieldsniper_info;
+        hide kar98ksniper_info;
+        hide nagantsniper_info;
+        hide springfield_info;
+				hide weapon_deaktiv_info;
+				play "mouse_over";
+				show g43sniper_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_g43sniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_G43SNIPER"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_g43sniper"
+			showDvar		{ "0" }
+			onFocus
+			{
+			  hide enfieldsniper_info;
+        hide kar98ksniper_info;
+        hide nagantsniper_info;
+        hide springfield_info;
+				hide weapon_aktiv_info;
+				show g43sniper_info;
+				show weapon_propertiestext;
+				show weapon_deaktiv_info;
+			}
+		}		
+    
+    ///-Kar98k Sniper-/// 
+		itemDef 
+		{
+			name			"button_kar98ksniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_KAR98K"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_kar98ksniper"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "kar98k_sniper_mp";
+			}
+			onFocus
+			{
+        hide enfieldsniper_info;
+        hide g43sniper_info;
+        hide nagantsniper_info;
+        hide springfield_info;
+				hide weapon_deaktiv_info;
+				play "mouse_over";
+				show kar98ksniper_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_kar98ksniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_KAR98K"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_kar98ksniper"
+			showDvar		{ "0" }
+			onFocus
+			{
+        hide enfieldsniper_info;
+        hide g43sniper_info;
+        hide nagantsniper_info;
+        hide springfield_info;
+				hide weapon_aktiv_info;
+				show kar98ksniper_info;
+				show weapon_propertiestext;
+				show weapon_deaktiv_info;
+			}
+		}
+    
+    ///-Nagant Sniper-/// 
+		itemDef 
+		{
+			name			"button_nagantsniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE4
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_MOSINNAGANT"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_nagantsniper"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "mosin_nagant_sniper_mp";
+			}
+			onFocus
+			{
+        hide enfieldsniper_info;
+        hide g43sniper_info;
+        hide kar98ksniper_info;
+        hide springfield_info;
+				hide weapon_deaktiv_info;
+				play "mouse_over";
+				show nagantsniper_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_nagantsniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE4
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SCOPED_MOSINNAGANT"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_nagantsniper"
+			showDvar		{ "0" }
+			onFocus
+			{
+        hide enfieldsniper_info;
+        hide g43sniper_info;
+        hide kar98ksniper_info;
+        hide springfield_info;
+				hide weapon_aktiv_info;
+				show nagantsniper_info;
+				show weapon_propertiestext;
+				show weapon_deaktiv_info;
+			}
+		}
+    
+    ///-Springfield-/// 
+		itemDef 
+		{
+			name			"button_springfield"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE5
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SPRINGFIELD"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_springfield"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "springfield_mp";
+			}
+			onFocus
+			{
+        hide enfieldsniper_info;
+        hide g43sniper_info;
+        hide kar98ksniper_info;
+        hide nagantsniper_info;
+				hide weapon_deaktiv_info;
+				play "mouse_over";
+				show springfield_info;
+				show weapon_propertiestext;
+				show weapon_aktiv_info;
+			}
+		}
+		itemDef 
+		{
+			name			"button_springfield"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE5
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_ONLY_SNIPER_SPRINGFIELD"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_springfield"
+			showDvar		{ "0" }
+			onFocus
+			{
+        hide enfieldsniper_info;
+        hide g43sniper_info;
+        hide kar98ksniper_info;
+        hide nagantsniper_info;
+				hide weapon_aktiv_info;
+				show springfield_info;
+				show weapon_propertiestext;
+				show weapon_deaktiv_info;
+			}
+		} 
+		
+		itemDef 
+		{
+		 name			    "button_back"
+     visible			1
+     rect			    470 0 128 24
+     origin			  48 417
+     forecolor		GLOBAL_UNFOCUSED_COLOR
+     type			    ITEM_TYPE_BUTTON
+     text			    "@MENU_BACK2UO_BACK"
+     textfont		  UI_FONT_NORMAL
+     textscale		GLOBAL_HEADER_SIZE
+     textalign		0
+     textalignx		0
+     textaligny		24
+
+		 action
+		 {
+			play "mouse_click";
+			close weapons_only_sniper;
+			open ingame;
+		 }
+		 onFocus
+		 {
+			play "mouse_over";
+		 }
+		}		
+		
+		itemDef 
+		{
+			#include "ui_mp/button_mainmenu.menu"
+
+			action
+			{
+				play "mouse_click";
+				close ingame;
+				open main;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+// WEAPON IMAGES
+
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 -6 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_enfieldscoped"
+			decoration
+		}
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 -6 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_g43scoped"
+			decoration
+		}		
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 -2 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_kar98scoped"
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_nagantscoped"
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 4 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_springfield"
+			decoration
+		}		
+
+/*
+// WEAPON DESCRIPTIONS
+
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 224 64
+			origin			ORIGIN_WEAPONTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_THIS_IS_A_SNIPER_RIFLE"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}		
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 224 64
+			origin			ORIGIN_WEAPONTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_THIS_IS_A_SNIPER_RIFLE"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}		
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 224 64
+			origin			ORIGIN_WEAPONTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_THIS_KAR98K_VARIANT_USES" 
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 224 64
+			origin			ORIGIN_WEAPONTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_THE_SCOPED_MOSINNAGANT"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 224 64
+			origin			ORIGIN_WEAPONTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_THIS_IS_A_SNIPER_RIFLE"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}		
+		
+*/
+// WEAPON PROPERTIES
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONACCURACY
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_ACCURACY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONDAMAGE
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_DAMAGE"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONMOBILITY
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_MOBILITY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			rect			-80 13 0 0
+			origin			ORIGIN_WEAPONSTATUS
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_STATUS"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"weapon_aktiv_info"
+			visible 		0
+			rect			0 13 0 0
+			origin			ORIGIN_WEAPONSTATUS
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_AKTIV"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		itemDef
+		{
+			name			"weapon_deaktiv_info"
+			visible 		0
+			rect			0 13 0 0
+			origin			ORIGIN_WEAPONSTATUS
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_WEAPON_DEAKTIV"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		///-ENFIELD SNIPER-///
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}		
+		
+				
+		///-G43 SNIPER-///
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 70 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 60 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}		
+    		
+		///-KAR98K SNIPER-///
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+    ///-NAGANT SNIPER-///
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		
+		///-SPRINGFIELD-///
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}		
+
+// GRENADE LOADOUT
+
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@british_grenade_C.tga"
+			decoration
+		}		
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@steilhandgrenate_C.tga"
+			decoration
+		}		
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@steilhandgrenate_C.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@russian_grenade_C.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT1
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/icons/hud@us_grenade_C.tga"
+			decoration
+		}    	
+		
+// SMOKE GRENADE LOADOUT
+
+		itemDef
+		{
+			name			"enfieldsniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT3
+	 		style			WINDOW_STYLE_SHADER
+			background		"hud_us_smokegrenade_C"
+			decoration
+		}		
+		itemDef
+		{
+			name			"g43sniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT3
+	 		style			WINDOW_STYLE_SHADER
+			background		"hud_us_smokegrenade_C"
+			decoration
+		}		
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT3
+	 		style			WINDOW_STYLE_SHADER
+			background		"hud_us_smokegrenade_C"
+			decoration
+		}
+		itemDef
+		{
+			name			"nagantsniper_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT3
+	 		style			WINDOW_STYLE_SHADER
+			background		"hud_us_smokegrenade_C"
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			0 0 32 32
+			origin			ORIGIN_GRENADESLOT3
+	 		style			WINDOW_STYLE_SHADER
+			background		"hud_us_smokegrenade_C"
+			decoration
+		}                  		
+	}
+}

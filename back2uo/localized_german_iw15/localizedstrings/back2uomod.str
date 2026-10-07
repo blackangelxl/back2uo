@@ -1,0 +1,386 @@
+//////////////////////////////////////
+// Back2Uo Mod - Localized Strings //
+////////////////////////////////////
+
+//////////////////////
+//-Player Messages-//
+////////////////////
+
+REFERENCE			PLAYER_SPECTATOR
+LANG_ENGLISH		"^7&&1 change to Spectator Mode."
+LANG_GERMAN     "^7&&1 wechselt in den Zuschauer Modus." 
+
+REFERENCE			PLAYER_CONNECT
+LANG_ENGLISH		"^7&&1 joins the Game."
+LANG_GERMAN     "^7&&1 tritt dem Spiel bei." 
+
+REFERENCE			PLAYER_DISCONNECT
+LANG_ENGLISH		"^7&&1 leaves the Server."
+LANG_GERMAN     "^7&&1 verlässt den Server." 
+
+////////////////////////
+//-Anti Player "AFK"-//
+//////////////////////
+
+REFERENCE			AFK_WARNING_MSG
+LANG_ENGLISH		"^1AFK Warning !!!\n ^7You have 10 Seconds, else banished you into Spectator Mode."
+LANG_GERMAN     "^1AFK Warnung !!!\n ^7Du hast 10 Sekunden Zeit, sonst wirst Du in den Zuschauer Modus verbannt." 
+
+REFERENCE			AFK_SWICHTING_MSG
+LANG_ENGLISH		"^7You were banished into Spectator Mode."
+LANG_GERMAN			"^7Du wurdest in den Zuschauer Modus verbannt."
+
+///////////////////////////
+//-Anti Player "Camper"-//
+/////////////////////////
+
+REFERENCE			CAMPING_WARNING_MSG
+LANG_ENGLISH		"^1Camper Warning !!!\n ^7Move your Ass, Camping is not allow."
+LANG_GERMAN     "^1Camper Warnung !!!\n ^7Beweg dich, Campen wird nicht geduldet." 
+
+REFERENCE			CAMPING_MARKED_MSG
+LANG_ENGLISH		"^7You was marked for &&1 Seconds on Compass!"
+LANG_GERMAN			"^7Du wirst für &&1 Sekunden auf dem Compass markiert!"
+
+REFERENCE			CAMPING_SURVIVED_MSG
+LANG_ENGLISH		"^1Nice Luck !!!\n ^7You have Camping survived."
+LANG_GERMAN			"^1Glück gehabt !!!\n ^7Du hast das Campen überlebt."
+
+//////////////////////
+//-Spawn Protektor-//
+////////////////////
+
+REFERENCE			SPAWN_ENABLE_MSG
+LANG_ENGLISH		"^7Spawn Protection activate."
+LANG_GERMAN     "^7Spawn Schutz aktiviert." 
+
+REFERENCE			SPAWN_DISABLED_MSG
+LANG_ENGLISH		"^7Spawn Protection deactivate."
+LANG_GERMAN			"^7Spawn Schutz deaktiviert."
+
+REFERENCE			SPAWN_PLAYER_ATTACKE
+LANG_ENGLISH		"^1Player stands under Spawn Protection !!!"
+LANG_GERMAN			"^1Spieler steht unter Spawnschutz !!!"
+
+////////////////
+//-Artillery-//
+//////////////
+
+REFERENCE			ARTILLERY_GO
+LANG_ENGLISH		"^7Artillery is ready!"
+LANG_GERMAN     "^7Artillerie ist bereit!" 
+
+REFERENCE			ARTILLERY_USE
+LANG_ENGLISH		"^7Push USE [[{+activate}]] to request Artillery."
+LANG_GERMAN     "^7Drücken Sie BENUTZEN [[{+activate}]], um Artillerie anzufordern." 
+
+REFERENCE			ARTILLERY_FIRING
+LANG_ENGLISH		"^7Artillery was request!"
+LANG_GERMAN     "^7Artillerie wurde angefordert!" 
+
+REFERENCE			ARTILLERY_DANGER
+LANG_ENGLISH		"^1Attention !!!\n ^7The Artillery has Impact in your topical Position."
+LANG_GERMAN     "^1Achtung !!!\n ^7Die Artillerie wird in ihrer Nähe einschlagen." 
+
+////////////////
+// Binocular //
+//////////////
+
+REFERENCE			BINOCULAR_DISTANCE
+LANG_ENGLISH		"^7Artillery Target in: "
+LANG_GERMAN     "^7Artillerie Ziel in: "
+
+REFERENCE			BINOCULAR_METERS
+LANG_ENGLISH		" ^7Meter(s)"
+LANG_GERMAN     " ^7Meter(n)"
+
+REFERENCE			BINOCULAR_UNKNOWN
+LANG_ENGLISH		"^7No Value"
+LANG_GERMAN     "^7Kein Wert"
+
+//////////
+// Hit //
+////////
+
+REFERENCE			HIT_METER
+LANG_ENGLISH		" ^3Meters ^7- ^3"
+LANG_GERMAN     " ^3Meter ^7- ^3"
+
+REFERENCE			HIT_METER2
+LANG_ENGLISH		" ^3Meters removes"
+LANG_GERMAN     " ^3Meter entfernt"
+
+REFERENCE			HIT_HELMET
+LANG_ENGLISH		"Helmet"
+LANG_GERMAN     "Helm"
+
+REFERENCE			HIT_HEAD
+LANG_ENGLISH		"Head"
+LANG_GERMAN     "Kopf"
+
+REFERENCE			HIT_NECK
+LANG_ENGLISH		"Neck"
+LANG_GERMAN     "Nacken"
+
+REFERENCE			HIT_TORSO_UPPER
+LANG_ENGLISH		"Torso upper"
+LANG_GERMAN     "Oberkörper"
+
+REFERENCE			HIT_TORSO_LOWER
+LANG_ENGLISH		"Torso lower"
+LANG_GERMAN     "Unterkörper"
+
+REFERENCE			HIT_LEFT_ARM_UPPER
+LANG_ENGLISH		"left Arm upper"
+LANG_GERMAN     "oberer linker Arm"
+
+REFERENCE			HIT_LEFT_ARM_LOWER
+LANG_ENGLISH		"left Arm lower"
+LANG_GERMAN     "unterer linker Arm"
+
+REFERENCE			HIT_RIGHT_ARM_UPPER
+LANG_ENGLISH		"right Arm upper"
+LANG_GERMAN     "oberer rechter Arm"
+
+REFERENCE			HIT_RIGHT_ARM_LOWER
+LANG_ENGLISH		"right Arm lower"
+LANG_GERMAN     "unterer rechter Arm"
+
+REFERENCE			HIT_LEFT_HAND
+LANG_ENGLISH		"left Hand"
+LANG_GERMAN     "linke Hand"
+
+REFERENCE			HIT_RIGHT_HAND
+LANG_ENGLISH		"right Hand"
+LANG_GERMAN     "rechte Hand"
+
+REFERENCE			HIT_LEFT_LEG_UPPER
+LANG_ENGLISH		"left Leg upper"
+LANG_GERMAN     "oberes linkes Bein"
+
+REFERENCE			HIT_LEFT_LEG_LOWER
+LANG_ENGLISH		"left Leg lower"
+LANG_GERMAN     "unteres linkes Bein"
+
+REFERENCE			HIT_RIGHT_LEG_UPPER
+LANG_ENGLISH		"right Leg upper"
+LANG_GERMAN     "oberes rechtes Bein"
+
+REFERENCE			HIT_RIGHT_LEG_LOWER
+LANG_ENGLISH		"right Leg lower"
+LANG_GERMAN     "unteres rechtes Bein"
+
+REFERENCE			HIT_LEFT_FOOT
+LANG_ENGLISH		"left Foot"
+LANG_GERMAN     "linker Fuß"
+
+REFERENCE			HIT_RIGHT_FOOT
+LANG_ENGLISH		"right Foot"
+LANG_GERMAN     "rechter Fuß"
+
+//////////////
+// Ranking //
+////////////
+
+REFERENCE     RANKING_UP
+LANG_ENGLISH  "^7You receive a new Rank!"
+LANG_GERMAN   "^7Sie erhalten einen neuen Rang!"
+
+REFERENCE     RANKING_DOWN
+LANG_ENGLISH  "^7You lost a Rank!"
+LANG_GERMAN   "^7Sie verlieren einen Rang!"
+
+REFERENCE     RANKING_MUN
+LANG_ENGLISH  "^7You receive more Ammo!"
+LANG_GERMAN   "^7Sie erhalten mehr Munition!"
+
+REFERENCE     RANKING_GRA
+LANG_ENGLISH  "^7You receive more Granades!"
+LANG_GERMAN   "^7Sie erhalten mehr Granaten!"
+
+
+///////////////////
+//-Map Rotation-//
+/////////////////
+
+REFERENCE			NEXT_MAP
+LANG_ENGLISH		"^7Next Map: ( ^2"
+LANG_GERMAN     "^7Nächste Map: ( ^2" 
+
+///////////////
+//-Map Name-//
+/////////////
+
+REFERENCE			MAP_MP_FARMHOUSE
+LANG_ENGLISH		"Farmhouse"
+LANG_GERMAN     "Farmhouse" 
+
+REFERENCE			MAP_MP_BRECOURT
+LANG_ENGLISH		"Brecourt"
+LANG_GERMAN     "Brecourt" 
+
+REFERENCE			MAP_MP_BURGUNDY
+LANG_ENGLISH		"Burgundy" 
+LANG_GERMAN     "Burgundy" 
+
+REFERENCE			MAP_MP_TRAINSTATION
+LANG_ENGLISH		"Trainstation"
+LANG_GERMAN     "Trainstation" 
+
+REFERENCE			MAP_MP_CARENTAN
+LANG_ENGLISH		"Carentan"
+LANG_GERMAN     "Carentan" 
+
+REFERENCE			MAP_MP_DECOY
+LANG_ENGLISH		"Decoy"
+LANG_GERMAN     "Decoy" 
+
+REFERENCE			MAP_MP_LENINGRAD
+LANG_ENGLISH		"Leningrad"
+LANG_GERMAN     "Leningrad" 
+
+REFERENCE			MAP_MP_MATMATA
+LANG_ENGLISH		"Matmata"
+LANG_GERMAN     "Matmata" 
+
+REFERENCE			MAP_MP_DOWNTOWN
+LANG_ENGLISH		"Downtown"
+LANG_GERMAN     "Downtown" 
+
+REFERENCE			MAP_MP_DAWNVILLE
+LANG_ENGLISH		"Dawnville"
+LANG_GERMAN     "Dawnville" 
+
+REFERENCE			MAP_MP_RAILYARD
+LANG_ENGLISH		"Railyard"
+LANG_GERMAN     "Railyard" 
+
+REFERENCE			MAP_MP_TOUJANE
+LANG_ENGLISH		"Toujane"
+LANG_GERMAN     "Toujane" 
+
+REFERENCE			MAP_MP_BREAKOUT
+LANG_ENGLISH		"Brecourt"
+LANG_GERMAN     "Brecourt" 
+
+REFERENCE			MAP_MP_HARBOR
+LANG_ENGLISH		"Harbor"
+LANG_GERMAN     "Harbor" 
+
+REFERENCE			MAP_MP_RHINE
+LANG_ENGLISH		"Rhine"
+LANG_GERMAN     "Rhine" 
+
+///////////////
+//-Gametype-//
+/////////////
+
+REFERENCE			GT_DM
+LANG_ENGLISH		"DM"
+LANG_GERMAN     "DM" 
+
+REFERENCE			GT_TDM
+LANG_ENGLISH		"TDM"
+LANG_GERMAN     "TDM" 
+
+REFERENCE			GT_SD
+LANG_ENGLISH		"S&D"
+LANG_GERMAN     "S&D" 
+
+REFERENCE			GT_HQ
+LANG_ENGLISH		"HQ"
+LANG_GERMAN     "HQ" 
+
+REFERENCE			GT_CTF
+LANG_ENGLISH		"CTF"
+LANG_GERMAN     "CTF" 
+
+//////////////////
+//-Back2Uo Mod-//
+////////////////
+
+REFERENCE			VALUE_DRAW
+LANG_ENGLISH		"Value: "
+LANG_GERMAN     "Wert: " 
+
+REFERENCE			MOD_CREDITS
+LANG_ENGLISH		"^4Back^12^4Uo ^1Mod ^7v.2.1 ^3Public Beta"
+LANG_GERMAN     "^4Back^12^4Uo ^1Mod ^7v.2.1 ^3Public Beta" 
+
+//////////////////
+//-Sprint Tast-//
+////////////////
+
+REFERENCE			NOSPRINT_TAST
+LANG_ENGLISH		"Sprinting is not possible"
+LANG_GERMAN     "Sprinten ist nicht möglich !!!" 
+
+////////////////////
+//-Object Pickup-//
+//////////////////
+
+REFERENCE           SWAPWEAPONS
+LANG_ENGLISH        "Press USE [[{+activate}]] to swap for"
+LANG_GERMAN         "Drücken Sie BENUTZEN [[{+activate}]] zum Wechseln:"
+
+REFERENCE           HEALTHPACK_PICKUP
+LANG_ENGLISH        "A Healthpack to pickup."
+LANG_GERMAN         "Ein Healthpack zum aufzunehmen."
+
+REFERENCE           HEALTHPACK_SMALL
+LANG_ENGLISH        "Small -"
+LANG_GERMAN         "Kleine -"
+
+REFERENCE           HEALTHPACK_MEDIUM
+LANG_ENGLISH        "Medium -"
+LANG_GERMAN         "Mittlere -"
+
+REFERENCE           HEALTHPACK_LARGE
+LANG_ENGLISH        "Large -"
+LANG_GERMAN         "Große -"
+
+///////////////////
+//-Point System-//
+/////////////////
+
+REFERENCE           RANKINGPOINTS_ADD
+LANG_ENGLISH        "They receive Points for "
+LANG_GERMAN         "Sie erhalten Punkte für das "
+
+REFERENCE           RANKINGPOINTS_SUB
+LANG_ENGLISH        "They lose Points for the "
+LANG_GERMAN         "Sie verlieren Punkte für den "
+
+REFERENCE           RANKINGPOINTS_FOR_PLANT
+LANG_ENGLISH        "Bomb planted!"
+LANG_GERMAN         "Bombe legen!"
+
+REFERENCE           RANKINGPOINTS_FOR_DEFUSE
+LANG_ENGLISH        "Bomb defused!"
+LANG_GERMAN         "Bombe entschärfen!"
+
+REFERENCE           RANKINGPOINTS_FOR_CAPTURE
+LANG_ENGLISH        "Capture a Flag!"
+LANG_GERMAN         "Erobern einer Flagge!"
+
+REFERENCE           RANKINGPOINTS_FOR_DEFENDING
+LANG_ENGLISH        "Defending a Flag!"
+LANG_GERMAN         "Verteidigen einer Flagge!"
+
+REFERENCE           RANKINGPOINTS_FOR_SURVIVE
+LANG_ENGLISH        "Survive a Round!"
+LANG_GERMAN         "Überleben einer Runde!"
+
+REFERENCE           RANKINGPOINTS_FOR_SUICIDE
+LANG_ENGLISH        "Suicide!"
+LANG_GERMAN         "Selbstmord!"
+
+/////////////////
+//-Taunt Menu-//
+///////////////
+
+REFERENCE			TAUNT_COMMENTS
+LANG_ENGLISH		"4. Extra Comments"
+LANG_GERMAN     "4. Extra Kommentare" 
+
+ENDMARKER

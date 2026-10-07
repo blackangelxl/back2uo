@@ -1,0 +1,27 @@
+Decal
+{					
+ life				100000
+ rotation			-360 360
+
+ rgb
+ {
+	start			0.35 0.35 0.35
+	end			0.35 0.35 0.35
+	flags			linear
+ }
+	
+ size
+ {
+	start			1 4	
+	flags			random nonlinear 
+ }
+	
+ shaders
+ [
+  gfx/gore/back2uo_bloodsplash1.tga
+  gfx/gore/back2uo_bloodsplash2.tga
+  gfx/gore/back2uo_bloodsplash3.tga
+  gfx/gore/back2uo_bloodsplash4.tga
+  gfx/gore/back2uo_bloodsquirt.tga
+ ]
+}

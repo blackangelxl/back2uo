@@ -1,0 +1,619 @@
+# Back2Uo v.2.1 Sound Alias
+
+########################
+## Sound System Infos ##
+########################
+
+,name,name of the alias that is used to play this sound (required),,,
+,sequence,"used to uniquely identify alias entries when more than one sound goes to an alias, used only to catch unwanted duplicates (default = 0)",,,
+,file,the name of the file that contains the sound data (required),,,
+,vol_min,"0 is silent, 1 is full volume (default = 1)",,,
+,vol_max,"0 is silent, 1 is full volume (default = same as vol_min)",,,
+,vol_mod,"blank causes no effect on vol_min and vol_max, otherwise the string must match a string in the volumemodgroups.def file and the value in that file corresponding to that string will be used to adjust vol_min and vol_max, clamped to the valid range"
+,pitch_min,"1 is normal playback, 2 is twice as fast, 0.5 is half as fast (default = 1)",,,
+,pitch_max,"1 is normal playback, 2 is twice as fast, 0.5 is half as fast (default = same as pitch_min)",,,
+,dist_min,"within this distance in inches, the sound is always full volume (default = 120)",,,
+,dist_max,"outside this distance in inches, the sound is not started.  If left blank or set to 0, the sound will play from any distance.  This does not affect sound volume falloff.",,,,,,,,,,,,,,,,,,,,,
+,channel,"auto, menu, weapon, voice, item, body, local, music, announcer (default = auto)",,,,,,,,,,,,,,,,,,,,,
+,type,primed (a streamed sound which gets primed on some platforms) / streamed / loaded (default = loaded),,,,,,,,,,,,,,,,,,,,,
+,loop,"whether this sound is ""looping"" or ""nonlooping"" (default = ""nonlooping"")",,,,,,,,,,,,,,,,,,,,,
+,lfe percentage,this determines what percentage of the highest calculated spatialized speaker volume should be passed to the LFE. blank means no LFE for the sound,,,,,,,,,,,,,,,,,,,,,
+
+name,sequence,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max,channel,type,loop,lfe percentage
+
+####################
+## Weather Sounds ##
+####################
+
+#Ambiente Rain / Wind
+amb_rain,1,amb_emitters/amb_rain_foliage.wav,0.2,0.3,,,,,,local,streamed,looping
+amb_wind,1,amb_emitters/emt_corner_wind_1.wav,0.2,0.4,,,,,,local,streamed,looping
+
+#Thunder
+elm_thunder,1,amb_elements/elm_thunder1b.wav,1,1,,,,5000,10000,auto,streamed
+elm_thunder,2,amb_elements/elm_thunder2b.wav,1,1,,,,5000,10000,auto,streamed
+elm_thunder,3,amb_elements/elm_thunder5.wav,1,1,,,,5000,10000,auto,streamed
+elm_thunder,4,amb_elements/elm_thunder7.wav,1,1,,,,5000,10000,auto,streamed
+
+#Thunder Boom
+elm_thunderin,1,amb_elements/elm_thunder_y02.wav,1,1,,,,5000,10000,auto,streamed
+elm_thunderin,2,amb_elements/elm_thunder_y04.wav,1,1,,,,5000,10000,auto,streamed
+
+################
+## War Sounds ##
+################
+
+#Airplane Flying - Spitfire Long Sound
+spitfire_flying_long,1,vehicles/stuka_planeby1.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
+spitfire_flying_long,2,vehicles/stuka_planeby3b.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
+
+#Airplane Flying - Spitfire Short Sound
+spitfire_flying_short,1,vehicles/mrk_plane_flyby_spitfire4.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
+spitfire_flying_short,2,vehicles/mrk_plane_flyby_spitfire6.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
+
+#Airplane Flying - Stuka Long Sound
+stuka_flying_long,1,vehicles/stuka_planeby1.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
+stuka_flying_long,2,vehicles/stuka_planeby2.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
+
+#Airplane Flying - Stuka Short Sound
+stuka_flying_short,1,vehicles/mrk_plane_flyby_stuka4.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
+stuka_flying_short,2,vehicles/mrk_plane_flyby_stuka5.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
+
+#Flak
+flak_explosion,,explosions/explo_distant02.wav,0.4,0.6,,,,10000,,auto,streamed
+
+#Airplane Explosion
+airplane_explosion,,explosions/plane_explode2_rl_mono2.wav,1,1,explosion,,,5000,10000,auto,streamed
+
+#Mortar Launch
+mortarlaunch_incoming1,2,explosions/cannon_sequence_hvy1_filt.wav,1,1,,,,,,auto,streamed
+mortarlaunch_incoming2,2,explosions/cannon_sequence_hvy2_filt.wav,1,1,,,,,,auto,streamed
+mortarlaunch_incoming3,2,explosions/cannon_sequence_hvy3_filt.wav,1,1,,,,,,auto,streamed
+
+#Mortar Fall Incoming
+moerser_fallincome1,,explosions/incoming01.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
+moerser_fallincome2,,explosions/incoming03.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
+
+#Mortar Explosion
+moerser_explod1,,explosions/mortar_dirt01.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
+moerser_explod2,,explosions/mortar_dirt02.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
+moerser_explod3,,explosions/mortar_dirt03.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
+
+#Artillery Ready
+artillery_US_ready,,back2uo/us_arty_gtg.mp3,1,1,,,,,,voice,streamed
+artillery_UK_ready,,back2uo/uk_arty_gtg.mp3,1,1,,,,,,voice,streamed
+artillery_RU_ready,,back2uo/ru_arty_gtg.mp3,1,1,,,,,,voice,streamed
+artillery_GE_ready,,back2uo/ge_arty_gtg.mp3,1,1,,,,,,voice,streamed
+
+#Artillery Order
+artillery_allies_targetfalse,,voiceovers/uk/artillery/artillery_ba1_04_t1.wav,1,1,,,,,,voice,streamed
+artillery_allies_targettrue,,voiceovers/uk/artillery/artillery_ba1_14_t1.wav,1,1,,,,,,voice,streamed
+artillery_axis_targetfalse,,voiceovers/us/artillery/artillery_ar1_sc01_03_t2_R.wav,1,1,,,,,,voice,streamed
+artillery_axis_targettrue,,voiceovers/us/artillery/artillery_ar1_sc01_14_t4_R.wav,1,1,,,,,,voice,streamed
+
+#Artillery Launch
+artillery_launch1,,explosions/cannon_sequence_hvy1_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,streamed
+artillery_launch2,,explosions/cannon_sequence_hvy2_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,streamed
+artillery_launch3,,explosions/cannon_sequence_hvy3_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,streamed
+
+#Artillery Fall Incoming
+artillery_fallincome1,,explosions/artillery_incoming03.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,streamed
+artillery_fallincome2,,explosions/artillery_incoming04.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,streamed
+artillery_fallincome3,,explosions/artillery_incoming05.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,streamed
+
+#Artillery Explosion
+artillery_explod1,,explosions/mrk_building_big_explod_1b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
+artillery_explod2,,explosions/mrk_building_big_explod_2b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
+artillery_explod3,,explosions/mrk_building_big_explod_3b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
+
+###################
+## Player Sounds ##
+###################
+
+#Breathing
+sprint_breathing,,back2uo/sprint_breathing.mp3,0.60,0.60,,,,120,700,body,streamed
+
+#Ranking
+ranking_up,,back2uo/ranking_up.mp3,0.7,0.85,,,,,,local,streamed
+ranking_down,,back2uo/ranking_down.mp3,0.7,0.85,,,,,,local,streamed
+
+####################
+## Warning Sounds ##
+####################
+
+#US Inform Attacker Grenade 0
+US_0_inform_attacker_grenade,1,battlechatter/US/0/US_0_inform_attacking_grenade_01.wav,1,1,,,,,,voice,streamed
+US_0_inform_attacker_grenade,2,battlechatter/US/0/US_0_inform_attacking_grenade_08b.wav,1,1,,,,,,voice,streamed
+
+#US Inform Attacker Grenade 1
+US_1_inform_attacker_grenade,1,battlechatter/US/1/US_1_inform_attacking_grenade_01.wav,1,1,,,,,,voice,streamed
+US_1_inform_attacker_grenade,2,battlechatter/US/1/US_1_inform_attacking_grenade_02b.wav,1,1,,,,,,voice,streamed
+
+#US Inform Attacker Grenade 2
+US_2_inform_attacker_grenade,1,battlechatter/US/2/US_2_inform_attacking_grenade_01.wav,1,1,,,,,,voice,streamed
+US_2_inform_attacker_grenade,2,battlechatter/US/2/US_2_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+
+#US Inform Attacker Grenade 3
+US_3_inform_attacker_grenade,1,battlechatter/US/3/US_3_inform_attacking_grenade_01.wav,1,1,,,,,,voice,streamed
+US_3_inform_attacker_grenade,2,battlechatter/US/3/US_3_inform_attacking_grenade_08b.wav,1,1,,,,,,voice,streamed
+
+#UK Inform Attacker Grenade 0
+UK_0_inform_attacker_grenade,1,battlechatter/UK/0/uk_0_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+UK_0_inform_attacker_grenade,2,battlechatter/UK/0/uk_0_inform_attacking_grenade_06.wav,1,1,,,,,,voice,streamed
+
+#UK Inform Attacker Grenade 1
+UK_1_inform_attacker_grenade,1,battlechatter/UK/1/UK_1_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+UK_1_inform_attacker_grenade,2,battlechatter/UK/1/UK_1_inform_attacking_grenade_05.wav,1,1,,,,,,voice,streamed
+
+#UK Inform Attacker Grenade 2
+UK_2_inform_attacker_grenade,1,battlechatter/UK/MCG/UK_mcg_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+UK_2_inform_attacker_grenade,2,battlechatter/UK/MCG/UK_mcg_inform_attacking_grenade_06.wav,1,1,,,,,,voice,streamed
+
+#UK Inform Attacker Grenade 3
+UK_3_inform_attacker_grenade,1,battlechatter/UK/3/UK_3_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+UK_3_inform_attacker_grenade,2,battlechatter/UK/3/UK_3_inform_attacking_grenade_06.wav,1,1,,,,,,voice,streamed
+
+#RU Inform Attacker Grenade 0
+RU_0_inform_attacker_grenade,1,battlechatter/RU/0/RU_4_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+RU_0_inform_attacker_grenade,2,battlechatter/RU/0/RU_4_inform_attacking_grenade_04.wav,1,1,,,,,,voice,streamed
+
+#RU Inform Attacker Grenade 1
+RU_1_inform_attacker_grenade,1,battlechatter/RU/1/RU_1_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+RU_1_inform_attacker_grenade,2,battlechatter/RU/1/RU_1_inform_attacking_grenade_05.wav,1,1,,,,,,voice,streamed
+
+#RU Inform Attacker Grenade 2
+RU_2_inform_attacker_grenade,1,battlechatter/RU/VSK/RU_vsk_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+RU_2_inform_attacker_grenade,2,battlechatter/RU/VSK/RU_vsk_inform_attacking_grenade_04.wav,1,1,,,,,,voice,streamed
+
+#RU Inform Attacker Grenade 3
+RU_3_inform_attacker_grenade,1,battlechatter/RU/3/RU_3_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+RU_3_inform_attacker_grenade,2,battlechatter/RU/3/RU_3_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+
+#GE Inform Attacker Grenade 0
+GE_0_inform_attacker_grenade,1,battlechatter/GE/0/GE_0_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+GE_0_inform_attacker_grenade,2,battlechatter/GE/0/GE_0_inform_attacking_grenade_05.wav,1,1,,,,,,voice,streamed
+
+#GE Inform Attacker Grenade 1
+GE_1_inform_attacker_grenade,1,battlechatter/GE/1/GE_4_inform_attacking_grenade_03.wav,1,1,,,,,,voice,streamed
+GE_1_inform_attacker_grenade,2,battlechatter/GE/1/GE_4_inform_attacking_grenade_04.wav,1,1,,,,,,voice,streamed
+
+#GE Inform Attacker Grenade 2
+GE_2_inform_attacker_grenade,1,battlechatter/GE/2/GE_2_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+GE_2_inform_attacker_grenade,2,battlechatter/GE/2/GE_2_inform_attacking_grenade_05.wav,1,1,,,,,,voice,streamed
+
+#GE Inform Attacker Grenade 3
+GE_3_inform_attacker_grenade,1,battlechatter/GE/3/GE_3_inform_attacking_grenade_02.wav,1,1,,,,,,voice,streamed
+GE_3_inform_attacker_grenade,2,battlechatter/GE/3/GE_3_inform_attacking_grenade_05.wav,1,1,,,,,,voice,streamed
+
+
+#US Incoming Mortar 0
+US_0_inform_incoming_mortar,1,battlechatter/us/0/US_0_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+US_0_inform_incoming_mortar,2,battlechatter/us/0/US_0_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+
+#US Incoming Mortar 1
+US_1_inform_incoming_mortar,1,battlechatter/us/1/US_1_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+US_1_inform_incoming_mortar,2,battlechatter/us/1/US_1_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+US_1_inform_incoming_mortar,3,battlechatter/us/1/US_1_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#US Incoming Mortar 2
+US_2_inform_incoming_mortar,1,battlechatter/us/2/US_2_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+US_2_inform_incoming_mortar,2,battlechatter/us/2/US_2_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+US_2_inform_incoming_mortar,3,battlechatter/us/2/US_2_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#US Incoming Mortar 3
+US_3_inform_incoming_mortar,1,battlechatter/us/3/US_3_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+US_3_inform_incoming_mortar,2,battlechatter/us/3/US_3_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+US_3_inform_incoming_mortar,3,battlechatter/us/3/US_3_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#UK Incoming Mortar 0
+UK_0_inform_incoming_mortar,1,battlechatter/uk/0/UK_0_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+UK_0_inform_incoming_mortar,2,battlechatter/uk/0/UK_0_inform_incoming_mortar_01b.wav,1,1,,,,,,voice,streamed
+UK_0_inform_incoming_mortar,3,battlechatter/uk/0/UK_0_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+
+#UK Incoming Mortar 1
+UK_1_inform_incoming_mortar,1,battlechatter/uk/1/UK_1_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+UK_1_inform_incoming_mortar,2,battlechatter/uk/1/UK_1_inform_incoming_mortar_01b.wav,1,1,,,,,,voice,streamed
+UK_1_inform_incoming_mortar,3,battlechatter/uk/1/UK_1_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+
+#UK Incoming Mortar 2
+UK_2_inform_incoming_mortar,1,battlechatter/uk/2/UK_2_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+UK_2_inform_incoming_mortar,2,battlechatter/uk/2/UK_2_inform_incoming_mortar_01b.wav,1,1,,,,,,voice,streamed
+UK_2_inform_incoming_mortar,3,battlechatter/uk/2/UK_2_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+
+#UK Incoming Mortar 3
+UK_3_inform_incoming_mortar,1,battlechatter/uk/3/UK_3_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+UK_3_inform_incoming_mortar,2,battlechatter/uk/3/UK_3_inform_incoming_mortar_01b.wav,1,1,,,,,,voice,streamed
+UK_3_inform_incoming_mortar,3,battlechatter/uk/3/UK_3_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+
+#RU Incoming Mortar 0
+RU_0_inform_incoming_mortar,1,battlechatter/ru/0/RU_4_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+RU_0_inform_incoming_mortar,2,battlechatter/ru/0/RU_4_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+RU_0_inform_incoming_mortar,3,battlechatter/ru/0/RU_4_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#RU Incoming Mortar 1
+RU_1_inform_incoming_mortar,1,battlechatter/ru/1/RU_1_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+RU_1_inform_incoming_mortar,2,battlechatter/ru/1/RU_1_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+RU_1_inform_incoming_mortar,3,battlechatter/ru/1/RU_1_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#RU Incoming Mortar 2
+RU_2_inform_incoming_mortar,1,battlechatter/ru/vsk/RU_vsk_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+RU_2_inform_incoming_mortar,2,battlechatter/ru/vsk/RU_vsk_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+RU_2_inform_incoming_mortar,3,battlechatter/ru/vsk/RU_vsk_inform_incoming_mortar_04.wav,1,1,,,,,,voice,streamed
+
+#RU Incoming Mortar 3
+RU_3_inform_incoming_mortar,1,battlechatter/ru/3/RU_3_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+RU_3_inform_incoming_mortar,2,battlechatter/ru/3/RU_3_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+RU_3_inform_incoming_mortar,3,battlechatter/ru/3/RU_3_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#GE Incoming Mortar 0
+GE_0_inform_incoming_mortar,1,battlechatter/ge/0/GE_0_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+GE_0_inform_incoming_mortar,2,battlechatter/ge/0/GE_0_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+GE_0_inform_incoming_mortar,3,battlechatter/ge/0/GE_0_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#GE Incoming Mortar 1
+GE_1_inform_incoming_mortar,1,battlechatter/ge/1/GE_4_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+GE_1_inform_incoming_mortar,2,battlechatter/ge/1/GE_4_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+GE_1_inform_incoming_mortar,3,battlechatter/ge/1/GE_4_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#GE Incoming Mortar 2
+GE_2_inform_incoming_mortar,1,battlechatter/ge/2/GE_2_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+GE_2_inform_incoming_mortar,2,battlechatter/ge/2/GE_2_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+GE_2_inform_incoming_mortar,3,battlechatter/ge/2/GE_2_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+#GE Incoming Mortar 3
+GE_3_inform_incoming_mortar,1,battlechatter/ge/3/GE_3_inform_incoming_mortar_01.wav,1,1,,,,,,voice,streamed
+GE_3_inform_incoming_mortar,2,battlechatter/ge/3/GE_3_inform_incoming_mortar_02.wav,1,1,,,,,,voice,streamed
+GE_3_inform_incoming_mortar,3,battlechatter/ge/3/GE_3_inform_incoming_mortar_03.wav,1,1,,,,,,voice,streamed
+
+##################
+## Taunt Sounds ##
+##################
+
+#GE Taunts 0
+Taunt_GE_0_0,,battlechatter/ge/0/GE_0_response_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_1,,battlechatter/ge/0/GE_0_inform_attacking_grenade_uk_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_2,,battlechatter/ge/0/GE_0_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_3,,battlechatter/ge/0/GE_0_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_4,,battlechatter/ge/0/GE_0_inform_killconfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_5,,battlechatter/ge/0/GE_0_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_6,,battlechatter/ge/0/GE_0_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_7,,battlechatter/ge/0/GE_0_order_action_boost_11.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_8,,battlechatter/ge/0/GE_0_reaction_surprise_ambush_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_9,,battlechatter/ge/0/GE_0_response_killconfirm_armor_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_10,,battlechatter/ge/0/GE_0_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_0_11,,battlechatter/ge/0/GE_0_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#GE Taunts 1
+Taunt_GE_1_0,,battlechatter/ge/1/GE_4_response_killconfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_1,,battlechatter/ge/1/GE_4_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_2,,battlechatter/ge/1/GE_4_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_3,,battlechatter/ge/1/GE_4_inform_killconfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_4,,battlechatter/ge/1/GE_4_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_5,,battlechatter/ge/1/GE_4_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_6,,battlechatter/ge/1/GE_4_order_action_boost_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_7,,battlechatter/ge/1/GE_4_response_killconfirm_armor_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_8,,battlechatter/ge/1/GE_4_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_1_9,,battlechatter/ge/1/GE_4_response_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#GE Taunts 2
+Taunt_GE_2_0,,battlechatter/ge/2/GE_2_response_killconfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_1,,battlechatter/ge/2/GE_2_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_2,,battlechatter/ge/2/GE_2_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_3,,battlechatter/ge/2/GE_2_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_4,,battlechatter/ge/2/GE_2_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_5,,battlechatter/ge/2/GE_2_order_action_boost_11.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_6,,battlechatter/ge/2/GE_2_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_2_7,,battlechatter/ge/2/GE_2_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#GE Taunts 3
+Taunt_GE_3_0,,battlechatter/ge/3/GE_3_response_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_3_1,,battlechatter/ge/3/GE_3_inform_killconfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_3_2,,battlechatter/ge/3/GE_3_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_3_3,,battlechatter/ge/3/GE_3_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_3_4,,battlechatter/ge/3/GE_3_response_killconfirm_armor_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_3_5,,battlechatter/ge/3/GE_3_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE_3_6,,battlechatter/ge/3/GE_3_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#RU Taunt 0
+Taunt_RU_0_0,,battlechatter/ru/0/RU_4_response_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_0_1,,battlechatter/ru/0/RU_4_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_0_2,,battlechatter/ru/0/RU_4_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_0_3,,battlechatter/ru/0/RU_4_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_0_4,,battlechatter/ru/0/RU_4_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_0_5,,battlechatter/ru/0/RU_4_inform_killconfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#RU Taunt 1
+Taunt_RU_1_0,,battlechatter/ru/1/RU_1_response_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_1_1,,battlechatter/ru/1/RU_1_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_1_2,,battlechatter/ru/1/RU_1_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_1_3,,battlechatter/ru/1/RU_1_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_1_4,,battlechatter/ru/1/RU_1_inform_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_1_5,,battlechatter/ru/1/RU_1_inform_killfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_1_6,,battlechatter/ru/1/RU_1_response_killconfirm_armor_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#RU Taunt 2
+Taunt_RU_2_0,,battlechatter/ru/vsk/RU_vsk_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_2_1,,battlechatter/ru/vsk/RU_vsk_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_2_2,,battlechatter/ru/vsk/RU_vsk_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_2_3,,battlechatter/ru/vsk/RU_vsk_inform_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_2_4,,battlechatter/ru/vsk/RU_vsk_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_2_5,,battlechatter/ru/vsk/RU_vsk_response_killconfirm_armor_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_2_6,,battlechatter/ru/vsk/RU_vsk_response_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#RU Taunt 3
+Taunt_RU_3_0,,battlechatter/ru/3/RU_3_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_1,,battlechatter/ru/3/RU_3_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_2,,battlechatter/ru/3/RU_3_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_3,,battlechatter/ru/3/RU_3_inform_killconfirm_generic_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_4,,battlechatter/ru/3/RU_3_inform_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_5,,battlechatter/ru/3/RU_3_inform_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_6,,battlechatter/ru/3/RU_3_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU_3_7,,battlechatter/ru/3/RU_3_response_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#UK Taunt 0
+Taunt_UK_0_0,,battlechatter/UK/0/uk_0_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_0_1,,battlechatter/UK/0/uk_0_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_0_2,,battlechatter/UK/0/uk_0_inform_killconfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_0_3,,battlechatter/UK/0/uk_0_inform_killconfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_0_4,,battlechatter/UK/0/uk_0_inform_killconfirm_infantry_07b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_0_5,,battlechatter/UK/0/UK_0_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_0_6,,battlechatter/UK/0/UK_0_response_killconfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#UK Taunt 1
+Taunt_UK_1_0,,battlechatter/UK/1/UK_1_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_1_1,,battlechatter/UK/1/UK_1_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_1_2,,battlechatter/UK/1/UK_1_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_1_3,,battlechatter/UK/1/UK_1_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_1_4,,battlechatter/UK/1/UK_1_inform_killconfirm_infantry_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_1_5,,battlechatter/UK/1/UK_1_response_killconfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_1_6,,battlechatter/UK/1/UK_1_response_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#UK Taunt 2
+Taunt_UK_2_0,,battlechatter/UK/mcg/UK_mcg_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_1,,battlechatter/UK/2/UK_2_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_2,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_3,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_generic_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_4,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_5,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_6,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_7,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_2_8,,battlechatter/UK/mcg/UK_mcg_response_killconfirm_inf_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#UK Taunt 3
+Taunt_UK_3_0,,battlechatter/UK/3/UK_3_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_1,,battlechatter/UK/3/UK_3_inform_killfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_2,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_3,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_03b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_4,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_06b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_5,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_07b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_6,,battlechatter/UK/3/UK_3_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK_3_7,,battlechatter/UK/3/UK_3_response_killfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#US Taunt 0
+Taunt_US_0_0,,battlechatter/us/0/US_0_taunt_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_1,,battlechatter/us/0/US_0_inform_killfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_2,,battlechatter/us/0/US_0_inform_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_3,,battlechatter/us/0/US_0_inform_killfirm_infantry_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_4,,battlechatter/us/0/US_0_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_5,,battlechatter/us/0/US_0_inform_killfirm_infantry_06b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_6,,battlechatter/us/0/US_0_inform_killfirm_infantry_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_0_7,,battlechatter/us/0/US_0_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#US Taunt 1
+Taunt_US_1_0,,battlechatter/us/1/US_1_inform_killfirm_infantry_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_1_1,,battlechatter/us/1/US_1_inform_killfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_1_2,,battlechatter/us/1/US_1_inform_killfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_1_3,,battlechatter/us/1/US_1_inform_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_1_4,,battlechatter/us/1/US_1_inform_killfirm_infantry_03b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_1_5,,battlechatter/us/1/US_1_inform_killfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#US Taunt 2
+Taunt_US_2_0,,battlechatter/us/2/US_2_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_1,,battlechatter/us/2/US_2_inform_killfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_2,,battlechatter/us/2/US_2_inform_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_3,,battlechatter/us/2/US_2_inform_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_4,,battlechatter/us/2/US_2_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_5,,battlechatter/us/2/US_2_inform_killfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_6,,battlechatter/us/2/US_2_inform_killfirm_infantry_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_2_7,,battlechatter/us/2/US_2_response_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+#US Taunt 3
+Taunt_US_3_0,,battlechatter/us/3/US_3_taunt_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_1,,battlechatter/us/3/US_3_inform_killfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_2,,battlechatter/us/3/US_3_inform_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_3,,battlechatter/us/3/US_3_inform_killfirm_infantry_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_4,,battlechatter/us/3/US_3_inform_killfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_5,,battlechatter/us/3/US_3_inform_killfirm_infantry_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_6,,battlechatter/us/3/US_3_response_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US_3_7,,battlechatter/us/3/US_3_response_killfirm_infantry_04b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+
+
+#####################
+## Commando Sounds ##
+#####################
+
+#Commando Artillery
+US_attack_artillery,,back2uo/us_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_artillery,,back2uo/uk_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_artillery,,back2uo/ru_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_artillery,,back2uo/ge_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando Panzerfaust
+US_attack_panzerfaust,,back2uo/us_bazooka.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_panzerfaust,,back2uo/uk_bazooka.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_panzerfaust,,back2uo/ru_bazooka.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_panzerfaust,,back2uo/ge_bazooka.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando Thanks
+US_thanks1,,back2uo/us_thanks1.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_thanks2,,back2uo/us_thanks2.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_thanks1,,back2uo/uk_thanks1.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_thanks2,,back2uo/uk_thanks2.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_thanks1,,back2uo/ru_thanks1.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_thanks2,,back2uo/ru_thanks2.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_thanks1,,back2uo/ge_thanks1.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_thanks2,,back2uo/ge_thanks2.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando US Grenade
+US_attack_grenade,1,battlechatter/US/0/US_0_inform_attacking_grenade_08b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_grenade,2,battlechatter/US/3/US_3_inform_attacking_grenade_08b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_grenade,3,battlechatter/US/0/US_0_inform_attacking_grenade_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_grenade,4,battlechatter/US/1/US_1_inform_attacking_grenade_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_grenade,5,battlechatter/US/2/US_2_inform_attacking_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_grenade,6,battlechatter/US/3/US_3_inform_attacking_grenade_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando UK Grenade
+UK_attack_grenade,1,battlechatter/UK/0/uk_0_inform_attacking_grenade_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,2,battlechatter/UK/0/uk_0_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,3,battlechatter/UK/0/uk_0_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,4,battlechatter/UK/0/uk_0_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,5,battlechatter/UK/1/uk_1_inform_attacking_grenade_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,6,battlechatter/UK/1/uk_1_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,7,battlechatter/UK/1/uk_1_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,8,battlechatter/UK/2/UK_2_inform_incoming_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_grenade,9,battlechatter/UK/3/UK_3_inform_incoming_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando RU Grenade
+RU_attack_grenade,1,battlechatter/RU/0/RU_4_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,2,battlechatter/RU/0/RU_4_inform_attacking_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,3,battlechatter/RU/0/RU_4_inform_attacking_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,4,battlechatter/RU/1/RU_1_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,5,battlechatter/RU/1/RU_1_inform_attacking_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,6,battlechatter/RU/1/RU_1_inform_attacking_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,7,battlechatter/RU/3/RU_3_inform_attacking_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,8,battlechatter/RU/3/RU_3_inform_attacking_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_grenade,9,battlechatter/RU/3/RU_3_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando GE Grenade
+GE_attack_grenade,1,battlechatter/GE/0/GE_0_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,2,battlechatter/GE/0/GE_0_inform_attacking_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,3,battlechatter/GE/0/GE_0_inform_attacking_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,4,battlechatter/GE/1/GE_4_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,5,battlechatter/GE/1/GE_4_inform_attacking_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,6,battlechatter/GE/1/GE_4_inform_attacking_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,7,battlechatter/GE/2/GE_2_inform_attacking_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,8,battlechatter/GE/2/GE_2_inform_attacking_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_grenade,9,battlechatter/GE/3/GE_3_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando US Income Grenade
+US_incom_grenade,1,battlechatter/US/0/US_0_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,2,battlechatter/US/0/US_0_inform_incoming_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,3,battlechatter/US/1/US_1_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,4,battlechatter/US/1/US_1_inform_incoming_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,5,battlechatter/US/2/US_2_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,6,battlechatter/US/2/US_2_inform_incoming_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,7,battlechatter/US/3/US_3_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_grenade,8,battlechatter/US/3/US_3_inform_incoming_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando UK Income Grenade
+UK_incom_grenade,1,battlechatter/UK/0/uk_0_inform_incoming_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,2,battlechatter/UK/0/uk_0_inform_incoming_grenade_04b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,3,battlechatter/UK/0/uk_0_inform_incoming_grenade_04c.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,4,battlechatter/UK/1/UK_1_inform_incoming_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,5,battlechatter/UK/1/UK_1_inform_incoming_grenade_04b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,6,battlechatter/UK/1/UK_1_inform_incoming_grenade_04c.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,7,battlechatter/UK/2/UK_2_inform_incoming_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,8,battlechatter/UK/2/UK_2_inform_incoming_grenade_04b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_grenade,9,battlechatter/UK/2/UK_2_inform_incoming_grenade_04c.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando RU Income Grenade
+RU_incom_grenade,1,battlechatter/RU/0/RU_4_inform_incoming_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,2,battlechatter/RU/0/RU_4_inform_incoming_grenade_06b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,3,battlechatter/RU/1/RU_1_inform_incoming_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,4,battlechatter/RU/1/RU_1_inform_incoming_grenade_06b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,5,battlechatter/RU/3/RU_3_inform_incoming_grenade_12.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,6,battlechatter/RU/3/RU_3_inform_incoming_grenade_11.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,7,battlechatter/RU/3/RU_3_inform_incoming_grenade_09.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,8,battlechatter/RU/3/RU_3_inform_incoming_grenade_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_grenade,9,battlechatter/RU/3/RU_3_inform_incoming_grenade_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando GE Income Grenade
+GE_incom_grenade,1,battlechatter/GE/0/GE_0_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,2,battlechatter/GE/0/GE_0_inform_incoming_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,3,battlechatter/GE/0/GE_0_inform_incoming_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,4,battlechatter/GE/1/GE_4_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,5,battlechatter/GE/1/GE_4_inform_incoming_grenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,6,battlechatter/GE/1/GE_4_inform_incoming_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,7,battlechatter/GE/2/GE_2_inform_incoming_grenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,8,battlechatter/GE/3/GE_3_inform_incoming_grenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_grenade,9,battlechatter/GE/3/GE_3_inform_incoming_grenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando US Smoke
+US_attack_smokegrenade,1,battlechatter/US/0/US_0_order_smokescreen_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,2,battlechatter/US/0/US_0_order_smokescreen_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,3,battlechatter/US/0/US_0_order_smokescreen_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,4,battlechatter/US/2/US_2_order_smokescreen_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,5,battlechatter/US/2/US_2_order_smokescreen_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,6,battlechatter/US/2/US_2_order_smokescreen_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,7,battlechatter/US/3/US_3_order_action_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,8,battlechatter/US/3/US_3_order_action_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_smokegrenade,9,battlechatter/US/3/US_3_order_action_smkgrenade_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando UK Smoke
+UK_attack_smokegrenade,1,battlechatter/UK/0/UK_0_order_smokescreen_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,2,battlechatter/UK/0/UK_0_order_smokescreen_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,3,battlechatter/UK/0/UK_0_order_smokescreen_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,4,battlechatter/UK/1/UK_1_order_smokescreen_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,5,battlechatter/UK/1/UK_1_order_smokescreen_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,6,battlechatter/UK/1/UK_1_order_smokescreen_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,7,battlechatter/UK/3/UK_3_order_smokescreen_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,8,battlechatter/UK/3/UK_3_order_smokescreen_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_smokegrenade,9,battlechatter/UK/3/UK_3_order_smokescreen_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando Ru Smoke
+RU_attack_smokegrenade,1,battlechatter/RU/0/RU_4_order_action_smoke_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,2,battlechatter/RU/0/RU_4_order_action_smoke_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,3,battlechatter/RU/0/RU_4_order_action_smoke_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,4,battlechatter/RU/0/RU_4_order_action_smoke_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,5,battlechatter/RU/3/RU_3_order_action_smoke_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,6,battlechatter/RU/3/RU_3_order_action_smoke_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,7,battlechatter/RU/3/RU_3_order_action_smoke_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_smokegrenade,8,battlechatter/RU/3/RU_3_order_action_smoke_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando GE Smoke
+GE_attack_smokegrenade,1,battlechatter/GE/0/GE_0_order_action_smoke_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,2,battlechatter/GE/0/GE_0_order_action_smoke_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,3,battlechatter/GE/0/GE_0_order_action_smoke_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,4,battlechatter/GE/0/GE_0_order_action_smoke_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,5,battlechatter/GE/3/GE_3_order_action_smoke_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,6,battlechatter/GE/3/GE_3_order_action_smoke_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,7,battlechatter/GE/3/GE_3_order_action_smoke_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_smokegrenade,8,battlechatter/GE/3/GE_3_order_action_smoke_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando US Imcome Smoke
+US_incom_smokegrenade,1,battlechatter/US/0/US_0_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,2,battlechatter/US/0/US_0_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,3,battlechatter/US/1/US_1_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,4,battlechatter/US/1/US_1_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,5,battlechatter/US/2/US_2_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,6,battlechatter/US/2/US_2_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,7,battlechatter/US/3/US_3_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_incom_smokegrenade,8,battlechatter/US/3/US_3_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando UK Imcome Smoke
+UK_incom_smokegrenade,1,battlechatter/UK/0/uk_0_inform_incoming_smkgrenade_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,2,battlechatter/UK/0/uk_0_inform_incoming_smkgrenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,3,battlechatter/UK/1/UK_1_inform_incoming_smkgrenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,4,battlechatter/UK/1/UK_1_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,5,battlechatter/UK/2/UK_2_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,6,battlechatter/UK/2/UK_2_inform_incoming_smkgrenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,7,battlechatter/UK/3/UK_3_inform_incoming_smkgrenade_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_incom_smokegrenade,8,battlechatter/UK/3/UK_3_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando RU Imcome Smoke
+RU_incom_smokegrenade,1,battlechatter/RU/0/RU_4_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_smokegrenade,2,battlechatter/RU/0/RU_4_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_smokegrenade,3,battlechatter/RU/1/RU_1_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_smokegrenade,4,battlechatter/RU/1/RU_1_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_smokegrenade,5,battlechatter/RU/3/RU_3_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_incom_smokegrenade,6,battlechatter/RU/3/RU_3_inform_incoming_smkgrenade_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
+#Commando GE Imcome Smoke
+GE_incom_smokegrenade,1,battlechatter/GE/0/GE_0_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,2,battlechatter/GE/0/GE_0_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,3,battlechatter/GE/1/GE_4_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,4,battlechatter/GE/1/GE_4_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,5,battlechatter/GE/2/GE_2_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,6,battlechatter/GE/2/GE_2_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,7,battlechatter/GE/3/GE_3_inform_incoming_smkgrenade_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_incom_smokegrenade,8,battlechatter/GE/3/GE_3_inform_incoming_smkgrenade_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed

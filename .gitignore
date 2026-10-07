@@ -1,0 +1,15 @@
+# Build output (created by tools/build.py)
+dist/
+
+# Packed archives are generated from the source folders, never committed
+*.iwd
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

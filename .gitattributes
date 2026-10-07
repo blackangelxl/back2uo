@@ -1,0 +1,28 @@
+# CoD2 game files keep Windows line endings, as the engine and the original release use them.
+*.gsc       text eol=crlf
+*.gsc_old   text eol=crlf
+*.menu      text eol=crlf
+*.cfg       text eol=crlf
+*.str       text eol=crlf
+*.csv       text eol=crlf
+*.efx       text eol=crlf
+*.txt       text eol=crlf
+
+# Weapon and material definition files have no extension; do not touch them
+back2uo/z_back2uo_2.1_client/weapons/**    -text
+back2uo/z_back2uo_2.1_client/materials/*   -text
+
+# Binary assets
+*.iwi   binary
+*.tga   binary
+*.mp3   binary
+*.iwd   binary
+*.doc   binary
+
+# Tooling
+*.py    text eol=lf
+*.md    text eol=lf
+
+# Make GitHub highlight GSC as C-like code
+*.gsc     linguist-language=C
+*.gsc_old linguist-language=C
