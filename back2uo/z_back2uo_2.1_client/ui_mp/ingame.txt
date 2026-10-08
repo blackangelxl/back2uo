@@ -9,6 +9,4 @@
 	loadMenu { "ui_mp/ingame_callvote.menu" }
 
 	loadMenu { "ui_mp/wm_quickmessage.menu" }
-
-	loadMenu { "ui_mp/scriptmenus/quicktaunts.menu" }
 }

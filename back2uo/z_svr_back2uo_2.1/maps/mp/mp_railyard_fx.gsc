@@ -22,8 +22,8 @@ Called on: level
 main()
 {
 	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status is read here.
-	// Note: the default here is 0 (1 in _back2uo_main.gsc); an unset cvar is set to 0 by this call.
-	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 0, 0, 1);
+	// Back2Uo: default 1 as in _back2uo_main.gsc (an unset cvar means the mod is on).
+	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 1, 0, 1);
 
 	// Back2Uo: per-group effect switches (back2uo_getcvardef also honours _<gametype> / _<mapname> overrides).
 	// With the mod off, all groups stay on as in stock.

@@ -2435,9 +2435,6 @@ LANG_ENGLISH		    "^3COD 2 Elements"
 REFERENCE			      FRIEND_ICONS
 LANG_ENGLISH		    "Show Friend Icons:"
 
-REFERENCE           FRIENDLY_FIRE
-LANG_ENGLISH        "Friendly Fire:  "
-
 REFERENCE			      GRENADES_INDE
 LANG_ENGLISH		    "Grenades Indicator:"
 
@@ -2446,9 +2443,6 @@ LANG_ENGLISH		    "Show Bombpoint Icons:"
 
 REFERENCE			      HUD_GRENADES
 LANG_ENGLISH		    "Hud Grenades:"
-
-REFERENCE           KILLCAM
-LANG_ENGLISH        "Killcam:"
 
 REFERENCE			      RED_RADARPOINTS
 LANG_ENGLISH		    "Red Compass Points:"

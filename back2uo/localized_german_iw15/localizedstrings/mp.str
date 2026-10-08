@@ -49,6 +49,18 @@ REFERENCE           GERMAN_FORCES
 LANG_ENGLISH        "German Forces"
 LANG_GERMAN         "Deutsche Einheiten"
 
+REFERENCE           AMERICAN
+LANG_ENGLISH        "American"
+LANG_GERMAN         "Amerikaner"
+
+REFERENCE           BRITISH
+LANG_ENGLISH        "British"
+LANG_GERMAN         "Briten"
+
+REFERENCE           RUSSIAN
+LANG_ENGLISH        "Russian"
+LANG_GERMAN         "Russen"
+
 REFERENCE           M1A1_CARBINE_IS_A_RESTRICTED
 LANG_ENGLISH        "M1A1 Carbine is a restricted weapon."
 LANG_GERMAN         "M1A1 Karabiner ist eine eingeschränkte Waffe."

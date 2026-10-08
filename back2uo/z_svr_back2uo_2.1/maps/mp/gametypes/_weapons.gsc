@@ -20,96 +20,113 @@ init
 Precaches all weapons the server may hand out, builds level.weaponnames / level.weapons
 (allow cvars per weapon), sets the initial allow flags, removes restricted map items and then
 re-checks the allow cvars every 5 seconds forever.
-Back2Uo: with the weapon system on and back2uo_weapons_allow 1-3 only one weapon class is precached
-(1 = SMG/LMG, 2 = rifles, 3 = snipers); otherwise the stock per-nation set is used.
+Back2Uo: with the mod and weapon system on and back2uo_weapons_allow 1-4 only one weapon class is precached
+(1 = SMG/LMG, 2 = rifles, 3 = snipers, 4 = pistols); otherwise the stock per-nation set is used.
 Called on: level
 =============
 */
 init()
 {
 	// Back2Uo: weapon class limit active ( back2uo_weapons_allow 1 -> 4 ); precache only that class.
-	if(game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0)
+	// level.back2uo_precachedweapons lists what was precached, restrictWeaponByServerCvars() checks menu responses against it.
+	level.back2uo_precachedweapons = [];
+	if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0)
 	{
 		if(level.back2uo_weapon_limit == 1) // Only Mg's Weapon
 		{
 			// Standard weapons
-			precacheItem("bar_mp");
-			precacheItem("bren_mp");
-			precacheItem("greasegun_mp");
-			precacheItem("mp40_mp");
-			precacheItem("mp44_mp");
-			precacheItem("ppsh_mp");
-			precacheItem("PPS42_mp");
-			precacheItem("sten_mp");
-			precacheItem("thompson_mp");
+			back2uo_precacheweapon("bar_mp");
+			back2uo_precacheweapon("bren_mp");
+			back2uo_precacheweapon("greasegun_mp");
+			back2uo_precacheweapon("mp40_mp");
+			back2uo_precacheweapon("mp44_mp");
+			back2uo_precacheweapon("ppsh_mp");
+			back2uo_precacheweapon("PPS42_mp");
+			back2uo_precacheweapon("sten_mp");
+			back2uo_precacheweapon("thompson_mp");
 
 			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("bar_mp_sprint");
-			precacheItem("bren_mp_sprint");
-			precacheItem("greasegun_mp_sprint");
-			precacheItem("mp40_mp_sprint");
-			precacheItem("mp44_mp_sprint");
-			precacheItem("ppsh_mp_sprint");
-			precacheItem("PPS42_mp_sprint");
-			precacheItem("sten_mp_sprint");
-			precacheItem("thompson_mp_sprint");
+			back2uo_precacheweapon("bar_mp_sprint");
+			back2uo_precacheweapon("bren_mp_sprint");
+			back2uo_precacheweapon("greasegun_mp_sprint");
+			back2uo_precacheweapon("mp40_mp_sprint");
+			back2uo_precacheweapon("mp44_mp_sprint");
+			back2uo_precacheweapon("ppsh_mp_sprint");
+			back2uo_precacheweapon("PPS42_mp_sprint");
+			back2uo_precacheweapon("sten_mp_sprint");
+			back2uo_precacheweapon("thompson_mp_sprint");
 		}
 		else if(level.back2uo_weapon_limit == 2) // Only Rifle Weapon
 		{
 			// Standard weapons
-			precacheItem("enfield_mp");
-			precacheItem("g43_mp");
-			precacheItem("kar98k_mp");
-			precacheItem("m1carbine_mp");
-			precacheItem("m1garand_mp");
-			precacheItem("mosin_nagant_mp");
-			precacheItem("SVT40_mp");
+			back2uo_precacheweapon("enfield_mp");
+			back2uo_precacheweapon("g43_mp");
+			back2uo_precacheweapon("kar98k_mp");
+			back2uo_precacheweapon("m1carbine_mp");
+			back2uo_precacheweapon("m1garand_mp");
+			back2uo_precacheweapon("mosin_nagant_mp");
+			back2uo_precacheweapon("SVT40_mp");
 
 			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("enfield_mp_sprint");
-			precacheItem("g43_mp_sprint");
-			precacheItem("kar98k_mp_sprint");
-			precacheItem("m1carbine_mp_sprint");
-			precacheItem("m1garand_mp_sprint");
-			precacheItem("mosin_nagant_mp_sprint");
-			precacheItem("SVT40_mp_sprint");
+			back2uo_precacheweapon("enfield_mp_sprint");
+			back2uo_precacheweapon("g43_mp_sprint");
+			back2uo_precacheweapon("kar98k_mp_sprint");
+			back2uo_precacheweapon("m1carbine_mp_sprint");
+			back2uo_precacheweapon("m1garand_mp_sprint");
+			back2uo_precacheweapon("mosin_nagant_mp_sprint");
+			back2uo_precacheweapon("SVT40_mp_sprint");
 		}
 		else if(level.back2uo_weapon_limit == 3) // Only Sniper Weapon
 		{
 			// Standard weapons
-			precacheItem("enfield_scope_mp");
-			precacheItem("kar98k_sniper_mp");
-			precacheItem("mosin_nagant_sniper_mp");
-			precacheItem("springfield_mp");
+			back2uo_precacheweapon("enfield_scope_mp");
+			back2uo_precacheweapon("kar98k_sniper_mp");
+			back2uo_precacheweapon("mosin_nagant_sniper_mp");
+			back2uo_precacheweapon("springfield_mp");
 
 			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("enfield_scope_mp_sprint");
-			precacheItem("kar98k_sniper_mp_sprint");
-			precacheItem("mosin_nagant_sniper_mp_sprint");
-			precacheItem("springfield_mp_sprint");
+			back2uo_precacheweapon("enfield_scope_mp_sprint");
+			back2uo_precacheweapon("kar98k_sniper_mp_sprint");
+			back2uo_precacheweapon("mosin_nagant_sniper_mp_sprint");
+			back2uo_precacheweapon("springfield_mp_sprint");
 		}
 
-		// Grenades: only the German set is precached in class-limit mode.
-		precacheItem("frag_grenade_german_mp");
-		precacheItem("frag_grenade_german_mp_special1");
-		precacheItem("frag_grenade_german_mp_special2");
-		precacheItem("smoke_grenade_german_mp");
-		precacheItem("smoke_grenade_german_mp_special1");
+		// Back2Uo: grenades of every nation (stock and special variants), giveGrenades() hands out the team's nation set.
+		back2uo_precacheweapon("frag_grenade_american_mp");
+		back2uo_precacheweapon("frag_grenade_american_mp_special1");
+		back2uo_precacheweapon("frag_grenade_american_mp_special2");
+		back2uo_precacheweapon("smoke_grenade_american_mp");
+		back2uo_precacheweapon("smoke_grenade_american_mp_special1");
+		back2uo_precacheweapon("frag_grenade_british_mp");
+		back2uo_precacheweapon("frag_grenade_british_mp_special1");
+		back2uo_precacheweapon("frag_grenade_british_mp_special2");
+		back2uo_precacheweapon("smoke_grenade_british_mp");
+		back2uo_precacheweapon("smoke_grenade_british_mp_special1");
+		back2uo_precacheweapon("frag_grenade_russian_mp");
+		back2uo_precacheweapon("frag_grenade_russian_mp_special1");
+		back2uo_precacheweapon("frag_grenade_russian_mp_special2");
+		back2uo_precacheweapon("smoke_grenade_russian_mp");
+		back2uo_precacheweapon("smoke_grenade_russian_mp_special1");
+		back2uo_precacheweapon("frag_grenade_german_mp");
+		back2uo_precacheweapon("frag_grenade_german_mp_special1");
+		back2uo_precacheweapon("frag_grenade_german_mp_special2");
+		back2uo_precacheweapon("smoke_grenade_german_mp");
+		back2uo_precacheweapon("smoke_grenade_german_mp_special1");
 
-		// Back2Uo: pistols only when back2uo_pistel_allow is 1.
-		if(level.back2uo_pistel_allow)
+		// Back2Uo: pistols when back2uo_pistel_allow is 1, and always in pistol-only mode ( back2uo_weapons_allow 4 ).
+		if(level.back2uo_pistel_allow || level.back2uo_weapon_limit == 4)
 		{
 			// Standard weapons
-			precacheItem("colt_mp");
-			precacheItem("webley_mp");
-			precacheItem("TT30_mp");
-			precacheItem("luger_mp");
+			back2uo_precacheweapon("colt_mp");
+			back2uo_precacheweapon("webley_mp");
+			back2uo_precacheweapon("TT30_mp");
+			back2uo_precacheweapon("luger_mp");
 
 			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("colt_mp_sprint");
-			precacheItem("webley_mp_sprint");
-			precacheItem("TT30_mp_sprint");
-			precacheItem("luger_mp_sprint");
+			back2uo_precacheweapon("colt_mp_sprint");
+			back2uo_precacheweapon("webley_mp_sprint");
+			back2uo_precacheweapon("TT30_mp_sprint");
+			back2uo_precacheweapon("luger_mp_sprint");
 		}
 	}
 	else
@@ -247,25 +264,25 @@ init()
 	}
 
 	// Back2Uo: optional extra weapons and binoculars.
-	if(game["back2uo_weaponsystem_enable"])
+	if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"])
 	{
 		// Back2Uo: G43 sniper ( back2uo_g43sniper_on ).
 		if(level.back2uo_g43sniper_allow)
 		{
-			precacheItem("g43_sniper_mp");
-			precacheItem("g43_sniper_mp_sprint");
+			back2uo_precacheweapon("g43_sniper_mp");
+			back2uo_precacheweapon("g43_sniper_mp_sprint");
 		}
 
 		// Back2Uo: Panzerschreck ( back2uo_rocketlancher_on ).
 		if(level.back2uo_rocketl_allow)
 		{
-			precacheItem("panzerschreck_mp");
+			back2uo_precacheweapon("panzerschreck_mp");
 			// Disabled: panzerfaust.
-			//precacheItem("panzerfaust_mp");
+			//back2uo_precacheweapon("panzerfaust_mp");
 		}
 
 		// Back2Uo: binoculars ( back2uo_binocular_allow ).
-		if(level.back2uo_binocular_allow) precacheItem("binoculars_mp");
+		if(level.back2uo_binocular_allow) back2uo_precacheweapon("binoculars_mp");
 	}
 
 	// All weapons that have an allow cvar.
@@ -300,7 +317,7 @@ init()
 	level.weaponnames[27] = "TT30_mp";
 
 	// Back2Uo: optional extra weapons use fixed indices 28 and 29.
-	if(game["back2uo_weaponsystem_enable"])
+	if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"])
 	{
 		// Back2Uo: G43 sniper.
 		if(level.back2uo_g43sniper_allow) level.weaponnames[28] = "g43_sniper_mp";
@@ -457,7 +474,7 @@ init()
 	level.weapons["TT30_mp"].allow_default = 1;
 
 	// Back2Uo: allow cvars for the optional extra weapons.
-	if(game["back2uo_weaponsystem_enable"])
+	if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"])
 	{
 		// Back2Uo: G43 sniper.
 		if(level.back2uo_g43sniper_allow)
@@ -490,7 +507,7 @@ init()
 		weaponname = level.weaponnames[i];
 
 		// Back2Uo: in class-limit mode the default comes from the weapon class instead of allow_default.
-		if(game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0)
+		if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0)
 		{
 			if(getCvar(level.weapons[weaponname].server_allowcvar) == "")
 			{
@@ -521,6 +538,24 @@ init()
 		updateAllowed();
 		wait 5;
 	}
+}
+
+/*
+=============
+back2uo_precacheweapon
+
+Back2Uo: precacheItem() that also records the weapon in level.back2uo_precachedweapons,
+which restrictWeaponByServerCvars() uses to reject weapons that were not precached.
+Called on: level
+Params: weaponname - weapon name to precache
+=============
+*/
+back2uo_precacheweapon(weaponname)
+{
+	precacheItem(weaponname);
+
+	if(!isdefined(level.back2uo_precachedweapons)) level.back2uo_precachedweapons = [];
+	level.back2uo_precachedweapons[weaponname] = true;
 }
 
 /*
@@ -685,7 +720,7 @@ deleteRestrictedWeapons()
 	// stielhandgranate_mp
 
 	// Back2Uo: turrets not allowed, delete every mounted MG on the map.
-	if(game["back2uo_weaponsystem_enable"] && !level.back2uo_turret_allow)
+	if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && !level.back2uo_turret_allow)
 	{
 		weapon_turret = getentarray("misc_turret","classname");
 
@@ -755,6 +790,10 @@ givePistol()
 		// Disabled: stock giveWeapon, replaced by setWeaponSlotWeapon below.
 		//self giveWeapon(pistoltype);
 
+		// Back2Uo: in class-limit mode the pistols are only precached with back2uo_pistel_allow or in pistol-only mode.
+		if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0 && !isdefined(level.back2uo_precachedweapons[pistoltype]))
+			return;
+
 		if(level.weapons[pistoltype].allow == 1)
 		{
 			self setWeaponSlotWeapon("primaryb", pistoltype);
@@ -777,7 +816,7 @@ Called on: player
 giveGrenades()
 {
 	// Back2Uo: special frag variant ( back2uo_spezial_grenade: 1 = cookable | 2 = cookable + 85% throw range ).
-	if(game["back2uo_specialgrenade_enable"])
+	if(game["back2uo_enable"] && game["back2uo_specialgrenade_enable"])
 	{
 		level.back2uo_specialgranade = "_special" + game["back2uo_specialgrenade_enable"];
 	}
@@ -787,7 +826,7 @@ giveGrenades()
 	}
 
 	// Back2Uo: special smoke variant ( back2uo_spezial_smoke: 1 = 85% throw range ).
-	if(game["back2uo_specialsmoke_enable"])
+	if(game["back2uo_enable"] && game["back2uo_specialsmoke_enable"])
 	{
 		level.back2uo_specialsmoke = "_special" + game["back2uo_specialsmoke_enable"];
 	}
@@ -843,7 +882,7 @@ giveGrenades()
 	if(getcvarint("scr_allow_fraggrenades"))
 	{
 		// Back2Uo: fixed frag count from the grenade setup instead of the per-weapon stock count.
-		if(game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_aktiv)
+		if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_aktiv)
 		{
 			fraggrenadecount = level.back2uo_granaten_use;
 		}
@@ -862,7 +901,7 @@ giveGrenades()
 	if(getcvarint("scr_allow_smokegrenades"))
 	{
 		// Back2Uo: fixed smoke count from the grenade setup instead of the per-weapon stock count.
-		if(game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_aktiv)
+		if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_aktiv)
 		{
 			smokegrenadecount = level.back2uo_smoke_use;
 		}
@@ -910,7 +949,7 @@ dropWeapon(current)
 	// Back2Uo: end an active sprint first so the real weapon, not the _sprint variant, is dropped.
 	if(game["back2uo_enable"] && !isdefined(self.pers["bots_nosprint"]))
 	{
-		if(self.pers["sprinting"] == true)
+		if(isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
 		{
 			back2uo\_back2uo_sprint::back2uo_sprintsystem_stop();
 		}
@@ -1293,8 +1332,7 @@ getWeaponBasedGrenadeCount(weapon)
 
 	case "colt_mp":
 	case "webley_mp":
-	// Note: lowercase, never matches "TT30_mp" (it still gets 1 via default).
-	case "tt30_mp":
+	case "TT30_mp":
 	case "luger_mp":
 
 		return 1;
@@ -1512,8 +1550,7 @@ isMainWeapon(weapon)
 
 	case "colt_mp":
 	case "webley_mp":
-	// Note: lowercase, never matches "TT30_mp", so the TT30 returns false here.
-	case "tt30_mp":
+	case "TT30_mp":
 	case "luger_mp":
 
 		return true;
@@ -1528,12 +1565,21 @@ restrictWeaponByServerCvars
 
 Checks a weapon menu response against the scr_allow_* server cvars.
 The commented iprintln lines are disabled stock "weapon is restricted" messages.
+Back2Uo: in class-limit mode a weapon that was not precached (level.back2uo_precachedweapons) is
+always restricted, the response comes from the client and is not trusted.
 Params: response - weapon name chosen in the weapon menu
 Returns: the weapon name, or "restricted" if it is not allowed or unknown
 =============
 */
 restrictWeaponByServerCvars(response)
 {
+	// Back2Uo: class-limit mode precaches only one weapon class, reject everything else.
+	if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0)
+	{
+		if(response != "fraggrenade" && response != "smokegrenade" && !isdefined(level.back2uo_precachedweapons[response]))
+			return "restricted";
+	}
+
 	switch(response)
 	{
 	// American
@@ -1773,8 +1819,7 @@ restrictWeaponByServerCvars(response)
 		}
 		break;
 
-	// Note: lowercase; a "TT30_mp" response does not match and falls to default (restricted).
-	case "tt30_mp":
+	case "TT30_mp":
 		if(!getcvarint("scr_allow_TT30"))
 		{
 			//self iprintln("TT30's are restricted");
@@ -1782,11 +1827,11 @@ restrictWeaponByServerCvars(response)
 		}
 		break;
 
-	// Note: response is never set to "restricted" here, so scr_allow_luger has no effect.
 	case "luger_mp":
 		if(!getcvarint("scr_allow_luger"))
 		{
 			//self iprintln("Luger's are restricted");
+			response = "restricted";
 		}
 		break;
 
@@ -1959,8 +2004,7 @@ getWeaponName(weapon)
 		weaponname = "Webley";
 		break;
 
-	// Note: lowercase, never matches "TT30_mp".
-	case "tt30_mp":
+	case "TT30_mp":
 		weaponname = "TT30";
 		break;
 
@@ -2021,7 +2065,7 @@ updateAllowed()
 		weaponname = level.weaponnames[i];
 
 		// Back2Uo: in class-limit mode an unset cvar means "use the class default".
-		if(game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0 && getCvar(level.weapons[weaponname].server_allowcvar) == "")
+		if(game["back2uo_enable"] && game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0 && getCvar(level.weapons[weaponname].server_allowcvar) == "")
 		{
 			cvarvalue = back2uo_weapontyp_allow(weaponname);
 		}

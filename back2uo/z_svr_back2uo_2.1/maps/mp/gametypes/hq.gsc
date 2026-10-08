@@ -1222,8 +1222,7 @@ endMap()
 	{
 		winningteam = "tie";
 		losingteam = "tie";
-		// Note: plain string, not a localized &"..." reference like the win texts.
-		text = "MP_THE_GAME_IS_A_TIE";
+		text = &"MP_THE_GAME_IS_A_TIE";
 	}
 	else if(alliedscore > axisscore)
 	{

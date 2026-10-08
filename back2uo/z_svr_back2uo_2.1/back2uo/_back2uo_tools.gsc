@@ -111,7 +111,7 @@ back2uo_mapdimension
 Estimates the outer bounds of the map geometry: from every entity origin it traces
 80000 units along +/- x, y and z and keeps the furthest wall hits. Also disables
 the airplane FX (level.back2uo_airplanedimo_allow = 0) on maps too small for a fly-over.
-Takes one server frame per entity, so it runs for a while after map start.
+Takes one server frame per ten entities, so it runs for a moment after map start.
 Called on: level (from _back2uo_player.gsc at startup)
 =============
 */
@@ -131,13 +131,14 @@ back2uo_mapdimension()
 
 	// Fallback hit positions used when a trace never hits anything. Only the
 	// component of the matching axis is read below.
-	xMin_e[0] = xMax2;
-	yMin_e[1] = yMax2;
-	zMin_e[2] = zMax2;
+	// Back2Uo: seed each fallback with its own start extreme so a miss never changes the bounds.
+	xMin_e[0] = xMin2;
+	yMin_e[1] = yMin2;
+	zMin_e[2] = zMin2;
 
-	xMax_e[0] = xMin2;
-	yMax_e[1] = yMin2;
-	zMax_e[2] = zMin2;
+	xMax_e[0] = xMax2;
+	yMax_e[1] = yMax2;
+	zMax_e[2] = zMax2;
 
 	// Note: starts at index 1, entity 0 (usually the worldspawn) is skipped.
 	for(i = 1; i < entitytypes.size; i++)
@@ -173,8 +174,8 @@ back2uo_mapdimension()
 			if (zMax_e[2] > zMax2)   zMax2 = zMax_e[2];
 		}
 
-		// One entity per server frame to spread the trace cost.
-		wait 0.05;
+		// Back2Uo: ten entities per server frame to spread the trace cost (was one, which took tens of seconds).
+		if((i % 10) == 0) wait 0.05;
 	}
 
 	level.back2uo_mapdimo_xMin = xMin2;

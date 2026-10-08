@@ -118,9 +118,6 @@ LANG_ENGLISH        "Panzerfaust 60"
 REFERENCE           SCOPEDKAR98K
 LANG_ENGLISH        "Scoped Kar98k"
 
-REFERENCE           SCOPEDG43
-LANG_ENGLISH        "Scoped G43"
-
 REFERENCE           HOLDPIN
 LANG_ENGLISH        "Hold-Pin"
 
@@ -168,6 +165,9 @@ LANG_ENGLISH        "Scoped Gewehr 43"
 
 REFERENCE           DEFAULTWEAPON
 LANG_ENGLISH        "Default Weapon"
+
+REFERENCE           UNKNOWNWEAPON
+LANG_ENGLISH        "Unknown Weapon"
 
 REFERENCE           ANM8_SMOKE_GRENADE
 LANG_ENGLISH        "AN-M8 Smoke Grenade"

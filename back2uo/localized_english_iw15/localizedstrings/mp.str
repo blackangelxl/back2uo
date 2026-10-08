@@ -40,6 +40,15 @@ LANG_ENGLISH        "Russian Forces"
 REFERENCE           GERMAN_FORCES
 LANG_ENGLISH        "German Forces"
 
+REFERENCE           AMERICAN
+LANG_ENGLISH        "American"
+
+REFERENCE           BRITISH
+LANG_ENGLISH        "British"
+
+REFERENCE           RUSSIAN
+LANG_ENGLISH        "Russian"
+
 REFERENCE           M1A1_CARBINE_IS_A_RESTRICTED
 LANG_ENGLISH        "M1A1 Carbine is a restricted weapon."
 

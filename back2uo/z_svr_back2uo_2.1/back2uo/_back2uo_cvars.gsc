@@ -294,7 +294,7 @@ back2uo_player_messagebold(lstr, wert)
 back2uo_setconfig
 
 Reads a numeric server cvar, clamped to min/max. An unset cvar is created with the default.
-While the mod is disabled (game["back2uo_enable"] 0) the cvar is reset to its default.
+A cvar that is already set (e.g. by the admin) is never overwritten.
 Params: wert - cvar name
 		wertdefault - default value
 		min - lower limit (0 = no limit)
@@ -306,8 +306,8 @@ Returns: the cvar value (int when just created, otherwise float)
 back2uo_setconfig(wert, wertdefault, min, max, ui)
 {
 	wert2 = wertdefault;
-	if(!isDefined(game["back2uo_enable"])) game["back2uo_enable"] = 1;
 
+	// Back2Uo: only create an unset cvar; never reset an admin value (this made back2uo_status 0 impossible)
 	if(getcvar(wert) == "")
 	{
 		setCvar(wert, wertdefault);
@@ -315,13 +315,7 @@ back2uo_setconfig(wert, wertdefault, min, max, ui)
 	}
 	else
 	{
-		if(!(game["back2uo_enable"]))
-		{
-			setCvar(wert, wertdefault);
-			wert2 = getCvarInt(wert);
-		}else{
-			wert2 = getcvarfloat(wert);
-		}
+		wert2 = getcvarfloat(wert);
 	}
 
 	if(min != 0 && wert2 < min)

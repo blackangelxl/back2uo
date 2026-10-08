@@ -167,16 +167,17 @@ back2uo_mortarfx_play()
 	mortarcount = 0;
 
 	// 0 = random shell count.
+	// Back2Uo: local count so concurrent barrages do not overwrite each other.
 	if(level.back2uo_mortar_count == 0)
 	{
-		level.back2uo_mortar_count2 = int(5 + randomint(5));
+		mortar_count2 = int(5 + randomint(5));
 	}
 	else
 	{
-		level.back2uo_mortar_count2 = level.back2uo_mortar_count;
+		mortar_count2 = level.back2uo_mortar_count;
 	}
 
-	while(mortarcount < level.back2uo_mortar_count2)
+	while(mortarcount < mortar_count2)
 	{
 		thread back2uo_mortar_draw();
 
@@ -332,7 +333,6 @@ back2uo_mortar_draw(wert)
 back2uo_mortar_rotate
 
 Spins the falling shell model around its roll axis until "end_mortarfly" is notified.
-Note: randomint(1) always returns 0, so only the positive roll (case 0) is ever used.
 Called on: entity (mortar shell model)
 =============
 */
@@ -345,7 +345,8 @@ back2uo_mortar_rotate()
 
 	for(;;)
 	{
-		switch(randomint(1))
+		// Back2Uo: randomint(2) so both roll directions are used (randomint(1) was always 0).
+		switch(randomint(2))
 		{
 		default:
 			break;
@@ -432,12 +433,11 @@ back2uo_mortar_sound()
 	pc = randomInt(100);
 	num = 0;
 
-	// Note: "pc >=25 < 50" parses as "(pc >= 25) < 50", which is always true,
-	// so for pc >= 25 the result is always 1 and variants 2/3 are never used.
+	// Back2Uo: proper range checks so variants 2/3 are used too.
 	if(pc < 25) num = 0;
-	else if(pc >=25 < 50) num = 1;
-	else if(pc >=50 < 75) num = 2;
-	else if(pc > 75) num = 3;
+	else if(pc < 50) num = 1;
+	else if(pc < 75) num = 2;
+	else num = 3;
 
 	// Alias e.g. "GE_1_inform_incoming_mortar".
 	alias = nat + num + "_inform_incoming_mortar";
@@ -782,7 +782,13 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	airplane show();
 
 	// Ease in/out of 0.5 seconds each.
-	airplane moveto(airplane_endpoint, airplane_flytime, .5, .5);
+	// Back2Uo: moveto needs a time > 0 and accel + decel <= time, so no easing on short flights.
+	if(airplane_flytime < 0.1) airplane_flytime = 0.1;
+
+	airplane_ease = 0.5;
+	if(airplane_flytime <= 1.0) airplane_ease = 0;
+
+	airplane moveto(airplane_endpoint, airplane_flytime, airplane_ease, airplane_ease);
 
 	// Each wobble step takes a fifth of the flight time.
 	airplane_rottime = airplane_flytime / 5;
@@ -911,7 +917,6 @@ back2uo_airplane_rotate
 
 Rocks the plane left and right around its roll axis (+10, -20, +10 degrees) for a
 light wobble during the flight, until "end_airplanefly" is notified.
-Note: randomint(1) always returns 0, so case 1 (mirrored wobble) is never used.
 Called on: entity (airplane model)
 Params: rottime - duration of one roll step in seconds
 =============
@@ -925,7 +930,8 @@ back2uo_airplane_rotate(rottime)
 
 	for(;;)
 	{
-		switch(randomint(1))
+		// Back2Uo: randomint(2) so the mirrored wobble is used too (randomint(1) was always 0).
+		switch(randomint(2))
 		{
 		default:
 			break;
@@ -1301,6 +1307,9 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y)
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 
+	// Back2Uo: team of the caller at the time the strike is fired (used for friendly fire checks).
+	attacker_team = self.pers["team"];
+
 	thread back2uo_artillery_sound();
 
 	// Salvo counter.
@@ -1329,18 +1338,20 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y)
 		artillerycount = 0;
 
 		// 0 = random shell count.
+		// Back2Uo: local count so concurrent strikes do not overwrite each other.
 		if(level.back2uo_artillery_count == 0)
 		{
-			level.back2uo_artillery_count2 = int(4 + randomint(4));
+			artillery_count2 = int(4 + randomint(4));
 		}
 		else
 		{
-			level.back2uo_artillery_count2 = level.back2uo_artillery_count;
+			artillery_count2 = level.back2uo_artillery_count;
 		}
 
-		while(artillerycount < level.back2uo_artillery_count2)
+		while(artillerycount < artillery_count2)
 		{
-			thread back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y);
+			// Back2Uo: run the shell on level so it is always deleted, even if the caller disconnects.
+			level thread back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, self, attacker_team);
 
 			artillerycount++;
 
@@ -1360,19 +1371,18 @@ back2uo_artillery_draw
 Drops a single artillery shell: a shell model falls from the map ceiling above the
 caller toward a random point around the target, then plays a surface dependent impact
 effect, explosion sound, screen shake and radius damage credited to the caller.
-Called on: self = player who called the strike (damage attacker)
+Called on: level (no caller endons, so the shell model is always deleted)
 Params: binopositarget - target position
 		selftarget_x, selftarget_y - x/y of the shell start point
+		attacker - player who called the strike (damage attacker)
+		attacker_team - team of the caller when the strike was fired
 =============
 */
-back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
+back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, attacker, attacker_team)
 {
 	if(!game["back2uo_artilleryfx_enable"]) return;
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Artillery Fx Draw", "Run");
-
-	self endon("back2uo_killplayerthreads");
-	self endon("disconnect");
 
 	artillery_zmax = level.back2uo_mapdimo_zMax;
 
@@ -1438,9 +1448,11 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
 
 	artillery show();
 
-	// Fall time scales with the flight distance.
+	// Fall time scales with the flight distance, minimum 0.5 seconds (like the mortar).
 	fall_distance = distance(startposition, trace["position"]);
 	fall_time = (fall_distance / 1000) / 4;
+
+	if(fall_time < 0.5) fall_time = 0.5;
 
 	artillery moveto(trace["position"], fall_time);
 
@@ -1460,10 +1472,11 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
 
 	artillery hide();
 
-	thread back2uo_artillery_damage(trace["position"], self);
+	thread back2uo_artillery_damage(trace["position"], attacker, attacker_team);
 
-	// Strong screen shake (scale 0.8, radius 3000). randomint(1) is always 0, so length is 0.5.
-	length = 0.5 + randomint(1);
+	// Strong screen shake (scale 0.8, radius 3000), length 0.5 or 1.5 seconds.
+	// Back2Uo: randomint(2), randomint(1) was always 0.
+	length = 0.5 + randomint(2);
 	earthquake(0.8, length, trace["position"], 3000);
 
 	artillery delete();
@@ -1475,23 +1488,34 @@ back2uo_artillery_damage
 
 Applies artillery damage to all players within 600 units of the impact. Damage falls off
 quadratically with distance (max 300) and is reduced to 2 percent if the line from the
-impact to the player's chest is blocked. Players under spawn protection are skipped.
+impact to the player's chest is blocked. Players under spawn protection and players that
+are not alive are skipped. Friendly fire follows level.friendlyfire like Callback_PlayerDamage
+in tdm.gsc: "0" off, "1" on, "2" reflect half to the caller, "3" victim and caller take half.
 Params: endposition - impact position
 		attacker - player who called the strike
+		attacker_team - team of the caller when the strike was fired
 =============
 */
-back2uo_artillery_damage(endposition, attacker)
+back2uo_artillery_damage(endposition, attacker, attacker_team)
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Artillery Fx Damage", "Run");
 
 	damage_radius = 600;
 	damage_strength = 300;
 
+	// Back2Uo: credit the caller only while he is still connected and in the team that fired the strike.
+	eAttacker = undefined;
+	if(isdefined(attacker) && isPlayer(attacker) && isdefined(attacker_team) && isdefined(attacker.pers["team"]) && attacker.pers["team"] == attacker_team) eAttacker = attacker;
+
 	players = getEntArray("player", "classname");
 
 	for(i=0; i < players.size; i++)
 	{
 		player = players[i];
+
+		// Back2Uo: only living players (no spectators or dead players).
+		if(!isdefined(player.sessionstate) || player.sessionstate != "playing") continue;
+
 		dist = distance(player.origin, endposition);
 
 		// back2uo_antiplay_sp_run = spawn protection active (_back2uo_antiplay.gsc).
@@ -1501,9 +1525,12 @@ back2uo_artillery_damage(endposition, attacker)
 		{
 			if(dist <= damage_radius)
 			{
-				// Friendly fire off: no damage to teammates. Note: this "return" ends the
-				// whole loop, so players after the first protected teammate take no damage.
-				if(getcvar("g_gametype") != "dm" && level.friendlyfire == "0" && player.pers["team"] == attacker.pers["team"] && player != attacker) return;
+				// Back2Uo: teammate of the caller (by the team captured when the strike was fired).
+				teamhit = false;
+				if(getcvar("g_gametype") != "dm" && isdefined(attacker_team) && isdefined(player.pers["team"]) && player.pers["team"] == attacker_team && (!isdefined(eAttacker) || player != eAttacker)) teamhit = true;
+
+				// Friendly fire off: no damage to this teammate (Back2Uo: continue instead of return).
+				if(teamhit && level.friendlyfire == "0") continue;
 
 				// Quadratic falloff: full damage at the impact, 0 at the radius edge.
 				damage_percent = (damage_radius - dist) / damage_radius;
@@ -1513,11 +1540,30 @@ back2uo_artillery_damage(endposition, attacker)
 				trace = bulletTrace(endposition, player.origin + (0,0,40), false, undefined);
 				if(trace["fraction"] != 1) iDamage = iDamage * 0.02;
 
+				// Back2Uo: reflect/shared friendly fire deals half damage, at least 1 point.
+				if(teamhit && (level.friendlyfire == "2" || level.friendlyfire == "3"))
+				{
+					iDamage = int(iDamage * .5);
+					if(iDamage < 1) iDamage = 1;
+				}
+
 				// Direct damage call, bypassing the gametype Callback_PlayerDamage.
-				player finishPlayerDamage(player, attacker, int(iDamage), 1, "MOD_EXPLOSIVE", "artillery_mp", undefined, undefined, "none", player.psOffsetTime);
-				player thread maps\mp\gametypes\_damagefeedback::updateDamageFeedback();
-				player thread back2uo_artillery_shellshockOnDamage(iDamage);
-				player playrumble("damage_heavy");
+				// Back2Uo: the victim is not damaged on reflected friendly fire ("2").
+				if(!teamhit || level.friendlyfire != "2")
+				{
+					player finishPlayerDamage(player, eAttacker, int(iDamage), 1, "MOD_EXPLOSIVE", "artillery_mp", undefined, undefined, "none", player.psOffsetTime);
+					if(isdefined(eAttacker) && eAttacker != player) eAttacker thread maps\mp\gametypes\_damagefeedback::updateDamageFeedback();
+					player thread back2uo_artillery_shellshockOnDamage(iDamage);
+					player playrumble("damage_heavy");
+				}
+
+				// Back2Uo: reflect ("2") or shared ("3") damage to the caller, only while he is connected and alive.
+				if(teamhit && (level.friendlyfire == "2" || level.friendlyfire == "3") && isdefined(eAttacker) && eAttacker.sessionstate == "playing")
+				{
+					eAttacker.friendlydamage = true;
+					eAttacker finishPlayerDamage(eAttacker, eAttacker, int(iDamage), 1, "MOD_EXPLOSIVE", "artillery_mp", undefined, undefined, "none", eAttacker.psOffsetTime);
+					eAttacker.friendlydamage = undefined;
+				}
 			}
 		}
 	}
@@ -1603,15 +1649,15 @@ back2uo_artillery_sound()
 		nat = "GE_";
 	}
 
-	// Pick voice variant 0-3. Same precedence issue as in back2uo_mortar_sound:
-	// "pc >=25 < 50" is always true, so variants 2/3 are never used.
+	// Pick voice variant 0-3.
+	// Back2Uo: proper range checks so variants 2/3 are used too.
 	pc = randomInt(100);
 	num = 0;
 
 	if(pc < 25) num = 0;
-	else if(pc >=25 < 50) num = 1;
-	else if(pc >=50 < 75) num = 2;
-	else if(pc > 75) num = 3;
+	else if(pc < 50) num = 1;
+	else if(pc < 75) num = 2;
+	else num = 3;
 
 	// Alias e.g. "GE_1_inform_incoming_artillery".
 	alias = nat + num + "_inform_incoming_artillery";

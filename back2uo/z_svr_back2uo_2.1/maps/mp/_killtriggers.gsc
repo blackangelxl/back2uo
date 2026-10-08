@@ -21,8 +21,8 @@ Called on: level
 */
 init()
 {
-	// Back2Uo: mod master switch
-	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 0, 0, 1);
+	// Back2Uo: mod master switch (default 1 as in _back2uo_main.gsc)
+	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 1, 0, 1);
 
 	// Mod enabled: read the settings; mod disabled: stock behaviour (always kill)
 	if(game["back2uo_enable"])

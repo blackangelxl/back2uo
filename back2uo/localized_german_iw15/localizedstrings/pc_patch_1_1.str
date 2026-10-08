@@ -1,0 +1,31 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod2\bin\StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           UNEXPECTEDDOWNLOADMESSAGE
+LANG_ENGLISH        "Unexpected www download message."
+LANG_GERMAN         "Unerwartete WWW-Download-Nachricht."
+
+REFERENCE           DOWNLOADDISCONNECTED
+LANG_ENGLISH        "Client dropped to download files."
+LANG_GERMAN         "Client getrennt, um Dateien herunterzuladen."
+
+REFERENCE           SD_OBJECTIVES
+LANG_ENGLISH        "Allies:  Destroy target A or B by planting explosives at either location.\nAxis:  Protect target A and B from being destroyed. If explosives are planted at either location, defuse them before they explode.\n"
+LANG_GERMAN         "Alliierte:  Zerstören Sie Ziel A oder B, indem Sie an einem der beiden Orte Sprengladungen platzieren.\nAchsenmächte:  Schützen Sie Ziel A und B vor der Zerstörung. Wurden an einem der Orte Sprengladungen platziert, entschärfen Sie sie, bevor sie explodieren.\n"
+
+
+ENDMARKER
+
+

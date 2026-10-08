@@ -353,12 +353,12 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 	if(self.sessionteam == "spectator")
 		return;
 
-	// Back2Uo: hand the hit to the mod's damage handler (effects, messages); it gets the unscaled damage.
-	if(game["back2uo_enable"]) self thread back2uo\_back2uo_player::back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
-
 	// Back2Uo: damage modifications.
 	if(game["back2uo_enable"])
 	{
+		// Back2Uo: unscaled damage for the mod's damage handler (started below once the hit is not blocked).
+		back2uo_rawdamage = iDamage;
+
 		// Weapon strength: scale damage by the per-weapon percentage in level.back2uo_weaponstrength[].
 		if(game["back2uo_weaponsystem_enable"])
 		{
@@ -373,26 +373,11 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			}
 
 			// Melee (bash) damage is scaled by cvar back2uo_melee_strength (percent).
-			if(isdefined(sMeansOfDeath) && sMeansOfDeath == "MOD_MELEE")
+			// Back2Uo: level.back2uo_melee_strength is set by back2uo_weapon_optimizer() and may not exist yet.
+			if(isdefined(sMeansOfDeath) && sMeansOfDeath == "MOD_MELEE" && isdefined(level.back2uo_melee_strength))
 			{
 				back2uo_wdamage2 = level.back2uo_melee_strength / 100;
 				iDamage = int(iDamage * back2uo_wdamage2);
-			}
-		}
-
-		// Helmet save (cvars back2uo_helmpopping and back2uo_helmluck): the first head/neck hit per life
-		// is reduced to 2/3 damage. self.pers["back2uo_helmsave"] is cleared on spawn in _back2uo_objects.gsc.
-		if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
-		{
-			// Note: evaluates as (isdefined && head) || neck.
-			if(isdefined(sHitLoc) && sHitLoc == "head" ||  sHitLoc == "neck")
-			{
-				if(!isdefined(self.pers["back2uo_helmsave"]))
-				{
-					iDamage = int(iDamage / 1.5);
-
-					self.pers["back2uo_helmsave"] = true;
-				}
 			}
 		}
 
@@ -403,6 +388,41 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			eAttacker thread back2uo\_back2uo_messages::back2uo_spawn_attacking();
 
 			return;
+		}
+
+		// Back2Uo: helmet save and damage effects run only if the stock code below really damages this
+		// player. Mirrors its checks: no damage with iDFLAGS_NO_PROTECTION, and none for a team mate's hit
+		// unless friendly fire is "1" (on) or "3" (shared); with "2" (reflect) only the attacker is hurt.
+		back2uo_victimhit = false;
+		if(!(iDFlags & level.iDFLAGS_NO_PROTECTION))
+		{
+			back2uo_victimhit = true;
+			if(isPlayer(eAttacker) && (self != eAttacker) && (self.pers["team"] == eAttacker.pers["team"]))
+			{
+				if(level.friendlyfire != "1" && level.friendlyfire != "3")
+					back2uo_victimhit = false;
+			}
+		}
+
+		if(back2uo_victimhit)
+		{
+			// Helmet save (cvars back2uo_helmpopping and back2uo_helmluck): the first head/neck hit per life
+			// is reduced to 2/3 damage. self.pers["back2uo_helmsave"] is cleared on spawn in _back2uo_objects.gsc.
+			if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
+			{
+				if(isdefined(sHitLoc) && (sHitLoc == "head" || sHitLoc == "neck"))
+				{
+					if(!isdefined(self.pers["back2uo_helmsave"]))
+					{
+						iDamage = int(iDamage / 1.5);
+
+						self.pers["back2uo_helmsave"] = true;
+					}
+				}
+			}
+
+			// Hand the hit to the mod's damage handler (effects, messages); it gets the unscaled damage.
+			self thread back2uo\_back2uo_player::back2uo_player_damage(eInflictor, eAttacker, back2uo_rawdamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
 		}
 	}
 
@@ -555,7 +575,8 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	// Back2Uo: mod death handling.
 	if(game["back2uo_enable"]) self thread back2uo\_back2uo_player::back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration);
 
-	// Back2Uo: remove the player's mod HUD elements (1 = keep the player position display).
+	// Back2Uo: remove the player's mod HUD elements. 1 = do not clear the player position display here,
+	// back2uo_player_killed() above already removes it.
 	if(game["back2uo_enable"]) self thread back2uo\_back2uo_player::back2uo_clear_elements(1);
 
 	// If the player was killed by a head shot, let players know it was a head shot kill
@@ -585,7 +606,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	{
 		// Back2Uo: show hit location and kill distance for enemy kills
 		// (checks game["back2uo_hit_distance_enable"] itself).
-		if(self.pers["team"] != attacker.pers["team"])
+		if(game["back2uo_enable"] && self.pers["team"] != attacker.pers["team"])
 		{
 			back2uo\_back2uo_weaponsystem::back2uo_hit_distance(attacker, sMeansOfDeath, sWeapon, sHitLoc);
 		}
@@ -594,8 +615,9 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 		{
 			doKillcam = false;
 
-			// Back2Uo: suicide costs mod player points (cvar back2uo_mpoints_suicide).
-			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"])
+			// Back2Uo: suicide costs mod player points (cvar back2uo_mpoints_suicide). Not for a team switch
+			// and not for a death by reflected/shared friendly fire (attacker.friendlydamage, set in Callback_PlayerDamage).
+			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams) && !isdefined(attacker.friendlydamage))
 			{
 				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
@@ -688,7 +710,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	// Back2Uo: blood/gore effects on the corpse.
 	if(game["back2uo_enable"])
 	{
-		if(isdefined(self) && isdefined(attacker) && isdefined(self.pers["team"]) && isdefined(attacker.pers["team"]))
+		if(isdefined(self) && isdefined(attacker) && isPlayer(attacker) && isdefined(self.pers["team"]) && isdefined(attacker.pers["team"]))
 		{
 			self thread back2uo\_back2uo_gore::back2uo_killedplayer_blood(body, self.pers["team"], attacker.pers["team"]);
 		}
@@ -1062,8 +1084,7 @@ endMap()
 	{
 		winningteam = "tie";
 		losingteam = "tie";
-		// Note: plain string, not a localized &"..." reference like the other two results.
-		text = "MP_THE_GAME_IS_A_TIE";
+		text = &"MP_THE_GAME_IS_A_TIE";
 	}
 	else if(alliedscore > axisscore)
 	{

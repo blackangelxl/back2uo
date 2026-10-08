@@ -153,10 +153,6 @@ REFERENCE           SCOPEDKAR98K
 LANG_ENGLISH        "Scoped Kar98k"
 LANG_GERMAN         "Zielfernrohr-Kar98k"
 
-REFERENCE           SCOPEDG43
-LANG_ENGLISH        "Scoped G43"
-LANG_GERMAN         "Zielfernrohr-G43"
-
 REFERENCE           HOLDPIN
 LANG_ENGLISH        "Hold-Pin"
 LANG_GERMAN         "Stift stecken lassen"
@@ -220,6 +216,10 @@ LANG_GERMAN         "Zielfernrohr-Gewehr 43"
 REFERENCE           DEFAULTWEAPON
 LANG_ENGLISH        "Default Weapon"
 LANG_GERMAN         "Standardwaffe"
+
+REFERENCE           UNKNOWNWEAPON
+LANG_ENGLISH        "Unknown Weapon"
+LANG_GERMAN         "Unbekannte Waffe"
 
 REFERENCE           ANM8_SMOKE_GRENADE
 LANG_ENGLISH        "AN-M8 Smoke Grenade"

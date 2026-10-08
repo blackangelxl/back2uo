@@ -145,11 +145,15 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["frag_grenade_german_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_german", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["frag_grenade_russian_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_russian", 100, 1, 100, "int");
 
-	// Cookable frag grenades use the same cvars as the normal ones.
-	level.back2uo_weaponstrength["frag_grenade_american_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_american", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["frag_grenade_british_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_british", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["frag_grenade_german_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_german", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["frag_grenade_russian_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_russian", 100, 1, 100, "int");
+	// Back2Uo: the special frag grenade variants (_special1 / _special2) use the same cvars as the normal ones.
+	level.back2uo_weaponstrength["frag_grenade_american_mp_special1"] = level.back2uo_weaponstrength["frag_grenade_american_mp"];
+	level.back2uo_weaponstrength["frag_grenade_american_mp_special2"] = level.back2uo_weaponstrength["frag_grenade_american_mp"];
+	level.back2uo_weaponstrength["frag_grenade_british_mp_special1"] = level.back2uo_weaponstrength["frag_grenade_british_mp"];
+	level.back2uo_weaponstrength["frag_grenade_british_mp_special2"] = level.back2uo_weaponstrength["frag_grenade_british_mp"];
+	level.back2uo_weaponstrength["frag_grenade_german_mp_special1"] = level.back2uo_weaponstrength["frag_grenade_german_mp"];
+	level.back2uo_weaponstrength["frag_grenade_german_mp_special2"] = level.back2uo_weaponstrength["frag_grenade_german_mp"];
+	level.back2uo_weaponstrength["frag_grenade_russian_mp_special1"] = level.back2uo_weaponstrength["frag_grenade_russian_mp"];
+	level.back2uo_weaponstrength["frag_grenade_russian_mp_special2"] = level.back2uo_weaponstrength["frag_grenade_russian_mp"];
 
 	// Pistols
 	level.back2uo_weaponstrength["colt_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_colt", 100, 1, 100, "int");
@@ -158,10 +162,9 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["luger_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_luger", 100, 1, 100, "int");
 
 	// Special weapons
-	// Note: "rocketlancher_mp" is not a real weapon name (the launcher is panzerschreck_mp),
-	// so this entry is never matched by the damage callbacks.
 	level.back2uo_weaponstrength["g43_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_g43scoped", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["rocketlancher_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_rocketlancher", 100, 1, 100, "int");
+	// Back2Uo: key is the real weapon name (was "rocketlancher_mp").
+	level.back2uo_weaponstrength["panzerschreck_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_rocketlancher", 100, 1, 100, "int");
 
 	// Weapons shared by several nations
 	level.back2uo_weaponstrength["shotgun_mp_allies"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_shotgun_allies", 100, 1, 100, "int");
@@ -170,12 +173,10 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["m1garand_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_m1garand", 100, 1, 100, "int");
 
 	// German weapons
-	// Note: the kar98k_sniper cvar name has a typo ("weaponstrh"); the config sets
-	// back2uo_weaponstr_kar98k_sniper, so this always falls back to the default 100.
 	level.back2uo_weaponstrength["mp40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mp40", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["kar98k_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_kar98k", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["g43_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_g43", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["kar98k_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstrh_kar98k_sniper", 100, 1, 100, "int");
+	level.back2uo_weaponstrength["kar98k_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_kar98k_sniper", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mp44_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mp44", 100, 1, 100, "int");
 
 	// American weapons
@@ -191,9 +192,9 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["bren_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_bren", 100, 1, 100, "int");
 
 	// Russian weapons
-	level.back2uo_weaponstrength["pps42_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_pps42", 100, 1, 100, "int");
+	level.back2uo_weaponstrength["PPS42_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_pps42", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mosin_nagant_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mosin_nagant", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["svt40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_svt40", 100, 1, 100, "int");
+	level.back2uo_weaponstrength["SVT40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_svt40", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mosin_nagant_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mosin_nagant_sniper", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["ppsh_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_ppsh", 100, 1, 100, "int");
 }

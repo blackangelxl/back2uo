@@ -518,12 +518,12 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 	if(self.sessionteam == "spectator")
 		return;
 
-	// Back2Uo: hand the hit to the mod's damage hook (blood/HUD effects); it gets the unscaled damage.
-	if(game["back2uo_enable"]) self thread back2uo\_back2uo_player::back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
-
 	// Back2Uo: damage modifiers, applied before the stock damage code below.
 	if(game["back2uo_enable"])
 	{
+		// Back2Uo: unscaled damage for the mod's damage hook (started below once the hit is not blocked).
+		back2uo_rawdamage = iDamage;
+
 		// Back2Uo: weapon strength - scale damage by a per-weapon percentage
 		if(game["back2uo_weaponsystem_enable"])
 		{
@@ -538,26 +538,11 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			}
 
 			// Melee hits use the separate back2uo_melee_strength percentage
-			if(isdefined(sMeansOfDeath) && sMeansOfDeath == "MOD_MELEE")
+			// (set by back2uo_weapon_optimizer(), may not exist yet).
+			if(isdefined(sMeansOfDeath) && sMeansOfDeath == "MOD_MELEE" && isdefined(level.back2uo_melee_strength))
 			{
 				back2uo_wdamage2 = level.back2uo_melee_strength / 100;
 				iDamage = int(iDamage * back2uo_wdamage2);
-			}
-		}
-
-		// Back2Uo: helmet save - the first head/neck hit of a life does only 2/3 damage
-		// (cvar back2uo_helmluck; the flag is cleared again by _back2uo_objects.gsc).
-		// Note: game["back2uo_helmpoppping_enable"] is spelled with three p's on purpose (matches _back2uo_main.gsc).
-		if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
-		{
-			if(isdefined(sHitLoc) && sHitLoc == "head" ||  sHitLoc == "neck")
-			{
-				if(!isdefined(self.pers["back2uo_helmsave"]))
-				{
-					iDamage = int(iDamage / 1.5);
-
-					self.pers["back2uo_helmsave"] = true;
-				}
 			}
 		}
 
@@ -568,6 +553,42 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			eAttacker thread back2uo\_back2uo_messages::back2uo_spawn_attacking();
 
 			return;
+		}
+
+		// Back2Uo: helmet save and damage effects run only if the stock code below really damages this
+		// player. Mirrors its checks: no damage with iDFLAGS_NO_PROTECTION, and none for a team mate's hit
+		// unless friendly fire is "1" (on) or "3" (shared); with "2" (reflect) only the attacker is hurt.
+		back2uo_victimhit = false;
+		if(!(iDFlags & level.iDFLAGS_NO_PROTECTION))
+		{
+			back2uo_victimhit = true;
+			if(isPlayer(eAttacker) && (self != eAttacker) && (self.pers["team"] == eAttacker.pers["team"]))
+			{
+				if(level.friendlyfire != "1" && level.friendlyfire != "3")
+					back2uo_victimhit = false;
+			}
+		}
+
+		if(back2uo_victimhit)
+		{
+			// Back2Uo: helmet save - the first head/neck hit of a life does only 2/3 damage
+			// (cvar back2uo_helmluck; the flag is cleared again by _back2uo_objects.gsc).
+			// Note: game["back2uo_helmpoppping_enable"] is spelled with three p's on purpose (matches _back2uo_main.gsc).
+			if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
+			{
+				if(isdefined(sHitLoc) && (sHitLoc == "head" || sHitLoc == "neck"))
+				{
+					if(!isdefined(self.pers["back2uo_helmsave"]))
+					{
+						iDamage = int(iDamage / 1.5);
+
+						self.pers["back2uo_helmsave"] = true;
+					}
+				}
+			}
+
+			// Back2Uo: hand the hit to the mod's damage hook (blood/HUD effects); it gets the unscaled damage.
+			self thread back2uo\_back2uo_player::back2uo_player_damage(eInflictor, eAttacker, back2uo_rawdamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
 		}
 	}
 

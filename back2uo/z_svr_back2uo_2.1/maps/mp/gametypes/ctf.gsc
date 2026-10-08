@@ -1130,7 +1130,7 @@ endMap()
 	{
 		winningteam = "tie";
 		losingteam = "tie";
-		text = "MP_THE_GAME_IS_A_TIE";
+		text = &"MP_THE_GAME_IS_A_TIE";
 	}
 	else if(alliedscore > axisscore)
 	{

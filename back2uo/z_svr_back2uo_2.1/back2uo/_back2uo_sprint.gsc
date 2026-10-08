@@ -137,14 +137,15 @@ back2uo_sprintsystem_run()
 		// First pass: swap to the sprint weapon.
 		if(self.pers["sprinting"] != true && sprint_string == "" && normal_weapon != "none")
 		{
+			// Back2Uo: only weapons with a "<weapon>_sprint" variant can be swapped (not the Panzerschreck,
+			// binoculars, grenades, artillery, turrets, ...); otherwise no sprint.
+			if(!back2uo_sprintsystem_hasvariant(normal_weapon)) return;
+
 			// Save weapon and ammo of the slot holding the current weapon.
 			self back2uo_sprintsystem_inslot(self getcurrentweapon());
 
 			sprint_string = "_sprint";
 			sprint_weapon = self getcurrentweapon() + sprint_string;
-
-			// The Panzerschreck has no sprint variant.
-			if(sprint_weapon == "panzerschreck_mp_sprint") return;
 
 			if(self getWeaponSlotWeapon("primary") == self getcurrentweapon())
 				self.pers["sprint_slot"] = "primary";
@@ -285,8 +286,8 @@ back2uo_sprintsystem_inslot2(sprintslot)
 
 	if(sprintslot == "primary")
 	{
-		// Note: && binds tighter than ||, so the isdefined() guard only covers the first comparison.
-		if(isdefined(self.pers["pri_ammo"]) && self.pers["pri_ammo"] != self getweaponslotammo("primary") || self.pers["pri_clipammo"] != self getweaponslotclipammo("primary"))
+		// Back2Uo: parentheses, so the isdefined() guard covers both comparisons
+		if(isdefined(self.pers["pri_ammo"]) && (self.pers["pri_ammo"] != self getweaponslotammo("primary") || self.pers["pri_clipammo"] != self getweaponslotclipammo("primary")))
 		{
 			self.pers["pri_ammo"] = self getweaponslotammo("primary");
 			self.pers["pri_clipammo"] = self getweaponslotclipammo("primary");
@@ -294,12 +295,68 @@ back2uo_sprintsystem_inslot2(sprintslot)
 	}
 	else
 	{
-		if(isdefined(self.pers["pri_b_ammo"]) && self.pers["pri_b_ammo"] != self getweaponslotammo("primaryb") || self.pers["pri_b_clipammo"] != self getweaponslotclipammo("primaryb"))
+		if(isdefined(self.pers["pri_b_ammo"]) && (self.pers["pri_b_ammo"] != self getweaponslotammo("primaryb") || self.pers["pri_b_clipammo"] != self getweaponslotclipammo("primaryb")))
 		{
 			self.pers["pri_b_ammo"] = self getweaponslotammo("primaryb");
 			self.pers["pri_b_clipammo"] = self getweaponslotclipammo("primaryb");
 		}
 	}
+}
+
+/*
+=============
+back2uo_sprintsystem_hasvariant
+
+Back2Uo: checks whether a "<weapon>_sprint" variant exists (weapons/mp/*_sprint of the client
+files, precached in maps\mp\gametypes\_weapons.gsc). The lookup table level.back2uo_sprintweapons
+is built on first use. Some names are listed in both spellings (e.g. PPS42_mp / pps42_mp), as
+script string compares are case sensitive.
+Params: weapon - weapon name
+Returns: true if the weapon can be swapped for a sprint variant
+=============
+*/
+back2uo_sprintsystem_hasvariant(weapon)
+{
+	if(!isdefined(weapon)) return false;
+
+	if(!isdefined(level.back2uo_sprintweapons))
+	{
+		level.back2uo_sprintweapons = [];
+		level.back2uo_sprintweapons["bar_mp"] = true;
+		level.back2uo_sprintweapons["bren_mp"] = true;
+		level.back2uo_sprintweapons["colt_mp"] = true;
+		level.back2uo_sprintweapons["enfield_mp"] = true;
+		level.back2uo_sprintweapons["enfield_scope_mp"] = true;
+		level.back2uo_sprintweapons["g43_mp"] = true;
+		level.back2uo_sprintweapons["g43_sniper_mp"] = true;
+		level.back2uo_sprintweapons["greasegun_mp"] = true;
+		level.back2uo_sprintweapons["kar98k_mp"] = true;
+		level.back2uo_sprintweapons["kar98k_sniper_mp"] = true;
+		level.back2uo_sprintweapons["luger_mp"] = true;
+		level.back2uo_sprintweapons["m1carbine_mp"] = true;
+		level.back2uo_sprintweapons["m1garand_mp"] = true;
+		level.back2uo_sprintweapons["mosin_nagant_mp"] = true;
+		level.back2uo_sprintweapons["mosin_nagant_sniper_mp"] = true;
+		level.back2uo_sprintweapons["mp40_mp"] = true;
+		level.back2uo_sprintweapons["mp44_mp"] = true;
+		level.back2uo_sprintweapons["pps42_mp"] = true;
+		level.back2uo_sprintweapons["PPS42_mp"] = true;
+		level.back2uo_sprintweapons["ppsh_mp"] = true;
+		level.back2uo_sprintweapons["shotgun_mp_allies"] = true;
+		level.back2uo_sprintweapons["shotgun_mp_axis"] = true;
+		level.back2uo_sprintweapons["springfield_mp"] = true;
+		level.back2uo_sprintweapons["sten_mp"] = true;
+		level.back2uo_sprintweapons["svt40_mp"] = true;
+		level.back2uo_sprintweapons["SVT40_mp"] = true;
+		level.back2uo_sprintweapons["thompson_mp"] = true;
+		level.back2uo_sprintweapons["tt30_mp"] = true;
+		level.back2uo_sprintweapons["TT30_mp"] = true;
+		level.back2uo_sprintweapons["webley_mp"] = true;
+	}
+
+	if(isdefined(level.back2uo_sprintweapons[weapon])) return true;
+
+	return false;
 }
 
 /*
