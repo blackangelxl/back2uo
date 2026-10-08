@@ -1,8 +1,6 @@
 # Build output (created by tools/build.py)
 dist/
 
-# Packed archives are generated from the source folders, never committed
-*.iwd
 
 # Python
 __pycache__/
