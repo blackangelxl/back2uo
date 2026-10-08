@@ -1,6 +1,3 @@
-# Build output (created by tools/build.py)
-dist/
-
 
 # Python
 __pycache__/
