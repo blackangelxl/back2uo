@@ -94,6 +94,7 @@ Called on: level
 */
 Callback_StartGameType()
 {
+	precacheStatusIcon("hud_status_connecting");
 	level.splitscreen = isSplitScreen();
 
 	// defaults if not defined in level script
@@ -109,7 +110,6 @@ Callback_StartGameType()
 		game["axis"] = getCvar("scr_axis");
 
 	precacheStatusIcon("hud_status_dead");
-	precacheStatusIcon("hud_status_connecting");
 	precacheRumble("damage_heavy");
 	precacheString(&"PLATFORM_PRESS_TO_SPAWN");
 
@@ -353,12 +353,30 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 	if(self.sessionteam == "spectator")
 		return;
 
-	// Back2Uo: hand the hit to the mod's damage handler (effects, messages); it gets the unscaled damage.
-	if(game["back2uo_enable"]) self thread back2uo\_back2uo_player::back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
-
-	// Back2Uo: damage modifications.
+	// Back2Uo: spawn protection, mod damage hook and damage modifiers.
 	if(game["back2uo_enable"])
 	{
+		// Spawn protection: while self.back2uo_antiplay_sp_run is set (antiplay\_back2uo_spawnprotection.gsc),
+		// damage from other players is ignored and the attacker gets a warning.
+		if(isdefined(eAttacker) && isdefined(self.back2uo_antiplay_sp_run) && isPlayer(eAttacker) && eAttacker != self && self.back2uo_antiplay_sp_run)
+		{
+			eAttacker thread back2uo\messages\_back2uo_spawnattacking::back2uo_spawn_attacking();
+
+			return;
+		}
+
+		back2uo_victimhit = true;
+
+		// Friendly fire the victim does not take (scr_friendlyfire 0 = off, 2 = reflect) must not
+		// trigger the hit effects or use up the helmet save.
+		if(!(iDFlags & level.iDFLAGS_NO_PROTECTION) && isPlayer(eAttacker) && self != eAttacker && self.pers["team"] == eAttacker.pers["team"])
+		{
+			if(level.friendlyfire == "0" || level.friendlyfire == "2") back2uo_victimhit = false;
+		}
+
+		// Hand the hit to the mod's damage handler (effects, messages); it gets the unscaled damage.
+		if(back2uo_victimhit) self thread back2uo\_back2uo_player::back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
+
 		// Weapon strength: scale damage by the per-weapon percentage in level.back2uo_weaponstrength[].
 		if(game["back2uo_weaponsystem_enable"])
 		{
@@ -373,7 +391,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			}
 
 			// Melee (bash) damage is scaled by cvar back2uo_melee_strength (percent).
-			if(isdefined(sMeansOfDeath) && sMeansOfDeath == "MOD_MELEE")
+			if(isdefined(sMeansOfDeath) && sMeansOfDeath == "MOD_MELEE" && isdefined(level.back2uo_melee_strength))
 			{
 				back2uo_wdamage2 = level.back2uo_melee_strength / 100;
 				iDamage = int(iDamage * back2uo_wdamage2);
@@ -381,11 +399,10 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 		}
 
 		// Helmet save (cvars back2uo_helmpopping and back2uo_helmluck): the first head/neck hit per life
-		// is reduced to 2/3 damage. self.pers["back2uo_helmsave"] is cleared on spawn in _back2uo_objects.gsc.
-		if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
+		// is reduced to 2/3 damage. self.pers["back2uo_helmsave"] is cleared on spawn in objects\_back2uo_helmpopping.gsc.
+		if(back2uo_victimhit && game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
 		{
-			// Note: evaluates as (isdefined && head) || neck.
-			if(isdefined(sHitLoc) && sHitLoc == "head" ||  sHitLoc == "neck")
+			if(isdefined(sHitLoc) && (sHitLoc == "head" || sHitLoc == "neck"))
 			{
 				if(!isdefined(self.pers["back2uo_helmsave"]))
 				{
@@ -394,15 +411,6 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 					self.pers["back2uo_helmsave"] = true;
 				}
 			}
-		}
-
-		// Spawn protection: while self.back2uo_antiplay_sp_run is set (_back2uo_antiplay.gsc),
-		// damage from other players is ignored and the attacker gets a warning.
-		if(isdefined(eAttacker) && isdefined(self.back2uo_antiplay_sp_run) && isPlayer(eAttacker) && eAttacker != self && self.back2uo_antiplay_sp_run)
-		{
-			eAttacker thread back2uo\_back2uo_messages::back2uo_spawn_attacking();
-
-			return;
 		}
 	}
 
@@ -595,7 +603,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			doKillcam = false;
 
 			// Back2Uo: suicide costs mod player points (cvar back2uo_mpoints_suicide).
-			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"])
+			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams))
 			{
 				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
@@ -688,9 +696,13 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	// Back2Uo: blood/gore effects on the corpse.
 	if(game["back2uo_enable"])
 	{
-		if(isdefined(self) && isdefined(attacker) && isdefined(self.pers["team"]) && isdefined(attacker.pers["team"]))
+		if(isdefined(self) && isdefined(self.pers["team"]))
 		{
-			self thread back2uo\_back2uo_gore::back2uo_killedplayer_blood(body, self.pers["team"], attacker.pers["team"]);
+			// Fall and trigger deaths have no player as attacker (no .pers)
+			back2uo_attackerteam = "world";
+			if(isPlayer(attacker) && isdefined(attacker.pers["team"])) back2uo_attackerteam = attacker.pers["team"];
+
+			self thread back2uo\gore\_back2uo_killedplayer::back2uo_killedplayer_blood(body, self.pers["team"], back2uo_attackerteam);
 		}
 	}
 

@@ -58,17 +58,17 @@ back2uo_clientset_init()
 	game["back2uo_drawmantlehint"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_drawmantlehint", 1, 0, 1);
 	self setClientCvar("cg_drawmantlehint", game["back2uo_drawmantlehint"]);
 
-	// HUD fade times in seconds (0 = never fade).
-	game["back2uo_hudcompassfade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudcompassfade", 0, 0, 1);
+	// HUD fade times in seconds (0 = never fade, 0.1 - 30 seconds).
+	game["back2uo_hudcompassfade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudcompassfade", 0, 0, 30);
 	self setClientCvar("hud_fade_compass", game["back2uo_hudcompassfade"]);
 
-	game["back2uo_hudstancefade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudstancefade", 0, 0, 1);
+	game["back2uo_hudstancefade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudstancefade", 0, 0, 30);
 	self setClientCvar("hud_fade_stance", game["back2uo_hudstancefade"]);
 
-	game["back2uo_hudoffhandfade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudoffhandfade", 0, 0, 1);
+	game["back2uo_hudoffhandfade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudoffhandfade", 0, 0, 30);
 	self setClientCvar("hud_fade_offhand", game["back2uo_hudoffhandfade"]);
 
-	game["back2uo_hudammodisplayfade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudammodisplayfade", 0, 0, 1);
+	game["back2uo_hudammodisplayfade"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudammodisplayfade", 0, 0, 30);
 	self setClientCvar("hud_fade_ammodisplay", game["back2uo_hudammodisplayfade"]);
 
 	// Client sound setting (mss_Q3fs); the original author set it to avoid overlapping sounds.
@@ -121,7 +121,7 @@ back2uo_clientset_init()
 		self setClientCvar("cg_hudDamageIconWidth","128");
 		self setClientCvar("cg_hudObjectiveMaxRange","2048");
 		self setClientCvar("cg_hudObjectiveMinAlpha","1");
-		self setClientCvar("cg_hudObjectiveMinHeigth","-70");
+		self setClientCvar("cg_hudObjectiveMinHeight","-70");
 		self setClientCvar("cg_thirdperson","0");
 		self setClientCvar("fx_sort","1");
 	}

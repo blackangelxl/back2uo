@@ -3,7 +3,7 @@
 
 	Stock CoD2 script, modified for Back2Uo. Mod changes are marked with 'Back2Uo:' comments.
 	init() is called from the gametype scripts (dm, tdm, ctf, hq, ...). updateDamageFeedback() is
-	called on the attacker from the gametype Callback_PlayerDamage and from _back2uo_warfx.gsc.
+	called on the attacker from the gametype Callback_PlayerDamage and from warfx\_back2uo_artillery.gsc.
 	Cvars: game["back2uo_minicrosshair_enable"] (hit marker), game["back2uo_playerhitsound_enable"] (hit sound).
 */
 

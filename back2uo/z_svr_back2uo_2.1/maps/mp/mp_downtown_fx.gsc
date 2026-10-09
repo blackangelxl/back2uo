@@ -5,7 +5,7 @@
 	main() is called from the map's own script (maps\mp\mp_downtown.gsc) at level load,
 	before the gametype starts. It precaches and starts the map's looping effects.
 	This map has no switchable effect groups.
-	The stock snow effects only run with the mod off; Back2Uo draws its own snow (_back2uo_weatherfx.gsc).
+	The stock snow effects only run with the mod off; Back2Uo draws its own snow (weatherfx\_back2uo_weather.gsc).
 	With the mod off (back2uo_status 0) the map behaves like stock.
 */
 
@@ -21,8 +21,7 @@ Called on: level
 main()
 {
 	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status is read here.
-	// Note: the default here is 0 (1 in _back2uo_main.gsc); an unset cvar is set to 0 by this call.
-	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 0, 0, 1);
+	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 
 	precacheFX();
 	ambientFX();

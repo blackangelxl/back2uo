@@ -4,7 +4,7 @@
 	Players sprint by holding the Use key while running. Sprinting swaps the current primary
 	weapon for its "<weapon>_sprint" variant (a sprint-pose weapon) and restores the original
 	weapon with its ammo when the sprint ends. Stamina is tracked as self.hud_sprint_height
-	(fatigue bar drawn and recovered in _back2uo_hudfx.gsc); sprinting is blocked above 34/35.
+	(fatigue bar drawn and recovered in hud\_back2uo_playerposition.gsc); sprinting is blocked above 34/35.
 	Entry point: back2uo_sprintsystem_main(), threaded per player from
 	_back2uo_player::back2uo_player_spawn. Switch: game["back2uo_sprint_enable"].
 	Player state: self.pers["sprinting"], ["is_moving"], ["sprint_slot"], ["pri_*"] / ["pri_b_*"] saved
@@ -137,16 +137,18 @@ back2uo_sprintsystem_run()
 		// First pass: swap to the sprint weapon.
 		if(self.pers["sprinting"] != true && sprint_string == "" && normal_weapon != "none")
 		{
+			// Only weapons in a primary slot have a "_sprint" variant (not binoculars, grenades
+			// or turrets); the Panzerschreck has none either.
+			if(normal_weapon != self getWeaponSlotWeapon("primary") && normal_weapon != self getWeaponSlotWeapon("primaryb")) return;
+			if(normal_weapon == "panzerschreck_mp") return;
+
 			// Save weapon and ammo of the slot holding the current weapon.
-			self back2uo_sprintsystem_inslot(self getcurrentweapon());
+			self back2uo_sprintsystem_inslot(normal_weapon);
 
 			sprint_string = "_sprint";
-			sprint_weapon = self getcurrentweapon() + sprint_string;
+			sprint_weapon = normal_weapon + sprint_string;
 
-			// The Panzerschreck has no sprint variant.
-			if(sprint_weapon == "panzerschreck_mp_sprint") return;
-
-			if(self getWeaponSlotWeapon("primary") == self getcurrentweapon())
+			if(self getWeaponSlotWeapon("primary") == normal_weapon)
 				self.pers["sprint_slot"] = "primary";
 			else
 				self.pers["sprint_slot"] = "primaryb";

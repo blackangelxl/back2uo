@@ -54,7 +54,7 @@ every 0.1 seconds. Allied and axis grenade types share one limit: grenades of on
 reduce the allowance for the other (picked-up enemy grenades). If a count is above its
 allowance, the clip is set back to the allowance.
 The per-player allowances (self.back2uo_granaten_allow_*) are also used by
-_back2uo_objects::back2uo_grenadepickup().
+objects\_back2uo_grenadepickup::back2uo_grenadepickup().
 Called on: self = player (threaded on spawn)
 =============
 */
@@ -294,19 +294,25 @@ back2uo_player_messagebold(lstr, wert)
 back2uo_setconfig
 
 Reads a numeric server cvar, clamped to min/max. An unset cvar is created with the default.
-While the mod is disabled (game["back2uo_enable"] 0) the cvar is reset to its default.
+While the mod is disabled (game["back2uo_enable"] 0) the cvar is left untouched and
+offvalue is returned, so the feature behaves like the stock game.
 Params: wert - cvar name
 		wertdefault - default value
 		min - lower limit (0 = no limit)
 		max - upper limit (0 = no limit)
-		ui - unused
+		offvalue - value while the mod is disabled (default 0 = feature off)
 Returns: the cvar value (int when just created, otherwise float)
 =============
 */
-back2uo_setconfig(wert, wertdefault, min, max, ui)
+back2uo_setconfig(wert, wertdefault, min, max, offvalue)
 {
-	wert2 = wertdefault;
-	if(!isDefined(game["back2uo_enable"])) game["back2uo_enable"] = 1;
+	if(!isDefined(game["back2uo_enable"])) game["back2uo_enable"] = back2uo_getstatus();
+
+	if(!game["back2uo_enable"])
+	{
+		if(!isDefined(offvalue)) offvalue = 0;
+		return offvalue;
+	}
 
 	if(getcvar(wert) == "")
 	{
@@ -315,13 +321,7 @@ back2uo_setconfig(wert, wertdefault, min, max, ui)
 	}
 	else
 	{
-		if(!(game["back2uo_enable"]))
-		{
-			setCvar(wert, wertdefault);
-			wert2 = getCvarInt(wert);
-		}else{
-			wert2 = getcvarfloat(wert);
-		}
+		wert2 = getcvarfloat(wert);
 	}
 
 	if(min != 0 && wert2 < min)
@@ -331,6 +331,24 @@ back2uo_setconfig(wert, wertdefault, min, max, ui)
 		wert2 = max;
 
 	return wert2;
+}
+
+/*
+=============
+back2uo_getstatus
+
+Reads the mod master switch back2uo_status (default 1). Unlike back2uo_setconfig() it
+never resets the cvar, so back2uo_status 0 keeps the mod disabled across rounds.
+Returns: 1 if the mod is enabled, otherwise 0
+=============
+*/
+back2uo_getstatus()
+{
+	if(getcvar("back2uo_status") == "") setCvar("back2uo_status", 1);
+
+	if(getCvarInt("back2uo_status") != 0) return 1;
+
+	return 0;
 }
 
 /*
@@ -352,6 +370,27 @@ back2uo_setui_var(name, wert)
 		makeCvarServerInfo(name, wert);
 		setCvar(name, wert);
 	}
+}
+
+/*
+=============
+back2uo_setvote
+
+Applies a call vote switch to the engine cvar g_allowvote<name> and to the menu cvar
+ui_allowvote<name>. Only the menu cvar would hide the option, but /callvote would still work.
+While the mod is disabled the stock g_allowvote<name> value is left untouched and shown in the menu.
+Params: name - vote name, e.g. "kick" or "map"
+		wert - 1 = vote allowed, 0 = not allowed
+=============
+*/
+back2uo_setvote(name, wert)
+{
+	if(game["back2uo_enable"])
+		setCvar("g_allowvote" + name, wert);
+	else
+		wert = getCvarInt("g_allowvote" + name);
+
+	back2uo_setui_var("ui_allowvote" + name, wert);
 }
 
 /*
@@ -578,6 +617,10 @@ back2uo_clear_triggerhud_elements()
 	if(isdefined(self.back2uo_weaponpickup)) self.back2uo_weaponpickup.alpha = 0;
 	self setClientCvar("back2uo_ui_weaponpickup_object", 0);
 
+	// Release the health pack / weapon pickup targets of the last life
+	self.medi_origin = undefined;
+	self.weapon_origin = undefined;
+
 	self setClientCvar("back2uo_ui_artillery_name", 0);
 	self setClientCvar("back2uo_ui_artillery_meters", 0);
 	self setClientCvar("back2uo_ui_artillery_unknown", 0);
@@ -647,10 +690,10 @@ back2uo_fx_run()
 					{
 						// Disabled: other test actions (drop weapon, health pack, turret, mortar)
 						//self maps\mp\gametypes\_weapons::dropWeapon("mp40_mp");
-						//self back2uo\_back2uo_objects::back2uo_dropHealthPacks();
+						//self back2uo\objects\_back2uo_healthpacks::back2uo_dropHealthPacks();
 						//back2uo\_back2uo_weaponsystem::back2uo_create_turret();
-						//back2uo\_back2uo_warfx::back2uo_mortar_draw(self);
-						thread back2uo\_back2uo_warfx::back2uo_artilleryfx_control();
+						//back2uo\warfx\_back2uo_mortar::back2uo_mortar_draw(self);
+						thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
 
 						wait 1;
 

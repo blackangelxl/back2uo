@@ -1,0 +1,5 @@
+{
+	map		"mp_dawnville_classic"
+	longname	"^7Dawnville ^1Classic"
+	gametype	"dm tdm sd hq ctf"
+}
