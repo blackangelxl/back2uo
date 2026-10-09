@@ -24,6 +24,10 @@ back2uo_start_gametype()
 {
 	if(!game["back2uo_enable"]) return;
 
+	// Weapon and melee damage scales; read first (no waits), the damage callbacks need them
+	// right away and back2uo_mapdimension() below takes several seconds.
+	back2uo\_back2uo_weaponsystem::back2uo_weapon_optimizer();
+
 	// Bounding boxes of the map and of the player spawn area; must run before the FX below.
 	back2uo\_back2uo_tools::back2uo_playerdimension();
 	back2uo\_back2uo_tools::back2uo_mapdimension();
@@ -42,8 +46,6 @@ back2uo_start_gametype()
 
 	// Weapon limits per team.
 	thread back2uo\_back2uo_weaponsystem::back2uo_weapon_limitiert();
-
-	thread back2uo\_back2uo_weaponsystem::back2uo_weapon_optimizer();
 
 	thread back2uo\weatherfx\_back2uo_thunder::back2uo_thunder_draw();
 
@@ -103,6 +105,9 @@ Called on: self = player
 back2uo_player_disconnect()
 {
 	if(!game["back2uo_enable"]) return;
+
+	// The compass marker of a camper would stay on the compass after the disconnect
+	back2uo\antiplay\_back2uo_camper::back2uo_antiplay_camper_remove2();
 
 	self notify("back2uo_killplayerthreads");
 }
@@ -183,8 +188,8 @@ back2uo_player_spawn()
 {
 	if(!game["back2uo_enable"]) return;
 
-	// Voice set (0-2) used for this player's taunts.
-	self.pers["taunt_person"] = randomint(3);
+	// Voice set (0-3, see soundaliases/_back2uo.csv) used for this player's taunts.
+	self.pers["taunt_person"] = randomint(4);
 
 	// Clean up from the previous life.
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();

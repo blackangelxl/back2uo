@@ -39,10 +39,15 @@ back2uo_binocular_control()
 		// Notified by the engine when the player raises the binoculars.
 		self waittill("binocular_enter");
 
+		// Started before the delay, so a "binocular_exit" within the delay is not lost.
+		self.back2uo_bino_up = true;
+		self thread back2uo_binocular_distance_clear();
+
 		// Short delay before the display starts.
 		wait (0.3);
 
-		self thread back2uo_binocular_distance_clear();
+		// Binoculars already lowered again: no display (it would block the player until death).
+		if(!self.back2uo_bino_up) continue;
 
 		self thread back2uo_binocular_distance_draw();
 
@@ -174,9 +179,15 @@ back2uo_binocular_distance_clear()
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Binocular Distance", "Clear");
 
+	// Only one waiting clear thread per player.
+	self notify("back2uo_binoclear_start");
+	self endon("back2uo_binoclear_start");
+	self endon("disconnect");
+
 	// Notified by the engine when the player lowers the binoculars.
 	self waittill("binocular_exit");
 
+	self.back2uo_bino_up = false;
 	self.pers["bino_inuse"] = false;
 	self.back2uo_playerdo = "none";
 

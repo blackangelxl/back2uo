@@ -173,7 +173,7 @@ playerHealthRegen()
 		return;
 	}
 
-	thread playerBreathingSound(maxhealth * 0.35, "");
+	thread playerBreathingSound(maxhealth * 0.35, 0);
 	lastSoundTime_Recover = 0;
 	hurtTime = 0;
 	newHealth = 0;
@@ -252,7 +252,7 @@ playerBreathingSound
 Plays the "breathing_hurt" local sound in a loop while the player's health is below healthcap.
 Params: healthcap - health value below which the player breathes hard
 		extra - 1 = Back2Uo realistic health mode, return after the first breathing sound;
-				"" = loop until death or "end_healthregen"
+				0 = loop until death or "end_healthregen"
 Called on: player
 =============
 */

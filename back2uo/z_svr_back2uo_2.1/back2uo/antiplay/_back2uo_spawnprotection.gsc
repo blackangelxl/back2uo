@@ -28,6 +28,12 @@ back2uo_antiplay_spawn_start()
 	level endon("back2uo_killthreads");
 	self endon("disconnect");
 
+	// One protection thread per life: a thread of the last life must not end the
+	// protection of the new one.
+	self notify("back2uo_spawnprotection_start");
+	self endon("back2uo_spawnprotection_start");
+	self endon("killed_player");
+
 	self.back2uo_spawntime = 0;
 	// Allowed movement per second in units
 	radius = 50;

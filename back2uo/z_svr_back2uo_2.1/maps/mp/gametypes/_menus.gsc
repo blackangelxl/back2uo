@@ -191,9 +191,12 @@ onMenuResponse()
 			continue;
 		}
 
+		// Back2Uo: like "endgame" only on console builds; on PC any client could end the map with /mr.
 		if(response == "endround")
 		{
-			level thread [[level.endgameconfirmed]]();
+			if(level.splitscreen || level.xenon)
+				level thread [[level.endgameconfirmed]]();
+
 			continue;
 		}
 
@@ -201,12 +204,14 @@ onMenuResponse()
 		{
 			switch(response)
 			{
-			// Back2Uo: open the mod's server info menu.
-			// Note: game["menu_serverinfos"] is only set when game["back2uo_enable"] is on.
+			// Back2Uo: open the mod's server info menu (only exists while the mod is enabled).
 			case "serverinfos":
-				self closeMenu();
-				self closeInGameMenu();
-				self openMenu(game["menu_serverinfos"]);
+				if(isdefined(game["menu_serverinfos"]))
+				{
+					self closeMenu();
+					self closeInGameMenu();
+					self openMenu(game["menu_serverinfos"]);
+				}
 				break;
 
 			case "changeweapon":
@@ -245,6 +250,13 @@ onMenuResponse()
 		}
 		else if(menu == game["menu_team"])
 		{
+			// Back2Uo: "auto team only" (back2uo_autoteam_change) is also enforced here, the team
+			// menu only hides the buttons and a client can still send allies/axis with /mr.
+			if(game["back2uo_enable"] && game["back2uo_autoteam_changeallow_enable"])
+			{
+				if(response == "allies" || response == "axis") response = "autoassign";
+			}
+
 			// Team selection: hand over to the gametype's team callbacks.
 			switch(response)
 			{

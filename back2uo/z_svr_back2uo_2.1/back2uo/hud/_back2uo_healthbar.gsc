@@ -176,6 +176,10 @@ back2uo_healthbar_glow()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Healthbar Glow", "Run");
 
+	// Only one blink loop per player (started on every damage event)
+	self notify("back2uo_healthbar_glow");
+	self endon("back2uo_healthbar_glow");
+
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");

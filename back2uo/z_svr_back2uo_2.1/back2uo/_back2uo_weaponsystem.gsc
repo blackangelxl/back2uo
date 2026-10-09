@@ -145,11 +145,18 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["frag_grenade_german_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_german", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["frag_grenade_russian_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_russian", 100, 1, 100, "int");
 
-	// Cookable frag grenades use the same cvars as the normal ones.
-	level.back2uo_weaponstrength["frag_grenade_american_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_american", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["frag_grenade_british_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_british", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["frag_grenade_german_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_german", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["frag_grenade_russian_mp_cookable"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_russian", 100, 1, 100, "int");
+	// Special frag grenades (back2uo_spezial_grenade) use the same cvars as the normal ones.
+	nations[0] = "american";
+	nations[1] = "british";
+	nations[2] = "german";
+	nations[3] = "russian";
+
+	for(i = 0; i < nations.size; i++)
+	{
+		frag = "frag_grenade_" + nations[i] + "_mp";
+		level.back2uo_weaponstrength[frag + "_special1"] = level.back2uo_weaponstrength[frag];
+		level.back2uo_weaponstrength[frag + "_special2"] = level.back2uo_weaponstrength[frag];
+	}
 
 	// Pistols
 	level.back2uo_weaponstrength["colt_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_colt", 100, 1, 100, "int");
@@ -157,11 +164,9 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["TT30_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_TT30", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["luger_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_luger", 100, 1, 100, "int");
 
-	// Special weapons
-	// Note: "rocketlancher_mp" is not a real weapon name (the launcher is panzerschreck_mp),
-	// so this entry is never matched by the damage callbacks.
+	// Special weapons (the rocket launcher is panzerschreck_mp)
 	level.back2uo_weaponstrength["g43_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_g43scoped", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["rocketlancher_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_rocketlancher", 100, 1, 100, "int");
+	level.back2uo_weaponstrength["panzerschreck_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_rocketlancher", 100, 1, 100, "int");
 
 	// Weapons shared by several nations
 	level.back2uo_weaponstrength["shotgun_mp_allies"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_shotgun_allies", 100, 1, 100, "int");
@@ -170,12 +175,10 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["m1garand_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_m1garand", 100, 1, 100, "int");
 
 	// German weapons
-	// Note: the kar98k_sniper cvar name has a typo ("weaponstrh"); the config sets
-	// back2uo_weaponstr_kar98k_sniper, so this always falls back to the default 100.
 	level.back2uo_weaponstrength["mp40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mp40", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["kar98k_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_kar98k", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["g43_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_g43", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["kar98k_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstrh_kar98k_sniper", 100, 1, 100, "int");
+	level.back2uo_weaponstrength["kar98k_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_kar98k_sniper", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mp44_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mp44", 100, 1, 100, "int");
 
 	// American weapons
@@ -190,10 +193,10 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["enfield_scope_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_enfield_sniper", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["bren_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_bren", 100, 1, 100, "int");
 
-	// Russian weapons
-	level.back2uo_weaponstrength["pps42_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_pps42", 100, 1, 100, "int");
+	// Russian weapons (array keys are case-sensitive: the stock names are PPS42_mp and SVT40_mp)
+	level.back2uo_weaponstrength["PPS42_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_pps42", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mosin_nagant_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mosin_nagant", 100, 1, 100, "int");
-	level.back2uo_weaponstrength["svt40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_svt40", 100, 1, 100, "int");
+	level.back2uo_weaponstrength["SVT40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_svt40", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mosin_nagant_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mosin_nagant_sniper", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["ppsh_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_ppsh", 100, 1, 100, "int");
 }
@@ -352,215 +355,69 @@ back2uo_pistel_ammo_slot(slot, ammo)
 =============
 back2uo_snipershotgun_limiter
 
-With back2uo_weaponlimit_enable on, polls every 0.1 seconds how many players carry each
-sniper rifle / shotgun and toggles the matching scr_allow_* and ui_allow_* cvars when a
-limit (level.back2uo_*_limit) is exceeded or freed again. With the limit off, all of
-these weapons are allowed once.
+With back2uo_weaponlimit_enable on, counts every 0.5 seconds how many team players have
+chosen each sniper rifle / shotgun. When a weapon reaches its limit (level.back2uo_*_limit)
+it is marked full in level.back2uo_weaponlimit_full[weapon]: the weapon menu shows it as
+not allowed (ui_allow_*) and maps\mp\gametypes\_weapons::restrictWeaponByServerCvars() refuses
+it for everyone except the players who already have it. The admin's scr_allow_* cvars are
+never changed.
 Called on: level (from _back2uo_player.gsc)
 =============
 */
 back2uo_snipershotgun_limiter()
 {
+	if(!game["back2uo_weaponlimit_enable"]) return;
+
 	back2uo\_back2uo_cvars::back2uo_logprint("Weapon Sniper & Shotgun Limit", "Run");
 
 	level endon("back2uo_killthreads");
 
-	// Current counts and allow state (1 = allowed) per limited weapon.
-	level.weapon_enfieldsniper_count = 0;
-	level.weapon_enfieldsniper_allow = 1;
-	level.weapon_nagantsniper_count = 0;
-	level.weapon_nagantsniper_allow = 1;
-	level.weapon_springfield_count = 0;
-	level.weapon_springfield_allow = 1;
-	level.weapon_kar98ksniper_count = 0;
-	level.weapon_kar98ksniper_allow = 1;
-	level.weapon_shotgun_allies_count = 0;
-	level.weapon_shotgun_allies_allow = 1;
-	level.weapon_shotgun_axis_count = 0;
-	level.weapon_shotgun_axis_allow = 1;
+	// Limited weapons and their limit (players per weapon)
+	names[0] = "springfield_mp";			limits[0] = level.back2uo_springfield_limit;
+	names[1] = "mosin_nagant_sniper_mp";	limits[1] = level.back2uo_nagantsniper_limit;
+	names[2] = "enfield_scope_mp";			limits[2] = level.back2uo_enfieldsniper_limit;
+	names[3] = "kar98k_sniper_mp";			limits[3] = level.back2uo_kar98sniper_limit;
+	names[4] = "shotgun_mp_allies";			limits[4] = level.back2uo_shotgun_allies_limit;
+	names[5] = "shotgun_mp_axis";			limits[5] = level.back2uo_shotgun_axis_limit;
 
-	if(game["back2uo_weaponlimit_enable"])
+	level.back2uo_weaponlimit_full = [];
+
+	for(;;)
 	{
-		for(;;)
+		counts = [];
+
+		for(n = 0; n < names.size; n++)
+			counts[names[n]] = 0;
+
+		// Every player of a team counts, also while dead (the weapon is kept for the respawn).
+		players = getentarray("player", "classname");
+
+		for(i = 0; i < players.size; i++)
 		{
-			players = getentarray("player", "classname");
+			player = players[i];
 
-			for(i = 0; i < players.size; i++)
-			{
-				player = players[i];
+			if(!isdefined(player.pers["team"]) || (player.pers["team"] != "allies" && player.pers["team"] != "axis")) continue;
+			if(!isdefined(player.pers["weapon"]) || !isdefined(counts[player.pers["weapon"]])) continue;
 
-				// Note: the counters are reset for every player inside the loop, so the
-				// limit checks below only ever see the current player's weapon (count 0 or 1).
-				level.weapon_enfieldsniper_count = 0;
-				level.weapon_nagantsniper_count = 0;
-				level.weapon_springfield_count = 0;
-				level.weapon_kar98ksniper_count = 0;
-				level.weapon_shotgun_allies_count = 0;
-				level.weapon_shotgun_axis_count = 0;
-
-				if(isdefined(player.pers["team"]) && player.pers["team"] != "spectator" && player.sessionstate == "playing")
-				{
-					if(player.pers["team"] == "allies")
-					{
-						if(isdefined(player.pers["weapon"]))
-						{
-							switch(player.pers["weapon"])
-							{
-							case "springfield_mp":
-								level.weapon_springfield_count++;
-								break;
-
-							case "mosin_nagant_sniper_mp":
-								level.weapon_nagantsniper_count++;
-								break;
-
-							case "enfield_scope_mp":
-								level.weapon_enfieldsniper_count++;
-								break;
-
-							case "shotgun_mp_allies":
-								level.weapon_shotgun_allies_count++;
-								break;
-							}
-						}
-					}
-					else
-					{
-						if(isdefined(player.pers["weapon"]))
-						{
-							switch(player.pers["weapon"])
-							{
-							case "kar98k_sniper_mp":
-								level.weapon_kar98ksniper_count++;
-								break;
-
-							case "shotgun_mp_axis":
-								level.weapon_shotgun_axis_count++;
-								break;
-							}
-						}
-					}
-				}
-
-				// Each weapon: disable above the limit, re-enable below it. The *_allow flag
-				// prevents setting the cvars again every tick.
-
-				// Springfield
-				if(level.weapon_springfield_count > level.back2uo_springfield_limit && level.weapon_springfield_allow != 0)
-				{
-					setcvar("scr_allow_springfield", "0");
-					setcvar("ui_allow_springfield", "0");
-					level.weapon_springfield_allow = 0;
-				}
-
-				if(level.weapon_springfield_count < level.back2uo_springfield_limit && level.weapon_springfield_allow != 1)
-				{
-					setcvar("scr_allow_springfield", "1");
-					setcvar("ui_allow_springfield", "1");
-					level.weapon_springfield_allow = 1;
-				}
-
-				// Mosin-Nagant sniper
-				if(level.weapon_nagantsniper_count > level.back2uo_nagantsniper_limit && level.weapon_nagantsniper_allow != 0)
-				{
-					setcvar("scr_allow_nagantsniper", "0");
-					setcvar("ui_allow_nagantsniper", "0");
-					level.weapon_nagantsniper_allow = 0;
-				}
-
-				if(level.weapon_nagantsniper_count < level.back2uo_nagantsniper_limit && level.weapon_nagantsniper_allow != 1)
-				{
-					setcvar("scr_allow_nagantsniper", "1");
-					setcvar("ui_allow_nagantsniper", "1");
-					level.weapon_nagantsniper_allow = 1;
-				}
-
-				// Scoped Enfield
-				if(level.weapon_enfieldsniper_count > level.back2uo_enfieldsniper_limit && level.weapon_enfieldsniper_allow != 0)
-				{
-					setcvar("scr_allow_enfieldsniper", "0");
-					setcvar("ui_allow_enfieldsniper", "0");
-					level.weapon_enfieldsniper_allow = 0;
-				}
-
-				if(level.weapon_enfieldsniper_count < level.back2uo_enfieldsniper_limit && level.weapon_enfieldsniper_allow != 1)
-				{
-					setcvar("scr_allow_enfieldsniper", "1");
-					setcvar("ui_allow_enfieldsniper", "1");
-					level.weapon_enfieldsniper_allow = 1;
-				}
-
-				// Scoped Kar98k
-				if(level.weapon_kar98ksniper_count > level.back2uo_kar98sniper_limit && level.weapon_kar98ksniper_allow != 0)
-				{
-					setcvar("scr_allow_kar98ksniper", "0");
-					setcvar("ui_allow_kar98ksniper", "0");
-					level.weapon_kar98ksniper_allow = 0;
-				}
-
-				if(level.weapon_kar98ksniper_count < level.back2uo_kar98sniper_limit && level.weapon_kar98ksniper_allow != 1)
-				{
-					setcvar("scr_allow_kar98ksniper", "1");
-					setcvar("ui_allow_kar98ksniper", "1");
-					level.weapon_kar98ksniper_allow = 1;
-				}
-
-				// Axis shotgun
-				if(level.weapon_shotgun_axis_count > level.back2uo_shotgun_axis_limit && level.weapon_shotgun_axis_allow != 0)
-				{
-					setcvar("scr_allow_shotgun_axis", "0");
-					setcvar("ui_allow_shotgun_axis", "0");
-					level.weapon_shotgun_axis_allow = 0;
-				}
-
-				if(level.weapon_shotgun_axis_count < level.back2uo_shotgun_axis_limit && level.weapon_shotgun_axis_allow != 1)
-				{
-					setcvar("scr_allow_shotgun_axis", "1");
-					setcvar("ui_allow_shotgun_axis", "1");
-					level.weapon_shotgun_axis_allow = 1;
-				}
-
-				// Allied shotgun
-				if(level.weapon_shotgun_allies_count > level.back2uo_shotgun_allies_limit && level.weapon_shotgun_allies_allow != 0)
-				{
-					setcvar("scr_allow_shotgun_allies", "0");
-					setcvar("ui_allow_shotgun_allies", "0");
-					level.weapon_shotgun_allies_allow = 0;
-				}
-
-				// Note: this re-enable branch writes "0" and allow = 0 (copy/paste error), so
-				// once disabled the allied shotgun never becomes available again.
-				if(level.weapon_shotgun_allies_count < level.back2uo_shotgun_allies_limit && level.weapon_shotgun_allies_allow != 1)
-				{
-					setcvar("scr_allow_shotgun_allies", "0");
-					setcvar("ui_allow_shotgun_allies", "0");
-					level.weapon_shotgun_allies_allow = 0;
-				}
-			}
-
-			wait 0.1;
+			counts[player.pers["weapon"]]++;
 		}
-	}
-	else
-	{
-		// No limit: allow all sniper rifles and shotguns.
-		setcvar("scr_allow_springfield", "1");
-		setcvar("ui_allow_springfield", "1");
 
-		setcvar("scr_allow_nagantsniper", "1");
-		setcvar("ui_allow_nagantsniper", "1");
+		for(n = 0; n < names.size; n++)
+		{
+			// Full as soon as the limit is reached (not only when it is exceeded)
+			full = (counts[names[n]] >= limits[n]);
 
-		setcvar("scr_allow_enfieldsniper", "1");
-		setcvar("ui_allow_enfieldsniper", "1");
+			if(!isdefined(level.back2uo_weaponlimit_full[names[n]]) || level.back2uo_weaponlimit_full[names[n]] != full)
+			{
+				level.back2uo_weaponlimit_full[names[n]] = full;
 
-		setcvar("scr_allow_kar98ksniper", "1");
-		setcvar("ui_allow_kar98ksniper", "1");
+				// Refresh the weapon menu of all players
+				if(isdefined(level.weapons) && isdefined(level.weapons[names[n]]))
+					maps\mp\gametypes\_weapons::updateAllowedAllClients(names[n]);
+			}
+		}
 
-		setcvar("scr_allow_shotgun_axis", "1");
-		setcvar("ui_allow_shotgun_axis", "1");
-
-		setcvar("scr_allow_shotgun_allies", "1");
-		setcvar("ui_allow_shotgun_allies", "1");
+		wait 0.5;
 	}
 }
 
@@ -568,8 +425,8 @@ back2uo_snipershotgun_limiter()
 =============
 back2uo_weaponpickup
 
-Handles one dropped weapon. A 100 unit trigger_radius waits for players; within 60 units
-a player who does not carry this weapon sees the pickup icon (client cvar
+Handles one dropped weapon. All players inside a 100 unit trigger_radius are checked every
+0.1 seconds; within 60 units a player who does not carry this weapon sees the pickup icon (client cvar
 back2uo_ui_weaponpickup_object) and can swap it in with the use key. A player who already
 holds the same weapon gets its ammo added instead. Ends when the weapon model is deleted
 (picked up or removed by back2uo_weaponclear). Only active with the sprint system enabled.
@@ -594,263 +451,258 @@ back2uo_weaponpickup(weapon, clipammo, slotammo, object, origin, slotmaxammo, cu
 
 	// trigger_radius: spawnflags 0, radius 100, height 100.
 	trigger = spawn("trigger_radius", origin, 0, 100, 100);
-	other = "";
 
+	// Every player in the trigger is handled each pass (a trigger waittill only returns one player).
 	while(isdefined(object))
 	{
 		wait 0.1;
 
-		// Blocks until a player touches the trigger; other = that player.
-		trigger waittill("trigger", other);
+		players = getentarray("player", "classname");
 
+		for(i = 0; i < players.size; i++)
+		{
+			other = players[i];
+
+			if(other istouching(trigger) && other.sessionstate == "playing")
+			{
+				if(back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, slotmaxammo, currentslot, weaponinfo))
+				{
+					// Picked up: ends this thread.
+					if(isdefined(object)) object delete();
+					break;
+				}
+			}
+			else if(isdefined(other.weapon_origin) && other.weapon_origin == origin)
+			{
+				// Left the trigger, died or spectating: release this weapon as pickup target.
+				other back2uo_weaponpickup_release();
+			}
+		}
+	}
+
+	// Weapon is gone: release every player that still targets it.
+	players = getentarray("player", "classname");
+
+	for(i = 0; i < players.size; i++)
+	{
+		if(isdefined(players[i].weapon_origin) && players[i].weapon_origin == origin)
+			players[i] back2uo_weaponpickup_release();
+	}
+
+	if(isdefined(trigger)) trigger delete();
+}
+
+/*
+=============
+back2uo_weaponpickup_player
+
+One pass of back2uo_weaponpickup for one player inside the trigger: shows or hides the pickup
+icon, swaps the weapon in on a fresh use key press, or adds its ammo if the player holds the same weapon.
+Params: other - player inside the trigger
+		weapon .. currentslot - see back2uo_weaponpickup
+		weaponinfo - result of back2uo_weaponpickup_icon(weapon)
+Returns: true if the player took the weapon or its ammo, otherwise false
+=============
+*/
+back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, slotmaxammo, currentslot, weaponinfo)
+{
+	other.pers["weapon_exist"] = false;
+
+	// Initialize the per-player pickup state on first contact.
+	if(!isdefined(other.pers["weapon_pickupwait"])) other.pers["weapon_pickupwait"] = false;
+	if(!isdefined(other.pers["weapon_dopple"])) other.pers["weapon_dopple"] = false;
+	if(!isdefined(other.pers["usebutton_holdpress"])) other.pers["usebutton_holdpress"] = false;
+	if(!isdefined(other.pers["weaponpickup_msg"])) other.pers["weaponpickup_msg"] = false;
+	if(!isdefined(other.back2uo_playerdo)) other.back2uo_playerdo = "none";
+
+	// With several weapons in range, only the one the player is already targeting
+	// (other.weapon_origin) is handled. A target out of reach (or already gone) is released,
+	// otherwise the player could not pick up any weapon for the rest of the map.
+	if(isdefined(other.weapon_origin) && other.weapon_origin != origin)
+	{
+		if(distance(other.origin, other.weapon_origin) < 60) return false;
+
+		other.weapon_origin = undefined;
+	}
+
+	// Short cooldown (1 second) after the player just picked up a weapon.
+	if(other.pers["weapon_pickupwait"] == true)
+	{
+		if(isdefined(other.back2uo_pickupwait_end) && gettime() < other.back2uo_pickupwait_end) return false;
+
+		other.pers["weapon_pickupwait"] = false;
+	}
+
+	// "dopple" (double): the player's other slot already holds this weapon (both
+	// shotgun variants count as the same). The pickup would replace the current slot.
+	if(other getWeaponSlotWeapon("primary") == other getcurrentweapon())
+	{
+		other.pers["weapon_dopple"] = false;
+		other.pers["weaponpickup_slot"] = "primary";
+
+		if(other getWeaponSlotWeapon("primaryb") == weapon) other.pers["weapon_dopple"] = true;
+
+		if(other getWeaponSlotWeapon("primaryb") == "shotgun_mp_allies" && weapon == "shotgun_mp_axis") other.pers["weapon_dopple"] = true;
+		if(other getWeaponSlotWeapon("primaryb") == "shotgun_mp_axis" && weapon == "shotgun_mp_allies") other.pers["weapon_dopple"] = true;
+	}
+	else
+	{
+		other.pers["weapon_dopple"] = false;
+		other.pers["weaponpickup_slot"] = "primaryb";
+
+		if(other getWeaponSlotWeapon("primary") == weapon) other.pers["weapon_dopple"] = true;
+
+		if(other getWeaponSlotWeapon("primary") == "shotgun_mp_allies" && weapon == "shotgun_mp_axis") other.pers["weapon_dopple"] = true;
+		if(other getWeaponSlotWeapon("primary") == "shotgun_mp_axis" && weapon == "shotgun_mp_allies") other.pers["weapon_dopple"] = true;
+	}
+
+	// "exist": the weapon in hand is the same weapon -> ammo pickup instead of swap.
+	if(other getcurrentweapon() != weapon)
+	{
 		other.pers["weapon_exist"] = false;
 
-		// Initialize the per-player pickup state on first contact.
-		if(!isdefined(other.pers["weapon_pickupwait"])) other.pers["weapon_pickupwait"] = false;
-		if(!isdefined(other.pers["weapon_dopple"])) other.pers["weapon_dopple"] = false;
-		if(!isdefined(other.pers["usebutton_holdpress"])) other.pers["usebutton_holdpress"] = false;
-		if(!isdefined(other.pers["weaponpickup_msg"])) other.pers["weaponpickup_msg"] = false;
-		if(!isdefined(other.back2uo_playerdo)) other.back2uo_playerdo = "none";
+		if(other getcurrentweapon() == "shotgun_mp_allies" && weapon == "shotgun_mp_axis") other.pers["weapon_exist"] = true;
+		if(other getcurrentweapon() == "shotgun_mp_axis" && weapon == "shotgun_mp_allies") other.pers["weapon_exist"] = true;
+	}
+	else
+	{
+		other.pers["weapon_exist"] = true;
+	}
 
-		if(other.sessionstate == "playing")
+	// Show the pickup icon when the weapon can be swapped in.
+	if(other.pers["weapon_exist"] == false && other.pers["weapon_dopple"] == false && distance(other.origin, origin) < 60)
+	{
+		// Not while sprinting or busy (planting, defusing, on a turret).
+		if(isdefined(other.pers["sprinting"]) && other.pers["sprinting"] == false && other.back2uo_playerdo == "none")
 		{
-			// With several weapons in range, only the one the player is already
-			// targeting (other.weapon_origin) is handled.
-			if(isdefined(other.weapon_origin))
-			{
-				if(other.weapon_origin != origin) continue;
-			}
+			if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0.8;
+			other setClientCvar("back2uo_ui_weaponpickup_object", weaponinfo[1]);
 
-			// Short cooldown after the player just picked up a weapon.
-			if(other.pers["weapon_pickupwait"] == true)
-			{
-				wait 1;
-
-				other.pers["weapon_pickupwait"] = false;
-			}
-
-			// "dopple" (double): the player's other slot already holds this weapon (both
-			// shotgun variants count as the same). The pickup would replace the current slot.
-			if(other getWeaponSlotWeapon("primary") == other getcurrentweapon())
-			{
-				other.pers["weapon_dopple"] = false;
-				other.pers["weaponpickup_slot"] = "primary";
-
-				if(other getWeaponSlotWeapon("primaryb") == weapon) other.pers["weapon_dopple"] = true;
-
-				if(other getWeaponSlotWeapon("primaryb") == "shotgun_mp_allies" && weapon == "shotgun_mp_axis") other.pers["weapon_dopple"] = true;
-				if(other getWeaponSlotWeapon("primaryb") == "shotgun_mp_axis" && weapon == "shotgun_mp_allies") other.pers["weapon_dopple"] = true;
-			}
-			else
-			{
-				other.pers["weapon_dopple"] = false;
-				other.pers["weaponpickup_slot"] = "primaryb";
-
-				if(other getWeaponSlotWeapon("primary") == weapon) other.pers["weapon_dopple"] = true;
-
-				if(other getWeaponSlotWeapon("primary") == "shotgun_mp_allies" && weapon == "shotgun_mp_axis") other.pers["weapon_dopple"] = true;
-				if(other getWeaponSlotWeapon("primary") == "shotgun_mp_axis" && weapon == "shotgun_mp_allies") other.pers["weapon_dopple"] = true;
-			}
-
-			// "exist": the weapon in hand is the same weapon -> ammo pickup instead of swap.
-			if(other getcurrentweapon() != weapon)
-			{
-				other.pers["weapon_exist"] = false;
-
-				if(other getcurrentweapon() == "shotgun_mp_allies" && weapon == "shotgun_mp_axis") other.pers["weapon_exist"] = true;
-				if(other getcurrentweapon() == "shotgun_mp_axis" && weapon == "shotgun_mp_allies") other.pers["weapon_exist"] = true;
-			}
-			else
-			{
-				other.pers["weapon_exist"] = true;
-			}
-
-			// Show the pickup icon when the weapon can be swapped in.
-			if(other.pers["weapon_exist"] == false && other.pers["weapon_dopple"] == false && distance(other.origin, origin) < 60)
-			{
-				// Not while sprinting or busy (planting, defusing, on a turret).
-				if(isdefined(other.pers["sprinting"]) && other.pers["sprinting"] == false && other.back2uo_playerdo == "none")
-				{
-					if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0.8;
-					other setClientCvar("back2uo_ui_weaponpickup_object", weaponinfo[1]);
-
-					// Lock this weapon as the player's pickup target.
-					other.weapon_origin = origin;
-				}
-				else
-				{
-					if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
-					other setClientCvar("back2uo_ui_weaponpickup_object", 0);
-				}
-			}
-			else
-			{
-				if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
-				other setClientCvar("back2uo_ui_weaponpickup_object", 0);
-
-				other.weapon_origin = undefined;
-			}
-
-			// Require the use key to be released between actions, and treat it as held
-			// while planting/defusing so the bomb use press does not pick up a weapon.
-			if(!other usebuttonpressed() && other.pers["usebutton_holdpress"] == true)
-			{
-				other.pers["usebutton_holdpress"] = false;
-			}
-			else if(other.back2uo_playerdo == "plant" || other.back2uo_playerdo == "defuse")
-			{
-				other.pers["usebutton_holdpress"] = true;
-			}
-
-			// Swap: fresh use key press near the weapon.
-			if(other.pers["weapon_exist"] == false && other.pers["weapon_dopple"] == false && distance(other.origin, origin) < 60 && other usebuttonpressed() && other.pers["usebutton_holdpress"] == false && other.back2uo_playerdo == "none")
-			{
-				// Note: checks self (the player who dropped the weapon), not other.
-				if(!isdefined(self.planting) && !isdefined(self.defuse))
-				{
-					if(isdefined(other.pers["sprinting"]) && other.pers["sprinting"] == false)
-					{
-						if(!isDefined(object)) break;
-
-						other.pers["usebutton_holdpress"] = true;
-
-						// Drop the current weapon first (spawns its own pickup), then put the
-						// new weapon into the freed slot.
-						other maps\mp\gametypes\_weapons::dropWeapon();
-
-						if(other.pers["weaponpickup_slot"] == "primary")
-						{
-							other setweaponslotweapon("primary", weapon);
-							other setweaponslotammo("primary", slotammo);
-							other setweaponslotclipammo("primary", clipammo);
-						}
-						else
-						{
-							other setweaponslotweapon("primaryb", weapon);
-							other setweaponslotammo("primaryb", slotammo);
-							other setweaponslotclipammo("primaryb", clipammo);
-						}
-
-						other switchToWeapon(weapon);
-
-						other playSound("weap_pickup");
-
-						if(isDefined(object)) object delete();
-
-						other.weapon_origin = undefined;
-						if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
-						other setClientCvar("back2uo_ui_weaponpickup_object", 0);
-
-						// Remember the max reserve ammo for later ammo top-ups of this slot.
-						if(other.pers["weaponpickup_slot"] == "primary")
-						{
-							other.pers["back2uo_weaponspawn_prislotammo"] = slotmaxammo;
-						}
-						else
-						{
-							other.pers["back2uo_weaponspawn_pribslotammo"] = slotmaxammo;
-						}
-
-						other.pers["weapon_pickupwait"] = true;
-						other.pers["weapon_pickupsprintwait"] = true;
-
-						if(isdefined(trigger)) trigger delete();
-
-						return;
-					}
-				}
-			}
-
-			// Ammo pickup: the player holds the same weapon; add its ammo if below the cap.
-			if(other.pers["weapon_exist"] == true && distance(other.origin, origin) < 60)
-			{
-				if(!isDefined(object)) break;
-
-				if(other.pers["weaponpickup_slot"] == "primary")
-				{
-					// Ammo cap: spawn reserve of the slot the weapon was dropped from.
-					if(isdefined(currentslot) && currentslot == "primary")
-						weapon_maxslotammo = other.pers["back2uo_weaponspawn_prislotammo"];
-					else
-						weapon_maxslotammo = other.pers["back2uo_weaponspawn_pribslotammo"];
-
-					// Primary slot
-					if(other getweaponslotammo("primary") < weapon_maxslotammo)
-					{
-						other.pers["weaponpickup_ammo"] = other getweaponslotammo("primary");
-						other.pers["weaponpickup_clipammo"] = other getweaponslotclipammo("primary");
-
-						other setweaponslotammo("primary", other.pers["weaponpickup_ammo"] + slotammo);
-						other setweaponslotclipammo("primary", other.pers["weaponpickup_clipammo"] + clipammo);
-
-						other playSound("weap_ammo_pickup");
-
-						other iprintln(&"GAME_PICKUP_AMMO", weaponinfo[2]);
-
-						other.weapon_origin = undefined;
-						if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
-						other setClientCvar("back2uo_ui_weaponpickup_object", 0);
-
-						if(isDefined(object)) object delete();
-
-						if(isdefined(trigger)) trigger delete();
-
-						return;
-					}
-				}
-				else if(other.pers["weaponpickup_slot"] == "primaryb")
-				{
-					if(isdefined(currentslot) && currentslot == "primary")
-						weapon_maxslotammo = other.pers["back2uo_weaponspawn_prislotammo"];
-					else
-						weapon_maxslotammo = other.pers["back2uo_weaponspawn_pribslotammo"];
-
-					// Secondary slot (primaryb)
-					if(other getweaponslotammo("primaryb") < weapon_maxslotammo)
-					{
-						// Note: reads the clip ammo of "primary", not "primaryb".
-						other.pers["weaponpickup_ammo"] = other getweaponslotammo("primaryb");
-						other.pers["weaponpickup_clipammo"] = other getweaponslotclipammo("primary");
-
-						other setweaponslotammo("primaryb", other.pers["weaponpickup_ammo"] + slotammo);
-						other setweaponslotclipammo("primaryb", other.pers["weaponpickup_clipammo"] + clipammo);
-
-						other playSound("weap_ammo_pickup");
-
-						other iprintln(&"GAME_PICKUP_AMMO", weaponinfo[2]);
-
-						other.weapon_origin = undefined;
-						if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
-						other setClientCvar("back2uo_ui_weaponpickup_object", 0);
-
-						if(isDefined(object)) object delete();
-
-						if(isdefined(trigger)) trigger delete();
-
-						return;
-					}
-				}
-			}
-
+			// Lock this weapon as the player's pickup target.
+			other.weapon_origin = origin;
 		}
 		else
 		{
-			// Not playing (dead / spectating): hide the icon.
-			other.weapon_origin = undefined;
 			if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
 			other setClientCvar("back2uo_ui_weaponpickup_object", 0);
 		}
 	}
-
-	// Weapon is gone: clear the icon of the last player and remove the trigger.
-	if(isdefined(other))
+	else
 	{
-		other.weapon_origin = undefined;
-		if(isdefined(other.back2uo_weaponpickup)) other.back2uo_weaponpickup.alpha = 0;
-		other setClientCvar("back2uo_ui_weaponpickup_object", 0);
+		other back2uo_weaponpickup_release();
 	}
 
-	if(isdefined(trigger))trigger delete();
+	// Require the use key to be released between actions, and treat it as held
+	// while planting/defusing so the bomb use press does not pick up a weapon.
+	if(!other usebuttonpressed() && other.pers["usebutton_holdpress"] == true)
+	{
+		other.pers["usebutton_holdpress"] = false;
+	}
+	else if(other.back2uo_playerdo == "plant" || other.back2uo_playerdo == "defuse")
+	{
+		other.pers["usebutton_holdpress"] = true;
+	}
+
+	// Swap: fresh use key press near the weapon.
+	if(other.pers["weapon_exist"] == false && other.pers["weapon_dopple"] == false && distance(other.origin, origin) < 60 && other usebuttonpressed() && other.pers["usebutton_holdpress"] == false && other.back2uo_playerdo == "none")
+	{
+		if(!(isdefined(other.planting) && other.planting) && !(isdefined(other.defuse) && other.defuse))
+		{
+			if(isdefined(other.pers["sprinting"]) && other.pers["sprinting"] == false)
+			{
+				if(!isDefined(object)) return false;
+
+				other.pers["usebutton_holdpress"] = true;
+
+				// Drop the current weapon first (spawns its own pickup), then put the
+				// new weapon into the freed slot.
+				other maps\mp\gametypes\_weapons::dropWeapon();
+
+				if(other.pers["weaponpickup_slot"] == "primary")
+				{
+					other setweaponslotweapon("primary", weapon);
+					other setweaponslotammo("primary", slotammo);
+					other setweaponslotclipammo("primary", clipammo);
+				}
+				else
+				{
+					other setweaponslotweapon("primaryb", weapon);
+					other setweaponslotammo("primaryb", slotammo);
+					other setweaponslotclipammo("primaryb", clipammo);
+				}
+
+				other switchToWeapon(weapon);
+
+				other playSound("weap_pickup");
+
+				other back2uo_weaponpickup_release();
+
+				// Remember the max reserve ammo for later ammo top-ups of this slot.
+				if(other.pers["weaponpickup_slot"] == "primary")
+				{
+					other.pers["back2uo_weaponspawn_prislotammo"] = slotmaxammo;
+				}
+				else
+				{
+					other.pers["back2uo_weaponspawn_pribslotammo"] = slotmaxammo;
+				}
+
+				other.pers["weapon_pickupwait"] = true;
+				other.back2uo_pickupwait_end = gettime() + 1000;
+				other.pers["weapon_pickupsprintwait"] = true;
+
+				return true;
+			}
+		}
+	}
+
+	// Ammo pickup: the player holds the same weapon; add its ammo if below the cap.
+	if(other.pers["weapon_exist"] == true && distance(other.origin, origin) < 60)
+	{
+		if(!isDefined(object)) return false;
+
+		// Ammo cap: spawn reserve of the slot the weapon was dropped from.
+		if(isdefined(currentslot) && currentslot == "primary")
+			weapon_maxslotammo = other.pers["back2uo_weaponspawn_prislotammo"];
+		else
+			weapon_maxslotammo = other.pers["back2uo_weaponspawn_pribslotammo"];
+
+		slot = other.pers["weaponpickup_slot"];
+
+		if(other getweaponslotammo(slot) < weapon_maxslotammo)
+		{
+			other.pers["weaponpickup_ammo"] = other getweaponslotammo(slot);
+			other.pers["weaponpickup_clipammo"] = other getweaponslotclipammo(slot);
+
+			other setweaponslotammo(slot, other.pers["weaponpickup_ammo"] + slotammo);
+			other setweaponslotclipammo(slot, other.pers["weaponpickup_clipammo"] + clipammo);
+
+			other playSound("weap_ammo_pickup");
+
+			other iprintln(&"GAME_PICKUP_AMMO", weaponinfo[2]);
+
+			other back2uo_weaponpickup_release();
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/*
+=============
+back2uo_weaponpickup_release
+
+Clears the player's weapon pickup target and hides the pickup icon.
+Called on: self = player
+=============
+*/
+back2uo_weaponpickup_release()
+{
+	self.weapon_origin = undefined;
+	if(isdefined(self.back2uo_weaponpickup)) self.back2uo_weaponpickup.alpha = 0;
+	self setClientCvar("back2uo_ui_weaponpickup_object", 0);
 }
 
 /*
@@ -1110,6 +962,11 @@ back2uo_turret_trigger()
 
 		if(isdefined(other) && isAlive(other) && other.sessionstate == "playing")
 		{
+			if(!isdefined(other.back2uo_playerdo)) other.back2uo_playerdo = "none";
+
+			// Only switch between "none" and "turret_use"; never overwrite plant/defuse etc.
+			if(other.back2uo_playerdo != "none" && other.back2uo_playerdo != "turret_use") continue;
+
 			// Dot product of the turret facing and the turret-to-player direction:
 			// negative = player is behind the gun, where the operator stands.
 			dotforward = anglestoforward(self.angles);

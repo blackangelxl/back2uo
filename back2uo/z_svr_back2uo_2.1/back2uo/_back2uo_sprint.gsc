@@ -137,16 +137,18 @@ back2uo_sprintsystem_run()
 		// First pass: swap to the sprint weapon.
 		if(self.pers["sprinting"] != true && sprint_string == "" && normal_weapon != "none")
 		{
+			// Only weapons in a primary slot have a "_sprint" variant (not binoculars, grenades
+			// or turrets); the Panzerschreck has none either.
+			if(normal_weapon != self getWeaponSlotWeapon("primary") && normal_weapon != self getWeaponSlotWeapon("primaryb")) return;
+			if(normal_weapon == "panzerschreck_mp") return;
+
 			// Save weapon and ammo of the slot holding the current weapon.
-			self back2uo_sprintsystem_inslot(self getcurrentweapon());
+			self back2uo_sprintsystem_inslot(normal_weapon);
 
 			sprint_string = "_sprint";
-			sprint_weapon = self getcurrentweapon() + sprint_string;
+			sprint_weapon = normal_weapon + sprint_string;
 
-			// The Panzerschreck has no sprint variant.
-			if(sprint_weapon == "panzerschreck_mp_sprint") return;
-
-			if(self getWeaponSlotWeapon("primary") == self getcurrentweapon())
+			if(self getWeaponSlotWeapon("primary") == normal_weapon)
 				self.pers["sprint_slot"] = "primary";
 			else
 				self.pers["sprint_slot"] = "primaryb";

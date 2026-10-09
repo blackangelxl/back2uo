@@ -21,8 +21,7 @@ Called on: level
 main()
 {
 	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status is read here.
-	// Note: the default here is 0 (1 in _back2uo_main.gsc); an unset cvar is set to 0 by this call.
-	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 0, 0, 1);
+	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 
 	precacheFX();
 	ambientFX();

@@ -224,9 +224,9 @@ back2uo_tauntsounds(eAttacker)
 	// Nation code: GE, US, UK or RU
 	land = back2uo\_back2uo_tools::back2uo_teams(eAttacker);
 
-	// Voice variant; pers["taunt_person"] is set in _back2uo_player.gsc (randomint(3) = 0..2)
-	if(isdefined(self.pers["taunt_person"])) person = self.pers["taunt_person"];
-	else person = randomint(3);
+	// The attacker shouts: his voice variant, set in _back2uo_player.gsc (randomint(4) = 0..3)
+	if(isdefined(eAttacker.pers["taunt_person"])) person = eAttacker.pers["taunt_person"];
+	else person = randomint(4);
 
 	// Disabled: old alias format without random line number
 	//sound = "Taunt_" + land + "_" + person;
@@ -247,108 +247,58 @@ back2uo_tauntsounds(eAttacker)
 back2uo_tauntsounds_string
 
 Builds the taunt alias "Taunt_<land>_<person>_<n>" with a random line number n. The
-upper bound of n is the number of recorded lines for that voice.
+upper bound of n is the number of recorded lines for that voice in soundaliases/_back2uo.csv.
 Params: land - nation code (GE, RU, UK, US)
-		person - voice variant 1..4
+		person - voice variant 0..3
 Returns: the sound alias, or "" if land/person do not match
 =============
 */
 back2uo_tauntsounds_string(land, person)
 {
-	sound_string = "";
+	// Recorded lines per voice 0..3
+	lines = [];
 
 	switch(land)
 	{
 	// German
 	case "GE":
-
-		if(person == 1)
-		{
-			sound_string = "Taunt_GE_1_" + randomint(11);
-		}
-		else if(person == 2)
-		{
-			sound_string = "Taunt_GE_2_" + randomint(9);
-		}
-		else if(person == 3)
-		{
-			sound_string = "Taunt_GE_3_" + randomint(7);
-		}
-		else if(person == 4)
-		{
-			sound_string = "Taunt_GE_4_" + randomint(6);
-		}
-
+		lines[0] = 12;
+		lines[1] = 10;
+		lines[2] = 8;
+		lines[3] = 7;
 		break;
 
 	// Russian
 	case "RU":
-
-		if(person == 1)
-		{
-			sound_string = "Taunt_RU_1_" + randomint(5);
-		}
-		else if(person == 2)
-		{
-			sound_string = "Taunt_RU_2_" + randomint(6);
-		}
-		else if(person == 3)
-		{
-			sound_string = "Taunt_RU_3_" + randomint(6);
-		}
-		else if(person == 4)
-		{
-			sound_string = "Taunt_RU_4_" + randomint(7);
-		}
-
+		lines[0] = 6;
+		lines[1] = 7;
+		lines[2] = 7;
+		lines[3] = 8;
 		break;
 
 	// British
 	case "UK":
-
-		if(person == 1)
-		{
-			sound_string = "Taunt_UK_1_" + randomint(6);
-		}
-		else if(person == 2)
-		{
-			sound_string = "Taunt_UK_2_" + randomint(6);
-		}
-		else if(person == 3)
-		{
-			sound_string = "Taunt_UK_3_" + randomint(8);
-		}
-		else if(person == 4)
-		{
-			sound_string = "Taunt_UK_4_" + randomint(7);
-		}
-
+		lines[0] = 7;
+		lines[1] = 7;
+		lines[2] = 9;
+		lines[3] = 8;
 		break;
 
 	// American
 	case "US":
-
-		if(person == 1)
-		{
-			sound_string = "Taunt_US_1_" + randomint(7);
-		}
-		else if(person == 2)
-		{
-			sound_string = "Taunt_US_2_" + randomint(5);
-		}
-		else if(person == 3)
-		{
-			sound_string = "Taunt_US_3_" + randomint(7);
-		}
-		else if(person == 4)
-		{
-			sound_string = "Taunt_US_4_" + randomint(7);
-		}
-
+		lines[0] = 8;
+		lines[1] = 6;
+		lines[2] = 8;
+		lines[3] = 8;
 		break;
+
+	default:
+		return "";
 	}
 
-	return sound_string;
+	if(!isdefined(person) || !isdefined(lines[person])) return "";
+
+	return "Taunt_" + land + "_" + person + "_" + randomint(lines[person]);
 }
 
 /*
@@ -396,7 +346,7 @@ back2uo_grenade_isthrowing()
 back2uo_grenade_tauntsounds
 
 Randomly plays a "grenade!" shout in the thrower's nationality at the thrower's position.
-Alias format: <land>_<0..2>_inform_attacker_grenade.
+Alias format: <land>_<0..3>_inform_attacker_grenade.
 Called on: self = player who threw the grenade
 =============
 */
@@ -408,7 +358,9 @@ back2uo_grenade_tauntsounds()
 
 	land = back2uo\_back2uo_tools::back2uo_teams(self);
 
-	person = randomint(3);
+	// Same voice variant (0..3) as the player's taunts
+	if(isdefined(self.pers["taunt_person"])) person = self.pers["taunt_person"];
+	else person = randomint(4);
 
 	sound = land + "_" + person + "_inform_attacker_grenade";
 
@@ -422,17 +374,17 @@ back2uo_soundonplayerorigin
 Plays a sound in 3D at the given player's current position. A temporary script_model is
 spawned there as the sound source so the sound stays in place even if the player moves,
 and is deleted after 5 seconds.
-Called on: self = player that owns the thread (ends on back2uo_killplayerthreads)
+Called on: self = player that owns the thread
 Params: sound - sound alias
 		person - player whose position is used
 =============
 */
 back2uo_soundonplayerorigin(sound, person)
 {
+	// No player endon: the sound entity must be deleted even if the player disconnects.
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 
-	if(!isdefined(sound)) return;
+	if(!isdefined(sound) || sound == "") return;
 
 	if(!isdefined(person.origin) && person.sessionstate != "playing") return;
 

@@ -323,15 +323,7 @@ back2uo_mortar_sound()
 	}
 
 	// Pick voice variant 0-3.
-	pc = randomInt(100);
-	num = 0;
-
-	// Note: "pc >=25 < 50" parses as "(pc >= 25) < 50", which is always true,
-	// so for pc >= 25 the result is always 1 and variants 2/3 are never used.
-	if(pc < 25) num = 0;
-	else if(pc >=25 < 50) num = 1;
-	else if(pc >=50 < 75) num = 2;
-	else if(pc > 75) num = 3;
+	num = randomInt(4);
 
 	// Alias e.g. "GE_1_inform_incoming_mortar".
 	alias = nat + num + "_inform_incoming_mortar";

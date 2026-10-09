@@ -440,15 +440,16 @@ back2uo_get_mapname(map)
 back2uo_getmaprotation_control
 
 Entry point for the map rotation handling at map start. With the mod's map system
-enabled it shuffles the rotation and writes it to sv_maprotationcurrent; otherwise it
-only reads the next entry of the current rotation. Either way the next map message
-is started with the parsed rotation.
+enabled it shuffles the rotation and writes it to sv_maprotationcurrent, but only when a
+new rotation cycle starts (sv_maprotationcurrent is empty: server start or last map of
+the rotation). Otherwise, and on every further round (SD), it only reads the next entry
+of the running rotation. Either way the next map message is started with the parsed rotation.
 Called on: level (from _back2uo_player.gsc)
 =============
 */
 back2uo_getmaprotation_control()
 {
-	if(game["back2uo_mapsystem_enable"])
+	if(game["back2uo_mapsystem_enable"] && strip(getcvar("sv_maprotationcurrent")) == "")
 	{
 		// Parse sv_maprotation and shuffle it.
 		x = back2uo_getmaprotation(true, false, undefined);
@@ -570,7 +571,7 @@ guessed as gametype, .cfg or map name.
 Params: random - true to keep settings sticky across entries and shuffle the result
 		current - true to read sv_maprotationcurrent first (falls back to sv_maprotation)
 		number - stop after this many maps (0 / undefined = all)
-Returns: script_origin entity whose .maps[n]["exec"|"jeep"|"tank"|"gametype"|"map"]
+Returns: struct whose .maps[n]["exec"|"jeep"|"tank"|"gametype"|"map"]
 		 holds the entries, or undefined if no rotation is set
 =============
 */
@@ -619,8 +620,8 @@ back2uo_getmaprotation(random, current, number)
 		}
 	}
 
-	// A script_origin is used as a container object because GSC has no structs.
-	x = spawn("script_origin",(0,0,0));
+	// Container object for the map list (a struct, not an entity, so nothing has to be deleted)
+	x = spawnstruct();
 	x.maps = [];
 	lastexec = undefined;
 	lastjeep = undefined;

@@ -248,6 +248,9 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 
 	wait airplane_flytime;
 
+	// Already crashed and deleted by back2uo_airplane_crash
+	if(!isdefined(airplane)) return;
+
 	if(isdefined(airplane.sound))
 	{
 		airplane.sound stopLoopSound();
@@ -287,10 +290,11 @@ back2uo_airplane_flakimpact()
 
 			if(flaktoplane_distance < 500)
 			{
-				// Not threaded: blocks until the crash sequence is done (3 seconds).
+				// Not threaded: blocks until the crash sequence is done (3 seconds) and the
+				// plane is deleted. Without crashes (back2uo_airplanes_crash 0) the check ends here.
 				self back2uo_airplane_crash();
 
-				self notify("end_airplanecrash");
+				return;
 			}
 		}
 
@@ -320,8 +324,9 @@ back2uo_airplane_crash()
 
 	wait 3;
 
-	// Ends crashfx, rotate and flak impact threads.
-	self notify("end_airplanefly");
+	// Ends the crashfx and rotate threads. Not "end_airplanefly": that would also end this
+	// thread (it runs inside back2uo_airplane_flakimpact) before the plane is deleted.
+	self notify("end_airplanecrashfx");
 
 	if(isdefined(self.sound))
 	{
@@ -337,7 +342,7 @@ back2uo_airplane_crash()
 back2uo_airplane_crashfx
 
 Plays one explosion effect at the plane, then a smoke trail and explosion sound
-every second until "end_airplanefly" is notified.
+every second until "end_airplanefly" or "end_airplanecrashfx" is notified.
 Called on: entity (airplane model)
 =============
 */
@@ -347,6 +352,7 @@ back2uo_airplane_crashfx()
 
 	level endon("back2uo_killthreads");
 	self endon("end_airplanefly");
+	self endon("end_airplanecrashfx");
 
 	playfx(level.back2uo_effect["plane_explosion"], self.origin);
 
@@ -377,6 +383,7 @@ back2uo_airplane_rotate(rottime)
 
 	level endon("back2uo_killthreads");
 	self endon("end_airplanefly");
+	self endon("end_airplanecrashfx");
 
 	for(;;)
 	{

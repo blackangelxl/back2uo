@@ -85,8 +85,8 @@ back2uo_dropHealthPacks(iDamage)
 =============
 back2uo_healththink
 
-Pickup logic for one health pack. A trigger_radius (radius 100, height 100) wakes the loop
-when a player touches it; within 60 units the player sees the medic icon (client cvar
+Pickup logic for one health pack. All players inside a trigger_radius (radius 100, height 100)
+are checked every 0.1 seconds; within 60 units the player sees the medic icon (client cvar
 back2uo_ui_medicicon) and can take the pack if hurt. The player stores the pack origin in
 medi_origin so the icon of another nearby pack does not flicker.
 Params: medihealth_vol - health added on pickup
@@ -103,24 +103,39 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 
 	// trigger_radius: origin, spawnflags, radius, height
 	trigger = spawn("trigger_radius", origin, 0, 100, 100);
-	other = "";
-	x = 0;
 	name = "Medium";
 
-	// Runs until the pack is picked up or removed by back2uo_healthclear()
+	// Runs until the pack is picked up or removed by back2uo_healthclear().
+	// Every player in the trigger is handled each pass (a trigger waittill only returns one player).
 	while(isdefined(object))
 	{
 		wait 0.1;
 
-		// Blocks until any entity touches the trigger; 'other' receives that entity
-		trigger waittill("trigger", other);
+		players = getentarray("player", "classname");
 
-		if(other.sessionstate == "playing")
+		for(i = 0; i < players.size; i++)
 		{
-			// Player is already near a different pack: ignore this one
-			if(isdefined(other.medi_origin))
+			other = players[i];
+
+			if(!(other istouching(trigger)) || other.sessionstate != "playing")
 			{
-				if(other.medi_origin != origin) continue;
+				// Left the trigger, died or spectating: release this pack
+				if(isdefined(other.medi_origin) && other.medi_origin == origin)
+				{
+					other setClientCvar("back2uo_ui_medicicon", 0);
+					other.medi_origin = undefined;
+				}
+
+				continue;
+			}
+
+			// Player is already near a different pack: ignore this one. A pack out of reach
+			// (or already gone) is released, otherwise the lock would stay for the rest of the map.
+			if(isdefined(other.medi_origin) && other.medi_origin != origin)
+			{
+				if(distance(other.origin, other.medi_origin) < 60) continue;
+
+				other.medi_origin = undefined;
 			}
 
 			// Show the medic icon only within 60 units
@@ -177,19 +192,18 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 				return;
 			}
 		}
-		else
-		{
-			other setClientCvar("back2uo_ui_medicicon", 0);
-
-			other.medi_origin = undefined;
-		}
 	}
 
-	// Pack is gone: clear the icon of the last toucher and remove the trigger
-	if(isdefined(other))
+	// Pack is gone: release every player that still targets it and remove the trigger
+	players = getentarray("player", "classname");
+
+	for(i = 0; i < players.size; i++)
 	{
-		other setClientCvar("back2uo_ui_medicicon", 0);
-		other.medi_origin = undefined;
+		if(isdefined(players[i].medi_origin) && players[i].medi_origin == origin)
+		{
+			players[i] setClientCvar("back2uo_ui_medicicon", 0);
+			players[i].medi_origin = undefined;
+		}
 	}
 
 	if(isdefined(trigger)) trigger delete();

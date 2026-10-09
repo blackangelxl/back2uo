@@ -22,6 +22,11 @@ back2uo_view_bloodfx()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Hud Blood Fx", "Run");
 
+	// Only the newest hit fades the splatters out; an older thread would remove them too early.
+	self notify("back2uo_view_bloodfx");
+	self endon("back2uo_view_bloodfx");
+	self endon("disconnect");
+
 	// Remove splatters from a previous hit first.
 	back2uo_clear_bloodfx();
 

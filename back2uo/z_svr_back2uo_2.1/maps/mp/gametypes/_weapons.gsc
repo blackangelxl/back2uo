@@ -96,8 +96,8 @@ init()
 		precacheItem("smoke_grenade_german_mp");
 		precacheItem("smoke_grenade_german_mp_special1");
 
-		// Back2Uo: pistols only when back2uo_pistel_allow is 1.
-		if(level.back2uo_pistel_allow)
+		// Back2Uo: pistols only when back2uo_pistel_allow is 1 (always in pistol-only mode).
+		if(level.back2uo_pistel_allow || level.back2uo_weapon_limit == 4)
 		{
 			// Standard weapons
 			precacheItem("colt_mp");
@@ -910,7 +910,8 @@ dropWeapon(current)
 	// Back2Uo: end an active sprint first so the real weapon, not the _sprint variant, is dropped.
 	if(game["back2uo_enable"] && !isdefined(self.pers["bots_nosprint"]))
 	{
-		if(self.pers["sprinting"] == true)
+		// pers["sprinting"] only exists while the sprint system is on (back2uo_sprint_aktiv)
+		if(isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
 		{
 			back2uo\_back2uo_sprint::back2uo_sprintsystem_stop();
 		}
@@ -1796,6 +1797,31 @@ restrictWeaponByServerCvars(response)
 		break;
 	}
 
+	// Back2Uo: the response can be sent by hand (/mr), so only accept weapons that are precached.
+	if(response != "restricted" && game["back2uo_weaponsystem_enable"])
+	{
+		// Optional extra weapons (G43 sniper, Panzerschreck) only exist when switched on.
+		if(response == "g43_sniper_mp" || response == "panzerschreck_mp")
+		{
+			if(!isdefined(level.weapons[response])) response = "restricted";
+		}
+
+		// Class-limit mode precaches only the active class (pistols only with back2uo_pistel_allow).
+		if(response != "restricted" && level.back2uo_weapon_limit != 0)
+		{
+			if(!back2uo_weapontyp_allow(response))
+				response = "restricted";
+			else if(isPistol(response) && !level.back2uo_pistel_allow && level.back2uo_weapon_limit != 4)
+				response = "restricted";
+		}
+	}
+
+	// Back2Uo: sniper/shotgun limit reached; players that already have this weapon keep it.
+	if(response != "restricted" && back2uo_weaponlimit_full(response))
+	{
+		if(!isdefined(self.pers["weapon"]) || self.pers["weapon"] != response) response = "restricted";
+	}
+
 	return response;
 }
 
@@ -2065,7 +2091,28 @@ Params: weaponname - weapon name from level.weaponnames
 */
 updateAllowedSingleClient(weaponname)
 {
-	self setClientCvar(level.weapons[weaponname].client_allowcvar, level.weapons[weaponname].allow);
+	allow = level.weapons[weaponname].allow;
+
+	// Back2Uo: sniper/shotgun limit reached (_back2uo_weaponsystem::back2uo_snipershotgun_limiter).
+	if(allow && back2uo_weaponlimit_full(weaponname)) allow = 0;
+
+	self setClientCvar(level.weapons[weaponname].client_allowcvar, allow);
+}
+
+/*
+=============
+back2uo_weaponlimit_full
+
+Back2Uo: true if the sniper/shotgun limit of this weapon is reached
+(level.back2uo_weaponlimit_full is set by _back2uo_weaponsystem::back2uo_snipershotgun_limiter).
+Params: weaponname - weapon name
+=============
+*/
+back2uo_weaponlimit_full(weaponname)
+{
+	if(!isdefined(level.back2uo_weaponlimit_full) || !isdefined(level.back2uo_weaponlimit_full[weaponname])) return false;
+
+	return level.back2uo_weaponlimit_full[weaponname];
 }
 
 /*

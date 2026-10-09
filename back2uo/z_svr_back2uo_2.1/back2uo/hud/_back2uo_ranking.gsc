@@ -113,7 +113,9 @@ back2uo_ranking_update()
 		}
 		else
 		{
-			// Below level 2
+			// Below level 2: also on a rank down, so the rank 2 rewards come again on the next rank up
+			self.pers["back2uo_ranking"] = 1;
+
 			back2uo_ranking_level(1);
 		}
 
@@ -325,8 +327,11 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 		{
 			granadetype = self back2uo\_back2uo_tools::back2uo_getgranade_type("granade");
 
+			// granadeend_count also counts picked-up enemy grenades, so only add to the own type
+			owncount = self getammocount(granadetype);
+
 			self giveWeapon(granadetype);
-			self setWeaponClipAmmo(granadetype, granadeend_count);
+			self setWeaponClipAmmo(granadetype, owncount + granat);
 			rank_extras_b++;
 		}
 	}
@@ -346,8 +351,11 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 		{
 			smokegrenadetype = self back2uo\_back2uo_tools::back2uo_getgranade_type("smoke");
 
+			// Same as for frags: only add to the own smoke type
+			owncount = self getammocount(smokegrenadetype);
+
 			self giveWeapon(smokegrenadetype);
-			self setWeaponClipAmmo(smokegrenadetype, smokeend_count);
+			self setWeaponClipAmmo(smokegrenadetype, owncount + smoke);
 			rank_extras_b++;
 		}
 	}
@@ -364,14 +372,14 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 		}
 	}
 
-	// Artillery strike from the configured rank on, once per rank.
+	// Artillery strike from the configured rank on, once per rank (back2uo_artillery_onrang 0 = none).
 	if(game["back2uo_artilleryfx_enable"])
 	{
-		if(level.back2uo_artillery_onrank <= ranking_lv)
+		if(level.back2uo_artillery_onrank > 0 && level.back2uo_artillery_onrank <= ranking_lv)
 		{
-			art_rank_check = thread back2uo_ranking_artillery_check(ranking_lv);
+			// Called directly (no thread), so the return value is available.
+			art_rank_check = back2uo_ranking_artillery_check(ranking_lv);
 
-			// Note: a function called with 'thread' does not return a value, so art_rank_check is undefined here.
 			if(art_rank_check == 1) return;
 
 			if(isdefined(self.back2uo_art_rank)) return;

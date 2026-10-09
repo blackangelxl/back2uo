@@ -105,13 +105,14 @@ back2uo_antiplay_camper_start()
 	self endon("disconnect");
 
 	// Remove an older marker of this player first
-	if(isDefined(self.back2uo_objnum))
-	{
-		objective_delete(self.back2uo_objnum);
-		self.back2uo_objnum = undefined;
-	}
+	back2uo_antiplay_camper_remove2();
 
-	self.back2uo_objnum = back2uo_antiplay_camper_obj();
+	// All slots in use: no marker this time
+	objnum = back2uo_antiplay_camper_obj();
+	if(!isdefined(objnum)) return;
+
+	self.back2uo_objnum = objnum;
+	level.back2uo_camper_objslot[objnum] = self;
 
 	compass_icon = "";
 	compass_team = "";
@@ -149,20 +150,30 @@ back2uo_antiplay_camper_start()
 =============
 back2uo_antiplay_camper_obj
 
-Hands out compass objective slots for camper markers. Cycles through 6..15 so the
-low slots stay free for the gametype objectives (CoD2 supports 16 objectives, 0..15).
-Returns: objective number
+Hands out a free compass objective slot for a camper marker. Uses 6..15 so the low
+slots stay free for the gametype objectives (CoD2 supports 16 objectives, 0..15).
+level.back2uo_camper_objslot[n] holds the marked player of slot n; a slot whose player
+has left the server counts as free again.
+Returns: objective number, or undefined if all slots are in use
 =============
 */
 back2uo_antiplay_camper_obj()
 {
-	if(!isDefined(level.objectives)) level.objectives = 5;
+	if(!isDefined(level.back2uo_camper_objslot)) level.back2uo_camper_objslot = [];
 
-	level.objectives++;
+	for(n = 6; n <= 15; n++)
+	{
+		if(!isdefined(level.back2uo_camper_objslot[n]) || !isPlayer(level.back2uo_camper_objslot[n]))
+		{
+			// The slot of a disconnected player may still show its icon
+			objective_delete(n);
+			level.back2uo_camper_objslot[n] = undefined;
 
-	if(level.objectives > 15) level.objectives = 6;
+			return n;
+		}
+	}
 
-	return level.objectives;
+	return undefined;
 }
 
 /*
@@ -196,18 +207,19 @@ back2uo_antiplay_camper_remove()
 	{
 		self iprintlnbold(&"BACK2UOMOD_CAMPING_SURVIVED_MSG");
 
-		objective_delete(self.back2uo_objnum);
-
-		self.back2uo_antiplay_camper_marked = false;
-		self.back2uo_objnum = undefined;
+		back2uo_antiplay_camper_remove2();
 	}
+
+	// Also when no objective slot was free: let the monitor count again
+	self.back2uo_antiplay_camper_marked = false;
 }
 
 /*
 =============
 back2uo_antiplay_camper_remove2
 
-Removes the camper marker immediately (called from _back2uo_player.gsc on player death).
+Removes the camper marker immediately and frees its objective slot (called from
+_back2uo_player.gsc on player death and disconnect).
 Called on: self = player
 =============
 */
@@ -219,7 +231,10 @@ back2uo_antiplay_camper_remove2()
 	{
 		objective_delete(self.back2uo_objnum);
 
-		self.back2uo_antiplay_camper_marked = false;
+		if(isdefined(level.back2uo_camper_objslot)) level.back2uo_camper_objslot[self.back2uo_objnum] = undefined;
+
 		self.back2uo_objnum = undefined;
 	}
+
+	self.back2uo_antiplay_camper_marked = false;
 }

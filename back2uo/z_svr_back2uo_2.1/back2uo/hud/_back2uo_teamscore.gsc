@@ -227,6 +227,11 @@ back2uo_teamscore_update()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Team Score", "Update");
 
+	// Only one update loop per player; spectators get no "killed_player", so every switch
+	// to spectator would otherwise start one more loop.
+	self notify("back2uo_teamscore_update");
+	self endon("back2uo_teamscore_update");
+
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 	self endon("killed_player");

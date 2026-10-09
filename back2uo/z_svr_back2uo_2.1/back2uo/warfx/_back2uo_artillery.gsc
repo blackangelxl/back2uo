@@ -182,7 +182,8 @@ back2uo_artilleryfx_fire(binopositarget, selftarget_x, selftarget_y)
 		// Hide the artillery icon in the client UI.
 		self setClientCvar("back2uo_ui_artillery_icon", 0);
 
-		thread back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y);
+		// The caller's team at fire time decides friendly fire (not the team at impact)
+		thread back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, self.pers["team"]);
 
 		self iprintlnbold(&"BACK2UOMOD_ARTILLERY_FIRING");
 
@@ -206,9 +207,10 @@ impacts. Shells per salvo is level.back2uo_artillery_count, or 4-7 if that is 0.
 Called on: self = player who called the strike
 Params: binopositarget - target position
 		selftarget_x, selftarget_y - launch x/y (player position when firing)
+		callerteam - team of the caller when the strike was fired
 =============
 */
-back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y)
+back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, callerteam)
 {
 	if(!game["back2uo_artilleryfx_enable"]) return;
 
@@ -256,7 +258,7 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y)
 
 		while(artillerycount < level.back2uo_artillery_count2)
 		{
-			thread back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y);
+			thread back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam);
 
 			artillerycount++;
 
@@ -279,16 +281,17 @@ effect, explosion sound, screen shake and radius damage credited to the caller.
 Called on: self = player who called the strike (damage attacker)
 Params: binopositarget - target position
 		selftarget_x, selftarget_y - x/y of the shell start point
+		callerteam - team of the caller when the strike was fired
 =============
 */
-back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
+back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 {
 	if(!game["back2uo_artilleryfx_enable"]) return;
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Artillery Fx Draw", "Run");
 
-	self endon("back2uo_killplayerthreads");
-	self endon("disconnect");
+	// No player endon here: a running shell must always reach its delete() below,
+	// even if the caller disconnects.
 
 	artillery_zmax = level.back2uo_mapdimo_zMax;
 
@@ -358,6 +361,9 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
 	fall_distance = distance(startposition, trace["position"]);
 	fall_time = (fall_distance / 1000) / 4;
 
+	// moveto() needs a time above 0 (start point close to or on the ground)
+	if(fall_time < 0.1) fall_time = 0.1;
+
 	artillery moveto(trace["position"], fall_time);
 
 	wait fall_time;
@@ -376,7 +382,7 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
 
 	artillery hide();
 
-	thread back2uo_artillery_damage(trace["position"], self);
+	thread back2uo_artillery_damage(trace["position"], self, callerteam);
 
 	// Strong screen shake (scale 0.8, radius 3000). randomint(1) is always 0, so length is 0.5.
 	length = 0.5 + randomint(1);
@@ -389,16 +395,25 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y)
 =============
 back2uo_artillery_damage
 
-Applies artillery damage to all players within 600 units of the impact. Damage falls off
+Applies artillery damage to all living players within 600 units of the impact. Damage falls off
 quadratically with distance (max 300) and is reduced to 2 percent if the line from the
 impact to the player's chest is blocked. Players under spawn protection are skipped.
+Teammates of the caller follow scr_friendlyfire like normal weapons: 0 = no damage,
+1 = damage, 2 = half the damage goes to the caller instead, 3 = caller and teammate take half each.
 Params: endposition - impact position
 		attacker - player who called the strike
+		callerteam - team of the caller when the strike was fired
 =============
 */
-back2uo_artillery_damage(endposition, attacker)
+back2uo_artillery_damage(endposition, attacker, callerteam)
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Artillery Fx Damage", "Run");
+
+	// Caller left the server or changed the team since firing: the strike does no damage.
+	if(!isdefined(attacker) || !isPlayer(attacker)) return;
+	if(isdefined(callerteam) && attacker.pers["team"] != callerteam) return;
+
+	teambased = (getcvar("g_gametype") != "dm");
 
 	damage_radius = 600;
 	damage_strength = 300;
@@ -408,33 +423,59 @@ back2uo_artillery_damage(endposition, attacker)
 	for(i=0; i < players.size; i++)
 	{
 		player = players[i];
-		dist = distance(player.origin, endposition);
+
+		// Only living players (no spectators, no dead players waiting for respawn)
+		if(player.sessionstate != "playing" || !isAlive(player)) continue;
 
 		// back2uo_antiplay_sp_run = spawn protection active (back2uo\antiplay\_back2uo_spawnprotection.gsc).
-		if(!isdefined(player.back2uo_antiplay_sp_run)) player.back2uo_antiplay_sp_run = false;
+		if(isdefined(player.back2uo_antiplay_sp_run) && player.back2uo_antiplay_sp_run) continue;
 
-		if(isdefined(player.back2uo_antiplay_sp_run) && player.back2uo_antiplay_sp_run != true)
+		dist = distance(player.origin, endposition);
+		if(dist > damage_radius) continue;
+
+		// Quadratic falloff: full damage at the impact, 0 at the radius edge.
+		damage_percent = (damage_radius - dist) / damage_radius;
+		iDamage = (damage_strength * damage_percent) * damage_percent;
+
+		// Cover check from the impact to the player's chest (40 units up).
+		trace = bulletTrace(endposition, player.origin + (0,0,40), false, undefined);
+		if(trace["fraction"] != 1) iDamage = iDamage * 0.02;
+
+		victims = [];
+		victims[0] = player;
+
+		// Friendly fire on a teammate of the caller
+		if(teambased && player != attacker && isdefined(player.pers["team"]) && player.pers["team"] == attacker.pers["team"])
 		{
-			if(dist <= damage_radius)
+			if(level.friendlyfire == "0")
 			{
-				// Friendly fire off: no damage to teammates. Note: this "return" ends the
-				// whole loop, so players after the first protected teammate take no damage.
-				if(getcvar("g_gametype") != "dm" && level.friendlyfire == "0" && player.pers["team"] == attacker.pers["team"] && player != attacker) return;
-
-				// Quadratic falloff: full damage at the impact, 0 at the radius edge.
-				damage_percent = (damage_radius - dist) / damage_radius;
-				iDamage = (damage_strength * damage_percent) * damage_percent;
-
-				// Cover check from the impact to the player's chest (40 units up).
-				trace = bulletTrace(endposition, player.origin + (0,0,40), false, undefined);
-				if(trace["fraction"] != 1) iDamage = iDamage * 0.02;
-
-				// Direct damage call, bypassing the gametype Callback_PlayerDamage.
-				player finishPlayerDamage(player, attacker, int(iDamage), 1, "MOD_EXPLOSIVE", "artillery_mp", undefined, undefined, "none", player.psOffsetTime);
-				player thread maps\mp\gametypes\_damagefeedback::updateDamageFeedback();
-				player thread back2uo_artillery_shellshockOnDamage(iDamage);
-				player playrumble("damage_heavy");
+				continue;
 			}
+			else if(level.friendlyfire == "2")
+			{
+				// Reflect: the caller takes half of the damage instead of the teammate
+				iDamage = iDamage * 0.5;
+				victims[0] = attacker;
+			}
+			else if(level.friendlyfire == "3")
+			{
+				// Shared: teammate and caller take half each
+				iDamage = iDamage * 0.5;
+				if(isAlive(attacker) && attacker.sessionstate == "playing") victims[1] = attacker;
+			}
+		}
+
+		for(v = 0; v < victims.size; v++)
+		{
+			victim = victims[v];
+
+			if(!isAlive(victim) || victim.sessionstate != "playing") continue;
+
+			// Direct damage call, bypassing the gametype Callback_PlayerDamage.
+			victim finishPlayerDamage(victim, attacker, int(iDamage), 1, "MOD_EXPLOSIVE", "artillery_mp", undefined, undefined, "none", victim.psOffsetTime);
+			victim thread maps\mp\gametypes\_damagefeedback::updateDamageFeedback();
+			victim thread back2uo_artillery_shellshockOnDamage(iDamage);
+			victim playrumble("damage_heavy");
 		}
 	}
 }
@@ -519,15 +560,8 @@ back2uo_artillery_sound()
 		nat = "GE_";
 	}
 
-	// Pick voice variant 0-3. Same precedence issue as in back2uo_mortar_sound:
-	// "pc >=25 < 50" is always true, so variants 2/3 are never used.
-	pc = randomInt(100);
-	num = 0;
-
-	if(pc < 25) num = 0;
-	else if(pc >=25 < 50) num = 1;
-	else if(pc >=50 < 75) num = 2;
-	else if(pc > 75) num = 3;
+	// Pick voice variant 0-3.
+	num = randomInt(4);
 
 	// Alias e.g. "GE_1_inform_incoming_artillery".
 	alias = nat + num + "_inform_incoming_artillery";

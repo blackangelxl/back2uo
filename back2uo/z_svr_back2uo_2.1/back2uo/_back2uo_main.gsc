@@ -23,7 +23,7 @@ Called on: level (threaded from the gametype main())
 back2uo_main()
 {
 	// Mod master switch, development mode and debug log output
-	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_status", 1, 0, 1);
+	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 	game["back2uo_development_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_development", 0, 0, 1);
 	game["back2uo_logprint_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_logprint", 0, 0, 1);
 
@@ -93,10 +93,12 @@ back2uo_main()
 	level.back2uo_rankextra_aktiv = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_overlv_aktiv", 1, 0, 1, "int");
 	level.back2uo_ranking_lvextra = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_lv_points", 10, 1, 100, "int");
 
-	// Rank at which binoculars / artillery are unlocked; +1 converts the cvar rank to the internal level
+	// Rank at which binoculars / artillery are unlocked; +1 converts the cvar rank to the internal level.
+	// back2uo_artillery_onrang 0 (or below) = no artillery, stored as 0.
 	level.back2uo_binocular_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_binocular_onrang", 1, 1, 4, "int");
-	level.back2uo_artillery_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_onrang", 3, 1, 4, "int");
-	level.back2uo_artillery_onrank++;
+	level.back2uo_artillery_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_onrang", 3, 0, 4, "int");
+	if(level.back2uo_artillery_onrank > 0) level.back2uo_artillery_onrank++;
+	else level.back2uo_artillery_onrank = 0;
 
 	// No rank icons in the CTF scoreboard
 	if(getcvar("g_gametype") == "ctf") level.back2uo_rankingscorelist = 0;
@@ -104,31 +106,31 @@ back2uo_main()
 	// Rank rewards on spawn (grenades, smokes, primary/secondary ammo); same cvar/level offset as above
 	level.back2uo_rang2_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getgranade", 1, 0, 10, "int");
 	level.back2uo_rang2_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsmoke", 0, 0, 10, "int");
-	level.back2uo_rang2_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getpriammo", 0, 0, 99, "int");
-	level.back2uo_rang2_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsekammo", 10, 0, 99, "int");
+	level.back2uo_rang2_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getpriammo", 0, 0, 999, "int");
+	level.back2uo_rang2_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsekammo", 10, 0, 999, "int");
 
 	level.back2uo_rang3_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getgranade", 1, 0, 10, "int");
 	level.back2uo_rang3_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsmoke", 0, 0, 10, "int");
-	level.back2uo_rang3_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getpriammo", 10, 0, 99, "int");
-	level.back2uo_rang3_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsekammo", 10, 0, 99, "int");
+	level.back2uo_rang3_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getpriammo", 10, 0, 999, "int");
+	level.back2uo_rang3_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsekammo", 10, 0, 999, "int");
 
 	level.back2uo_rang4_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getgranade", 2, 0, 10, "int");
 	level.back2uo_rang4_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsmoke", 1, 0, 10, "int");
-	level.back2uo_rang4_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getpriammo", 20, 0, 99, "int");
-	level.back2uo_rang4_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsekammo", 20, 0, 99, "int");
+	level.back2uo_rang4_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getpriammo", 20, 0, 999, "int");
+	level.back2uo_rang4_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsekammo", 20, 0, 999, "int");
 
 	level.back2uo_rang5_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getgranade", 2, 0, 10, "int");
 	level.back2uo_rang5_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsmoke", 1, 0, 10, "int");
-	level.back2uo_rang5_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getpriammo", 30, 0, 99, "int");
-	level.back2uo_rang5_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsekammo", 30, 0, 99, "int");
+	level.back2uo_rang5_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getpriammo", 30, 0, 999, "int");
+	level.back2uo_rang5_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsekammo", 30, 0, 999, "int");
 
 	// --- Player points (rank points) ---
 
 	game["back2uo_playerpoints_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_points_system", 1, 0, 1);
 
 	// Point penalties for suicide and team kill
-	level.back2uo_selfkill_mpoints = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mpoints_suicide", 1, 0, 5, "int");
-	level.back2uo_teamkill_mpoints = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mpoints_teamkill", 3, 0, 5, "int");
+	level.back2uo_selfkill_mpoints = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mpoints_suicide", 1, 0, 10, "int");
+	level.back2uo_teamkill_mpoints = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mpoints_teamkill", 3, 0, 10, "int");
 
 	// S&D: points for plant, defuse and surviving the round
 	level.back2uo_sd_plant_points = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_points_plant", 5, 0, 10, "int");
@@ -151,7 +153,7 @@ back2uo_main()
 
 	// --- Talking head icons ---
 
-	game["back2uo_talkingicon"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_talkingicon", 0, 0, 1);
+	game["back2uo_talkingicon"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_talkingicon", 0, 0, 1, 1);
 
 	// --- Call vote menu options (published as ui_allowvote* below) ---
 
@@ -179,18 +181,6 @@ back2uo_main()
 	{
 		level.favorite_menu = 0;
 	}
-
-	// --- Map vote at map end ---
-
-	game["back2uo_endmapvote_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_mapvote_aktiv", 0, 0, 1);
-
-	level.back2uo_mapvotetime	= back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_map_vote_time", 30, 10, 180, "int");
-	level.back2uo_mapvotereplay	= back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_map_vote_replay", 0, 0, 1,"int");
-
-	// Vote HUD texts (German, hardcoded Latin-1 strings, not from the localized string file)
-	level.back2uo_votetxt_button = &"Drücken Sie [^2FIRE^7] um zu Voten.";
-	level.back2uo_votetxt_time = &"Zeit: ";
-	level.back2uo_votetxt_title = &"Vote - Nächste Map";
 
 	// --- Client autodownload notice ---
 
@@ -267,14 +257,12 @@ back2uo_main()
 	level.back2uo_tauntsounds_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_tauntsounds_aktiv", 40, 0, 100, "int");
 	level.back2uo_nadesounds_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_nadesounds_aktiv", 25, 0, 100, "int");
 
-	// Number of recorded voices per nationality (pain/death sound variants)
-	if(level.back2uo_tauntsounds_random != 0)
-	{
-		level.back2uo_voices["german"] = 3;
-		level.back2uo_voices["american"] = 7;
-		level.back2uo_voices["russian"] = 6;
-		level.back2uo_voices["british"] = 6;
-	}
+	// Number of recorded voices per nationality (pain/death sound variants).
+	// Always set: pain/death sounds use it even when taunts are off.
+	level.back2uo_voices["german"] = 3;
+	level.back2uo_voices["american"] = 7;
+	level.back2uo_voices["russian"] = 6;
+	level.back2uo_voices["british"] = 6;
 
 	// --- Hit location and distance messages ---
 
@@ -499,25 +487,29 @@ back2uo_main()
 	level.back2uo_smoke_use = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_use", 0, 0, 5, "int");
 
 	// --- CoD2 game settings ---
+	// The 5th setconfig parameter is the stock value used while the mod is disabled.
 
-	game["back2uo_deathicon_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_deathicon", 0, 0, 1);
+	game["back2uo_deathicon_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_deathicon", 0, 0, 1, 1);
 
-	game["back2uo_friendicon_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_friendicon", 1, 0, 1);
+	game["back2uo_friendicon_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_friendicon", 1, 0, 1, level.back2uo_drawfriend);
 
 	// Grenade indicator
-	game["back2uo_granatenindecator_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_granatenindecator", 0, 0, 1);
+	game["back2uo_granatenindecator_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_granatenindecator", 0, 0, 1, 1);
 
 	// Mini crosshair
-	game["back2uo_minicrosshair_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_minicrosshair", 0, 0, 1);
+	game["back2uo_minicrosshair_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_minicrosshair", 0, 0, 1, 1);
 
 	// Objective indicator
-	game["back2uo_objindekator_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_objindekator", 0, 0, 1);
+	game["back2uo_objindekator_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_objindekator", 0, 0, 1, 1);
 
 	game["back2uo_objindekator_ctf_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_objindekator_ctf", 0, 0, 1);
 
-	game["back2uo_playerhitsound_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_playerhitsound", 0, 0, 1);
+	game["back2uo_playerhitsound_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_playerhitsound", 0, 0, 1, 1);
 
-	game["back2uo_killcam"] = back2uo\_back2uo_cvars::back2uo_setconfig("scr_killcam", 0, 0, 1);
+	// Stock cvar: while the mod is disabled only read it (stock default 1), never overwrite it
+	killcam_stock = 1;
+	if(getcvar("scr_killcam") != "") killcam_stock = getcvarint("scr_killcam");
+	game["back2uo_killcam"] = back2uo\_back2uo_cvars::back2uo_setconfig("scr_killcam", 0, 0, 1, killcam_stock);
 
 	// --- Serverinfo cvars for the client server info / call vote menus ---
 
@@ -531,12 +523,25 @@ back2uo_main()
 	back2uo\_back2uo_cvars::back2uo_setui_var("ui_grenadesinde", game["back2uo_granatenindecator_enable"]);
 	back2uo\_back2uo_cvars::back2uo_setui_var("ui_allow_onlyautoteam", game["back2uo_autoteam_changeallow_enable"]);
 
-	// Call vote options
-	back2uo\_back2uo_cvars::back2uo_setui_var("ui_allowvotekick", game["back2uo_playerkickvote_enable"]);
-	back2uo\_back2uo_cvars::back2uo_setui_var("ui_allowvotetypemap", game["back2uo_vote_gametype_enable"]);
-	back2uo\_back2uo_cvars::back2uo_setui_var("ui_allowvotemap", game["back2uo_vote_map_enable"]);
-	back2uo\_back2uo_cvars::back2uo_setui_var("ui_allowvotemaprotate", game["back2uo_vote_nextmap_enable"]);
-	back2uo\_back2uo_cvars::back2uo_setui_var("ui_allowvotemaprestart", game["back2uo_vote_map_restart_enable"]);
+	// Call vote options: menu (ui_allowvote*) and engine (g_allowvote*)
+	back2uo\_back2uo_cvars::back2uo_setvote("kick", game["back2uo_playerkickvote_enable"]);
+	back2uo\_back2uo_cvars::back2uo_setvote("typemap", game["back2uo_vote_gametype_enable"]);
+	back2uo\_back2uo_cvars::back2uo_setvote("map", game["back2uo_vote_map_enable"]);
+	back2uo\_back2uo_cvars::back2uo_setvote("maprotate", game["back2uo_vote_nextmap_enable"]);
+	back2uo\_back2uo_cvars::back2uo_setvote("maprestart", game["back2uo_vote_map_restart_enable"]);
+
+	// The other kick/ban and gametype votes follow the matching mod switch when it is off
+	if(game["back2uo_enable"])
+	{
+		if(!game["back2uo_playerkickvote_enable"])
+		{
+			setCvar("g_allowvoteclientkick", 0);
+			setCvar("g_allowvotetempbanuser", 0);
+			setCvar("g_allowvotetempbanclient", 0);
+		}
+
+		if(!game["back2uo_vote_gametype_enable"]) setCvar("g_allowvotegametype", 0);
+	}
 }
 
 /*
@@ -684,14 +689,6 @@ back2uo_precached()
 
 	// Disabled: model for the unused explosive charge / mine feature
 	//precacheModel("xmodel/back2uo_s_mine");
-
-	// --- Map vote at map end ---
-
-	precacheString(level.back2uo_votetxt_button);
-	precacheString(level.back2uo_votetxt_time);
-	precacheString(level.back2uo_votetxt_title);
-
-	precacheShader("white");
 
 	// --- Anti camper compass icons ---
 
