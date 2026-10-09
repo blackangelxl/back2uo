@@ -440,7 +440,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			}
 		}
 
-		// Helmet save: the first head/neck hit per life is reduced to 2/3 (flag reset on spawn in _back2uo_objects.gsc).
+		// Helmet save: the first head/neck hit per life is reduced to 2/3 (flag reset on spawn in objects\_back2uo_helmpopping.gsc).
 		if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
 		{
 			if(isdefined(sHitLoc) && sHitLoc == "head" ||  sHitLoc == "neck")

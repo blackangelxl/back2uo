@@ -131,7 +131,7 @@ back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 
 	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_glow();
 
-	thread back2uo\_back2uo_objects::back2uo_helmpopping(vDir, iDamage, sHitLoc, eAttacker);
+	thread back2uo\objects\_back2uo_helmpopping::back2uo_helmpopping(vDir, iDamage, sHitLoc, eAttacker);
 }
 
 /*
@@ -159,11 +159,11 @@ back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	thread back2uo\_back2uo_sounds::back2uo_deathsound_play(sHitLoc);
 
 	// Medic packs dropped by the dead player.
-	thread back2uo\_back2uo_objects::back2uo_dropHealthPacks(iDamage);
+	thread back2uo\objects\_back2uo_healthpacks::back2uo_dropHealthPacks(iDamage);
 
 	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_update();
 
-	thread back2uo\_back2uo_objects::back2uo_helmpopping(vDir, iDamage, sHitLoc, attacker);
+	thread back2uo\objects\_back2uo_helmpopping::back2uo_helmpopping(vDir, iDamage, sHitLoc, attacker);
 
 	thread back2uo\_back2uo_sounds::back2uo_hit_taunts(attacker, sHitLoc);
 }
@@ -189,7 +189,7 @@ back2uo_player_spawn()
 	// Clean up from the previous life.
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();
 
-	back2uo\_back2uo_objects::back2uo_helmpopping_off();
+	back2uo\objects\_back2uo_helmpopping::back2uo_helmpopping_off();
 
 	back2uo\hud\_back2uo_bloodfx::back2uo_clear_bloodfx();
 

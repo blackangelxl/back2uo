@@ -546,7 +546,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 		}
 
 		// Back2Uo: helmet save - the first head/neck hit of a life does only 2/3 damage
-		// (cvar back2uo_helmluck; the flag is cleared again by _back2uo_objects.gsc).
+		// (cvar back2uo_helmluck; the flag is cleared again by objects\_back2uo_helmpopping.gsc).
 		// Note: game["back2uo_helmpoppping_enable"] is spelled with three p's on purpose (matches _back2uo_main.gsc).
 		if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
 		{

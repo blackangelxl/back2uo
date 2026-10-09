@@ -54,7 +54,7 @@ every 0.1 seconds. Allied and axis grenade types share one limit: grenades of on
 reduce the allowance for the other (picked-up enemy grenades). If a count is above its
 allowance, the clip is set back to the allowance.
 The per-player allowances (self.back2uo_granaten_allow_*) are also used by
-_back2uo_objects::back2uo_grenadepickup().
+objects\_back2uo_grenadepickup::back2uo_grenadepickup().
 Called on: self = player (threaded on spawn)
 =============
 */
@@ -647,7 +647,7 @@ back2uo_fx_run()
 					{
 						// Disabled: other test actions (drop weapon, health pack, turret, mortar)
 						//self maps\mp\gametypes\_weapons::dropWeapon("mp40_mp");
-						//self back2uo\_back2uo_objects::back2uo_dropHealthPacks();
+						//self back2uo\objects\_back2uo_healthpacks::back2uo_dropHealthPacks();
 						//back2uo\_back2uo_weaponsystem::back2uo_create_turret();
 						//back2uo\warfx\_back2uo_mortar::back2uo_mortar_draw(self);
 						thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();

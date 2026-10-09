@@ -1126,7 +1126,7 @@ dropWeapon(current)
 dropOffhand
 
 Drops the player's current offhand grenade if it has ammo.
-Back2Uo: places a script_model on the ground instead; _back2uo_objects.gsc handles pickup and cleanup.
+Back2Uo: places a script_model on the ground instead; objects\_back2uo_grenadepickup.gsc handles pickup and cleanup.
 Called on: player
 =============
 */
@@ -1228,8 +1228,8 @@ dropOffhand()
 				grenade_model show();
 
 				// Back2Uo: pickup logic and timed removal of the dropped model.
-				thread back2uo\_back2uo_objects::back2uo_grenadepickup(current, grenade_model, grenade_model.origin, team, name);
-				grenade_model thread back2uo\_back2uo_objects::back2uo_grenadepickup_clear();
+				thread back2uo\objects\_back2uo_grenadepickup::back2uo_grenadepickup(current, grenade_model, grenade_model.origin, team, name);
+				grenade_model thread back2uo\objects\_back2uo_grenadepickup::back2uo_grenadepickup_clear();
 			}
 		}
 	}

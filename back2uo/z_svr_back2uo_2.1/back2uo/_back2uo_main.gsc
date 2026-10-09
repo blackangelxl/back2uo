@@ -280,7 +280,7 @@ back2uo_main()
 
 	game["back2uo_hit_distance_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hit_distance_aktiv", 1, 0, 1);
 
-	// --- Health packs (see _back2uo_objects.gsc) ---
+	// --- Health packs (see objects\_back2uo_healthpacks.gsc) ---
 
 	game["back2uo_medipacks_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_drophealth", 1, 0, 1);
 

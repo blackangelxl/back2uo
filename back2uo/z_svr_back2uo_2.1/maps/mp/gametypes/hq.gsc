@@ -472,7 +472,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 		}
 
 		// Helmet save (back2uo_helmluck): the first head/neck hit does only 2/3 damage. The flag in self.pers
-		// is cleared again by _back2uo_objects.gsc.
+		// is cleared again by objects\_back2uo_helmpopping.gsc.
 		// Note: '&&' binds tighter than '||', so the isdefined(sHitLoc) check does not guard the neck test.
 		if(game["back2uo_helmpoppping_enable"] && level.back2uo_helmpopping_luck == 1)
 		{
