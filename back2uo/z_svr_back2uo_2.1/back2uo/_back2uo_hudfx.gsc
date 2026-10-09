@@ -495,9 +495,12 @@ back2uo_healthbar_draw()
 	// Full bar width in pixels at 100 health (1.28 px per health point).
 	balkenWidth = 128;
 
-	// Screen position of the bar (640x480 virtual screen).
-	healthbar_x = 501;
-	healthbar_y = 460;
+	// Position of the bar relative to the bottom right screen corner.
+	// horzAlign "right" / vertAlign "bottom" anchor the elements to that corner,
+	// so the bar stays in place on 4:3 and widescreen (16:9, 16:10) resolutions.
+	// Equals x = 501, y = 460 on the 640x480 virtual screen.
+	healthbar_x = -139;
+	healthbar_y = -20;
 
 	// Background
 	if(!isDefined(self.healthbar_bg))
@@ -505,8 +508,8 @@ back2uo_healthbar_draw()
 		self.healthbar_bg = newClientHudElem(self);
 		self.healthbar_bg.x = healthbar_x;
 		self.healthbar_bg.y = healthbar_y + 1;
-		self.healthbar_bg.horzAlign = "left";
-		self.healthbar_bg.vertAlign = "top";
+		self.healthbar_bg.horzAlign = "right";
+		self.healthbar_bg.vertAlign = "bottom";
 		self.healthbar_bg.alpha = 1;
 		self.healthbar_bg.sort = 1;
 		self.healthbar_bg.archived = true;
@@ -519,8 +522,8 @@ back2uo_healthbar_draw()
 		self.healthbar_gruen = newClientHudElem(self);
 		self.healthbar_gruen.x = healthbar_x + 1;
 		self.healthbar_gruen.y = healthbar_y + 2;
-		self.healthbar_gruen.horzAlign = "left";
-		self.healthbar_gruen.vertAlign = "top";
+		self.healthbar_gruen.horzAlign = "right";
+		self.healthbar_gruen.vertAlign = "bottom";
 		self.healthbar_gruen.color = (1.0-(self.health/100.0), (self.health/100.0)-0.4, 0);
 		self.healthbar_gruen.alpha = 0.4;
 		self.healthbar_gruen.sort = 4;
@@ -534,8 +537,8 @@ back2uo_healthbar_draw()
 		self.healthbar_kreuz = newClientHudElem(self);
 		self.healthbar_kreuz.x = healthbar_x - 13;
 		self.healthbar_kreuz.y = healthbar_y;
-		self.healthbar_kreuz.horzAlign = "left";
-		self.healthbar_kreuz.vertAlign = "top";
+		self.healthbar_kreuz.horzAlign = "right";
+		self.healthbar_kreuz.vertAlign = "bottom";
 		self.healthbar_kreuz.alpha = 1;
 		self.healthbar_kreuz.sort = 1;
 		self.healthbar_kreuz.archived = true;
