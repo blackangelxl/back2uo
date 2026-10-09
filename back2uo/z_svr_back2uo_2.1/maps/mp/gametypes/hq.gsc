@@ -506,6 +506,8 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 		}
 	}
 
+	friendly = undefined;
+
 	// Don't do knockback if the damage direction was not specified
 	if(!isdefined(vDir))
 		iDFlags |= level.iDFLAGS_NO_KNOCKBACK;
