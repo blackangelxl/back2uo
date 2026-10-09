@@ -649,8 +649,8 @@ back2uo_fx_run()
 						//self maps\mp\gametypes\_weapons::dropWeapon("mp40_mp");
 						//self back2uo\_back2uo_objects::back2uo_dropHealthPacks();
 						//back2uo\_back2uo_weaponsystem::back2uo_create_turret();
-						//back2uo\_back2uo_warfx::back2uo_mortar_draw(self);
-						thread back2uo\_back2uo_warfx::back2uo_artilleryfx_control();
+						//back2uo\warfx\_back2uo_mortar::back2uo_mortar_draw(self);
+						thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
 
 						wait 1;
 

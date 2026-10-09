@@ -17,7 +17,7 @@ back2uo_antiplay_spawn_start
 Spawn protection. Runs one iteration per second (back2uo_player_origin waits 1 second) for
 level.back2uo_antiplay_sp_time seconds and updates the spawn protection bar. While
 self.back2uo_antiplay_sp_run is true the gametype damage callbacks ignore damage from
-other players, and the artillery (_back2uo_warfx) skips this player.
+other players, and the artillery (warfx\_back2uo_artillery) skips this player.
 With back2uo_antiplay_sp_move 1 the protection ends early when the player moves more than
 50 units in a second or presses attack, melee or use.
 Called on: self = player (threaded on spawn)

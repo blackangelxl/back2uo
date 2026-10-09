@@ -198,8 +198,8 @@ back2uo_mapdimension()
 	// If an airplane at speed 750 would cross the map in under 4 seconds on both
 	// axes, the map is too small for the airplane FX.
 	mapdimo_max = 0;
-	mapdimo_x = back2uo\_back2uo_warfx::back2uo_airplane_flytime(750, (level.back2uo_mapdimo_xMin, 0, 800), (level.back2uo_mapdimo_xMax, 0, 800));
-	mapdimo_y = back2uo\_back2uo_warfx::back2uo_airplane_flytime(750, (0, level.back2uo_mapdimo_yMin, 800), (0, level.back2uo_mapdimo_yMax, 800));
+	mapdimo_x = back2uo\warfx\_back2uo_airplane::back2uo_airplane_flytime(750, (level.back2uo_mapdimo_xMin, 0, 800), (level.back2uo_mapdimo_xMax, 0, 800));
+	mapdimo_y = back2uo\warfx\_back2uo_airplane::back2uo_airplane_flytime(750, (0, level.back2uo_mapdimo_yMin, 800), (0, level.back2uo_mapdimo_yMax, 800));
 
 	if(mapdimo_x < 4) mapdimo_max++;
 	if(mapdimo_y < 4) mapdimo_max++;

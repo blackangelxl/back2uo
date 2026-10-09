@@ -33,7 +33,7 @@ back2uo_start_gametype()
 	back2uo\_back2uo_tools::back2uo_getmaprotation_control();
 
 	// Random triggers for mortars, tracers and airplanes.
-	back2uo\_back2uo_warfx::back2uo_warfx_random();
+	back2uo\warfx\_back2uo_warfx::back2uo_warfx_random();
 
 	// Roll whether this map gets weather, then start rain/snow.
 	back2uo\_back2uo_weatherfx::back2uo_weather_randomallow();
@@ -48,11 +48,11 @@ back2uo_start_gametype()
 	thread back2uo\_back2uo_weatherfx::back2uo_thunder_draw();
 
 	// War FX control loops (react to the flags set by back2uo_warfx_random).
-	thread back2uo\_back2uo_warfx::back2uo_mortarfx_control();
+	thread back2uo\warfx\_back2uo_mortar::back2uo_mortarfx_control();
 
-	thread back2uo\_back2uo_warfx::back2uo_ambtracerfx_control();
+	thread back2uo\warfx\_back2uo_ambtracer::back2uo_ambtracerfx_control();
 
-	thread back2uo\_back2uo_warfx::back2uo_airplanefx_control();
+	thread back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_control();
 
 	thread back2uo\_back2uo_antiplay::back2uo_switchspec();
 

@@ -334,7 +334,7 @@ back2uo_main()
 	// Head icon of spawn-protected players
 	game["headicon_sp_icon"] = "gfx/hud/hud@health_cross.tga";
 
-	// --- War effects (see _back2uo_warfx.gsc) ---
+	// --- War effects (see the warfx\ scripts) ---
 
 	game["back2uo_warfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_warfx_aktiv", 1, 0, 1);
 
@@ -722,7 +722,7 @@ back2uo_precached()
 	// Shell model
 	PrecacheModel("xmodel/vehicle_halftrack_rockets_shell_d");
 
-	// Weapon name used as damage source for artillery hits (_back2uo_warfx)
+	// Weapon name used as damage source for artillery hits (warfx\_back2uo_artillery)
 	precacheItem("artillery_mp");
 
 	// --- Weapon pickup hint ---

@@ -70,7 +70,7 @@ back2uo_ranking_update()
 	// Player still owns an unused artillery strike (from an earlier life): restart the binocular target selection.
 	if(game["back2uo_artilleryfx_enable"] && isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
 	{
-		thread back2uo\_back2uo_warfx::back2uo_artilleryfx_binowaituse();
+		thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_binowaituse();
 	}
 
 	for(;;)
@@ -380,7 +380,7 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 			// Player still has an unused strike.
 			if(isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true) return;
 
-			thread back2uo\_back2uo_warfx::back2uo_artilleryfx_control();
+			thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
 		}
 	}
 }
