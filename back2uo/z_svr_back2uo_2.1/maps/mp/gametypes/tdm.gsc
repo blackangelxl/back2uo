@@ -690,7 +690,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	{
 		if(isdefined(self) && isdefined(attacker) && isdefined(self.pers["team"]) && isdefined(attacker.pers["team"]))
 		{
-			self thread back2uo\_back2uo_gore::back2uo_killedplayer_blood(body, self.pers["team"], attacker.pers["team"]);
+			self thread back2uo\gore\_back2uo_killedplayer::back2uo_killedplayer_blood(body, self.pers["team"], attacker.pers["team"]);
 		}
 	}
 

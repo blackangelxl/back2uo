@@ -127,7 +127,7 @@ back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 	// Blood sprites on the player's screen.
 	thread back2uo\hud\_back2uo_bloodfx::back2uo_view_bloodfx();
 
-	thread back2uo\_back2uo_gore::back2uo_playerdamage_blood(sHitLoc, iDamage, eAttacker);
+	thread back2uo\gore\_back2uo_playerdamage::back2uo_playerdamage_blood(sHitLoc, iDamage, eAttacker);
 
 	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_glow();
 
