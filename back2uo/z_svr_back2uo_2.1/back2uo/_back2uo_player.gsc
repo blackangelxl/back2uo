@@ -36,16 +36,16 @@ back2uo_start_gametype()
 	back2uo\warfx\_back2uo_warfx::back2uo_warfx_random();
 
 	// Roll whether this map gets weather, then start rain/snow.
-	back2uo\_back2uo_weatherfx::back2uo_weather_randomallow();
+	back2uo\weatherfx\_back2uo_weather::back2uo_weather_randomallow();
 
-	back2uo\_back2uo_weatherfx::back2uo_weathercontrol();
+	back2uo\weatherfx\_back2uo_weather::back2uo_weathercontrol();
 
 	// Weapon limits per team.
 	thread back2uo\_back2uo_weaponsystem::back2uo_weapon_limitiert();
 
 	thread back2uo\_back2uo_weaponsystem::back2uo_weapon_optimizer();
 
-	thread back2uo\_back2uo_weatherfx::back2uo_thunder_draw();
+	thread back2uo\weatherfx\_back2uo_thunder::back2uo_thunder_draw();
 
 	// War FX control loops (react to the flags set by back2uo_warfx_random).
 	thread back2uo\warfx\_back2uo_mortar::back2uo_mortarfx_control();
@@ -220,13 +220,13 @@ back2uo_player_spawn()
 	thread back2uo\_back2uo_sprint::back2uo_sprintsystem_main();
 
 	// SD only: weather above the player until the main weather loop takes over.
-	thread back2uo\_back2uo_weatherfx::back2uo_weather_startup();
+	thread back2uo\weatherfx\_back2uo_weather::back2uo_weather_startup();
 
 	thread back2uo\_back2uo_messages::back2uo_wellc_messages_draw();
 
 	thread back2uo\_back2uo_antiplay::back2uo_antiplay_spawn_start();
 
-	thread back2uo\_back2uo_weatherfx::back2uo_coldbreath_draw();
+	thread back2uo\weatherfx\_back2uo_coldbreath::back2uo_coldbreath_draw();
 
 	thread back2uo\_back2uo_sounds::back2uo_grenade_isthrowing();
 

@@ -5,7 +5,7 @@
 	main() is called from the map's own script (maps\mp\mp_downtown.gsc) at level load,
 	before the gametype starts. It precaches and starts the map's looping effects.
 	This map has no switchable effect groups.
-	The stock snow effects only run with the mod off; Back2Uo draws its own snow (_back2uo_weatherfx.gsc).
+	The stock snow effects only run with the mod off; Back2Uo draws its own snow (weatherfx\_back2uo_weather.gsc).
 	With the mod off (back2uo_status 0) the map behaves like stock.
 */
 

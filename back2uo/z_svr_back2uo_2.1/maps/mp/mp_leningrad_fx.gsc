@@ -6,7 +6,7 @@
 	before the gametype starts. It precaches and starts the map's looping effects.
 	Back2Uo lets the server switch effect groups off (e.g. to save client FPS):
 	back2uo_ambientsmokefx, back2uo_ambientfirefx (stored in level.<cvar>).
-	The stock snow effects only run with the mod off; Back2Uo draws its own snow (_back2uo_weatherfx.gsc).
+	The stock snow effects only run with the mod off; Back2Uo draws its own snow (weatherfx\_back2uo_weather.gsc).
 	With the mod off (back2uo_status 0) the map behaves like stock.
 */
 

@@ -409,7 +409,7 @@ back2uo_main()
 	// Artillery hint text (duplicate of the assignment in the binocular section)
 	level.back2uo_artilm = &"BACK2UOMOD_ARTILLERY_USE";
 
-	// --- Weather effects (see _back2uo_weatherfx.gsc) ---
+	// --- Weather effects (see the weatherfx\ scripts) ---
 
 	game["back2uo_weatherfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weatherfx_aktiv", 1, 0, 1);
 
