@@ -562,7 +562,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 		}
 
 		// Back2Uo: spawn protection - while the victim's anti-spawnkill timer runs
-		// (_back2uo_antiplay.gsc) the hit is ignored and the attacker gets a warning.
+		// (antiplay\_back2uo_spawnprotection.gsc) the hit is ignored and the attacker gets a warning.
 		if(isdefined(eAttacker) && isdefined(self.back2uo_antiplay_sp_run) && isPlayer(eAttacker) && eAttacker != self && self.back2uo_antiplay_sp_run)
 		{
 			eAttacker thread back2uo\_back2uo_messages::back2uo_spawn_attacking();

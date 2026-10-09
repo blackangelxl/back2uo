@@ -410,7 +410,7 @@ back2uo_artillery_damage(endposition, attacker)
 		player = players[i];
 		dist = distance(player.origin, endposition);
 
-		// back2uo_antiplay_sp_run = spawn protection active (_back2uo_antiplay.gsc).
+		// back2uo_antiplay_sp_run = spawn protection active (back2uo\antiplay\_back2uo_spawnprotection.gsc).
 		if(!isdefined(player.back2uo_antiplay_sp_run)) player.back2uo_antiplay_sp_run = false;
 
 		if(isdefined(player.back2uo_antiplay_sp_run) && player.back2uo_antiplay_sp_run != true)

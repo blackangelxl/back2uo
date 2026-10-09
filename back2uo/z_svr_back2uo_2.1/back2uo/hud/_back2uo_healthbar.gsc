@@ -81,7 +81,7 @@ back2uo_healthbar_spawn_prot
 
 Colors the health bar cross while spawn protection is active and resets it to
 white when protection ends. Called each tick of the spawn protection loop in
-_back2uo_antiplay.gsc.
+back2uo\antiplay\_back2uo_spawnprotection.gsc.
 Called on: self = player
 Params: time - elapsed spawn protection time (unused)
 		wert - if defined, spawn protection has ended and the cross is reset

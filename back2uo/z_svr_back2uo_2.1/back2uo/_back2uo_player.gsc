@@ -54,7 +54,7 @@ back2uo_start_gametype()
 
 	thread back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_control();
 
-	thread back2uo\_back2uo_antiplay::back2uo_switchspec();
+	thread back2uo\antiplay\_back2uo_afk::back2uo_switchspec();
 
 	thread back2uo\_back2uo_messages::back2uo_clan_messages_draw();
 
@@ -83,13 +83,13 @@ back2uo_player_connect()
 
 	back2uo\_back2uo_cvars::back2uo_favorite_menu();
 
-	thread back2uo\_back2uo_antiplay::back2uo_antiplay_afk();
+	thread back2uo\antiplay\_back2uo_afk::back2uo_antiplay_afk();
 
-	thread back2uo\_back2uo_antiplay::back2uo_antiplay_camper();
+	thread back2uo\antiplay\_back2uo_camper::back2uo_antiplay_camper();
 
 	thread back2uo\hud\_back2uo_binocular::back2uo_binocular_control();
 
-	thread back2uo\_back2uo_antiplay::back2uo_client_autodownload_init();
+	thread back2uo\antiplay\_back2uo_autodownload::back2uo_client_autodownload_init();
 }
 
 /*
@@ -150,7 +150,7 @@ back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 {
 	if(!game["back2uo_enable"]) return;
 
-	back2uo\_back2uo_antiplay::back2uo_antiplay_camper_remove2();
+	back2uo\antiplay\_back2uo_camper::back2uo_antiplay_camper_remove2();
 
 	back2uo\hud\_back2uo_binocular::back2uo_binocular_distance_clear2();
 
@@ -224,7 +224,7 @@ back2uo_player_spawn()
 
 	thread back2uo\_back2uo_messages::back2uo_wellc_messages_draw();
 
-	thread back2uo\_back2uo_antiplay::back2uo_antiplay_spawn_start();
+	thread back2uo\antiplay\_back2uo_spawnprotection::back2uo_antiplay_spawn_start();
 
 	thread back2uo\weatherfx\_back2uo_coldbreath::back2uo_coldbreath_draw();
 

@@ -379,7 +379,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 			}
 		}
 
-		// Spawn protection: while self.back2uo_antiplay_sp_run is set (_back2uo_antiplay.gsc),
+		// Spawn protection: while self.back2uo_antiplay_sp_run is set (antiplay\_back2uo_spawnprotection.gsc),
 		// damage from other players is ignored and the attacker gets a warning.
 		if(isdefined(eAttacker) && isdefined(self.back2uo_antiplay_sp_run) && isPlayer(eAttacker) && eAttacker != self && self.back2uo_antiplay_sp_run)
 		{

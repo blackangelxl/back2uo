@@ -303,7 +303,7 @@ back2uo_main()
 	level.back2uo_objectQcurrent["helm"] = 0;
 	level.back2uo_objectQsize["helm"] = 8;
 
-	// --- Anti AFK (see _back2uo_antiplay.gsc) ---
+	// --- Anti AFK (see antiplay\_back2uo_afk.gsc) ---
 
 	game["back2uo_antiplay_afk_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_afk_aktiv", 1, 0, 1);
 
