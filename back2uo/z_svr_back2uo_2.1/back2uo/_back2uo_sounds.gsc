@@ -4,7 +4,7 @@
 	Pain/death/taunt sounds are threaded from _back2uo_player.gsc on damage and death.
 	back2uo_grenade_isthrowing() is threaded per player on spawn and watches the frag count.
 	The generic helpers (soundonplayer, soundonplayers, soundonplayerorigin) are used by
-	_back2uo_hudfx, _back2uo_warfx and _back2uo_weatherfx.
+	the hud scripts, _back2uo_warfx and _back2uo_weatherfx.
 	Cvars (via level.): back2uo_painsound_random, back2uo_deathsound_random,
 	back2uo_tauntsounds_random, back2uo_nadesounds_random (0 = off, higher = more frequent).
 	Uses level.back2uo_voices[nationality] (voice count per nation) and game["allies"].

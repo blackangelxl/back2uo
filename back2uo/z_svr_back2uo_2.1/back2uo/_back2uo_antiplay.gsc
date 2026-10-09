@@ -45,7 +45,7 @@ back2uo_antiplay_spawn_start()
 	{
 		self_org = back2uo\_back2uo_cvars::back2uo_player_origin();
 
-		self back2uo\_back2uo_hudfx::back2uo_healthbar_spawn_prot(self.back2uo_spawntime);
+		self back2uo\hud\_back2uo_healthbar::back2uo_healthbar_spawn_prot(self.back2uo_spawntime);
 
 		// Protection is waived on movement or action
 		if(level.back2uo_antiplay_sp_move == 1)
@@ -53,7 +53,7 @@ back2uo_antiplay_spawn_start()
 			if(isdefined(self_org) && self_org > radius || self attackButtonPressed() || self meleeButtonPressed() || self useButtonPressed())
 			{
 				// "1" = end of spawn protection, resets the bar
-				self back2uo\_back2uo_hudfx::back2uo_healthbar_spawn_prot(self.back2uo_spawntime, "1");
+				self back2uo\hud\_back2uo_healthbar::back2uo_healthbar_spawn_prot(self.back2uo_spawntime, "1");
 
 				self iprintln(&"BACK2UOMOD_SPAWN_DISABLED_MSG");
 
@@ -65,7 +65,7 @@ back2uo_antiplay_spawn_start()
 	}
 
 	// Protection time is over
-	self back2uo\_back2uo_hudfx::back2uo_healthbar_spawn_prot(self.back2uo_spawntime, "1");
+	self back2uo\hud\_back2uo_healthbar::back2uo_healthbar_spawn_prot(self.back2uo_spawntime, "1");
 
 	self iprintln(&"BACK2UOMOD_SPAWN_DISABLED_MSG");
 

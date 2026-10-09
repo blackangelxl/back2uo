@@ -87,7 +87,7 @@ back2uo_player_connect()
 
 	thread back2uo\_back2uo_antiplay::back2uo_antiplay_camper();
 
-	thread back2uo\_back2uo_hudfx::back2uo_binocular_control();
+	thread back2uo\hud\_back2uo_binocular::back2uo_binocular_control();
 
 	thread back2uo\_back2uo_antiplay::back2uo_client_autodownload_init();
 }
@@ -125,11 +125,11 @@ back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 	thread back2uo\_back2uo_sounds::back2uo_painsound_play(sHitLoc, eAttacker);
 
 	// Blood sprites on the player's screen.
-	thread back2uo\_back2uo_hudfx::back2uo_view_bloodfx();
+	thread back2uo\hud\_back2uo_bloodfx::back2uo_view_bloodfx();
 
 	thread back2uo\_back2uo_gore::back2uo_playerdamage_blood(sHitLoc, iDamage, eAttacker);
 
-	thread back2uo\_back2uo_hudfx::back2uo_healthbar_glow();
+	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_glow();
 
 	thread back2uo\_back2uo_objects::back2uo_helmpopping(vDir, iDamage, sHitLoc, eAttacker);
 }
@@ -152,16 +152,16 @@ back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 
 	back2uo\_back2uo_antiplay::back2uo_antiplay_camper_remove2();
 
-	back2uo\_back2uo_hudfx::back2uo_binocular_distance_clear2();
+	back2uo\hud\_back2uo_binocular::back2uo_binocular_distance_clear2();
 
-	back2uo\_back2uo_hudfx::back2uo_playerposition_clear();
+	back2uo\hud\_back2uo_playerposition::back2uo_playerposition_clear();
 
 	thread back2uo\_back2uo_sounds::back2uo_deathsound_play(sHitLoc);
 
 	// Medic packs dropped by the dead player.
 	thread back2uo\_back2uo_objects::back2uo_dropHealthPacks(iDamage);
 
-	thread back2uo\_back2uo_hudfx::back2uo_healthbar_update();
+	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_update();
 
 	thread back2uo\_back2uo_objects::back2uo_helmpopping(vDir, iDamage, sHitLoc, attacker);
 
@@ -191,29 +191,29 @@ back2uo_player_spawn()
 
 	back2uo\_back2uo_objects::back2uo_helmpopping_off();
 
-	back2uo\_back2uo_hudfx::back2uo_clear_bloodfx();
+	back2uo\hud\_back2uo_bloodfx::back2uo_clear_bloodfx();
 
 	// HUD element creation.
-	thread back2uo\_back2uo_hudfx::back2uo_healthbar_draw();
+	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_playerposition_draw();
+	thread back2uo\hud\_back2uo_playerposition::back2uo_playerposition_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_ranking_draw();
+	thread back2uo\hud\_back2uo_ranking::back2uo_ranking_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_hudfx_draw();
+	thread back2uo\hud\_back2uo_hudfx::back2uo_hudfx_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_playerscore_draw();
+	thread back2uo\hud\_back2uo_playerscore::back2uo_playerscore_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_teamscore_draw();
+	thread back2uo\hud\_back2uo_teamscore::back2uo_teamscore_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_weaponpickup_hud_draw();
+	thread back2uo\hud\_back2uo_weaponpickup::back2uo_weaponpickup_hud_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_binocular_distance_clear2();
+	thread back2uo\hud\_back2uo_binocular::back2uo_binocular_distance_clear2();
 
 	thread back2uo\_back2uo_weaponsystem::back2uo_pistel_unlimtedammo();
 
 	// Hint which key is used for sprinting.
-	thread back2uo\_back2uo_hudfx::back2uo_sprinttast_msg();
+	thread back2uo\hud\_back2uo_sprinttast::back2uo_sprinttast_msg();
 
 	thread back2uo\_back2uo_cvars::back2uo_grana_smoke_checker();
 
@@ -231,17 +231,17 @@ back2uo_player_spawn()
 	thread back2uo\_back2uo_sounds::back2uo_grenade_isthrowing();
 
 	// HUD update loops.
-	thread back2uo\_back2uo_hudfx::back2uo_hudfx_update();
+	thread back2uo\hud\_back2uo_hudfx::back2uo_hudfx_update();
 
-	thread back2uo\_back2uo_hudfx::back2uo_healthbar_update();
+	thread back2uo\hud\_back2uo_healthbar::back2uo_healthbar_update();
 
-	thread back2uo\_back2uo_hudfx::back2uo_playerposition_update();
+	thread back2uo\hud\_back2uo_playerposition::back2uo_playerposition_update();
 
-	thread back2uo\_back2uo_hudfx::back2uo_ranking_update();
+	thread back2uo\hud\_back2uo_ranking::back2uo_ranking_update();
 
-	thread back2uo\_back2uo_hudfx::back2uo_playerscore_update();
+	thread back2uo\hud\_back2uo_playerscore::back2uo_playerscore_update();
 
-	thread back2uo\_back2uo_hudfx::back2uo_teamscore_update();
+	thread back2uo\hud\_back2uo_teamscore::back2uo_teamscore_update();
 
 	// Development test hook (melee double tap), only with game["back2uo_development_enable"].
 	thread back2uo\_back2uo_cvars::back2uo_fx_run();
@@ -264,24 +264,24 @@ back2uo_player_spectator()
 {
 	if(!game["back2uo_enable"]) return;
 
-	thread back2uo\_back2uo_hudfx::back2uo_teamscore_draw();
+	thread back2uo\hud\_back2uo_teamscore::back2uo_teamscore_draw();
 
-	thread back2uo\_back2uo_hudfx::back2uo_teamscore_update();
+	thread back2uo\hud\_back2uo_teamscore::back2uo_teamscore_update();
 
 	// Remove player-only HUD elements.
-	back2uo\_back2uo_hudfx::back2uo_clear_bloodfx();
+	back2uo\hud\_back2uo_bloodfx::back2uo_clear_bloodfx();
 
-	back2uo\_back2uo_hudfx::back2uo_healthbar_clear();
+	back2uo\hud\_back2uo_healthbar::back2uo_healthbar_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_playerposition_clear();
+	back2uo\hud\_back2uo_playerposition::back2uo_playerposition_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_hudfx_clear();
+	back2uo\hud\_back2uo_hudfx::back2uo_hudfx_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_ranking_clear();
+	back2uo\hud\_back2uo_ranking::back2uo_ranking_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_playerscore_clear();
+	back2uo\hud\_back2uo_playerscore::back2uo_playerscore_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_binocular_distance_clear2();
+	back2uo\hud\_back2uo_binocular::back2uo_binocular_distance_clear2();
 
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();
 }
@@ -317,16 +317,16 @@ back2uo_clear_elements(wert)
 
 	if(wert != 1)
 	{
-		back2uo\_back2uo_hudfx::back2uo_playerposition_clear();
+		back2uo\hud\_back2uo_playerposition::back2uo_playerposition_clear();
 	}
 
-	back2uo\_back2uo_hudfx::back2uo_clear_bloodfx();
+	back2uo\hud\_back2uo_bloodfx::back2uo_clear_bloodfx();
 
-	back2uo\_back2uo_hudfx::back2uo_healthbar_clear();
+	back2uo\hud\_back2uo_healthbar::back2uo_healthbar_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_ranking_clear();
+	back2uo\hud\_back2uo_ranking::back2uo_ranking_clear();
 
-	back2uo\_back2uo_hudfx::back2uo_hudfx_clear();
+	back2uo\hud\_back2uo_hudfx::back2uo_hudfx_clear();
 
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();
 }

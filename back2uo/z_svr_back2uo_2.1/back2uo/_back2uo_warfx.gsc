@@ -5,7 +5,7 @@
 	level threads that randomly raise the level.back2uo_*fx_allow flags. The matching *_control()
 	loops (also started from back2uo_start_gametype) poll those flags and play one effect wave.
 	Artillery is a per-player reward: back2uo_artilleryfx_control() is started from the ranking
-	code in _back2uo_hudfx.gsc; the player then marks a target with the binoculars + Use key.
+	code in hud\_back2uo_ranking.gsc; the player then marks a target with the binoculars + Use key.
 	Main switches: game["back2uo_warfx_enable"], game["back2uo_mortarfx_enable"],
 	game["back2uo_ambtracerfx_enable"], game["back2uo_airplanesfx_enable"], game["back2uo_flakfx_enable"],
 	game["back2uo_artilleryfx_enable"]. Positions come from level.back2uo_mapdimo_* / level.back2uo_playerdimo_*
@@ -1097,7 +1097,7 @@ back2uo_artilleryfx_control
 Grants the player one artillery strike (ranking reward). Marks it in
 self.pers["artillery_save"] so it survives a respawn, shows a message, plays the
 "artillery ready" voice and starts waiting for binocular use.
-Called on: self = player (from _back2uo_hudfx.gsc ranking code)
+Called on: self = player (from hud\_back2uo_ranking.gsc)
 =============
 */
 back2uo_artilleryfx_control()
@@ -1110,7 +1110,7 @@ back2uo_artilleryfx_control()
 	self endon("killed_player");
 
 	// Persistent flag: the strike is still available after death/respawn
-	// (_back2uo_hudfx.gsc restarts back2uo_artilleryfx_binowaituse when it is set).
+	// (hud\_back2uo_ranking.gsc restarts back2uo_artilleryfx_binowaituse when it is set).
 	self.pers["artillery_save"] = true;
 
 	// Only one active artillery grant per player.
@@ -1137,7 +1137,7 @@ back2uo_artilleryfx_control()
 back2uo_artilleryfx_binowaituse
 
 Waits for the player to raise the binoculars ("binocular_enter" notify from
-_back2uo_hudfx.gsc) and then starts the target selection. Ends once the strike
+hud\_back2uo_ranking.gsc) and then starts the target selection. Ends once the strike
 was called in ("end_waitforuse") or the player dies.
 Called on: self = player
 =============

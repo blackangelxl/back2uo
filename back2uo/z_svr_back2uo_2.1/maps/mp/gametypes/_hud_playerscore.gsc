@@ -5,7 +5,7 @@
 	init() is called from dm.gsc. dm.gsc notifies "update_playerhud_score" on a player and
 	"update_allhud_score" on level to refresh the display.
 	Back2Uo: with game["back2uo_playerscore_enable"] (cvar back2uo_playerscore, default 1) this stock
-	HUD is skipped completely and back2uo\_back2uo_hudfx.gsc draws the mod's own score display.
+	HUD is skipped completely and back2uo\hud\_back2uo_playerscore.gsc draws the mod's own score display.
 */
 
 /*

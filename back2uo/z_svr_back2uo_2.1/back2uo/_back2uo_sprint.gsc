@@ -4,7 +4,7 @@
 	Players sprint by holding the Use key while running. Sprinting swaps the current primary
 	weapon for its "<weapon>_sprint" variant (a sprint-pose weapon) and restores the original
 	weapon with its ammo when the sprint ends. Stamina is tracked as self.hud_sprint_height
-	(fatigue bar drawn and recovered in _back2uo_hudfx.gsc); sprinting is blocked above 34/35.
+	(fatigue bar drawn and recovered in hud\_back2uo_playerposition.gsc); sprinting is blocked above 34/35.
 	Entry point: back2uo_sprintsystem_main(), threaded per player from
 	_back2uo_player::back2uo_player_spawn. Switch: game["back2uo_sprint_enable"].
 	Player state: self.pers["sprinting"], ["is_moving"], ["sprint_slot"], ["pri_*"] / ["pri_b_*"] saved

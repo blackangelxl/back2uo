@@ -5,7 +5,7 @@
 	init() is called from the team gametypes (tdm, ctf, hq, sd, ...). The gametypes notify
 	"update_allhud_score" on level to refresh the display for everyone.
 	Back2Uo: with game["back2uo_teamscore_enable"] (cvar back2uo_teamscore, default 1) this stock
-	HUD is skipped completely and back2uo\_back2uo_hudfx.gsc draws the mod's own score display.
+	HUD is skipped completely and back2uo\hud\_back2uo_teamscore.gsc draws the mod's own score display.
 */
 
 /*
