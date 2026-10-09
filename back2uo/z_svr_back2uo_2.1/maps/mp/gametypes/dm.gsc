@@ -383,7 +383,7 @@ Callback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sW
 		// damage from other players is ignored and the attacker gets a warning.
 		if(isdefined(eAttacker) && isdefined(self.back2uo_antiplay_sp_run) && isPlayer(eAttacker) && eAttacker != self && self.back2uo_antiplay_sp_run)
 		{
-			eAttacker thread back2uo\_back2uo_messages::back2uo_spawn_attacking();
+			eAttacker thread back2uo\messages\_back2uo_spawnattacking::back2uo_spawn_attacking();
 
 			return;
 		}

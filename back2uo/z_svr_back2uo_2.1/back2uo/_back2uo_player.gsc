@@ -56,7 +56,7 @@ back2uo_start_gametype()
 
 	thread back2uo\antiplay\_back2uo_afk::back2uo_switchspec();
 
-	thread back2uo\_back2uo_messages::back2uo_clan_messages_draw();
+	thread back2uo\messages\_back2uo_clan::back2uo_clan_messages_draw();
 
 	// Limit the number of snipers and shotguns per team.
 	thread back2uo\_back2uo_weaponsystem::back2uo_snipershotgun_limiter();
@@ -222,7 +222,7 @@ back2uo_player_spawn()
 	// SD only: weather above the player until the main weather loop takes over.
 	thread back2uo\weatherfx\_back2uo_weather::back2uo_weather_startup();
 
-	thread back2uo\_back2uo_messages::back2uo_wellc_messages_draw();
+	thread back2uo\messages\_back2uo_welcome::back2uo_wellc_messages_draw();
 
 	thread back2uo\antiplay\_back2uo_spawnprotection::back2uo_antiplay_spawn_start();
 

@@ -455,14 +455,14 @@ back2uo_getmaprotation_control()
 
 		thread back2uo_randommap_rotation(x);
 
-		thread back2uo\_back2uo_messages::back2uo_nextmap_messages_draw(x);
+		thread back2uo\messages\_back2uo_nextmap::back2uo_nextmap_messages_draw(x);
 	}
 	else
 	{
 		// Only the next entry of the running rotation is needed.
 		x = back2uo_getmaprotation(false, true, 1);
 
-		thread back2uo\_back2uo_messages::back2uo_nextmap_messages_draw(x);
+		thread back2uo\messages\_back2uo_nextmap::back2uo_nextmap_messages_draw(x);
 	}
 }
 
