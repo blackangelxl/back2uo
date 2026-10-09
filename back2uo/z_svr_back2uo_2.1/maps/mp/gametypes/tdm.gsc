@@ -94,6 +94,7 @@ Called on: level
 */
 Callback_StartGameType()
 {
+	precacheStatusIcon("hud_status_connecting");
 	level.splitscreen = isSplitScreen();
 
 	// defaults if not defined in level script
@@ -109,7 +110,6 @@ Callback_StartGameType()
 		game["axis"] = getCvar("scr_axis");
 
 	precacheStatusIcon("hud_status_dead");
-	precacheStatusIcon("hud_status_connecting");
 	precacheRumble("damage_heavy");
 	precacheString(&"PLATFORM_PRESS_TO_SPAWN");
 

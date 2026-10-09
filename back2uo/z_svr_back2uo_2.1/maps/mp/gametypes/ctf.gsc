@@ -103,6 +103,7 @@ Called on: level
 */
 Callback_StartGameType()
 {
+	precacheStatusIcon("hud_status_connecting");
 	level.splitscreen = isSplitScreen();
 
 	// defaults if not defined in level script
@@ -130,7 +131,6 @@ Callback_StartGameType()
 	level.hudflagflash_axis = "hud_flagflash_" + game["axis"];
 
 	precacheStatusIcon("hud_status_dead");
-	precacheStatusIcon("hud_status_connecting");
 	precacheStatusIcon(level.hudflag_allies);
 	precacheStatusIcon(level.hudflag_axis);
 	precacheRumble("damage_heavy");

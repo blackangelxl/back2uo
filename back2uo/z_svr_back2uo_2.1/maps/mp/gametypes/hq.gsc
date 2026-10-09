@@ -108,6 +108,7 @@ Called on: level
 */
 Callback_StartGameType()
 {
+	precacheStatusIcon("hud_status_connecting");
 	level.splitscreen = isSplitScreen();
 
 	// defaults if not defined in level script
@@ -154,7 +155,6 @@ Callback_StartGameType()
 	precacheShader(game["radio_allies"]);
 	precacheShader(game["radio_axis"]);
 	precacheStatusIcon("hud_status_dead");
-	precacheStatusIcon("hud_status_connecting");
 	precacheRumble("damage_heavy");
 	precacheModel(game["radio_model"]);
 	precacheString(&"MP_TIME_TILL_SPAWN");

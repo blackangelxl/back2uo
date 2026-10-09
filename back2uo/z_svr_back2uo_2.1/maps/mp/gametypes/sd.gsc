@@ -137,6 +137,7 @@ places spawnpoints, reads the scr_sd_* cvars and starts the round and bombzone l
 */
 Callback_StartGameType()
 {
+	precacheStatusIcon("hud_status_connecting");
 	level.splitscreen = isSplitScreen();
 
 	// if this is a fresh map start, set nationalities based on cvars, otherwise leave game variable nationalities as set in the level script
@@ -159,7 +160,6 @@ Callback_StartGameType()
 			game["axis"] = getCvar("scr_axis");
 
 		precacheStatusIcon("hud_status_dead");
-		precacheStatusIcon("hud_status_connecting");
 		precacheRumble("damage_heavy");
 		precacheShader("white");
 		precacheShader("plantbomb");
