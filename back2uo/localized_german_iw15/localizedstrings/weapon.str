@@ -19,7 +19,7 @@ LANG_GERMAN         ".30kal"
 
 REFERENCE           SUPPORTGUNNER
 LANG_ENGLISH        "Support Gunner"
-LANG_GERMAN         "Hilfsschütze"
+LANG_GERMAN         "Hilfssch?tze"
 
 REFERENCE           BAR
 LANG_ENGLISH        "BAR"
@@ -35,7 +35,7 @@ LANG_GERMAN         "#same"
 
 REFERENCE           RIFLEMAN
 LANG_ENGLISH        "Rifleman"
-LANG_GERMAN         "Schütze"
+LANG_GERMAN         "Sch?tze"
 
 REFERENCE           LEEENFIELD
 LANG_ENGLISH        "Lee-Enfield"
@@ -71,11 +71,11 @@ LANG_GERMAN         "Zielfernrohr-Mosin-Nagant"
 
 REFERENCE           SNIPER
 LANG_ENGLISH        "Sniper"
-LANG_GERMAN         "Scharfschütze"
+LANG_GERMAN         "Scharfsch?tze"
 
 REFERENCE           SUBMACHINEGUNNER
 LANG_ENGLISH        "Submachine Gunner"
-LANG_GERMAN         "MP-Schütze"
+LANG_GERMAN         "MP-Sch?tze"
 
 REFERENCE           MP40
 LANG_ENGLISH        "MP40"
@@ -167,7 +167,7 @@ LANG_GERMAN         "Stift ziehen"
 
 REFERENCE           MEDICPLACEHOLDER
 LANG_ENGLISH        "Medic"
-LANG_GERMAN         "Sanitäter"
+LANG_GERMAN         "Sanit?ter"
 
 REFERENCE           FRAGGRENADE
 LANG_ENGLISH        "Frag"
@@ -247,11 +247,11 @@ LANG_GERMAN         "Keine Munition"
 
 REFERENCE           NO_FRAG_GRENADE
 LANG_ENGLISH        "No Frag Grenades Remaining"
-LANG_GERMAN         "Keine Splittergranaten übrig."
+LANG_GERMAN         "Keine Splittergranaten ?brig."
 
 REFERENCE           NO_SMOKE_GRENADE
 LANG_ENGLISH        "No Smoke Grenades Remaining"
-LANG_GERMAN         "Keine Rauchgranaten übrig."
+LANG_GERMAN         "Keine Rauchgranaten ?brig."
 
 
 ENDMARKER

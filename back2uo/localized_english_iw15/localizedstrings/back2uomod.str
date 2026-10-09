@@ -145,17 +145,17 @@ LANG_ENGLISH		"right Foot"
 // Ranking //
 ////////////
 
-REFERENCE     RANKING_UP
-LANG_ENGLISH  "^7You receive a new Rank!"
+REFERENCE           RANKING_UP
+LANG_ENGLISH        "^7You receive a new Rank!"
 
-REFERENCE     RANKING_DOWN
-LANG_ENGLISH  "^7You lost a Rank!"
+REFERENCE           RANKING_DOWN
+LANG_ENGLISH        "^7You lost a Rank!"
 
-REFERENCE     RANKING_MUN
-LANG_ENGLISH  "^7You receive more Ammo!"
+REFERENCE           RANKING_MUN
+LANG_ENGLISH        "^7You receive more Ammo!"
 
-REFERENCE     RANKING_GRA
-LANG_ENGLISH  "^7You receive more Granades!"
+REFERENCE           RANKING_GRA
+LANG_ENGLISH        "^7You receive more Granades!"
 
 
 ///////////////////
@@ -241,7 +241,7 @@ REFERENCE			VALUE_DRAW
 LANG_ENGLISH		"Value: "
 
 REFERENCE			MOD_CREDITS
-LANG_ENGLISH		"^4Back^12^4Uo ^1Mod ^7v.2.1 ^3Public Beta"
+LANG_ENGLISH		"^4Back^12^4Uo ^1Mod ^7v.2.1 ^3Rebuild"
 
 //////////////////
 //-Sprint Tast-//

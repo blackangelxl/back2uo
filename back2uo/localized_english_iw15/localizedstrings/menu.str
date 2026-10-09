@@ -1964,7 +1964,7 @@ REFERENCE           CROSSHAIR_COLOR
 LANG_ENGLISH        "Crosshair Color"
 
 REFERENCE           FORCE_DX7_MODE
-LANG_ENGLISH        "Force DirectX® 7 Mode"
+LANG_ENGLISH        "Force DirectX? 7 Mode"
 
 REFERENCE           AUTOMATIC
 LANG_ENGLISH        "Automatic"
@@ -2102,7 +2102,7 @@ REFERENCE           TM
 LANG_ENGLISH        "TM"
 
 REFERENCE           R_CIRCLE
-LANG_ENGLISH        "®"
+LANG_ENGLISH        "?"
 
 REFERENCE           PLAYER_SELECT
 LANG_ENGLISH        "Player Select"
@@ -2282,10 +2282,10 @@ REFERENCE           RENDERING_METHOD_PREFERENCE
 LANG_ENGLISH        "Rendering Method Preference"
 
 REFERENCE           DIRECTX_7
-LANG_ENGLISH        "DirectX® 7"
+LANG_ENGLISH        "DirectX? 7"
 
 REFERENCE           DIRECTX_9
-LANG_ENGLISH        "DirectX® 9"
+LANG_ENGLISH        "DirectX? 9"
 
 REFERENCE           GRAPHICS_WARNING
 LANG_ENGLISH        "We recommend using "Optimal System Settings."  Manually changing settings could result in poor performance."
@@ -2297,7 +2297,7 @@ REFERENCE           DESCRIPTION_PLAYERMATCH
 LANG_ENGLISH        "Play for fun with people who share similar profiles."
 
 REFERENCE           DESCRIPTION_RANKEDMATCH
-LANG_ENGLISH        "Play competitive matches to improve your TrueSkill™ rankings."
+LANG_ENGLISH        "Play competitive matches to improve your TrueSkill? rankings."
 
 REFERENCE           DESCRIPTION_QUICKMATCH
 LANG_ENGLISH        "Get into a game quickly. Game settings are chosen randomly."
