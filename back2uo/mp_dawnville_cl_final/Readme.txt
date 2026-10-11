@@ -7,7 +7,7 @@ Game:      		Call of Duty 2
 Gametypes: 		DM, TDM, SD, HQ, CTF
 Max. Player:    	2-64 Gamer
 Construction Time:      5-6 Months
-Rotation Name:          mp_dawnville_classic
+Rotation Name:          mp_dawnville_cl_final 
 Extra:                  Support for Mods
 
 
@@ -21,11 +21,11 @@ Coding & Ideas:         [LE|Style]Wulf
 Map Installation
 ----------------
 
-Copy or Extract the Map-File "mp_dawnville_classic.iwd" 
+Copy or Extract the Map-File "mp_dawnville_cl_final.iwd" 
 into your "/Call of Duty2/Main/" Folder.
 
 
-Kopiere oder Extrahiere die Map-Datei "mp_dawnville_classic.iwd" 
+Kopiere oder Extrahiere die Map-Datei "mp_dawnville_cl_final.iwd" 
 in deinen "/Call of Duty2/Main/" Ordner.  
 
 
