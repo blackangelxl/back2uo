@@ -338,7 +338,7 @@ back2uo_main()
 	level.back2uo_effect["plane_smoke"] = loadfx("fx/fire/fire_airplane_trail.efx");
 	level.back2uo_effect["plane_explosion"] = loadfx("fx/explosions/matmata_plane_explosion.efx");
 
-	// Airplane FX allowed; set to 0 by _back2uo_tools::back2uo_mapdimension() on maps too small
+	// Airplane FX allowed; set to 0 by tools\_back2uo_dimension::back2uo_mapdimension() on maps too small
 	level.back2uo_airplanedimo_allow = 1;
 
 	// --- Flak effects ---
@@ -707,7 +707,7 @@ back2uo_precached()
 	PrecacheModel("xmodel/vehicle_stuka_flying");
 	PrecacheModel("xmodel/vehicle_spitfire_flying");
 
-	// Model spawned by _back2uo_tools::back2uo_mapdimension() (map dimension check)
+	// Model spawned by tools\_back2uo_dimension::back2uo_mapdimension() (map dimension check)
 	PrecacheModel("xmodel/tree_destroyed_snow_fallen_log_a");
 
 	// --- Mortar shell model ---

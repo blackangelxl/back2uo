@@ -698,7 +698,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			// Back2Uo: deduct level.back2uo_selfkill_mpoints from the player's score for a suicide.
 			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams))
 			{
-				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
+				attacker back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
 
 			// Suicide from a team switch: take a point back if the switch makes the teams uneven by more than one.
@@ -728,7 +728,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			{
 				if(self.pers["team"] == attacker.pers["team"])
 				{
-					attacker thread back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
+					attacker thread back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
 				}
 				else
 				{

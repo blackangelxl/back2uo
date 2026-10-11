@@ -44,7 +44,7 @@ back2uo_airplanefx_play
 Starts one squadron fly-over across the map center at map ceiling height, in one of the
 directions 0, 90 or 180 degrees, plus a matching flak barrage. Plane count is
 level.back2uo_airplanes_count, or 3-5 if that is 0. Skipped on maps that are too small
-(level.back2uo_airplanedimo_allow == 0, set in _back2uo_tools.gsc).
+(level.back2uo_airplanedimo_allow == 0, set in tools\_back2uo_dimension.gsc).
 Called on: level
 =============
 */
@@ -86,7 +86,7 @@ back2uo_airplanefx_play()
 		airplane_wait[i] = airplane_opt[1];
 
 		// Start/end points on the map edges along the heading, shifted by the formation offset.
-		airplane_vectorpos = back2uo\_back2uo_tools::back2uo_airplane_vectorpos((map_x, map_y, map_z), airplane_angles, airplane_extra[i]);
+		airplane_vectorpos = back2uo\tools\_back2uo_vectors::back2uo_airplane_vectorpos((map_x, map_y, map_z), airplane_angles, airplane_extra[i]);
 		airplane_startpoint[i] = airplane_vectorpos[0];
 		airplane_endpoint[i] = airplane_vectorpos[1];
 
@@ -431,7 +431,7 @@ back2uo_airplane_rotate(rottime)
 back2uo_airplane_flytime
 
 Computes how long a plane needs between two points. Also used by
-_back2uo_tools.gsc to decide whether the map is large enough for airplanes.
+tools\_back2uo_dimension.gsc to decide whether the map is large enough for airplanes.
 Params: airplane_speed - speed in units per second (before the /4 scaling)
 		airplane_startpoint, airplane_endpoint - flight path
 Returns: flight time in seconds ((distance / speed) / 4), at least 0.1

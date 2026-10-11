@@ -325,7 +325,7 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 
 		if(granadeend_count <= level.back2uo_granaten_allow)
 		{
-			granadetype = self back2uo\_back2uo_tools::back2uo_getgranade_type("granade");
+			granadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("granade");
 
 			// granadeend_count also counts picked-up enemy grenades, so only add to the own type
 			owncount = self getammocount(granadetype);
@@ -349,7 +349,7 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 
 		if(smokeend_count <= level.back2uo_smoke_allow)
 		{
-			smokegrenadetype = self back2uo\_back2uo_tools::back2uo_getgranade_type("smoke");
+			smokegrenadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("smoke");
 
 			// Same as for frags: only add to the own smoke type
 			owncount = self getammocount(smokegrenadetype);

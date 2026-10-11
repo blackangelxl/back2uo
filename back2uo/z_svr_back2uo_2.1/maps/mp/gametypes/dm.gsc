@@ -503,7 +503,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			// Back2Uo: suicide costs mod player points (cvar back2uo_mpoints_suicide).
 			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams))
 			{
-				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
+				attacker back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
 
 			if(!isdefined(self.switching_teams))

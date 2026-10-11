@@ -29,12 +29,12 @@ back2uo_start_gametype()
 	back2uo\_back2uo_weaponsystem::back2uo_weapon_optimizer();
 
 	// Bounding boxes of the map and of the player spawn area; must run before the FX below.
-	back2uo\_back2uo_tools::back2uo_playerdimension();
-	back2uo\_back2uo_tools::back2uo_mapdimension();
+	back2uo\tools\_back2uo_dimension::back2uo_playerdimension();
+	back2uo\tools\_back2uo_dimension::back2uo_mapdimension();
 
 	thread back2uo\_back2uo_weaponsystem::back2uo_turret_inradius();
 
-	back2uo\_back2uo_tools::back2uo_getmaprotation_control();
+	back2uo\tools\_back2uo_maprotation::back2uo_getmaprotation_control();
 
 	// Random triggers for mortars, tracers and airplanes.
 	back2uo\warfx\_back2uo_warfx::back2uo_warfx_random();

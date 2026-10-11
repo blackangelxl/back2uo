@@ -18,7 +18,7 @@ Line numbers are approximate. Paths are relative to `back2uo/z_svr_back2uo_2.1/`
 | `back2uo/_back2uo_warfx.gsc` ~341, ~950, ~1508 | `randomint(1)` is always 0. One plane roll direction never happens, and the delay is always 0.5. |
 | `back2uo/_back2uo_hudfx.gsc` ~1797 | `x = thread func()` returns nothing. The once-per-rank artillery guard does not work. |
 | `back2uo/_back2uo_hudfx.gsc` ~1707 | Rank ammo reward: the counter always increments, clip ammo is added to the reserve, and the "binocular" reward calls `takeWeapon`. |
-| `back2uo/_back2uo_tools.gsc` ~1070 | `back2uo_playerpoints_system("bomb_defense")` has no matching case. The bomb-defense bonus is always 0. |
+| `back2uo/tools/_back2uo_points.gsc` ~31 | `back2uo_playerpoints_system("bomb_defense")` has no matching case. The bomb-defense bonus is always 0. |
 | `back2uo/_back2uo_sounds.gsc` | `taunt_person` is `randomint(3)` (0..2), but the alias builder expects 1..4. Person 0 plays `""`, variant 4 never plays. |
 | `back2uo/_back2uo_main.gsc` | `back2uo_sprint_length` is read as `"int"`, so 2.5 becomes 2. `ui_hudbombpoints` depends on a value that is set only later, on player connect. |
 | `back2uo/_back2uo_antiplay.gsc` ~375-460 | `back2uo_switchspec` runs on `level`, so `self notify("joined_spectators")` and the spectator message target the level, not the player. |

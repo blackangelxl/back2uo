@@ -771,7 +771,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			// Back2Uo: subtract the suicide penalty (back2uo_mpoints_suicide) from the player's score
 			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams))
 			{
-				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
+				attacker back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
 
 			// switching teams: a suicide caused by a team switch costs a point only if it
@@ -806,7 +806,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			{
 				if(self.pers["team"] == attacker.pers["team"])
 				{
-					attacker thread back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
+					attacker thread back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
 				}
 				else
 				{
@@ -1410,7 +1410,7 @@ endRound(roundwinner)
 		// Back2Uo: give back2uo_points_alive to every living allied player
 		if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"])
 		{
-			thread back2uo\_back2uo_tools::back2uo_givepoints_toplayer("allies", level.back2uo_playeralive);
+			thread back2uo\tools\_back2uo_points::back2uo_givepoints_toplayer("allies", level.back2uo_playeralive);
 		}
 
 		game["alliedscore"]++;
@@ -1433,7 +1433,7 @@ endRound(roundwinner)
 		// Back2Uo: give back2uo_points_alive to every living axis player
 		if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"])
 		{
-			thread back2uo\_back2uo_tools::back2uo_givepoints_toplayer("axis", level.back2uo_playeralive);
+			thread back2uo\tools\_back2uo_points::back2uo_givepoints_toplayer("axis", level.back2uo_playeralive);
 		}
 
 		game["axisscore"]++;
@@ -2258,7 +2258,7 @@ bombzone_think(bombzone_other)
 					logPrint("A;" + lpselfguid + ";" + lpselfnum + ";" + other.pers["team"] + ";" + other.name + ";" + "bomb_plant" + "\n");
 
 					// Back2Uo: ranking points for the planter (checks the mod/points enable cvars itself)
-					other back2uo\_back2uo_tools::back2uo_playerpoints_system("bomb_planted");
+					other back2uo\tools\_back2uo_points::back2uo_playerpoints_system("bomb_planted");
 
 					iprintln(&"MP_EXPLOSIVESPLANTED");
 					level thread soundPlanted(other);
@@ -2481,7 +2481,7 @@ bomb_think()
 					level thread playSoundOnPlayers("MP_announcer_bomb_defused");
 
 					// Back2Uo: ranking points for the defuser (checks the mod/points enable cvars itself)
-					other back2uo\_back2uo_tools::back2uo_playerpoints_system("bomb_defused");
+					other back2uo\tools\_back2uo_points::back2uo_playerpoints_system("bomb_defused");
 
 					lpselfnum = other getEntityNumber();
 					lpselfguid = other getGuid();
