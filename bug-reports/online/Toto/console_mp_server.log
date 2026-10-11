@@ -1,0 +1,2389 @@
+logfile opened on Sat Jun 23 23:35:56 2007
+
+      dvar set g_logSync 1
+      dvar set g_log games_mp.log
+      dvar set sv_allowDownload 1
+      dvar set sv_allowDownload 1
+      dvar set sv_dl_maxRate 84000
+      dvar set sv_wwwDownload 1
+      dvar set sv_wwwDlDisconnected 1
+      dvar set sv_wwwBaseURL http://www.codcfn.com/cod2
+      dvar set scr_allow_springfield 1
+      dvar set scr_allow_svt40 1
+      dvar set scr_allow_kar98ksniper 1
+      dvar set scr_allow_nagantsniper 1
+      dvar set scr_allow_enfieldsniper 1
+      dvar set scr_allow_enfield 1
+      dvar set scr_allow_kar98k 1
+      dvar set scr_allow_m1carbine 1
+      dvar set scr_allow_m1garand 1
+      dvar set scr_allow_g43 1
+      dvar set scr_allow_nagant 1
+      dvar set scr_allow_bar 1
+      dvar set scr_allow_bren 1
+      dvar set scr_allow_mp44 1
+      dvar set scr_allow_ppsh 1
+      dvar set scr_allow_mp40 1
+      dvar set scr_allow_sten 1
+      dvar set scr_allow_thompson 1
+      dvar set scr_allow_pps42 
+      dvar set scr_allow_greasegun 
+      dvar set scr_allow_shotgun 1
+      dvar set scr_allow_smokegrenades 0
+      dvar set scr_allow_fraggrenades 1
+      dvar set scr_dm_scorelimit 50
+      dvar set scr_dm_timelimit 20
+      dvar set scr_tdm_scorelimit 100
+      dvar set scr_tdm_timelimit 20
+      dvar set scr_sd_graceperiod 15
+      dvar set scr_sd_roundlength 4
+      dvar set scr_sd_roundlimit 7
+      dvar set scr_sd_scorelimit 7
+      dvar set scr_sd_timelimit 20
+      dvar set scr_sd_bombtimer 60
+      dvar set scr_ctf_scorelimit 7
+      dvar set scr_ctf_timelimit 20
+      dvar set scr_hq_scorelimit 500
+      dvar set scr_hq_timelimit 20
+      dvar set g_gametype tdm
+g_gametype will be changed upon restarting.
+execing back2uomod.cfg
+execing maprotation.cfg
+      dvar set sv_mapRotation map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:""
+
+      dvar set sv_mapRotationCurrent map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_toujane.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_toujane
+------ Server Initialization ------
+Server: mp_toujane
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 86289088
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 16
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_useholdspawndelay 1
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set ui_killcam 1
+      dvar set ui_skullicons 0
+      dvar set ui_friendicons 1
+      dvar set ui_grenadesinde 0
+      dvar set ui_allow_onlyautoteam 0
+      dvar set ui_allowvotekick 0
+      dvar set ui_allowvotetypemap 1
+      dvar set ui_allowvotemap 1
+      dvar set ui_allowvotemaprotate 1
+      dvar set ui_allowvotemaprestart 0
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set g_allowVote 1
+      dvar set scr_friendlyfire 1
+      dvar set scr_allow_greasegun 1
+      dvar set scr_allow_pps42 1
+      dvar set g_TeamName_Allies MPUI_BRITISH
+      dvar set g_TeamColor_Allies 0.25098 0.25098 0.74902 0
+      dvar set g_ScoresBanner_Allies mpflag_british
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+=============================== DVAR DUMP ========================================
+
+527 total dvars
+527 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_cheats 0
+      dvar set ttycon 0
+PunkBuster Server: pb_sv_SsNext = 2 (0 to 999999)
+PunkBuster Server: pb_sv_LogNext = 82 (1 to 999999)
+PunkBuster Server: 0 Power Players loaded from /home/games/clan/cod2/20000/.callofduty2/pb/pbpower.dat
+PunkBuster Server: 0 PB Rcon Filters loaded from /home/games/clan/cod2/20000/.callofduty2/pb/pbrcon.dat
+PunkBuster Server: 0 Map lines loaded from /home/games/clan/cod2/20000/.callofduty2/pb/pbsvmaps.cfg
+PunkBuster Server: Attempting to resolve master3.evenbalance.com
+PunkBuster Server: Resolved to [216.240.146.139]
+PunkBuster Server: PunkBuster Server (v1.276 | A1383 C1.520) Enabled
+Resolving cod2master.activision.com
+cod2master.activision.com resolved to 63.146.124.40:20710
+Hitch warning: 8650 msec frame time
+Sending heartbeat to cod2master.activision.com
+PunkBuster Server: Game Version [CoD2 MP 1.3 build pc_1.3_1_1 Mon May 01 2006 05:05:43PM linux-i386]
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_g43sniper 1
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Rcon from 84.191.49.91:-1702:
+dir
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_carentan.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_carentan
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_carentan
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 101425536
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 32
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 .25
+      dvar set r_glowbloomintensity1 .25
+      dvar set r_glowskybleedintensity0 .3
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_AMERICAN
+      dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_american
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5370 msec frame time
+Sending heartbeat to cod2master.activision.com
+Rcon from 84.191.49.91:-1702:
+dir
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_matmata.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_matmata
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_matmata
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 96036128
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 48
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .25
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_BRITISH
+      dvar set g_TeamColor_Allies 0.25098 0.25098 0.74902 0
+      dvar set g_ScoresBanner_Allies mpflag_british
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5916 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Resolving cod2master.activision.com
+cod2master.activision.com resolved to 63.146.124.40:20700
+Client 0 connecting with 50 challenge ping from 89.61.78.29:-851
+Connecting player #0 has a zero GUID
+Going from CS_FREE to CS_CONNECTED for  (num 0 guid 0)
+Sending heartbeat to cod2master.activision.com
+Redirecting client '^1[^9ASF^1]^9 ^1W^9eed^1W^9olle' to http://www.codcfn.com/cod2/elite_back2uo/z_back2uo_2.1_client.iwd
+0:^1[^9ASF^1]^9 ^1W^9eed^1W^9olle PC_PATCH_1_1_DOWNLOADDISCONNECTED
+Sending heartbeat to cod2master.activision.com
+Client 1 connecting with 50 challenge ping from 89.61.78.29:-851
+Connecting player #0 has a zero GUID
+Going from CS_FREE to CS_CONNECTED for  (num 0 guid 0)
+Sending heartbeat to cod2master.activision.com
+Redirecting client '^1[^9ASF^1]^9 ^1W^9eed^1W^9olle' to http://www.codcfn.com/cod2/elite_back2uo/localized_german_iw15.iwd
+0:^1[^9ASF^1]^9 ^1W^9eed^1W^9olle PC_PATCH_1_1_DOWNLOADDISCONNECTED
+Sending heartbeat to cod2master.activision.com
+Client 2 connecting with 50 challenge ping from 89.61.78.29:-851
+Going from CS_FREE to CS_CONNECTED for  (num 0 guid 1026167)
+Sending heartbeat to cod2master.activision.com
+Redirecting client '^1[^9ASF^1]^9 ^1W^9eed^1W^9olle' to http://www.codcfn.com/cod2/elite_back2uo/localized_english_iw15.iwd
+0:^1[^9ASF^1]^9 ^1W^9eed^1W^9olle PC_PATCH_1_1_DOWNLOADDISCONNECTED
+Sending heartbeat to cod2master.activision.com
+Client 3 connecting with 50 challenge ping from 89.61.78.29:-851
+Going from CS_FREE to CS_CONNECTED for  (num 0 guid 1026167)
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+0:^1[^9ASF^1]^9 ^1W^9eed^1W^9olle EXE_TIMEDOUT
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_harbor.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_harbor
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_harbor
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 93294656
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 64
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .5
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_RUSSIAN
+      dvar set g_TeamColor_Allies 0.74902 0.25098 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_russian
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5562 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_burgundy.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_burgundy
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_burgundy
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 89647904
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 80
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .25
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_AMERICAN
+      dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_american
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 4728 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_dawnville.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_dawnville
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_dawnville
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 96751648
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 96
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .5
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_AMERICAN
+      dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_american
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5089 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_decoy.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_decoy
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_decoy
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 77851392
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 112
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 0
+      dvar set r_glowbloomintensity1 0
+      dvar set r_glowskybleedintensity0 0
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_BRITISH
+      dvar set g_TeamColor_Allies 0.25098 0.25098 0.74902 0
+      dvar set g_ScoresBanner_Allies mpflag_british
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 3728 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_downtown.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_downtown
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_downtown
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 91202816
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 128
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .5
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_RUSSIAN
+      dvar set g_TeamColor_Allies 0.74902 0.25098 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_russian
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5897 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_farmhouse.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_farmhouse
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_farmhouse
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 94851552
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 144
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .25
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_AMERICAN
+      dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_american
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5129 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_leningrad map mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_railyard map mp_trainstation map mp_rhine
+Setting map: mp_leningrad.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_leningrad
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_leningrad
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 92989760
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 160
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .5
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_RUSSIAN
+      dvar set g_TeamColor_Allies 0.74902 0.25098 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_russian
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 6218 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_railyard map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_railyard map mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_trainstation map mp_rhine
+Setting map: mp_railyard.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_railyard
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_railyard
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 94698752
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 176
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .5
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_RUSSIAN
+      dvar set g_TeamColor_Allies 0.74902 0.25098 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_russian
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5971 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_trainstation map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_trainstation map mp_rhine
+      dvar set sv_mapRotationCurrent  map mp_rhine
+Setting map: mp_trainstation.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_trainstation
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_trainstation
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 100665376
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 192
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dvar set player_breath_fire_delay 0
+      dvar set player_breath_gasp_scale 4.5
+      dvar set player_breath_hold_lerp 4
+      dvar set player_breath_gasp_lerp 6
+      dvar set player_breath_snd_lerp 2
+      dvar set player_breath_snd_delay 1
+      dvar set player_scopeExitOnDamage 0
+      dvar set player_adsExitDelay 0
+      dvar set player_moveThreshhold 10
+      dvar set player_footstepsThreshhold 0
+      dvar set player_strafeSpeedScale 0.8
+      dvar set player_backSpeedScale 0.7
+      dvar set player_spectateSpeedScale 2
+      dvar set player_turnAnims 0
+      dvar set player_dmgtimer_timePerPoint 100
+      dvar set player_dmgtimer_maxTime 750
+      dvar set player_dmgtimer_minScale 0
+      dvar set player_dmgtimer_stumbleTime 500
+      dvar set player_dmgtimer_flinchTime 500
+      dvar set jump_height 39
+      dvar set jump_stepSize 18
+      dvar set jump_slowdownEnable 1
+      dvar set jump_ladderPushVel 128
+      dvar set jump_spreadAdd 64
+      dvar set mantle_enable 1
+      dvar set mantle_debug 0
+      dvar set mantle_check_range 20
+      dvar set mantle_check_radius 0.1
+      dvar set mantle_check_angle 60
+      dvar set mantle_view_yawcap 60
+      dvar set g_gravity 800
+-----------------------------------
+      dvar set bg_fallDamageMinHeight 225
+      dvar set bg_fallDamageMaxHeight 355
+      dvar set r_glowbloomintensity0 1
+      dvar set r_glowbloomintensity1 1
+      dvar set r_glowskybleedintensity0 .5
+      dvar set sv_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set ui_hostname ^7=]El^2!^7te[= ^1Mod ^2Server-^1[COD2] ^7(^4Back^12^4Uo ^1Mod v2.1^7)
+      dvar set scr_motd 
+      dvar set ui_motd 
+      dvar set g_allowVote 1
+      dvar set ui_allowvote 1
+      dvar set scr_friendlyfire 1
+      dvar set ui_friendlyfire 1
+      dvar set g_TeamName_Allies MPUI_AMERICAN
+      dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+      dvar set g_ScoresBanner_Allies mpflag_american
+      dvar set g_TeamName_Axis MPUI_GERMAN
+      dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+      dvar set g_ScoresBanner_Axis mpflag_german
+      dvar set scr_killcam 1
+      dvar set ui_tdm_timelimit 20
+      dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+
+531 total dvars
+531 dvar indexes
+=============================== END DVAR DUMP =====================================
+      dvar set sv_iwds -1939885197 -1001143521 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+      dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+      dvar set sv_referencedIwds -1939885197 -1001143521 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 1635359989 
+      dvar set sv_referencedIwdNames elite_back2uo/z_svr_back2uo_2.1 elite_back2uo/z_back2uo_2.1_client main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 elite_back2uo/localized_german_iw15 elite_back2uo/localized_english_iw15
+-----------------------------------
+      dvar set sv_punkbuster 1
+      dvar set sv_cheats 0
+Hitch warning: 5201 msec frame time
+Sending heartbeat to cod2master.activision.com
+      dvar set scr_allow_colt 1
+      dvar set scr_allow_webley 1
+      dvar set scr_allow_luger 1
+      dvar set scr_allow_TT30 1
+      dvar set scr_allow_shotgun_axis 1
+      dvar set scr_allow_shotgun_allies 1
+      dvar set scr_allow_panzerschreck 0
+      dvar set scr_allow_g43sniper 1
+      dvar set scr_allow_binocular 1
+      dvar set g_switchspec 
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+Sending heartbeat to cod2master.activision.com
+map_rotate...
+
+"sv_mapRotation" is:"map mp_toujane map mp_carentan map mp_matmata map mp_harbor map mp_burgundy map mp_dawnville map mp_decoy map mp_downtown map mp_farmhouse map mp_leningrad map mp_railyard map mp_trainstation map mp_rhine"
+
+"sv_mapRotationCurrent" is:" map mp_rhine"
+
+      dvar set sv_mapRotationCurrent  mp_rhine
+      dvar set sv_mapRotationCurrent 
+Setting map: mp_rhine.
+      dvar set g_gametype tdm
+      dvar set g_gametype tdm
+      dvar set mapname mp_rhine
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_rhine
+Current language: english
+Current search path:
+/home/games/clan/cod2/20000/.callofduty2/elite_back2uo
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_svr_back2uo_2.1.iwd (59 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo/z_back2uo_2.1_client.iwd (258 files)
+/home/games/clan/cod2/20000/cod2/elite_back2uo
+/home/games/clan/cod2/20000/.callofduty2/main
+/home/games/clan/cod2/20000/cod2/main/iw_15.iwd (85 files)
+/home/games/clan/cod2/20000/cod2/main/iw_14.iwd (4038 files)
+/home/games/clan/cod2/20000/cod2/main/iw_13.iwd (22624 files)
+/home/games/clan/cod2/20000/cod2/main/iw_12.iwd (1016 files)
+/home/games/clan/cod2/20000/cod2/main/iw_11.iwd (1462 files)
+/home/games/clan/cod2/20000/cod2/main/iw_10.iwd (1936 files)
+/home/games/clan/cod2/20000/cod2/main/iw_09.iwd (2142 files)
+/home/games/clan/cod2/20000/cod2/main/iw_08.iwd (2723 files)
+/home/games/clan/cod2/20000/cod2/main/iw_07.iwd (3384 files)
+/home/games/clan/cod2/20000/cod2/main/iw_06.iwd (990 files)
+/home/games/clan/cod2/20000/cod2/main/iw_05.iwd (928 files)
+/home/games/clan/cod2/20000/cod2/main/iw_04.iwd (698 files)
+/home/games/clan/cod2/20000/cod2/main/iw_03.iwd (26 files)
+/home/games/clan/cod2/20000/cod2/main/iw_02.iwd (40 files)
+/home/games/clan/cod2/20000/cod2/main/iw_01.iwd (16 files)
+/home/games/clan/cod2/20000/cod2/main/iw_00.iwd (102 files)
+/home/games/clan/cod2/20000/cod2/main
+/home/games/clan/cod2/20000/.callofduty2/raw
+/home/games/clan/cod2/20000/.callofduty2/raw_shared
+/home/games/clan/cod2/20000/.callofduty2/devraw
+/home/games/clan/cod2/20000/.callofduty2/devraw_shared
+/home/games/clan/cod2/20000/cod2/raw
+/home/games/clan/cod2/20000/cod2/raw_shared
+/home/games/clan/cod2/20000/cod2/devraw
+/home/games/clan/cod2/20000/cod2/devraw_shared
+/home/games/clan/cod2/20000/cod2/elite_back2uo/localized_english_iw15.iwd (31 files)
+    localized assets iwd file for english
+/home/games/clan/cod2/20000/cod2/main/localized_english_iw11.iwd (1 files)
+    localized assets iwd file for english
+
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+80940 files in iwd files
+      dvar set loc_language 0
+      dvar set loc_forceEnglish 0
+      dvar set com_expectedHunkUsage 113309568
+      dvar set nextmap map_restart
+      dvar set cl_paused 0
+      dvar set sv_serverid 208
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+      dvar set g_gametype tdm
+      dvar set sv_maxclients 24
+      dvar set dedicated 2
+      dvar set dedicated 2
+      dvar set g_debugDamage 0
+      dvar set g_debugBullets 0
+      dvar set g_debugLocDamage 0
+      dvar set g_friendlyfireDist 256
+      dvar set g_friendlyNameDist 15000
+      dvar set player_meleeRange 64
+      dvar set player_meleeWidth 10
+      dvar set player_meleeHeight 10
+      dvar set g_dumpAnims -1
+      dvar set g_useholdspawndelay 1
+      dvar set g_mantleBlockTimeBuffer 500
+      dvar set player_view_pitch_up 85
+      dvar set player_view_pitch_down 85
+      dvar set bg_ladder_yawcap 100
+      dvar set bg_prone_yawcap 85
+      dvar set bg_foliagesnd_minspeed 40
+      dvar set bg_foliagesnd_maxspeed 180
+      dvar set bg_foliagesnd_slowinterval 1500
+      dvar set bg_foliagesnd_fastinterval 500
+      dvar set bg_foliagesnd_resetinterval 500
+      dvar set bg_fallDamageMinHeight 256
+      dvar set bg_fallDamageMaxHeight 480
+      dvar set inertiaMax 50
+      dvar set inertiaDebug 0
+      dvar set inertiaAngle 0
+      dvar set friction 5.5
+      dvar set stopspeed 100
+      dvar set bg_swingSpeed 0.2
+      dvar set bg_bobAmplitudeStanding 0.007
+      dvar set bg_bobAmplitudeDucked 0.0075
+      dvar set bg_bobAmplitudeProne 0.03
+      dvar set bg_bobMax 8
+      dvar set bg_aimSpreadMoveSpeedThreshold 11
+      dvar set player_breath_hold_time 4.5
+      dvar set player_breath_gasp_time 1
+      dva
