@@ -107,7 +107,7 @@ Suspected script bugs found during the code cleanup are listed in [docs/code-rev
 
 ## Credits
 
-- **Creator:** [ModU]Wulf
+- **Creator:** [GCF]Wulf
 - **Assistants:** [LE|Style]Lejack, -]GCF[-Tool
 - **Translation:** Tabbycat (Paul Gallagher)
 - Thanks to the -]GCF[- team, the GFM Mod team, the CODW clan for the test server, and all Back2Uo players.
