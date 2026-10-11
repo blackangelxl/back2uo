@@ -222,7 +222,7 @@ back2uo_tauntsounds(eAttacker)
 	self.pers["tauntsound_onplayer"] = true;
 
 	// Nation code: GE, US, UK or RU
-	land = back2uo\_back2uo_tools::back2uo_teams(eAttacker);
+	land = back2uo\tools\_back2uo_names::back2uo_teams(eAttacker);
 
 	// The attacker shouts: his voice variant, set in _back2uo_player.gsc (randomint(4) = 0..3)
 	if(isdefined(eAttacker.pers["taunt_person"])) person = eAttacker.pers["taunt_person"];
@@ -356,7 +356,7 @@ back2uo_grenade_tauntsounds()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Grenade Taunt Sounds", "Run");
 
-	land = back2uo\_back2uo_tools::back2uo_teams(self);
+	land = back2uo\tools\_back2uo_names::back2uo_teams(self);
 
 	// Same voice variant (0..3) as the player's taunts
 	if(isdefined(self.pers["taunt_person"])) person = self.pers["taunt_person"];

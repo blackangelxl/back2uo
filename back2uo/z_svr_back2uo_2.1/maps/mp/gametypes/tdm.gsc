@@ -605,7 +605,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			// Back2Uo: suicide costs mod player points (cvar back2uo_mpoints_suicide).
 			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams))
 			{
-				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
+				attacker back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
 
 			// Team switch suicide: only costs a point if the switch makes the teams uneven by more than one.
@@ -636,7 +636,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			{
 				if(self.pers["team"] == attacker.pers["team"])
 				{
-					attacker thread back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
+					attacker thread back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
 				}
 				else
 				{
@@ -1021,18 +1021,19 @@ startGame()
 	if(level.timelimit > 0)
 	{
 		level.clock = newHudElem();
-		level.clock.horzAlign = "left";
 		level.clock.vertAlign = "top";
 
 		// Back2Uo: timer at the bottom center of the 640x480 virtual screen, semi-transparent.
 		if(game["back2uo_enable"])
-		{
-			level.clock.x = 298;
+		{	
+			level.clock.horzAlign = "center";
+			level.clock.x = -23;
 			level.clock.y = 445;
 			level.clock.alpha = 0.7;
 		}
 		else
 		{
+			level.clock.horzAlign = "left";
 			level.clock.x = 8;
 			level.clock.y = 2;
 		}
@@ -1277,18 +1278,19 @@ updateGametypeCvars()
 				if(!isDefined(level.clock))
 				{
 					level.clock = newHudElem();
-					level.clock.horzAlign = "left";
 					level.clock.vertAlign = "top";
 
-					// Back2Uo: timer at the bottom center, semi-transparent (same as startGame).
+					// Back2Uo: timer at the bottom center of the 640x480 virtual screen, semi-transparent.
 					if(game["back2uo_enable"])
-					{
-						level.clock.x = 298;
+					{	
+						level.clock.horzAlign = "center";
+						level.clock.x = -23;
 						level.clock.y = 445;
 						level.clock.alpha = 0.7;
 					}
 					else
 					{
+						level.clock.horzAlign = "left";
 						level.clock.x = 8;
 						level.clock.y = 2;
 					}

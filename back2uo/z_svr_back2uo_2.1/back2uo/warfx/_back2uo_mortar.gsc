@@ -115,7 +115,7 @@ back2uo_mortar_draw(wert)
 
 	// Ground target is a random point below the start position (see back2uo_calcshellpos).
 	startposition = (x, y, z);
-	endposition = back2uo\_back2uo_tools::back2uo_calcshellpos(startposition);
+	endposition = back2uo\tools\_back2uo_vectors::back2uo_calcshellpos(startposition);
 
 	// Shell model, nose pointing down, hidden until the whistle has started.
 	mortar = spawn("script_model", startposition);

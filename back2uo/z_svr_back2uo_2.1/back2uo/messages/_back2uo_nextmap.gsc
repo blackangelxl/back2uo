@@ -1,7 +1,7 @@
 /*
 	Back2Uo v2.1 - Messages: "Next map" announcement.
 
-	back2uo_nextmap_messages_draw() is threaded from _back2uo_tools.gsc.
+	back2uo_nextmap_messages_draw() is threaded from tools\_back2uo_maprotation.gsc.
 	Uses the back2uo_mapmsg_* cvars.
 	Split from the former _back2uo_messages.gsc.
 */
@@ -63,7 +63,7 @@ back2uo_nextmap_messages_draw(x)
 			{
 				lstr = &"BACK2UOMOD_NEXT_MAP";
 
-				wert_map = back2uo\_back2uo_tools::back2uo_get_mapname(level.back2uo_nextmap);
+				wert_map = back2uo\tools\_back2uo_names::back2uo_get_mapname(level.back2uo_nextmap);
 
 				back2uo\_back2uo_cvars::back2uo_player_message(lstr, wert_map, " ^7)");
 			}
@@ -76,8 +76,8 @@ back2uo_nextmap_messages_draw(x)
 			{
 				lstr = &"BACK2UOMOD_NEXT_MAP";
 
-				wert_map = back2uo\_back2uo_tools::back2uo_get_mapname(level.back2uo_nextmap);
-				wert_gt = back2uo\_back2uo_tools::back2uo_get_gametypename(level.back2uo_nextgt);
+				wert_map = back2uo\tools\_back2uo_names::back2uo_get_mapname(level.back2uo_nextmap);
+				wert_gt = back2uo\tools\_back2uo_names::back2uo_get_gametypename(level.back2uo_nextgt);
 
 				back2uo\_back2uo_cvars::back2uo_player_message(lstr, wert_map, " ^7-^2 ", wert_gt, " ^7)");
 			}

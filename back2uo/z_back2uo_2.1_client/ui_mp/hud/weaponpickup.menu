@@ -1,0 +1,352 @@
+		// Weapon pickup graphics (back2uo_ui_weaponpickup_object selects the weapon)
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_tt30"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 40 40
+			background		"gfx/icons/hud@tt30.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_luger"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 40 40
+			background		"gfx/icons/hud@luger.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "2" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_colt"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 40 40
+			background		"gfx/icons/hud@colt45.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "3" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_webley"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 40 40
+			background		"gfx/icons/hud@webley.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "4" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_bar"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@bar.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "5" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_bren"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@bren.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "6" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_enfield"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@enfield.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "7" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_enfield_scoped"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@enfield_scoped.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "8" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_g43"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@g43.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "9" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_g43_scoped"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@g43_scoped.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "10" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_greasegun"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@greasegun.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "11" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_kar98"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@kar98.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "12" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_m1carbine"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@m1carbine.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "13" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_m1garand"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@m1garand.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "14" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_mp40"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@mp40.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "15" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_mp44"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@mp44.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "16" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_pps42"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@pps42.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "17" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_ppsh"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@ppsh.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "18" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_scoped_kar98"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@scoped_kar98.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "19" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_springfield"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@scoped_springfield.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "20" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_shotgun"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@shotgun.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "21" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_sten"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@sten.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "22" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_svt40"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@svt40.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "23" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_thompson"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 96 48
+			background		"gfx/icons/hud@thompson.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "24" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_mosinagant"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@nagant.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "25" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_mosinagant_scoped"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@scoped_nagant.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "26" }
+		}
+
+		itemDef
+		{
+			name			"weaponpickup_graphic_panzerschreck"
+			style			WINDOW_STYLE_SHADER
+			rect			395 330 102 48
+			background		"gfx/icons/hud@panzerschreck.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_weaponpickup_object"
+			showDvar		{ "27" }
+		}

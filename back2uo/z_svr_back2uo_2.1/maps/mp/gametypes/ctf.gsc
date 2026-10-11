@@ -662,7 +662,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			// Back2Uo: with player points on, a suicide costs level.back2uo_selfkill_mpoints points.
 			if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"] && !isdefined(self.switching_teams))
 			{
-				attacker back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
+				attacker back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_selfkill_mpoints);
 			}
 
 			// switching teams
@@ -692,7 +692,7 @@ Callback_PlayerKilled(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 			{
 				if(self.pers["team"] == attacker.pers["team"])
 				{
-					attacker thread back2uo\_back2uo_tools::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
+					attacker thread back2uo\tools\_back2uo_points::back2uo_losepoints_ofplayer(level.back2uo_teamkill_mpoints);
 				}
 				else
 				{
@@ -1094,18 +1094,19 @@ startGame()
 	if(level.timelimit > 0)
 	{
 		level.clock = newHudElem();
-		level.clock.horzAlign = "left";
 		level.clock.vertAlign = "top";
 
-		// Back2Uo: clock at the bottom center (640x480 virtual screen), semi-transparent.
+		// Back2Uo: move the round clock to the bottom center of the 640x480 screen, semi-transparent
 		if(game["back2uo_enable"])
-		{
-			level.clock.x = 298;
+		{	
+			level.clock.horzAlign = "center";
+			level.clock.x = -23;
 			level.clock.y = 445;
 			level.clock.alpha = 0.7;
 		}
 		else
 		{
+			level.clock.horzAlign = "left";
 			level.clock.x = 8;
 			level.clock.y = 2;
 		}
@@ -1530,7 +1531,7 @@ flag()
 						if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"])
 						{
 							// Back2Uo: capture bonus from the player points system (level.back2uo_captureflag) instead of stock +10.
-							other back2uo\_back2uo_tools::back2uo_playerpoints_system("flag_capture");
+							other back2uo\tools\_back2uo_points::back2uo_playerpoints_system("flag_capture");
 						}
 						else
 						{
@@ -1556,7 +1557,7 @@ flag()
 					if(game["back2uo_enable"] && game["back2uo_playerpoints_enable"])
 					{
 						// Back2Uo: return bonus from the player points system (level.back2uo_defendsflag) instead of stock +2.
-						other back2uo\_back2uo_tools::back2uo_playerpoints_system("flag_defending");
+						other back2uo\tools\_back2uo_points::back2uo_playerpoints_system("flag_defending");
 					}
 					else
 					{

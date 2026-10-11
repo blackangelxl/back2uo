@@ -1,0 +1,77 @@
+	// LOCAL TALKING STATUS
+	menuDef
+	{
+		name			"amitalking"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			100 5 24 24 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+
+		itemDef
+		{
+			name			"talkingRect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 0 24 24
+			forecolor		1.0 1.0 1.0 1.0
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw		UI_AMITALKING
+		}
+	}
+
+	// REMOTE TALKING STATUS
+	menuDef
+	{
+		name			"talkers"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			60 30 16 16 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+
+		itemDef
+		{
+			name			"talker1Rect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 0 16 16
+			forecolor		1.0 1.0 1.0 1.0
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw		UI_TALKER1
+		}
+
+		itemDef
+		{
+			name			"talker2Rect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 16 16 16
+			forecolor		1.0 1.0 1.0 1.0
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw		UI_TALKER2
+		}
+
+		itemDef
+		{
+			name			"talker3Rect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 32 16 16
+			forecolor		1.0 1.0 1.0 1.0
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw		UI_TALKER3
+		}
+
+		itemDef
+		{
+			name			"talker4Rect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 48 16 16
+			forecolor		1.0 1.0 1.0 1.0
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw		UI_TALKER4
+		}
+	}

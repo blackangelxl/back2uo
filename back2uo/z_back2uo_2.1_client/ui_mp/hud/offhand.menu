@@ -1,0 +1,88 @@
+	// OFFHAND WEAPONS
+	menuDef
+	{
+		name			"offhandinfo"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+
+		// offhand frag icon
+		itemDef
+		{
+			name			"offhandfragicon"
+			rect			-25 -95 20 20
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_OFFHAND_WEAPON_ICON_FRAG
+			visible			MENU_TRUE
+			background		"gfx/icons/hud@russian_grenade.tga"	// default texture
+			decoration
+		}
+
+		// offhand frag ammo
+		itemDef
+		{
+			name			"offhandfragammo"
+			rect			-38 -80 25 25
+			textscale		.4
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textfont		UI_FONT_DEFAULT
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_OFFHAND_WEAPON_AMMO_FRAG
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// offhand smoke icon
+		itemDef
+		{
+			name			"offhandsmokeicon"
+			rect			-25 -70 20 20
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_OFFHAND_WEAPON_ICON_SMOKE
+			background		"hud_us_smokegrenade"	// default texture
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// offhand smoke ammo
+		itemDef
+		{
+			name			"offhandsmokeammo"
+			rect			-38 -55 25 25
+			textscale		.4
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textfont		UI_FONT_DEFAULT
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_OFFHAND_WEAPON_AMMO_SMOKE
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// offhand frag name
+//		itemDef
+//		{
+//			name			"offhandfragname"
+//			rect			-48 -95 30 25
+//			textscale		.3
+//			textstyle		ITEM_TEXTSTYLE_SHADOWED
+//			textfont		UI_FONT_DEFAULT
+//			forecolor		1.0 1.0 1.0 1.0
+//			ownerdraw		CG_OFFHAND_WEAPON_NAME_FRAG
+//			visible			MENU_TRUE
+//			decoration
+//		}
+
+		// offhand smoke name
+//		itemDef
+//		{
+//			name			"offhandsmokename"
+//			rect			-50 -135 30 25
+//			textscale		.3
+//			textstyle		ITEM_TEXTSTYLE_SHADOWED
+//			textfont		UI_FONT_DEFAULT
+//			forecolor		1.0 1.0 1.0 1.0
+//			ownerdraw		CG_OFFHAND_WEAPON_NAME_SMOKE
+//			visible			MENU_TRUE
+//			decoration
+//		}
+	}

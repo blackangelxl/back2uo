@@ -1,0 +1,87 @@
+	// HUD OBJECTS
+	menuDef
+	{
+		name			"infomsg"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+
+		// Binocular distance
+		itemDef
+		{
+			name			"object_artillery_name"
+			visible			1
+			rect			320 392 0 0
+			forecolor		1 1 1 0.8
+			text			"@BACK2UOMOD_BINOCULAR_DISTANCE"
+			textfont		UI_FONT_NORMAL
+			textscale		.22
+			textalign		ITEM_ALIGN_RIGHT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			decoration
+			dvartest		"back2uo_ui_artillery_name"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"object_artillery_meters"
+			visible			1
+			rect			343 392 0 0
+			forecolor		1 1 1 0.8
+			text			"@BACK2UOMOD_BINOCULAR_METERS"
+			textfont		UI_FONT_NORMAL
+			textscale		.22
+			textalign		ITEM_ALIGN_LEFT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			decoration
+			dvartest		"back2uo_ui_artillery_meters"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"object_artillery_unknown"
+			visible			1
+			rect			335 392 0 0
+			forecolor		1 1 1 0.8
+			text			"@BACK2UOMOD_BINOCULAR_UNKNOWN"
+			textfont		UI_FONT_NORMAL
+			textscale		.22
+			textalign		ITEM_ALIGN_LEFT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			decoration
+			dvartest		"back2uo_ui_artillery_unknown"
+			showDvar		{ "1" }
+		}
+
+		// Artillery icon
+		itemDef
+		{
+			name			"object_artillery_icon"
+			style			WINDOW_STYLE_SHADER
+			rect			415 282 40 40
+			background		"artillery"
+			forecolor		1 1 1 0.8
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_artillery_icon"
+			showDvar		{ "1" }
+		}
+
+		// Medic icon
+		itemDef
+		{
+			name			"objectpickup_medicicon"
+			style			WINDOW_STYLE_SHADER
+			rect			535 437 20 20
+			background		"gfx/hud/hud@back2uo_medicicon.tga"
+			forecolor		1 1 1 1
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_medicicon"
+			showDvar		{ "1" }
+		}
+
+		#include "ui_mp/hud/weaponpickup.menu"
+	}

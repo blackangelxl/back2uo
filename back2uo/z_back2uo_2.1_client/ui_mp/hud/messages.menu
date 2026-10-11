@@ -1,0 +1,49 @@
+	// BACK2UO CREDITS
+	menuDef
+	{
+		name			"back2uocredits"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 0 0 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+
+		itemDef
+		{
+			name			"creditstext"
+			type			ITEM_TYPE_TEXT
+			visible			MENU_TRUE
+			rect			10 -5 600 40	// 64x64
+			textscale		.16
+			textalign		ITEM_ALIGN_LEFT
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			forecolor		1 1 1 1
+			text			"@BACK2UOMOD_MOD_CREDITS"
+			dvartest		"back2uo_ui_modcredits"
+			showDvar		{ "1" }
+		}
+	}
+
+	// SERVER MESSAGES
+	menuDef
+	{
+		name			"servermsgs"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			318 478 600 40
+
+		itemDef
+		{
+			name			"servertext"
+			type			ITEM_TYPE_TEXT
+			visible			MENU_TRUE
+			rect			5 0 600 40	// 64x64
+			textscale		.16
+			textalign		ITEM_ALIGN_CENTER
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			forecolor		1 1 1 1
+			dvar			"sv_hostname"
+			dvartest		"back2uo_ui_servermsg"
+			showDvar		{ "1" }
+		}
+	}

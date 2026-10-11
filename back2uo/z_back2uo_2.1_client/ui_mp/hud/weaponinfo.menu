@@ -1,0 +1,71 @@
+	// WEAPON INFO
+	menuDef
+	{
+		name			"weaponinfo"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+
+		// weapon name back
+//		itemDef
+//		{
+//			name			"weaponnameback"
+//			rect			0 11 320 23
+//			textscale		WEAPON_TEXTSCALE
+//			forecolor		1.0 1.0 1.0 1.0
+//			background		"gfx/hud/hud@weaponnameback.tga"
+//			ownerdraw		CG_PLAYER_WEAPON_NAME_BACK
+//			visible			MENU_TRUE
+//			decoration
+//		}
+
+		// weapon ammo counter back
+		itemDef
+		{
+			name			"ammocounterback"
+			rect			-85 -54 85 41
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/hud/hud@ammocounterback.tga"
+			ownerdraw		CG_PLAYER_AMMO_BACKDROP
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// weapon mode
+		itemDef
+		{
+			name			"weaponfiremode"
+			rect			-115 -60 20 20
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_PLAYER_WEAPON_MODE_ICON
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// weapon name
+		itemDef
+		{
+			name			"weapname"
+			rect			-385 -40 290 40
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+//			textscale		WEAPON_TEXTSCALE
+			textscale		.4
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_PLAYER_WEAPON_NAME
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// ammo text
+		itemDef
+		{
+			name			"ammotex"
+			rect			-73 -28 60 40
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		.3
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_PLAYER_AMMO_VALUE
+			visible			MENU_TRUE
+			decoration
+		}
+	}

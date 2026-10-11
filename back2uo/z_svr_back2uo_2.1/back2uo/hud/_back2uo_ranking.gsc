@@ -27,9 +27,9 @@ back2uo_ranking_draw()
 		if(level.back2uo_hudrankingdraw != 1) return;
 
 		self.hud_ranking_lv = newClientHudElem(self);
-		self.hud_ranking_lv.x = -204;
+		self.hud_ranking_lv.x = 117;
 		self.hud_ranking_lv.y = 390;
-		self.hud_ranking_lv.horzAlign = "center";
+		self.hud_ranking_lv.horzAlign = "left";
 		self.hud_ranking_lv.vertAlign = "top";
 		self.hud_ranking_lv.sort = 1;
 		self.hud_ranking_lv.archived = true;
@@ -325,7 +325,7 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 
 		if(granadeend_count <= level.back2uo_granaten_allow)
 		{
-			granadetype = self back2uo\_back2uo_tools::back2uo_getgranade_type("granade");
+			granadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("granade");
 
 			// granadeend_count also counts picked-up enemy grenades, so only add to the own type
 			owncount = self getammocount(granadetype);
@@ -349,7 +349,7 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 
 		if(smokeend_count <= level.back2uo_smoke_allow)
 		{
-			smokegrenadetype = self back2uo\_back2uo_tools::back2uo_getgranade_type("smoke");
+			smokegrenadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("smoke");
 
 			// Same as for frags: only add to the own smoke type
 			owncount = self getammocount(smokegrenadetype);

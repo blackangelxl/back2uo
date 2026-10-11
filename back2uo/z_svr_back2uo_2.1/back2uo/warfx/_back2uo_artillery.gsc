@@ -42,7 +42,7 @@ back2uo_artilleryfx_control()
 		self iprintlnbold(&"BACK2UOMOD_ARTILLERY_GO");
 
 		// Nation specific "artillery ready" voice, e.g. "artillery_german_ready".
-		land = back2uo\_back2uo_tools::back2uo_teams(self);
+		land = back2uo\tools\_back2uo_names::back2uo_teams(self);
 		sound = "artillery_" + land + "_ready";
 		back2uo\_back2uo_sounds::back2uo_soundonplayer(sound, self);
 	}
@@ -299,7 +299,7 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 	startposition = (selftarget_x, selftarget_y, artillery_zmax);
 
 	// Ground point scattered randomly around the target.
-	endposition = back2uo\_back2uo_tools::back2uo_calcshellpos(binopositarget);
+	endposition = back2uo\tools\_back2uo_vectors::back2uo_calcshellpos(binopositarget);
 
 	// Shell model, nose pointing along the flight path, hidden until the whistle has started.
 	artillery = spawn("script_model", startposition);

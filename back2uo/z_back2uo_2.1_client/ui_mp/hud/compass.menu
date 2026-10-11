@@ -1,0 +1,78 @@
+	// COMPASS
+	menuDef
+	{
+		name			"Compass"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			-25 -143 COMPASS_SIZE COMPASS_SIZE HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+
+		itemDef
+		{
+			name			"compassback"
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/hud/hud@compassback.tga"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible			MENU_TRUE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"compasshighlight"
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/hud/hud@compasshighlight.tga"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible			MENU_TRUE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"compassface"
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/hud/hud@compassface.tga"
+			ownerdraw		CG_PLAYER_COMPASS
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// Objective pointers
+		itemDef
+		{
+			name			"compasspointers"
+			decoration
+			visible			MENU_TRUE
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_PLAYER_COMPASS_POINTERS
+		}
+
+		// Friendlies pointers
+		itemDef
+		{
+			name			"compassfriendlies"
+			visible			MENU_TRUE
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			ownerdraw		CG_PLAYER_COMPASS_FRIENDS
+			dvartest		"back2uo_ui_compassenemyfiring"
+			showDvar		{ "1" }
+		}
+
+		// Compass needle (was 36 386 in the fullscreen "infomsg" menu)
+		itemDef
+		{
+			name			"object_compasszeiger"
+			style			WINDOW_STYLE_SHADER
+			rect			61 49 37 37
+			background		"gfx/hud/hud@back2uo_compasszeiger.tga"
+			forecolor		1 1 1 0.7
+			visible			1
+			decoration
+			dvartest		"back2uo_ui_compasszeiger"
+			showDvar		{ "1" }
+		}
+	}

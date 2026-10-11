@@ -1,0 +1,61 @@
+	// HEALTH BAR
+	menuDef
+	{
+		name			"Health"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+
+		itemDef
+		{
+			name			"healthbarback"
+			rect			13 0 130 12
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/hud/hud@health_back.tga"
+			ownerdraw		CG_PLAYER_BAR_HEALTH_BACK
+			visible			MENU_TRUE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"healthbar"
+			rect			14 1 128 10
+			forecolor		0.7 0.4 0.0 1.0
+			background		"gfx/hud/hud@health_bar.tga"
+			ownerdraw		CG_PLAYER_BAR_HEALTH
+			visible			MENU_TRUE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"healthbarcross"
+			rect			0 0 12 12
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/hud/hud@health_cross.tga"
+			ownerdraw		CG_PLAYER_BAR_HEALTH_BACK
+			visible			MENU_TRUE
+			decoration
+		}
+	}
+
+	// LOW HEALTH OVERLAY
+	menuDef
+	{
+		name			"Low Health"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+
+		itemDef
+		{
+			name			"healthoverlay"
+			rect			0 0 640 480
+			forecolor		1.0 1.0 1.0 1.0
+			background		"overlay_low_health"
+			ownerdraw		CG_PLAYER_LOW_HEALTH_OVERLAY
+			visible			MENU_TRUE
+			decoration
+		}
+	}
