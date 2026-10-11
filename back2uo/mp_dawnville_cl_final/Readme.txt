@@ -48,4 +48,5 @@ Powered by
 ----------
  LE-Style
 ---------------------------------------------------------
-www.gcf-team.de | www.mod-united.de | www.cod-infobase.de
+github.com/blackangelxl/back2uo
+www.gcf-team.de
