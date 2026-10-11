@@ -1,5 +1,5 @@
 ///////////////////////////////
-// Dawnville Classic         //
+// Dawnville Classic - Final //
 // ------------------------- //
 //    created by Le-Style    //
 // ------------------------- //

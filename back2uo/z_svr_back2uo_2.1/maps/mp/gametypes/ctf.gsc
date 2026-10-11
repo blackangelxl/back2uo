@@ -1094,18 +1094,19 @@ startGame()
 	if(level.timelimit > 0)
 	{
 		level.clock = newHudElem();
-		level.clock.horzAlign = "left";
 		level.clock.vertAlign = "top";
 
-		// Back2Uo: clock at the bottom center (640x480 virtual screen), semi-transparent.
+		// Back2Uo: move the round clock to the bottom center of the 640x480 screen, semi-transparent
 		if(game["back2uo_enable"])
-		{
-			level.clock.x = 298;
+		{	
+			level.clock.horzAlign = "center";
+			level.clock.x = -20;
 			level.clock.y = 445;
 			level.clock.alpha = 0.7;
 		}
 		else
 		{
+			level.clock.horzAlign = "left";
 			level.clock.x = 8;
 			level.clock.y = 2;
 		}
