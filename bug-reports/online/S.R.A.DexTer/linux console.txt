@@ -1,0 +1,14 @@
+Last login: Tue May 15 14:41:29 2007 from p54906ff8.dip.t-dialin.net
+game@R14764:~$ cd cod2
+game@R14764:~/cod2$ screen -r cod2_1
+ing.com"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Besucht uns unter ^7www.div4-gaming.com"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Besucht uns unter ^7www.div4-gaming.com"
+^8(GAME_DEAD)(GAME_ALLIES)diV4.ReC|Stalkii'^7: bei bahhof
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Wir ^7Wünschen ^2euch viel spass"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Wir ^7Wünschen ^2euch viel spass"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Wir ^7Wünschen ^2euch viel spass"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Wir ^7Wünschen ^2euch viel spass"
+Redirecting client '^^99Jabba^^11><^^99MarleY^^11<3' to http://www.div4-gaming.com/custom//div42uo/localized_english_iw15.iwd
+Segmentation fault
+game@R14764:~/cod2$

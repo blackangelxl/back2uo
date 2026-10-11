@@ -1,0 +1,1093 @@
+logfile opened on Fri Jul 13 20:15:16 2007
+dvar set g_logSync 1
+dvar set g_log games_mp.log
+dvar set sv_allowDownload 0
+dvar set sv_wwwDownload 0
+dvar set sv_wwwBaseURL http://www.domain.de/cod2
+dvar set sv_wwwDlDisconnected 1
+dvar set scr_allow_springfield 1
+dvar set scr_allow_svt40 1
+dvar set scr_allow_kar98ksniper 1
+dvar set scr_allow_nagantsniper 1
+dvar set scr_allow_enfieldsniper 1
+dvar set scr_allow_enfield 1
+dvar set scr_allow_kar98k 1
+dvar set scr_allow_m1carbine 1
+dvar set scr_allow_m1garand 1
+dvar set scr_allow_g43 1
+dvar set scr_allow_nagant 1
+dvar set scr_allow_bar 1
+dvar set scr_allow_bren 1
+dvar set scr_allow_mp44 1
+dvar set scr_allow_ppsh 1
+dvar set scr_allow_mp40 1
+dvar set scr_allow_sten 1
+dvar set scr_allow_thompson 1
+dvar set scr_allow_pps42 
+dvar set scr_allow_greasegun 
+dvar set scr_allow_shotgun 1
+dvar set scr_allow_smokegrenades 2
+dvar set scr_allow_fraggrenades 2
+dvar set scr_dm_scorelimit 50
+dvar set scr_dm_timelimit 20
+dvar set scr_tdm_scorelimit 100
+dvar set scr_tdm_timelimit 20
+dvar set scr_sd_graceperiod 15
+dvar set scr_sd_roundlength 4
+dvar set scr_sd_roundlimit 7
+dvar set scr_sd_scorelimit 7
+dvar set scr_sd_timelimit 20
+dvar set scr_sd_bombtimer 60
+dvar set scr_ctf_scorelimit 7
+dvar set scr_ctf_timelimit 20
+dvar set scr_hq_scorelimit 500
+dvar set scr_hq_timelimit 20
+dvar set g_gametype dm
+g_gametype will be changed upon restarting.
+execing back2uomod.cfg
+execing maprotation.cfg
+dvar set sv_mapRotation map mp_carentan map mp_matmata map mp_harbor
+map_rotate...
+"sv_mapRotation" is:"map mp_carentan map mp_matmata map mp_harbor"
+"sv_mapRotationCurrent" is:""
+dvar set sv_mapRotationCurrent map mp_carentan map mp_matmata map mp_harbor
+dvar set sv_mapRotationCurrent mp_carentan map mp_matmata map mp_harbor
+dvar set sv_mapRotationCurrent map mp_matmata map mp_harbor
+Setting map: mp_carentan.
+dvar set g_gametype dm
+dvar set g_gametype dm
+dvar set mapname mp_carentan
+------ Server Initialization ------
+Server: mp_carentan
+Current language: german
+Current search path:
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_svr_back2uo_2.1.iwd (59 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_back2uo_2.1_client.iwd (258 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger
+/home/s4378/CallofDuty2-130/main/M5.iwd (100 files)
+/home/s4378/CallofDuty2-130/main/M4.iwd (268 files)
+/home/s4378/CallofDuty2-130/main/M3.iwd (219 files)
+/home/s4378/CallofDuty2-130/main/M2.iwd (181 files)
+/home/s4378/CallofDuty2-130/main/M1.iwd (175 files)
+/home/s4378/CallofDuty2-130/main/iw_15.iwd (85 files)
+/home/s4378/CallofDuty2-130/main/iw_14.iwd (4038 files)
+/home/s4378/CallofDuty2-130/main/iw_13.iwd (22624 files)
+/home/s4378/CallofDuty2-130/main/iw_12.iwd (1016 files)
+/home/s4378/CallofDuty2-130/main/iw_11.iwd (1462 files)
+/home/s4378/CallofDuty2-130/main/iw_10.iwd (1936 files)
+/home/s4378/CallofDuty2-130/main/iw_09.iwd (2142 files)
+/home/s4378/CallofDuty2-130/main/iw_08.iwd (2723 files)
+/home/s4378/CallofDuty2-130/main/iw_07.iwd (3384 files)
+/home/s4378/CallofDuty2-130/main/iw_06.iwd (990 files)
+/home/s4378/CallofDuty2-130/main/iw_05.iwd (928 files)
+/home/s4378/CallofDuty2-130/main/iw_04.iwd (698 files)
+/home/s4378/CallofDuty2-130/main/iw_03.iwd (26 files)
+/home/s4378/CallofDuty2-130/main/iw_02.iwd (40 files)
+/home/s4378/CallofDuty2-130/main/iw_01.iwd (16 files)
+/home/s4378/CallofDuty2-130/main/iw_00.iwd (102 files)
+/home/s4378/CallofDuty2-130/main
+/home/s4378/CallofDuty2-130/raw
+/home/s4378/CallofDuty2-130/raw_shared
+/home/s4378/CallofDuty2-130/devraw
+/home/s4378/CallofDuty2-130/devraw_shared
+/home/s4378/CallofDuty2-130/back2uo-210-ger/localized_german_iw15.iwd (30 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw11.iwd (2 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw10.iwd (416 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw09.iwd (49 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw08.iwd (8 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw07.iwd (1084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw06.iwd (2822 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw05.iwd (5672 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw04.iwd (6084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw03.iwd (6270 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw02.iwd (5924 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw01.iwd (4622 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw00.iwd (5400 files)
+localized assets iwd file for german
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+81853 files in iwd files
+dvar set loc_language 2
+dvar set loc_forceEnglish 0
+dvar set com_expectedHunkUsage 101425536
+dvar set nextmap map_restart
+dvar set cl_paused 0
+dvar set sv_serverid 16
+WARNING: sound file 'explosions/mortar_dirt02.wav' used as streamed in alias 'artillery_explosion' and loaded in alias 'explosion_ground'
+WARNING: sound file 'fire/Fire_med_loop02.wav' used as streamed in alias 'medfire' and loaded in alias 'tankbrule'
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+dvar set g_gametype dm
+dvar set sv_maxclients 16
+dvar set dedicated 2
+dvar set dedicated 2
+dvar set g_useholdspawndelay 1
+dvar set g_gravity 800
+-----------------------------------
+dvar set bg_fallDamageMinHeight 225
+dvar set bg_fallDamageMaxHeight 355
+dvar set ui_killcam 0
+dvar set ui_skullicons 0
+dvar set ui_friendicons 1
+dvar set ui_grenadesinde 0
+dvar set ui_allow_onlyautoteam 0
+dvar set ui_allowvotekick 0
+dvar set ui_allowvotetypemap 1
+dvar set ui_allowvotemap 1
+dvar set ui_allowvotemaprotate 1
+dvar set ui_allowvotemaprestart 1
+dvar set sv_hostname The 40 Guns by www.gamed.de
+dvar set g_allowVote 1
+dvar set scr_friendlyfire 0
+dvar set scr_allow_greasegun 1
+dvar set scr_allow_pps42 1
+dvar set g_TeamName_Allies MPUI_AMERICAN
+dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+dvar set g_ScoresBanner_Allies mpflag_american
+dvar set g_TeamName_Axis MPUI_GERMAN
+dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+dvar set g_ScoresBanner_Axis mpflag_german
+dvar set scr_killcam 0
+=============================== DVAR DUMP ========================================
+525 total dvars
+525 dvar indexes
+=============================== END DVAR DUMP =====================================
+dvar set sv_iwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client M5 M4 M3 M2 M1 iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+dvar set sv_referencedIwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 
+dvar set sv_referencedIwdNames back2uo-210-ger/z_svr_back2uo_2.1 back2uo-210-ger/z_back2uo_2.1_client main/M5 main/M4 main/M3 main/M2 main/M1 main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 back2uo-210-ger/localized_german_iw15
+_Info string length exceeded
+key: 'sv_voiceQuality'
+value: '9'
+Info string:
+\bg_fallDamageMaxHeight\355\bg_fallDamageMinHeight\225\fs_game\back2uo-210-ger\g_synchronousClients\0\sv_cheats\0\sv_disableClientConsole\0\sv_iwdNames\z_svr_back2uo_2.1 z_back2uo_2.1_client M5 M4 M3 M2 M1 iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00\sv_iwds\-1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 \sv_pure\1\sv_referencedIwdNames\back2uo-210-ger/z_svr_back2uo_2.1 back2uo-210-ger/z_back2uo_2.1_client main/M5 main/M4 main/M3 main/M2 main/M1 main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_03 back2uo-210-ger/localized_german_iw15\sv_referencedIwds\-1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 780394069 1101180720 1046874969 1053665859 1659111092 1326979116 \sv_serverid\16\sv_voice\1
+-----------------------------------
+dvar set sv_cheats 0
+dvar set ttycon 0
+Resolving cod2master.activision.com
+cod2master.activision.com resolved to 63.146.124.40:20710
+Resolving cod2master.activision.com
+cod2master.activision.com resolved to 63.146.124.40:20700
+Hitch warning: 8795 msec frame time
+Sending heartbeat to cod2master.activision.com
+dvar set scr_allow_colt 1
+dvar set scr_allow_webley 1
+dvar set scr_allow_luger 1
+dvar set scr_allow_TT30 1
+dvar set scr_allow_shotgun_axis 1
+dvar set scr_allow_shotgun_allies 1
+dvar set scr_allow_panzerschreck 1
+dvar set scr_allow_g43sniper 1
+Client 2 connecting with 0 challenge ping from 82.83.213.129:28960
+Going from CS_FREE to CS_CONNECTED for (num 0 guid 895252)
+Sending heartbeat to cod2master.activision.com
+Rcon from 88.70.55.106:-1615:
+status
+Client 1 connecting with 100 challenge ping from 172.174.98.4:-4490
+Going from CS_FREE to CS_CONNECTED for (num 1 guid 509103)
+Rcon from 88.70.55.106:-1615:
+status
+Client 0 connecting with 50 challenge ping from 88.70.55.106:-2887
+Going from CS_FREE to CS_CONNECTED for (num 2 guid 739118)
+Rcon from 88.70.55.106:-1615:
+status
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+Client 3 connecting with 50 challenge ping from 172.181.74.127:-3145
+Going from CS_FREE to CS_CONNECTED for (num 3 guid 143853)
+Rcon from 88.70.55.106:-1615:
+status
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+map_rotate...
+"sv_mapRotation" is:"map mp_carentan map mp_matmata map mp_harbor"
+"sv_mapRotationCurrent" is:" map mp_matmata map mp_harbor"
+dvar set sv_mapRotationCurrent mp_matmata map mp_harbor
+dvar set sv_mapRotationCurrent map mp_harbor
+Setting map: mp_matmata.
+dvar set g_gametype dm
+dvar set g_gametype dm
+dvar set mapname mp_matmata
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_matmata
+Current language: german
+Current search path:
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_svr_back2uo_2.1.iwd (59 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_back2uo_2.1_client.iwd (258 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger
+/home/s4378/CallofDuty2-130/main/M5.iwd (100 files)
+/home/s4378/CallofDuty2-130/main/M4.iwd (268 files)
+/home/s4378/CallofDuty2-130/main/M3.iwd (219 files)
+/home/s4378/CallofDuty2-130/main/M2.iwd (181 files)
+/home/s4378/CallofDuty2-130/main/M1.iwd (175 files)
+/home/s4378/CallofDuty2-130/main/iw_15.iwd (85 files)
+/home/s4378/CallofDuty2-130/main/iw_14.iwd (4038 files)
+/home/s4378/CallofDuty2-130/main/iw_13.iwd (22624 files)
+/home/s4378/CallofDuty2-130/main/iw_12.iwd (1016 files)
+/home/s4378/CallofDuty2-130/main/iw_11.iwd (1462 files)
+/home/s4378/CallofDuty2-130/main/iw_10.iwd (1936 files)
+/home/s4378/CallofDuty2-130/main/iw_09.iwd (2142 files)
+/home/s4378/CallofDuty2-130/main/iw_08.iwd (2723 files)
+/home/s4378/CallofDuty2-130/main/iw_07.iwd (3384 files)
+/home/s4378/CallofDuty2-130/main/iw_06.iwd (990 files)
+/home/s4378/CallofDuty2-130/main/iw_05.iwd (928 files)
+/home/s4378/CallofDuty2-130/main/iw_04.iwd (698 files)
+/home/s4378/CallofDuty2-130/main/iw_03.iwd (26 files)
+/home/s4378/CallofDuty2-130/main/iw_02.iwd (40 files)
+/home/s4378/CallofDuty2-130/main/iw_01.iwd (16 files)
+/home/s4378/CallofDuty2-130/main/iw_00.iwd (102 files)
+/home/s4378/CallofDuty2-130/main
+/home/s4378/CallofDuty2-130/raw
+/home/s4378/CallofDuty2-130/raw_shared
+/home/s4378/CallofDuty2-130/devraw
+/home/s4378/CallofDuty2-130/devraw_shared
+/home/s4378/CallofDuty2-130/back2uo-210-ger/localized_german_iw15.iwd (30 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw11.iwd (2 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw10.iwd (416 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw09.iwd (49 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw08.iwd (8 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw07.iwd (1084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw06.iwd (2822 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw05.iwd (5672 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw04.iwd (6084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw03.iwd (6270 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw02.iwd (5924 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw01.iwd (4622 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw00.iwd (5400 files)
+localized assets iwd file for german
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+81853 files in iwd files
+dvar set loc_language 2
+dvar set loc_forceEnglish 0
+dvar set com_expectedHunkUsage 96036128
+dvar set nextmap map_restart
+dvar set cl_paused 0
+dvar set sv_serverid 32
+WARNING: sound file 'explosions/mortar_dirt02.wav' used as streamed in alias 'artillery_explosion' and loaded in alias 'explosion_ground'
+WARNING: sound file 'fire/Fire_med_loop02.wav' used as streamed in alias 'medfire' and loaded in alias 'tankbrule'
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+dvar set g_gametype dm
+dvar set sv_maxclients 16
+dvar set dedicated 2
+dvar set dedicated 2
+dvar set g_debugDamage 0
+dvar set g_debugBullets 0
+dvar set g_debugLocDamage 0
+dvar set g_friendlyfireDist 256
+dvar set g_friendlyNameDist 15000
+dvar set player_meleeRange 64
+dvar set player_meleeWidth 10
+dvar set player_meleeHeight 10
+dvar set g_dumpAnims -1
+dvar set g_useholdspawndelay 1
+dvar set g_mantleBlockTimeBuffer 500
+dvar set player_view_pitch_up 85
+dvar set player_view_pitch_down 85
+dvar set bg_ladder_yawcap 100
+dvar set bg_prone_yawcap 85
+dvar set bg_foliagesnd_minspeed 40
+dvar set bg_foliagesnd_maxspeed 180
+dvar set bg_foliagesnd_slowinterval 1500
+dvar set bg_foliagesnd_fastinterval 500
+dvar set bg_foliagesnd_resetinterval 500
+dvar set bg_fallDamageMinHeight 256
+dvar set bg_fallDamageMaxHeight 480
+dvar set inertiaMax 50
+dvar set inertiaDebug 0
+dvar set inertiaAngle 0
+dvar set friction 5.5
+dvar set stopspeed 100
+dvar set bg_swingSpeed 0.2
+dvar set bg_bobAmplitudeStanding 0.007
+dvar set bg_bobAmplitudeDucked 0.0075
+dvar set bg_bobAmplitudeProne 0.03
+dvar set bg_bobMax 8
+dvar set bg_aimSpreadMoveSpeedThreshold 11
+dvar set player_breath_hold_time 4.5
+dvar set player_breath_gasp_time 1
+dvar set player_breath_fire_delay 0
+dvar set player_breath_gasp_scale 4.5
+dvar set player_breath_hold_lerp 4
+dvar set player_breath_gasp_lerp 6
+dvar set player_breath_snd_lerp 2
+dvar set player_breath_snd_delay 1
+dvar set player_scopeExitOnDamage 0
+dvar set player_adsExitDelay 0
+dvar set player_moveThreshhold 10
+dvar set player_footstepsThreshhold 0
+dvar set player_strafeSpeedScale 0.8
+dvar set player_backSpeedScale 0.7
+dvar set player_spectateSpeedScale 2
+dvar set player_turnAnims 0
+dvar set player_dmgtimer_timePerPoint 100
+dvar set player_dmgtimer_maxTime 750
+dvar set player_dmgtimer_minScale 0
+dvar set player_dmgtimer_stumbleTime 500
+dvar set player_dmgtimer_flinchTime 500
+dvar set jump_height 39
+dvar set jump_stepSize 18
+dvar set jump_slowdownEnable 1
+dvar set jump_ladderPushVel 128
+dvar set jump_spreadAdd 64
+dvar set mantle_enable 1
+dvar set mantle_debug 0
+dvar set mantle_check_range 20
+dvar set mantle_check_radius 0.1
+dvar set mantle_check_angle 60
+dvar set mantle_view_yawcap 60
+dvar set g_gravity 800
+-----------------------------------
+dvar set bg_fallDamageMinHeight 225
+dvar set bg_fallDamageMaxHeight 355
+dvar set r_glowbloomintensity0 1
+dvar set r_glowbloomintensity1 1
+dvar set r_glowskybleedintensity0 .25
+dvar set sv_hostname The 40 Guns by www.gamed.de
+dvar set ui_hostname The 40 Guns by www.gamed.de
+dvar set scr_motd 
+dvar set ui_motd 
+dvar set g_allowVote 1
+dvar set ui_allowvote 1
+dvar set scr_friendlyfire 0
+dvar set ui_friendlyfire 0
+dvar set g_TeamName_Allies MPUI_BRITISH
+dvar set g_TeamColor_Allies 0.25098 0.25098 0.74902 0
+dvar set g_ScoresBanner_Allies mpflag_british
+dvar set g_TeamName_Axis MPUI_GERMAN
+dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+dvar set g_ScoresBanner_Axis mpflag_german
+dvar set scr_killcam 0
+dvar set ui_dm_timelimit 20
+dvar set ui_dm_scorelimit 50
+=============================== DVAR DUMP ========================================
+528 total dvars
+528 dvar indexes
+=============================== END DVAR DUMP =====================================
+dvar set sv_iwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client M5 M4 M3 M2 M1 iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+dvar set sv_referencedIwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 
+dvar set sv_referencedIwdNames back2uo-210-ger/z_svr_back2uo_2.1 back2uo-210-ger/z_back2uo_2.1_client main/M5 main/M4 main/M3 main/M2 main/M1 main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 back2uo-210-ger/localized_german_iw15
+_Info string length exceeded
+key: 'sv_voiceQuality'
+value: '9'
+Info string:
+\bg_fallDamageMaxHeight\355\bg_fallDamageMinHeight\225\fs_game\back2uo-210-ger\g_synchronousClients\0\sv_cheats\0\sv_disableClientConsole\0\sv_iwdNames\z_svr_back2uo_2.1 z_back2uo_2.1_client M5 M4 M3 M2 M1 iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00\sv_iwds\-1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 \sv_pure\1\sv_referencedIwdNames\back2uo-210-ger/z_svr_back2uo_2.1 back2uo-210-ger/z_back2uo_2.1_client main/M5 main/M4 main/M3 main/M2 main/M1 main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 main/iw_04 back2uo-210-ger/localized_german_iw15\sv_referencedIwds\-1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 780394069 1101180720 1046874969 1053665859 -1652414412 1326979116 \sv_serverid\32\sv_voice\1
+-----------------------------------
+dvar set sv_punkbuster 0
+dvar set sv_cheats 0
+PunkBuster Server: 0 Aliases Written to pbalias.dat
+PunkBuster Server: 0 Stat Records Written to pbstat.dat
+PunkBuster Server: Preparing to Disable PB Server... (/home/s4378/CallofDuty2-130/pb/)
+Hitch warning: 6895 msec frame time
+Sending heartbeat to cod2master.activision.com
+dvar set scr_allow_colt 1
+dvar set scr_allow_webley 1
+dvar set scr_allow_luger 1
+dvar set scr_allow_TT30 1
+dvar set scr_allow_shotgun_axis 1
+dvar set scr_allow_shotgun_allies 1
+dvar set scr_allow_panzerschreck 1
+dvar set scr_allow_g43sniper 1
+dvar set scr_allow_binocular 1
+dvar set g_switchspec 
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+dvar set g_gametype tdm
+g_gametype will be changed upon restarting.
+dvar set g_gametype tdm
+dvar set g_gametype tdm
+dvar set mapname mp_buhlert
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_buhlert
+Current language: german
+Current search path:
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_svr_back2uo_2.1.iwd (59 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_back2uo_2.1_client.iwd (258 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger
+/home/s4378/CallofDuty2-130/main/M5.iwd (100 files)
+/home/s4378/CallofDuty2-130/main/M4.iwd (268 files)
+/home/s4378/CallofDuty2-130/main/M3.iwd (219 files)
+/home/s4378/CallofDuty2-130/main/M2.iwd (181 files)
+/home/s4378/CallofDuty2-130/main/M1.iwd (175 files)
+/home/s4378/CallofDuty2-130/main/iw_15.iwd (85 files)
+/home/s4378/CallofDuty2-130/main/iw_14.iwd (4038 files)
+/home/s4378/CallofDuty2-130/main/iw_13.iwd (22624 files)
+/home/s4378/CallofDuty2-130/main/iw_12.iwd (1016 files)
+/home/s4378/CallofDuty2-130/main/iw_11.iwd (1462 files)
+/home/s4378/CallofDuty2-130/main/iw_10.iwd (1936 files)
+/home/s4378/CallofDuty2-130/main/iw_09.iwd (2142 files)
+/home/s4378/CallofDuty2-130/main/iw_08.iwd (2723 files)
+/home/s4378/CallofDuty2-130/main/iw_07.iwd (3384 files)
+/home/s4378/CallofDuty2-130/main/iw_06.iwd (990 files)
+/home/s4378/CallofDuty2-130/main/iw_05.iwd (928 files)
+/home/s4378/CallofDuty2-130/main/iw_04.iwd (698 files)
+/home/s4378/CallofDuty2-130/main/iw_03.iwd (26 files)
+/home/s4378/CallofDuty2-130/main/iw_02.iwd (40 files)
+/home/s4378/CallofDuty2-130/main/iw_01.iwd (16 files)
+/home/s4378/CallofDuty2-130/main/iw_00.iwd (102 files)
+/home/s4378/CallofDuty2-130/main
+/home/s4378/CallofDuty2-130/raw
+/home/s4378/CallofDuty2-130/raw_shared
+/home/s4378/CallofDuty2-130/devraw
+/home/s4378/CallofDuty2-130/devraw_shared
+/home/s4378/CallofDuty2-130/back2uo-210-ger/localized_german_iw15.iwd (30 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw11.iwd (2 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw10.iwd (416 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw09.iwd (49 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw08.iwd (8 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw07.iwd (1084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw06.iwd (2822 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw05.iwd (5672 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw04.iwd (6084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw03.iwd (6270 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw02.iwd (5924 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw01.iwd (4622 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw00.iwd (5400 files)
+localized assets iwd file for german
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+81853 files in iwd files
+dvar set loc_language 2
+dvar set loc_forceEnglish 0
+dvar set nextmap map_restart
+dvar set cl_paused 0
+dvar set sv_serverid 48
+WARNING: sound file 'amb_emitters/emt_corner_wind_1.wav' used as streamed in alias 'amb_wind' and loaded in alias 'tower_wind'
+WARNING: sound file 'explosions/mortar_dirt02.wav' used as streamed in alias 'artillery_explosion' and loaded in alias 'explosion_ground'
+WARNING: sound file 'fire/Fire_med_loop02.wav' used as streamed in alias 'medfire' and loaded in alias 'tankbrule'
+WARNING: sound file 'fire/Fire_Sm_loop01.wav' used as streamed in alias 'smallfire' and loaded in alias 'fire_sound'
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+dvar set g_gametype tdm
+dvar set sv_maxclients 16
+dvar set dedicated 2
+dvar set dedicated 2
+dvar set g_debugDamage 0
+dvar set g_debugBullets 0
+dvar set g_debugLocDamage 0
+dvar set g_friendlyfireDist 256
+dvar set g_friendlyNameDist 15000
+dvar set player_meleeRange 64
+dvar set player_meleeWidth 10
+dvar set player_meleeHeight 10
+dvar set g_dumpAnims -1
+dvar set g_useholdspawndelay 1
+dvar set g_mantleBlockTimeBuffer 500
+dvar set player_view_pitch_up 85
+dvar set player_view_pitch_down 85
+dvar set bg_ladder_yawcap 100
+dvar set bg_prone_yawcap 85
+dvar set bg_foliagesnd_minspeed 40
+dvar set bg_foliagesnd_maxspeed 180
+dvar set bg_foliagesnd_slowinterval 1500
+dvar set bg_foliagesnd_fastinterval 500
+dvar set bg_foliagesnd_resetinterval 500
+dvar set bg_fallDamageMinHeight 256
+dvar set bg_fallDamageMaxHeight 480
+dvar set inertiaMax 50
+dvar set inertiaDebug 0
+dvar set inertiaAngle 0
+dvar set friction 5.5
+dvar set stopspeed 100
+dvar set bg_swingSpeed 0.2
+dvar set bg_bobAmplitudeStanding 0.007
+dvar set bg_bobAmplitudeDucked 0.0075
+dvar set bg_bobAmplitudeProne 0.03
+dvar set bg_bobMax 8
+dvar set bg_aimSpreadMoveSpeedThreshold 11
+dvar set player_breath_hold_time 4.5
+dvar set player_breath_gasp_time 1
+dvar set player_breath_fire_delay 0
+dvar set player_breath_gasp_scale 4.5
+dvar set player_breath_hold_lerp 4
+dvar set player_breath_gasp_lerp 6
+dvar set player_breath_snd_lerp 2
+dvar set player_breath_snd_delay 1
+dvar set player_scopeExitOnDamage 0
+dvar set player_adsExitDelay 0
+dvar set player_moveThreshhold 10
+dvar set player_footstepsThreshhold 0
+dvar set player_strafeSpeedScale 0.8
+dvar set player_backSpeedScale 0.7
+dvar set player_spectateSpeedScale 2
+dvar set player_turnAnims 0
+dvar set player_dmgtimer_timePerPoint 100
+dvar set player_dmgtimer_maxTime 750
+dvar set player_dmgtimer_minScale 0
+dvar set player_dmgtimer_stumbleTime 500
+dvar set player_dmgtimer_flinchTime 500
+dvar set jump_height 39
+dvar set jump_stepSize 18
+dvar set jump_slowdownEnable 1
+dvar set jump_ladderPushVel 128
+dvar set jump_spreadAdd 64
+dvar set mantle_enable 1
+dvar set mantle_debug 0
+dvar set mantle_check_range 20
+dvar set mantle_check_radius 0.1
+dvar set mantle_check_angle 60
+dvar set mantle_view_yawcap 60
+dvar set g_gravity 800
+ERROR: xmodel 'wehrmacht_soldier' not found
+ERROR: Cannot find xmodel 'wehrmacht_soldier'.
+ERROR: xmodel 'airborne' not found
+ERROR: Cannot find xmodel 'airborne'.
+-----------------------------------
+dvar set bg_fallDamageMinHeight 225
+dvar set bg_fallDamageMaxHeight 355
+dvar set r_glowbloomintensity0 1
+dvar set r_glowbloomintensity1 1
+dvar set r_glowskybleedintensity0 .25
+dvar set sv_hostname The 40 Guns by www.gamed.de
+dvar set ui_hostname The 40 Guns by www.gamed.de
+dvar set scr_motd 
+dvar set ui_motd 
+dvar set g_allowVote 1
+dvar set ui_allowvote 1
+dvar set scr_friendlyfire 0
+dvar set ui_friendlyfire 0
+dvar set g_TeamName_Allies MPUI_AMERICAN
+dvar set g_TeamColor_Allies 0.25098 0.74902 0.25098 0
+dvar set g_ScoresBanner_Allies mpflag_american
+dvar set g_TeamName_Axis MPUI_GERMAN
+dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+dvar set g_ScoresBanner_Axis mpflag_german
+dvar set scr_killcam 0
+=============================== DVAR DUMP ========================================
+530 total dvars
+530 dvar indexes
+=============================== END DVAR DUMP =====================================
+dvar set sv_iwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client M5 M4 M3 M2 M1 iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+dvar set sv_referencedIwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 780394069 1101180720 1046874969 1053665859 1326979116 
+dvar set sv_referencedIwdNames back2uo-210-ger/z_svr_back2uo_2.1 back2uo-210-ger/z_back2uo_2.1_client main/M5 main/M4 main/M3 main/M2 main/M1 main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 back2uo-210-ger/localized_german_iw15
+-----------------------------------
+dvar set sv_punkbuster 0
+dvar set sv_cheats 0
+PunkBuster Server: 0 Aliases Written to pbalias.dat
+PunkBuster Server: 0 Stat Records Written to pbstat.dat
+PunkBuster Server: Preparing to Disable PB Server... (/home/s4378/CallofDuty2-130/pb/)
+Hitch warning: 5639 msec frame time
+Sending heartbeat to cod2master.activision.com
+dvar set scr_allow_colt 1
+dvar set scr_allow_webley 1
+dvar set scr_allow_luger 1
+dvar set scr_allow_TT30 1
+dvar set scr_allow_shotgun_axis 1
+dvar set scr_allow_shotgun_allies 1
+dvar set scr_allow_panzerschreck 1
+dvar set scr_allow_g43sniper 1
+dvar set scr_allow_binocular 1
+dvar set g_switchspec 
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+******* script runtime error *******
+undefined is not an array, string, or vector: (file 'maps/mp/gametypes/tdm.gsc', line 604)
+if(isdefined(self) && isdefined(attacker) && isdefined(self.pers["team"]) && isdefined(attacker.pers["team"]))
+*
+called from:
+(file 'maps/mp/gametypes/_spawnlogic.gsc', line 757)
+[[level.spawnlogic_oldCallbackPlayerKilled]](
+*
+called from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 72)
+[[level.callbackPlayerKilled]](eInflictor, eAttacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, timeOffset, deathAnimDuration);
+*
+called from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 69)
+CodeCallback_PlayerKilled(eInflictor, eAttacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, timeOffset, deathAnimDuration)
+*
+called from:
+(file 'maps/mp/gametypes/tdm.gsc', line 406)
+self finishPlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
+*
+called from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 62)
+[[level.callbackPlayerDamage]](eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, timeOffset);
+*
+started from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 59)
+CodeCallback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, timeOffset)
+*
+************************************
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+Client 4 connecting with 50 challenge ping from 88.70.60.32:28960
+Connecting player #4 has a zero GUID
+Going from CS_FREE to CS_CONNECTED for (num 4 guid 0)
+Rcon from 88.70.55.106:-1615:
+status
+4:Cabal EXE_DISCONNECTED
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+******* script runtime error *******
+undefined is not an array, string, or vector: (file 'maps/mp/gametypes/tdm.gsc', line 604)
+if(isdefined(self) && isdefined(attacker) && isdefined(self.pers["team"]) && isdefined(attacker.pers["team"]))
+*
+called from:
+(file 'maps/mp/gametypes/_spawnlogic.gsc', line 757)
+[[level.spawnlogic_oldCallbackPlayerKilled]](
+*
+called from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 72)
+[[level.callbackPlayerKilled]](eInflictor, eAttacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, timeOffset, deathAnimDuration);
+*
+called from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 69)
+CodeCallback_PlayerKilled(eInflictor, eAttacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, timeOffset, deathAnimDuration)
+*
+called from:
+(file 'maps/mp/gametypes/tdm.gsc', line 406)
+self finishPlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime);
+*
+called from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 62)
+[[level.callbackPlayerDamage]](eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, timeOffset);
+*
+started from:
+(file 'maps/mp/gametypes/_callbacksetup.gsc', line 59)
+CodeCallback_PlayerDamage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, timeOffset)
+*
+************************************
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+Sending heartbeat to cod2master.activision.com
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^2Viel Spaﬂ beim Zocken!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4[T40G] ^3Fun Clan"
+map_rotate...
+"sv_mapRotation" is:"map mp_carentan map mp_matmata map mp_harbor"
+"sv_mapRotationCurrent" is:" map mp_harbor"
+dvar set sv_mapRotationCurrent mp_harbor
+dvar set sv_mapRotationCurrent 
+Setting map: mp_harbor.
+dvar set g_gametype tdm
+dvar set g_gametype tdm
+dvar set mapname mp_harbor
+==== ShutdownGame ====
+------ Server Initialization ------
+Server: mp_harbor
+Current language: german
+Current search path:
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_svr_back2uo_2.1.iwd (59 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger/z_back2uo_2.1_client.iwd (258 files)
+/home/s4378/CallofDuty2-130/back2uo-210-ger
+/home/s4378/CallofDuty2-130/main/M5.iwd (100 files)
+/home/s4378/CallofDuty2-130/main/M4.iwd (268 files)
+/home/s4378/CallofDuty2-130/main/M3.iwd (219 files)
+/home/s4378/CallofDuty2-130/main/M2.iwd (181 files)
+/home/s4378/CallofDuty2-130/main/M1.iwd (175 files)
+/home/s4378/CallofDuty2-130/main/iw_15.iwd (85 files)
+/home/s4378/CallofDuty2-130/main/iw_14.iwd (4038 files)
+/home/s4378/CallofDuty2-130/main/iw_13.iwd (22624 files)
+/home/s4378/CallofDuty2-130/main/iw_12.iwd (1016 files)
+/home/s4378/CallofDuty2-130/main/iw_11.iwd (1462 files)
+/home/s4378/CallofDuty2-130/main/iw_10.iwd (1936 files)
+/home/s4378/CallofDuty2-130/main/iw_09.iwd (2142 files)
+/home/s4378/CallofDuty2-130/main/iw_08.iwd (2723 files)
+/home/s4378/CallofDuty2-130/main/iw_07.iwd (3384 files)
+/home/s4378/CallofDuty2-130/main/iw_06.iwd (990 files)
+/home/s4378/CallofDuty2-130/main/iw_05.iwd (928 files)
+/home/s4378/CallofDuty2-130/main/iw_04.iwd (698 files)
+/home/s4378/CallofDuty2-130/main/iw_03.iwd (26 files)
+/home/s4378/CallofDuty2-130/main/iw_02.iwd (40 files)
+/home/s4378/CallofDuty2-130/main/iw_01.iwd (16 files)
+/home/s4378/CallofDuty2-130/main/iw_00.iwd (102 files)
+/home/s4378/CallofDuty2-130/main
+/home/s4378/CallofDuty2-130/raw
+/home/s4378/CallofDuty2-130/raw_shared
+/home/s4378/CallofDuty2-130/devraw
+/home/s4378/CallofDuty2-130/devraw_shared
+/home/s4378/CallofDuty2-130/back2uo-210-ger/localized_german_iw15.iwd (30 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw11.iwd (2 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw10.iwd (416 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw09.iwd (49 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw08.iwd (8 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw07.iwd (1084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw06.iwd (2822 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw05.iwd (5672 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw04.iwd (6084 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw03.iwd (6270 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw02.iwd (5924 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw01.iwd (4622 files)
+localized assets iwd file for german
+/home/s4378/CallofDuty2-130/main/localized_german_iw00.iwd (5400 files)
+localized assets iwd file for german
+File Handles:
+handle 1: console_mp_server.log
+----------------------
+81853 files in iwd files
+dvar set loc_language 2
+dvar set loc_forceEnglish 0
+dvar set com_expectedHunkUsage 93294656
+dvar set nextmap map_restart
+dvar set cl_paused 0
+dvar set sv_serverid 64
+WARNING: sound file 'explosions/mortar_dirt02.wav' used as streamed in alias 'artillery_explosion' and loaded in alias 'explosion_ground'
+WARNING: sound file 'fire/Fire_med_loop02.wav' used as streamed in alias 'medfire' and loaded in alias 'tankbrule'
+------- Game Initialization -------
+gamename: Call of Duty 2
+gamedate: Jun 23 2006
+dvar set g_gametype tdm
+dvar set sv_maxclients 16
+dvar set dedicated 2
+dvar set dedicated 2
+dvar set g_debugDamage 0
+dvar set g_debugBullets 0
+dvar set g_debugLocDamage 0
+dvar set g_friendlyfireDist 256
+dvar set g_friendlyNameDist 15000
+dvar set player_meleeRange 64
+dvar set player_meleeWidth 10
+dvar set player_meleeHeight 10
+dvar set g_dumpAnims -1
+dvar set g_useholdspawndelay 1
+dvar set g_mantleBlockTimeBuffer 500
+dvar set player_view_pitch_up 85
+dvar set player_view_pitch_down 85
+dvar set bg_ladder_yawcap 100
+dvar set bg_prone_yawcap 85
+dvar set bg_foliagesnd_minspeed 40
+dvar set bg_foliagesnd_maxspeed 180
+dvar set bg_foliagesnd_slowinterval 1500
+dvar set bg_foliagesnd_fastinterval 500
+dvar set bg_foliagesnd_resetinterval 500
+dvar set bg_fallDamageMinHeight 256
+dvar set bg_fallDamageMaxHeight 480
+dvar set inertiaMax 50
+dvar set inertiaDebug 0
+dvar set inertiaAngle 0
+dvar set friction 5.5
+dvar set stopspeed 100
+dvar set bg_swingSpeed 0.2
+dvar set bg_bobAmplitudeStanding 0.007
+dvar set bg_bobAmplitudeDucked 0.0075
+dvar set bg_bobAmplitudeProne 0.03
+dvar set bg_bobMax 8
+dvar set bg_aimSpreadMoveSpeedThreshold 11
+dvar set player_breath_hold_time 4.5
+dvar set player_breath_gasp_time 1
+dvar set player_breath_fire_delay 0
+dvar set player_breath_gasp_scale 4.5
+dvar set player_breath_hold_lerp 4
+dvar set player_breath_gasp_lerp 6
+dvar set player_breath_snd_lerp 2
+dvar set player_breath_snd_delay 1
+dvar set player_scopeExitOnDamage 0
+dvar set player_adsExitDelay 0
+dvar set player_moveThreshhold 10
+dvar set player_footstepsThreshhold 0
+dvar set player_strafeSpeedScale 0.8
+dvar set player_backSpeedScale 0.7
+dvar set player_spectateSpeedScale 2
+dvar set player_turnAnims 0
+dvar set player_dmgtimer_timePerPoint 100
+dvar set player_dmgtimer_maxTime 750
+dvar set player_dmgtimer_minScale 0
+dvar set player_dmgtimer_stumbleTime 500
+dvar set player_dmgtimer_flinchTime 500
+dvar set jump_height 39
+dvar set jump_stepSize 18
+dvar set jump_slowdownEnable 1
+dvar set jump_ladderPushVel 128
+dvar set jump_spreadAdd 64
+dvar set mantle_enable 1
+dvar set mantle_debug 0
+dvar set mantle_check_range 20
+dvar set mantle_check_radius 0.1
+dvar set mantle_check_angle 60
+dvar set mantle_view_yawcap 60
+dvar set g_gravity 800
+-----------------------------------
+dvar set bg_fallDamageMinHeight 225
+dvar set bg_fallDamageMaxHeight 355
+dvar set r_glowbloomintensity0 1
+dvar set r_glowbloomintensity1 1
+dvar set r_glowskybleedintensity0 .5
+dvar set sv_hostname The 40 Guns by www.gamed.de
+dvar set ui_hostname The 40 Guns by www.gamed.de
+dvar set scr_motd 
+dvar set ui_motd 
+dvar set g_allowVote 1
+dvar set ui_allowvote 1
+dvar set scr_friendlyfire 0
+dvar set ui_friendlyfire 0
+dvar set g_TeamName_Allies MPUI_RUSSIAN
+dvar set g_TeamColor_Allies 0.74902 0.25098 0.25098 0
+dvar set g_ScoresBanner_Allies mpflag_russian
+dvar set g_TeamName_Axis MPUI_GERMAN
+dvar set g_TeamColor_Axis 0.6 0.6 0.6 0
+dvar set g_ScoresBanner_Axis mpflag_german
+dvar set scr_killcam 0
+dvar set ui_tdm_timelimit 20
+dvar set ui_tdm_scorelimit 100
+=============================== DVAR DUMP ========================================
+530 total dvars
+530 dvar indexes
+=============================== END DVAR DUMP =====================================
+dvar set sv_iwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 -1449716526 780394069 -1333623355 -1980843666 1334775335 -621896007 1101180720 1046874969 1053665859 1842349204 -1652414412 1659111092 -1085686032 -2025394354 178615151 
+dvar set sv_iwdNames z_svr_back2uo_2.1 z_back2uo_2.1_client M5 M4 M3 M2 M1 iw_15 iw_14 iw_13 iw_12 iw_11 iw_10 iw_09 iw_08 iw_07 iw_06 iw_05 iw_04 iw_03 iw_02 iw_01 iw_00
+dvar set sv_referencedIwds -1013450551 -1001143521 126342172 -77019983 2110058661 -762314257 -169701145 181429573 780394069 1101180720 1046874969 1053665859 1326979116 
+dvar set sv_referencedIwdNames back2uo-210-ger/z_svr_back2uo_2.1 back2uo-210-ger/z_back2uo_2.1_client main/M5 main/M4 main/M3 main/M2 main/M1 main/iw_15 main/iw_13 main/iw_08 main/iw_07 main/iw_06 back2uo-210-ger/localized_german_iw15
+-----------------------------------
+dvar set sv_punkbuster 0
+dvar set sv_cheats 0
+PunkBuster Server: 0 Aliases Written to pbalias.dat
+PunkBuster Server: 0 Stat Records Written to pbstat.dat
+PunkBuster Server: Preparing to Disable PB Server... (/home/s4378/CallofDuty2-130/pb/)
+Hitch warning: 6617 msec frame time
+Sending heartbeat to cod2master.activision.com
+dvar set scr_allow_colt 1
+dvar set scr_allow_webley 1
+dvar set scr_allow_luger 1
+dvar set scr_allow_TT30 1
+dvar set scr_allow_shotgun_axis 1
+dvar set scr_allow_shotgun_allies 1
+dvar set scr_allow_panzerschreck 1
+dvar set scr_allow_g43sniper 1
+dvar set scr_allow_binocular 1
+dvar set g_switchspec 
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^1Laﬂt das STERBEN beginnen!!!"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^0HIER gibt es RICHTIG auf die FRESSE"
+WARNING: Non-localized Game Message string is not allowed to have letters in it. Must be changed over to a localized string: "^4ACHTUNG-ACHTUNG:^3Freilaufene ^1ROBBEN"
+Client 5 connecting with 50 challenge ping from 88.70
