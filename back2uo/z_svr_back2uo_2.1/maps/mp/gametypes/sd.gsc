@@ -1226,7 +1226,7 @@ startRound()
 	if(game["back2uo_enable"])
 	{	
 		level.clock.horzAlign = "center";
-		level.clock.x = -20;
+		level.clock.x = -23;
 		level.clock.y = 445;
 		level.clock.alpha = 0.7;
 	}
