@@ -1,0 +1,59 @@
+	// HOLD BREATH HINT
+//	menuDef
+//	{
+//		name			"HoldBreathHint"
+//		fullScreen		MENU_FALSE
+//		visible			MENU_TRUE
+//		rect			0 -130 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+//
+//		itemDef
+//		{
+//			name			"chRect"
+//			decoration
+//			visible			MENU_TRUE
+//			rect			0 0 0 0
+//			textscale		.21
+//			textstyle		ITEM_TEXTSTYLE_SHADOWED
+//			ownerdraw		CG_HOLD_BREATH_HINT
+//		}
+//	}
+
+	// MANTLE HINT
+	menuDef
+	{
+		name			"MantleHint"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 130 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+
+		itemDef
+		{
+			name			"chRect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 0 40 40
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWEDMORE
+			ownerdraw		CG_MANTLE_HINT
+		}
+	}
+
+	// CURSOR HINTS
+	menuDef
+	{
+		name			"Cursorhints"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 70 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+
+		itemDef
+		{
+			name			"chRect"
+			decoration
+			visible			MENU_TRUE
+			rect			0 0 40 40	// 64x64
+			textscale		.21
+			textstyle		ITEM_TEXTSTYLE_SHADOWEDMORE
+			ownerdraw		CG_CURSORHINT
+		}
+	}
