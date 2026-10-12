@@ -104,6 +104,8 @@ Suspected script bugs found during the code cleanup are listed in [docs/code-rev
 - https://github.com/callofduty2x/CoD2x CoD2x is a modification of Call of Duty 2. It is build on top of 1.3 version. It focuses on fixing bugs and adding new features to the game.
 - https://znation.nl/cod2script/ Documentation about all Call of Duty 2 functions and also about libcod functions.
 - https://github.com/voron00/libcod The Call of Duty extension libcod is adding new server-side functions
+- https://github.com/ibuddieat/zk_libcod An advanced version of libcod, extending Call of Duty® 2 servers
+- https://www.ibuddie.at/libcod/index.html Improved script documentation
 
 ## Credits
 
