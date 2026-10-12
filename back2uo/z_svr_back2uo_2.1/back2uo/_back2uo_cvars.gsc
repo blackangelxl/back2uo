@@ -220,22 +220,18 @@ back2uo_player_origin()
 back2uo_playeraction_msg
 
 Prints a message with up to two parts in the message area of every player.
-Params: text1 - localized string or text
-		text2 - argument for text1 (e.g. a player entity for the name)
+Params: text - localized string or text
 =============
 */
-back2uo_playeraction_msg(text1, text2)
+back2uo_playeraction_msg(text)
 {
-	if(!isdefined(text1)) text1 = "";
-	if(!isdefined(text2)) text2 = "";
-
 	players = getentarray("player", "classname");
 
 	for(p = 0; p < players.size; p++)
 	{
 		user = players[p];
 
-		user iprintln(text1, text2);
+		user iprintln(text);
 	}
 }
 
