@@ -45,68 +45,13 @@ def needs_space(prev, nxt):
 
 
 def minify_gsc(text):
-    """Strip comments and redundant whitespace from GSC source, one statement line per source line."""
-    lines = []
-    line = []
-    pending_space = False
-    i = 0
-    n = len(text)
-
-    def flush():
-        stripped = "".join(line).strip()
-        if stripped:
-            lines.append(stripped)
-        line.clear()
-
-    while i < n:
-        c = text[i]
-        two = text[i:i + 2]
-        if two == "//":
-            end = text.find("\n", i)
-            i = n if end == -1 else end
-        elif two == "/*":
-            end = text.find("*/", i + 2)
-            if end == -1:
-                raise ValueError("unterminated block comment")
-            # A comment separates tokens like whitespace does
-            pending_space = True
-            i = end + 2
-        elif two in ("/#", "#/"):
-            # Developer block markers must stay on a line of their own
-            flush()
-            lines.append(two)
-            pending_space = False
-            i += 2
-        elif c == '"':
-            j = i + 1
-            while j < n and text[j] != '"':
-                if text[j] == "\\":
-                    j += 1
-                elif text[j] == "\n":
-                    raise ValueError("unterminated string")
-                j += 1
-            if j >= n:
-                raise ValueError("unterminated string")
-            if pending_space and line and needs_space(line[-1][-1], c):
-                line.append(" ")
-            line.append(text[i:j + 1])
-            pending_space = False
-            i = j + 1
-        elif c == "\n":
-            flush()
-            pending_space = False
-            i += 1
-        elif c.isspace():
-            pending_space = True
-            i += 1
-        else:
-            if pending_space and line and needs_space(line[-1][-1], c):
-                line.append(" ")
-            line.append(c)
-            pending_space = False
-            i += 1
-    flush()
-    return "\n".join(lines) + "\n"
+    """Remove comments and empty lines from GSC source."""
+    import re
+    text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
+    text = re.sub(r'//.*', '', text)
+    text = re.sub(r'(?m)^\s*/#\s*$', '', text)
+    text = re.sub(r'(?m)^\s*#/\s*$', '', text)
+    return '\n'.join(line for line in text.splitlines() if line.strip()) + '\n'
 
 
 def build_iwd(src_dir, iwd_path, minify):
