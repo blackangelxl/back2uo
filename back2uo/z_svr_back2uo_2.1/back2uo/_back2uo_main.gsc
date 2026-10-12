@@ -542,6 +542,9 @@ back2uo_main()
 
 		if(!game["back2uo_vote_gametype_enable"]) setCvar("g_allowvotegametype", 0);
 	}
+
+	// Test hook: empty in the release, replaced by the test build (tests/gsc/)
+	thread back2uo\_back2uo_test::run();
 }
 
 /*

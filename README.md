@@ -39,8 +39,11 @@ back2uo/                          fs_game folder contents
   localized_english_iw15/         -> localized_english_iw15.iwd English strings and voice sounds
   localized_german_iw15/          -> localized_german_iw15.iwd  German strings and voice sounds
 docs/                             original v2.1 ReadMe and Index (Word), code review notes
+tests/                            GSC tests on a docker CoD2 server (see tests/README.md)
+  gsc/                            -> zz_back2uo_test.iwd        test runner and suites
+  run_tests.py                    builds, starts the server, reads the results
 tools/
-  build.py                        packs the folders into .iwd archives
+  build.py                        packs the folders into .iwd archives (--test: test build)
   gscfmt.py                       formats GSC files (tabs, CRLF)
   gsclex.py                       checks that an edit changed only comments/whitespace
 ```
@@ -54,6 +57,17 @@ python tools/build.py
 ```
 
 Output: `dist/back2uo/` with the four `.iwd` archives and the config files.
+
+## Tests
+
+GSC tests run on a real CoD2 server in Docker. Requires Docker and the CoD2 `main/*.iwd` files.
+
+```sh
+export COD2_MAIN="/path/to/Call of Duty 2/main"
+python tests/run_tests.py --gametype tdm --gametype sd
+```
+
+Details and how to write tests: [tests/README.md](tests/README.md).
 
 ## Install (server)
 

@@ -10,8 +10,12 @@ indentation, blank lines and redundant whitespace are dropped. Developer blocks
 (/# ... #/) are kept. Pass --no-minify to pack the scripts unchanged, which
 keeps the line numbers in script errors matching the sources.
 
+Pass --test to build the test server instead: the output goes to dist-test/back2uo/
+and adds zz_back2uo_test.iwd (the GSC test runner from tests/gsc/, which overrides the
+release stub back2uo/_back2uo_test.gsc) and tests/server_test.cfg. See tests/README.md.
+
 Usage:
-    python tools/build.py [--no-minify]
+    python tools/build.py [--no-minify] [--test]
 """
 import os
 import shutil
@@ -21,6 +25,11 @@ import zipfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "back2uo")
 DIST = os.path.join(ROOT, "dist", "back2uo")
+TEST_SRC = os.path.join(ROOT, "tests", "gsc")
+TEST_CFG = os.path.join(ROOT, "tests", "server_test.cfg")
+TEST_DIST = os.path.join(ROOT, "dist-test", "back2uo")
+# Sorts after z_svr_back2uo_2.1.iwd, so its files override the release files
+TEST_IWD = "zz_back2uo_test.iwd"
 
 # "." counts as a word char so "wait .05" does not become "wait.05"
 WORD_CHARS = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.")
@@ -127,26 +136,34 @@ def build_iwd(src_dir, iwd_path, minify):
 
 def main():
     minify = "--no-minify" not in sys.argv[1:]
+    test = "--test" in sys.argv[1:]
+    dist = TEST_DIST if test else DIST
 
     if not os.path.isdir(SRC):
         sys.exit(f"Source folder not found: {SRC}")
 
-    if os.path.isdir(DIST):
-        shutil.rmtree(DIST)
-    os.makedirs(DIST)
+    if os.path.isdir(dist):
+        shutil.rmtree(dist)
+    os.makedirs(dist)
 
     for entry in sorted(os.listdir(SRC)):
         path = os.path.join(SRC, entry)
         if os.path.isdir(path):
-            target = os.path.join(DIST, entry + ".iwd")
+            target = os.path.join(dist, entry + ".iwd")
             n, saved = build_iwd(path, target, minify)
             info = f", gsc -{saved // 1024} KB" if saved else ""
             print(f"  {entry}.iwd ({n} files{info})")
         elif entry.lower().endswith(".cfg"):
-            shutil.copy2(path, DIST)
+            shutil.copy2(path, dist)
             print(f"  {entry}")
 
-    print(f"Done: {DIST}")
+    if test:
+        n, _ = build_iwd(TEST_SRC, os.path.join(dist, TEST_IWD), minify)
+        print(f"  {TEST_IWD} ({n} files)")
+        shutil.copy2(TEST_CFG, dist)
+        print(f"  {os.path.basename(TEST_CFG)}")
+
+    print(f"Done: {dist}")
 
 
 if __name__ == "__main__":
