@@ -121,6 +121,8 @@ back2uo_switchspec()
 					if(isAlive(player))
 					{
 						player.switching_teams = true;
+						player.joining_team = "spectator";
+						player.leaving_team = player.pers["team"];
 						player suicide();
 					}
 
@@ -160,7 +162,7 @@ back2uo_switchspec()
 			}
 
 			// Announce the move to all players
-			thread back2uo\_back2uo_cvars::back2uo_playeraction_msg(&"BACK2UOMOD_PLAYER_SPECTATOR", self);
+			thread back2uo\_back2uo_cvars::back2uo_playeraction_msg(&"BACK2UOMOD_PLAYER_SPECTATOR");
 
 			setcvar("g_switchspec", "");
 		}

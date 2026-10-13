@@ -10,8 +10,12 @@ indentation, blank lines and redundant whitespace are dropped. Developer blocks
 (/# ... #/) are kept. Pass --no-minify to pack the scripts unchanged, which
 keeps the line numbers in script errors matching the sources.
 
+Pass --test to build the test server instead: the output goes to dist-test/back2uo/
+and adds zz_back2uo_test.iwd (the GSC test runner from tests/gsc/, which overrides the
+release stub back2uo/_back2uo_test.gsc) and tests/server_test.cfg. See tests/README.md.
+
 Usage:
-    python tools/build.py [--no-minify]
+    python tools/build.py [--no-minify] [--test]
 """
 import os
 import shutil
@@ -21,6 +25,11 @@ import zipfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "back2uo")
 DIST = os.path.join(ROOT, "dist", "back2uo")
+TEST_SRC = os.path.join(ROOT, "tests", "gsc")
+TEST_CFG = os.path.join(ROOT, "tests", "server_test.cfg")
+TEST_DIST = os.path.join(ROOT, "dist-test", "back2uo")
+# Sorts after z_svr_back2uo_2.1.iwd, so its files override the release files
+TEST_IWD = "zz_back2uo_test.iwd"
 
 # "." counts as a word char so "wait .05" does not become "wait.05"
 WORD_CHARS = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.")
@@ -36,68 +45,13 @@ def needs_space(prev, nxt):
 
 
 def minify_gsc(text):
-    """Strip comments and redundant whitespace from GSC source, one statement line per source line."""
-    lines = []
-    line = []
-    pending_space = False
-    i = 0
-    n = len(text)
-
-    def flush():
-        stripped = "".join(line).strip()
-        if stripped:
-            lines.append(stripped)
-        line.clear()
-
-    while i < n:
-        c = text[i]
-        two = text[i:i + 2]
-        if two == "//":
-            end = text.find("\n", i)
-            i = n if end == -1 else end
-        elif two == "/*":
-            end = text.find("*/", i + 2)
-            if end == -1:
-                raise ValueError("unterminated block comment")
-            # A comment separates tokens like whitespace does
-            pending_space = True
-            i = end + 2
-        elif two in ("/#", "#/"):
-            # Developer block markers must stay on a line of their own
-            flush()
-            lines.append(two)
-            pending_space = False
-            i += 2
-        elif c == '"':
-            j = i + 1
-            while j < n and text[j] != '"':
-                if text[j] == "\\":
-                    j += 1
-                elif text[j] == "\n":
-                    raise ValueError("unterminated string")
-                j += 1
-            if j >= n:
-                raise ValueError("unterminated string")
-            if pending_space and line and needs_space(line[-1][-1], c):
-                line.append(" ")
-            line.append(text[i:j + 1])
-            pending_space = False
-            i = j + 1
-        elif c == "\n":
-            flush()
-            pending_space = False
-            i += 1
-        elif c.isspace():
-            pending_space = True
-            i += 1
-        else:
-            if pending_space and line and needs_space(line[-1][-1], c):
-                line.append(" ")
-            line.append(c)
-            pending_space = False
-            i += 1
-    flush()
-    return "\n".join(lines) + "\n"
+    """Remove comments and empty lines from GSC source."""
+    import re
+    text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
+    text = re.sub(r'//.*', '', text)
+    text = re.sub(r'(?m)^\s*/#\s*$', '', text)
+    text = re.sub(r'(?m)^\s*#/\s*$', '', text)
+    return '\n'.join(line for line in text.splitlines() if line.strip()) + '\n'
 
 
 def build_iwd(src_dir, iwd_path, minify):
@@ -127,26 +81,34 @@ def build_iwd(src_dir, iwd_path, minify):
 
 def main():
     minify = "--no-minify" not in sys.argv[1:]
+    test = "--test" in sys.argv[1:]
+    dist = TEST_DIST if test else DIST
 
     if not os.path.isdir(SRC):
         sys.exit(f"Source folder not found: {SRC}")
 
-    if os.path.isdir(DIST):
-        shutil.rmtree(DIST)
-    os.makedirs(DIST)
+    if os.path.isdir(dist):
+        shutil.rmtree(dist)
+    os.makedirs(dist)
 
     for entry in sorted(os.listdir(SRC)):
         path = os.path.join(SRC, entry)
         if os.path.isdir(path):
-            target = os.path.join(DIST, entry + ".iwd")
+            target = os.path.join(dist, entry + ".iwd")
             n, saved = build_iwd(path, target, minify)
             info = f", gsc -{saved // 1024} KB" if saved else ""
             print(f"  {entry}.iwd ({n} files{info})")
         elif entry.lower().endswith(".cfg"):
-            shutil.copy2(path, DIST)
+            shutil.copy2(path, dist)
             print(f"  {entry}")
 
-    print(f"Done: {DIST}")
+    if test:
+        n, _ = build_iwd(TEST_SRC, os.path.join(dist, TEST_IWD), minify)
+        print(f"  {TEST_IWD} ({n} files)")
+        shutil.copy2(TEST_CFG, dist)
+        print(f"  {os.path.basename(TEST_CFG)}")
+
+    print(f"Done: {dist}")
 
 
 if __name__ == "__main__":

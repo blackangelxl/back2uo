@@ -11,28 +11,17 @@ services:
       - "28960:28960/udp"
     # Mount required game files
     volumes:
-      - /volume2/docker/cod2_server/main:/home/cod2/main
-      - /volume2/docker/cod2_server/back2uo:/home/cod2/back2uo
+      - ./main:/home/cod2/main
+      - ./back2uo:/home/cod2/back2uo
     # Configure server parameters
     command:
       [
-        "+set",
-        "fs_game",
-        "back2uo",
-        "+set",
-        "dedicated",
-        "1",
-        "+set",
-        "net_port",
-        "28960",
-        "+set",
-        "sv_cheats",
-        "0",
-        "+set",
-        "sv_punkbuster",
-        "0",
-        "+exec",
-        "cod2server.cfg"
+        "+set", "fs_game", "back2uo",
+        "+set", "dedicated", "1",
+        "+set", "net_port", "28960",
+        "+set", "sv_cheats", "0",
+        "+set", "sv_punkbuster", "0",
+        "+exec", "cod2server.cfg"
       ]
     # Allow server shell interaction
     stdin_open: true
