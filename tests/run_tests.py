@@ -8,8 +8,6 @@ Steps:
 
 The server console is also checked for script compile and runtime errors.
 
-Requires Docker and the environment variable COD2_MAIN (folder with the CoD2 main/*.iwd files).
-
 Usage:
     python tests/run_tests.py [--gametype tdm --gametype sd ...] [--map mp_toujane]
                               [--timeout 180] [--no-build] [--keep]
@@ -129,9 +127,6 @@ def main():
     parser.add_argument("--no-build", action="store_true", help="use the existing dist-test/ build")
     parser.add_argument("--keep", action="store_true", help="leave the server running after the run")
     args = parser.parse_args()
-
-    if not os.environ.get("COD2_MAIN"):
-        sys.exit("Set COD2_MAIN to the folder with the CoD2 main/*.iwd files.")
 
     if not args.no_build:
         subprocess.run([sys.executable, os.path.join(ROOT, "tools", "build.py"), "--test", "--no-minify"], check=True)

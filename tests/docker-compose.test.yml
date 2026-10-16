@@ -1,6 +1,5 @@
 # Back2Uo test server, started by tests/run_tests.py.
 #
-# COD2_MAIN must point to a folder with the original CoD2 main/*.iwd files.
 # B2U_GAMETYPE and B2U_MAP choose the gametype and map (defaults: tdm, mp_toujane).
 services:
   cod2_test_server:
@@ -13,6 +12,7 @@ services:
       [
         "+set", "fs_game", "back2uo",
         "+set", "dedicated", "1",
+        "+set", "loc_language", "2",
         "+set", "net_port", "28960",
         "+exec", "server_test.cfg",
         "+set", "g_gametype", "${B2U_GAMETYPE:-tdm}",
