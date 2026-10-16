@@ -2,6 +2,10 @@ services:
   cod2_server:
     # You can chose a different server version, see available image tags:
     # https://hub.docker.com/r/bgauduch/cod2server/tags
+    #
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: bgauduch/cod2server:8.1.1-1_3_nodelay_va_loc-ibuddieat
     restart: unless-stopped
     ports:
