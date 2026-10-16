@@ -7,8 +7,8 @@ services:
     # Same server build as server/docker-compose.yml: CoD2 1.3 with zk_libcod
     image: bgauduch/cod2server:8.1.1-1_3_nodelay_va_loc-ibuddieat
     volumes:
-      - ${COD2_MAIN:?set COD2_MAIN to the CoD2 main folder}:/home/cod2/main:ro
-      - ../dist-test/back2uo:/home/cod2/back2uo
+      - cod2_main:/home/cod2/main:ro
+      - back2uo_test:/home/cod2/back2uo:ro
     command:
       [
         "+set", "fs_game", "back2uo",
@@ -20,3 +20,9 @@ services:
       ]
     stdin_open: true
     tty: true
+
+volumes:
+  cod2_main:
+    external: true
+  back2uo_test:
+    external: true
