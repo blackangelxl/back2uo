@@ -1,4 +1,4 @@
 *
 !.gitignore
 !docker-compose.yml
-!sync_mod.sh
+!*.sh
