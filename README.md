@@ -120,6 +120,7 @@ Suspected script bugs found during the code cleanup are listed in [docs/code-rev
 - https://github.com/voron00/libcod The Call of Duty extension libcod is adding new server-side functions
 - https://github.com/ibuddieat/zk_libcod An advanced version of libcod, extending Call of Duty® 2 servers
 - https://www.ibuddie.at/libcod/index.html Improved script documentation
+- https://github.com/bgauduch/call-of-duty-2-docker-server Call of Duty 2 server meets docker
 
 ## Credits
 

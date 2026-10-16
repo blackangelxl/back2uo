@@ -9,9 +9,6 @@ and writes the results to the log. `run_tests.py` reads them and sets the exit c
 Requires Docker, Python 3 and the original CoD2 `main/*.iwd` files.
 
 ```sh
-# PowerShell: $env:COD2_MAIN = "C:\Games\Call of Duty 2\main"
-export COD2_MAIN="/path/to/Call of Duty 2/main"
-
 python tests/run_tests.py                                 # tdm on mp_toujane
 python tests/run_tests.py --gametype tdm --gametype sd    # several gametypes
 python tests/run_tests.py --map mp_carentan --keep        # leave the server running
