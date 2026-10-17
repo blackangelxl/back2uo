@@ -441,13 +441,13 @@ back2uo_airplane_flytime(airplane_speed, airplane_startpoint, airplane_endpoint)
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Flytime", "Run");
 
-	if(airplane_speed < 1) return 0.1;
+	if(airplane_speed < 1) return 1.1;
 
 	fly_distance = distance(airplane_startpoint, airplane_endpoint);
 	fly_time = (fly_distance / airplane_speed) / 4;
 
 	// Note: fly_time is never negative; a 0 distance still returns 0.
-	if(fly_time < 0) fly_time = 0.1;
+	if(fly_time <= 1) fly_time = 1.1;
 
 	return fly_time;
 }
