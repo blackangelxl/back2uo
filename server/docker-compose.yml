@@ -2,13 +2,17 @@ services:
   cod2_server:
     # You can chose a different server version, see available image tags:
     # https://hub.docker.com/r/bgauduch/cod2server/tags
+    #
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: bgauduch/cod2server:8.1.1-1_3_nodelay_va_loc-ibuddieat
     restart: unless-stopped
     ports:
       - "20500:20500/udp"
       - "20510:20510/udp"
-      - "28960:28960/tcp"
-      - "28960:28960/udp"
+      - "28961:28960/tcp"
+      - "28961:28960/udp"
     # Mount required game files
     volumes:
       - cod2_main:/home/cod2/main:ro
@@ -20,6 +24,7 @@ services:
         "+set", "dedicated", "1",
         "+set", "loc_language", "2",
         "+set", "net_port", "28960",
+        "+set", "net_ip", "0.0.0.0",
         "+set", "sv_cheats", "0",
         "+set", "sv_punkbuster", "0",
         "+exec", "cod2server.cfg"

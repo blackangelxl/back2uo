@@ -711,7 +711,7 @@ back2uo_precached()
 	PrecacheModel("xmodel/vehicle_spitfire_flying");
 
 	// Model spawned by tools\_back2uo_dimension::back2uo_mapdimension() (map dimension check)
-	PrecacheModel("xmodel/tree_destroyed_snow_fallen_log_a");
+	PrecacheModel("xmodel/crate_wood");
 
 	// --- Mortar shell model ---
 

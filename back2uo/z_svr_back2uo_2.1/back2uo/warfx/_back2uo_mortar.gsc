@@ -215,7 +215,7 @@ back2uo_mortar_draw(wert)
 	// Screen shake: scale 0.25, 2 seconds, radius 1250 units.
 	if(level.back2uo_mortar_quake)
 	{
-		earthquake(randomintrange(0.25, 0.45), 2, trace["position"], 1000 + randomint(250));
+		earthquake(randomfloatrange(0.25, 0.45), 2, trace["position"], 1000 + randomint(250));
 	}
 
 	mortar delete();

@@ -179,7 +179,7 @@ back2uo_playerposition_sprint()
 	// Bots never sprint.
 	if(isdefined(self.pers["bots_nosprint"])) return;
 
-	back2uo\_back2uo_cvars::back2uo_logprint("Player Postion Sprint", "Run");
+	back2uo\_back2uo_cvars::back2uo_logprint("Player Position Sprint", "Run");
 
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
