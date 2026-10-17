@@ -220,7 +220,7 @@ Params: posi - world position of the marker
 backuo_mapdimo_model(posi)
 {
 	mapdimomodel = spawn("script_model", posi);
-	mapdimomodel setModel("xmodel/tree_destroyed_snow_fallen_log_a");
+	mapdimomodel setModel("xmodel/crate_wood");
 	mapdimomodel show();
 
 	for(;;)

@@ -137,5 +137,9 @@ back2uo_playerdamage_blood(sHitLoc, iDamage, attacker)
 	}
 
 	// Development mode: print the bone that was hit to the attacker.
-	if(game["back2uo_development_enable"]) attacker iprintln(hitposi);
+	if (game["back2uo_development_enable"] && isPlayer(attacker))
+	{
+		attacker iprintln("playerdamage_blood:");
+		attacker iprintln(hitposi);
+	}
 }
