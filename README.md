@@ -54,6 +54,7 @@ Requires Python 3.
 
 ```sh
 python tools/build.py
+python tools/build.py --no-minify
 ```
 
 Output: `dist/back2uo/` with the four `.iwd` archives and the config files.
@@ -121,6 +122,7 @@ Suspected script bugs found during the code cleanup are listed in [docs/code-rev
 - https://github.com/ibuddieat/zk_libcod An advanced version of libcod, extending Call of DutyÂ® 2 servers
 - https://www.ibuddie.at/libcod/index.html Improved script documentation
 - https://github.com/bgauduch/call-of-duty-2-docker-server Call of Duty 2 server meets docker
+- https://nawaftahir.github.io/cod2-xmodel-gallery/ Call of Duty 2 · Stock Asset Library
 
 ## Credits
 
