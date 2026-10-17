@@ -288,6 +288,8 @@ back2uo_player_spectator()
 
 	back2uo\hud\_back2uo_binocular::back2uo_binocular_distance_clear2();
 
+	back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_strike_used_up();
+
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();
 }
 

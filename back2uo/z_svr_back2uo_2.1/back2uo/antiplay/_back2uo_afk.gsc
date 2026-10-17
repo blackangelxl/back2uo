@@ -124,6 +124,8 @@ back2uo_switchspec()
 						player.joining_team = "spectator";
 						player.leaving_team = player.pers["team"];
 						player suicide();
+
+						back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_strike_used_up();
 					}
 
 					player.pers["team"] = "spectator";
