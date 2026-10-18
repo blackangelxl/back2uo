@@ -218,7 +218,7 @@ back2uo_player_spawn()
 	thread back2uo\_back2uo_weaponsystem::back2uo_pistel_unlimtedammo();
 
 	// Hint which key is used for sprinting.
-	thread back2uo\hud\_back2uo_sprinttast::back2uo_sprinttast_msg();
+	//thread back2uo\hud\_back2uo_sprinttast::back2uo_sprinttast_msg();
 
 	thread back2uo\_back2uo_cvars::back2uo_grana_smoke_checker();
 
@@ -287,6 +287,8 @@ back2uo_player_spectator()
 	back2uo\hud\_back2uo_playerscore::back2uo_playerscore_clear();
 
 	back2uo\hud\_back2uo_binocular::back2uo_binocular_distance_clear2();
+
+	back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_strike_used_up();
 
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();
 }

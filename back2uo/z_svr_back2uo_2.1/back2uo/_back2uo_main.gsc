@@ -688,11 +688,6 @@ back2uo_precached()
 
 	precacheShader("gfx/hud/hud@back2uo_medicicon.tga");
 
-	// --- Explosive charge ---
-
-	// Disabled: model for the unused explosive charge / mine feature
-	//precacheModel("xmodel/back2uo_s_mine");
-
 	// --- Anti camper compass icons ---
 
 	precacheShader("gfx/custom/back2uo_camper_german.tga");
@@ -707,11 +702,12 @@ back2uo_precached()
 
 	// --- Airplanes ---
 
-	PrecacheModel("xmodel/vehicle_stuka_flying");
+	PrecacheModel("xmodel/vehicle_condor");
 	PrecacheModel("xmodel/vehicle_spitfire_flying");
+	PrecacheModel("xmodel/vehicle_stuka_flying");
 
 	// Model spawned by tools\_back2uo_dimension::back2uo_mapdimension() (map dimension check)
-	PrecacheModel("xmodel/crate_wood");
+	PrecacheModel("xmodel/sundirection_arrow");
 
 	// --- Mortar shell model ---
 

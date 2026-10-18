@@ -223,7 +223,7 @@ Prints a message with up to two parts in the message area of every player.
 Params: text - localized string or text
 =============
 */
-back2uo_playeraction_msg(text)
+back2uo_playeraction_msg(text, value)
 {
 	players = getentarray("player", "classname");
 
@@ -231,7 +231,7 @@ back2uo_playeraction_msg(text)
 	{
 		user = players[p];
 
-		user iprintln(text);
+		user iprintln(text, value);
 	}
 }
 

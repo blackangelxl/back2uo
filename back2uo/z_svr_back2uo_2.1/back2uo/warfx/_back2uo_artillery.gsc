@@ -187,14 +187,25 @@ back2uo_artilleryfx_fire(binopositarget, selftarget_x, selftarget_y)
 
 		self iprintlnbold(&"BACK2UOMOD_ARTILLERY_FIRING");
 
-		// Strike used up.
-		self.pers["artillery_save"] = undefined;
-		self.back2uo_artillery_go = false;
+		thread back2uo_artilleryfx_strike_used_up();
 
 		return;
 	}
 
 	return;
+}
+
+/*
+=============
+back2uo_artilleryfx_strike_used_up
+
+The artillery strike used up
+=============
+*/
+back2uo_artilleryfx_strike_used_up()
+{
+	self.pers["artillery_save"] = undefined;
+	self.back2uo_artillery_go = false;
 }
 
 /*

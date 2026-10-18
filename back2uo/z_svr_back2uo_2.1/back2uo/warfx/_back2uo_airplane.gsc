@@ -61,11 +61,11 @@ back2uo_airplanefx_play()
 	// Fly-over reference point: map center at map ceiling height.
 	map_x = level.back2uo_mapdimo_centerx;
 	map_y = level.back2uo_mapdimo_centery;
-	map_z = level.back2uo_mapdimo_zMax;
+	map_z = level.back2uo_mapdimo_zMax - randomFloat(30);
 
 	// Heading 0, 90 or 180 degrees. Type 0/2 = Stuka, 1 = Spitfire (see back2uo_airplanefx_draw).
 	airplane_angles = 90 * randomint(3);
-	airplane_type = randomint(3);
+	airplane_type = randomint(2);
 
 	airplane_startpoint = [];
 	airplane_endpoint = [];
@@ -75,8 +75,11 @@ back2uo_airplanefx_play()
 	if(level.back2uo_airplanes_count == 0) airplane_count = int(3 + randomint(3));
 	else airplane_count = level.back2uo_airplanes_count;
 
-	thread back2uo\warfx\_back2uo_flak::back2uo_flakfx_play(airplane_count);
-
+	airplane_flak_fire = randomint(1);
+	if (airplane_flak_fire == 1) {
+		thread back2uo\warfx\_back2uo_flak::back2uo_flakfx_play(airplane_count);
+	}
+	
 	// Index starts at 1 because back2uo_airplanefx_staffel uses 1-6 as formation slots.
 	for(i=1; i < airplane_count + 1; i++)
 	{
@@ -207,22 +210,21 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	// Flight time at speed 750.
 	airplane_flytime = back2uo_airplane_flytime(750, airplane_startpoint, airplane_endpoint);
 
-	// The "_short" sound alias is immediately overwritten; only "_long" is used.
-	if(airplane_type == 0 || airplane_type == 2)
-	{
-		airplane_model = "xmodel/vehicle_stuka_flying";
-
-		airplane_sound = "stuka_flying_short";
-		airplane_sound = "stuka_flying_long";
-	}
-	else
-	{
-		airplane_model = "xmodel/vehicle_spitfire_flying";
-
-		airplane_sound = "spitfire_flying_short";
+	if(airplane_type == 0) {
+		airplane_model = "xmodel/vehicle_condor";
 		airplane_sound = "spitfire_flying_long";
+		airplane_sound2 = "spitfire_flying_short";
 	}
-
+	else if(airplane_type == 1) {
+		airplane_model = "xmodel/vehicle_spitfire_flying";
+		airplane_sound = "spitfire_flying_long";
+		airplane_sound2 = "spitfire_flying_short";
+	} else {
+		airplane_model = "xmodel/vehicle_stuka_flying";
+		airplane_sound = "stuka_flying_short";
+		airplane_sound2 = "stuka_flying_long";
+	}
+	
 	airplane = spawn("script_model", airplane_startpoint);
 	airplane setModel(airplane_model);
 	airplane.angles = (0, airplane_angles, 0);
@@ -232,7 +234,11 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	airplane.sound = spawn("script_model", (0, 0, 0));
 	airplane.sound.origin = airplane_startpoint;
 	airplane.sound linkto(airplane);
-	airplane.sound playloopsound(airplane_sound);
+	if (airplane_flytime > 3 ) {
+		airplane.sound playloopsound(airplane_sound);
+	} else {
+		airplane.sound playloopsound(airplane_sound2);
+	}
 
 	airplane show();
 
@@ -441,13 +447,13 @@ back2uo_airplane_flytime(airplane_speed, airplane_startpoint, airplane_endpoint)
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Flytime", "Run");
 
-	if(airplane_speed < 1) return 0.1;
+	if(airplane_speed < 1) return 1.1;
 
 	fly_distance = distance(airplane_startpoint, airplane_endpoint);
 	fly_time = (fly_distance / airplane_speed) / 4;
 
 	// Note: fly_time is never negative; a 0 distance still returns 0.
-	if(fly_time < 0) fly_time = 0.1;
+	if(fly_time <= 1) fly_time = 1.1;
 
 	return fly_time;
 }
