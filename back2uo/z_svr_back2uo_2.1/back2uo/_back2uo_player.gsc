@@ -218,7 +218,7 @@ back2uo_player_spawn()
 	thread back2uo\_back2uo_weaponsystem::back2uo_pistel_unlimtedammo();
 
 	// Hint which key is used for sprinting.
-	thread back2uo\hud\_back2uo_sprinttast::back2uo_sprinttast_msg();
+	//thread back2uo\hud\_back2uo_sprinttast::back2uo_sprinttast_msg();
 
 	thread back2uo\_back2uo_cvars::back2uo_grana_smoke_checker();
 
