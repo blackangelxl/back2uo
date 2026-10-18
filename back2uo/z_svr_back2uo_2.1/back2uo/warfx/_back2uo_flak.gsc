@@ -29,7 +29,7 @@ back2uo_flakfx_play(aircount)
 
 	for(z=0;z<aircount;z++)
 	{
-		level.back2uo_flakfx_count = int(3 + randomint(2));
+		level.back2uo_flakfx_count = int(1 + randomint(2));
 
 		for(x=0;x<level.back2uo_flakfx_count;x++)
 		{
