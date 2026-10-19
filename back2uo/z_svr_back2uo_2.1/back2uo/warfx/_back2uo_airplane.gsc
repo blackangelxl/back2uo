@@ -45,6 +45,7 @@ Starts one squadron fly-over across the map center at map ceiling height, in one
 directions 0, 90 or 180 degrees, plus a matching flak barrage. Plane count is
 level.back2uo_airplanes_count, or 3-5 if that is 0. Skipped on maps that are too small
 (level.back2uo_airplanedimo_allow == 0, set in tools\_back2uo_dimension.gsc).
+Skipped while another fly-over is still running (level.back2uo_airplanefx_running).
 Called on: level
 =============
 */
@@ -53,6 +54,14 @@ back2uo_airplanefx_play()
 	if(!game["back2uo_airplanesfx_enable"]) return;
 
 	if(level.back2uo_airplanedimo_allow == 0) return;
+
+	// Only one fly-over at a time: blocked until every plane of the running one is gone.
+	if(isdefined(level.back2uo_airplanefx_running) && level.back2uo_airplanefx_running) return;
+
+	level.back2uo_airplanefx_running = true;
+
+	// Planes still in the air, counted up/down in back2uo_airplanefx_draw.
+	level.back2uo_airplanes_active = 0;
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Play", "Run");
 
@@ -97,6 +106,11 @@ back2uo_airplanefx_play()
 
 		wait airplane_wait[i];
 	}
+
+	// Release the lock once all planes have landed at their end point or crashed.
+	while(level.back2uo_airplanes_active > 0) wait 0.1;
+
+	level.back2uo_airplanefx_running = false;
 }
 
 /*
@@ -207,6 +221,8 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Draw", "Run");
 
+	level.back2uo_airplanes_active++;
+
 	// Flight time at speed 750.
 	airplane_flytime = back2uo_airplane_flytime(750, airplane_startpoint, airplane_endpoint);
 
@@ -253,6 +269,9 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	airplane thread back2uo_airplane_flakimpact();
 
 	wait airplane_flytime;
+
+	// Flight is over either way (end point reached, or crash interrupted/finished below).
+	level.back2uo_airplanes_active--;
 
 	// Already crashed and deleted by back2uo_airplane_crash
 	if(!isdefined(airplane)) return;
