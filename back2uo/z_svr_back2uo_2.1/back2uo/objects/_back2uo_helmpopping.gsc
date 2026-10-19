@@ -62,6 +62,8 @@ back2uo_helmpopping(damageDir, idamage, hitloc, attacker)
 
 		self detach(self.hatModel, "");
 
+		positype = undefined;
+
 		// Spawn height of the helmet above the player origin, by stance
 		if(isPlayer(self))
 		{
@@ -100,7 +102,7 @@ back2uo_helmpopping(damageDir, idamage, hitloc, attacker)
 			damage = "none";
 			if(isdefined(idamage)) damage = idamage;
 			stance = "none";
-			if(isPlayer(self)) stance = positype;
+			if(isdefined(positype)) stance = positype;
 
 			back2uo\_back2uo_cvars::back2uo_logevent("helmet", "pop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " attacker=" + attacker_num + " hitloc=" + hitloc + " damage=" + damage + " stance=" + stance + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 		}
