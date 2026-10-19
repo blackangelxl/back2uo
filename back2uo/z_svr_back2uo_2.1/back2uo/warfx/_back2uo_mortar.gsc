@@ -65,7 +65,7 @@ back2uo_mortarfx_play()
 	// 0 = random shell count.
 	if(level.back2uo_mortar_count == 0)
 	{
-		level.back2uo_mortar_count2 = int(5 + randomint(5));
+		level.back2uo_mortar_count2 = 5 + randomint(5);
 	}
 	else
 	{
@@ -80,7 +80,7 @@ back2uo_mortarfx_play()
 
 		mortarcount++;
 
-		wait 2.2;
+		wait randomfloatrange(1.9, 2.3);
 	}
 
 	back2uo\_back2uo_cvars::back2uo_logevent("mortar", "end", "shells=" + mortarcount + " time_ms=" + (getTime() - mortar_starttime));
@@ -116,12 +116,12 @@ back2uo_mortar_draw(wert)
 		back2uo\_back2uo_cvars::back2uo_logevent("mortar", "skip", "reason=nodimension");
 		return;
 	}
-	x = level.back2uo_playerdimo_xMin + randomint(level.back2uo_playerdimo_breite);
-	y = level.back2uo_playerdimo_yMin + randomint(level.back2uo_playerdimo_laenge);
+	x = level.back2uo_playerdimo_xMin + randomintrange(1, level.back2uo_playerdimo_breite);
+	y = level.back2uo_playerdimo_yMin + randomintrange(1, level.back2uo_playerdimo_laenge);
 
 	// Start height: map ceiling on low maps, otherwise 600-799 units.
 	if(level.back2uo_mapdimo_zMax < 1000) z = level.back2uo_mapdimo_zMax;
-	else z = 600 + randomint(200);
+	else z = 600 + randomintrange(1, 200);
 
 	// Ground target is a random point below the start position (see back2uo_calcshellpos).
 	startposition = (x, y, z);
@@ -227,7 +227,7 @@ back2uo_mortar_draw(wert)
 	// Screen shake: scale 0.25, 2 seconds, radius 1250 units.
 	if(level.back2uo_mortar_quake)
 	{
-		earthquake(randomfloatrange(0.25, 0.45), 2, trace["position"], 1000 + randomint(250));
+		earthquake(randomfloatrange(0.25, 0.45), 2, trace["position"], 1000 + randomintrange(1, 250));
 	}
 
 	mortar delete();

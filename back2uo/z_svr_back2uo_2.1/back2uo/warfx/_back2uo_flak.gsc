@@ -38,7 +38,7 @@ back2uo_flakfx_play(aircount)
 
 	for(z=0;z<aircount;z++)
 	{
-		level.back2uo_flakfx_count = int(1 + randomint(2));
+		level.back2uo_flakfx_count = 1 + randomint(2);
 
 		for(x=0;x<level.back2uo_flakfx_count;x++)
 		{
@@ -48,9 +48,9 @@ back2uo_flakfx_play(aircount)
 				back2uo\_back2uo_cvars::back2uo_logevent("flak", "skip", "reason=nodimension bursts=" + flak_bursts);
 				return;
 			}
-			xpos = level.back2uo_playerdimo_xMin + randomint(level.back2uo_playerdimo_breite);
-			ypos = level.back2uo_playerdimo_yMin + randomint(level.back2uo_playerdimo_laenge);
-			zpos = level.back2uo_mapdimo_zMax - randomint(200);
+			xpos = level.back2uo_playerdimo_xMin + randomintrange(1, level.back2uo_playerdimo_breite);
+			ypos = level.back2uo_playerdimo_yMin + randomintrange(1, level.back2uo_playerdimo_laenge);
+			zpos = level.back2uo_mapdimo_zMax - randomintrange(1, 200);
 
 			level.back2uo_flakposition = ( xpos, ypos, zpos);
 
@@ -60,10 +60,10 @@ back2uo_flakfx_play(aircount)
 
 			flak_bursts++;
 
-			wait 0.6;
+			wait randomfloatrange(0.5, 0.7);
 		}
 
-		wait 2;
+		wait randomfloatrange(1.9, 2.2);
 	}
 
 	back2uo\_back2uo_cvars::back2uo_logevent("flak", "end", "aircount=" + aircount + " bursts=" + flak_bursts);

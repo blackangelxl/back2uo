@@ -332,7 +332,7 @@ back2uo_main()
 
 	game["back2uo_airplanesfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_airplanes_aktiv", 1, 0, 1);
 
-	level.back2uo_airplanes_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_airplanes_count", 0, 0, 6, "int");
+	level.back2uo_airplanes_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_airplanes_max_count", 0, 0, 6, "int");
 	level.back2uo_airplanes_crash = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_airplanes_crash", 0, 0, 1, "int");
 
 	level.back2uo_effect["plane_smoke"] = loadfx("fx/fire/fire_airplane_trail.efx");
@@ -353,7 +353,7 @@ back2uo_main()
 
 	game["back2uo_ambtracerfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_ambtracer_aktiv", 1, 0, 1);
 
-	level.back2uo_ambtracer_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_ambtracer_count", 0, 0, 8, "int");
+	level.back2uo_ambtracer_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_ambtracer_max_count", 0, 0, 8, "int");
 
 	level.back2uo_effect["ambiente_tracer"] = loadfx("fx/misc/antiair_tracers.efx");
 
@@ -361,7 +361,7 @@ back2uo_main()
 
 	game["back2uo_mortarfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_mortar_aktiv", 1, 0, 1);
 
-	level.back2uo_mortar_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_count", 0, 0, 16, "int");
+	level.back2uo_mortar_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_max_count", 0, 0, 16, "int");
 	level.back2uo_mortar_alert = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_alert", 0, 0, 1, "int");
 	level.back2uo_mortar_quake = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_quake", 1, 0, 1, "int");
 	level.back2uo_mortar_damage = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_damage", 1, 0, 1, "int");
@@ -381,7 +381,7 @@ back2uo_main()
 	game["back2uo_artilleryfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_artillery_aktiv", 1, 0, 1);
 
 	// danger = danger-close warning when the target is nearer than this (units), 0 = off
-	level.back2uo_artillery_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_count", 0, 0, 10, "int");
+	level.back2uo_artillery_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_max_count", 0, 0, 10, "int");
 	level.back2uo_artillery_alert = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_alert", 0, 0, 1, "int");
 	level.back2uo_artillery_order = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_order", 1, 0, 1, "int");
 	level.back2uo_artillery_danger = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_danger", 400, 0, 999, "int");

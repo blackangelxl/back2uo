@@ -51,7 +51,7 @@ back2uo_warfx_ambtrace_random()
 	for(;;)
 	{
 		// Sum of two randomInt(50) gives a 0-98 roll weighted toward the middle.
-		roll = int(randomInt(50) + randomInt(50));
+		roll = randomintrange(1, 100);
 
 		if(roll < level.back2uo_warfx_random)
 		{
@@ -60,7 +60,7 @@ back2uo_warfx_ambtrace_random()
 			level.back2uo_ambtracerfx_allow = true;
 		}
 
-		wait (10 + randomint(10));
+		wait (10 + randomfloatrange(1, 10));
 	}
 }
 
@@ -81,7 +81,7 @@ back2uo_warfx_mortar_random()
 
 	for(;;)
 	{
-		roll = int(randomInt(50) + randomInt(50));
+		roll = randomintrange(1, 100);
 
 		if(roll < level.back2uo_warfx_random)
 		{
@@ -90,7 +90,7 @@ back2uo_warfx_mortar_random()
 			level.back2uo_mortarfx_allow = true;
 		}
 
-		wait (20 + randomint(30));
+		wait (20 + randomfloatrange(1, 30));
 	}
 }
 
@@ -111,7 +111,7 @@ back2uo_warfx_airplane_random()
 
 	for(;;)
 	{
-		roll = int(randomInt(50) + randomInt(50));
+		roll = randomintrange(1, 100);
 
 		if(roll < level.back2uo_warfx_random)
 		{
@@ -120,6 +120,6 @@ back2uo_warfx_airplane_random()
 			level.back2uo_airplanefx_allow = true;
 		}
 
-		wait (10 + randomint(30));
+		wait (10 + randomfloatrange(1, 30));
 	}
 }

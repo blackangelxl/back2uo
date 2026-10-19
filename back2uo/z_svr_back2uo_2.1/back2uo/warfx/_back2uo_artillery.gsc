@@ -268,29 +268,29 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " callerteam=" + callerteam + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget) + " count=" + level.back2uo_artillery_count + " alert=" + level.back2uo_artillery_alert);
 
-	wait (4 + randomint(2));
+	wait (4 + randomfloatrange(1, 2));
 
 	self thread back2uo\_back2uo_sounds::back2uo_soundonplayers(soundfx_artlaun[artlaun_efx]);
 
 	// Shell flight time before the first impacts.
-	wait 4 + randomint(4);
+	wait 4 + randomfloatrange(1, 4);
 
-	while(art_wait < 3)
+	while(art_wait < randomintrange(2, 3))
 	{
 		// Shift the aim point for salvo 2 (+0..99) and salvo 3 (-100..-199 from that).
-		if(art_wait == 1) binopositarget = binopositarget + (randomint(100), randomint(100), 0);
-		else if(art_wait == 2) binopositarget = binopositarget - (int(100 + randomint(100)), int(100 + randomint(100)), 0);
+		if(art_wait == 1) binopositarget = binopositarget + (randomintrange(1, 100), randomintrange(1, 100), 0);
+		else if(art_wait == 2) binopositarget = binopositarget - (100 + randomintrange(1, 100), 100 + randomintrange(1, 100), 0);
 
 		artillerycount = 0;
 
 		// 0 = random shell count.
 		if(level.back2uo_artillery_count == 0)
 		{
-			level.back2uo_artillery_count2 = int(4 + randomint(4));
+			level.back2uo_artillery_count2 = randomintrange(1, 4);
 		}
 		else
 		{
-			level.back2uo_artillery_count2 = level.back2uo_artillery_count;
+			level.back2uo_artillery_count2 = randomintrange(3, level.back2uo_artillery_count);
 		}
 
 		back2uo\_back2uo_cvars::back2uo_logevent("artillery", "salvo", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " salvo=" + (art_wait + 1) + " shells=" + level.back2uo_artillery_count2 + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget));
@@ -302,12 +302,12 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, callerteam)
 			artillerycount++;
 			art_shells++;
 
-			wait 0.6;
+			wait randomfloatrange(0.5, 0.7);
 		}
 
 		art_wait++;
 
-		wait 3;
+		wait randomfloatrange(2, 4);
 	}
 
 	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "end", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " salvos=" + art_wait + " shells=" + art_shells + " time_ms=" + (getTime() - art_starttime));
@@ -428,9 +428,9 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	thread back2uo_artillery_damage(trace["position"], self, callerteam);
 
-	// Strong screen shake (scale 0.8, radius 3000). randomint(2) is always 0, so length is 0.5.
-	length = 0.5 + randomint(2);
-	earthquake(0.8, length, trace["position"], 3000);
+	// Strong screen shake (scale 0.8, radius 3000). randomfloatrange(0, 2) is always 0, so length is 0.5.
+	length = 0.5 + randomfloatrange(0, 2);
+	earthquake(0.8, length, trace["position"], 2500);
 
 	artillery delete();
 }

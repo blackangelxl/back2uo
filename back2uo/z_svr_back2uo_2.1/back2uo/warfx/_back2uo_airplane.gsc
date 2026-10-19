@@ -85,7 +85,7 @@ back2uo_airplanefx_play()
 	map_z = level.back2uo_mapdimo_zMax - randomFloat(30);
 
 	// Heading 0, 90 or 180 degrees. Type 0/2 = Stuka, 1 = Spitfire (see back2uo_airplanefx_draw).
-	airplane_angles = 90 * randomint(3);
+	airplane_angles = 90 * randomintrange(1, 3);
 	airplane_type = randomint(2);
 
 	airplane_startpoint = [];
@@ -93,11 +93,11 @@ back2uo_airplanefx_play()
 	airplane_extra = [];
 
 	// 0 = random plane count.
-	if(level.back2uo_airplanes_count == 0) airplane_count = int(3 + randomint(3));
-	else airplane_count = level.back2uo_airplanes_count;
+	if(level.back2uo_airplanes_count == 0) airplane_count = randomintrange(2, 6);
+	else airplane_count = randomintrange(1, level.back2uo_airplanes_count);
 
-	airplane_flak_fire = randomint(2);
-	if (airplane_flak_fire > 1) {
+	airplane_flak_fire = randomintrange(1, 5);
+	if (airplane_flak_fire != 3) {
 		thread back2uo\warfx\_back2uo_flak::back2uo_flakfx_play(airplane_count);
 	}
 
@@ -371,7 +371,7 @@ back2uo_airplane_crash()
 
 	self thread back2uo_airplane_crashfx();
 
-	wait 3;
+	wait randomfloatrange(2.8, 3.2);
 
 	// Ends the crashfx and rotate threads. Not "end_airplanefly": that would also end this
 	// thread (it runs inside back2uo_airplane_flakimpact) before the plane is deleted.
@@ -411,7 +411,7 @@ back2uo_airplane_crashfx()
 
 		playfx(level.back2uo_effect["plane_smoke"], self.origin);
 
-		wait 1;
+		wait randomfloatrange(0.8, 1.2);
 	}
 }
 
@@ -436,7 +436,7 @@ back2uo_airplane_rotate(rottime)
 
 	for(;;)
 	{
-		switch(randomint(1))
+		switch(randomint(2))
 		{
 		default:
 			break;

@@ -126,17 +126,17 @@ back2uo_helmmove(damageDir)
 
 	// Horizontal speed 150..349 along the damage direction, upward speed 100..299
 	temp_vec = damageDir;
-	temp_vec = maps\mp\_utility::vectorScale (temp_vec, 150 + randomint (200));
+	temp_vec = maps\mp\_utility::vectorScale(temp_vec, 150 + RandomIntRange(1, 200));
 
 	x = temp_vec[0];
 	y = temp_vec[1];
-	z = 100 + randomint (200);
+	z = 100 + RandomIntRange(1, 200);
 
 	// Spin about 4000 degrees over 5 seconds; direction depends on the flight side
 	if (y > 0)
-		self rotatepitch((4000 + randomfloat (500)) * -1, 5, 0, 0);
+		self rotatepitch((4000 + randomfloat(500)) * -1, 5, 0, 0);
 	else
-		self rotatepitch(4000 + randomfloat (500), 5, 0, 0);
+		self rotatepitch(4000 + randomfloat(500), 5, 0, 0);
 
 	// Ballistic flight with the given initial velocity for 15 seconds
 	self moveGravity((x, y, z), 15);

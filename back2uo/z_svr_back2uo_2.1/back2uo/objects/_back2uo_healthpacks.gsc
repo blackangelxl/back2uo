@@ -27,7 +27,7 @@ back2uo_dropHealthPacks(iDamage)
 	if(!isdefined(iDamage)) iDamage = 45;
 
 	// Random offset up to 30 units, then trace 1000 units down to find the floor
-	trace_posi = self.origin + (randomint(30), randomint(30), 50);
+	trace_posi = self.origin + (RandomIntRange(1, 30), RandomIntRange(1, 30), 50);
 	trace_endposi = trace_posi + (0, 0, -1000);
 	trace = bulletTrace(trace_posi , trace_endposi, false, undefined);
 
@@ -73,7 +73,7 @@ back2uo_dropHealthPacks(iDamage)
 	item_health.targetname = "item_healths";
 	item_health hide();
 	item_health.origin = trace["position"];
-	item_health.angles = (0, randomint(360), 0);
+	item_health.angles = (0, RandomIntRange(1, 360), 0);
 	item_health show();
 
 	back2uo\_back2uo_cvars::back2uo_logevent("healthpack", "drop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " damage=" + iDamage + " size=" + medi_case + " heal=" + medihealth_vol + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(item_health.origin));

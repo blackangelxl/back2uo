@@ -768,7 +768,7 @@ back2uo_fx_run()
 						//back2uo\_back2uo_weaponsystem::back2uo_create_turret();
 						//back2uo\warfx\_back2uo_mortar::back2uo_mortar_draw(self);
 						thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
-						thread back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_play();
+						// back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_play();
 
 						wait 1;
 
