@@ -927,12 +927,6 @@ back2uo_weaponpickup_icon(weapon)
 		weaponinfo[1] = 27;
 		weaponinfo[2] = &"WEAPON_PANZERSCHRECK";
 		break;
-
-		// Disabled: Panzerfaust is not used by the mod.
-		//case "panzerfaust_mp":
-		//weaponinfo[1] = 28;
-		//weaponinfo[2] = &"WEAPON_PANZERFAUST";
-		//break;
 	}
 
 	return weaponinfo;
