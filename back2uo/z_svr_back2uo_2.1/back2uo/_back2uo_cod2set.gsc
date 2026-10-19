@@ -24,10 +24,11 @@ back2uo_clientset_init()
 	// The thread can start after the player has already left.
 	if(!isdefined(self))
 	{
-		back2uo\_back2uo_cvars::back2uo_logprint("client_set", "self not exist");
+		back2uo\_back2uo_cvars::back2uo_logevent("clientset", "error", "reason=noself");
 		return;
 	}
 
+	// Already sent this map: no log, this runs on every spawn
 	if(isdefined(self.pers["client_set"])) return;
 	self.pers["client_set"] = true;
 
@@ -125,4 +126,6 @@ back2uo_clientset_init()
 		self setClientCvar("cg_thirdperson","0");
 		self setClientCvar("fx_sort","1");
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("clientset", "set", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " blood=" + game["back2uo_blood"] + " crosshair=" + game["back2uo_drawcrosshair"] + " crosshairnames=" + game["back2uo_drawcrosshairnames"] + " redcrosshair=" + game["back2uo_crosshairenemycolor"] + " compasssize=" + game["back2uo_hudcompasssize"] + " compassfiring=" + game["back2uo_compassreddots"] + " clientsettings=" + game["back2uo_client_settings"]);
 }

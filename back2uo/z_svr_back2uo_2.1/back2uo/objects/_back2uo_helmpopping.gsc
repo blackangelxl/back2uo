@@ -48,7 +48,13 @@ back2uo_helmpopping(damageDir, idamage, hitloc, attacker)
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Helm Popping", "Run");
 
-	if(!isdefined(self.hatModel) || !isdefined(hitloc)) return;
+	if(!isdefined(self.hatModel) || !isdefined(hitloc))
+	{
+		// Head hit without a helmet model (other hit locations are not logged)
+		if(isdefined(hitloc) && (hitloc == "head" || hitloc == "neck"))
+			back2uo\_back2uo_cvars::back2uo_logevent("helmet", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=nohatmodel hitloc=" + hitloc);
+		return;
+	}
 
 	if(hitloc == "head" || hitloc == "neck")
 	{
@@ -86,6 +92,19 @@ back2uo_helmpopping(damageDir, idamage, hitloc, attacker)
 		helm setmodel(self.hatModel);
 		helm.targetname = "Helm Popping";
 		helm.angles = self.angles;
+
+		if(back2uo\_back2uo_cvars::back2uo_logactive())
+		{
+			attacker_num = "none";
+			if(isdefined(attacker) && isPlayer(attacker)) attacker_num = attacker getEntityNumber();
+			damage = "none";
+			if(isdefined(idamage)) damage = idamage;
+			stance = "none";
+			if(isPlayer(self)) stance = positype;
+
+			back2uo\_back2uo_cvars::back2uo_logevent("helmet", "pop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " attacker=" + attacker_num + " hitloc=" + hitloc + " damage=" + damage + " stance=" + stance + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+		}
+
 		helm back2uo_helmmove(damageDir);
 	}
 }

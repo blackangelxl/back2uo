@@ -56,6 +56,8 @@ back2uo_mortarfx_play()
 
 	thread back2uo_mortar_sound();
 
+	mortar_starttime = getTime();
+
 	// Short random delay between the voice alert and the first shell.
 	wait randomfloat(4) + 0.5;
 	mortarcount = 0;
@@ -70,6 +72,8 @@ back2uo_mortarfx_play()
 		level.back2uo_mortar_count2 = level.back2uo_mortar_count;
 	}
 
+	back2uo\_back2uo_cvars::back2uo_logevent("mortar", "start", "shells=" + level.back2uo_mortar_count2 + " count=" + level.back2uo_mortar_count + " alert=" + level.back2uo_mortar_alert + " damage=" + level.back2uo_mortar_damage + " radius=" + level.back2uo_mortar_radius + " strength=" + level.back2uo_mortar_strength + " quake=" + level.back2uo_mortar_quake + " delay_ms=" + (getTime() - mortar_starttime));
+
 	while(mortarcount < level.back2uo_mortar_count2)
 	{
 		thread back2uo_mortar_draw();
@@ -78,6 +82,8 @@ back2uo_mortarfx_play()
 
 		wait 2.2;
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("mortar", "end", "shells=" + mortarcount + " time_ms=" + (getTime() - mortar_starttime));
 }
 
 /*
@@ -105,7 +111,11 @@ back2uo_mortar_draw(wert)
 	}
 
 	// Random x/y inside the area where players spawn/move (player dimension box).
-	if(!isdefined(level.back2uo_playerdimo_xMin) || !isdefined(level.back2uo_playerdimo_yMin) || !isdefined(level.back2uo_mapdimo_zMax)) return;
+	if(!isdefined(level.back2uo_playerdimo_xMin) || !isdefined(level.back2uo_playerdimo_yMin) || !isdefined(level.back2uo_mapdimo_zMax))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("mortar", "skip", "reason=nodimension");
+		return;
+	}
 	x = level.back2uo_playerdimo_xMin + randomint(level.back2uo_playerdimo_breite);
 	y = level.back2uo_playerdimo_yMin + randomint(level.back2uo_playerdimo_laenge);
 
@@ -206,6 +216,8 @@ back2uo_mortar_draw(wert)
 	// Stops back2uo_mortar_rotate.
 	mortar notify("end_mortarfly");
 
+	back2uo\_back2uo_cvars::back2uo_logevent("mortar", "impact", "pos=" + back2uo\_back2uo_cvars::back2uo_logvec(trace["position"]) + " start=" + back2uo\_back2uo_cvars::back2uo_logvec(startposition) + " surface=" + trace["surfacetype"] + " fx=" + mortarfx + " falltime=" + fall_time);
+
 	// Damage origin is lifted 12 units so the trace is not blocked by the ground.
 	if(level.back2uo_mortar_damage)
 	{
@@ -226,7 +238,7 @@ back2uo_mortar_draw(wert)
 back2uo_mortar_rotate
 
 Spins the falling shell model around its roll axis until "end_mortarfly" is notified.
-Note: randomint(1) always returns 0, so only the positive roll (case 0) is ever used.
+Note: randomint(2) always returns 0, so only the positive roll (case 0) is ever used.
 Called on: entity (mortar shell model)
 =============
 */
@@ -239,12 +251,12 @@ back2uo_mortar_rotate()
 
 	for(;;)
 	{
-		switch(randomint(1))
+		switch(randomint(2))
 		{
 		default:
 			break;
 
-		case 0:
+		case 1:
 
 			// Full roll in 0.8 seconds, half the time accelerating and half decelerating.
 			self rotateroll(360, 0.8, 0.8 / 2, 0.8 / 2);
@@ -253,7 +265,7 @@ back2uo_mortar_rotate()
 
 			break;
 
-		case 1:
+		case 2:
 
 			self rotateroll(-360, 0.8, 0.8 / 2, 0.8 / 2);
 

@@ -53,15 +53,27 @@ back2uo_airplanefx_play()
 {
 	if(!game["back2uo_airplanesfx_enable"]) return;
 
-	if(level.back2uo_airplanedimo_allow == 0) return;
+	if(level.back2uo_airplanedimo_allow == 0)
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("airplane", "skip", "reason=mapsize");
+		return;
+	}
 
 	// Only one fly-over at a time: blocked until every plane of the running one is gone.
-	if(isdefined(level.back2uo_airplanefx_running) && level.back2uo_airplanefx_running) return;
+	if(isdefined(level.back2uo_airplanefx_running) && level.back2uo_airplanefx_running)
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("airplane", "skip", "reason=running active=" + level.back2uo_airplanes_active);
+		return;
+	}
 
 	level.back2uo_airplanefx_running = true;
 
 	// Planes still in the air, counted up/down in back2uo_airplanefx_draw.
 	level.back2uo_airplanes_active = 0;
+
+	// Log only: planes crashed in this fly-over, counted up in back2uo_airplane_crash.
+	level.back2uo_airplanes_crashed = 0;
+	airplane_starttime = getTime();
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Play", "Run");
 
@@ -84,11 +96,13 @@ back2uo_airplanefx_play()
 	if(level.back2uo_airplanes_count == 0) airplane_count = int(3 + randomint(3));
 	else airplane_count = level.back2uo_airplanes_count;
 
-	airplane_flak_fire = randomint(1);
-	if (airplane_flak_fire == 1) {
+	airplane_flak_fire = randomint(2);
+	if (airplane_flak_fire > 1) {
 		thread back2uo\warfx\_back2uo_flak::back2uo_flakfx_play(airplane_count);
 	}
-	
+
+	back2uo\_back2uo_cvars::back2uo_logevent("airplane", "start", "count=" + airplane_count + " type=" + airplane_type + " angle=" + airplane_angles + " flak=" + airplane_flak_fire + " crash=" + level.back2uo_airplanes_crash + " center=" + back2uo\_back2uo_cvars::back2uo_logvec((map_x, map_y, map_z)));
+
 	// Index starts at 1 because back2uo_airplanefx_staffel uses 1-6 as formation slots.
 	for(i=1; i < airplane_count + 1; i++)
 	{
@@ -111,6 +125,8 @@ back2uo_airplanefx_play()
 	while(level.back2uo_airplanes_active > 0) wait 0.1;
 
 	level.back2uo_airplanefx_running = false;
+
+	back2uo\_back2uo_cvars::back2uo_logevent("airplane", "end", "count=" + airplane_count + " crashed=" + level.back2uo_airplanes_crashed + " time_ms=" + (getTime() - airplane_starttime));
 }
 
 /*
@@ -226,6 +242,8 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	// Flight time at speed 750.
 	airplane_flytime = back2uo_airplane_flytime(750, airplane_startpoint, airplane_endpoint);
 
+	back2uo\_back2uo_cvars::back2uo_logevent("airplane", "spawn", "type=" + airplane_type + " flytime=" + airplane_flytime + " start=" + back2uo\_back2uo_cvars::back2uo_logvec(airplane_startpoint) + " end=" + back2uo\_back2uo_cvars::back2uo_logvec(airplane_endpoint));
+
 	if(airplane_type == 0) {
 		airplane_model = "xmodel/vehicle_condor";
 		airplane_sound = "spitfire_flying_long";
@@ -315,6 +333,8 @@ back2uo_airplane_flakimpact()
 
 			if(flaktoplane_distance < 500)
 			{
+				back2uo\_back2uo_cvars::back2uo_logevent("airplane", "hit", "dist=" + int(flaktoplane_distance) + " crash=" + level.back2uo_airplanes_crash + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(airplane_origin) + " flak=" + back2uo\_back2uo_cvars::back2uo_logvec(level.back2uo_flakposition));
+
 				// Not threaded: blocks until the crash sequence is done (3 seconds) and the
 				// plane is deleted. Without crashes (back2uo_airplanes_crash 0) the check ends here.
 				self back2uo_airplane_crash();
@@ -344,6 +364,10 @@ back2uo_airplane_crash()
 
 	// Unused ground position below the plane.
 	airplane_crashpos = (self.origin[0], self.origin[1], 0);
+
+	if(isdefined(level.back2uo_airplanes_crashed)) level.back2uo_airplanes_crashed++;
+
+	back2uo\_back2uo_cvars::back2uo_logevent("airplane", "crash", "pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 
 	self thread back2uo_airplane_crashfx();
 
@@ -397,7 +421,7 @@ back2uo_airplane_rotate
 
 Rocks the plane left and right around its roll axis (+10, -20, +10 degrees) for a
 light wobble during the flight, until "end_airplanefly" is notified.
-Note: randomint(1) always returns 0, so case 1 (mirrored wobble) is never used.
+Note: randomint(2) always returns 0, so case 1 (mirrored wobble) is never used.
 Called on: entity (airplane model)
 Params: rottime - duration of one roll step in seconds
 =============
@@ -417,7 +441,7 @@ back2uo_airplane_rotate(rottime)
 		default:
 			break;
 
-		case 0:
+		case 1:
 
 			// rotateroll(degrees, time, accel time, decel time)
 			self rotateroll(10, rottime, rottime / 2, rottime / 2);
@@ -432,7 +456,7 @@ back2uo_airplane_rotate(rottime)
 
 			break;
 
-		case 1:
+		case 2:
 
 			self rotateroll(-10, rottime, rottime / 2, rottime / 2);
 

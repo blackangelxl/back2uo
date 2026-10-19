@@ -21,6 +21,9 @@ back2uo_healthbar_draw()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Healthbar", "Run");
 
+	// New life: next drop below 50 health is logged again
+	self.back2uo_log_lowhealth = undefined;
+
 	// Full bar width in pixels at 100 health (1.28 px per health point).
 	balkenWidth = 128;
 
@@ -185,6 +188,13 @@ back2uo_healthbar_glow()
 	self endon("disconnect");
 	self endon("killed_player");
 
+	// Log only the first drop below 50 health until health is back to 50 or more.
+	if(isdefined(self.health) && self.health > 0 && self.health < 50 && !isdefined(self.back2uo_log_lowhealth))
+	{
+		self.back2uo_log_lowhealth = true;
+		back2uo\_back2uo_cvars::back2uo_logevent("healthbar", "lowhealth", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " health=" + self.health);
+	}
+
 	while(isdefined(self.health) && self.health < 50)
 	{
 		blink = self.health / 100;
@@ -200,6 +210,8 @@ back2uo_healthbar_glow()
 	}
 
 	if(isDefined(self.healthbar_gruen)) self.healthbar_gruen.alpha = 0.4;
+
+	self.back2uo_log_lowhealth = undefined;
 }
 
 /*

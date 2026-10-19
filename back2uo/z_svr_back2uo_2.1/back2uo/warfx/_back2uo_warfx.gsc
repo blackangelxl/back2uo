@@ -18,9 +18,15 @@ Called on: level
 */
 back2uo_warfx_random()
 {
-	if(!game["back2uo_warfx_enable"]) return;
+	if(!game["back2uo_warfx_enable"])
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("warfx", "skip", "reason=disabled");
+		return;
+	}
 
 	back2uo\_back2uo_cvars::back2uo_logprint("War Fx Random", "Run");
+
+	back2uo\_back2uo_cvars::back2uo_logevent("warfx", "start", "chance=" + level.back2uo_warfx_random + " tracer=" + game["back2uo_ambtracerfx_enable"] + " mortar=" + game["back2uo_mortarfx_enable"] + " airplane=" + game["back2uo_airplanesfx_enable"]);
 
 	thread back2uo_warfx_ambtrace_random();
 	thread back2uo_warfx_mortar_random();
@@ -45,8 +51,12 @@ back2uo_warfx_ambtrace_random()
 	for(;;)
 	{
 		// Sum of two randomInt(50) gives a 0-98 roll weighted toward the middle.
-		if(int(randomInt(50) + randomInt(50)) < level.back2uo_warfx_random)
+		roll = int(randomInt(50) + randomInt(50));
+
+		if(roll < level.back2uo_warfx_random)
 		{
+			back2uo\_back2uo_cvars::back2uo_logevent("warfx", "allow", "fx=tracer roll=" + roll + " chance=" + level.back2uo_warfx_random);
+
 			level.back2uo_ambtracerfx_allow = true;
 		}
 
@@ -71,8 +81,12 @@ back2uo_warfx_mortar_random()
 
 	for(;;)
 	{
-		if(int(randomInt(50) + randomInt(50)) < level.back2uo_warfx_random)
+		roll = int(randomInt(50) + randomInt(50));
+
+		if(roll < level.back2uo_warfx_random)
 		{
+			back2uo\_back2uo_cvars::back2uo_logevent("warfx", "allow", "fx=mortar roll=" + roll + " chance=" + level.back2uo_warfx_random);
+
 			level.back2uo_mortarfx_allow = true;
 		}
 
@@ -97,8 +111,12 @@ back2uo_warfx_airplane_random()
 
 	for(;;)
 	{
-		if(int(randomInt(50) + randomInt(50)) < level.back2uo_warfx_random)
+		roll = int(randomInt(50) + randomInt(50));
+
+		if(roll < level.back2uo_warfx_random)
 		{
+			back2uo\_back2uo_cvars::back2uo_logevent("warfx", "allow", "fx=airplane roll=" + roll + " chance=" + level.back2uo_warfx_random);
+
 			level.back2uo_airplanefx_allow = true;
 		}
 

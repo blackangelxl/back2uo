@@ -56,6 +56,8 @@ back2uo_grenadepickup(grenadetype, object, origin, team, name)
 				grenade_count = grenade_count + 1;
 				other setWeaponClipAmmo(grenadetype, grenade_count);
 
+				back2uo\_back2uo_cvars::back2uo_logevent("grenadepickup", "pickup", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " weapon=" + grenadetype + " grenadeteam=" + team + " count=" + grenade_count + " max=" + grenade_countmax + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
+
 				other playSound("weap_ammo_pickup");
 
 				// Pickup message
@@ -89,5 +91,9 @@ back2uo_grenadepickup_clear()
 
 	wait 40;
 
-	if(isDefined(self)) self delete();
+	if(isDefined(self))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("grenadepickup", "expire", "lifetime=40 pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+		self delete();
+	}
 }

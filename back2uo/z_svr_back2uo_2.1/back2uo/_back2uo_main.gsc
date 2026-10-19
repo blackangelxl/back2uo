@@ -25,7 +25,7 @@ back2uo_main()
 	// Mod master switch, development mode and debug log output
 	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 	game["back2uo_development_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_development", 0, 0, 1);
-	game["back2uo_logprint_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_logprint", 0, 0, 1);
+	game["back2uo_logprint_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_logprint", 0, 0, 2);
 
 	// --- Binocular HUD (distance to the aimed point) ---
 

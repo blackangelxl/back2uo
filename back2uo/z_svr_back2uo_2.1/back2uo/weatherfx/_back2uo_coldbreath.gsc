@@ -32,6 +32,8 @@ back2uo_coldbreath_draw()
 
 	if(game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark")
 	{
+		back2uo\_back2uo_cvars::back2uo_logevent("coldbreath", "start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " soldiertype=" + game["german_soldiertype"]);
+
 		for(;;)
 		{
 			// Distance moved during the last second (blocks for 1 second).

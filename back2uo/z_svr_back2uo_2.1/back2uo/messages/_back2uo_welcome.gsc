@@ -25,7 +25,11 @@ back2uo_wellc_messages_draw()
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 
-	if(isdefined(self.pers["wellcome_msg"])) return;
+	if(isdefined(self.pers["wellcome_msg"]))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("msg_welcome", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=already_shown");
+		return;
+	}
 	self.pers["wellcome_msg"] = true;
 
 	msg_count_welc = 0;
@@ -36,6 +40,9 @@ back2uo_wellc_messages_draw()
 
 		if(isdefined(welmsg))
 		{
+			// Index only: the message text may contain ";"
+			back2uo\_back2uo_cvars::back2uo_logevent("msg_welcome", "show", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " index=" + msg_count_welc + " count=" + game["back2uo_wellmsg"].size);
+
 			self iprintlnbold(welmsg);
 
 			wait 3;

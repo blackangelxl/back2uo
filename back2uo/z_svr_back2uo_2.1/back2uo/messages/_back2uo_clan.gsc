@@ -32,6 +32,8 @@ back2uo_clan_messages_draw()
 		if(isdefined(game["clanout"])) wait level.back2uo_clanmrepeatwait;
 		game["clanout"] = true;
 
+		if(!isdefined(game["back2uo_clanmsg"]) || !game["back2uo_clanmsg"].size) back2uo\_back2uo_cvars::back2uo_logevent("msg_clan", "skip", "reason=no_messages");
+
 		msg_count_clan = 0;
 
 		while(isdefined(game["back2uo_clanmsg"]) && msg_count_clan < game["back2uo_clanmsg"].size)
@@ -40,6 +42,9 @@ back2uo_clan_messages_draw()
 
 			if(isdefined(clanmsg))
 			{
+				// Index only: the message text may contain ";"
+				back2uo\_back2uo_cvars::back2uo_logevent("msg_clan", "show", "index=" + msg_count_clan + " count=" + game["back2uo_clanmsg"].size + " to=all");
+
 				back2uo\_back2uo_cvars::back2uo_player_message("",clanmsg);
 
 				wait 3;

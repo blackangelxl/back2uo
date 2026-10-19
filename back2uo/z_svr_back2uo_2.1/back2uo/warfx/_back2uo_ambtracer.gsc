@@ -60,10 +60,19 @@ back2uo_ambtracerfx_play()
 	if(level.back2uo_ambtracer_count == 0) tracer_delay = int(4 + randomint(4));
 	else tracer_delay = level.back2uo_ambtracer_count;
 
+	back2uo\_back2uo_cvars::back2uo_logevent("tracer", "start", "bursts=" + tracer_delay + " effects=" + (tracer_delay * tracer_delay) + " count=" + level.back2uo_ambtracer_count);
+
+	// Log only: chosen corner per burst (0-3) and start time.
+	tracer_corners = "";
+	tracer_starttime = getTime();
+
 	for(z=0; z < tracer_delay; z++)
 	{
 		// Pick one of the four map corners.
 		map_outside = randomInt(4);
+
+		if(tracer_corners != "") tracer_corners += ",";
+		tracer_corners += map_outside;
 
 		switch (map_outside)
 		{
@@ -108,4 +117,6 @@ back2uo_ambtracerfx_play()
 
 		wait 1;
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("tracer", "end", "bursts=" + tracer_delay + " corners=" + tracer_corners + " time_ms=" + (getTime() - tracer_starttime));
 }

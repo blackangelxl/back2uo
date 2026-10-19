@@ -108,6 +108,8 @@ back2uo_weapon_limitiert()
 		setCvar("scr_allow_binocular", "0");
 		makeCvarServerInfo("scr_allow_binocular", "0");
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("weapon", "allow", "pistol=" + level.back2uo_pistel_allow + " shotgun=" + level.back2uo_shotgunteam_allow + " rocket=" + level.back2uo_rocketl_allow + " g43sniper=" + level.back2uo_g43sniper_allow + " binocular=" + level.back2uo_binocular_allow);
 }
 
 /*
@@ -199,6 +201,8 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["SVT40_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_svt40", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["mosin_nagant_sniper_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_mosin_nagant_sniper", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["ppsh_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_ppsh", 100, 1, 100, "int");
+
+	back2uo\_back2uo_cvars::back2uo_logevent("weapon", "strength", "melee=" + level.back2uo_melee_strength);
 }
 
 /*
@@ -283,12 +287,27 @@ back2uo_hit_distance(attacker, sMeansOfDeath, sWeapon, sHitLoc)
 		{
 			attacker iprintln("^7( ^3", distance_mr, &"BACK2UOMOD_HIT_METER2", " ^7)");
 		}
+
+		if(back2uo\_back2uo_cvars::back2uo_logactive())
+		{
+			weapon = "none";
+			if(isdefined(sWeapon)) weapon = sWeapon;
+			hitloc = "none";
+			if(isdefined(sHitLoc)) hitloc = sHitLoc;
+			mod = "none";
+			if(isdefined(sMeansOfDeath)) mod = sMeansOfDeath;
+
+			back2uo\_back2uo_cvars::back2uo_logevent("weapon", "hitdistance", back2uo\_back2uo_cvars::back2uo_logplayer(attacker) + " victim=" + self getEntityNumber() + " weapon=" + weapon + " mod=" + mod + " hitloc=" + hitloc + " meters=" + distance_mr + " units=" + int(distance));
+		}
 	}
 
 	// Debug log for missing callback arguments.
 	if(!isdefined(attacker) || !isdefined(sMeansOfDeath) || !isdefined(sWeapon) || !isdefined(sHitLoc))
 	{
-		back2uo\_back2uo_cvars::back2uo_logprint("Hit Distance", "isdefined Error");
+		if(back2uo\_back2uo_cvars::back2uo_logactive())
+		{
+			back2uo\_back2uo_cvars::back2uo_logevent("weapon", "error", "func=hitdistance reason=undefinedarg victim=" + self getEntityNumber() + " attacker=" + isdefined(attacker) + " mod=" + isdefined(sMeansOfDeath) + " weapon=" + isdefined(sWeapon) + " hitloc=" + isdefined(sHitLoc));
+		}
 	}
 }
 
@@ -316,6 +335,8 @@ back2uo_pistel_unlimtedammo()
 	self.pers["pri_pistel_ammo_prib"] = self getweaponslotammo("primaryb");
 
 	thread back2uo_pistel_ammo_slot("primaryb", self.pers["pri_pistel_ammo_prib"]);
+
+	back2uo\_back2uo_cvars::back2uo_logevent("weapon", "pistolammo", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " primary=" + self.pers["pri_pistel_ammo_pri"] + " primaryb=" + self.pers["pri_pistel_ammo_prib"]);
 }
 
 /*
@@ -411,6 +432,10 @@ back2uo_snipershotgun_limiter()
 			{
 				level.back2uo_weaponlimit_full[names[n]] = full;
 
+				if(full) limit_event = "full";
+				else limit_event = "free";
+				back2uo\_back2uo_cvars::back2uo_logevent("weaponlimit", limit_event, "weapon=" + names[n] + " count=" + counts[names[n]] + " limit=" + limits[n]);
+
 				// Refresh the weapon menu of all players
 				if(isdefined(level.weapons) && isdefined(level.weapons[names[n]]))
 					maps\mp\gametypes\_weapons::updateAllowedAllClients(names[n]);
@@ -448,6 +473,16 @@ back2uo_weaponpickup(weapon, clipammo, slotammo, object, origin, slotmaxammo, cu
 
 	// [1] = HUD icon index, [2] = display name
 	weaponinfo = back2uo_weaponpickup_icon(weapon);
+
+	if(back2uo\_back2uo_cvars::back2uo_logactive())
+	{
+		maxammo = "none";
+		if(isdefined(slotmaxammo)) maxammo = slotmaxammo;
+		slot = "none";
+		if(isdefined(currentslot)) slot = currentslot;
+
+		back2uo\_back2uo_cvars::back2uo_logevent("weapon", "drop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " weapon=" + weapon + " clip=" + clipammo + " ammo=" + slotammo + " maxammo=" + maxammo + " slot=" + slot + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
+	}
 
 	// trigger_radius: spawnflags 0, radius 100, height 100.
 	trigger = spawn("trigger_radius", origin, 0, 100, 100);
@@ -612,7 +647,9 @@ back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, s
 			{
 				if(!isDefined(object)) return false;
 
-				other.pers["usebutton_holdpress"] = true;
+					other.pers["usebutton_holdpress"] = true;
+
+				back2uo\_back2uo_cvars::back2uo_logevent("weapon", "pickup", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " old=" + other getcurrentweapon() + " new=" + weapon + " slot=" + other.pers["weaponpickup_slot"] + " clip=" + clipammo + " ammo=" + slotammo + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
 
 				// Drop the current weapon first (spawns its own pickup), then put the
 				// new weapon into the freed slot.
@@ -677,6 +714,8 @@ back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, s
 			other setweaponslotammo(slot, other.pers["weaponpickup_ammo"] + slotammo);
 			other setweaponslotclipammo(slot, other.pers["weaponpickup_clipammo"] + clipammo);
 
+			back2uo\_back2uo_cvars::back2uo_logevent("weapon", "ammo", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " weapon=" + weapon + " slot=" + slot + " before=" + other.pers["weaponpickup_ammo"] + " added=" + slotammo + " clipbefore=" + other.pers["weaponpickup_clipammo"] + " clipadded=" + clipammo + " max=" + weapon_maxslotammo);
+
 			other playSound("weap_ammo_pickup");
 
 			other iprintln(&"GAME_PICKUP_AMMO", weaponinfo[2]);
@@ -722,7 +761,11 @@ back2uo_weaponclear()
 
 	wait 40;
 
-	if(isDefined(self)) self delete();
+	if(isDefined(self))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("weapon", "expire", "lifetime=40 pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+		self delete();
+	}
 }
 
 /*
@@ -935,6 +978,8 @@ back2uo_turret_inradius()
 			weapon_mg42[t] thread back2uo_turret_trigger();
 		}
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("turret", "init", "misc_turret=" + weapon_turret.size + " misc_mg42=" + weapon_mg42.size);
 }
 
 /*
@@ -953,6 +998,14 @@ back2uo_turret_trigger()
 	other = "";
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Turret Trigger", "Spawn");
+
+	if(back2uo\_back2uo_cvars::back2uo_logactive())
+	{
+		turret_weapon = "none";
+		if(isdefined(self.weaponinfo)) turret_weapon = self.weaponinfo;
+
+		back2uo\_back2uo_cvars::back2uo_logevent("turret", "spawn", "weapon=" + turret_weapon + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+	}
 
 	while(isdefined(self))
 	{
@@ -981,6 +1034,9 @@ back2uo_turret_trigger()
 			else playerangles_max = -0.55;
 
 			// Behind the gun at 47-130 units, or very close (35-46 units) from any side.
+			// Previous state, to log only changes
+			playerdo_old = other.back2uo_playerdo;
+
 			if(playerdistance < 131 && playerdistance > 46 && playerangles < playerangles_max)
 			{
 				other.back2uo_playerdo = "turret_use";
@@ -992,6 +1048,13 @@ back2uo_turret_trigger()
 			else
 			{
 				if(other.back2uo_playerdo == "turret_use") other.back2uo_playerdo = "none";
+			}
+
+			if(other.back2uo_playerdo != playerdo_old)
+			{
+				if(other.back2uo_playerdo == "turret_use") turret_event = "use";
+				else turret_event = "leave";
+				back2uo\_back2uo_cvars::back2uo_logevent("turret", turret_event, back2uo\_back2uo_cvars::back2uo_logplayer(other) + " distance=" + int(playerdistance) + " angle=" + playerangles + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 			}
 		}
 	}
@@ -1013,6 +1076,8 @@ back2uo_create_turret()
 	turret.name = "MG";
 	turret.angles = self.angles;
 	turret show();
+
+	back2uo\_back2uo_cvars::back2uo_logevent("turret", "create", "pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 
 	// Disabled: limits for the turret's firing arc in degrees.
 	//turret SetTopArc(40);

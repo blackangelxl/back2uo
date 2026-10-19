@@ -24,12 +24,23 @@ back2uo_spawn_attacking()
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 
-	if(isDefined(self.back2uo_spawn_att)) return;
+	// Throttled: at most one message every 2 seconds
+	if(isDefined(self.back2uo_spawn_att))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("msg_spawnattack", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=throttled");
+		return;
+	}
 	self.back2uo_spawn_att = true;
 
 	if(isPlayer(self))
 	{
 		self iprintln(&"BACK2UOMOD_SPAWN_PLAYER_ATTACKE");
+
+		back2uo\_back2uo_cvars::back2uo_logevent("msg_spawnattack", "show", back2uo\_back2uo_cvars::back2uo_logplayer(self));
+	}
+	else
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("msg_spawnattack", "skip", "reason=not_player");
 	}
 
 	wait 2;

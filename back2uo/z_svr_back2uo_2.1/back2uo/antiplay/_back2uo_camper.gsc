@@ -26,6 +26,7 @@ back2uo_antiplay_camper()
 	if(!isdefined(self))
 	{
 		back2uo\_back2uo_cvars::back2uo_logprint("camper_monitor", "self not exist");
+		back2uo\_back2uo_cvars::back2uo_logevent("camper", "skip", "reason=self_not_exist");
 		return;
 	}
 
@@ -48,6 +49,9 @@ back2uo_antiplay_camper()
 
 			if(self_org > radius)
 			{
+				// Only log a reset after the warning, earlier resets are too frequent
+				if(self.back2uo_campingtime >= level.back2uo_antiplay_cmp_timer) back2uo\_back2uo_cvars::back2uo_logevent("camper", "reset", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " time=" + self.back2uo_campingtime + " moved=" + int(self_org) + " radius=" + radius);
+
 				self.back2uo_campingtime = 0;
 
 				wait 5;
@@ -60,10 +64,24 @@ back2uo_antiplay_camper()
 			if (self.back2uo_campingtime == level.back2uo_antiplay_cmp_timer)
 			{
 				self iprintlnbold(&"BACK2UOMOD_CAMPING_WARNING_MSG");
+
+				if(back2uo\_back2uo_cvars::back2uo_logactive())
+				{
+					moved = "none";
+					if(isdefined(self_org)) moved = int(self_org);
+					back2uo\_back2uo_cvars::back2uo_logevent("camper", "warn", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " time=" + self.back2uo_campingtime + " timer=" + level.back2uo_antiplay_cmp_timer + " mark_after=" + (level.back2uo_antiplay_cmp_timer + 20) + " moved=" + moved + " radius=" + radius + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+				}
 			}
 			else if(self.back2uo_campingtime > level.back2uo_antiplay_cmp_timer + 20)
 			{
 				self iprintlnbold(&"BACK2UOMOD_CAMPING_MARKED_MSG", level.back2uo_antiplay_cmp_objtime);
+
+				if(back2uo\_back2uo_cvars::back2uo_logactive())
+				{
+					moved = "none";
+					if(isdefined(self_org)) moved = int(self_org);
+					back2uo\_back2uo_cvars::back2uo_logevent("camper", "mark", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " time=" + self.back2uo_campingtime + " timer=" + level.back2uo_antiplay_cmp_timer + " objtime=" + level.back2uo_antiplay_cmp_objtime + " moved=" + moved + " radius=" + radius + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+				}
 
 				// Compass marker and its timed removal
 				thread back2uo_antiplay_camper_start();
@@ -109,7 +127,11 @@ back2uo_antiplay_camper_start()
 
 	// All slots in use: no marker this time
 	objnum = back2uo_antiplay_camper_obj();
-	if(!isdefined(objnum)) return;
+	if(!isdefined(objnum))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("camper", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=no_objslot");
+		return;
+	}
 
 	self.back2uo_objnum = objnum;
 	level.back2uo_camper_objslot[objnum] = self;
@@ -130,6 +152,8 @@ back2uo_antiplay_camper_start()
 
 	objective_add(self.back2uo_objnum, "current", self.origin, compass_icon);
 	objective_team(self.back2uo_objnum, compass_team);
+
+	back2uo\_back2uo_cvars::back2uo_logevent("camper", "marker_on", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " objnum=" + self.back2uo_objnum + " icon=" + compass_icon + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 
 	// back2uo_objnum is cleared by back2uo_antiplay_camper_remove/remove2
 	while(isdefined(self.back2uo_objnum) && isdefined(self) && self.pers["team"] != "spectator")
@@ -207,6 +231,8 @@ back2uo_antiplay_camper_remove()
 	{
 		self iprintlnbold(&"BACK2UOMOD_CAMPING_SURVIVED_MSG");
 
+		back2uo\_back2uo_cvars::back2uo_logevent("camper", "survived", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " objtime=" + level.back2uo_antiplay_cmp_objtime + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+
 		back2uo_antiplay_camper_remove2();
 	}
 
@@ -229,6 +255,9 @@ back2uo_antiplay_camper_remove2()
 
 	if(isDefined(self.back2uo_objnum))
 	{
+		// Called on death, disconnect and after surviving the marker time
+		back2uo\_back2uo_cvars::back2uo_logevent("camper", "marker_off", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " objnum=" + self.back2uo_objnum + " alive=" + isAlive(self));
+
 		objective_delete(self.back2uo_objnum);
 
 		if(isdefined(level.back2uo_camper_objslot)) level.back2uo_camper_objslot[self.back2uo_objnum] = undefined;
