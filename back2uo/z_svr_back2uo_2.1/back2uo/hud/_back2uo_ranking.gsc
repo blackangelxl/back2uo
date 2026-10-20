@@ -163,28 +163,28 @@ back2uo_ranking_update()
 					if(level.back2uo_rankingscorelist == 1) self.statusicon = self.pers["back2uo_score_ranking_pic"];
 
 					self.hud_ranking_lv.alpha = 0.4;
-					self.hud_ranking_lv.x = -206;
+					self.hud_ranking_lv.x = 115;
 					self.hud_ranking_lv.y = 388;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 28, 28);
 
 					wait 0.2;
 
 					self.hud_ranking_lv.alpha = 0.2;
-					self.hud_ranking_lv.x = -208;
+					self.hud_ranking_lv.x = 113;
 					self.hud_ranking_lv.y = 386;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 32, 32);
 
 					wait 0.2;
 
 					self.hud_ranking_lv.alpha = 0.4;
-					self.hud_ranking_lv.x = -206;
+					self.hud_ranking_lv.x = 115;
 					self.hud_ranking_lv.y = 388;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 28, 28);
 
 					wait 0.1;
 
 					self.hud_ranking_lv.alpha = 0.6;
-					self.hud_ranking_lv.x = -204;
+					self.hud_ranking_lv.x = 117;
 					self.hud_ranking_lv.y = 390;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 24, 24);
 				}
