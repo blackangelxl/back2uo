@@ -80,7 +80,7 @@ Called on: self = player
 */
 back2uo_sprintsystem_run()
 {
-	back2uo\_back2uo_cvars::back2uo_logprint("Sprint Run", "Start");
+	// No trace call here: this is threaded every frame while Use is held
 
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
@@ -93,26 +93,57 @@ back2uo_sprintsystem_run()
 	sprint_string = "";
 	// Consecutive passes with weapon "none".
 	sprint_none = 0;
+	// Log values: why the sprint ended, start time
+	stop_reason = "release";
+	sprint_start = undefined;
 
 	while(isalive(self) && self useButtonPressed() && !self.pers["bino_inuse"])
 	{
 		positype = back2uo\_back2uo_cvars::back2uo_player_stance();
 
-		if(positype == "crouch" || positype == "prone") break;
+		if(positype == "crouch" || positype == "prone")
+		{
+			stop_reason = positype;
+			break;
+		}
 
 		// Exhausted. Disabled extra condition: || self.pers["breathing"]
-		if(self.hud_sprint_height > 35) break;
+		if(self.hud_sprint_height > 35)
+		{
+			stop_reason = "exhausted";
+			break;
+		}
 
-		if(self.pers["bino_inuse"]) break;
+		if(self.pers["bino_inuse"])
+		{
+			stop_reason = "bino";
+			break;
+		}
 
 		// Bomb plant / defuse in SD.
-		if(isdefined(self.planting) && self.planting) break;
+		if(isdefined(self.planting) && self.planting)
+		{
+			stop_reason = "planting";
+			break;
+		}
 
-		if(isdefined(self.defuse) && self.defuse) break;
+		if(isdefined(self.defuse) && self.defuse)
+		{
+			stop_reason = "defuse";
+			break;
+		}
 
-		if(!self.pers["is_moving"]) break;
+		if(!self.pers["is_moving"])
+		{
+			stop_reason = "notmoving";
+			break;
+		}
 
-		if(self.pers["weapon_pickupsprintwait"] == true) break;
+		if(self.pers["weapon_pickupsprintwait"] == true)
+		{
+			stop_reason = "weaponpickup";
+			break;
+		}
 
 		// Tells the weapon pickup code that Use is held for sprinting, not for a pickup.
 		self.pers["usebutton_holdpress"] = true;
@@ -132,15 +163,27 @@ back2uo_sprintsystem_run()
 			self.sprint_none = false;
 		}
 
-		if(self.sprint_none) break;
+		if(self.sprint_none)
+		{
+			stop_reason = "noweapon";
+			break;
+		}
 
 		// First pass: swap to the sprint weapon.
 		if(self.pers["sprinting"] != true && sprint_string == "" && normal_weapon != "none")
 		{
 			// Only weapons in a primary slot have a "_sprint" variant (not binoculars, grenades
 			// or turrets); the Panzerschreck has none either.
-			if(normal_weapon != self getWeaponSlotWeapon("primary") && normal_weapon != self getWeaponSlotWeapon("primaryb")) return;
-			if(normal_weapon == "panzerschreck_mp") return;
+			if(normal_weapon != self getWeaponSlotWeapon("primary") && normal_weapon != self getWeaponSlotWeapon("primaryb"))
+			{
+				self back2uo_sprintsystem_logskip("nosprintweapon", normal_weapon);
+				return;
+			}
+			if(normal_weapon == "panzerschreck_mp")
+			{
+				self back2uo_sprintsystem_logskip("panzerschreck", normal_weapon);
+				return;
+			}
 
 			// Save weapon and ammo of the slot holding the current weapon.
 			self back2uo_sprintsystem_inslot(normal_weapon);
@@ -168,6 +211,10 @@ back2uo_sprintsystem_run()
 			}
 
 			self switchToWeapon(sprint_weapon);
+
+			sprint_start = getTime();
+			self.back2uo_sprint_lastskip = undefined;
+			back2uo\_back2uo_cvars::back2uo_logevent("sprint", "start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " weapon=" + normal_weapon + " slot=" + self.pers["sprint_slot"] + " stamina=" + self.hud_sprint_height + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 		}
 
 		self.pers["sprinting"] = true;
@@ -183,7 +230,37 @@ back2uo_sprintsystem_run()
 		self back2uo_sprintsystem_inslot2(self.pers["sprint_slot"]);
 
 		self back2uo_sprintsystem_stop();
+
+		if(isdefined(sprint_start))
+		{
+			// Loop condition ended the sprint: Use released or binoculars
+			if(stop_reason == "release" && self.pers["bino_inuse"]) stop_reason = "bino";
+
+			back2uo\_back2uo_cvars::back2uo_logevent("sprint", "stop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=" + stop_reason + " duration=" + ((getTime() - sprint_start) / 1000) + " stamina=" + self.hud_sprint_height + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+		}
 	}
+}
+
+/*
+=============
+back2uo_sprintsystem_logskip
+
+Logs why a sprint was not started, only when the reason or weapon changed
+(back2uo_sprintsystem_run is threaded every frame while Use is held).
+Called on: self = player
+Params: reason - skip reason
+		weapon - current weapon
+=============
+*/
+back2uo_sprintsystem_logskip(reason, weapon)
+{
+	if(!back2uo\_back2uo_cvars::back2uo_logactive()) return;
+
+	key = reason + " " + weapon;
+	if(isdefined(self.back2uo_sprint_lastskip) && self.back2uo_sprint_lastskip == key) return;
+	self.back2uo_sprint_lastskip = key;
+
+	back2uo\_back2uo_cvars::back2uo_logevent("sprint", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=" + reason + " weapon=" + weapon);
 }
 
 /*

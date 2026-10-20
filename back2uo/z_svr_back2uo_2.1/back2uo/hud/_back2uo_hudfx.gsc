@@ -125,6 +125,23 @@ back2uo_hudfx_draw()
 			self.hud_airfx setShader("gfx/custom/back2uo_hud_noplanefx.tga", 10, 10);
 		}
 	}
+
+	// FX setup is the same for all players: log it once per map.
+	if(!isdefined(level.back2uo_log_hudfx_init))
+	{
+		level.back2uo_log_hudfx_init = true;
+
+		airplane = 0;
+		if(isdefined(level.back2uo_airplanedimo_allow)) airplane = level.back2uo_airplanedimo_allow;
+
+		weather = 0;
+		if(isdefined(game["weather_allow"])) weather = 1;
+
+		soldiertype = "none";
+		if(isdefined(game["german_soldiertype"])) soldiertype = game["german_soldiertype"];
+
+		back2uo\_back2uo_cvars::back2uo_logevent("hudfx", "init", "weather=" + weather + " soldiertype=" + soldiertype + " warfx=" + game["back2uo_warfx_enable"] + " mortar=" + game["back2uo_mortarfx_enable"] + " airplane=" + airplane + " flak=" + game["back2uo_flakfx_enable"]);
+	}
 }
 
 /*

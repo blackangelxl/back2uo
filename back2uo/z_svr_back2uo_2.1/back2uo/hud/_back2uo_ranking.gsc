@@ -70,6 +70,8 @@ back2uo_ranking_update()
 	// Player still owns an unused artillery strike (from an earlier life): restart the binocular target selection.
 	if(game["back2uo_artilleryfx_enable"] && isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
 	{
+		back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artrestore", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + self.pers["back2uo_ranking"]);
+
 		thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_binowaituse();
 	}
 
@@ -128,6 +130,14 @@ back2uo_ranking_update()
 		// Rank changed
 		if(self.pers["back2uo_ranking"] != self.pers["back2uo_ranking_new"])
 		{
+			if(back2uo\_back2uo_cvars::back2uo_logactive())
+			{
+				rank_event = "rankdown";
+				if(self.pers["back2uo_ranking"] > self.pers["back2uo_ranking_new"]) rank_event = "rankup";
+
+				back2uo\_back2uo_cvars::back2uo_logevent("ranking", rank_event, back2uo\_back2uo_cvars::back2uo_logplayer(self) + " old=" + self.pers["back2uo_ranking_new"] + " rank=" + self.pers["back2uo_ranking"] + " score=" + player_score + " deaths=" + self.deaths);
+			}
+
 			if(self.pers["back2uo_ranking"] <= 5)
 			{
 				// Rank up: sound and message; allow the rewards of the next rank.
@@ -153,28 +163,28 @@ back2uo_ranking_update()
 					if(level.back2uo_rankingscorelist == 1) self.statusicon = self.pers["back2uo_score_ranking_pic"];
 
 					self.hud_ranking_lv.alpha = 0.4;
-					self.hud_ranking_lv.x = -206;
+					self.hud_ranking_lv.x = 115;
 					self.hud_ranking_lv.y = 388;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 28, 28);
 
 					wait 0.2;
 
 					self.hud_ranking_lv.alpha = 0.2;
-					self.hud_ranking_lv.x = -208;
+					self.hud_ranking_lv.x = 113;
 					self.hud_ranking_lv.y = 386;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 32, 32);
 
 					wait 0.2;
 
 					self.hud_ranking_lv.alpha = 0.4;
-					self.hud_ranking_lv.x = -206;
+					self.hud_ranking_lv.x = 115;
 					self.hud_ranking_lv.y = 388;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 28, 28);
 
 					wait 0.1;
 
 					self.hud_ranking_lv.alpha = 0.6;
-					self.hud_ranking_lv.x = -204;
+					self.hud_ranking_lv.x = 117;
 					self.hud_ranking_lv.y = 390;
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 24, 24);
 				}
@@ -282,6 +292,10 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 	rank_extras_a = 0;
 	rank_extras_b = 0;
 
+	// Only for the log: grenades actually given
+	log_frag = 0;
+	log_smoke = 0;
+
 	// Primary weapon ammo
 	if(pri_ammo > 0)
 	{
@@ -333,6 +347,7 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 			self giveWeapon(granadetype);
 			self setWeaponClipAmmo(granadetype, owncount + granat);
 			rank_extras_b++;
+			log_frag = granat;
 		}
 	}
 
@@ -357,11 +372,14 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 			self giveWeapon(smokegrenadetype);
 			self setWeaponClipAmmo(smokegrenadetype, owncount + smoke);
 			rank_extras_b++;
+			log_smoke = smoke;
 		}
 	}
 
 	// Message if any grenade was given.
 	if(level.back2uo_rankingmsg == 1 && (rank_extras_b == 1 || rank_extras_b == 2)) self iprintln(&"BACK2UOMOD_RANKING_GRA");
+
+	back2uo\_back2uo_cvars::back2uo_logevent("ranking", "reward", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score + " pri=" + pri_ammo + " sek=" + sek_ammo + " frag=" + log_frag + " smoke=" + log_smoke);
 
 	// Binoculars are taken away from the configured rank on.
 	if(level.back2uo_binocular_allow)
@@ -369,6 +387,8 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 		if(level.back2uo_binocular_onrank <= ranking_lv)
 		{
 			self takeWeapon("binoculars_mp");
+
+			back2uo\_back2uo_cvars::back2uo_logevent("ranking", "binotake", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv);
 		}
 	}
 
@@ -380,13 +400,27 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 			// Called directly (no thread), so the return value is available.
 			art_rank_check = back2uo_ranking_artillery_check(ranking_lv);
 
-			if(art_rank_check == 1) return;
+			if(art_rank_check == 1)
+			{
+				back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=given");
+				return;
+			}
 
-			if(isdefined(self.back2uo_art_rank)) return;
+			if(isdefined(self.back2uo_art_rank))
+			{
+				back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=rankflag");
+				return;
+			}
 			self.back2uo_art_rank = true;
 
 			// Player still has an unused strike.
-			if(isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true) return;
+			if(isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
+			{
+				back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=unused");
+				return;
+			}
+
+			back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artgrant", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score);
 
 			thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
 		}

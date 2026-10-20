@@ -27,7 +27,7 @@ back2uo_dropHealthPacks(iDamage)
 	if(!isdefined(iDamage)) iDamage = 45;
 
 	// Random offset up to 30 units, then trace 1000 units down to find the floor
-	trace_posi = self.origin + (randomint(30), randomint(30), 50);
+	trace_posi = self.origin + (RandomIntRange(1, 30), RandomIntRange(1, 30), 50);
 	trace_endposi = trace_posi + (0, 0, -1000);
 	trace = bulletTrace(trace_posi , trace_endposi, false, undefined);
 
@@ -73,8 +73,10 @@ back2uo_dropHealthPacks(iDamage)
 	item_health.targetname = "item_healths";
 	item_health hide();
 	item_health.origin = trace["position"];
-	item_health.angles = (0, randomint(360), 0);
+	item_health.angles = (0, RandomIntRange(1, 360), 0);
 	item_health show();
+
+	back2uo\_back2uo_cvars::back2uo_logevent("healthpack", "drop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " damage=" + iDamage + " size=" + medi_case + " heal=" + medihealth_vol + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(item_health.origin));
 
 	// Pickup logic and timed removal
 	thread back2uo_healththink(medihealth_vol, medi_case, item_health, item_health.origin);
@@ -157,9 +159,13 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 			{
 				if(!isDefined(object)) break;
 
+				health_before = other.health;
+
 				other.health += 1 * medihealth_vol;
 
 				if(other.health > other.maxhealth) other.health = other.maxhealth;
+
+				back2uo\_back2uo_cvars::back2uo_logevent("healthpack", "pickup", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " size=" + meditype + " heal=" + (other.health - health_before) + " healvol=" + medihealth_vol + " before=" + health_before + " after=" + other.health + " max=" + other.maxhealth + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
 
 				// Small pack sound is local to the player, larger ones are heard by others too
 				if(meditype == 1)
@@ -253,6 +259,10 @@ back2uo_healthclear()
 	{
 		wait level.back2uo_medipacks_hide;
 
-		if(isDefined(self)) self delete();
+		if(isDefined(self))
+		{
+			back2uo\_back2uo_cvars::back2uo_logevent("healthpack", "expire", "lifetime=" + level.back2uo_medipacks_hide + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+			self delete();
+		}
 	}
 }

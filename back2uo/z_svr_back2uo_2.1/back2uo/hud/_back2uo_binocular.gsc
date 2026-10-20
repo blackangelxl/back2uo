@@ -25,6 +25,7 @@ back2uo_binocular_control()
 	if(!isdefined(self))
 	{
 		back2uo\_back2uo_cvars::back2uo_logprint("bino_control", "self not exist");
+		back2uo\_back2uo_cvars::back2uo_logevent("binocular", "error", "reason=self_not_exist");
 		return;
 	}
 
@@ -47,7 +48,11 @@ back2uo_binocular_control()
 		wait (0.3);
 
 		// Binoculars already lowered again: no display (it would block the player until death).
-		if(!self.back2uo_bino_up) continue;
+		if(!self.back2uo_bino_up)
+		{
+			back2uo\_back2uo_cvars::back2uo_logevent("binocular", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=lowered_early");
+			continue;
+		}
 
 		self thread back2uo_binocular_distance_draw();
 
@@ -57,6 +62,8 @@ back2uo_binocular_control()
 		if(isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
 		{
 			self.pers["bino_inuse"] = true;
+
+			back2uo\_back2uo_cvars::back2uo_logevent("binocular", "sprintcancel", back2uo\_back2uo_cvars::back2uo_logplayer(self));
 
 			wait 1;
 
@@ -118,6 +125,9 @@ back2uo_binocular_distance_draw()
 		self.back2uo_artuseing.label = (&"BACK2UOMOD_ARTILLERY_USE");
 	}
 
+	// Only for the log: first measured target of this binocular use
+	log_measured = false;
+
 	for(;;)
 	{
 		if(game["back2uo_binocularhud_enable"])
@@ -137,6 +147,16 @@ back2uo_binocular_distance_draw()
 				{
 					self.back2uo_artlength.alpha = 0.7;
 					self.back2uo_artlength setValue(dangerzonemeter);
+				}
+
+				if(!log_measured)
+				{
+					log_measured = true;
+
+					artready = 0;
+					if(isdefined(self.back2uo_artillery_go) && self.back2uo_artillery_go == true) artready = 1;
+
+					back2uo\_back2uo_cvars::back2uo_logevent("binocular", "measure", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " meters=" + dangerzonemeter + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin) + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget) + " artready=" + artready);
 				}
 
 				self setClientCvar("back2uo_ui_artillery_meters", 1);

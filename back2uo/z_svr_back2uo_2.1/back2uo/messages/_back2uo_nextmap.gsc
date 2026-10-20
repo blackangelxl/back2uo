@@ -23,7 +23,11 @@ back2uo_nextmap_messages_draw(x)
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Next Map Msg", "Run");
 
-	if(!isdefined(x)) return;
+	if(!isdefined(x))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("msg_nextmap", "skip", "reason=no_rotation");
+		return;
+	}
 
 	level endon("back2uo_killthreads");
 	level endon("kill_endround");
@@ -33,10 +37,15 @@ back2uo_nextmap_messages_draw(x)
 	maps = undefined;
 
 	if(isdefined(x.maps)) maps = x.maps;
+	else back2uo\_back2uo_cvars::back2uo_logevent("msg_nextmap", "skip", "reason=no_maps");
 
 	for(;;)
 	{
-		if(isdefined(game["mapmsg_loop"])) return;
+		if(isdefined(game["mapmsg_loop"]))
+		{
+			back2uo\_back2uo_cvars::back2uo_logevent("msg_nextmap", "skip", "reason=already_shown");
+			return;
+		}
 		if(level.back2uo_mapmsg_loop != 1) game["mapmsg_loop"] = true;
 
 		// Delay between announcements, from the back2uo_mapmsg_delay cvar.
@@ -66,6 +75,8 @@ back2uo_nextmap_messages_draw(x)
 				wert_map = back2uo\tools\_back2uo_names::back2uo_get_mapname(level.back2uo_nextmap);
 
 				back2uo\_back2uo_cvars::back2uo_player_message(lstr, wert_map, " ^7)");
+
+				back2uo\_back2uo_cvars::back2uo_logevent("msg_nextmap", "show", "type=1 map=" + level.back2uo_nextmap + " to=all delay=" + level.back2uo_mapmsg_delay + " loop=" + level.back2uo_mapmsg_loop);
 			}
 		}
 
@@ -80,6 +91,8 @@ back2uo_nextmap_messages_draw(x)
 				wert_gt = back2uo\tools\_back2uo_names::back2uo_get_gametypename(level.back2uo_nextgt);
 
 				back2uo\_back2uo_cvars::back2uo_player_message(lstr, wert_map, " ^7-^2 ", wert_gt, " ^7)");
+
+				back2uo\_back2uo_cvars::back2uo_logevent("msg_nextmap", "show", "type=2 map=" + level.back2uo_nextmap + " gametype=" + level.back2uo_nextgt + " to=all delay=" + level.back2uo_mapmsg_delay + " loop=" + level.back2uo_mapmsg_loop);
 			}
 		}
 

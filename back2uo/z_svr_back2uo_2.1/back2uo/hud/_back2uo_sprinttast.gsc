@@ -51,6 +51,16 @@ back2uo_sprinttast_msg()
 				}
 				else
 				{
+					if(back2uo\_back2uo_cvars::back2uo_logactive())
+					{
+						reason = "pickup";
+						if(self getcurrentweapon() == "panzerschreck_mp") reason = "weapon";
+						else if(positype != "stand" && positype != "sprint") reason = "stance_" + positype;
+						else if(self.back2uo_playerdo != "none") reason = "busy_" + self.back2uo_playerdo;
+
+						back2uo\_back2uo_cvars::back2uo_logevent("sprinttast", "nosprint", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=" + reason);
+					}
+
 					self iprintln(level.back2uo_nosprint_msg);
 
 					wait 5;

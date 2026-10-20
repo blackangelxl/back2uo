@@ -239,11 +239,6 @@ init()
 		precacheItem("mp44_mp_sprint");
 		precacheItem("kar98k_sniper_mp_sprint");
 		precacheItem("shotgun_mp_axis_sprint");
-
-		// Disabled: unused weapons.
-		//precacheItem("dp28_mp");
-		//precacheItem("panzerfaust_mp");
-		//precacheItem("panzerschreck_mp");
 	}
 
 	// Back2Uo: optional extra weapons and binoculars.
@@ -260,8 +255,6 @@ init()
 		if(level.back2uo_rocketl_allow)
 		{
 			precacheItem("panzerschreck_mp");
-			// Disabled: panzerfaust.
-			//precacheItem("panzerfaust_mp");
 		}
 
 		// Back2Uo: binoculars ( back2uo_binocular_allow ).
@@ -309,8 +302,6 @@ init()
 		if(level.back2uo_rocketl_allow)
 		{
 			level.weaponnames[29] = "panzerschreck_mp";
-			// Disabled: panzerfaust.
-			//level.weaponnames[30] = "panzerfaust_mp";
 		}
 	}
 
@@ -475,12 +466,6 @@ init()
 			level.weapons["panzerschreck_mp"].server_allowcvar = "scr_allow_panzerschreck";
 			level.weapons["panzerschreck_mp"].client_allowcvar = "ui_allow_panzerschreck";
 			level.weapons["panzerschreck_mp"].allow_default = 1;
-
-			// Disabled: panzerfaust.
-			//level.weapons["panzerfaust_mp"] = spawnstruct();
-			//level.weapons["panzerfaust_mp"].server_allowcvar = "scr_allow_panzerfaust";
-			//level.weapons["panzerfaust_mp"].client_allowcvar = "ui_allow_panzerfaust";
-			//level.weapons["panzerfaust_mp"].allow_default = 1;
 		}
 	}
 
@@ -1043,11 +1028,6 @@ dropWeapon(current)
 		case "panzerschreck_mp":
 			weapon_xmodel = "xmodel/weapon_panzerschreck";
 			break;
-
-			// Disabled: panzerfaust.
-			//case "panzerfaust_mp":
-			//weapon_xmodel = "xmodel/weapon_panzerfaust";
-			//break;
 		}
 
 		if(weapon_xmodel == "") return;
@@ -1289,8 +1269,6 @@ getWeaponBasedGrenadeCount(weapon)
 
 	case "g43_sniper_mp":
 	case "panzerschreck_mp":
-		// Disabled: panzerfaust.
-		//case "panzerfaust_mp":
 
 	case "colt_mp":
 	case "webley_mp":
@@ -1341,8 +1319,6 @@ getWeaponBasedSmokeGrenadeCount(weapon)
 
 	case "g43_sniper_mp":
 	case "panzerschreck_mp":
-		// Disabled: panzerfaust.
-		//case "panzerfaust_mp":
 
 	default:
 		return 0;
@@ -1508,8 +1484,6 @@ isMainWeapon(weapon)
 
 	case "g43_sniper_mp":
 	case "panzerschreck_mp":
-		// Disabled: panzerfaust.
-		//case "panzerfaust_mp":
 
 	case "colt_mp":
 	case "webley_mp":
@@ -1732,15 +1706,6 @@ restrictWeaponByServerCvars(response)
 			response = "restricted";
 		}
 		break;
-
-		// Disabled: panzerfaust.
-		//case "panzerfaust_mp":
-		//if(!getcvarint("scr_allow_panzerfaust"))
-		//{
-		//self iprintln(&"MP_PANZERFAUST_IS_A_RESTRICTED");
-		//response = "restricted";
-		//}
-		//break;
 
 	case "fraggrenade":
 		if(!getcvarint("scr_allow_fraggrenades"))
@@ -1971,11 +1936,6 @@ getWeaponName(weapon)
 	case "panzerschreck_mp":
 		weaponname = &"WEAPON_PANZERSCHRECK";
 		break;
-
-		// Disabled: panzerfaust.
-		//case "panzerfaust_mp":
-		//weaponname = &"WEAPON_PANZERFAUST";
-		//break;
 
 	case "colt_mp":
 		weaponname = "Colt.45";

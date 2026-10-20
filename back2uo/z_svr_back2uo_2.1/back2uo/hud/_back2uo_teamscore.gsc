@@ -294,6 +294,33 @@ back2uo_teamscore_update()
 					self.hud_enemydeath setValue(axisdeath.size);
 				}
 			}
+
+			// Log team score changes once per level (all player loops see the same values).
+			if(back2uo\_back2uo_cvars::back2uo_logactive())
+			{
+				if(!isdefined(level.back2uo_log_teamscore_allies) || level.back2uo_log_teamscore_allies != alliedscore || level.back2uo_log_teamscore_axis != axisscore)
+				{
+					level.back2uo_log_teamscore_allies = alliedscore;
+					level.back2uo_log_teamscore_axis = axisscore;
+
+					leader = "tie";
+					if(alliedscore > axisscore) leader = "allies";
+					else if(axisscore > alliedscore) leader = "axis";
+
+					back2uo\_back2uo_cvars::back2uo_logevent("teamscore", "score", "allies=" + alliedscore + " axis=" + axisscore + " leader=" + leader + " allies_alive=" + alliedlife.size + " allies_dead=" + allieddeath.size + " axis_alive=" + axislife.size + " axis_dead=" + axisdeath.size);
+
+					// Leading team switched (a tie in between does not count as a switch).
+					if(leader != "tie")
+					{
+						if(isdefined(level.back2uo_log_teamscore_leader) && level.back2uo_log_teamscore_leader != leader)
+						{
+							back2uo\_back2uo_cvars::back2uo_logevent("teamscore", "leadchange", "leader=" + leader + " allies=" + alliedscore + " axis=" + axisscore);
+						}
+
+						level.back2uo_log_teamscore_leader = leader;
+					}
+				}
+			}
 		}
 
 		wait 0.1;

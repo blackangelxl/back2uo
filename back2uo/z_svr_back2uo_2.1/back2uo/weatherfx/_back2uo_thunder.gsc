@@ -18,16 +18,29 @@ Called on: level
 */
 back2uo_thunder_draw()
 {
-	if(!game["back2uo_weatherfx_enable"] || !game["back2uo_thunderfx_enable"] || !isdefined(game["weather_allow"])) return;
-	if(game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark") return;
+	if(!game["back2uo_weatherfx_enable"] || !game["back2uo_thunderfx_enable"]) return;
+
+	if(!isdefined(game["weather_allow"]))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("thunder", "skip", "reason=notallowed");
+		return;
+	}
+
+	if(game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark")
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("thunder", "skip", "reason=winter");
+		return;
+	}
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Thunder Play", "Run");
+
+	back2uo\_back2uo_cvars::back2uo_logevent("thunder", "start", "maxwait=29");
 
 	level endon("back2uo_killthreads");
 
 	for (;;)
 	{
-		wait randomint(30);
+		wait RandomFloatRange(1, 30);
 
 		// Not threaded: the next wait starts after the flash sequence is done.
 		back2uo_lightningflash();
@@ -59,9 +72,13 @@ back2uo_lightningflash()
 	wait 0.5;
 
 	// Random x/y inside the player area.
-	if(!isdefined(level.back2uo_playerdimo_xMin) || !isdefined(level.back2uo_playerdimo_yMin) || !isdefined(level.back2uo_mapdimo_zMax)) return;
-	xpos = level.back2uo_playerdimo_xMin + randomint(level.back2uo_playerdimo_breite);
-	ypos = level.back2uo_playerdimo_yMin + randomint(level.back2uo_playerdimo_laenge);
+	if(!isdefined(level.back2uo_playerdimo_xMin) || !isdefined(level.back2uo_playerdimo_yMin) || !isdefined(level.back2uo_mapdimo_zMax))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("thunder", "skip", "reason=nodimension");
+		return;
+	}
+	xpos = level.back2uo_playerdimo_xMin + randomintrange(1, level.back2uo_playerdimo_breite);
+	ypos = level.back2uo_playerdimo_yMin + randomintrange(1, level.back2uo_playerdimo_laenge);
 	// Disabled: flash at the map ceiling instead of middle height.
 	//zpos = level.back2uo_mapdimo_zMax;
 	zpos = level.back2uo_mapdimo_centerz;
@@ -101,8 +118,13 @@ back2uo_lightningflash()
 	}
 
 	// 1 in 6 chance for an additional close thunder clap.
-	thunder_in = randomint(6);
+	thunder_in = randomintrange(1, 6);
 	if(thunder_in == 3) thread back2uo\_back2uo_sounds::back2uo_soundonplayers("elm_thunderin");
+
+	thunder_close = 0;
+	if(thunder_in == 3) thunder_close = 1;
+
+	back2uo\_back2uo_cvars::back2uo_logevent("thunder", "flash", "pattern=" + flash[flashType] + " fx=" + lightFx + " close=" + thunder_close + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(position));
 }
 
 /*
