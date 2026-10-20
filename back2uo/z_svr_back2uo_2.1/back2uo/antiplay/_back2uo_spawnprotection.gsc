@@ -42,6 +42,8 @@ back2uo_antiplay_spawn_start()
 
 	self.back2uo_antiplay_sp_run = true;
 
+	back2uo\_back2uo_cvars::back2uo_logevent("spawnprotect", "on", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " duration=" + level.back2uo_antiplay_sp_time + " move_ends=" + level.back2uo_antiplay_sp_move + " radius=" + radius + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+
 	// One iteration per second (the wait is inside back2uo_player_origin)
 	for(self.back2uo_spawntime=0; self.back2uo_spawntime < level.back2uo_antiplay_sp_time; self.back2uo_spawntime++)
 	{
@@ -54,6 +56,20 @@ back2uo_antiplay_spawn_start()
 		{
 			if(isdefined(self_org) && self_org > radius || self attackButtonPressed() || self meleeButtonPressed() || self useButtonPressed())
 			{
+				if(back2uo\_back2uo_cvars::back2uo_logactive())
+				{
+					// Order matches the check above
+					reason = "use";
+					if(isdefined(self_org) && self_org > radius) reason = "move";
+					else if(self attackButtonPressed()) reason = "attack";
+					else if(self meleeButtonPressed()) reason = "melee";
+
+					moved = "none";
+					if(isdefined(self_org)) moved = int(self_org);
+
+					back2uo\_back2uo_cvars::back2uo_logevent("spawnprotect", "off", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=" + reason + " elapsed=" + self.back2uo_spawntime + " duration=" + level.back2uo_antiplay_sp_time + " moved=" + moved + " radius=" + radius);
+				}
+
 				// "1" = end of spawn protection, resets the bar
 				self back2uo\hud\_back2uo_healthbar::back2uo_healthbar_spawn_prot(self.back2uo_spawntime, "1");
 
@@ -67,6 +83,8 @@ back2uo_antiplay_spawn_start()
 	}
 
 	// Protection time is over
+	back2uo\_back2uo_cvars::back2uo_logevent("spawnprotect", "off", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=timeout elapsed=" + self.back2uo_spawntime + " duration=" + level.back2uo_antiplay_sp_time);
+
 	self back2uo\hud\_back2uo_healthbar::back2uo_healthbar_spawn_prot(self.back2uo_spawntime, "1");
 
 	self iprintln(&"BACK2UOMOD_SPAWN_DISABLED_MSG");

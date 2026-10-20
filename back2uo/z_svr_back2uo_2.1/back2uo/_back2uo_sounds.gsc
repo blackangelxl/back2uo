@@ -26,7 +26,7 @@ back2uo_painsound_play(hitloc, attacker)
 {
 	if(level.back2uo_painsound_random == 0) return;
 
-	back2uo\_back2uo_cvars::back2uo_logprint("Pain Sound", "Run");
+	// No trace call: runs on every hit
 
 	// Friendly fire in team gametypes: skip roughly half of the pain sounds.
 	if(getcvar("g_gametype") != "dm")
@@ -138,8 +138,6 @@ Params: sound - alias prefix, e.g. "generic_pain" or "generic_death"
 */
 back2uo_play_goresounds(sound)
 {
-	back2uo\_back2uo_cvars::back2uo_logprint("Gore Sounds", "Run");
-
 	if(isdefined(self.origin))
 	{
 		if(self.pers["team"] == "allies")
@@ -170,7 +168,7 @@ back2uo_hit_taunts(eAttacker, sHitLoc)
 {
 	if(level.back2uo_tauntsounds_random == 0) return;
 
-	back2uo\_back2uo_cvars::back2uo_logprint("Hit Taunts", "Run");
+	// No trace call: runs on every hit
 
 	if(!isdefined(eAttacker)) return;
 
@@ -387,8 +385,6 @@ back2uo_soundonplayerorigin(sound, person)
 	if(!isdefined(sound) || sound == "") return;
 
 	if(!isdefined(person.origin) && person.sessionstate != "playing") return;
-
-	back2uo\_back2uo_cvars::back2uo_logprint("Sound on Player Origin", "Play");
 
 	soundorg = spawn("script_model", (person.origin));
 	soundorg.origin = person.origin;

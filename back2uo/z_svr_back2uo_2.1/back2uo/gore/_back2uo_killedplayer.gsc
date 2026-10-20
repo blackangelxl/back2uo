@@ -24,7 +24,11 @@ back2uo_killedplayer_blood(body, selfteam, attackerteam)
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Blood Pool", "Run");
 
-	if(!isdefined(body)) return;
+	if(!isdefined(body))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("killed", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=no_body");
+		return;
+	}
 
 	// time = number of splatter bursts (0.1 s apart), w = delay before the blood pool.
 	time = 6;
@@ -34,7 +38,21 @@ back2uo_killedplayer_blood(body, selfteam, attackerteam)
 	body setmodel (self.model);
 	body.targetname = "deadplayer";
 
-	if(isdefined(selfteam) && selfteam == "spectator") return;
+	if(isdefined(selfteam) && selfteam == "spectator")
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("killed", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=spectator");
+		return;
+	}
+
+	if(back2uo\_back2uo_cvars::back2uo_logactive())
+	{
+		victimteam = "none";
+		if(isdefined(selfteam)) victimteam = selfteam;
+		attteam = "none";
+		if(isdefined(attackerteam)) attteam = attackerteam;
+
+		back2uo\_back2uo_cvars::back2uo_logevent("killed", "blood", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " victimteam=" + victimteam + " attackerteam=" + attteam + " splatter=" + time + " pool_delay=" + w + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(body.origin));
+	}
 
 	for(x=0; x < time; x++)
 	{

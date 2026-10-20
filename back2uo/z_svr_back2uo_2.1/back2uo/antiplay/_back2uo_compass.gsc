@@ -50,7 +50,7 @@ Params: player_id - client id of the player (objective number)
 */
 back2uo_compass_enemyfiring_show(player_id)
 {
-	back2uo\_back2uo_cvars::back2uo_logprint("Enemy Firing", "Show");
+	// No trace call here: this function is started every second for every player
 
 	// Already running for this player
 	if(isdefined(self.pers["enemyfiring_nr"]) && self.pers["enemyfiring_nr"] == player_id) return;
@@ -84,6 +84,14 @@ back2uo_compass_enemyfiring_show(player_id)
 			objective_add(self.pers["enemyfiring_nr"], "current", self.origin, "gfx/custom/back2uo_compass_enemyfiring.tga");
 			objective_team(self.pers["enemyfiring_nr"], compass_enemyfiring_team);
 
+			if(back2uo\_back2uo_cvars::back2uo_logactive())
+			{
+				weapon = self getCurrentWeapon();
+				if(!isdefined(weapon)) weapon = "none";
+
+				back2uo\_back2uo_cvars::back2uo_logevent("compass", "fire_show", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " weapon=" + weapon + " objnum=" + self.pers["enemyfiring_nr"] + " visible_to=" + compass_enemyfiring_team + " fade=" + level.back2uo_compass_firefade + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+			}
+
 			// Follow the player while the marker is visible
 			for(i=0; i < level.back2uo_compass_firefade; i++)
 			{
@@ -94,6 +102,8 @@ back2uo_compass_enemyfiring_show(player_id)
 
 			if(isdefined(self.pers["enemyfiring_nr"]) && !self attackButtonPressed())
 			{
+				back2uo\_back2uo_cvars::back2uo_logevent("compass", "fire_hide", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " objnum=" + self.pers["enemyfiring_nr"]);
+
 				objective_delete(self.pers["enemyfiring_nr"]);
 
 				self.pers["enemyfiring_nr"] = undefined;
@@ -123,6 +133,8 @@ back2uo_compass_enemyfiring_clear()
 
 	if(isDefined(self.pers["enemyfiring_nr"]))
 	{
+		back2uo\_back2uo_cvars::back2uo_logevent("compass", "fire_clear", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " objnum=" + self.pers["enemyfiring_nr"]);
+
 		objective_delete(self.pers["enemyfiring_nr"]);
 
 		self.pers["enemyfiring_nr"] = undefined;

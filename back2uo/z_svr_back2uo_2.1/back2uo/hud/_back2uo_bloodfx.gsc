@@ -33,9 +33,9 @@ back2uo_view_bloodfx()
 	if(!isDefined(self.back2uo_bloodyscreen))
 	{
 		// Random position (x 0-495, y 0-335) and random size 100-198 px.
-		bs1 = randomint(496);
-		bs2 = randomint(336);
-		bs3 = int(randomint(50) + randomint(50));
+		bs1 = RandomIntRange(1, 496);
+		bs2 = RandomIntRange(1, 336);
+		bs3 = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen = newClientHudElem(self);
 		self.back2uo_bloodyscreen.alignX = "center";
 		self.back2uo_bloodyscreen.alignY = "top";
@@ -49,9 +49,9 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen1))
 	{
-		bs1a = randomint(496);
-		bs2a = randomint(336);
-		bs3a = int(randomint(50) + randomint(50));
+		bs1a = RandomIntRange(1, 496);
+		bs2a = RandomIntRange(1, 336);
+		bs3a = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen1 = newClientHudElem(self);
 		self.back2uo_bloodyscreen1.alignX = "center";
 		self.back2uo_bloodyscreen1.alignY = "top";
@@ -65,9 +65,9 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen2))
 	{
-		bs1b = randomint(496);
-		bs2b = randomint(336);
-		bs3b = int(randomint(50) + randomint(50));
+		bs1b = RandomIntRange(1, 496);
+		bs2b = RandomIntRange(1, 336);
+		bs3b = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen2 = newClientHudElem(self);
 		self.back2uo_bloodyscreen2.alignX = "center";
 		self.back2uo_bloodyscreen2.alignY = "top";
@@ -81,9 +81,9 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen3))
 	{
-		bs1c = randomint(496);
-		bs2c = randomint(336);
-		bs3c = int(randomint(50) + randomint(50));
+		bs1c = RandomIntRange(1, 496);
+		bs2c = RandomIntRange(1, 336);
+		bs3c = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen3 = newClientHudElem(self);
 		self.back2uo_bloodyscreen3.alignX = "center";
 		self.back2uo_bloodyscreen3.alignY = "middle";

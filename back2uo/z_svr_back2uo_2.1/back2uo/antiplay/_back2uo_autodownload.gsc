@@ -21,6 +21,9 @@ back2uo_client_autodownload_init()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Client Autodownload", "Run");
 
+	// Logged once per player; the notice itself repeats every 12 seconds
+	back2uo\_back2uo_cvars::back2uo_logevent("autodownload", "notice_start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " interval=12");
+
 	for(;;)
 	{
 		if(isdefined(self)) self iprintlnbold(&"EXE_AUTODL_CLIENTDISABLED");

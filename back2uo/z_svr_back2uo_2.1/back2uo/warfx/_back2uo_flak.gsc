@@ -18,26 +18,39 @@ Params: aircount - number of planes in the fly-over
 */
 back2uo_flakfx_play(aircount)
 {
-	if(!game["back2uo_flakfx_enable"]) return;
+	if(!game["back2uo_flakfx_enable"])
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("flak", "skip", "reason=disabled aircount=" + aircount);
+		return;
+	}
 
-	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Play", "Run");
+	back2uo\_back2uo_cvars::back2uo_logprint("Flak Fx Play", "Run");
 
 	level endon("back2uo_killthreads");
+
+	back2uo\_back2uo_cvars::back2uo_logevent("flak", "start", "aircount=" + aircount);
+
+	// Log only: bursts fired in this barrage.
+	flak_bursts = 0;
 
 	// Give the planes time to enter the map.
 	wait 2;
 
 	for(z=0;z<aircount;z++)
 	{
-		level.back2uo_flakfx_count = int(1 + randomint(2));
+		level.back2uo_flakfx_count = 1 + randomint(2);
 
 		for(x=0;x<level.back2uo_flakfx_count;x++)
 		{
 			// Random x/y inside the player area, 0-199 units below the map ceiling.
-			if(!isdefined(level.back2uo_playerdimo_xMin) || !isdefined(level.back2uo_playerdimo_yMin) || !isdefined(level.back2uo_mapdimo_zMax) ) return;
-			xpos = level.back2uo_playerdimo_xMin + randomint(level.back2uo_playerdimo_breite);
-			ypos = level.back2uo_playerdimo_yMin + randomint(level.back2uo_playerdimo_laenge);
-			zpos = level.back2uo_mapdimo_zMax - randomint(200);
+			if(!isdefined(level.back2uo_playerdimo_xMin) || !isdefined(level.back2uo_playerdimo_yMin) || !isdefined(level.back2uo_mapdimo_zMax) )
+			{
+				back2uo\_back2uo_cvars::back2uo_logevent("flak", "skip", "reason=nodimension bursts=" + flak_bursts);
+				return;
+			}
+			xpos = level.back2uo_playerdimo_xMin + randomintrange(1, level.back2uo_playerdimo_breite);
+			ypos = level.back2uo_playerdimo_yMin + randomintrange(1, level.back2uo_playerdimo_laenge);
+			zpos = level.back2uo_mapdimo_zMax - randomintrange(1, 200);
 
 			level.back2uo_flakposition = ( xpos, ypos, zpos);
 
@@ -45,11 +58,15 @@ back2uo_flakfx_play(aircount)
 
 			thread back2uo_flakfx_draw(level.back2uo_flakposition);
 
-			wait 0.6;
+			flak_bursts++;
+
+			wait randomfloatrange(0.5, 0.7);
 		}
 
-		wait 2;
+		wait randomfloatrange(1.9, 2.2);
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("flak", "end", "aircount=" + aircount + " bursts=" + flak_bursts);
 
 	return;
 }
