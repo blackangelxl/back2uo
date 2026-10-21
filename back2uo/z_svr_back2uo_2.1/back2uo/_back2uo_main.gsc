@@ -437,6 +437,9 @@ back2uo_main()
 
 	game["back2uo_testbots_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_testbots_aktiv", 0, 0, 1);
 
+	// Bot skill 1-3: reaction time, aim error and turn speed, see back2uo\bots\_back2uo_botai.gsc
+	level.back2uo_testbots_skill = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_testbots_skill", 2, 1, 3, "int");
+
 	// --- Sniper and shotgun limits (players per team) ---
 
 	game["back2uo_weaponlimit_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weapons_lmd_aktiv", 1, 0, 1);
