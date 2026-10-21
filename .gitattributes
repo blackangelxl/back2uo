@@ -24,6 +24,10 @@ back2uo/z_back2uo_2.1_client/materials/*   -text
 *.py    text eol=lf
 *.md    text eol=lf
 
+# MeatBot waypoint sources: keep byte for byte, some files hold corrupt binary tails
+*.wp    -text
+*.WP    -text
+
 # Make GitHub highlight GSC as C-like code
 *.gsc     linguist-language=C
 *.gsc_old linguist-language=C
