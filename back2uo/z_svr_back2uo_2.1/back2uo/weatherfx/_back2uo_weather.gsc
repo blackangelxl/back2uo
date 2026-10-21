@@ -27,18 +27,31 @@ back2uo_weather_randomallow()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Weather Random Allow", "Run");
 
-	if(isdefined(game["weather_allow_q"])) return;
+	if(isdefined(game["weather_allow_q"]))
+	{
+		weather_allow = 0;
+		if(isdefined(game["weather_allow"])) weather_allow = 1;
+
+		back2uo\_back2uo_cvars::back2uo_logevent("weather", "keep", "allow=" + weather_allow);
+		return;
+	}
 	game["weather_allow_q"] = true;
 
 	// level.back2uo_weatherfx_random = chance in percent.
-	if(randomInt(100) < level.back2uo_weatherfx_random)
+	weather_roll = randomInt(100);
+	weather_allow = 0;
+
+	if(weather_roll < level.back2uo_weatherfx_random)
 	{
 		game["weather_allow"] = true;
+		weather_allow = 1;
 	}
 	else
 	{
 		game["weather_allow"] = undefined;
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("weather", "roll", "roll=" + weather_roll + " chance=" + level.back2uo_weatherfx_random + " allow=" + weather_allow);
 }
 
 /*
@@ -59,16 +72,32 @@ back2uo_weathercontrol()
 	// Winter uniforms = winter map.
 	if(game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark")
 	{
-		if(!game["back2uo_snowfx_enable"] || !isdefined(game["weather_allow"])) return;
+		if(!game["back2uo_snowfx_enable"] || !isdefined(game["weather_allow"]))
+		{
+			weather_reason = "notallowed";
+			if(!game["back2uo_snowfx_enable"]) weather_reason = "disabled";
+
+			back2uo\_back2uo_cvars::back2uo_logevent("weather", "skip", "reason=" + weather_reason + " type=snow");
+			return;
+		}
 
 		level.back2uo_weatherart = "snow";
 	}
 	else
 	{
-		if(!game["back2uo_rainfx_enable"] || !isdefined(game["weather_allow"])) return;
+		if(!game["back2uo_rainfx_enable"] || !isdefined(game["weather_allow"]))
+		{
+			weather_reason = "notallowed";
+			if(!game["back2uo_rainfx_enable"]) weather_reason = "disabled";
+
+			back2uo\_back2uo_cvars::back2uo_logevent("weather", "skip", "reason=" + weather_reason + " type=rain");
+			return;
+		}
 
 		level.back2uo_weatherart = "rain";
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("weather", "start", "type=" + level.back2uo_weatherart + " strength=" + level.back2uo_weatherfx_strength + " pause=" + (2 / level.back2uo_weatherfx_strength) + " soldiertype=" + game["german_soldiertype"]);
 
 	thread back2uo_weatherdraw();
 }
@@ -146,7 +175,11 @@ back2uo_weatherdraw()
 	// "drops" = the effect chosen in back2uo_weathercontrol (rain or snow).
 	level.back2uo_effect["drops"] = level.back2uo_effect[level.back2uo_weatherart];
 
-	if(!isdefined(level.back2uo_mapdimo_zMax) || !isdefined(level.back2uo_mapdimo_centerz)) return;
+	if(!isdefined(level.back2uo_mapdimo_zMax) || !isdefined(level.back2uo_mapdimo_centerz))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("weather", "skip", "reason=nodimension type=" + level.back2uo_weatherart);
+		return;
+	}
 	middlezpos = level.back2uo_mapdimo_centerz;
 	maxzpos = level.back2uo_mapdimo_zMax;
 

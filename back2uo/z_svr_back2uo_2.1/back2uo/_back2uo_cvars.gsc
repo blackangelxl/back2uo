@@ -23,7 +23,7 @@ back2uo_favorite_menu()
 
 	if(!isdefined(self))
 	{
-		back2uo\_back2uo_cvars::back2uo_logprint("favoriten_menu", "self not exist");
+		back2uo\_back2uo_cvars::back2uo_logevent("favorite", "error", "reason=noself");
 		return;
 	}
 
@@ -585,17 +585,93 @@ back2uo_vecscale(vec, scale)
 =============
 back2uo_logprint
 
-Writes "<name> <prob>" to the server log (games_mp.log) when game["back2uo_logprint_enable"] is set.
-Used as debug trace throughout the mod.
+Debug trace: writes "B2U;TRACE;<name>;<prob>" to the server log (games_mp.log).
+Only active at log level 2 (back2uo_logprint 2), because it is called on every
+function start and floods the log. For evaluable values use back2uo_logevent.
 Params: name - function or feature name
 		prob - state text, e.g. "Run"
 =============
 */
 back2uo_logprint(name, prob)
 {
-	if(!game["back2uo_logprint_enable"]) return;
+	if(game["back2uo_logprint_enable"] < 2) return;
 
-	logPrint(name, " ", prob, "\n");
+	logPrint("B2U;TRACE;" + name + ";" + prob + "\n");
+}
+
+/*
+=============
+back2uo_logactive
+
+Returns true when event logging (back2uo_logprint 1 or 2) is on. Use it to skip
+building log strings in loops or other frequently called code.
+=============
+*/
+back2uo_logactive()
+{
+	return (game["back2uo_logprint_enable"] >= 1);
+}
+
+/*
+=============
+back2uo_logevent
+
+Writes one machine readable event line to the server log (games_mp.log):
+	B2U;<module>;<event>;<data>
+data is a space separated list of key=value pairs, e.g. "count=4 type=1 time=6.2".
+Active at log level 1 and 2. The line can be filtered with: grep "B2U;<module>;"
+Params: module - script/feature, e.g. "airplane", "artillery", "afk"
+		event - what happened, e.g. "start", "end", "hit", "kick"
+		data - key=value string ("" when there is nothing to add)
+=============
+*/
+back2uo_logevent(module, event, data)
+{
+	if(game["back2uo_logprint_enable"] < 1) return;
+
+	logPrint("B2U;" + module + ";" + event + ";" + data + "\n");
+}
+
+/*
+=============
+back2uo_logplayer
+
+Returns the key=value part that identifies a player for back2uo_logevent:
+	player=<entity number> name=<name> team=<team>
+";" in the name is replaced so the log line stays parseable.
+Params: player - player entity (may be undefined)
+=============
+*/
+back2uo_logplayer(player)
+{
+	if(!isdefined(player) || !isPlayer(player)) return "player=none";
+
+	name = "";
+	for(i = 0; i < player.name.size; i++)
+	{
+		if(player.name[i] == ";") name += ",";
+		else name += player.name[i];
+	}
+
+	team = "none";
+	if(isdefined(player.pers["team"])) team = player.pers["team"];
+
+	return "player=" + player getEntityNumber() + " name=" + name + " team=" + team;
+}
+
+/*
+=============
+back2uo_logvec
+
+Returns a vector as "x,y,z" with whole numbers for back2uo_logevent.
+Params: vec - vector (may be undefined)
+=============
+*/
+back2uo_logvec(vec)
+{
+	if(!isdefined(vec)) return "none";
+
+	return int(vec[0]) + "," + int(vec[1]) + "," + int(vec[2]);
 }
 
 /*
@@ -684,13 +760,15 @@ back2uo_fx_run()
 
 					if(self isOnground())
 					{
+						back2uo\_back2uo_cvars::back2uo_logevent("devtest", "fx", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+
 						// Disabled: other test actions (drop weapon, health pack, turret, mortar)
 						//self maps\mp\gametypes\_weapons::dropWeapon("mp40_mp");
 						//self back2uo\objects\_back2uo_healthpacks::back2uo_dropHealthPacks();
 						//back2uo\_back2uo_weaponsystem::back2uo_create_turret();
 						//back2uo\warfx\_back2uo_mortar::back2uo_mortar_draw(self);
 						thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
-						thread back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_play();
+						// back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_play();
 
 						wait 1;
 

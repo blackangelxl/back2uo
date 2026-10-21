@@ -239,7 +239,13 @@ back2uo_playerposition_sprint()
 				self.playerposition_sprintcross.color = ((self.hud_sprint_height/100)*3, (self.hud_sprint_height/100)*2, 0);
 			}
 
-			if(self.hud_sprint_height < 36) self.hud_sprint_height++;
+			if(self.hud_sprint_height < 36)
+			{
+				self.hud_sprint_height++;
+
+				// Stamina bar just ran full
+				if(self.hud_sprint_height == 36) back2uo\_back2uo_cvars::back2uo_logevent("playerposition", "exhausted", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+			}
 			else self.pers["breathing"] = true;
 
 			wait sprint_length;

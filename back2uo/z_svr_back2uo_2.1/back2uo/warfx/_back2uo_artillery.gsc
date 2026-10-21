@@ -31,9 +31,15 @@ back2uo_artilleryfx_control()
 
 	// Only one active artillery grant per player.
 	if(!isdefined(self.back2uo_artillery_go)) self.back2uo_artillery_go = false;
-	if(self.back2uo_artillery_go) return;
+	if(self.back2uo_artillery_go)
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("artillery", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=already_granted");
+		return;
+	}
 
 	self.back2uo_artillery_go = true;
+
+	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "grant", back2uo\_back2uo_cvars::back2uo_logplayer(self));
 
 	if(self.back2uo_artillery_go)
 	{
@@ -119,6 +125,8 @@ back2uo_artilleryfx_binousing()
 			}
 			else
 			{
+				back2uo\_back2uo_cvars::back2uo_logevent("artillery", "invalid", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+
 				// "Target invalid" radio voice.
 				if(level.back2uo_artillery_order == 1)
 				{
@@ -171,11 +179,21 @@ back2uo_artilleryfx_fire(binopositarget, selftarget_x, selftarget_y)
 
 		dangerdist = distance( self.origin, binopositarget );
 
+		// Log only: 1 = danger-close warning shown.
+		dangerclose = 0;
+
 		// Danger-close warning (0 disables it).
 		if(isdefined(level.back2uo_artillery_danger) && level.back2uo_artillery_danger != 0 && dangerdist < level.back2uo_artillery_danger)
 		{
 			self iprintlnbold(&"BACK2UOMOD_ARTILLERY_DANGER");
+
+			dangerclose = 1;
 		}
+
+		dangerlimit = 0;
+		if(isdefined(level.back2uo_artillery_danger)) dangerlimit = level.back2uo_artillery_danger;
+
+		back2uo\_back2uo_cvars::back2uo_logevent("artillery", "fire", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget) + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin) + " dist=" + int(dangerdist) + " danger=" + dangerclose + " dangerlimit=" + dangerlimit);
 
 		if(isdefined(self.back2uo_artuseing)) self.back2uo_artuseing destroy();
 
@@ -204,6 +222,8 @@ The artillery strike used up
 */
 back2uo_artilleryfx_strike_used_up()
 {
+	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "usedup", back2uo\_back2uo_cvars::back2uo_logplayer(self));
+
 	self.pers["artillery_save"] = undefined;
 	self.back2uo_artillery_go = false;
 }
@@ -242,44 +262,55 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	artlaun_efx = randomInt(soundfx_artlaun.size);
 
-	wait (4 + randomint(2));
+	// Log only: shells dropped in this strike.
+	art_shells = 0;
+	art_starttime = getTime();
+
+	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " callerteam=" + callerteam + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget) + " count=" + level.back2uo_artillery_count + " alert=" + level.back2uo_artillery_alert);
+
+	wait (4 + randomfloatrange(1, 2));
 
 	self thread back2uo\_back2uo_sounds::back2uo_soundonplayers(soundfx_artlaun[artlaun_efx]);
 
 	// Shell flight time before the first impacts.
-	wait 4 + randomint(4);
+	wait 4 + randomfloatrange(1, 4);
 
-	while(art_wait < 3)
+	while(art_wait < randomintrange(2, 3))
 	{
 		// Shift the aim point for salvo 2 (+0..99) and salvo 3 (-100..-199 from that).
-		if(art_wait == 1) binopositarget = binopositarget + (randomint(100), randomint(100), 0);
-		else if(art_wait == 2) binopositarget = binopositarget - (int(100 + randomint(100)), int(100 + randomint(100)), 0);
+		if(art_wait == 1) binopositarget = binopositarget + (randomintrange(1, 100), randomintrange(1, 100), 0);
+		else if(art_wait == 2) binopositarget = binopositarget - (100 + randomintrange(1, 100), 100 + randomintrange(1, 100), 0);
 
 		artillerycount = 0;
 
 		// 0 = random shell count.
 		if(level.back2uo_artillery_count == 0)
 		{
-			level.back2uo_artillery_count2 = int(4 + randomint(4));
+			level.back2uo_artillery_count2 = randomintrange(1, 4);
 		}
 		else
 		{
-			level.back2uo_artillery_count2 = level.back2uo_artillery_count;
+			level.back2uo_artillery_count2 = randomintrange(3, level.back2uo_artillery_count);
 		}
+
+		back2uo\_back2uo_cvars::back2uo_logevent("artillery", "salvo", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " salvo=" + (art_wait + 1) + " shells=" + level.back2uo_artillery_count2 + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget));
 
 		while(artillerycount < level.back2uo_artillery_count2)
 		{
 			thread back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam);
 
 			artillerycount++;
+			art_shells++;
 
-			wait 0.6;
+			wait randomfloatrange(0.5, 0.7);
 		}
 
 		art_wait++;
 
-		wait 3;
+		wait randomfloatrange(2, 4);
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "end", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " salvos=" + art_wait + " shells=" + art_shells + " time_ms=" + (getTime() - art_starttime));
 }
 
 /*
@@ -393,11 +424,13 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	artillery hide();
 
+	back2uo\_back2uo_cvars::back2uo_logevent("artillery", "impact", "pos=" + back2uo\_back2uo_cvars::back2uo_logvec(trace["position"]) + " target=" + back2uo\_back2uo_cvars::back2uo_logvec(binopositarget) + " surface=" + trace["surfacetype"] + " fx=" + artilleryfx + " falltime=" + fall_time);
+
 	thread back2uo_artillery_damage(trace["position"], self, callerteam);
 
-	// Strong screen shake (scale 0.8, radius 3000). randomint(1) is always 0, so length is 0.5.
-	length = 0.5 + randomint(1);
-	earthquake(0.8, length, trace["position"], 3000);
+	// Strong screen shake (scale 0.8, radius 3000). randomfloatrange(0, 2) is always 0, so length is 0.5.
+	length = 0.5 + randomfloatrange(0, 2);
+	earthquake(0.8, length, trace["position"], 2500);
 
 	artillery delete();
 }
@@ -421,8 +454,16 @@ back2uo_artillery_damage(endposition, attacker, callerteam)
 	back2uo\_back2uo_cvars::back2uo_logprint("Artillery Fx Damage", "Run");
 
 	// Caller left the server or changed the team since firing: the strike does no damage.
-	if(!isdefined(attacker) || !isPlayer(attacker)) return;
-	if(isdefined(callerteam) && attacker.pers["team"] != callerteam) return;
+	if(!isdefined(attacker) || !isPlayer(attacker))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("artillery", "skip", "reason=caller_left pos=" + back2uo\_back2uo_cvars::back2uo_logvec(endposition));
+		return;
+	}
+	if(isdefined(callerteam) && attacker.pers["team"] != callerteam)
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("artillery", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(attacker) + " reason=team_changed callerteam=" + callerteam + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(endposition));
+		return;
+	}
 
 	teambased = (getcvar("g_gametype") != "dm");
 
@@ -450,14 +491,27 @@ back2uo_artillery_damage(endposition, attacker, callerteam)
 
 		// Cover check from the impact to the player's chest (40 units up).
 		trace = bulletTrace(endposition, player.origin + (0,0,40), false, undefined);
-		if(trace["fraction"] != 1) iDamage = iDamage * 0.02;
+
+		// Log only: 1 = player was behind cover.
+		cover = 0;
+		if(trace["fraction"] != 1)
+		{
+			iDamage = iDamage * 0.02;
+			cover = 1;
+		}
 
 		victims = [];
 		victims[0] = player;
 
+		// Log only: enemy, self, team (teammate hit) or reflect (caller hit instead).
+		hittype = "enemy";
+		if(player == attacker) hittype = "self";
+
 		// Friendly fire on a teammate of the caller
 		if(teambased && player != attacker && isdefined(player.pers["team"]) && player.pers["team"] == attacker.pers["team"])
 		{
+			hittype = "team";
+
 			if(level.friendlyfire == "0")
 			{
 				continue;
@@ -467,6 +521,7 @@ back2uo_artillery_damage(endposition, attacker, callerteam)
 				// Reflect: the caller takes half of the damage instead of the teammate
 				iDamage = iDamage * 0.5;
 				victims[0] = attacker;
+				hittype = "reflect";
 			}
 			else if(level.friendlyfire == "3")
 			{
@@ -487,6 +542,14 @@ back2uo_artillery_damage(endposition, attacker, callerteam)
 			victim thread maps\mp\gametypes\_damagefeedback::updateDamageFeedback();
 			victim thread back2uo_artillery_shellshockOnDamage(iDamage);
 			victim playrumble("damage_heavy");
+
+			if(back2uo\_back2uo_cvars::back2uo_logactive())
+			{
+				killed = 0;
+				if(!isAlive(victim)) killed = 1;
+
+				back2uo\_back2uo_cvars::back2uo_logevent("artillery", "hit", back2uo\_back2uo_cvars::back2uo_logplayer(victim) + " attacker=" + attacker getEntityNumber() + " type=" + hittype + " damage=" + int(iDamage) + " dist=" + int(dist) + " cover=" + cover + " killed=" + killed + " health=" + victim.health);
+			}
 		}
 	}
 }

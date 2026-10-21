@@ -28,6 +28,7 @@ back2uo_antiplay_afk()
 	if(!isdefined(self))
 	{
 		back2uo\_back2uo_cvars::back2uo_logprint("afk_monitor", "self not exist");
+		back2uo\_back2uo_cvars::back2uo_logevent("afk", "skip", "reason=self_not_exist");
 		return;
 	}
 
@@ -64,9 +65,23 @@ back2uo_antiplay_afk()
 			if (self.back2uo_afk_time == level.back2uo_antiplay_afk_limit)
 			{
 				self iprintlnbold(&"BACK2UOMOD_AFK_WARNING_MSG");
+
+				if(back2uo\_back2uo_cvars::back2uo_logactive())
+				{
+					moved = "none";
+					if(isdefined(self_org)) moved = int(self_org);
+					back2uo\_back2uo_cvars::back2uo_logevent("afk", "warn", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " idle=" + self.back2uo_afk_time + " limit=" + level.back2uo_antiplay_afk_limit + " move_limit=" + (level.back2uo_antiplay_afk_limit + 10) + " moved=" + moved + " radius=" + radius + " stance=" + posi_type + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+				}
 			}
 			else if(self.back2uo_afk_time >= level.back2uo_antiplay_afk_limit + 10)
 			{
+				if(back2uo\_back2uo_cvars::back2uo_logactive())
+				{
+					moved = "none";
+					if(isdefined(self_org)) moved = int(self_org);
+					back2uo\_back2uo_cvars::back2uo_logevent("afk", "request_spec", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " idle=" + self.back2uo_afk_time + " limit=" + level.back2uo_antiplay_afk_limit + " moved=" + moved + " radius=" + radius + " stance=" + posi_type + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+				}
+
 				// Request the move to spectator; back2uo_switchspec() polls this cvar
 				thisPlayerNum = self getEntityNumber();
 				setcvar("g_switchspec", thisPlayerNum);
@@ -108,6 +123,7 @@ back2uo_switchspec()
 		{
 			movePlayerNum = getcvarint("g_switchspec");
 			players = getentarray("player", "classname");
+			found = false;
 
 			for(i = 0; i < players.size; i++)
 			{
@@ -116,6 +132,9 @@ back2uo_switchspec()
 				if(thisPlayerNum == movePlayerNum)
 				{
 					player = players[i];
+					found = true;
+
+					back2uo\_back2uo_cvars::back2uo_logevent("afk", "move_spec", back2uo\_back2uo_cvars::back2uo_logplayer(player) + " alive=" + isAlive(player) + " gametype=" + getcvar("g_gametype"));
 
 					// switching_teams: the gametype's killed callback does not count this suicide as a death
 					if(isAlive(player))
@@ -165,6 +184,8 @@ back2uo_switchspec()
 					self notify("joined_spectators");
 				}
 			}
+
+			if(!found) back2uo\_back2uo_cvars::back2uo_logevent("afk", "skip", "reason=player_not_found player=" + movePlayerNum);
 
 			setcvar("g_switchspec", "");
 		}

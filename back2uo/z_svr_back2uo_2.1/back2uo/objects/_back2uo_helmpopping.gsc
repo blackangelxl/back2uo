@@ -48,13 +48,21 @@ back2uo_helmpopping(damageDir, idamage, hitloc, attacker)
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Helm Popping", "Run");
 
-	if(!isdefined(self.hatModel) || !isdefined(hitloc)) return;
+	if(!isdefined(self.hatModel) || !isdefined(hitloc))
+	{
+		// Head hit without a helmet model (other hit locations are not logged)
+		if(isdefined(hitloc) && (hitloc == "head" || hitloc == "neck"))
+			back2uo\_back2uo_cvars::back2uo_logevent("helmet", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=nohatmodel hitloc=" + hitloc);
+		return;
+	}
 
 	if(hitloc == "head" || hitloc == "neck")
 	{
 		self.back2uo_helmpopped = true;
 
 		self detach(self.hatModel, "");
+
+		positype = undefined;
 
 		// Spawn height of the helmet above the player origin, by stance
 		if(isPlayer(self))
@@ -86,6 +94,19 @@ back2uo_helmpopping(damageDir, idamage, hitloc, attacker)
 		helm setmodel(self.hatModel);
 		helm.targetname = "Helm Popping";
 		helm.angles = self.angles;
+
+		if(back2uo\_back2uo_cvars::back2uo_logactive())
+		{
+			attacker_num = "none";
+			if(isdefined(attacker) && isPlayer(attacker)) attacker_num = attacker getEntityNumber();
+			damage = "none";
+			if(isdefined(idamage)) damage = idamage;
+			stance = "none";
+			if(isdefined(positype)) stance = positype;
+
+			back2uo\_back2uo_cvars::back2uo_logevent("helmet", "pop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " attacker=" + attacker_num + " hitloc=" + hitloc + " damage=" + damage + " stance=" + stance + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+		}
+
 		helm back2uo_helmmove(damageDir);
 	}
 }
@@ -105,17 +126,17 @@ back2uo_helmmove(damageDir)
 
 	// Horizontal speed 150..349 along the damage direction, upward speed 100..299
 	temp_vec = damageDir;
-	temp_vec = maps\mp\_utility::vectorScale (temp_vec, 150 + randomint (200));
+	temp_vec = maps\mp\_utility::vectorScale(temp_vec, 150 + RandomIntRange(1, 200));
 
 	x = temp_vec[0];
 	y = temp_vec[1];
-	z = 100 + randomint (200);
+	z = 100 + RandomIntRange(1, 200);
 
 	// Spin about 4000 degrees over 5 seconds; direction depends on the flight side
 	if (y > 0)
-		self rotatepitch((4000 + randomfloat (500)) * -1, 5, 0, 0);
+		self rotatepitch((4000 + randomfloat(500)) * -1, 5, 0, 0);
 	else
-		self rotatepitch(4000 + randomfloat (500), 5, 0, 0);
+		self rotatepitch(4000 + randomfloat(500), 5, 0, 0);
 
 	// Ballistic flight with the given initial velocity for 15 seconds
 	self moveGravity((x, y, z), 15);

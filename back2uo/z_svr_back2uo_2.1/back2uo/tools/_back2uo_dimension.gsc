@@ -183,10 +183,10 @@ back2uo_mapdimension()
 	// Development mode: place visible marker models at the four horizontal bounds.
 	if(game["back2uo_development_enable"])
 	{
-		thread backuo_mapdimo_model((xMin2, 0, 800));
-		thread backuo_mapdimo_model((xMax2, 0, 800));
-		thread backuo_mapdimo_model((0, yMin2, 800));
-		thread backuo_mapdimo_model((0, yMax2, 800));
+		thread backuo_mapdimo_model((xMin2, 0, zMax2));
+		thread backuo_mapdimo_model((xMax2, 0, zMax2));
+		thread backuo_mapdimo_model((0, yMin2, zMax2));
+		thread backuo_mapdimo_model((0, yMax2, zMax2));
 	}
 
 	// If an airplane at speed 750 would cross the map in under 4 seconds on both

@@ -24,7 +24,12 @@ back2uo_playerdamage_blood(sHitLoc, iDamage, attacker)
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Damage Blood", "Run");
 
-	if(!isdefined(self)) return;
+	if(!isdefined(self))
+	{
+		back2uo\_back2uo_cvars::back2uo_logprint("Damage Blood", "self not exist");
+		back2uo\_back2uo_cvars::back2uo_logevent("damage", "skip", "reason=self_not_exist");
+		return;
+	}
 
 	// Fallback bone when the hit location is unknown or not listed below.
 	hitposi = "pelvis";
@@ -111,10 +116,33 @@ back2uo_playerdamage_blood(sHitLoc, iDamage, attacker)
 		}
 	}
 
+	damage_raw = "none";
+	if(isdefined(iDamage)) damage_raw = iDamage;
+
 	if(!isdefined(iDamage)) iDamage = 40;
 
 	// No blood for spectators.
-	if(self.pers["team"] == "spectator" || self.sessionstate == "spectator") return;
+	if(self.pers["team"] == "spectator" || self.sessionstate == "spectator")
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("damage", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=spectator");
+		return;
+	}
+
+	if(back2uo\_back2uo_cvars::back2uo_logactive())
+	{
+		hitloc = "none";
+		if(isdefined(sHitLoc)) hitloc = sHitLoc;
+
+		// Same thresholds as the effect calls below
+		splatter = 1;
+		if(iDamage > 45 && iDamage <= 90) splatter = 2;
+		else if(iDamage > 90) splatter = 3;
+
+		dist = "none";
+		if(isdefined(attacker) && isdefined(attacker.origin) && isdefined(self.origin)) dist = int(distance(attacker.origin, self.origin));
+
+		back2uo\_back2uo_cvars::back2uo_logevent("damage", "blood", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " " + back2uo_playerdamage_logattacker(attacker) + " hitloc=" + hitloc + " bone=" + hitposi + " damage=" + damage_raw + " splatter=" + splatter + " dist=" + dist);
+	}
 
 	if(iDamage <= 45)
 	{
@@ -142,4 +170,34 @@ back2uo_playerdamage_blood(sHitLoc, iDamage, attacker)
 		attacker iprintln("playerdamage_blood:");
 		attacker iprintln(hitposi);
 	}
+}
+
+/*
+=============
+back2uo_playerdamage_logattacker
+
+Returns the attacker part for back2uo_logevent with own keys, so it does not clash
+with the victim keys of back2uo_logplayer():
+	attacker=<entity number> attacker_name=<name> attacker_team=<team>
+"attacker=none" when undefined, "attacker=world" when not a player.
+Params: attacker - attacking entity (may be undefined)
+=============
+*/
+back2uo_playerdamage_logattacker(attacker)
+{
+	if(!isdefined(attacker)) return "attacker=none";
+	if(!isPlayer(attacker)) return "attacker=world";
+
+	// ";" would break the log line
+	name = "";
+	for(i = 0; i < attacker.name.size; i++)
+	{
+		if(attacker.name[i] == ";") name += ",";
+		else name += attacker.name[i];
+	}
+
+	team = "none";
+	if(isdefined(attacker.pers["team"])) team = attacker.pers["team"];
+
+	return "attacker=" + attacker getEntityNumber() + " attacker_name=" + name + " attacker_team=" + team;
 }
