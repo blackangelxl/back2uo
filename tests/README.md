@@ -19,10 +19,13 @@ Exit code 0 = all tests passed and no script errors in the console.
 ## How it works
 
 1. `python tools/build.py --test --no-minify` writes `dist-test/back2uo/`. It has the normal
-   archives plus `zz_back2uo_test.iwd` (built from `tests/gsc/`) and `server_test.cfg`.
+   archives plus `z_svr_back2uo_2.1_test.iwd` (built from `tests/gsc/`) and `server_test.cfg`.
 2. `_back2uo_main::back2uo_main()` threads `back2uo\_back2uo_test::run()` on every map.
-   In the release that file is an empty stub. `zz_back2uo_test.iwd` sorts after
-   `z_svr_back2uo_2.1.iwd`, so its `back2uo/_back2uo_test.gsc` replaces the stub.
+   In the release that file is an empty stub. CoD2 searches `.iwd` files in reverse order
+   of their upper-cased names, where `_` sorts after `Z` and `.`. So
+   `z_svr_back2uo_2.1_test.iwd` is searched before `z_svr_back2uo_2.1.iwd`, and its
+   `back2uo/_back2uo_test.gsc` replaces the stub. (A name like `zz_...` would lose:
+   `Z_` sorts after `ZZ`.)
 3. The runner starts only with `back2uo_test 1` (set in `server_test.cfg`). It waits 1 s
    for the gametype start code, runs the suites and prints `B2UTEST;...` lines with
    `logprint` (games_mp.log) and `println` (console, needs `developer 1`).
@@ -64,3 +67,7 @@ Rules:
 - GSC has no exceptions. A runtime error stops the test thread. `run_tests.py` then reports
   the error from the console and the missing `DONE` line.
 - Only server-side logic is testable. Menus, HUD, effects and sounds need a game client.
+- A round restart (sd restarts when both teams have players, and the test bots end rounds by
+  fighting) kills the runner thread. The runner then starts over in the next round, so a
+  suite may run twice; `run_tests.py` drops duplicate lines.
+- The waypoint and bot suites test the current map only. Use `--map` to test another one.

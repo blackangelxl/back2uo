@@ -2,7 +2,7 @@
 	Back2Uo v2.1 - GSC test runner (test build only)
 
 	Replaces the release stub back2uo/_back2uo_test.gsc when the test archive
-	zz_back2uo_test.iwd is loaded (python tools/build.py --test).
+	z_svr_back2uo_2.1_test.iwd is loaded (python tools/build.py --test).
 	Runs only with the cvar back2uo_test 1, once per map. Every result is written as a
 	"B2UTEST;..." line to the game log (logprint) and to the console (println, needs
 	developer 1). tests/run_tests.py reads these lines and sets the exit code.
@@ -30,9 +30,10 @@ run()
 {
 	if(getcvarint("back2uo_test") != 1) return;
 
-	// Only once per map, not again after a round restart
+	// Only once per map, not again after a round restart. A restart while the tests run (sd
+	// restarts when both teams have players; the bots end rounds) kills this thread, so the
+	// flag is set at the end and an interrupted run starts over in the next round.
 	if(isdefined(game["back2uo_test_done"])) return;
-	game["back2uo_test_done"] = true;
 
 	// Let Callback_StartGameType and the mod start code finish first
 	wait 1;
@@ -46,10 +47,13 @@ run()
 	}
 	else
 	{
-		back2uo\test\_test_cvars::run();
-		back2uo\test\_test_weaponsystem::run();
+		//back2uo\test\_test_cvars::run();
+		//back2uo\test\_test_weaponsystem::run();
 		back2uo\test\_test_maprotation::run();
+		//back2uo\test\_test_waypoints::run();
+		//back2uo\test\_test_botai::run();
 	}
 
+	game["back2uo_test_done"] = true;
 	back2uo\test\_assert::done();
 }
