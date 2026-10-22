@@ -9,18 +9,29 @@ back2uo_getmaprotation_control
 
 Entry point for the map rotation handling at map start. With the mod's map system
 enabled it shuffles the rotation and writes it to sv_maprotationcurrent, but only when a
-new rotation cycle starts (sv_maprotationcurrent is empty: server start or last map of
-the rotation). Otherwise, and on every further round (SD), it only reads the next entry
+new rotation cycle starts (first map after server start, or sv_maprotationcurrent is empty:
+last map of the rotation). Otherwise, and on every further round (SD), it only reads the next entry
 of the running rotation. Either way the next map message is started with the parsed rotation.
 Called on: level (from _back2uo_player.gsc)
 =============
 */
 back2uo_getmaprotation_control()
 {
-	if(game["back2uo_mapsystem_enable"] && back2uo\tools\_back2uo_strings::strip(getcvar("sv_maprotationcurrent")) == "")
+	// "map_rotate" in maprotation.cfg already fills sv_maprotationcurrent at server start, so the
+	// first map would never shuffle. back2uo_random_maprotation is only "2" after a shuffle.
+	if(game["back2uo_mapsystem_enable"] && (back2uo\tools\_back2uo_strings::strip(getcvar("sv_maprotationcurrent")) == "" || getcvar("back2uo_random_maprotation") != "2"))
 	{
 		// Parse sv_maprotation and shuffle it.
 		x = back2uo_getmaprotation(true, false, undefined);
+
+		// Don't play the running map twice in a row: swap it away from the first slot.
+		if(isdefined(x) && x.maps.size > 1 && x.maps[0]["map"] == getcvar("mapname"))
+		{
+			j = 1 + randomInt(x.maps.size - 1);
+			element = x.maps[0];
+			x.maps[0] = x.maps[j];
+			x.maps[j] = element;
+		}
 
 		thread back2uo_randommap_rotation(x);
 
