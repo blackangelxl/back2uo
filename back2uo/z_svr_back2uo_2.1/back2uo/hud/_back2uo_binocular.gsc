@@ -54,6 +54,15 @@ back2uo_binocular_control()
 			continue;
 		}
 
+		// Killed during the delay: no display for the dead player (only "killed_player" counts,
+		// a hit alone must not remove the display).
+		if(!isAlive(self) || self.sessionstate != "playing")
+		{
+			self.back2uo_bino_up = false;
+			back2uo\_back2uo_cvars::back2uo_logevent("binocular", "skip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=dead");
+			continue;
+		}
+
 		self thread back2uo_binocular_distance_draw();
 
 		wait 0.2;
@@ -78,7 +87,7 @@ back2uo_binocular_distance_draw
 
 While looking through the binoculars, shows the distance in meters to the aimed point
 (via mod UI cvars) and the "use artillery" hint when an artillery strike is ready.
-Ends on "binocular_exit".
+Ends on "binocular_exit", "killed_player" or "back2uo_binodraw_end" (clear2).
 Called on: self = player
 =============
 */
@@ -93,6 +102,7 @@ back2uo_binocular_distance_draw()
 	self endon("killed_player");
 
 	self endon("binocular_exit");
+	self endon("back2uo_binodraw_end");
 
 	// Blocks other player actions (sprint message, pickups) while the binoculars are up.
 	self.back2uo_playerdo = "binocularuse";
@@ -228,8 +238,8 @@ back2uo_binocular_distance_clear()
 =============
 back2uo_binocular_distance_clear2
 
-Immediately resets the binocular state and removes the distance and artillery hint
-display (same as back2uo_binocular_distance_clear without waiting).
+Immediately resets the binocular state, ends a running distance display and removes the
+distance and artillery hint display (same as back2uo_binocular_distance_clear without waiting).
 Called on: self = player
 =============
 */
@@ -237,6 +247,11 @@ back2uo_binocular_distance_clear2()
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Binocular Distance", "Clear 2");
 
+	// Stop the draw loop, otherwise it sets the UI cvars again on its next tick.
+	self notify("back2uo_binodraw_end");
+
+	// Cancels a display that is still in its start delay.
+	self.back2uo_bino_up = false;
 	self.pers["bino_inuse"] = false;
 	self.back2uo_playerdo = "none";
 
