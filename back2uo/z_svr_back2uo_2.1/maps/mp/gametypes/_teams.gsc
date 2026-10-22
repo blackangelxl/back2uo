@@ -680,6 +680,8 @@ addTestClients
 Back2Uo: adds back2uo_testbots test clients (bots) when back2uo_testbots_aktiv is on.
 Bots alternate between allies and axis. game["botsaktiv"] makes sure this happens only
 once per map (game[] survives round restarts).
+Bots of the previous map are kicked first: after a map change the server sends no new
+gamestate to test clients, so they hang in CS_CONNECTED, block their slots and time out.
 Called from back2uo\_back2uo_player.gsc.
 =============
 */
@@ -689,6 +691,27 @@ addTestClients()
 
 	// Bots were already added earlier on this map
 	if(isdefined(game["botsaktiv"])) return;
+
+	game["botsaktiv"] = true;
+
+	// The old bots have no "player" classname yet, so search all client entities
+	ents = getentarray();
+	maxclients = getCvarInt("sv_maxclients");
+	kicked = false;
+
+	for(i = 0; i < ents.size; i++)
+	{
+		num = ents[i] getEntityNumber();
+
+		if(num < maxclients && ents[i] isBot())
+		{
+			kick(num);
+			kicked = true;
+		}
+	}
+
+	// Kicked clients are zombies for a moment before their slot is free again
+	if(kicked) wait 3;
 
 	testclients = getCvarInt("back2uo_testbots");
 
@@ -708,8 +731,6 @@ addTestClients()
 			ent[i] thread TestClient(team);
 		}
 	}
-
-	game["botsaktiv"] = true;
 }
 
 /*
