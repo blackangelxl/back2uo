@@ -35,7 +35,10 @@ back2uo_killedplayer_blood(body, selfteam, attackerteam)
 	w = 0.8;
 
 	// Give the corpse the player's model and tag it so back2uo_deadbody_gore() can find it.
-	body setmodel (self.model);
+	// setmodel rebuilds the skeleton only on the next frame: a playfxontag in the same frame
+	// fails the tag lookup ("no model.") and crashes the server while formatting the error,
+	// so the effects below wait one frame first.
+	if(isdefined(self.model) && self.model != "") body setmodel(self.model);
 	body.targetname = "deadplayer";
 
 	if(isdefined(selfteam) && selfteam == "spectator")
@@ -54,14 +57,22 @@ back2uo_killedplayer_blood(body, selfteam, attackerteam)
 		back2uo\_back2uo_cvars::back2uo_logevent("killed", "blood", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " victimteam=" + victimteam + " attackerteam=" + attteam + " splatter=" + time + " pool_delay=" + w + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(body.origin));
 	}
 
+	// Let the corpse skeleton build before looking up its tags.
+	wait 0.05;
+
 	for(x=0; x < time; x++)
 	{
+		// The corpse may already be removed (body queue, map end) or have no model.
+		if(!isdefined(body) || !isdefined(body.model) || body.model == "") return;
+
 		playfxontag(level.back2uo_effect["body_bloodsplatter"], body, "pelvis");
 
 		wait 0.10;
 	}
 
 	wait w;
+
+	if(!isdefined(body) || !isdefined(body.model) || body.model == "") return;
 
 	playfxontag(level.back2uo_effect["body_bloodpool"], body, "pelvis");
 }

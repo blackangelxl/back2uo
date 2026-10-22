@@ -2,7 +2,7 @@
 	Back2Uo v2.1 - test hook (release stub)
 
 	back2uo_main() threads run() once per map. In the release this file does nothing.
-	The test build (python tools/build.py --test) adds zz_back2uo_test.iwd, which replaces
+	The test build (python tools/build.py --test) adds z_svr_back2uo_2.1_test.iwd, which replaces
 	this file with the GSC test runner from tests/gsc/. See tests/README.md.
 */
 

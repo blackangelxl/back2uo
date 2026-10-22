@@ -5,19 +5,30 @@ services:
   cod2_test_server:
     # Same server build as server/docker-compose.yml: CoD2 1.3 with zk_libcod
     image: bgauduch/cod2server:8.1.1-1_3_nodelay_va_loc-ibuddieat
+    ports:
+      - "20500:20500/udp"
+      - "20510:20510/udp"
+      - "28961:28960/tcp"
+      - "28961:28960/udp"
+    # Mount required game files
     volumes:
       - cod2_main:/home/cod2/main:ro
       - back2uo_test:/home/cod2/back2uo:ro
+    # Configure server parameters
     command:
       [
         "+set", "fs_game", "back2uo",
         "+set", "dedicated", "1",
         "+set", "loc_language", "2",
         "+set", "net_port", "28960",
+        "+set", "net_ip", "0.0.0.0",
+        "+set", "sv_cheats", "0",
+        "+set", "sv_punkbuster", "0",
         "+exec", "server_test.cfg",
         "+set", "g_gametype", "${B2U_GAMETYPE:-tdm}",
         "+map", "${B2U_MAP:-mp_toujane}"
       ]
+    # Allow server shell interaction
     stdin_open: true
     tty: true
 

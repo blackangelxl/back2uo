@@ -189,15 +189,13 @@ back2uo_mapdimension()
 		thread backuo_mapdimo_model((0, yMax2, zMax2));
 	}
 
-	// If an airplane at speed 750 would cross the map in under 4 seconds on both
-	// axes, the map is too small for the airplane FX.
-	mapdimo_max = 0;
-	mapdimo_x = back2uo\warfx\_back2uo_airplane::back2uo_airplane_flytime(750, (level.back2uo_mapdimo_xMin, 0, 800), (level.back2uo_mapdimo_xMax, 0, 800));
-	mapdimo_y = back2uo\warfx\_back2uo_airplane::back2uo_airplane_flytime(750, (0, level.back2uo_mapdimo_yMin, 800), (0, level.back2uo_mapdimo_yMax, 800));
+	// The map is too small for the airplane FX if it is under 6500 units on both axes.
+	mapdimo_x = int(xMax2 - xMin2);
+	mapdimo_y = int(yMax2 - yMin2);
 
-	if(mapdimo_x < 4) mapdimo_max++;
-	if(mapdimo_y < 4) mapdimo_max++;
-	if(mapdimo_max >= 2) level.back2uo_airplanedimo_allow = 0;
+	if(mapdimo_x < 6500 && mapdimo_y < 6500) level.back2uo_airplanedimo_allow = 0;
+
+	back2uo\_back2uo_cvars::back2uo_logevent("dimension", "map", "map=" + getcvar("mapname") + " x=" + mapdimo_x + " y=" + mapdimo_y + " z=" + int(zMax2 - zMin2) + " airplane=" + level.back2uo_airplanedimo_allow);
 
 	level.back2uo_mapdimo_centerx = int(int(xMax2 + xMin2)/2);
 	level.back2uo_mapdimo_centery = int(int(yMax2 + yMin2)/2);

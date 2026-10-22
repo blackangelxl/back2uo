@@ -20,6 +20,10 @@ Called on: level
 */
 main()
 {
+	// Back2Uo: waypoints for the bots. Referenced only here, so the engine compiles them only
+	// on this map; all maps at once would exceed the script variable limit. See tools/wp2gsc.py.
+	level.back2uo_wp_mapscript = back2uo\bots\waypoints\_wp_mp_trainstation::load;
+
 	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status is read here.
 	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 

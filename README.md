@@ -18,6 +18,7 @@ strings, effects, and graphics. The `.iwd` archives the game needs are built fro
 | War ambience | Mortars, airplanes, anti-aircraft fire |
 | Blood system | Blood splatter and blood pools |
 | Anti-play | AFK detection, camper marking on the compass, spawn protection |
+| Test bots | Bots walk the stock maps along waypoints, climb, jump and fight like players; skill 1-3 (`back2uo_testbots_skill`) |
 | HUD | UO-style HUD, binocular distance, hit distance and hit location, DM/TDM score panels |
 | Messages | Clan/welcome messages, server banner, join/leave messages, next-map message |
 | Menus | Server info menu, favourites entry, vote system, auto team selection |
@@ -33,6 +34,8 @@ back2uo/                          fs_game folder contents
   maprotation.cfg                 example map rotation
   z_svr_back2uo_2.1/              -> z_svr_back2uo_2.1.iwd      server scripts (GSC)
     back2uo/_back2uo_*.gsc        the mod itself (entry: _back2uo_main.gsc)
+    back2uo/bots/                 bot AI (_back2uo_botai.gsc), waypoint loader and path finding (A*)
+    back2uo/bots/waypoints/       generated waypoint scripts per map (tools/wp2gsc.py)
     maps/mp/gametypes/*.gsc       stock gametypes with Back2Uo hooks ("Back2Uo:" comments)
     maps/mp/mp_*_fx.gsc           stock map FX scripts, adapted
   z_back2uo_2.1_client/           -> z_back2uo_2.1_client.iwd   menus, images, FX, weapons, sounds
@@ -40,12 +43,14 @@ back2uo/                          fs_game folder contents
   localized_german_iw15/          -> localized_german_iw15.iwd  German strings and voice sounds
 docs/                             original v2.1 ReadMe and Index (Word), code review notes
 tests/                            GSC tests on a docker CoD2 server (see tests/README.md)
-  gsc/                            -> zz_back2uo_test.iwd        test runner and suites
+  gsc/                            -> z_svr_back2uo_2.1_test.iwd test runner and suites
   run_tests.py                    builds, starts the server, reads the results
 tools/
   build.py                        packs the folders into .iwd archives (--test: test build)
   gscfmt.py                       formats GSC files (tabs, CRLF)
   gsclex.py                       checks that an edit changed only comments/whitespace
+  wp2gsc.py                       converts MeatBot waypoints (.wp) into GSC waypoint scripts
+  waypoints_mbot/                 MeatBot waypoint sources for the stock maps
 ```
 
 ## Build
@@ -58,6 +63,10 @@ python tools/build.py --no-minify
 ```
 
 Output: `dist/back2uo/` with the four `.iwd` archives and the config files.
+
+The bot waypoint scripts in `back2uo/z_svr_back2uo_2.1/back2uo/bots/waypoints/` are generated.
+After changing the sources in `tools/waypoints_mbot/` (one `<mapname>_tdm.wp` per map), run
+`python tools/wp2gsc.py`. The layout is described at the top of [tools/wp2gsc.py](tools/wp2gsc.py).
 
 ## Tests
 
@@ -131,6 +140,7 @@ Suspected script bugs found during the code cleanup are listed in [docs/code-rev
 - **Translation:** Tabbycat (Paul Gallagher)
 - Thanks to the -]GCF[- team, the GFM Mod team, the CODW clan for the test server, and all Back2Uo players.
 - In memory of RaZor.
+- Bot waypoints: MeatBot, via [Bot Warfare for CoD2](https://github.com/ineedbots/cod2m_bot_warfare) by INeedGames/INeedBot(s).
 
 ## License
 
