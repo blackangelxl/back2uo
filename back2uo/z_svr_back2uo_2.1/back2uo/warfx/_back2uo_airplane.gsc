@@ -239,8 +239,9 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 
 	level.back2uo_airplanes_active++;
 
-	// Flight time at speed 750.
+	// Flight time at speed 750, at least 4 seconds so the planes fly slower on small maps.
 	airplane_flytime = back2uo_airplane_flytime(750, airplane_startpoint, airplane_endpoint);
+	if(airplane_flytime < 4) airplane_flytime = 4;
 
 	back2uo\_back2uo_cvars::back2uo_logevent("airplane", "spawn", "type=" + airplane_type + " flytime=" + airplane_flytime + " start=" + back2uo\_back2uo_cvars::back2uo_logvec(airplane_startpoint) + " end=" + back2uo\_back2uo_cvars::back2uo_logvec(airplane_endpoint));
 
@@ -479,8 +480,7 @@ back2uo_airplane_rotate(rottime)
 =============
 back2uo_airplane_flytime
 
-Computes how long a plane needs between two points. Also used by
-tools\_back2uo_dimension.gsc to decide whether the map is large enough for airplanes.
+Computes how long a plane needs between two points.
 Params: airplane_speed - speed in units per second (before the /4 scaling)
 		airplane_startpoint, airplane_endpoint - flight path
 Returns: flight time in seconds ((distance / speed) / 4), at least 0.1
