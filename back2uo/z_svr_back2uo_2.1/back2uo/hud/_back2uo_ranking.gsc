@@ -61,9 +61,6 @@ back2uo_ranking_update()
 	self endon("killed_player");
 
 	if(!isdefined(self.pers["back2uo_ranking"])) self.pers["back2uo_ranking"] = 1;
-	// Score needed for the first extra rank above level 5.
-	if(!isdefined(self.pers["back2uo_ranking_extra"])) self.pers["back2uo_ranking_extra"] = level.back2uo_ranking_level5 + level.back2uo_ranking_lvextra;
-	level.back2uo_ranking_over = level.back2uo_ranking_level5 + level.back2uo_ranking_lvextra;
 
 	self.back2uo_rank_give = undefined;
 
@@ -99,19 +96,16 @@ back2uo_ranking_update()
 
 			self.pers["back2uo_ranking"] = 4;
 		}
-		else if(player_score >= level.back2uo_ranking_level5 && player_score < level.back2uo_ranking_over)
-		{
-			back2uo_ranking_level(5);
-
-			self.pers["back2uo_ranking"] = 5;
-		}
-		else if(player_score >= self.pers["back2uo_ranking_extra"] && level.back2uo_rankextra_aktiv == 1)
+		else if(player_score >= level.back2uo_ranking_level5)
 		{
 			// Extra ranks: one rank up every back2uo_ranking_lvextra points above level 5.
-			back2uo_ranking_level(self.pers["back2uo_ranking"]);
+			// Calculated from the score, so the rank follows the score up and down.
+			new_rank = 5;
+			if(level.back2uo_rankextra_aktiv == 1) new_rank += int((player_score - level.back2uo_ranking_level5) / level.back2uo_ranking_lvextra);
 
-			self.pers["back2uo_ranking"]++;
-			self.pers["back2uo_ranking_extra"] += level.back2uo_ranking_lvextra;
+			back2uo_ranking_level(new_rank);
+
+			self.pers["back2uo_ranking"] = new_rank;
 		}
 		else
 		{
@@ -222,7 +216,7 @@ Params: ranking_lv - rank number used for the icon file names
 back2uo_ranking_level(ranking_lv)
 {
 	// Icons only exist up to level 5.
-	if(self.pers["back2uo_ranking"] >= 5) ranking_lv = 5;
+	if(ranking_lv > 5) ranking_lv = 5;
 
 	self.back2uo_ranking_pic = "gfx/custom/back2uo_ranking_lv" + ranking_lv + ".tga";
 	self.pers["back2uo_score_ranking_pic"] = "gfx/custom/back2uo_ranking_lv" + ranking_lv + ".tga";
