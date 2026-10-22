@@ -240,59 +240,31 @@ back2uo_teamscore_update()
 	{
 		if(game["back2uo_teamscore_enable"] && getcvar("g_gametype") != "dm")
 		{
-			level.players = getentarray("player", "classname");
-			alliedlife = [];
-			allieddeath = [];
-			axislife = [];
-			axisdeath = [];
-
-			alliedscore = getTeamScore("allies");
-			axisscore = getTeamScore("axis");
-
-			for(i = 0; i < level.players.size; i++)
+			// Count once per server frame for all player loops; walking every player from
+			// every player's loop is O(n^2) and trips the "potential infinite loop" limit.
+			if(!isdefined(level.back2uo_teamscore_time) || level.back2uo_teamscore_time != gettime())
 			{
-				player = level.players[i];
+				back2uo_teamscore_count();
+			}
 
-				if(isdefined(player.hud_teamscore) && isdefined(player.hud_enemyscore))
-				{
-					player.hud_teamscore setValue(alliedscore);
-					player.hud_enemyscore setValue(axisscore);
-				}
+			alliedscore = level.back2uo_teamscore_allies;
+			axisscore = level.back2uo_teamscore_axis;
 
-				// Count players per team: playing = alive, any other session state = dead.
-				if(isdefined(player.pers["team"]) && player.pers["team"] == "allies" && player.pers["team"] != "spectator")
-				{
-					if(player.sessionstate == "playing")
-					{
-						alliedlife[alliedlife.size] = player;
-					}
-					else if(player.sessionstate != "playing")
-					{
-						allieddeath[allieddeath.size] = player;
-					}
-				}
-				else if(isdefined(player.pers["team"]) && player.pers["team"] == "axis" && player.pers["team"] != "spectator")
-				{
-					if(player.sessionstate == "playing")
-					{
-						axislife[axislife.size] = player;
-					}
-					else if(player.sessionstate != "playing")
-					{
-						axisdeath[axisdeath.size] = player;
-					}
-				}
+			if(isdefined(self.hud_teamscore) && isdefined(self.hud_enemyscore))
+			{
+				self back2uo_teamscore_setvalue(self.hud_teamscore, alliedscore);
+				self back2uo_teamscore_setvalue(self.hud_enemyscore, axisscore);
+			}
 
-				if(isdefined(self.hud_teamlife) && isdefined(self.hud_enemylife))
-				{
-					// Allies
-					self.hud_teamlife setValue(alliedlife.size);
-					self.hud_teamdeath setValue(allieddeath.size);
+			if(isdefined(self.hud_teamlife) && isdefined(self.hud_enemylife))
+			{
+				// Allies
+				self back2uo_teamscore_setvalue(self.hud_teamlife, level.back2uo_teamscore_allies_alive);
+				self back2uo_teamscore_setvalue(self.hud_teamdeath, level.back2uo_teamscore_allies_dead);
 
-					// Axis
-					self.hud_enemylife setValue(axislife.size);
-					self.hud_enemydeath setValue(axisdeath.size);
-				}
+				// Axis
+				self back2uo_teamscore_setvalue(self.hud_enemylife, level.back2uo_teamscore_axis_alive);
+				self back2uo_teamscore_setvalue(self.hud_enemydeath, level.back2uo_teamscore_axis_dead);
 			}
 
 			// Log team score changes once per level (all player loops see the same values).
@@ -307,7 +279,7 @@ back2uo_teamscore_update()
 					if(alliedscore > axisscore) leader = "allies";
 					else if(axisscore > alliedscore) leader = "axis";
 
-					back2uo\_back2uo_cvars::back2uo_logevent("teamscore", "score", "allies=" + alliedscore + " axis=" + axisscore + " leader=" + leader + " allies_alive=" + alliedlife.size + " allies_dead=" + allieddeath.size + " axis_alive=" + axislife.size + " axis_dead=" + axisdeath.size);
+					back2uo\_back2uo_cvars::back2uo_logevent("teamscore", "score", "allies=" + alliedscore + " axis=" + axisscore + " leader=" + leader + " allies_alive=" + level.back2uo_teamscore_allies_alive + " allies_dead=" + level.back2uo_teamscore_allies_dead + " axis_alive=" + level.back2uo_teamscore_axis_alive + " axis_dead=" + level.back2uo_teamscore_axis_dead);
 
 					// Leading team switched (a tie in between does not count as a switch).
 					if(leader != "tie")
@@ -325,6 +297,68 @@ back2uo_teamscore_update()
 
 		wait 0.1;
 	}
+}
+
+/*
+=============
+back2uo_teamscore_count
+
+Counts alive and dead players per team and caches them together with the team
+scores on level for the current server frame.
+Called on: level
+=============
+*/
+back2uo_teamscore_count()
+{
+	level.back2uo_teamscore_time = gettime();
+	level.back2uo_teamscore_allies = getTeamScore("allies");
+	level.back2uo_teamscore_axis = getTeamScore("axis");
+
+	alliesalive = 0;
+	alliesdead = 0;
+	axisalive = 0;
+	axisdead = 0;
+
+	// Playing = alive, any other session state = dead.
+	players = getentarray("player", "classname");
+	for(i = 0; i < players.size; i++)
+	{
+		player = players[i];
+		if(!isdefined(player.pers["team"])) continue;
+
+		if(player.pers["team"] == "allies")
+		{
+			if(player.sessionstate == "playing") alliesalive++;
+			else alliesdead++;
+		}
+		else if(player.pers["team"] == "axis")
+		{
+			if(player.sessionstate == "playing") axisalive++;
+			else axisdead++;
+		}
+	}
+
+	level.back2uo_teamscore_allies_alive = alliesalive;
+	level.back2uo_teamscore_allies_dead = alliesdead;
+	level.back2uo_teamscore_axis_alive = axisalive;
+	level.back2uo_teamscore_axis_dead = axisdead;
+}
+
+/*
+=============
+back2uo_teamscore_setvalue
+
+Sets a hud element value only when it changed, to avoid resending unchanged
+values every tick.
+Called on: self = player
+=============
+*/
+back2uo_teamscore_setvalue(hud, value)
+{
+	if(isdefined(hud.back2uo_value) && hud.back2uo_value == value) return;
+
+	hud.back2uo_value = value;
+	hud setValue(value);
 }
 
 /*
