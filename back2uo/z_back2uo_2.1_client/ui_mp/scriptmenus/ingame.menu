@@ -304,8 +304,9 @@
 		{
 			close leavegame;
 		}
-		onOpen 
+		onOpen
 		{
+			show back2uo_logo;
 		}
 		onClose
 		{
@@ -323,7 +324,7 @@
 			decoration
 		}
 
-		#include "ui/bars.menu"
+		#include "ui_mp/bars_blank.menu"
 
 		itemDef
 		{
