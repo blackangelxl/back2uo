@@ -16,5 +16,5 @@ MSYS_NO_PATHCONV=1 docker run --rm \
     --mount "type=bind,source=${SOURCE},target=/src,readonly" \
     --mount "type=volume,source=${VOLUME},target=/dest" \
     alpine:3.24 \
-    sh -c 'apk add --no-cache rsync >/dev/null && rsync -av --chown=1000:1000 --itemize-changes /src/ /dest/'
+    sh -c 'apk add --no-cache rsync >/dev/null && rsync -av --delete --chown=1000:1000 --itemize-changes /src/ /dest/'
 echo "Synchronisierung abgeschlossen."
