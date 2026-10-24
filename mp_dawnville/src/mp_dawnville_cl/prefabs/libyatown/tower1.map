@@ -1,0 +1,943 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( 72 104 406 ) ( 64 104 406 ) ( 64 -88 406 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -88 640 ) ( 64 104 640 ) ( 72 104 640 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 70 -88 639 ) ( 70 104 639 ) ( 70 104 -1 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 640 ) ( 64 -64 406 ) ( 64 64 406 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 406 ) ( 64 -64 640 ) ( 70 -70 640 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 640 ) ( 64 64 406 ) ( 70 70 406 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents nonColliding;
+ ( -64 120 640 ) ( -72 120 640 ) ( -72 -104 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -72 -104 672 ) ( -72 120 672 ) ( -64 120 672 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 678 ) ( -64 -64 638 ) ( -72 -72 638 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -96 632 ) ( -64 -96 672 ) ( -64 112 672 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 630 ) ( -64 64 670 ) ( -72 72 670 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -72 105 644 ) ( -72 -119 644 ) ( -72 -119 636 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents nonColliding;
+ ( 110 64 640 ) ( 110 72 640 ) ( -114 72 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -114 72 672 ) ( 110 72 672 ) ( 110 64 672 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -61 61 672 ) ( -61 61 632 ) ( -69 69 632 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -106 64 640 ) ( -106 64 680 ) ( 102 64 680 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 63 63 640 ) ( 63 63 680 ) ( 71 71 680 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 110 72 648 ) ( -114 72 648 ) ( -114 72 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents nonColliding;
+ ( -114 -64 640 ) ( -114 -72 640 ) ( 110 -72 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 110 -72 672 ) ( -114 -72 672 ) ( -114 -64 672 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 -66 672 ) ( 66 -66 632 ) ( 74 -74 632 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 102 -64 640 ) ( 102 -64 680 ) ( -106 -64 680 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -65 -65 640 ) ( -65 -65 680 ) ( -73 -73 680 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -114 -72 648 ) ( 110 -72 648 ) ( 110 -72 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents nonColliding;
+ ( 64 -104 640 ) ( 72 -104 640 ) ( 72 120 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 72 120 672 ) ( 72 -104 672 ) ( 64 -104 672 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 678 ) ( 64 64 638 ) ( 72 72 638 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 111 632 ) ( 64 111 672 ) ( 64 -97 672 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 630 ) ( 64 -64 670 ) ( 72 -72 670 ) caulk 64 64 48 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 72 -104 648 ) ( 72 120 648 ) ( 72 120 640 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 72 59 0 ) ( 64 59 0 ) ( 64 -133 0 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -29 358 ) ( 64 163 358 ) ( 72 163 358 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 70 -88 639 ) ( 70 104 639 ) ( 70 104 -1 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 358 ) ( 64 -64 0 ) ( 64 64 0 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 0 ) ( 64 -64 358 ) ( 70 -70 358 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 358 ) ( 64 64 0 ) ( 70 70 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 58 28 358 ) ( 58 -28 358 ) ( 70 -28 358 ) caulk 64 64 0 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 70 -28 406 ) ( 58 -28 406 ) ( 58 28 406 ) caulk 64 64 0 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -28 406 ) ( 64 28 406 ) ( 64 28 350 ) toujane_window6 64 128 0 193.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 70 28 406 ) ( 58 28 406 ) ( 58 28 350 ) caulk 64 64 0 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 28 408 ) ( 58 -28 408 ) ( 58 -28 352 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 56 10 406 ) ( 68 10 406 ) ( 68 10 350 ) caulk 64 64 0 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 3
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 64 68 358 ) ( 64 12 358 ) ( 76 12 358 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 76 12 406 ) ( 64 12 406 ) ( 64 68 406 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 70 12 406 ) ( 70 68 406 ) ( 70 68 350 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 358 ) ( 64 64 406 ) ( 64 28 406 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 28 406 ) ( 76 28 406 ) ( 76 28 350 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 406 ) ( 64 64 358 ) ( 70 70 358 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 4
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 64 68 358 ) ( 64 12 358 ) ( 76 12 358 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 76 12 406 ) ( 64 12 406 ) ( 64 68 406 ) caulk 64 64 6 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 70 12 406 ) ( 70 68 406 ) ( 70 68 350 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 77 10 402 ) ( 65 10 402 ) ( 65 10 346 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 406 ) ( 64 -64 358 ) ( 64 -12 358 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 358 ) ( 64 -64 406 ) ( 70 -70 406 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 5
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -72 -88 406 ) ( -64 -88 406 ) ( -64 104 406 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 104 640 ) ( -64 -88 640 ) ( -72 -88 640 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -70 104 639 ) ( -70 -88 639 ) ( -70 -88 -1 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 406 ) ( -64 -64 640 ) ( -64 64 640 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 640 ) ( -64 -64 406 ) ( -70 -70 406 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 406 ) ( -64 64 640 ) ( -70 70 640 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 6
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -72 -43 0 ) ( -64 -43 0 ) ( -64 149 0 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 45 358 ) ( -64 -147 358 ) ( -72 -147 358 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -70 104 639 ) ( -70 -88 639 ) ( -70 -88 -1 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 0 ) ( -64 -64 358 ) ( -64 64 358 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 358 ) ( -64 -64 0 ) ( -70 -70 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 0 ) ( -64 64 358 ) ( -70 70 358 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 7
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -58 -12 358 ) ( -58 44 358 ) ( -70 44 358 ) caulk 64 64 16 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -70 44 406 ) ( -58 44 406 ) ( -58 -12 406 ) caulk 64 64 16 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 44 406 ) ( -64 -12 406 ) ( -64 -12 350 ) toujane_window6 64 128 -22 193.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -70 -12 406 ) ( -58 -12 406 ) ( -58 -12 350 ) caulk 64 64 16 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -58 -12 408 ) ( -58 44 408 ) ( -58 44 352 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 6 406 ) ( -71 6 406 ) ( -71 6 350 ) caulk 64 64 16 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 8
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -64 -50 358 ) ( -64 6 358 ) ( -76 6 358 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -76 6 406 ) ( -64 6 406 ) ( -64 -50 406 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -70 6 406 ) ( -70 -50 406 ) ( -70 -50 350 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 358 ) ( -64 -64 406 ) ( -64 -12 406 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -12 406 ) ( -76 -12 406 ) ( -76 -12 350 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 406 ) ( -64 -64 358 ) ( -70 -70 358 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 9
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -64 -50 358 ) ( -64 6 358 ) ( -76 6 358 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -76 6 406 ) ( -64 6 406 ) ( -64 -50 406 ) caulk 64 64 10 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -70 6 406 ) ( -70 -50 406 ) ( -70 -50 350 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -75 6 402 ) ( -63 6 402 ) ( -63 6 346 ) egypt_plaster_exteriorwall01_body 128 128 32 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 406 ) ( -64 64 358 ) ( -64 6 358 ) caulk 64 64 48 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 358 ) ( -64 64 406 ) ( -70 70 406 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 10
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 2 72 559 ) ( 2 64 559 ) ( 194 64 559 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 94 64 640 ) ( -98 64 640 ) ( -98 72 640 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 94 70 639 ) ( -98 70 639 ) ( -98 70 -1 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 640 ) ( 64 64 559 ) ( -64 64 559 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 559 ) ( 64 64 640 ) ( 70 70 640 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 640 ) ( -64 64 559 ) ( -70 70 559 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 11
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -53 72 0 ) ( -53 64 0 ) ( 139 64 0 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 73 64 155 ) ( -119 64 155 ) ( -119 72 155 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 94 70 639 ) ( -98 70 639 ) ( -98 70 -1 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 155 ) ( 64 64 0 ) ( -64 64 0 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 0 ) ( 64 64 155 ) ( 70 70 155 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 155 ) ( -64 64 0 ) ( -70 70 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 12
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -22 58 511 ) ( 34 58 511 ) ( 34 70 511 ) caulk 64 64 38 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 34 70 559 ) ( 34 58 559 ) ( -22 58 559 ) caulk 64 64 38 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 34 64 559 ) ( -22 64 559 ) ( -22 64 503 ) toujane_window6 64 128 -9.5 168 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 69 559 ) ( 0 57 559 ) ( 0 57 503 ) caulk 64 64 0 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 58 561 ) ( 34 58 561 ) ( 34 58 505 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 58 559 ) ( 18 70 559 ) ( 18 70 503 ) caulk 64 64 0 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 13
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -62 64 511 ) ( -6 64 511 ) ( -6 76 511 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 76 559 ) ( -6 64 559 ) ( -62 64 559 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 70 559 ) ( -62 70 559 ) ( -62 70 503 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 511 ) ( -64 64 559 ) ( 0 64 559 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 63 559 ) ( 0 75 559 ) ( 0 75 503 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 559 ) ( -64 64 511 ) ( -70 70 511 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 14
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -62 64 511 ) ( -6 64 511 ) ( -6 76 511 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 76 559 ) ( -6 64 559 ) ( -62 64 559 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 70 559 ) ( -62 70 559 ) ( -62 70 503 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 76 555 ) ( 18 64 555 ) ( 18 64 499 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 559 ) ( 64 64 511 ) ( 18 64 511 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 511 ) ( 64 64 559 ) ( 70 70 559 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 15
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 2 72 203 ) ( 2 64 203 ) ( 194 64 203 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 114 64 511 ) ( -78 64 511 ) ( -78 72 511 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 94 70 283 ) ( -98 70 283 ) ( -98 70 -357 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 511 ) ( 64 64 203 ) ( -64 64 203 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 203 ) ( 64 64 511 ) ( 70 70 511 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 511 ) ( -64 64 203 ) ( -70 70 203 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 16
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -22 58 155 ) ( 34 58 155 ) ( 34 70 155 ) caulk 64 64 38 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 34 70 203 ) ( 34 58 203 ) ( -22 58 203 ) caulk 64 64 38 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 34 64 203 ) ( -22 64 203 ) ( -22 64 147 ) toujane_window6 64 128 -9.5 140.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 69 203 ) ( 0 57 203 ) ( 0 57 147 ) caulk 64 64 0 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 58 205 ) ( 34 58 205 ) ( 34 58 149 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 58 203 ) ( 18 70 203 ) ( 18 70 147 ) caulk 64 64 0 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 17
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -62 64 155 ) ( -6 64 155 ) ( -6 76 155 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 76 203 ) ( -6 64 203 ) ( -62 64 203 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 70 203 ) ( -62 70 203 ) ( -62 70 147 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 155 ) ( -64 64 203 ) ( 0 64 203 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 64 203 ) ( 0 76 203 ) ( 0 76 147 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 203 ) ( -64 64 155 ) ( -70 70 155 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 18
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -62 64 155 ) ( -6 64 155 ) ( -6 76 155 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 76 203 ) ( -6 64 203 ) ( -62 64 203 ) caulk 64 64 38 -2 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 70 203 ) ( -62 70 203 ) ( -62 70 147 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 76 199 ) ( 18 64 199 ) ( 18 64 143 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 203 ) ( 64 64 155 ) ( 18 64 155 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 64 155 ) ( 64 64 203 ) ( 70 70 203 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 19
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -8 -72 572 ) ( -8 -64 572 ) ( -200 -64 572 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -100 -64 640 ) ( 92 -64 640 ) ( 92 -72 640 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -98 -70 652 ) ( 94 -70 652 ) ( 94 -70 12 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 572 ) ( 64 -64 640 ) ( -64 -64 640 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 640 ) ( 64 -64 572 ) ( 70 -70 572 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 572 ) ( -64 -64 640 ) ( -70 -70 640 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 20
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 50 -72 0 ) ( 50 -64 0 ) ( -142 -64 0 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -79 -64 168 ) ( 113 -64 168 ) ( 113 -72 168 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -98 -70 652 ) ( 94 -70 652 ) ( 94 -70 12 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 0 ) ( 64 -64 168 ) ( -64 -64 168 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 168 ) ( 64 -64 0 ) ( 70 -70 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 0 ) ( -64 -64 168 ) ( -70 -70 168 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 21
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 16 -58 524 ) ( -40 -58 524 ) ( -40 -70 524 ) caulk 64 64 38 -12 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -40 -70 572 ) ( -40 -58 572 ) ( 16 -58 572 ) caulk 64 64 38 -12 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -38 -64 572 ) ( 18 -64 572 ) ( 18 -64 516 ) toujane_window6 64 128 -58 156 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -71 572 ) ( -4 -59 572 ) ( -4 -59 516 ) caulk 64 64 16 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -58 574 ) ( -38 -58 574 ) ( -38 -58 518 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -58 572 ) ( -22 -70 572 ) ( -22 -70 516 ) caulk 64 64 16 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 22
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 56 -64 524 ) ( 0 -64 524 ) ( 0 -76 524 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -76 572 ) ( 0 -64 572 ) ( 56 -64 572 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -70 572 ) ( 58 -70 572 ) ( 58 -70 516 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 524 ) ( 64 -64 572 ) ( -4 -64 572 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -65 572 ) ( -4 -77 572 ) ( -4 -77 516 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 572 ) ( 64 -64 524 ) ( 70 -70 524 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 23
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 56 -64 524 ) ( 0 -64 524 ) ( 0 -76 524 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -76 572 ) ( 0 -64 572 ) ( 56 -64 572 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -70 572 ) ( 58 -70 572 ) ( 58 -70 516 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -76 568 ) ( -22 -64 568 ) ( -22 -64 512 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 572 ) ( -64 -64 524 ) ( -22 -64 524 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 524 ) ( -64 -64 572 ) ( -70 -70 572 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 24
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -8 -72 216 ) ( -8 -64 216 ) ( -200 -64 216 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -120 -64 524 ) ( 72 -64 524 ) ( 72 -72 524 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -98 -70 296 ) ( 94 -70 296 ) ( 94 -70 -344 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 216 ) ( 64 -64 524 ) ( -64 -64 524 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 524 ) ( 64 -64 216 ) ( 70 -70 216 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 216 ) ( -64 -64 524 ) ( -70 -70 524 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 25
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 16 -58 168 ) ( -40 -58 168 ) ( -40 -70 168 ) caulk 64 64 38 -12 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -40 -70 216 ) ( -40 -58 216 ) ( 16 -58 216 ) caulk 64 64 38 -12 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -38 -64 216 ) ( 18 -64 216 ) ( 18 -64 160 ) toujane_window6 64 128 -58 126.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -71 216 ) ( -4 -59 216 ) ( -4 -59 160 ) caulk 64 64 16 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -58 218 ) ( -38 -58 218 ) ( -38 -58 162 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -58 216 ) ( -22 -70 216 ) ( -22 -70 160 ) caulk 64 64 16 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 26
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 56 -64 168 ) ( 0 -64 168 ) ( 0 -76 168 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -76 216 ) ( 0 -64 216 ) ( 56 -64 216 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -70 216 ) ( 58 -70 216 ) ( 58 -70 160 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 168 ) ( 64 -64 216 ) ( -4 -64 216 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -60 216 ) ( -4 -72 216 ) ( -4 -72 160 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -64 216 ) ( 64 -64 168 ) ( 70 -70 168 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 27
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 56 -64 168 ) ( 0 -64 168 ) ( 0 -76 168 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -76 216 ) ( 0 -64 216 ) ( 56 -64 216 ) caulk 64 64 38 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -70 216 ) ( 58 -70 216 ) ( 58 -70 160 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -76 212 ) ( -22 -64 212 ) ( -22 -64 156 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 216 ) ( -64 -64 168 ) ( -22 -64 168 ) caulk 64 64 38 -11 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 168 ) ( -64 -64 216 ) ( -70 -70 216 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 28
+{
+"classname" "func_group"
+// brush 0
+{
+  contents nonColliding;
+ ( -114 -65 672 ) ( -114 -73 672 ) ( 110 -73 672 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 110 -73 676 ) ( -114 -73 676 ) ( -114 -65 676 ) caulk 64 64 48 -3 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 67 -67 704 ) ( 67 -67 664 ) ( 75 -75 664 ) caulk 64 64 47 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 101 -64 645 ) ( 101 -64 685 ) ( -107 -64 685 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -66 -66 644 ) ( -66 -66 684 ) ( -74 -74 684 ) caulk 64 64 47 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -114 -73 653 ) ( 110 -73 653 ) ( 110 -73 645 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents nonColliding;
+ ( 65 -104 672 ) ( 73 -104 672 ) ( 73 120 672 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 73 120 676 ) ( 73 -104 676 ) ( 65 -104 676 ) caulk 64 64 49 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 65 65 682 ) ( 65 65 642 ) ( 73 73 642 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 111 664 ) ( 64 111 704 ) ( 64 -97 704 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 65 -65 662 ) ( 65 -65 702 ) ( 73 -73 702 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 73 -104 653 ) ( 73 120 653 ) ( 73 120 645 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents nonColliding;
+ ( 110 65 672 ) ( 110 73 672 ) ( -114 73 672 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -114 73 676 ) ( 110 73 676 ) ( 110 65 676 ) caulk 64 64 48 -5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 676 ) ( -64 64 672 ) ( -73 73 672 ) caulk 64 64 49 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 672 ) ( -64 64 676 ) ( 64 64 676 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 63 63 644 ) ( 63 63 684 ) ( 71 71 684 ) caulk 64 64 49 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 110 73 653 ) ( -114 73 653 ) ( -114 73 645 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents nonColliding;
+ ( -65 120 672 ) ( -73 120 672 ) ( -73 -104 672 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -73 -104 676 ) ( -73 120 676 ) ( -65 120 676 ) caulk 64 64 47 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 676 ) ( -64 -64 672 ) ( -73 -73 672 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -64 672 ) ( -64 -64 676 ) ( -64 64 676 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 64 672 ) ( -64 64 676 ) ( -73 73 676 ) caulk 64 64 48 -9 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -73 105 649 ) ( -73 -119 649 ) ( -73 -119 641 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 29
+{
+"classname" "func_group"
+// brush 0
+{
+  contents nonColliding;
+ ( -54 -58 734 ) ( -54 -29 734 ) ( -60 -29 734 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -60 -30 736 ) ( -60 0 736 ) ( -45 0 736 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 -26 734 ) ( -31 -55 734 ) ( -30 -55 736 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -53 0 736 ) ( -61 0 736 ) ( -61 -11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -15 736 ) ( -64 -45 736 ) ( -62 -46 734 ) egypt_plaster_exteriorwall01_body 128 128 41 -47 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -61 -30 736 ) ( -49 -30 736 ) ( -50 -31 734 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents nonColliding;
+ ( -63 -10 704 ) ( -55 -10 704 ) ( -55 -50 704 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -25 696 ) ( -59 -65 696 ) ( -59 -65 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -59 696 ) ( -51 -59 696 ) ( -51 -59 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -68 696 ) ( -32 -28 696 ) ( -32 -28 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -32 696 ) ( -58 -32 696 ) ( -58 -32 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 -19 672 ) ( 12 -19 672 ) ( 12 -51 672 ) caulk 64 64 19 -19 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents nonColliding;
+ ( -47 -32 718 ) ( -59 -32 718 ) ( -59 -27 718 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -55 718 ) ( -32 -47 718 ) ( -32 -47 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -44 -32 704 ) ( -32 -32 704 ) ( -32 -27 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -47 718 ) ( -59 -55 718 ) ( -59 -55 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -32 718 ) ( -47 -32 718 ) ( -47 -32 704 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents nonColliding;
+ ( -59 -56 718 ) ( -55 -56 718 ) ( -55 -46 718 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -60 -47 728 ) ( -60 -35 728 ) ( -51 -35 728 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -55 725 ) ( -32 -42 725 ) ( -32 -42 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -51 -20 728 ) ( -59 -20 728 ) ( -59 -27 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -60 -35 728 ) ( -60 -47 728 ) ( -59 -47 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 77 -32 723 ) ( 77 -32 720 ) ( 45 -32 723 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents nonColliding;
+ ( -59 -57 728 ) ( -55 -57 728 ) ( -55 -39 728 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -58 -31 734 ) ( -58 -11 734 ) ( -46 -11 734 ) caulk 64 64 57 -59 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -35 728 ) ( -32 -55 728 ) ( -31 -55 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -61 -20 728 ) ( -53 -20 728 ) ( -53 -11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -62 -26 734 ) ( -62 -46 734 ) ( -60 -47 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -60 -31 734 ) ( -50 -31 734 ) ( -51 -32 728 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents nonColliding;
+ ( -62 -47 734 ) ( -30 -47 734 ) ( -30 -35 734 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -19 -64 736 ) ( -64 -64 736 ) ( -64 -49 736 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -49 736 ) ( -64 -57 736 ) ( -62 -56 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -30 -62 734 ) ( -62 -62 734 ) ( -64 -64 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -42 736 ) ( 0 -34 736 ) ( -11 -34 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -63 -31 734 ) ( -34 -31 734 ) ( -23 -30 736 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents nonColliding;
+ ( -60 -45 728 ) ( -39 -45 728 ) ( -39 -36 728 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -63 -42 734 ) ( -63 -34 734 ) ( -34 -34 734 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -60 -55 728 ) ( -60 -51 728 ) ( -62 -50 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -39 -60 728 ) ( -60 -60 728 ) ( -62 -62 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -34 728 ) ( -20 -42 728 ) ( -11 -42 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -32 728 ) ( -39 -32 728 ) ( -30 -31 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents nonColliding;
+ ( -59 -44 718 ) ( -46 -44 718 ) ( -46 -36 718 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -63 -44 728 ) ( -63 -36 728 ) ( -43 -36 728 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -55 718 ) ( -59 -51 718 ) ( -60 -51 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -59 718 ) ( -59 -59 718 ) ( -60 -60 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -57 728 ) ( -20 -49 728 ) ( -27 -49 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -32 718 ) ( -46 -32 718 ) ( -39 -32 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents nonColliding;
+ ( -55 -42 704 ) ( -55 -34 704 ) ( -63 -34 704 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -34 718 ) ( -50 -42 718 ) ( -63 -42 718 ) caulk 64 64 57 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -49 718 ) ( -59 -57 718 ) ( -59 -57 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 -59 718 ) ( -51 -59 718 ) ( -51 -59 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -27 -61 718 ) ( -27 -53 718 ) ( -32 -53 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -32 718 ) ( -58 -32 718 ) ( -58 -32 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents nonColliding;
+ ( 42 4 796 ) ( -42 4 796 ) ( -42 -4 796 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 -4 832 ) ( -42 4 832 ) ( 42 4 832 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 -1 824 ) ( 42 -1 824 ) ( 42 -1 796 ) egypt_wire_black 64 8 22 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 42 1 826 ) ( -42 1 826 ) ( -42 1 798 ) egypt_wire_black 64 8 22 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 -1 -68 ) ( -1 5 -68 ) ( -1 -1 -36 ) egypt_wire_black 64 8 32 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 2 -68 ) ( 1 -2 -68 ) ( 1 2 -36 ) egypt_wire_black 64 8 32 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 10
+{
+  contents nonColliding;
+ ( 2 2 817 ) ( -2 2 817 ) ( -2 -2 817 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 818 ) ( 1 -1 818 ) ( -1 -1 818 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -2 817 ) ( -2 -2 817 ) ( -1 -1 818 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 -1 818 ) ( 1 1 818 ) ( 2 1 817 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 2 817 ) ( 2 2 817 ) ( 1 1 818 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 1 818 ) ( -1 -1 818 ) ( -2 -1 817 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 11
+{
+  contents nonColliding;
+ ( 1 -1 816 ) ( 1 1 816 ) ( -1 1 816 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 2 817 ) ( 2 2 817 ) ( 2 -2 817 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 -2 817 ) ( 2 -2 817 ) ( 1 -1 816 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 816 ) ( 1 -1 816 ) ( 2 -1 817 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 2 817 ) ( -2 2 817 ) ( -1 1 816 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 -1 816 ) ( -1 1 816 ) ( -2 1 817 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 12
+{
+  contents nonColliding;
+ ( 2 2 809 ) ( -2 2 809 ) ( -2 -2 809 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 810 ) ( 1 -1 810 ) ( -1 -1 810 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -2 809 ) ( -2 -2 809 ) ( -1 -1 810 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 -1 810 ) ( 1 1 810 ) ( 2 1 809 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 2 809 ) ( 2 2 809 ) ( 1 1 810 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 1 810 ) ( -1 -1 810 ) ( -2 -1 809 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 13
+{
+  contents nonColliding;
+ ( 1 -1 808 ) ( 1 1 808 ) ( -1 1 808 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 2 809 ) ( 2 2 809 ) ( 2 -2 809 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 -2 809 ) ( 2 -2 809 ) ( 1 -1 808 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 808 ) ( 1 -1 808 ) ( 2 -1 809 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 2 809 ) ( -2 2 809 ) ( -1 1 808 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 -1 808 ) ( -1 1 808 ) ( -2 1 809 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 14
+{
+  contents nonColliding;
+ ( 2 2 807 ) ( -2 2 807 ) ( -2 -2 807 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 808 ) ( 1 -1 808 ) ( -1 -1 808 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -2 807 ) ( -2 -2 807 ) ( -1 -1 808 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 -1 808 ) ( 1 1 808 ) ( 2 1 807 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 2 807 ) ( 2 2 807 ) ( 1 1 808 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 1 808 ) ( -1 -1 808 ) ( -2 -1 807 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 15
+{
+  contents nonColliding;
+ ( 1 -1 806 ) ( 1 1 806 ) ( -1 1 806 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 2 807 ) ( 2 2 807 ) ( 2 -2 807 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 -2 807 ) ( 2 -2 807 ) ( 1 -1 806 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 806 ) ( 1 -1 806 ) ( 2 -1 807 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 2 807 ) ( -2 2 807 ) ( -1 1 806 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 -1 806 ) ( -1 1 806 ) ( -2 1 807 ) egypt_wire_black 64 8 32 54 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 16
+{
+  contents nonColliding;
+ ( -1 -1 832 ) ( 0 0 839 ) ( 1 -1 832 ) egypt_wire_black 64 8 22 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 0 839 ) ( -1 -1 832 ) ( -1 1 832 ) egypt_wire_black 64 8 32 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 1 832 ) ( 0 0 839 ) ( -1 1 832 ) egypt_wire_black 64 8 22 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 1 -1 832 ) ( 0 0 839 ) ( 1 1 832 ) egypt_wire_black 64 8 32 68 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -1 -1 832 ) ( 1 -1 832 ) ( 1 1 832 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 17
+{
+  contents nonColliding;
+ ( 50 44 736 ) ( -46 44 736 ) ( -46 -48 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -48 746 ) ( -46 44 746 ) ( 50 44 746 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -47 -64 732 ) ( 49 -64 732 ) ( 49 -64 724 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -44 732 ) ( 64 48 732 ) ( 64 48 724 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 47 64 732 ) ( -49 64 732 ) ( -49 64 724 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 42 732 ) ( -64 -50 732 ) ( -64 -50 724 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 18
+{
+  contents nonColliding;
+ ( 55 42 704 ) ( 55 34 704 ) ( 63 34 704 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 34 718 ) ( 50 42 718 ) ( 63 42 718 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 49 718 ) ( 59 57 718 ) ( 59 57 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 59 718 ) ( 51 59 718 ) ( 51 59 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 27 61 718 ) ( 27 53 718 ) ( 32 53 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 32 718 ) ( 58 32 718 ) ( 58 32 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 19
+{
+  contents nonColliding;
+ ( 59 44 718 ) ( 46 44 718 ) ( 46 36 718 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 63 44 728 ) ( 63 36 728 ) ( 43 36 728 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 55 718 ) ( 59 51 718 ) ( 60 51 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 59 718 ) ( 59 59 718 ) ( 60 60 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 57 728 ) ( 20 49 728 ) ( 27 49 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 32 718 ) ( 46 32 718 ) ( 39 32 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 20
+{
+  contents nonColliding;
+ ( 60 45 728 ) ( 39 45 728 ) ( 39 36 728 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 63 42 734 ) ( 63 34 734 ) ( 34 34 734 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 60 55 728 ) ( 60 51 728 ) ( 62 50 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 39 60 728 ) ( 60 60 728 ) ( 62 62 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 34 728 ) ( 20 42 728 ) ( 11 42 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 32 728 ) ( 39 32 728 ) ( 30 31 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 21
+{
+  contents nonColliding;
+ ( 62 47 734 ) ( 30 47 734 ) ( 30 35 734 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 19 64 736 ) ( 64 64 736 ) ( 64 49 736 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 49 736 ) ( 64 57 736 ) ( 62 56 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 62 734 ) ( 62 62 734 ) ( 64 64 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 42 736 ) ( 0 34 736 ) ( 11 34 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 63 31 734 ) ( 34 31 734 ) ( 23 30 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 22
+{
+  contents nonColliding;
+ ( 59 57 728 ) ( 55 57 728 ) ( 55 39 728 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 31 734 ) ( 58 11 734 ) ( 46 11 734 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 35 728 ) ( 32 55 728 ) ( 31 55 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 61 20 728 ) ( 53 20 728 ) ( 53 11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 62 26 734 ) ( 62 46 734 ) ( 60 47 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 60 31 734 ) ( 50 31 734 ) ( 51 32 728 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 23
+{
+  contents nonColliding;
+ ( 59 56 718 ) ( 55 56 718 ) ( 55 46 718 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 60 47 728 ) ( 60 35 728 ) ( 51 35 728 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 55 725 ) ( 32 42 725 ) ( 32 42 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 51 20 728 ) ( 59 20 728 ) ( 59 27 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 60 35 728 ) ( 60 47 728 ) ( 59 47 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -77 32 723 ) ( -77 32 720 ) ( -45 32 723 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 24
+{
+  contents nonColliding;
+ ( 47 32 718 ) ( 59 32 718 ) ( 59 27 718 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 55 718 ) ( 32 47 718 ) ( 32 47 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 32 704 ) ( 32 32 704 ) ( 32 27 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 47 718 ) ( 59 55 718 ) ( 59 55 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 32 718 ) ( 47 32 718 ) ( 47 32 704 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 25
+{
+  contents nonColliding;
+ ( 63 10 704 ) ( 55 10 704 ) ( 55 50 704 ) caulk 64 64 57 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 25 696 ) ( 59 65 696 ) ( 59 65 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 59 696 ) ( 51 59 696 ) ( 51 59 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 68 696 ) ( 32 28 696 ) ( 32 28 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 32 696 ) ( 58 32 696 ) ( 58 32 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 19 672 ) ( -12 19 672 ) ( -12 51 672 ) caulk 64 64 19 -19 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 26
+{
+  contents nonColliding;
+ ( 54 58 734 ) ( 54 29 734 ) ( 60 29 734 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 60 30 736 ) ( 60 0 736 ) ( 45 0 736 ) caulk 64 64 57 -59 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 31 26 734 ) ( 31 55 734 ) ( 30 55 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 53 0 736 ) ( 61 0 736 ) ( 61 11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 15 736 ) ( 64 45 736 ) ( 62 46 734 ) egypt_plaster_exteriorwall01_body 128 128 41 -47 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 61 30 736 ) ( 49 30 736 ) ( 50 31 734 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 27
+{
+  contents nonColliding;
+ ( 58 -54 734 ) ( 29 -54 734 ) ( 29 -60 734 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 -60 736 ) ( 0 -60 736 ) ( 0 -45 736 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 -31 734 ) ( 55 -31 734 ) ( 55 -30 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -53 736 ) ( 0 -61 736 ) ( 11 -61 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 15 -64 736 ) ( 45 -64 736 ) ( 46 -62 734 ) egypt_plaster_exteriorwall01_body 128 128 41 -47 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 -61 736 ) ( 30 -49 736 ) ( 31 -50 734 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 28
+{
+  contents nonColliding;
+ ( 10 -63 704 ) ( 10 -55 704 ) ( 50 -55 704 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 -59 696 ) ( 65 -59 696 ) ( 65 -59 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 -59 696 ) ( 59 -51 696 ) ( 59 -51 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 68 -32 696 ) ( 28 -32 696 ) ( 28 -32 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -50 696 ) ( 32 -58 696 ) ( 32 -58 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 19 22 672 ) ( 19 12 672 ) ( 51 12 672 ) caulk 64 64 19 -19 -90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 29
+{
+  contents nonColliding;
+ ( 32 -47 718 ) ( 32 -59 718 ) ( 27 -59 718 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 55 -32 718 ) ( 47 -32 718 ) ( 47 -32 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -44 704 ) ( 32 -32 704 ) ( 27 -32 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 47 -59 718 ) ( 55 -59 718 ) ( 55 -59 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -59 718 ) ( 32 -47 718 ) ( 32 -47 704 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 30
+{
+  contents nonColliding;
+ ( 56 -59 718 ) ( 56 -55 718 ) ( 46 -55 718 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 47 -60 728 ) ( 35 -60 728 ) ( 35 -51 728 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 55 -32 725 ) ( 42 -32 725 ) ( 42 -32 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 -51 728 ) ( 20 -59 728 ) ( 27 -59 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 35 -60 728 ) ( 47 -60 728 ) ( 47 -59 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 77 723 ) ( 32 77 720 ) ( 32 45 723 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 31
+{
+  contents nonColliding;
+ ( 57 -59 728 ) ( 57 -55 728 ) ( 39 -55 728 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 31 -58 734 ) ( 11 -58 734 ) ( 11 -46 734 ) caulk 64 64 57 -59 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 35 -32 728 ) ( 55 -32 728 ) ( 55 -31 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 -61 728 ) ( 20 -53 728 ) ( 11 -53 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 -62 734 ) ( 46 -62 734 ) ( 47 -60 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 31 -60 734 ) ( 31 -50 734 ) ( 32 -51 728 ) caulk 64 -64 57 -20 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 32
+{
+  contents nonColliding;
+ ( 47 -62 734 ) ( 47 -30 734 ) ( 35 -30 734 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -19 736 ) ( 64 -64 736 ) ( 49 -64 736 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 49 -64 736 ) ( 57 -64 736 ) ( 56 -62 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 62 -30 734 ) ( 62 -62 734 ) ( 64 -64 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 42 0 736 ) ( 34 0 736 ) ( 34 -11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 31 -63 734 ) ( 31 -34 734 ) ( 30 -23 736 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 33
+{
+  contents nonColliding;
+ ( 45 -60 728 ) ( 45 -39 728 ) ( 36 -39 728 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 42 -63 734 ) ( 34 -63 734 ) ( 34 -34 734 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 55 -60 728 ) ( 51 -60 728 ) ( 50 -62 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 60 -39 728 ) ( 60 -60 728 ) ( 62 -62 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 34 -20 728 ) ( 42 -20 728 ) ( 42 -11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -59 728 ) ( 32 -39 728 ) ( 31 -30 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 34
+{
+  contents nonColliding;
+ ( 44 -59 718 ) ( 44 -46 718 ) ( 36 -46 718 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 -63 728 ) ( 36 -63 728 ) ( 36 -43 728 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 55 -59 718 ) ( 51 -59 718 ) ( 51 -60 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 -46 718 ) ( 59 -59 718 ) ( 60 -60 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 57 -20 728 ) ( 49 -20 728 ) ( 49 -27 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -59 718 ) ( 32 -46 718 ) ( 32 -39 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 35
+{
+  contents nonColliding;
+ ( 42 -55 704 ) ( 34 -55 704 ) ( 34 -63 704 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 34 -50 718 ) ( 42 -50 718 ) ( 42 -63 718 ) caulk 64 64 57 1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 49 -59 718 ) ( 57 -59 718 ) ( 57 -59 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 59 -59 718 ) ( 59 -51 718 ) ( 59 -51 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 61 -27 718 ) ( 53 -27 718 ) ( 53 -32 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -50 718 ) ( 32 -58 718 ) ( 32 -58 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 36
+{
+  contents nonColliding;
+ ( 50 44 746 ) ( -46 44 746 ) ( -46 -48 746 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -62 -62 748 ) ( -62 62 748 ) ( 62 62 748 ) caulk 64 64 38 -44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 -62 748 ) ( 64 -62 748 ) ( 64 -64 746 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 62 -62 748 ) ( 62 62 748 ) ( 64 64 746 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 62 748 ) ( -64 62 748 ) ( -64 64 746 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -62 62 748 ) ( -62 -62 748 ) ( -64 -64 746 ) egypt_plaster_exteriorwall01_body 128 128 22 1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 37
+{
+  contents nonColliding;
+ ( -42 55 704 ) ( -34 55 704 ) ( -34 63 704 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -34 50 718 ) ( -42 50 718 ) ( -42 63 718 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -49 59 718 ) ( -57 59 718 ) ( -57 59 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 59 718 ) ( -59 51 718 ) ( -59 51 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -61 27 718 ) ( -53 27 718 ) ( -53 32 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 50 718 ) ( -32 58 718 ) ( -32 58 704 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 38
+{
+  contents nonColliding;
+ ( -44 59 718 ) ( -44 46 718 ) ( -36 46 718 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -44 63 728 ) ( -36 63 728 ) ( -36 43 728 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -55 59 718 ) ( -51 59 718 ) ( -51 60 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 46 718 ) ( -59 59 718 ) ( -60 60 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -57 20 728 ) ( -49 20 728 ) ( -49 27 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 59 718 ) ( -32 46 718 ) ( -32 39 728 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 39
+{
+  contents nonColliding;
+ ( -45 60 728 ) ( -45 39 728 ) ( -36 39 728 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 63 734 ) ( -34 63 734 ) ( -34 34 734 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -55 60 728 ) ( -51 60 728 ) ( -50 62 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -60 39 728 ) ( -60 60 728 ) ( -62 62 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -34 20 728 ) ( -42 20 728 ) ( -42 11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 59 728 ) ( -32 39 728 ) ( -31 30 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 40
+{
+  contents nonColliding;
+ ( -47 62 734 ) ( -47 30 734 ) ( -35 30 734 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 19 736 ) ( -64 64 736 ) ( -49 64 736 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -49 64 736 ) ( -57 64 736 ) ( -56 62 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -62 30 734 ) ( -62 62 734 ) ( -64 64 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 0 736 ) ( -34 0 736 ) ( -34 11 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 63 734 ) ( -31 34 734 ) ( -30 23 736 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 41
+{
+  contents nonColliding;
+ ( -57 59 728 ) ( -57 55 728 ) ( -39 55 728 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 58 734 ) ( -11 58 734 ) ( -11 46 734 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -35 32 728 ) ( -55 32 728 ) ( -55 31 734 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 61 728 ) ( -20 53 728 ) ( -11 53 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 62 734 ) ( -46 62 734 ) ( -47 60 728 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 60 734 ) ( -31 50 734 ) ( -32 51 728 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 42
+{
+  contents nonColliding;
+ ( -56 59 718 ) ( -56 55 718 ) ( -46 55 718 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -47 60 728 ) ( -35 60 728 ) ( -35 51 728 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -55 32 725 ) ( -42 32 725 ) ( -42 32 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 51 728 ) ( -20 59 728 ) ( -27 59 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -35 60 728 ) ( -47 60 728 ) ( -47 59 718 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -77 723 ) ( -32 -77 720 ) ( -32 -45 723 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 43
+{
+  contents nonColliding;
+ ( -32 47 718 ) ( -32 59 718 ) ( -27 59 718 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -55 32 718 ) ( -47 32 718 ) ( -47 32 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 44 704 ) ( -32 32 704 ) ( -27 32 718 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -47 59 718 ) ( -55 59 718 ) ( -55 59 704 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 59 718 ) ( -32 47 718 ) ( -32 47 704 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 44
+{
+  contents nonColliding;
+ ( -10 63 704 ) ( -10 55 704 ) ( -50 55 704 ) caulk 64 64 57 -63 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -25 59 696 ) ( -65 59 696 ) ( -65 59 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -59 59 696 ) ( -59 51 696 ) ( -59 51 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 32 696 ) ( -28 32 696 ) ( -28 32 616 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 50 696 ) ( -32 58 696 ) ( -32 58 616 ) egypt_plaster_exteriorwall01_body 128 128 22 1 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -19 -22 672 ) ( -19 -12 672 ) ( -51 -12 672 ) caulk 64 64 19 -19 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 45
+{
+  contents nonColliding;
+ ( -58 54 734 ) ( -29 54 734 ) ( -29 60 734 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -30 60 736 ) ( 0 60 736 ) ( 0 45 736 ) caulk 64 64 57 -59 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 31 734 ) ( -55 31 734 ) ( -55 30 736 ) egypt_plaster_exteriorwall01_body 128 -128 22 -1 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 53 736 ) ( 0 61 736 ) ( -11 61 734 ) egypt_plaster_exteriorwall01_body 128 128 22 1 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -15 64 736 ) ( -45 64 736 ) ( -46 62 734 ) egypt_plaster_exteriorwall01_body 128 128 41 -47 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -30 61 736 ) ( -30 49 736 ) ( -31 50 734 ) caulk 64 64 57 20 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 30
+{
+"origin" "0 0 748"
+"modelscale" ".32"
+"model" "xmodel/dome_07"
+"classname" "misc_model"
+}

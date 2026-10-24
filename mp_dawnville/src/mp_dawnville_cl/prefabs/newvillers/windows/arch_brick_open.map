@@ -1,0 +1,155 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( -16 0 0 ) ( -27 0 0 ) ( -27 -1 0 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -27 -1 6 ) ( -27 0 6 ) ( -16 0 6 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -27 -2 6 ) ( -16 -2 6 ) ( -16 -2 2 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -1 10 ) ( 33 0 10 ) ( 33 0 6 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 8 6 ) ( -27 8 6 ) ( -27 8 2 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 0 5 ) ( -33 -1 5 ) ( -33 -1 1 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -15 -1 81 ) ( -15 0 81 ) ( -24 0 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 0 90 ) ( -20 -1 90 ) ( -33 -1 86 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -1 86 ) ( -15 -1 86 ) ( -15 -1 78 ) stalingradwinter_brick04 64 64 4 9.5 20 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -15 0 81 ) ( -15 -1 81 ) ( -20 -1 90 ) caulk 64 64 24 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -13 8 86 ) ( -27 8 86 ) ( -27 8 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 0 86 ) ( -33 -1 86 ) ( -24 -1 78 ) caulk 64 64 -49 -24 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -5 -1 82 ) ( -5 0 82 ) ( -15 0 81 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 92 ) ( -7 -1 92 ) ( -20 -1 90 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -1 90 ) ( -3 -1 90 ) ( -3 -1 81 ) stalingradwinter_brick04 64 64 5 0.5 11 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 -1 92 ) ( -7 0 92 ) ( -5 0 82 ) caulk 64 64 24 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 8 90 ) ( -13 8 90 ) ( -13 8 81 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -15 -1 81 ) ( -15 0 81 ) ( -20 0 90 ) caulk 64 64 24 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( -5 0 82 ) ( -5 -1 82 ) ( 3 -1 82 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 -1 92 ) ( -7 0 92 ) ( 5 0 92 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -5 -1 92 ) ( 5 -1 92 ) ( 5 -1 82 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 8 92 ) ( -4 8 92 ) ( -4 8 82 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -5 -1 82 ) ( -5 0 82 ) ( -7 0 92 ) caulk 64 64 24 -6 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 5 0 82 ) ( 5 -1 82 ) ( 7 -1 92 ) caulk 64 -64 -39 6 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( 5 0 82 ) ( 5 -1 82 ) ( 15 -1 81 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 7 -1 92 ) ( 7 0 92 ) ( 20 0 90 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 8 90 ) ( 3 8 90 ) ( 3 8 81 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 7 0 92 ) ( 7 -1 92 ) ( 5 -1 82 ) caulk 64 -64 -39 6 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 3 -1 90 ) ( 14 -1 90 ) ( 14 -1 81 ) stalingradwinter_brick04 64 64 0 0 -7 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 15 0 81 ) ( 15 -1 81 ) ( 20 -1 90 ) caulk 64 -64 -39 6 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( 15 0 81 ) ( 15 -1 81 ) ( 24 -1 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 -1 90 ) ( 20 0 90 ) ( 33 0 86 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 8 86 ) ( 16 8 86 ) ( 16 8 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 15 -1 81 ) ( 15 0 81 ) ( 20 0 90 ) caulk 64 -64 -39 6 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 15 -1 86 ) ( 29 -1 86 ) ( 29 -1 78 ) stalingradwinter_brick04 64 64 0 0 -15 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -1 86 ) ( 33 0 86 ) ( 24 0 78 ) caulk 64 64 15 39 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( -32 8 74 ) ( -38 8 74 ) ( -38 0 74 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -38 0 86 ) ( -38 8 86 ) ( -32 8 86 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -38 -1 86 ) ( -32 -1 86 ) ( -32 -1 74 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 0 86 ) ( -33 8 86 ) ( -33 8 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 3 86 ) ( -38 3 86 ) ( -38 3 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -36 8 86 ) ( -36 0 86 ) ( -36 0 74 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents detail;
+ ( 39 8 74 ) ( 33 8 74 ) ( 33 0 74 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 0 86 ) ( 33 8 86 ) ( 39 8 86 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -1 86 ) ( 39 -1 86 ) ( 39 -1 74 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 36 0 85 ) ( 36 8 85 ) ( 36 8 73 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 39 3 86 ) ( 33 3 86 ) ( 33 3 74 ) caulk 64 64 7 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 8 86 ) ( 33 0 86 ) ( 33 0 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents detail;
+ ( 33 1 -4 ) ( 24 1 -4 ) ( 24 -1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 -1 0 ) ( 24 1 0 ) ( 33 1 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 -1 0 ) ( 33 -1 0 ) ( 33 -1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -1 0 ) ( 33 1 0 ) ( 33 1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 3 0 ) ( 24 3 0 ) ( 24 3 -4 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 1 0 ) ( 24 -1 0 ) ( 24 -1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents detail;
+ ( -24 1 -4 ) ( -33 1 -4 ) ( -33 -1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 -1 0 ) ( -33 1 0 ) ( -24 1 0 ) caulk 64 64 -57 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 -1 0 ) ( -24 -1 0 ) ( -24 -1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -1 0 ) ( -24 1 0 ) ( -24 1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 3 0 ) ( -33 3 0 ) ( -33 3 -4 ) caulk 64 64 -57 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 1 0 ) ( -33 -1 0 ) ( -33 -1 -4 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 10
+{
+  contents detail;
+ ( -32 -1 84 ) ( -24 -1 84 ) ( -24 -1 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 8 84 ) ( -31 8 84 ) ( -31 8 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 0 84 ) ( -33 -1 84 ) ( -33 -1 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -1768 78 ) ( -33 -1768 86 ) ( -33 -1736 86 ) caulk 64 64 -52 -24 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -4 78 ) ( -24 0 78 ) ( -24 0 6 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 0 74 ) ( -26 0 74 ) ( -31 32 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 11
+{
+  contents detail;
+ ( -32 -1 84 ) ( -24 -1 84 ) ( -24 -1 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 8 84 ) ( -31 8 84 ) ( -31 8 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 0 84 ) ( -33 -1 84 ) ( -33 -1 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -4 78 ) ( -24 0 78 ) ( -24 0 6 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -27 -1768 6 ) ( -24 -1768 6 ) ( -27 -1736 6 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 0 74 ) ( -31 0 74 ) ( -31 32 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 12
+{
+  contents detail;
+ ( 32 8 84 ) ( 24 8 84 ) ( 24 8 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 -1 84 ) ( 32 -1 84 ) ( 32 -1 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -1 84 ) ( 33 0 84 ) ( 33 0 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 1767 78 ) ( 33 1767 86 ) ( 33 1735 86 ) caulk 64 64 12 39 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 3 78 ) ( 24 -1 78 ) ( 24 -1 6 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -30 0 74 ) ( -26 0 74 ) ( -30 32 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 13
+{
+  contents detail;
+ ( 32 8 84 ) ( 24 8 84 ) ( 24 8 78 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 -1 84 ) ( 32 -1 84 ) ( 32 -1 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -1 84 ) ( 33 0 84 ) ( 33 0 78 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 3 78 ) ( 24 -1 78 ) ( 24 -1 6 ) stalingradwinter_brick04 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 31 1767 6 ) ( 28 1767 6 ) ( 31 1735 6 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 0 74 ) ( -30 0 74 ) ( -30 32 74 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 14
+{
+  contents detail;
+ ( 7 3 92 ) ( -7 3 92 ) ( -7 -6 92 ) caulk 64 64 -57 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 3 94 ) ( 8 -1 94 ) ( -8 -1 94 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 -1 96 ) ( 7 -1 96 ) ( 7 -1 92 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -1 94 ) ( 8 3 94 ) ( 7 3 92 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 7 3 96 ) ( -7 3 96 ) ( -7 3 92 ) caulk 64 64 -57 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8 3 94 ) ( -8 -1 94 ) ( -7 -1 92 ) v_plasterwall02 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

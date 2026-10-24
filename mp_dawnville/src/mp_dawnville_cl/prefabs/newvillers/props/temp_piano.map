@@ -1,0 +1,23 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+ ( 72 20 0 ) ( -56 20 0 ) ( -56 -12 0 ) case256brown 64 64 8 44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -48 -12 64 ) ( -48 20 64 ) ( 80 20 64 ) case256brown 64 64 8 44 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -72 -4 -8 ) ( 56 -4 -8 ) ( 56 -4 -16 ) case256brown 64 64 8 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 56 -12 8 ) ( 56 20 8 ) ( 56 20 0 ) case256brown 64 64 -44 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 72 16 8 ) ( -56 16 8 ) ( -56 16 0 ) case256brown 64 64 8 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 20 8 ) ( -56 -12 8 ) ( -56 -12 0 ) case256brown 64 64 -44 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+ ( 72 -4 0 ) ( -56 -4 0 ) ( -56 -36 0 ) case256brown 64 64 8 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -48 -36 28 ) ( -48 -4 28 ) ( 80 -4 28 ) case256brown 64 64 8 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 -20 -8 ) ( 72 -20 -8 ) ( 72 -20 -16 ) case256brown 64 64 8 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 56 -36 8 ) ( 56 -4 8 ) ( 56 -4 0 ) case256brown 64 64 -4 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 56 -4 8 ) ( -72 -4 8 ) ( -72 -4 0 ) case256brown 64 64 8 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 -4 8 ) ( -56 -36 8 ) ( -56 -36 0 ) case256brown 64 64 -4 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

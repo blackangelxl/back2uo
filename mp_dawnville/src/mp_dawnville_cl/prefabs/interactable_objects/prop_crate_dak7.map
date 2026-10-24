@@ -1,0 +1,36 @@
+iwmap 4
+// entity 0
+{
+"diffusefraction" ".13"
+"sundiffusecolor" "0.761 0.749 1"
+"ambient" ".05"
+"northyaw" "80"
+"sundirection" "-12.79 -8.3504 0"
+"suncolor" "1.000000 0.952941 0.701961"
+"sunlight" "2.3"
+"classname" "worldspawn"
+"_color" "0.761 0.749 1"
+}
+// entity 1
+{
+"target" "auto1"
+"origin" "0 0 0"
+"targetname" "breakable"
+"model" "xmodel/prop_crate_dak7"
+"classname" "script_model"
+}
+// entity 2
+{
+"spawnflags" "1"
+"targetname" "auto1"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 19 16 24 ) ( 19 -16 24 ) ( -13 -16 24 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -16 1 ) ( 16 -16 1 ) ( 16 16 1 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 12 0 -3 ) ( 12 0 43 ) ( 12 16 43 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 18 2 ) ( 0 18 48 ) ( -16 18 48 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -13 1 1 ) ( -13 1 47 ) ( -13 -15 47 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -19 2 ) ( 0 -19 48 ) ( 16 -19 48 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

@@ -1,0 +1,53 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -44 10 36 ) ( -64 10 36 ) ( -64 -10 36 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 -10 90 ) ( -56 10 90 ) ( -36 10 90 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -66 0 60 ) ( -46 0 60 ) ( -46 0 0 ) v_ironfence01 64 64 0 34 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -10 96 ) ( 64 10 96 ) ( 64 10 36 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 1 60 ) ( -62 1 60 ) ( -62 1 0 ) v_ironfence01 64 64 0 34 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 10 60 ) ( -64 -10 60 ) ( -64 -10 0 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 66 10 0 ) ( 42 10 0 ) ( 42 -10 0 ) v_stonetrim06 128 32 -64 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 42 -8 52 ) ( 66 -8 52 ) ( 66 -8 0 ) v_stonetrim06 128 32 -64 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -10 52 ) ( 64 10 52 ) ( 64 10 0 ) v_stonetrim06 128 32 -64 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 8 52 ) ( 42 8 52 ) ( 42 8 0 ) v_stonetrim06 128 32 -64 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 12 52 ) ( -64 -8 52 ) ( -64 -8 0 ) v_stonetrim06 128 32 -64 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -52 566 32 ) ( -58 566 32 ) ( -58 598 32 ) v_stonetrim06 128 32 -64 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 54 -10 36 ) ( 54 10 36 ) ( 78 10 36 ) v_fence_stonetop 128 32 0 77.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 42 -10 52 ) ( 66 -10 52 ) ( 66 -10 0 ) v_fence_stonetop 128 32 0 32 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -10 52 ) ( 64 10 52 ) ( 64 10 0 ) caulk 64 64 0 77.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 10 52 ) ( 42 10 52 ) ( 42 10 0 ) v_fence_stonetop 128 -32 0 100.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 12 52 ) ( -64 -8 52 ) ( -64 -8 0 ) caulk 64 64 0 77.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -58 566 32 ) ( -52 566 32 ) ( -58 598 32 ) v_fence_stonetop 128 32 0 77.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -44 10 36 ) ( -64 10 36 ) ( -64 -10 36 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 -10 90 ) ( -56 10 90 ) ( -36 10 90 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -66 0 60 ) ( -46 0 60 ) ( -46 0 0 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 64 -10 96 ) ( 64 10 96 ) ( 64 10 36 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 1 60 ) ( -62 1 60 ) ( -62 1 0 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -64 10 60 ) ( -64 -10 60 ) ( -64 -10 0 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

@@ -1,0 +1,20 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -6 6 0 ) ( -22 6 0 ) ( -22 -2 0 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -2 76 ) ( -6 -2 76 ) ( -6 -2 0 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -2 77 ) ( 0 6 77 ) ( 0 6 1 ) mtl_caen_window_shutter_03 18 76 -17.4375 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 76 ) ( -22 0 76 ) ( -22 0 0 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 6 76 ) ( -18 -2 76 ) ( -18 -2 0 ) mtl_caen_window_shutter_03 18 76 -21.375 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -9 0 75 ) ( -18 0 76 ) ( -18 32 76 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 0 72 ) ( -9 0 75 ) ( -9 32 75 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

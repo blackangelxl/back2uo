@@ -1,0 +1,46 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents weaponClip;
+ ( -6 6 0 ) ( -22 6 0 ) ( -22 -2 0 ) mtl_caen_window_shutter_03 18 76 -18 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -2 76 ) ( -6 -2 76 ) ( -6 -2 0 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -2 77 ) ( 0 6 77 ) ( 0 6 1 ) mtl_caen_window_shutter_03 18 76 -17.4375 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 76 ) ( -22 0 76 ) ( -22 0 0 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 6 76 ) ( -18 -2 76 ) ( -18 -2 0 ) mtl_caen_window_shutter_03 18 76 -59.375 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -9 0 75 ) ( -18 0 76 ) ( -18 32 76 ) mtl_caen_window_shutter_03 18 76 -18 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 0 72 ) ( -9 0 75 ) ( -9 32 75 ) mtl_caen_window_shutter_03 18 76 -18 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents weaponClip;
+ ( 0 2 56 ) ( -18 2 56 ) ( -18 0 56 ) mtl_caen_window_shutter_03 18 76 -23.0625 -37.40625 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 0 60 ) ( -18 2 60 ) ( 0 2 60 ) mtl_caen_window_shutter_03 18 76 -19.125 -31.46875 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 0 60 ) ( 0 0 60 ) ( 0 0 56 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 0 60 ) ( 0 2 60 ) ( 0 2 56 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 1 60 ) ( -18 1 60 ) ( -18 1 56 ) mtl_caen_window_shutter_03 18 76 -23.0625 -37.40625 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 2 60 ) ( -18 0 60 ) ( -18 0 56 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents weaponClip;
+ ( 0 2 14 ) ( -18 2 14 ) ( -18 0 14 ) mtl_caen_window_shutter_03 18 76 -23.0625 -37.40625 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 0 18 ) ( -18 2 18 ) ( 0 2 18 ) mtl_caen_window_shutter_03 18 76 -23.0625 -37.40625 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 0 18 ) ( 0 0 18 ) ( 0 0 14 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 0 18 ) ( 0 2 18 ) ( 0 2 14 ) mtl_caen_window_shutter_03 18 76 0 43.9375 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 1 18 ) ( -18 1 18 ) ( -18 1 14 ) mtl_caen_window_shutter_03 18 76 -23.0625 -37.40625 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 2 18 ) ( -18 0 18 ) ( -18 0 14 ) mtl_caen_window_shutter_03 18 76 0 43.9375 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents weaponClip;
+ ( -11 1 18 ) ( -17 1 18 ) ( -17 0 18 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 56 ) ( -6 1 56 ) ( 0 1 56 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 0 18 ) ( -18 0 18 ) ( -4 0 56 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 1 18 ) ( -14 0 18 ) ( 0 0 56 ) mtl_caen_window_shutter_03 18 76 -18 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 1 18 ) ( -14 1 18 ) ( 0 1 56 ) mtl_caen_window_shutter_03 18 76 -14.625 5.34375 -21 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 0 18 ) ( -18 1 18 ) ( -4 1 56 ) mtl_caen_window_shutter_03 18 76 -5.625 -43.34375 180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

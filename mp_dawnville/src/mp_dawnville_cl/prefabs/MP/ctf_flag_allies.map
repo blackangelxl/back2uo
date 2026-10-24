@@ -1,0 +1,21 @@
+iwmap 4
+// entity 0
+{
+"ambient" ".5"
+"sunlight" "2"
+"sundirection" "-45 95 0"
+"suncolor" "1.000000 1.000000 0.882353"
+"classname" "worldspawn"
+"sundiffusecolor" "0.909804 0.952941 1.000000"
+"_color" "1 1 1"
+}
+// entity 1
+{
+"model" "xmodel/prop_flag_american"
+"script_gameobjectname" "ctf"
+"origin" "0 0 0"
+"targetname" "allied_flag"
+"height" "128"
+"radius" "48"
+"classname" "trigger_radius"
+}
