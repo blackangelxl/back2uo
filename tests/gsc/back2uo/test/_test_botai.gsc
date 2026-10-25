@@ -135,7 +135,7 @@ playing_bots()
 
 	for(i = 0; i < players.size; i++)
 	{
-		if(players[i] isBot() && isdefined(players[i].sessionstate) && players[i].sessionstate == "playing")
+		if(players[i] back2uo\_back2uo_libcod::back2uo_libcod_isbot() && isdefined(players[i].sessionstate) && players[i].sessionstate == "playing")
 			bots[bots.size] = players[i];
 	}
 

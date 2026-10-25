@@ -56,6 +56,7 @@ run()
 	else
 	{
 		back2uo\test\_test_cvars::run();
+		back2uo\test\_test_libcod::run();
 		back2uo\test\_test_weaponsystem::run();
 		back2uo\test\_test_maprotation::run();
 		back2uo\test\_test_waypoints::run();
