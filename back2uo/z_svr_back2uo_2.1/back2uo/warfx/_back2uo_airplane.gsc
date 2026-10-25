@@ -391,7 +391,7 @@ back2uo_airplane_crash()
 =============
 back2uo_airplane_crashfx
 
-Plays one explosion effect at the plane, then a smoke trail and explosion sound
+Plays one explosion effect and explosion sound at the plane, then a smoke trail
 every second until "end_airplanefly" or "end_airplanecrashfx" is notified.
 Called on: entity (airplane model)
 =============
@@ -406,10 +406,11 @@ back2uo_airplane_crashfx()
 
 	playfx(level.back2uo_effect["plane_explosion"], self.origin);
 
+	// Explosion sound only once per crash, not on every smoke step.
+	thread back2uo\_back2uo_sounds::back2uo_soundonplayers("airplane_explosion");
+
 	for(;;)
 	{
-		thread back2uo\_back2uo_sounds::back2uo_soundonplayers("airplane_explosion");
-
 		playfx(level.back2uo_effect["plane_smoke"], self.origin);
 
 		wait randomfloatrange(0.8, 1.2);
