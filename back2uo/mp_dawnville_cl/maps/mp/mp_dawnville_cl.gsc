@@ -13,9 +13,6 @@
 
 main()
 {
- // Test Bots
- thread maps\mp\gametypes\_teams::addTestClients();
-
  // Load
  maps\mp\mp_dawnville_cl_fx::main();
  maps\mp\_load::main();
