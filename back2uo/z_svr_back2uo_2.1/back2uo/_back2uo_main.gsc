@@ -464,6 +464,12 @@ back2uo_main()
 	level.back2uo_sprint_rehatime = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_rehatime", 4, 1, 15, "int");
 	level.back2uo_sprint_infomsg = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_infomsg", 1, 0, 1, "int");
 
+	// Sprint mode: 1 = per-player speed (zk_libcod setSpeed, weapon held down), falls back to the
+	// weapon swap if the engine does not apply the speed; 0 = always swap to the "_sprint" weapon.
+	level.back2uo_sprint_mode = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_mode", 1, 0, 1, "int");
+	// Factor on g_speed in speed mode; 1.6 matches moveSpeedScale of the "_sprint" weapons
+	level.back2uo_sprint_speedscale = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_speedscale", 1.6, 1, 3, "float");
+
 	level.back2uo_nosprint_msg = &"BACK2UOMOD_NOSPRINT_TAST";
 
 	// --- Weapon system ---

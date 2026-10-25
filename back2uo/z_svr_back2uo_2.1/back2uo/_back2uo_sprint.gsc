@@ -1,13 +1,18 @@
 /*
 	Back2Uo v2.1 - Sprint system.
 
-	Players sprint by holding the Use key while running. Sprinting swaps the current primary
-	weapon for its "<weapon>_sprint" variant (a sprint-pose weapon) and restores the original
-	weapon with its ammo when the sprint ends. Stamina is tracked as self.hud_sprint_height
+	Players sprint by holding the Use key while running. Two sprint modes (back2uo_sprint_mode):
+	- "speed" (primary): raises the player's speed with zk_libcod setSpeed and holds the weapon
+	  down (setHoldingWeaponDown), so it cannot fire while sprinting.
+	- "weapon" (fallback): swaps the current primary weapon for its "<weapon>_sprint" variant
+	  (a sprint-pose weapon) and restores the original weapon with its ammo when the sprint ends.
+	  Used when back2uo_sprint_mode is 0, or for the rest of the map once the engine did not
+	  apply the speed (level.back2uo_sprint_speedfail).
+	Stamina is tracked as self.hud_sprint_height
 	(fatigue bar drawn and recovered in hud\_back2uo_playerposition.gsc); sprinting is blocked above 34/35.
 	Entry point: back2uo_sprintsystem_main(), threaded per player from
 	_back2uo_player::back2uo_player_spawn. Switch: game["back2uo_sprint_enable"].
-	Player state: self.pers["sprinting"], ["is_moving"], ["sprint_slot"], ["pri_*"] / ["pri_b_*"] saved
+	Player state: self.pers["sprinting"], ["sprint_mode"], ["is_moving"], ["sprint_slot"], ["pri_*"] / ["pri_b_*"] saved
 	weapon and ammo, ["weapon_pickupsprintwait"] (set by weapon pickup in _back2uo_weaponsystem.gsc).
 */
 
@@ -16,7 +21,7 @@
 back2uo_sprintsystem_main
 
 Per-player sprint loop. Every frame checks whether the player may start a sprint
-(Use held, moving, standing, not exhausted, no binoculars, no other action like
+(Use held, moving, standing, not exhausted, no binoculars, no weapon zoom, no other action like
 planting/turret use, no recent weapon pickup) and starts back2uo_sprintsystem_run.
 Bots (self.pers["bots_nosprint"]) never sprint.
 Called on: self = player
@@ -36,7 +41,12 @@ back2uo_sprintsystem_main()
 	self endon("killed_player");
 
 	self.pers["sprinting"] = false;
+	self.pers["sprint_mode"] = "";
 	self.sprint_none = false;
+
+	// zk_libcod keeps the per-player speed over death and reconnects; clear a speed left
+	// over from a sprint thread that ended without back2uo_sprintsystem_stop.
+	self setSpeed(0);
 
 	if(!isdefined(self.pers["weapon_pickupsprintwait"])) self.pers["weapon_pickupsprintwait"] = false;
 
@@ -56,7 +66,7 @@ back2uo_sprintsystem_main()
 		}
 
 		// Disabled condition: && !self.pers["breathing"]
-		if(self usebuttonpressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !self.pers["bino_inuse"] && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
+		if(self usebuttonpressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !self.pers["bino_inuse"] && !self aimButtonPressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
 		{
 			// Returns at once if a sprint is already running.
 			self thread back2uo_sprintsystem_run();
@@ -70,11 +80,13 @@ back2uo_sprintsystem_main()
 =============
 back2uo_sprintsystem_run
 
-Runs one sprint while Use is held. On the first pass it saves the current weapon's ammo
-and switches the weapon slot to the "_sprint" variant. The loop ends when the player
-crouches/prones, is exhausted, uses binoculars, plants/defuses, stops moving, picks up a
-weapon or has no weapon (ladder, turret, climbing). Afterwards the saved ammo is updated
-and the original weapon restored.
+Runs one sprint while Use is held. On the first pass it starts the sprint in speed mode
+(setSpeed, weapon held down) or, as fallback, saves the current weapon's ammo and switches
+the weapon slot to the "_sprint" variant. On the second pass speed mode checks that the
+engine applied the speed; if not, it switches to the weapon swap. The loop ends when the player
+crouches/prones, is exhausted, uses binoculars or the weapon zoom, plants/defuses, stops moving, picks up a
+weapon or has no weapon (ladder, turret, climbing). Afterwards the speed is reset or, after
+a weapon swap, the saved ammo is updated and the original weapon restored.
 Called on: self = player
 =============
 */
@@ -89,8 +101,9 @@ back2uo_sprintsystem_run()
 
 	if(self.pers["sprinting"] == true) return;
 
-	// "_sprint" once the weapon swap has been done for this sprint.
-	sprint_string = "";
+	// Speed set in speed mode, and whether the engine applied it was checked.
+	sprint_speed = 0;
+	speed_checked = false;
 	// Consecutive passes with weapon "none".
 	sprint_none = 0;
 	// Log values: why the sprint ended, start time
@@ -117,6 +130,14 @@ back2uo_sprintsystem_run()
 		if(self.pers["bino_inuse"])
 		{
 			stop_reason = "bino";
+			break;
+		}
+
+		// Weapon zoom (ADS). zk_libcod aimButtonPressed reads the key itself, because in
+		// speed mode the held-down weapon cannot go into ADS.
+		if(self aimButtonPressed())
+		{
+			stop_reason = "ads";
 			break;
 		}
 
@@ -169,8 +190,32 @@ back2uo_sprintsystem_run()
 			break;
 		}
 
-		// First pass: swap to the sprint weapon.
-		if(self.pers["sprinting"] != true && sprint_string == "" && normal_weapon != "none")
+		// No sprint with the rocket launcher, also when switched to it during a sprint
+		// (possible in weapon mode, the weapon is not held down there).
+		if(normal_weapon == "panzerschreck_mp" && self.pers["sprint_mode"] != "")
+		{
+			stop_reason = "panzerschreck";
+			break;
+		}
+
+		// Second pass in speed mode: getSpeed returns the engine's speed, which only differs
+		// from g_speed if the per-player speed works. If not, use the weapon swap for this map.
+		if(self.pers["sprint_mode"] == "speed" && !speed_checked)
+		{
+			speed_checked = true;
+
+			if(self getSpeed() != sprint_speed)
+			{
+				level.back2uo_sprint_speedfail = true;
+				back2uo\_back2uo_cvars::back2uo_logevent("sprint", "fallback", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " speed=" + self getSpeed() + " expected=" + sprint_speed);
+
+				self back2uo_sprintsystem_speedstop();
+				self.pers["sprint_mode"] = "";
+			}
+		}
+
+		// First pass: start the sprint (also after a fallback from speed mode).
+		if(self.pers["sprint_mode"] == "" && normal_weapon != "none")
 		{
 			// Only weapons in a primary slot have a "_sprint" variant (not binoculars, grenades
 			// or turrets); the Panzerschreck has none either.
@@ -185,36 +230,54 @@ back2uo_sprintsystem_run()
 				return;
 			}
 
-			// Save weapon and ammo of the slot holding the current weapon.
-			self back2uo_sprintsystem_inslot(normal_weapon);
-
-			sprint_string = "_sprint";
-			sprint_weapon = normal_weapon + sprint_string;
-
-			if(self getWeaponSlotWeapon("primary") == normal_weapon)
-				self.pers["sprint_slot"] = "primary";
-			else
-				self.pers["sprint_slot"] = "primaryb";
-
-			// Put the sprint variant in the same slot and carry the ammo over.
-			self setweaponslotweapon(self.pers["sprint_slot"], sprint_weapon);
-
-			if(self.pers["sprint_slot"] == "primary")
+			if(level.back2uo_sprint_mode == 1 && !isdefined(level.back2uo_sprint_speedfail))
 			{
-				self setweaponslotammo("primary", self.pers["pri_ammo"]);
-				self setweaponslotclipammo("primary", self.pers["pri_clipammo"]);
+				// Speed mode: faster player, weapon held down (no firing, no weapon switch).
+				sprint_speed = int(getcvarint("g_speed") * level.back2uo_sprint_speedscale);
+
+				self setSpeed(sprint_speed);
+				self setHoldingWeaponDown(true);
+
+				self.pers["sprint_mode"] = "speed";
 			}
 			else
 			{
-				self setweaponslotammo("primaryb", self.pers["pri_b_ammo"]);
-				self setweaponslotclipammo("primaryb", self.pers["pri_b_clipammo"]);
+				// Weapon mode: save weapon and ammo of the slot holding the current weapon.
+				self back2uo_sprintsystem_inslot(normal_weapon);
+
+				sprint_weapon = normal_weapon + "_sprint";
+
+				if(self getWeaponSlotWeapon("primary") == normal_weapon)
+					self.pers["sprint_slot"] = "primary";
+				else
+					self.pers["sprint_slot"] = "primaryb";
+
+				// Put the sprint variant in the same slot and carry the ammo over.
+				self setweaponslotweapon(self.pers["sprint_slot"], sprint_weapon);
+
+				if(self.pers["sprint_slot"] == "primary")
+				{
+					self setweaponslotammo("primary", self.pers["pri_ammo"]);
+					self setweaponslotclipammo("primary", self.pers["pri_clipammo"]);
+				}
+				else
+				{
+					self setweaponslotammo("primaryb", self.pers["pri_b_ammo"]);
+					self setweaponslotclipammo("primaryb", self.pers["pri_b_clipammo"]);
+				}
+
+				self switchToWeapon(sprint_weapon);
+
+				self.pers["sprint_mode"] = "weapon";
 			}
 
-			self switchToWeapon(sprint_weapon);
-
-			sprint_start = getTime();
-			self.back2uo_sprint_lastskip = undefined;
-			back2uo\_back2uo_cvars::back2uo_logevent("sprint", "start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " weapon=" + normal_weapon + " slot=" + self.pers["sprint_slot"] + " stamina=" + self.hud_sprint_height + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+			// Logged once per sprint; a fallback to weapon mode is logged separately.
+			if(!isdefined(sprint_start))
+			{
+				sprint_start = getTime();
+				self.back2uo_sprint_lastskip = undefined;
+				back2uo\_back2uo_cvars::back2uo_logevent("sprint", "start", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " mode=" + self.pers["sprint_mode"] + " weapon=" + normal_weapon + " stamina=" + self.hud_sprint_height + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+			}
 		}
 
 		self.pers["sprinting"] = true;
@@ -222,12 +285,10 @@ back2uo_sprintsystem_run()
 		wait 0.1;
 	}
 
-	// Sprint ended: save the sprint weapon's ammo and restore the original weapon.
+	// Sprint ended: reset the speed, or save the sprint weapon's ammo and restore the original weapon.
 	if(isalive(self))
 	{
-		sprint_string = "";
-
-		self back2uo_sprintsystem_inslot2(self.pers["sprint_slot"]);
+		if(self.pers["sprint_mode"] == "weapon") self back2uo_sprintsystem_inslot2(self.pers["sprint_slot"]);
 
 		self back2uo_sprintsystem_stop();
 
@@ -385,8 +446,9 @@ back2uo_sprintsystem_inslot2(sprintslot)
 =============
 back2uo_sprintsystem_stop
 
-Ends the sprint state and puts the saved original weapon with its ammo back into the
-sprint slot, then switches to it. Does nothing if the player is not sprinting.
+Ends the sprint state. Speed mode: resets speed and weapon. Weapon mode: puts the saved
+original weapon with its ammo back into the sprint slot, then switches to it.
+Does nothing if the player is not sprinting.
 Called on: self = player
 =============
 */
@@ -398,21 +460,47 @@ back2uo_sprintsystem_stop()
 
 	self.pers["sprinting"] = false;
 
-	if(isdefined(self.pers["sprint_slot"]))
+	sprint_mode = self.pers["sprint_mode"];
+	self.pers["sprint_mode"] = "";
+
+	if(sprint_mode == "speed")
 	{
+		self back2uo_sprintsystem_speedstop();
+	}
+	else if(sprint_mode == "weapon" && isdefined(self.pers["sprint_slot"]))
+	{
+		// Switch back only while the sprint weapon is in hand, not after a switch to the
+		// other slot (e.g. the Panzerschreck).
+		current = self getcurrentweapon();
+		switch_back = (current == "none" || current == self getWeaponSlotWeapon(self.pers["sprint_slot"]));
+
 		if(self.pers["sprint_slot"] == "primary")
 		{
 			self setWeaponSlotWeapon("primary", self.pers["pri_weapon"]);
 			self setweaponslotammo("primary", self.pers["pri_ammo"]);
 			self setweaponslotclipammo("primary", self.pers["pri_clipammo"]);
-			self switchToWeapon(self.pers["pri_weapon"]);
+			if(switch_back) self switchToWeapon(self.pers["pri_weapon"]);
 		}
 		else
 		{
 			self setWeaponSlotWeapon("primaryb", self.pers["pri_b_weapon"]);
 			self setweaponslotammo("primaryb", self.pers["pri_b_ammo"]);
 			self setweaponslotclipammo("primaryb", self.pers["pri_b_clipammo"]);
-			self switchToWeapon(self.pers["pri_b_weapon"]);
+			if(switch_back) self switchToWeapon(self.pers["pri_b_weapon"]);
 		}
 	}
+}
+
+/*
+=============
+back2uo_sprintsystem_speedstop
+
+Ends a speed-mode sprint: setSpeed(0) returns to g_speed and the weapon is raised again.
+Called on: self = player
+=============
+*/
+back2uo_sprintsystem_speedstop()
+{
+	self setSpeed(0);
+	self setHoldingWeaponDown(false);
 }
