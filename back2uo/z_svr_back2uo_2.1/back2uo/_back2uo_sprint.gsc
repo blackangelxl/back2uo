@@ -46,7 +46,7 @@ back2uo_sprintsystem_main()
 
 	// zk_libcod keeps the per-player speed over death and reconnects; clear a speed left
 	// over from a sprint thread that ended without back2uo_sprintsystem_stop.
-	self setSpeed(0);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setspeed(0);
 
 	if(!isdefined(self.pers["weapon_pickupsprintwait"])) self.pers["weapon_pickupsprintwait"] = false;
 
@@ -66,7 +66,7 @@ back2uo_sprintsystem_main()
 		}
 
 		// Disabled condition: && !self.pers["breathing"]
-		if(self usebuttonpressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !self.pers["bino_inuse"] && !self aimButtonPressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
+		if(self usebuttonpressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
 		{
 			// Returns at once if a sprint is already running.
 			self thread back2uo_sprintsystem_run();
@@ -110,7 +110,7 @@ back2uo_sprintsystem_run()
 	stop_reason = "release";
 	sprint_start = undefined;
 
-	while(isalive(self) && self useButtonPressed() && !self.pers["bino_inuse"])
+	while(isalive(self) && self useButtonPressed() && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars())
 	{
 		positype = back2uo\_back2uo_cvars::back2uo_player_stance();
 
@@ -127,7 +127,7 @@ back2uo_sprintsystem_run()
 			break;
 		}
 
-		if(self.pers["bino_inuse"])
+		if(self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars())
 		{
 			stop_reason = "bino";
 			break;
@@ -135,7 +135,7 @@ back2uo_sprintsystem_run()
 
 		// Weapon zoom (ADS). zk_libcod aimButtonPressed reads the key itself, because in
 		// speed mode the held-down weapon cannot go into ADS.
-		if(self aimButtonPressed())
+		if(self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed())
 		{
 			stop_reason = "ads";
 			break;
@@ -204,10 +204,10 @@ back2uo_sprintsystem_run()
 		{
 			speed_checked = true;
 
-			if(self getSpeed() != sprint_speed)
+			if(self back2uo\_back2uo_libcod::back2uo_libcod_getspeed() != sprint_speed)
 			{
 				level.back2uo_sprint_speedfail = true;
-				back2uo\_back2uo_cvars::back2uo_logevent("sprint", "fallback", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " speed=" + self getSpeed() + " expected=" + sprint_speed);
+				back2uo\_back2uo_cvars::back2uo_logevent("sprint", "fallback", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " speed=" + self back2uo\_back2uo_libcod::back2uo_libcod_getspeed() + " expected=" + sprint_speed);
 
 				self back2uo_sprintsystem_speedstop();
 				self.pers["sprint_mode"] = "";
@@ -230,13 +230,14 @@ back2uo_sprintsystem_run()
 				return;
 			}
 
-			if(level.back2uo_sprint_mode == 1 && !isdefined(level.back2uo_sprint_speedfail))
+			// Speed mode needs zk_libcod setSpeed, otherwise the weapon swap is used.
+			if(level.back2uo_sprint_mode == 1 && !isdefined(level.back2uo_sprint_speedfail) && back2uo\_back2uo_libcod::back2uo_libcod_active())
 			{
 				// Speed mode: faster player, weapon held down (no firing, no weapon switch).
 				sprint_speed = int(getcvarint("g_speed") * level.back2uo_sprint_speedscale);
 
-				self setSpeed(sprint_speed);
-				self setHoldingWeaponDown(true);
+				self back2uo\_back2uo_libcod::back2uo_libcod_setspeed(sprint_speed);
+				self back2uo\_back2uo_libcod::back2uo_libcod_setholdingweapondown(true);
 
 				self.pers["sprint_mode"] = "speed";
 			}
@@ -295,7 +296,7 @@ back2uo_sprintsystem_run()
 		if(isdefined(sprint_start))
 		{
 			// Loop condition ended the sprint: Use released or binoculars
-			if(stop_reason == "release" && self.pers["bino_inuse"]) stop_reason = "bino";
+			if(stop_reason == "release" && self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars()) stop_reason = "bino";
 
 			back2uo\_back2uo_cvars::back2uo_logevent("sprint", "stop", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " reason=" + stop_reason + " duration=" + ((getTime() - sprint_start) / 1000) + " stamina=" + self.hud_sprint_height + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 		}
@@ -501,6 +502,6 @@ Called on: self = player
 */
 back2uo_sprintsystem_speedstop()
 {
-	self setSpeed(0);
-	self setHoldingWeaponDown(false);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setspeed(0);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setholdingweapondown(false);
 }

@@ -175,7 +175,7 @@ back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 	thread back2uo\_back2uo_sounds::back2uo_hit_taunts(attacker, sHitLoc);
 
 	// Test bots let go of all buttons and respawn without the use button.
-	if(game["back2uo_testbots_enable"] && self isBot()) self thread back2uo\bots\_back2uo_botai::back2uo_bot_killed();
+	if(game["back2uo_testbots_enable"] && self back2uo\_back2uo_libcod::back2uo_libcod_isbot()) self thread back2uo\bots\_back2uo_botai::back2uo_bot_killed();
 }
 
 /*
@@ -261,7 +261,7 @@ back2uo_player_spawn()
 	back2uo\_back2uo_cvars::back2uo_hud_elements_draw();
 
 	// Test bots move and fight on their own, see back2uo\bots\_back2uo_botai.gsc.
-	if(game["back2uo_testbots_enable"] && self isBot()) self thread back2uo\bots\_back2uo_botai::back2uo_bot_spawned();
+	if(game["back2uo_testbots_enable"] && self back2uo\_back2uo_libcod::back2uo_libcod_isbot()) self thread back2uo\bots\_back2uo_botai::back2uo_bot_spawned();
 }
 
 /*

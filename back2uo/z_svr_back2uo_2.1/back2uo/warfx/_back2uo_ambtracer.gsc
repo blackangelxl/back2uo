@@ -108,7 +108,7 @@ back2uo_ambtracerfx_play()
 		for(x=0; x < tracer_delay; x++)
 		{
 			// Low height (2-11 units) at the map corner.
-			position = ( xpos, ypos, float(2 + randomfloat(10)));
+			position = ( xpos, ypos, 2 + randomfloat(10));
 
 			playfx(level.back2uo_effect["ambiente_tracer"], position);
 

@@ -12,8 +12,8 @@
 back2uo_binocular_control
 
 Waits for the player to raise the binoculars and starts the distance display and
-its cleanup thread. If the player was sprinting, binocular use is flagged and the
-display is cleared again after 1 second.
+its cleanup thread. If the player was sprinting, the display is cleared again after
+1 second.
 Called on: self = player
 =============
 */
@@ -32,8 +32,6 @@ back2uo_binocular_control()
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-
-	self.pers["bino_inuse"] = false;
 
 	for (;;)
 	{
@@ -67,11 +65,9 @@ back2uo_binocular_control()
 
 		wait 0.2;
 
-		// Sprinting with binoculars: flag binocular use (stops sprinting) and clear the display again.
+		// Sprinting with binoculars: clear the display again (the sprint itself stops via isUsingBinoculars).
 		if(isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
 		{
-			self.pers["bino_inuse"] = true;
-
 			back2uo\_back2uo_cvars::back2uo_logevent("binocular", "sprintcancel", back2uo\_back2uo_cvars::back2uo_logplayer(self));
 
 			wait 1;
@@ -218,7 +214,6 @@ back2uo_binocular_distance_clear()
 	self waittill("binocular_exit");
 
 	self.back2uo_bino_up = false;
-	self.pers["bino_inuse"] = false;
 	self.back2uo_playerdo = "none";
 
 	if(isdefined(self.back2uo_artuseing)) self.back2uo_artuseing destroy();
@@ -252,7 +247,6 @@ back2uo_binocular_distance_clear2()
 
 	// Cancels a display that is still in its start delay.
 	self.back2uo_bino_up = false;
-	self.pers["bino_inuse"] = false;
 	self.back2uo_playerdo = "none";
 
 	if(isdefined(self.back2uo_artuseing)) self.back2uo_artuseing destroy();
