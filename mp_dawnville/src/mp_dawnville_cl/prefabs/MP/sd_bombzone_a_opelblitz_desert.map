@@ -1,0 +1,86 @@
+iwmap 4
+// entity 0
+{
+"ambient" ".5"
+"sunlight" "2"
+"sundirection" "-45 95 0"
+"suncolor" "1.000000 1.000000 0.882353"
+"classname" "worldspawn"
+"sundiffusecolor" "0.909804 0.952941 1.000000"
+"_color" "1 1 1"
+}
+// entity 1
+{
+"target" "auto1"
+"script_bombmode_single" "1"
+"script_team" "axis"
+"script_bombmode_dual" "1"
+"script_bombmode_original" "1"
+"script_label" "A"
+"classname" "trigger_use_touch"
+"targetname" "bombzone"
+"script_gameobjectname" "bombzone"
+// brush 0
+{
+ ( -16 -32 -32 ) ( -16 16 -32 ) ( -16 16 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 16 -32 ) ( 32 16 -32 ) ( 32 16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 16 -32 ) ( 16 -32 -32 ) ( 16 -32 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -16 -32 ) ( -16 -16 -32 ) ( -16 -16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -32 64 ) ( -16 -32 64 ) ( -16 16 64 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -32 32 ) ( 32 -32 32 ) ( 32 16 32 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+ ( 80 176 0 ) ( -112 176 0 ) ( -112 -224 0 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -132 -224 96 ) ( -132 176 96 ) ( 60 176 96 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -80 -176 16 ) ( 112 -176 16 ) ( 112 -176 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 128 -224 16 ) ( 128 176 16 ) ( 128 176 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 80 176 16 ) ( -112 176 16 ) ( -112 176 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -128 176 16 ) ( -128 -224 16 ) ( -128 -224 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"script_sound" "flak88_explode"
+"classname" "script_model"
+"model" "xmodel/vehicle_opel_blitz_desert_d_static"
+"angles" "0 90 0"
+"script_exploder" "1"
+"targetname" "exploder"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 3
+{
+"origin" "0 0 0"
+"script_exploder" "1"
+"angles" "0 90 0"
+"model" "xmodel/vehicle_opel_blitz_desert_static"
+"classname" "script_model"
+"script_gameobjectname" "bombzone"
+}
+// entity 4
+{
+"targetname" "auto1"
+"script_exploder" "1"
+"script_fxid" "flak_explosion"
+"classname" "script_model"
+"model" "xmodel/fx"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 5
+{
+"script_gameobjectname" "bombzone"
+"exploder" "1"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 32 72 0 ) ( -32 72 0 ) ( -32 -80 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -80 120 ) ( -32 72 120 ) ( 32 72 120 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -128 96 ) ( 48 -128 96 ) ( 48 -128 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -80 96 ) ( 50 72 96 ) ( 50 72 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 36 126 96 ) ( -28 126 96 ) ( -28 126 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -48 88 96 ) ( -48 -64 96 ) ( -48 -64 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

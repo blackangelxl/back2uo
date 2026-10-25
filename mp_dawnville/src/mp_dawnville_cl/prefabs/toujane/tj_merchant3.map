@@ -1,0 +1,12 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"angles" "0 90 0"
+"origin" "0 -1 0"
+"model" "xmodel/prop_market_stands5"
+"classname" "misc_model"
+}

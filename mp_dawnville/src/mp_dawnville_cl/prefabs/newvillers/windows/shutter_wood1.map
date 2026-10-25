@@ -1,0 +1,19 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -13 9 0 ) ( -13 -3 0 ) ( 39 -3 0 ) v_shutter_01 60 22 -0.9375 -11 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 37 -3 60 ) ( -15 -3 60 ) ( -15 9 60 ) v_shutter_01 60 22 31.40625 -11 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 37 1 66 ) ( -15 1 66 ) ( -15 1 -10 ) v_shutter_01 60 22 0 -11 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -11 9 66 ) ( -11 -3 66 ) ( -11 -3 -10 ) v_shutter_01 69.120003 22 -4.5900002 -9.96875 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -15 -1 66 ) ( 37 -1 66 ) ( 37 -1 -10 ) v_shutter_01 60 22 0 -11 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 11 65 -8 ) ( 11 65 -4 ) ( 11 97 -8 ) v_shutter_01 69.120003 22 -4.5900002 -9.96875 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

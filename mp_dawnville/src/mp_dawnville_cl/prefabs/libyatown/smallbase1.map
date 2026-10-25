@@ -1,0 +1,25 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( -8 -8 0 ) ( 8 -8 0 ) ( 8 8 0 ) caulk 64 64 -60 54 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 7 -4 10 ) ( -5 -4 10 ) ( -5 4 10 ) egypt_plaster_exteriorwall02 128 128 -124 118 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 9 7 0 ) ( 9 -7 0 ) ( 8 -7 10 ) egypt_plaster_exteriorwall02 128 128 -118 -10 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8 8 0 ) ( 8 8 0 ) ( 7 7 10 ) egypt_plaster_exteriorwall02 128 128 -124 -10 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -9 -7 0 ) ( -9 7 0 ) ( -8 7 10 ) egypt_plaster_exteriorwall02 128 128 -118 -10 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -8 0 ) ( -8 -8 0 ) ( -7 -7 10 ) egypt_plaster_exteriorwall02 128 128 -124 -10 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents nonColliding;
+ ( -8 -8 0 ) ( 8 -8 0 ) ( 8 8 0 ) nodraw_decal 64 64 -60 54 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 7 -4 10 ) ( -5 -4 10 ) ( -5 4 10 ) toujane_dirt_walltrim_dark 128 64 -124 10 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 9 7 0 ) ( 9 -7 0 ) ( 8 -7 10 ) toujane_dirt_walltrim_dark 128 64 -118 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8 8 0 ) ( 8 8 0 ) ( 7 7 10 ) toujane_dirt_walltrim_dark 128 64 -124 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -9 -7 0 ) ( -9 7 0 ) ( -8 7 10 ) toujane_dirt_walltrim_dark 128 64 -118 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -8 0 ) ( -8 -8 0 ) ( -7 -7 10 ) toujane_dirt_walltrim_dark 128 64 -124 -63 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

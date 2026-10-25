@@ -1,0 +1,105 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents weaponClip;
+ ( 26 4 0 ) ( -2 4 0 ) ( -2 0 0 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 0 192 ) ( 2 4 192 ) ( 30 4 192 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 0 352 ) ( 26 0 352 ) ( 26 0 0 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -2 352 ) ( 2 2 352 ) ( 2 2 0 ) toujane_woodtrim1 64 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 4 352 ) ( -2 4 352 ) ( -2 4 0 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 4 352 ) ( 0 0 352 ) ( 0 0 0 ) toujane_woodtrim1 64 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents weaponClip;
+ ( 44 4 0 ) ( 16 4 0 ) ( 16 0 0 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 0 192 ) ( 20 4 192 ) ( 48 4 192 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 0 352 ) ( 44 0 352 ) ( 44 0 0 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 -2 352 ) ( 20 2 352 ) ( 20 2 0 ) toujane_woodtrim1 64 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 4 352 ) ( 16 4 352 ) ( 16 4 0 ) toujane_woodtrim1 64 128 -6 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 4 352 ) ( 18 0 352 ) ( 18 0 0 ) toujane_woodtrim1 64 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents weaponClip;
+ ( 24 4 12 ) ( -4 4 12 ) ( -4 0 12 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 260 ) ( 22 -1 260 ) ( 22 -1 4 ) toujane_woodtrim1 64 128 4 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 260 ) ( 22 4 260 ) ( 22 4 4 ) toujane_woodtrim1 64 128 4 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 260 ) ( -6 5 260 ) ( -6 5 4 ) toujane_woodtrim1 64 128 4 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 260 ) ( -2 0 260 ) ( -2 0 4 ) toujane_woodtrim1 64 128 4 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 14 ) ( -4 -256 14 ) ( 0 -224 14 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents weaponClip;
+ ( 24 4 36 ) ( -4 4 36 ) ( -4 0 36 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 284 ) ( 22 -1 284 ) ( 22 -1 28 ) toujane_woodtrim1 64 128 28 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 284 ) ( 22 4 284 ) ( 22 4 28 ) toujane_woodtrim1 64 128 28 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 284 ) ( -6 5 284 ) ( -6 5 28 ) toujane_woodtrim1 64 128 28 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 284 ) ( -2 0 284 ) ( -2 0 28 ) toujane_woodtrim1 64 128 28 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 38 ) ( -4 -256 38 ) ( 0 -224 38 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents weaponClip;
+ ( 24 4 84 ) ( -4 4 84 ) ( -4 0 84 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 332 ) ( 22 -1 332 ) ( 22 -1 76 ) toujane_woodtrim1 64 128 12 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 332 ) ( 22 4 332 ) ( 22 4 76 ) toujane_woodtrim1 64 128 12 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 332 ) ( -6 5 332 ) ( -6 5 76 ) toujane_woodtrim1 64 128 12 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 332 ) ( -2 0 332 ) ( -2 0 76 ) toujane_woodtrim1 64 128 12 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 86 ) ( -4 -256 86 ) ( 0 -224 86 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents weaponClip;
+ ( 24 4 60 ) ( -4 4 60 ) ( -4 0 60 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 308 ) ( 22 -1 308 ) ( 22 -1 52 ) toujane_woodtrim1 64 128 20 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 308 ) ( 22 4 308 ) ( 22 4 52 ) toujane_woodtrim1 64 128 20 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 308 ) ( -6 5 308 ) ( -6 5 52 ) toujane_woodtrim1 64 128 20 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 308 ) ( -2 0 308 ) ( -2 0 52 ) toujane_woodtrim1 64 128 20 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 62 ) ( -4 -256 62 ) ( 0 -224 62 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents weaponClip;
+ ( 24 4 132 ) ( -4 4 132 ) ( -4 0 132 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 380 ) ( 22 -1 380 ) ( 22 -1 124 ) toujane_woodtrim1 64 128 28 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 380 ) ( 22 4 380 ) ( 22 4 124 ) toujane_woodtrim1 64 128 28 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 380 ) ( -6 5 380 ) ( -6 5 124 ) toujane_woodtrim1 64 128 28 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 380 ) ( -2 0 380 ) ( -2 0 124 ) toujane_woodtrim1 64 128 28 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 134 ) ( -4 -256 134 ) ( 0 -224 134 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents weaponClip;
+ ( 24 4 108 ) ( -4 4 108 ) ( -4 0 108 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 356 ) ( 22 -1 356 ) ( 22 -1 100 ) toujane_woodtrim1 64 128 4 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 356 ) ( 22 4 356 ) ( 22 4 100 ) toujane_woodtrim1 64 128 4 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 356 ) ( -6 5 356 ) ( -6 5 100 ) toujane_woodtrim1 64 128 4 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 356 ) ( -2 0 356 ) ( -2 0 100 ) toujane_woodtrim1 64 128 4 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 110 ) ( -4 -256 110 ) ( 0 -224 110 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents weaponClip;
+ ( 24 4 180 ) ( -4 4 180 ) ( -4 0 180 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 428 ) ( 22 -1 428 ) ( 22 -1 172 ) toujane_woodtrim1 64 128 12 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 428 ) ( 22 4 428 ) ( 22 4 172 ) toujane_woodtrim1 64 128 12 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 428 ) ( -6 5 428 ) ( -6 5 172 ) toujane_woodtrim1 64 128 12 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 428 ) ( -2 0 428 ) ( -2 0 172 ) toujane_woodtrim1 64 128 12 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 182 ) ( -4 -256 182 ) ( 0 -224 182 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents weaponClip;
+ ( 24 4 156 ) ( -4 4 156 ) ( -4 0 156 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -1 404 ) ( 22 -1 404 ) ( 22 -1 148 ) toujane_woodtrim1 64 128 20 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 0 404 ) ( 22 4 404 ) ( 22 4 148 ) toujane_woodtrim1 64 128 20 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 5 404 ) ( -6 5 404 ) ( -6 5 148 ) toujane_woodtrim1 64 128 20 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 4 404 ) ( -2 0 404 ) ( -2 0 148 ) toujane_woodtrim1 64 128 20 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -256 158 ) ( -4 -256 158 ) ( 0 -224 158 ) toujane_woodtrim1 64 128 0 26 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

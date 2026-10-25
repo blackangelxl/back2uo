@@ -1,0 +1,81 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+ {
+  mesh
+  {
+  contents nonColliding;
+   africa_palm_backdrop
+   lightmap_gray
+   2 2 0 1.7508e-313
+   (
+	v 128 0 0 t 1024 1024 8 0
+	v 128 0 512 t 1024 0 8 -32 f 1
+   )
+   (
+	v -128 0 0 t 0 1024 -8 0 f 1
+	v -128 0 512 t 0 0 -8 -32 f 1
+   )
+  }
+ }
+// brush 1
+ {
+  mesh
+  {
+  contents nonColliding;
+   africa_palm_backdrop
+   lightmap_gray
+   2 2 0 1.7508e-313
+   (
+	v 128 0 512 t 0 0 8 -32 f 1
+	v 128 0 0 t 0 1024 8 0 f 1
+   )
+   (
+	v -128 0 512 t 1024 0 -8 -32 f 1
+	v -128 0 0 t 1024 1024 -8 0 f 1
+   )
+  }
+ }
+// brush 2
+ {
+  mesh
+  {
+  contents nonColliding;
+   africa_palm_backdrop
+   lightmap_gray
+   2 2 0 1.7508e-313
+   (
+	v 0 128 0 t 1024 1024 8 0
+	v 0 128 512 t 1024 0 8 -32 f 1
+   )
+   (
+	v 0 -128 0 t 0 1024 -8 0 f 1
+	v 0 -128 512 t 0 0 -8 -32 f 1
+   )
+  }
+ }
+// brush 3
+ {
+  mesh
+  {
+  contents nonColliding;
+   africa_palm_backdrop
+   lightmap_gray
+   2 2 0 1.7508e-313
+   (
+	v 0 128 512 t 0 0 8 -32 f 1
+	v 0 128 0 t 0 1024 8 0 f 1
+   )
+   (
+	v 0 -128 512 t 1024 0 -8 -32 f 1
+	v 0 -128 0 t 1024 1024 -8 0 f 1
+   )
+  }
+ }
+}

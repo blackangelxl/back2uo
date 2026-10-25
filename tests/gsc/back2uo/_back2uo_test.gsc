@@ -38,6 +38,14 @@ run()
 	// Let Callback_StartGameType and the mod start code finish first
 	wait 1;
 
+	// tools/wpgen.py: generate bot waypoints instead of running the tests
+	if(getcvarint("back2uo_wpgen") == 1)
+	{
+		back2uo\test\_wpgen::run();
+		game["back2uo_test_done"] = true;
+		return;
+	}
+
 	back2uo\test\_assert::init();
 	back2uo\test\_assert::out("START;" + getcvar("g_gametype") + ";" + getcvar("mapname"));
 

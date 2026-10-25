@@ -1,0 +1,648 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( -29 -18 192 ) ( -29 38 192 ) ( 18 38 192 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 212 ) ( 18 -18 212 ) ( 18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 196 ) ( 14 -14 -64 ) ( 18 -18 -64 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 -68 ) ( -14 -14 192 ) ( -18 -18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -8594 160 ) ( 2 -8594 160 ) ( -14 -8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 4 38 12 ) ( -43 38 12 ) ( -43 -18 12 ) caulk 64 64 -46 14 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 150 ) ( -29 38 150 ) ( 18 38 150 ) caulk 64 64 -46 14 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -14 192 ) ( 18 -14 192 ) ( 18 -14 -68 ) egypt_plaster_exteriorwall02 128 128 -122 -10 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -18 184 ) ( 14 38 184 ) ( 14 38 -76 ) egypt_plaster_exteriorwall02 128 128 0 0 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 18 14 192 ) ( -29 14 192 ) ( -29 14 -68 ) egypt_plaster_exteriorwall02 128 128 0 0 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 39 176 ) ( -14 -17 176 ) ( -14 -17 -84 ) egypt_plaster_exteriorwall02 128 128 -100 -10 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -18 29 192 ) ( 38 29 192 ) ( 38 -18 192 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 196 ) ( -14 -14 -64 ) ( -18 -18 -64 ) caulk 64 64 -2 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -68 ) ( -14 14 192 ) ( -18 18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 -48 ) ( -14 -14 212 ) ( -14 14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 14 160 ) ( -8594 -2 160 ) ( -8562 14 160 ) caulk 64 64 -62 53 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( 29 18 192 ) ( 29 -38 192 ) ( -18 -38 192 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 196 ) ( -14 14 -64 ) ( -18 18 -64 ) caulk 64 64 -50 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -68 ) ( 14 14 192 ) ( 18 18 192 ) caulk 64 64 -50 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 8594 160 ) ( -2 8594 160 ) ( 14 8562 160 ) caulk 64 64 -46 37 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( 6 38 200 ) ( -41 38 200 ) ( -41 -18 200 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -29 -16 240 ) ( 18 -16 240 ) ( 18 -16 -20 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 16 -18 220 ) ( 16 38 220 ) ( 16 38 -40 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 18 16 240 ) ( -29 16 240 ) ( -29 16 -20 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 39 224 ) ( -16 -17 224 ) ( -16 -17 -36 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -4782 -16 202 ) ( -4782 0 206 ) ( -4750 -16 202 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -4782 0 206 ) ( -4782 16 202 ) ( -4750 0 206 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -8594 206 ) ( -16 -8594 202 ) ( -16 -8562 202 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 16 -8594 202 ) ( 0 -8594 206 ) ( 0 -8562 206 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( 18 -29 192 ) ( -38 -29 192 ) ( -38 18 192 ) egypt_plaster_exteriorwall02 128 128 -122 91 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 196 ) ( 14 14 -64 ) ( 18 18 -64 ) caulk 64 64 -2 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -68 ) ( 14 -14 192 ) ( 18 -18 192 ) caulk 64 64 -2 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -48 ) ( 14 14 212 ) ( 14 -14 212 ) caulk 64 64 -30 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 -14 160 ) ( 8594 2 160 ) ( 8562 -14 160 ) caulk 64 64 -30 53 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( 6 38 192 ) ( -41 38 192 ) ( -41 -18 192 ) caulk 64 64 -46 14 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 200 ) ( -29 38 200 ) ( 18 38 200 ) caulk 64 64 -46 14 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -14 232 ) ( 18 -14 232 ) ( 18 -14 -28 ) egypt_plaster_exteriorwall02 128 128 -122 -10 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -18 212 ) ( 14 38 212 ) ( 14 38 -48 ) egypt_plaster_exteriorwall02 128 128 -100 -10 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 18 14 232 ) ( -29 14 232 ) ( -29 14 -28 ) egypt_plaster_exteriorwall02 128 128 -122 -10 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 39 216 ) ( -14 -17 216 ) ( -14 -17 -44 ) egypt_plaster_exteriorwall02 128 128 -100 -10 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 7
+{
+  contents detail;
+ ( 4 38 44 ) ( -43 38 44 ) ( -43 -18 44 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -14 207 ) ( 18 -14 207 ) ( 18 -14 -53 ) toujane_dirt_walltrim_dark 128 64 0 -26.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -18 199 ) ( 14 38 199 ) ( 14 38 -61 ) toujane_dirt_walltrim_dark 128 64 0 -26.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 18 14 207 ) ( -29 14 207 ) ( -29 14 -53 ) toujane_dirt_walltrim_dark 128 64 0 -26.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 39 191 ) ( -14 -17 191 ) ( -14 -17 -69 ) toujane_dirt_walltrim_dark 128 64 0 -26.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -7 0 86 ) ( -20 0 86 ) ( -20 32 86 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 18 38 12 ) ( -29 38 12 ) ( -29 -18 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 224 ) ( 18 -18 224 ) ( 18 -18 -36 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 -57 ) ( -14 -14 203 ) ( -18 -18 203 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -8594 112 ) ( -14 -8594 112 ) ( -14 -8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 -14 75 ) ( -10 -18 75 ) ( -10 -14 107 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 18 38 12 ) ( -29 38 12 ) ( -29 -18 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 224 ) ( 18 -18 224 ) ( 18 -18 -36 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 208 ) ( 14 -14 -52 ) ( 18 -18 -52 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -8594 112 ) ( -14 -8594 112 ) ( -14 -8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -18 128 ) ( 10 -14 128 ) ( 10 -14 160 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 17 38 12 ) ( -30 38 12 ) ( -30 -18 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 224 ) ( 18 -18 224 ) ( 18 -18 -36 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -36 ) ( 14 -14 224 ) ( -14 -14 224 ) caulk 64 64 -46 -25 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -8594 44 ) ( -16 -8594 44 ) ( -16 -8562 44 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 -18 76 ) ( -10 -14 76 ) ( -10 -14 108 ) caulk 64 64 -18 -25 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -14 76 ) ( 10 -18 76 ) ( 10 -14 108 ) caulk 64 64 -18 -25 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( -29 -18 212 ) ( 18 -18 212 ) ( 18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 196 ) ( 14 -14 -64 ) ( 18 -18 -64 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -8594 160 ) ( -14 -8594 160 ) ( -14 -8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -8594 112 ) ( 10 -8594 112 ) ( -14 -8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 -20 64 ) ( 6 -14 64 ) ( 6 -14 96 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 6 -8594 114 ) ( 10 -8594 112 ) ( 10 -8562 112 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( -29 -18 202 ) ( 18 -18 202 ) ( 18 -18 -58 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -58 ) ( 14 -14 202 ) ( -14 -14 202 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 -14 54 ) ( 6 -20 54 ) ( 6 -14 86 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 -14 148 ) ( 4 -18 148 ) ( 6 -18 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 4 -18 152 ) ( 4 -14 152 ) ( 6 -14 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 -18 148 ) ( 4 -14 148 ) ( 4 -14 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( 4 -14 148 ) ( 4 -14 150 ) ( 0 -14 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 -18 150 ) ( 4 -18 148 ) ( 0 -18 150 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 -14 152 ) ( 4 -18 152 ) ( 0 -18 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 -18 148 ) ( 4 -14 148 ) ( 0 -14 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 -18 152 ) ( 4 -14 152 ) ( 4 -14 148 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -18 62 ) ( 0 -12 62 ) ( 0 -18 94 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( -29 -18 212 ) ( 18 -18 212 ) ( 18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -8594 160 ) ( -14 -8594 160 ) ( -14 -8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -8594 152 ) ( 10 -8594 152 ) ( -14 -8562 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -16 64 ) ( -6 -12 64 ) ( -6 -16 96 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 -14 64 ) ( 6 -20 64 ) ( 6 -14 96 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents detail;
+ ( -4 -18 148 ) ( -4 -18 150 ) ( 0 -18 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -14 150 ) ( -4 -14 148 ) ( 0 -14 150 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -18 152 ) ( -4 -14 152 ) ( 0 -14 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -14 148 ) ( -4 -18 148 ) ( 0 -18 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -14 152 ) ( -4 -18 152 ) ( -4 -18 148 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -14 62 ) ( 0 -20 62 ) ( 0 -14 94 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents detail;
+ ( -6 -18 148 ) ( -6 -18 150 ) ( -2 -18 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -14 150 ) ( -6 -14 148 ) ( -2 -14 150 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -14 152 ) ( -4 -18 152 ) ( -6 -18 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -18 150 ) ( -6 -14 150 ) ( -6 -14 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -14 148 ) ( -4 -18 148 ) ( -4 -18 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 -18 148 ) ( -4 -14 148 ) ( -6 -14 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents detail;
+ ( -29 -18 212 ) ( 18 -18 212 ) ( 18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 -68 ) ( -14 -14 192 ) ( -18 -18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 2 -8594 160 ) ( -14 -8594 160 ) ( -14 -8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -8594 112 ) ( 10 -8594 112 ) ( -14 -8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 -12 64 ) ( -6 -16 64 ) ( -6 -16 96 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 -8594 112 ) ( -6 -8594 114 ) ( -6 -8562 114 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -18 -38 12 ) ( 29 -38 12 ) ( 29 18 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 196 ) ( -14 14 -64 ) ( -18 18 -64 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 8594 112 ) ( 14 8594 112 ) ( 14 8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 18 140 ) ( -10 14 140 ) ( -10 14 172 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -18 -38 12 ) ( 29 -38 12 ) ( 29 18 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 -68 ) ( 14 14 192 ) ( 18 18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 8594 112 ) ( 14 8594 112 ) ( 14 8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 14 64 ) ( 10 18 64 ) ( 10 14 96 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -20 -38 12 ) ( 27 -38 12 ) ( 27 18 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 252 ) ( -18 18 252 ) ( -18 18 -8 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -8 ) ( -14 14 252 ) ( 14 14 252 ) caulk 64 64 -46 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 8594 44 ) ( 14 8594 44 ) ( 14 8562 44 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 18 104 ) ( 10 14 104 ) ( 10 14 136 ) caulk 64 64 -18 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 14 104 ) ( -10 18 104 ) ( -10 14 136 ) caulk 64 64 -18 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 -68 ) ( 14 14 192 ) ( 18 18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 8594 160 ) ( 14 8594 160 ) ( 14 8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 8594 112 ) ( -10 8594 112 ) ( 14 8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 12 64 ) ( 6 16 64 ) ( 6 16 96 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 10 8594 112 ) ( 6 8594 114 ) ( 6 8562 114 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( 6 18 148 ) ( 6 18 150 ) ( 2 18 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 14 150 ) ( 6 14 148 ) ( 2 14 150 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 14 152 ) ( 4 18 152 ) ( 6 18 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 18 150 ) ( 6 14 150 ) ( 6 14 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 14 148 ) ( 4 18 148 ) ( 4 18 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 18 148 ) ( 4 14 148 ) ( 6 14 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( 4 18 148 ) ( 4 18 150 ) ( 0 18 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 14 150 ) ( 4 14 148 ) ( 0 14 150 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 18 152 ) ( 4 14 152 ) ( 0 14 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 14 148 ) ( 4 18 148 ) ( 0 18 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 14 152 ) ( 4 18 152 ) ( 4 18 148 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 14 62 ) ( 0 20 62 ) ( 0 14 94 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 8594 160 ) ( 14 8594 160 ) ( 14 8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 8594 152 ) ( -10 8594 152 ) ( 14 8562 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 6 16 64 ) ( 6 12 64 ) ( 6 16 96 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 14 64 ) ( -6 20 64 ) ( -6 14 96 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents detail;
+ ( -4 14 148 ) ( -4 14 150 ) ( 0 14 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 18 150 ) ( -4 18 148 ) ( 0 18 150 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 14 152 ) ( -4 18 152 ) ( 0 18 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 18 148 ) ( -4 14 148 ) ( 0 14 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 18 152 ) ( -4 14 152 ) ( -4 14 148 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 18 62 ) ( 0 12 62 ) ( 0 18 94 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents detail;
+ ( 29 18 202 ) ( -18 18 202 ) ( -18 18 -58 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -58 ) ( -14 14 202 ) ( 14 14 202 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 14 54 ) ( -6 20 54 ) ( -6 14 86 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 14 148 ) ( -4 18 148 ) ( -6 18 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 18 152 ) ( -4 14 152 ) ( -6 14 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 18 148 ) ( -4 14 148 ) ( -4 14 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents detail;
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 196 ) ( -14 14 -64 ) ( -18 18 -64 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 8594 160 ) ( 14 8594 160 ) ( 14 8562 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 8594 112 ) ( -10 8594 112 ) ( 14 8562 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 20 64 ) ( -6 14 64 ) ( -6 14 96 ) egypt_plaster_stucco1 256 256 -146 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -6 8594 114 ) ( -10 8594 112 ) ( -10 8562 112 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 3
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -38 18 12 ) ( -38 -29 12 ) ( 18 -29 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 -68 ) ( 14 -14 192 ) ( 18 -18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -36 ) ( 14 14 224 ) ( 14 -14 224 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 10 112 ) ( 8594 -14 112 ) ( 8562 -14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -10 64 ) ( 18 -10 64 ) ( 14 -10 96 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -38 18 12 ) ( -38 -29 12 ) ( 18 -29 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 195 ) ( 14 14 -65 ) ( 18 18 -65 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 28 ) ( 14 14 288 ) ( 14 -14 288 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 10 112 ) ( 8594 -14 112 ) ( 8562 -14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 10 128 ) ( 14 10 128 ) ( 14 10 160 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -37 18 12 ) ( -37 -29 12 ) ( 19 -29 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 252 ) ( 18 18 252 ) ( 18 18 -8 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -4 ) ( 14 14 256 ) ( 14 -14 256 ) caulk 64 64 -18 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 10 44 ) ( 8594 -14 44 ) ( 8562 -14 44 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -10 104 ) ( 14 -10 104 ) ( 14 -10 136 ) caulk 64 64 -46 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 10 104 ) ( 18 10 104 ) ( 14 10 136 ) caulk 64 64 -46 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 196 ) ( 14 14 -64 ) ( 18 18 -64 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -48 ) ( 14 14 212 ) ( 14 -14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 2 160 ) ( 8594 -14 160 ) ( 8562 -14 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 -14 112 ) ( 8594 10 112 ) ( 8562 -14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 6 64 ) ( 14 6 64 ) ( 14 6 96 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 8594 6 114 ) ( 8594 10 112 ) ( 8562 10 112 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( 18 -29 202 ) ( 18 18 202 ) ( 18 18 -58 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 -58 ) ( 14 14 202 ) ( 14 -14 202 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 6 54 ) ( 20 6 54 ) ( 14 6 86 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 4 148 ) ( 18 4 148 ) ( 18 6 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 4 152 ) ( 14 4 152 ) ( 14 6 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 4 148 ) ( 14 4 148 ) ( 14 4 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( 14 4 148 ) ( 14 4 150 ) ( 14 0 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 4 150 ) ( 18 4 148 ) ( 18 0 150 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 4 152 ) ( 18 4 152 ) ( 18 0 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 4 148 ) ( 14 4 148 ) ( 14 0 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 4 152 ) ( 14 4 152 ) ( 14 4 148 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 0 62 ) ( 12 0 62 ) ( 18 0 94 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 -48 ) ( 14 14 212 ) ( 14 -14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 2 160 ) ( 8594 -14 160 ) ( 8562 -14 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 -14 152 ) ( 8594 10 152 ) ( 8562 -14 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 -6 64 ) ( 12 -6 64 ) ( 16 -6 96 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 6 64 ) ( 20 6 64 ) ( 14 6 96 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents detail;
+ ( 18 -4 148 ) ( 18 -4 150 ) ( 18 0 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -4 150 ) ( 14 -4 148 ) ( 14 0 150 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -4 152 ) ( 14 -4 152 ) ( 14 0 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -4 148 ) ( 18 -4 148 ) ( 18 0 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -4 152 ) ( 18 -4 152 ) ( 18 -4 148 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 0 62 ) ( 20 0 62 ) ( 14 0 94 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents detail;
+ ( 18 -6 148 ) ( 18 -6 150 ) ( 18 -2 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -6 150 ) ( 14 -6 148 ) ( 14 -2 150 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -4 152 ) ( 18 -4 152 ) ( 18 -6 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -6 150 ) ( 14 -6 150 ) ( 14 -6 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -4 148 ) ( 18 -4 148 ) ( 18 -4 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -4 148 ) ( 14 -4 148 ) ( 14 -6 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents detail;
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 -68 ) ( 14 -14 192 ) ( 18 -18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -48 ) ( 14 14 212 ) ( 14 -14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 2 160 ) ( 8594 -14 160 ) ( 8562 -14 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 -14 112 ) ( 8594 10 112 ) ( 8562 -14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 12 -6 64 ) ( 16 -6 64 ) ( 16 -6 96 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 8594 -10 112 ) ( 8594 -6 114 ) ( 8562 -6 114 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 4
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 38 -18 12 ) ( 38 29 12 ) ( -18 29 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 207 ) ( -14 -14 -53 ) ( -18 -18 -53 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 28 ) ( -14 -14 288 ) ( -14 14 288 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -10 112 ) ( -8594 14 112 ) ( -8562 14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -10 64 ) ( -14 -10 64 ) ( -14 -10 96 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 38 -18 12 ) ( 38 29 12 ) ( -18 29 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 -56 ) ( -14 14 204 ) ( -18 18 204 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 28 ) ( -14 -14 288 ) ( -14 14 288 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -10 112 ) ( -8594 14 112 ) ( -8562 14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 10 140 ) ( -18 10 140 ) ( -14 10 172 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 37 -18 12 ) ( 37 29 12 ) ( -19 29 12 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 252 ) ( -18 -18 252 ) ( -18 -18 -8 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 -4 ) ( -14 -14 256 ) ( -14 14 256 ) caulk 64 64 -18 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -10 44 ) ( -8594 14 44 ) ( -8562 14 44 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 10 104 ) ( -14 10 104 ) ( -14 10 136 ) caulk 64 64 -46 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -10 104 ) ( -18 -10 104 ) ( -14 -10 136 ) caulk 64 64 -46 -53 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 -68 ) ( -14 14 192 ) ( -18 18 192 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 -48 ) ( -14 -14 212 ) ( -14 14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -2 160 ) ( -8594 14 160 ) ( -8562 14 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 14 112 ) ( -8594 -10 112 ) ( -8562 14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -12 6 64 ) ( -16 6 64 ) ( -16 6 96 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -8594 10 112 ) ( -8594 6 114 ) ( -8562 6 114 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( -18 6 148 ) ( -18 6 150 ) ( -18 2 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 6 150 ) ( -14 6 148 ) ( -14 2 150 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 4 152 ) ( -18 4 152 ) ( -18 6 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 6 150 ) ( -14 6 150 ) ( -14 6 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 4 148 ) ( -18 4 148 ) ( -18 4 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 4 148 ) ( -14 4 148 ) ( -14 6 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( -18 4 148 ) ( -18 4 150 ) ( -18 0 152 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 4 150 ) ( -14 4 148 ) ( -14 0 150 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 4 152 ) ( -14 4 152 ) ( -14 0 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 4 148 ) ( -18 4 148 ) ( -18 0 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 4 152 ) ( -18 4 152 ) ( -18 4 148 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 0 62 ) ( -20 0 62 ) ( -14 0 94 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 -48 ) ( -14 -14 212 ) ( -14 14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -2 160 ) ( -8594 14 160 ) ( -8562 14 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 14 152 ) ( -8594 -10 152 ) ( -8562 14 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 6 64 ) ( -12 6 64 ) ( -16 6 96 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -6 64 ) ( -20 -6 64 ) ( -14 -6 96 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents detail;
+ ( -14 -4 148 ) ( -14 -4 150 ) ( -14 0 152 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -4 150 ) ( -18 -4 148 ) ( -18 0 150 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -4 152 ) ( -18 -4 152 ) ( -18 0 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -4 148 ) ( -14 -4 148 ) ( -14 0 150 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -4 152 ) ( -14 -4 152 ) ( -14 -4 148 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 0 62 ) ( -12 0 62 ) ( -18 0 94 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents detail;
+ ( -18 29 202 ) ( -18 -18 202 ) ( -18 -18 -58 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 -58 ) ( -14 -14 202 ) ( -14 14 202 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -6 54 ) ( -20 -6 54 ) ( -14 -6 86 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -4 148 ) ( -18 -4 148 ) ( -18 -6 146 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -4 152 ) ( -14 -4 152 ) ( -14 -6 152 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -4 148 ) ( -14 -4 148 ) ( -14 -4 152 ) caulk 64 64 -46 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents detail;
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) egypt_plaster_stucco1 256 256 0 -12.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 196 ) ( -14 -14 -64 ) ( -18 -18 -64 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 -48 ) ( -14 -14 212 ) ( -14 14 212 ) caulk 64 64 -18 -13 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -2 160 ) ( -8594 14 160 ) ( -8562 14 160 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 14 112 ) ( -8594 -10 112 ) ( -8562 14 112 ) caulk 64 64 -46 5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -6 64 ) ( -14 -6 64 ) ( -14 -6 96 ) egypt_plaster_stucco1 256 256 -174 -13 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -8594 -6 114 ) ( -8594 -10 112 ) ( -8562 -10 112 ) egypt_plaster_stucco1 256 256 -174 197 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 5
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 18 38 12 ) ( -29 38 12 ) ( -29 -18 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 224 ) ( 18 -18 224 ) ( 18 -18 -36 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 208 ) ( 14 -14 -52 ) ( 18 -18 -52 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -18 128 ) ( 10 -14 128 ) ( 10 -14 160 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 17 38 12 ) ( -30 38 12 ) ( -30 -18 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 224 ) ( 18 -18 224 ) ( 18 -18 -36 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 -36 ) ( 14 -14 224 ) ( -14 -14 224 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -8594 44 ) ( -16 -8594 44 ) ( -16 -8562 44 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -10 -18 76 ) ( -10 -14 76 ) ( -10 -14 108 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -14 76 ) ( 10 -18 76 ) ( 10 -14 108 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 18 38 12 ) ( -29 38 12 ) ( -29 -18 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 -18 224 ) ( 18 -18 224 ) ( 18 -18 -36 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 -57 ) ( -14 -14 203 ) ( -18 -18 203 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -14 -48 ) ( 14 -14 212 ) ( -14 -14 212 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 -14 75 ) ( -10 -18 75 ) ( -10 -14 107 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 6
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -18 -38 12 ) ( 29 -38 12 ) ( 29 18 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 196 ) ( -14 14 -64 ) ( -18 18 -64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 18 140 ) ( -10 14 140 ) ( -10 14 172 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -20 -38 12 ) ( 27 -38 12 ) ( 27 18 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 252 ) ( -18 18 252 ) ( -18 18 -8 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 -8 ) ( -14 14 252 ) ( 14 14 252 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 8594 44 ) ( 14 8594 44 ) ( 14 8562 44 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 10 18 104 ) ( 10 14 104 ) ( 10 14 136 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -10 14 104 ) ( -10 18 104 ) ( -10 14 136 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -18 -38 12 ) ( 29 -38 12 ) ( 29 18 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 18 212 ) ( -18 18 212 ) ( -18 18 -48 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 -68 ) ( 14 14 192 ) ( 18 18 192 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 14 -48 ) ( -14 14 212 ) ( 14 14 212 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 14 64 ) ( 10 18 64 ) ( 10 14 96 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 7
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -38 18 12 ) ( -38 -29 12 ) ( 18 -29 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 -14 -68 ) ( 14 -14 192 ) ( 18 -18 192 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 -36 ) ( 14 14 224 ) ( 14 -14 224 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 -10 64 ) ( 18 -10 64 ) ( 14 -10 96 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -38 18 12 ) ( -38 -29 12 ) ( 18 -29 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 212 ) ( 18 18 212 ) ( 18 18 -48 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 195 ) ( 14 14 -65 ) ( 18 18 -65 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 14 28 ) ( 14 14 288 ) ( 14 -14 288 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 10 128 ) ( 14 10 128 ) ( 14 10 160 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -37 18 12 ) ( -37 -29 12 ) ( 19 -29 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -29 252 ) ( 18 18 252 ) ( 18 18 -8 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( 14 14 -4 ) ( 14 14 256 ) ( 14 -14 256 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8594 10 44 ) ( 8594 -14 44 ) ( 8562 -14 44 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 18 -10 104 ) ( 14 -10 104 ) ( 14 -10 136 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 14 10 104 ) ( 18 10 104 ) ( 14 10 136 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 8
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 38 -18 12 ) ( 38 29 12 ) ( -18 29 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 207 ) ( -14 -14 -53 ) ( -18 -18 -53 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 28 ) ( -14 -14 288 ) ( -14 14 288 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 -10 64 ) ( -14 -10 64 ) ( -14 -10 96 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 37 -18 12 ) ( 37 29 12 ) ( -19 29 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 252 ) ( -18 -18 252 ) ( -18 -18 -8 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 -14 -4 ) ( -14 -14 256 ) ( -14 14 256 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8594 -10 44 ) ( -8594 14 44 ) ( -8562 14 44 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -18 10 104 ) ( -14 10 104 ) ( -14 10 136 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -10 104 ) ( -18 -10 104 ) ( -14 -10 136 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 38 -18 12 ) ( 38 29 12 ) ( -18 29 12 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 29 212 ) ( -18 -18 212 ) ( -18 -18 -48 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -14 14 -56 ) ( -14 14 204 ) ( -18 18 204 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 -14 28 ) ( -14 -14 288 ) ( -14 14 288 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -14 10 140 ) ( -18 10 140 ) ( -14 10 172 ) toujane_dirt_walltrim_dark 128 64 0 -11.5 0 0 lightmap_gray 8192 8192 0 0 0 0
+ ( -7 0 64 ) ( -20 0 64 ) ( -20 32 64 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

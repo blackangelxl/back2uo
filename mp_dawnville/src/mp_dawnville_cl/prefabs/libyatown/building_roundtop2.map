@@ -1,0 +1,11 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"origin" "1 -1 319"
+"model" "xmodel/dome_05"
+"classname" "misc_model"
+}

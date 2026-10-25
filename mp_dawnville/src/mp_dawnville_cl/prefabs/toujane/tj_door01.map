@@ -1,0 +1,80 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+ {
+  mesh
+  {
+   toujane_dirt_trim_dark
+   lightmap_gray
+   2 2 0 2.122e-314
+   (
+	v 48 8 72 c 255 255 255 128 t 0 358.39999 3 -4.5
+	v 48 8 104 c 255 255 255 203 t 0 1024 3 -6.5
+   )
+   (
+	v 0 8 72 c 255 255 255 128 t 1024 358.39999 0 -4.5
+	v 0 8 104 c 255 255 255 171 t 1024 1024 0 -6.5
+   )
+  }
+ }
+// brush 1
+{
+  contents detail;
+ ( 176 8 0 ) ( 0 8 0 ) ( 0 0 0 ) caulk 64 64 -8 8 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 0 32 ) ( 176 0 32 ) ( 176 0 0 ) caulk 64 -64 -8 16 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 48 0 24 ) ( 48 8 24 ) ( 48 8 -8 ) caulk 64.000259 64 -8.0000324 -16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 176 8 32 ) ( 0 8 32 ) ( 0 8 0 ) toujane_door_trim1 16 -22.399872 -3 13.649921 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 8 32 ) ( 0 0 32 ) ( 0 0 0 ) caulk 64 64 -8 -16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8 88 14 ) ( 40 88 14 ) ( 40 56 14 ) caulk 64 64 -8 8 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+ {
+  mesh
+  {
+   toujane_door_small1
+   lightmap_gray
+   2 2 0 2.122e-314
+   (
+	v 48 8 14 t 0 0 3 -0.875
+	v 48 8 104 t 0 4096 3 -6.5
+   )
+   (
+	v 0 8 14 t 2048 0 0 -0.875
+	v 0 8 104 t 2048 4096 0 -6.5
+   )
+  }
+ }
+// brush 3
+ {
+  mesh
+  {
+   toujane_dirt_trim_light
+   lightmap_gray
+   2 2 0 2.122e-314
+   (
+	v 0 8 72 c 255 255 255 9 t 0 153.60001 0 -4.5
+	v 0 8 14 c 255 255 255 142 t 0 1024 0 -0.875
+   )
+   (
+	v 48 8 72 c 255 255 255 8 t 1024 153.60001 3 -4.5
+	v 48 8 14 c 255 255 255 118 t 1024 1024 3 -0.875
+   )
+  }
+ }
+}
+// entity 1
+{
+"origin" "35 8 59"
+"angles" "0 90 0"
+"model" "xmodel/prop_doorknob1"
+"classname" "misc_model"
+}
+// entity 2
+{
+"origin" "14 8 59"
+"angles" "0 90 0"
+"model" "xmodel/prop_doorknob1"
+"classname" "misc_model"
+}

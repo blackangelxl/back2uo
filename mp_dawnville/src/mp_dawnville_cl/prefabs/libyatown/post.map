@@ -1,0 +1,15 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( -356 -6 0 ) ( 4 -6 0 ) ( 4 2 0 ) caulk 64 64 -59 52 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 8 168 ) ( 4 8 168 ) ( 4 -4 171 ) caulk 64 64 -59 52 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 6 165 ) ( -4 6 165 ) ( -4 6 0 ) toujane_woodtrim1 -64 128 12 25 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -5 18 136 ) ( -5 10 136 ) ( -5 10 -28 ) toujane_woodtrim1 64 128 -52 25 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -356 -6 136 ) ( 4 -6 136 ) ( 4 -6 -28 ) toujane_woodtrim1 64 128 -52 25 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 5 -6 136 ) ( 5 2 136 ) ( 5 2 -28 ) toujane_woodtrim1 -64 128 12 25 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

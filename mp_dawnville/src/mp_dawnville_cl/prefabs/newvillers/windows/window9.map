@@ -1,0 +1,79 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -20 1 4 ) ( 20 1 4 ) ( 20 5 4 ) caulk 64 64 8 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 5 76 ) ( 20 1 76 ) ( -20 1 76 ) caulk 64 64 8 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 5 76 ) ( -20 5 76 ) ( -20 5 4 ) caulk 64 -64 8 -60 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 5 76 ) ( -20 1 76 ) ( -20 1 4 ) caulk 64 -64 -9 -60 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 1 76 ) ( 20 1 76 ) ( 20 1 4 ) mtl_white_window_a 40 72 -20 67.921875 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 1 76 ) ( 20 5 76 ) ( 20 5 4 ) caulk 64 -64 -9 -60 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 44 5 4 ) ( 44 -3 4 ) ( -36 -3 4 ) mtl_caen_trim_ext_plaster_01 128 128 76 117 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 52 5 20 ) ( -28 5 20 ) ( -28 5 -28 ) caulk 64 -64 20 -52 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 5 20 ) ( -24 -3 20 ) ( -24 -3 -28 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -28 -5 20 ) ( 52 -5 20 ) ( 52 -5 -28 ) mtl_caen_trim_ext_plaster_01 128 -128 76 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 -3 12 ) ( 24 5 12 ) ( 24 5 -36 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 509 0 ) ( -20 509 0 ) ( -20 477 0 ) mtl_caen_trim_ext_plaster_01 128 128 76 117 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 20 -3 4 ) ( 24 -3 4 ) ( 24 5 4 ) caulk 64 64 20 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 4 76 ) ( 24 -4 76 ) ( 20 -4 76 ) caulk 64 64 20 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 5 76 ) ( 20 5 76 ) ( 20 5 4 ) caulk 64 -64 20 -52 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 4 76 ) ( 20 -4 76 ) ( 20 -4 4 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 -4 76 ) ( 24 -4 76 ) ( 24 -4 4 ) mtl_caen_trim_ext_plaster_01 128 -128 76 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 -3 76 ) ( 24 5 76 ) ( 24 5 4 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( 6 508 88 ) ( 4 508 76 ) ( 4 476 76 ) mtl_caen_trim_ext_plaster_01 128 -128 -47 -35 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -4 508 76 ) ( -6 508 88 ) ( -6 476 88 ) mtl_caen_trim_ext_plaster_01 128 -128 -47 -35 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 509 88 ) ( 16 509 88 ) ( 16 477 88 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -5 100 ) ( 20 -5 100 ) ( 20 -5 28 ) mtl_caen_trim_ext_plaster_01 128 -128 18 -35 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 5 100 ) ( -20 5 100 ) ( -20 5 28 ) caulk 64 -64 26 -51 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -28 -4 76 ) ( 12 -4 76 ) ( 12 4 76 ) mtl_caen_trim_ext_plaster_01 128 128 76 117 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( -28 -4 76 ) ( 12 -4 76 ) ( 12 4 76 ) mtl_caen_trim_ext_plaster_01 128 128 76 117 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 5 100 ) ( -20 5 100 ) ( -20 5 28 ) caulk 64 -64 20 -52 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -4 100 ) ( 20 -4 100 ) ( 20 -4 28 ) mtl_caen_trim_ext_plaster_01 128 -128 76 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 509 88 ) ( 16 509 88 ) ( 16 477 88 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 509 76 ) ( -24 509 84 ) ( -24 477 84 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 508 88 ) ( -4 508 76 ) ( -6 476 88 ) caulk 64 -64.002045 3 -52.001663 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( -28 -3 4 ) ( -24 -3 4 ) ( -24 5 4 ) caulk 64 64 20 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 4 76 ) ( -20 -4 76 ) ( -24 -4 76 ) caulk 64 64 20 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 5 76 ) ( -24 5 76 ) ( -24 5 44 ) caulk 64 -64 20 -52 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 5 76 ) ( -24 -3 76 ) ( -24 -3 44 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -4 76 ) ( -20 -4 76 ) ( -20 -4 44 ) mtl_caen_trim_ext_plaster_01 128 -128 76 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -4 76 ) ( -20 4 76 ) ( -20 4 44 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( -28 -4 76 ) ( 12 -4 76 ) ( 12 4 76 ) mtl_caen_trim_ext_plaster_01 128 128 76 117 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 20 5 100 ) ( -20 5 100 ) ( -20 5 28 ) caulk 64 -64 20 -52 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -4 100 ) ( 20 -4 100 ) ( 20 -4 28 ) mtl_caen_trim_ext_plaster_01 128 -128 76 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 509 88 ) ( 16 509 88 ) ( 16 477 88 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 509 84 ) ( 24 509 72 ) ( 24 477 72 ) mtl_caen_trim_ext_plaster_01 128 -128 -117 -36 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 4 508 76 ) ( 6 508 88 ) ( 4 476 76 ) caulk 64 -64.002045 3 -52.001663 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

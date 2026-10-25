@@ -1,0 +1,97 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( -31 -5 8 ) ( -25 -5 8 ) ( -25 5 8 ) caulk 64 64 31 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -25 5 98 ) ( -25 -5 98 ) ( -31 -5 104 ) caulk 64 64 31 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -25 5 96 ) ( -31 5 96 ) ( -31 5 12 ) v_woodtrim01 128 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 5 104 ) ( -31 -5 104 ) ( -31 -5 12 ) v_woodtrim01 128 16 0 -4 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 -5 96 ) ( -25 -5 96 ) ( -25 -5 12 ) v_woodtrim01 128 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 -5 98 ) ( -23 5 98 ) ( -23 5 12 ) v_woodtrim01 128 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -23 5 96 ) ( -23 -5 96 ) ( 25 -5 96 ) v_woodtrim01 128 16 -60 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 5 104 ) ( 33 -5 104 ) ( -33 -5 104 ) v_woodtrim01 128 16 0 -4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 5 104 ) ( -33 5 104 ) ( -33 5 94 ) v_woodtrim01 128 16 -60 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 -5 96 ) ( -23 5 96 ) ( -31 5 104 ) caulk 64 64 31 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -33 -5 104 ) ( 25 -5 104 ) ( 25 -5 94 ) v_woodtrim01 128 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -5 104 ) ( 33 5 104 ) ( 25 5 96 ) caulk 64 64 31 -3 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 33 3 8 ) ( 25 3 8 ) ( 25 -5 8 ) caulk 64 64 31 -5 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 -5 96 ) ( 25 3 96 ) ( 33 3 104 ) caulk 64 64 31 -5 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 5 8 ) ( 33 5 8 ) ( 33 5 104 ) v_woodtrim01 128 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 3 96 ) ( 25 -5 96 ) ( 25 -5 8 ) v_woodtrim01 128 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 -5 104 ) ( 33 -5 104 ) ( 33 -5 8 ) v_woodtrim01 128 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -5 104 ) ( 33 3 104 ) ( 33 3 8 ) v_woodtrim01 128 16 0 -4 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( -31 -5 0 ) ( 33 -5 0 ) ( 33 5 0 ) v_woodtrim01 128 16 0 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 5 8 ) ( 33 -5 8 ) ( -31 -5 8 ) v_woodtrim01 128 16 -60 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 5 8 ) ( -31 5 8 ) ( -31 5 0 ) v_woodtrim01 128 16 -60 4 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 5 8 ) ( -31 -5 8 ) ( -31 -5 0 ) v_woodtrim01 128 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 -9 8 ) ( 33 -9 8 ) ( 33 -9 0 ) v_woodtrim01 128 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -5 8 ) ( 33 5 8 ) ( 33 5 0 ) v_woodtrim01 128 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 25 5 96 ) ( -23 5 96 ) ( -23 -5 96 ) v_dec_darkstain03 128 -32 54 -18.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 5 104 ) ( 33 5 104 ) ( 33 -5 104 ) v_dec_darkstain03 128 -32 54 -18.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 5 96 ) ( 25 5 96 ) ( 33 5 104 ) nodraw_decal 64 64 54 -49.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 5 96 ) ( 25 -5 96 ) ( 33 -5 104 ) nodraw_decal 64 -64 54 -42.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 -5 96 ) ( -23 -5 96 ) ( -31 -5 104 ) v_dec_darkstain03 128 32 78 22.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 -5 96 ) ( -23 5 96 ) ( -31 5 104 ) nodraw_decal 64 -64 54 -42.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 33 5 76 ) ( 25 5 76 ) ( 25 -5 76 ) nodraw_decal 64 -64 54 -42.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 5 96 ) ( 33 5 104 ) ( 33 -5 104 ) nodraw_decal 64 -64 54 -42.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 5 104 ) ( 25 5 96 ) ( 25 5 76 ) nodraw_decal 64 64 54 -49.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 5 76 ) ( 33 -5 76 ) ( 33 -5 104 ) v_dec_darkstain03 128 -32 -43 -22.5 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -5 76 ) ( 25 -5 76 ) ( 25 -5 96 ) v_dec_darkstain03 128 32 78 22.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 -5 76 ) ( 25 5 76 ) ( 25 5 96 ) v_dec_darkstain03 128 -32 -43 -22.5 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -31 -5 76 ) ( -23 -5 76 ) ( -23 5 76 ) nodraw_decal 64 -64 54 -42.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 5 104 ) ( -23 5 96 ) ( -23 -5 96 ) nodraw_decal 64 -64 54 -42.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 5 76 ) ( -23 5 76 ) ( -23 5 96 ) nodraw_decal 64 64 54 -49.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 5 76 ) ( -23 -5 76 ) ( -23 -5 96 ) v_dec_darkstain03 128 -32 -43 -22.5 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 -5 104 ) ( -23 -5 96 ) ( -23 -5 76 ) v_dec_darkstain03 128 32 78 22.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 -5 76 ) ( -31 5 76 ) ( -31 5 104 ) v_dec_darkstain03 128 -32 -43 -22.5 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 3
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 33 5 8 ) ( 25 5 0 ) ( 25 5 -20 ) nodraw_decal 64 64 54 -17.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 1 -20 ) ( 33 -9 -20 ) ( 33 -9 8 ) v_dec_darkstain03 128 32 107 -8.5 270 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 33 -9 -20 ) ( 25 -9 -20 ) ( 25 -9 0 ) v_dec_darkstain03 128 32 78 -27.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -21 28 0 ) ( -17 28 0 ) ( -21 60 0 ) v_dec_darkstain03 128 32 78 -73 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 -9 -20 ) ( -31 1 -20 ) ( -31 1 8 ) v_dec_darkstain03 128 32 101.5 -7.5 270 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -31 1 8 ) ( 33 1 8 ) ( 33 -9 8 ) v_dec_darkstain03 128 32 78 -10.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

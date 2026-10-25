@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SOURCE="$(realpath "$(pwd)/main")"
+SOURCE="$(realpath "D:/Disc/Call of Duty 2/main")"
 VOLUME="cod2_main"
 
 if ! docker volume inspect "$VOLUME" >/dev/null 2>&1; then
@@ -16,5 +16,5 @@ MSYS_NO_PATHCONV=1 docker run --rm \
     --mount "type=bind,source=${SOURCE},target=/src,readonly" \
     --mount "type=volume,source=${VOLUME},target=/dest" \
     alpine:3.24 \
-    sh -c 'apk add --no-cache rsync >/dev/null && rsync -av --chown=1000:1000 --itemize-changes /src/ /dest/'
+    sh -c 'apk add --no-cache rsync >/dev/null && rsync -av --delete --chown=1000:1000 --itemize-changes /src/ /dest/'
 echo "Synchronisierung abgeschlossen."

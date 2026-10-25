@@ -1,0 +1,35 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( -23 0 96 ) ( -23 56 96 ) ( -71 56 96 ) egypt_wood_beam 256 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -6 -20 ) ( 32 -6 76 ) ( 80 -6 76 ) egypt_wood_beam 256 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 4 98 ) ( -26 -6 98 ) ( -22 -6 94 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 28 6 -20 ) ( 28 6 76 ) ( -20 6 76 ) egypt_wood_beam 256 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 -6 98 ) ( 26 4 98 ) ( 22 4 94 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -36 -6 98 ) ( -36 4 98 ) ( 36 4 98 ) egypt_wood_beam 256 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( -74 -6 82 ) ( -26 -6 82 ) ( -26 -6 -14 ) egypt_wood_beam 256 16 25 -41 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -4 35 ) ( -24 -4 125 ) ( -24 6 125 ) egypt_wood_beam 256 16 25 -41 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 6 82 ) ( -22 6 82 ) ( -22 6 -14 ) egypt_wood_beam 256 16 25 -41 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 4 106 ) ( -26 -6 106 ) ( -26 -6 -4 ) egypt_wood_beam 256 16 25 -41 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -28 -6 100 ) ( -28 4 100 ) ( -24 4 96 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 0 0 ) ( 4 0 0 ) ( 4 32 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( 26 -6 -14 ) ( 26 -6 82 ) ( 74 -6 82 ) egypt_wood_beam 256 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 24 6 125 ) ( 24 -4 125 ) ( 24 -4 35 ) egypt_wood_beam 256 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 6 -14 ) ( 22 6 82 ) ( -26 6 82 ) egypt_wood_beam 256 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 -6 106 ) ( 26 4 106 ) ( 26 4 -4 ) egypt_wood_beam 256 16 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 26 4 98 ) ( 26 -6 98 ) ( 22 -6 94 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -2 0 0 ) ( 4 0 0 ) ( 4 32 0 ) caulk 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

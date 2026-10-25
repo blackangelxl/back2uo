@@ -1,0 +1,121 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"origin" "0 0 0"
+"model" "xmodel/furniture_piano_d"
+"classname" "misc_model"
+}
+// entity 2
+{
+"cursorhint" "HINT_NONE"
+"script_noteworthy" "a"
+"targetname" "piano_key"
+"classname" "trigger_use"
+// brush 0
+{
+ ( -24 -10 26 ) ( -24 -19 26 ) ( 23 -19 23 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -19 28 ) ( -24 -10 28 ) ( 23 -10 25 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -17 25 ) ( -24 -17 30 ) ( 23 -17 27 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 30 ) ( -24 -10 25 ) ( 23 -10 22 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 46 ) ( -24 -19 46 ) ( -24 -19 -7 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -12 0 ) ( -16 -15 0 ) ( -16 -15 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 3
+{
+"cursorhint" "HINT_NONE"
+"script_noteworthy" "b"
+"targetname" "piano_key"
+"classname" "trigger_use"
+// brush 0
+{
+ ( -24 -10 26 ) ( -24 -19 26 ) ( 23 -19 23 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -19 28 ) ( -24 -10 28 ) ( 23 -10 25 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -17 25 ) ( -24 -17 30 ) ( 23 -17 27 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 30 ) ( -24 -10 25 ) ( 23 -10 22 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -15 0 ) ( -16 -12 0 ) ( -16 -15 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8 -12 0 ) ( -8 -16 0 ) ( -8 -12 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 4
+{
+"cursorhint" "HINT_NONE"
+"script_noteworthy" "c"
+"targetname" "piano_key"
+"classname" "trigger_use"
+// brush 0
+{
+ ( -24 -10 26 ) ( -24 -19 26 ) ( 23 -19 23 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -19 28 ) ( -24 -10 28 ) ( 23 -10 25 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -17 25 ) ( -24 -17 30 ) ( 23 -17 27 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 30 ) ( -24 -10 25 ) ( 23 -10 22 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -8 -16 0 ) ( -8 -12 0 ) ( -8 -12 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -12 0 ) ( 0 -16 0 ) ( 0 -12 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 5
+{
+"cursorhint" "HINT_NONE"
+"script_noteworthy" "d"
+"targetname" "piano_key"
+"classname" "trigger_use"
+// brush 0
+{
+ ( -24 -10 26 ) ( -24 -19 26 ) ( 23 -19 23 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -19 28 ) ( -24 -10 28 ) ( 23 -10 25 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -17 25 ) ( -24 -17 30 ) ( 23 -17 27 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 30 ) ( -24 -10 25 ) ( 23 -10 22 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -16 0 ) ( 0 -12 0 ) ( 0 -12 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -9 0 ) ( 8 -15 0 ) ( 8 -15 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 6
+{
+"cursorhint" "HINT_NONE"
+"script_noteworthy" "e"
+"targetname" "piano_key"
+"classname" "trigger_use"
+// brush 0
+{
+ ( -24 -10 26 ) ( -24 -19 26 ) ( 23 -19 23 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -19 28 ) ( -24 -10 28 ) ( 23 -10 25 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -17 25 ) ( -24 -17 30 ) ( 23 -17 27 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 30 ) ( -24 -10 25 ) ( 23 -10 22 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -15 0 ) ( 8 -9 0 ) ( 8 -15 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 -11 0 ) ( 16 -16 0 ) ( 16 -11 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 7
+{
+"cursorhint" "HINT_NONE"
+"script_noteworthy" "f"
+"targetname" "piano_key"
+"classname" "trigger_use"
+// brush 0
+{
+ ( -24 -10 26 ) ( -24 -19 26 ) ( 23 -19 23 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -19 28 ) ( -24 -10 28 ) ( 23 -10 25 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -17 25 ) ( -24 -17 30 ) ( 23 -17 27 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 23 -19 51 ) ( 23 -10 51 ) ( 23 -10 -2 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -24 -10 30 ) ( -24 -10 25 ) ( 23 -10 22 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 -16 0 ) ( 16 -11 0 ) ( 16 -11 32 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 8
+{
+"targetname" "piano_damage"
+"classname" "trigger_damage"
+// brush 0
+{
+ ( -2 11 0 ) ( -28 11 0 ) ( -28 -16 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -28 -16 53 ) ( -28 11 53 ) ( -2 11 53 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 5 -9 53 ) ( 31 -9 53 ) ( 31 -9 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 -19 54 ) ( 30 8 54 ) ( 30 8 1 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -7 9 53 ) ( -33 9 53 ) ( -33 9 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -30 10 53 ) ( -30 -17 53 ) ( -30 -17 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

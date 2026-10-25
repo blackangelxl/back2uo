@@ -1,0 +1,134 @@
+iwmap 4
+// entity 0
+{
+"ambient" ".5"
+"sunlight" "2"
+"sundirection" "-45 95 0"
+"suncolor" "1.000000 1.000000 0.882353"
+"classname" "worldspawn"
+"sundiffusecolor" "0.909804 0.952941 1.000000"
+"_color" "1 1 1"
+}
+// entity 1
+{
+"target" "auto1"
+"script_team" "allies"
+"script_bombmode_dual" "1"
+"script_bombmode_original" "1"
+"script_label" "B"
+"classname" "trigger_use_touch"
+"targetname" "bombzone"
+"script_gameobjectname" "bombzone"
+// brush 0
+{
+ ( -16 -32 -32 ) ( -16 16 -32 ) ( -16 16 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 16 -32 ) ( 32 16 -32 ) ( 32 16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 16 -32 ) ( 16 -32 -32 ) ( 16 -32 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -16 -32 ) ( -16 -16 -32 ) ( -16 -16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -32 64 ) ( -16 -32 64 ) ( -16 16 64 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -32 32 ) ( 32 -32 32 ) ( 32 16 32 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+ ( 80 176 0 ) ( -112 176 0 ) ( -112 -224 0 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -132 -224 96 ) ( -132 176 96 ) ( 60 176 96 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -100 -166 16 ) ( 92 -166 16 ) ( 92 -166 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 138 -224 16 ) ( 138 176 16 ) ( 138 176 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 84 160 16 ) ( -108 160 16 ) ( -108 160 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -136 176 16 ) ( -136 -224 16 ) ( -136 -224 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"script_sound" "flak88_explode"
+"classname" "script_model"
+"model" "xmodel/vehicle_panzer_II_winter_destroyed_static"
+"angles" "0 90 0"
+"script_exploder" "2"
+"targetname" "exploder"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 3
+{
+"origin" "0 0 0"
+"script_exploder" "2"
+"angles" "0 90 0"
+"model" "xmodel/vehicle_panzer_II_winter_static"
+"classname" "script_model"
+"script_gameobjectname" "bombzone"
+}
+// entity 4
+{
+"targetname" "auto1"
+"script_exploder" "2"
+"script_fxid" "flak_explosion"
+"classname" "script_model"
+"model" "xmodel/fx"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 5
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+  contents detail;
+ ( -56 116 -1 ) ( -56 -119 -1 ) ( 58 -119 -1 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 -120 55 ) ( -56 -120 55 ) ( -56 115 55 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 -120 55 ) ( 58 115 55 ) ( 58 115 15 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 115 55 ) ( -56 115 55 ) ( -56 115 15 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 115 55 ) ( -56 -120 55 ) ( -56 -120 15 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 -120 55 ) ( 58 -120 55 ) ( 58 -120 15 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 6
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+  contents detail;
+ ( -56 65 55 ) ( -56 -58 55 ) ( 58 -58 55 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 -58 69 ) ( -56 -58 69 ) ( -56 65 69 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 -58 69 ) ( 58 65 69 ) ( 58 65 55 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 65 69 ) ( -56 65 69 ) ( -56 65 55 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 65 69 ) ( -56 -58 69 ) ( -56 -58 55 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 -94 71 ) ( 58 -94 71 ) ( 58 -94 57 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 7
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+  contents detail;
+ ( -42 44 69 ) ( -42 -22 69 ) ( 30 -22 69 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 18 96 ) ( 19 18 96 ) ( 18 -12 96 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 49 93 ) ( -42 49 93 ) ( -42 49 68 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -12 96 ) ( 19 -12 96 ) ( 30 -22 69 ) clip_nosight_metal 64 -64 0 0 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 19 18 96 ) ( -32 18 96 ) ( -36 49 85 ) clip_nosight_metal 64 64 0 0 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 0 69 ) ( 19 0 93 ) ( 30 32 69 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 0 93 ) ( -42 0 69 ) ( -32 32 93 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 8
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( -56 94 78 ) ( -56 49 78 ) ( 58 49 78 ) clip_nosight_metal 64 64 0 12 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 49 81 ) ( -56 49 81 ) ( -56 94 81 ) clip_nosight_metal 64 64 0 12 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -12 49 82 ) ( -12 94 82 ) ( -12 94 78 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 93 82 ) ( -56 93 82 ) ( -56 93 78 ) clip_nosight_metal 64 -64 0 0 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -15 94 80 ) ( -15 49 80 ) ( -15 49 76 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 49 82 ) ( 58 49 82 ) ( 58 49 78 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

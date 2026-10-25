@@ -11,3 +11,6 @@ desktop.ini
 
 # Test build (python tools/build.py --test)
 dist-test/
+
+# Raw output of tools/wpgen.py
+dist-wpgen/

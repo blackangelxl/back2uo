@@ -1,0 +1,100 @@
+iwmap 4
+// entity 0
+{
+"ambient" ".5"
+"sunlight" "2"
+"sundirection" "-45 95 0"
+"suncolor" "1.000000 1.000000 0.882353"
+"classname" "worldspawn"
+"sundiffusecolor" "0.909804 0.952941 1.000000"
+"_color" "1 1 1"
+}
+// entity 1
+{
+"target" "auto1"
+"script_team" "allies"
+"script_bombmode_dual" "1"
+"script_bombmode_original" "1"
+"script_label" "A"
+"classname" "trigger_use_touch"
+"targetname" "bombzone"
+"script_gameobjectname" "bombzone"
+// brush 0
+{
+ ( -16 -32 -32 ) ( -16 16 -32 ) ( -16 16 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 16 -32 ) ( 32 16 -32 ) ( 32 16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 16 -32 ) ( 16 -32 -32 ) ( 16 -32 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -16 -32 ) ( -16 -16 -32 ) ( -16 -16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -32 64 ) ( -16 -32 64 ) ( -16 16 64 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -32 32 ) ( 32 -32 32 ) ( 32 16 32 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+ ( 80 176 0 ) ( -112 176 0 ) ( -112 -224 0 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -132 -224 96 ) ( -132 176 96 ) ( 60 176 96 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -100 -176 16 ) ( 92 -176 16 ) ( 92 -176 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 124 -224 16 ) ( 124 176 16 ) ( 124 176 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 80 168 16 ) ( -112 168 16 ) ( -112 168 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -124 176 16 ) ( -124 -224 16 ) ( -124 -224 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"script_sound" "flak88_explode"
+"classname" "script_model"
+"model" "xmodel/vehicle_halftrack_rockets_woodland_d_stat"
+"angles" "0 90 0"
+"script_exploder" "1"
+"targetname" "exploder"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 3
+{
+"origin" "0 0 0"
+"script_exploder" "1"
+"angles" "0 90 0"
+"model" "xmodel/vehicle_halftrack_rockets_snow_static"
+"classname" "script_model"
+"script_gameobjectname" "bombzone"
+}
+// entity 4
+{
+"targetname" "auto1"
+"script_exploder" "1"
+"script_fxid" "flak_explosion"
+"classname" "script_model"
+"model" "xmodel/fx"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 5
+{
+"script_gameobjectname" "bombzone"
+"exploder" "1"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 32 72 0 ) ( -32 72 0 ) ( -32 -80 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -80 78 ) ( -32 72 78 ) ( 32 72 78 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -36 -128 96 ) ( 28 -128 96 ) ( 28 -128 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 58 -80 96 ) ( 58 72 96 ) ( 58 72 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 28 22 96 ) ( -36 22 96 ) ( -36 22 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -56 88 96 ) ( -56 -64 96 ) ( -56 -64 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 6
+{
+"script_gameobjectname" "bombzone"
+"exploder" "1"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 32 72 0 ) ( -32 72 0 ) ( -32 -80 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -32 -80 78 ) ( -32 72 78 ) ( 32 72 78 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -34 22 96 ) ( 30 22 96 ) ( 30 22 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 -80 96 ) ( 44 72 96 ) ( 44 72 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 28 120 96 ) ( -36 120 96 ) ( -36 120 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -44 90 96 ) ( -44 -62 96 ) ( -44 -62 0 ) clip_nosight 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

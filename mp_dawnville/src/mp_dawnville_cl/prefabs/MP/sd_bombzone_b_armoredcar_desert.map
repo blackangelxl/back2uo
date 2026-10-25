@@ -1,0 +1,177 @@
+iwmap 4
+// entity 0
+{
+"ambient" ".5"
+"sunlight" "2"
+"sundirection" "-45 95 0"
+"suncolor" "1.000000 1.000000 0.882353"
+"classname" "worldspawn"
+"sundiffusecolor" "0.909804 0.952941 1.000000"
+"_color" "1 1 1"
+}
+// entity 1
+{
+"script_team" "allies"
+"script_bombmode_dual" "1"
+"script_bombmode_original" "1"
+"script_label" "B"
+"classname" "trigger_use_touch"
+"targetname" "bombzone"
+"script_gameobjectname" "bombzone"
+"script_noteworthy" "2"
+// brush 0
+{
+ ( -16 -32 -32 ) ( -16 16 -32 ) ( -16 16 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 16 -32 ) ( 32 16 -32 ) ( 32 16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 16 -32 ) ( 16 -32 -32 ) ( 16 -32 64 ) origin 64 64 864 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -16 -32 ) ( -16 -16 -32 ) ( -16 -16 64 ) origin 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 32 -32 64 ) ( -16 -32 64 ) ( -16 16 64 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -16 -32 32 ) ( 32 -32 32 ) ( 32 16 32 ) origin 64 64 432 -864 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+ ( 80 176 0 ) ( -112 176 0 ) ( -112 -224 0 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -133 -224 88 ) ( -133 176 88 ) ( 59 176 88 ) trigger 64 64 432 -848 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -96 -138 16 ) ( 96 -138 16 ) ( 96 -138 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 120 -222 16 ) ( 120 178 16 ) ( 120 178 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 84 142 16 ) ( -108 142 16 ) ( -108 142 0 ) trigger 64 64 432 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -120 176 16 ) ( -120 -224 16 ) ( -120 -224 0 ) trigger 64 64 848 16 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"script_sound" "flak88_explode"
+"classname" "script_model"
+"model" "xmodel/vehicle_german_armored_car_d_static"
+"angles" "0 90 0"
+"script_exploder" "2"
+"targetname" "exploder"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 3
+{
+"origin" "0 0 0"
+"script_exploder" "2"
+"angles" "0 90 0"
+"model" "xmodel/vehicle_german_armored_car_static"
+"classname" "script_model"
+"script_gameobjectname" "bombzone"
+}
+// entity 4
+{
+"script_exploder" "2"
+"script_fxid" "flak_explosion"
+"classname" "script_model"
+"model" "xmodel/fx"
+"origin" "0 0 0"
+"script_gameobjectname" "bombzone"
+}
+// entity 5
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 44 -84 0 ) ( 44 76 0 ) ( -40 76 0 ) clip_nosight_metal 64 64 0 0 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 -53 63 ) ( -44 -53 63 ) ( -44 49 59 ) clip_nosight_metal 64 64 0 0 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 80 68 ) ( -42 -80 68 ) ( -42 -80 56 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -42 -92 32 ) ( 41 -92 32 ) ( 41 -92 0 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 41 -80 68 ) ( 41 80 68 ) ( 41 80 56 ) clip_nosight_metal 64 -64 0 0 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 92 68 ) ( -40 92 68 ) ( -40 92 56 ) clip_nosight_metal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 41 -92 32 ) ( -42 -92 32 ) ( -42 -53 63 ) clip_nosight_metal 64 64 0 0 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 44 49 59 ) ( -44 49 59 ) ( -44 92 37 ) clip_nosight_metal 64 64 0 0 -90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 6
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( -28 27 69 ) ( -28 -38 69 ) ( 30 -38 69 ) clip_nosight_metal 64 64 0 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 24 79 ) ( 25 -30 79 ) ( -23 -30 79 ) clip_nosight_metal 64 64 0 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -23 24 79 ) ( -23 -30 79 ) ( -28 -38 69 ) clip_nosight_metal 64 -64 0 74 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 -38 69 ) ( -28 -38 69 ) ( -23 -30 79 ) clip_nosight_metal 64 64 1 -74 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 27 69 ) ( 30 -38 69 ) ( 25 -30 79 ) clip_nosight_metal 64 -64 0 74 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 25 24 79 ) ( -23 24 79 ) ( -28 27 69 ) clip_nosight_metal 64 64 1 -74 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 7
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 25 -13 79 ) ( 25 21 79 ) ( -23 21 79 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 21 87 ) ( 22 21 87 ) ( 22 -13 87 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -22 -13 79 ) ( -22 21 79 ) ( -22 19 87 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 29 -13 79 ) ( -27 -13 79 ) ( -23 -13 87 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 22 21 79 ) ( 22 -13 79 ) ( 22 -13 87 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 24 79 ) ( 0 24 87 ) ( -22 7 87 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 24 87 ) ( 0 24 79 ) ( 22 8 79 ) clip_nosight_metal 64 64 3 -1 -90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 8
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( -33 -53 63 ) ( 35 -53 63 ) ( 35 49 59 ) clip_nosight_metal 64 64 0 4 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -28 43 69 ) ( 30 43 69 ) ( 30 -38 69 ) clip_nosight_metal 64 64 0 2 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -28 24 69 ) ( -28 -30 69 ) ( -33 -38 59 ) clip_nosight_metal 64 -64 0 64 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 35 -53 63 ) ( -33 -53 63 ) ( -28 -48 69 ) clip_nosight_metal 64 64 -4 -64 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 35 27 59 ) ( 35 -38 59 ) ( 30 -30 69 ) clip_nosight_metal 64 -64 0 64 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 30 43 69 ) ( -28 43 69 ) ( -33 49 59 ) clip_nosight_metal 64 64 -4 -64 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 9
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( -19 -53 63 ) ( -19 -92 32 ) ( 22 -92 32 ) clip_nosight_metal 64 64 108 4 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -11 -81 53 ) ( 11 -81 53 ) ( 15 -92 38 ) clip_nosight_metal 64 64 108 2 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -19 -92 32 ) ( -19 -53 63 ) ( -11 -81 53 ) clip_nosight_metal 64 -64 108 80 180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -20 -92 38 ) ( 20 -92 38 ) ( 20 -92 32 ) clip_nosight_metal 64 64 -4 -80 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 19 -53 63 ) ( 19 -92 32 ) ( 15 -92 38 ) clip_nosight_metal 64 -64 108 80 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 11 -81 53 ) ( -11 -81 53 ) ( -19 -53 63 ) clip_nosight_metal 64 64 -4 -80 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 10
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 27 87 39 ) ( -29 87 39 ) ( -29 74 46 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 27 82 53 ) ( -29 82 53 ) ( -29 87 53 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -27 80 43 ) ( -27 134 43 ) ( -27 134 53 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 82 53 ) ( 27 82 53 ) ( 27 74 46 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 87 39 ) ( 27 87 39 ) ( 27 87 53 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -18 88 0 ) ( -18 81 0 ) ( -18 88 32 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 11
+{
+"script_gameobjectname" "bombzone"
+"exploder" "2"
+"classname" "script_brushmodel"
+// brush 0
+{
+ ( 27 87 39 ) ( -29 87 39 ) ( -29 74 46 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 27 82 53 ) ( -29 82 53 ) ( -29 87 53 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 82 53 ) ( 27 82 53 ) ( 27 74 46 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 27 134 43 ) ( 27 80 43 ) ( 27 80 53 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -29 87 39 ) ( 27 87 39 ) ( 27 87 53 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 17 78 0 ) ( 17 88 0 ) ( 17 88 32 ) clip_nosight_metal 64 64 1 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

@@ -1,0 +1,15 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( 70 9 0 ) ( -72 9 0 ) ( -72 -9 0 ) toujane_woodtrim1 64 128 -8.5 -65.5 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -72 -9 2 ) ( -72 9 2 ) ( 70 9 2 ) toujane_woodtrim1 64 128 -38.5 -65.5 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 71 -9 2 ) ( 71 -9 0 ) ( -69 -9 0 ) toujane_woodtrim1 51.200001 102.4 35.200001 -52.200001 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 76 -9 0 ) ( 76 -9 2 ) ( 75 9 2 ) toujane_woodtrim1 64 128 55.5 -66.5 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -69 9 2 ) ( -69 9 0 ) ( 75 9 0 ) toujane_woodtrim1 51.200001 -102.4 46.799999 50.200001 90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -69 9 0 ) ( -69 9 2 ) ( -73 -9 2 ) toujane_woodtrim1 64 128 55.5 -66.5 90 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

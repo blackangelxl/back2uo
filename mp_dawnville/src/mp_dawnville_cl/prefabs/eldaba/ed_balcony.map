@@ -1,0 +1,105 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+  contents detail;
+ ( -170 8 42 ) ( 46 8 42 ) ( 46 -16 42 ) egypt_metal_balcony_side1 128 64 -63.5 0.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -56 4 ) ( 46 -52 4 ) ( 46 -52 44 ) caulk 64 -64 26 -30 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 52 -6 -94 ) ( 52 -6 18 ) ( 52 18 18 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 16 44 ) ( 46 -48 44 ) ( 46 -48 4 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -66 -40 36 ) ( -66 -72 36 ) ( -56 -72 36 ) egypt_metal_balcony_side1 128 64 -145.5 -25.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 0 46 ) ( 6 0 22 ) ( 6 0 46 ) caulk 256 -256 -86 -22 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 1
+{
+  contents detail;
+ ( 58 -16 6 ) ( 58 8 6 ) ( -158 8 6 ) caulk 64 64 -26 -24 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -56 6 ) ( 46 -52 6 ) ( 46 -52 46 ) caulk 64 -64 26 -30 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -6 -92 ) ( 50 -6 20 ) ( 50 18 20 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 16 46 ) ( 46 -48 46 ) ( 46 -48 6 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -66 -40 36 ) ( -56 -72 36 ) ( -66 -72 36 ) caulk 256 -256 -62 56 -180 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 0 46 ) ( 6 0 22 ) ( 6 0 46 ) caulk 256 -256 -86 -22 -180 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 2
+{
+  contents detail;
+ ( -42 -16 42 ) ( -42 8 42 ) ( 174 8 42 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -58 4 ) ( -50 -58 44 ) ( 62 -58 44 ) egypt_metal_balcony_side1 128 64 -145.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 318 -52 18 ) ( 102 -52 18 ) ( 102 -52 -94 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -56 44 ) ( -50 -56 4 ) ( -46 -52 4 ) caulk 64 -64 21 -0.5 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 56 -72 36 ) ( 66 -72 36 ) ( 66 -40 36 ) egypt_metal_balcony_side1 128 64 -145.5 -25.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 -52 -150 ) ( 50 -56 -150 ) ( 46 -52 -118 ) caulk 256 256 76 22 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 3
+{
+  contents detail;
+ ( 162 8 6 ) ( -54 8 6 ) ( -54 -16 6 ) caulk 64 -64 0 -15 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -56 6 ) ( -50 -56 46 ) ( 62 -56 46 ) egypt_metal_balcony_side1 128 64 -145.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 318 -52 20 ) ( 102 -52 20 ) ( 102 -52 -92 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -56 46 ) ( -50 -56 6 ) ( -46 -52 6 ) caulk 64 -64 22 -21 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 -72 36 ) ( 56 -72 36 ) ( 66 -40 36 ) caulk 64 -64 0 -15 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 -52 -150 ) ( 50 -56 -150 ) ( 46 -52 -118 ) caulk 256 256 76 22 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 4
+{
+  contents detail;
+ ( 158 8 0 ) ( -58 8 0 ) ( -58 -16 0 ) egypt_metal_balcony_side1 -100.00026 56 50.00013 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -16 6 ) ( -50 8 6 ) ( 166 8 6 ) egypt_metal_balcony_side1 -100.00026 56 50.00013 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -58 -56 16 ) ( 158 -56 16 ) ( 158 -56 -96 ) egypt_metal_balcony_side1 128 64 -145.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 18 16 ) ( -50 -6 16 ) ( -50 -6 -96 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -48 -158 ) ( 50 -56 -158 ) ( 50 -48 -126 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 46 ) ( -6 0 22 ) ( 26 0 46 ) caulk 256 256 -6 22 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 5
+{
+  contents detail;
+ ( -46 -16 42 ) ( -46 8 42 ) ( 170 8 42 ) egypt_metal_balcony_side1 128 64 -63.5 0.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -52 44 ) ( -46 -52 4 ) ( -50 -56 4 ) caulk 64 -64 26 -30 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -52 18 18 ) ( -52 -6 18 ) ( -52 -6 -94 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -48 4 ) ( -46 -48 44 ) ( -46 16 44 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 56 -72 36 ) ( 66 -72 36 ) ( 66 -40 36 ) egypt_metal_balcony_side1 128 64 -145.5 -65.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 46 ) ( -6 0 22 ) ( 26 0 46 ) caulk 256 256 -6 22 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 6
+{
+  contents detail;
+ ( 158 8 6 ) ( -58 8 6 ) ( -58 -16 6 ) caulk 64 -64 -26 8 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -52 46 ) ( -46 -52 6 ) ( -50 -56 6 ) caulk 64 -64 26 -30 -90 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 18 20 ) ( -50 -6 20 ) ( -50 -6 -92 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -48 6 ) ( -46 -48 46 ) ( -46 16 46 ) egypt_metal_balcony_side1 128 64 -63.5 8.5 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 -72 36 ) ( 56 -72 36 ) ( 66 -40 36 ) caulk 256 256 18 -56 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 46 ) ( -6 0 22 ) ( 26 0 46 ) caulk 256 256 -6 22 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 7
+{
+  contents nonColliding;
+ ( 162 8 6 ) ( -54 8 6 ) ( -54 -16 6 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -56 22 ) ( -50 -56 62 ) ( 62 -56 62 ) egypt_decal_window2 64 64 0 12 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 318 -52 20 ) ( 102 -52 20 ) ( 102 -52 -92 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 -56 46 ) ( -50 -56 6 ) ( -46 -52 6 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 -72 36 ) ( 56 -72 36 ) ( 66 -40 36 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 -52 -150 ) ( 50 -56 -150 ) ( 46 -52 -118 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 8
+{
+  contents nonColliding;
+ ( 58 -16 6 ) ( 58 8 6 ) ( -158 8 6 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -56 6 ) ( 46 -52 6 ) ( 46 -52 46 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 50 -6 -92 ) ( 50 -6 20 ) ( 50 18 20 ) egypt_decal_window2 64 64 64 -52 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 46 16 46 ) ( 46 -48 46 ) ( 46 -48 6 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -66 -40 36 ) ( -56 -72 36 ) ( -66 -72 36 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -26 0 46 ) ( 6 0 22 ) ( 6 0 46 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+// brush 9
+{
+  contents nonColliding;
+ ( 158 8 6 ) ( -58 8 6 ) ( -58 -16 6 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -52 46 ) ( -46 -52 6 ) ( -50 -56 6 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -50 18 20 ) ( -50 -6 20 ) ( -50 -6 -92 ) egypt_decal_window2 64 64 64 -48 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -46 -48 6 ) ( -46 -48 46 ) ( -46 16 46 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 66 -72 36 ) ( 56 -72 36 ) ( 66 -40 36 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -6 0 46 ) ( -6 0 22 ) ( 26 0 46 ) nodraw_decal 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

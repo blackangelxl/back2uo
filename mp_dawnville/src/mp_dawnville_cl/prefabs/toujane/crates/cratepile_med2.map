@@ -1,0 +1,67 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"origin" "-17 7 0"
+"model" "xmodel/prop_crate_dak4"
+"classname" "misc_model"
+}
+// entity 2
+{
+"angles" "0 12.6 0"
+"origin" "-22 43 0"
+"model" "xmodel/prop_crate_dak8"
+"classname" "misc_model"
+}
+// entity 3
+{
+"angles" "0 19 0"
+"origin" "11 56 0"
+"model" "xmodel/prop_crate_dak6"
+"classname" "misc_model"
+}
+// entity 4
+{
+"classname" "misc_model"
+"model" "xmodel/prop_crate_dak7"
+"origin" "27 17 0"
+"angles" "0 2.7 0"
+}
+// entity 5
+{
+"classname" "misc_model"
+"model" "xmodel/prop_crate_dak7"
+"origin" "12 31 24"
+"angles" "0 7.1 0"
+}
+// entity 6
+{
+"angles" "0 281.6 0"
+"origin" "29 5 24"
+"model" "xmodel/prop_crate_dak9"
+"classname" "misc_model"
+}
+// entity 7
+{
+"angles" "0 9.2 0"
+"origin" "13 -29 0"
+"model" "xmodel/prop_crate_dak5"
+"classname" "misc_model"
+}
+// entity 8
+{
+"angles" "0 268.6 0"
+"origin" "14 -39 32"
+"model" "xmodel/prop_crate_dak9"
+"classname" "misc_model"
+}
+// entity 9
+{
+"angles" "0 3.7 0"
+"origin" "-21 -34 0"
+"model" "xmodel/prop_crate_dak7"
+"classname" "misc_model"
+}

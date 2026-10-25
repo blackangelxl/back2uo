@@ -1,60 +1,45 @@
-		// Background image
+		// Shared frame for menus with rect 0 0 640 480 (see bars_trans.menu for the connect screen).
+		// Background, lines and logo are placed relative to the menu's rect.
+
+		// Background image (metal bars top and bottom, transparent in between)
 		itemDef
 		{
 			name			"background"
 			decoration
 			visible			1
-//			rect			-128 0 896 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
 			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
 			style			WINDOW_STYLE_SHADER
 			background		"gfx/custom/back2uo_menubackground.tga"
 		}
 
-		// Lines
+		// Lines (wider than the screen so they reach both edges at every aspect ratio)
 		itemDef
 		{
-			style			WINDOW_STYLE_FILLED
-			rect			-128 64 896 1
-			backcolor		.65 .65 .65 1
-			visible			1
+			name			"background_top_line"
 			decoration
+			visible			1
+			rect			-128 64 896 1 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			style			WINDOW_STYLE_FILLED
+			backcolor		.65 .65 .65 1
 		}
 
 		itemDef
 		{
-			style			WINDOW_STYLE_FILLED
-			rect			-128 415 896 1
-			backcolor		.65 .65 .65 1
-			visible			1
+			name			"background_bottom_line"
 			decoration
+			visible			1
+			rect			-128 415 896 1 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			style			WINDOW_STYLE_FILLED
+			backcolor		.65 .65 .65 1
 		}
 
-		// Back2Uo logo
+		// Back2Uo logo (hidden, menus show it with "show back2uo_logo" in onOpen)
 		itemDef
 		{
 			name			"back2uo_logo"
+			decoration
 			visible			0
-			rect			438 -12 205 103	// 475 3 160 80
+			rect			438 -12 205 103
 			style			WINDOW_STYLE_SHADER
 			background		"gfx/custom/back2uo_logo.tga"
-			decoration
 		}
-
-		// Black bars
-//		itemDef
-//		{
-//			style			WINDOW_STYLE_FILLED
-//			rect			-128 0 896 65
-//			backcolor		0 0 0 1
-//			visible			1
-//			decoration
-//		}
-//
-//		itemDef
-//		{
-//			style			WINDOW_STYLE_FILLED
-//			rect			-128 416 896 64
-//			backcolor		0 0 0 1
-//			visible			1
-//			decoration
-//		}

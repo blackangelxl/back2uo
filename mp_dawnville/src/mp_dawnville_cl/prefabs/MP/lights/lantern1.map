@@ -1,0 +1,21 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"spawnflags" "2"
+"origin" "0 0 0"
+"model" "xmodel/light_lantern_on"
+"classname" "misc_model"
+}
+// entity 2
+{
+"intensity" ".45"
+"def" "tungsten_lamp"
+"_color" "1 1 1"
+"radius" "350"
+"origin" "0 0 11"
+"classname" "light"
+}

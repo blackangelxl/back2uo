@@ -17,35 +17,35 @@
 
 		#include "ui_mp/bars_trans.menu"
 
-		// Loading bar background
+		// Loading bar frame and bar, same rects as the stock CoD2 connect.menu.
+		// Only shown once com_expectedhunkusage is known (from the second load of a map on,
+		// the value is stored in hunkusage.dat).
 		itemDef
 		{
-			name			"loadbar"
+			name			"loadbar_background"
 			decoration
 			visible			1
-			rect			316 421 265 16
+			rect			317 421 262 16
 			style			WINDOW_STYLE_SHADER
 			background		"loadbar_background"
 			dvartest		"com_expectedhunkusage"
 			hidedvar		{ "0" }
 		}
 
-		// Loading bar
 		itemDef
 		{
 			name			"loadbar"
 			decoration
 			visible			1
-			rect			320 427 256 6
+			rect			320 425 256 8
 			style			WINDOW_STYLE_LOADBAR
 			background		"white"
-			forecolor		0.8 0 0 0.6
-			backcolor		0.6 0 0 0.6
+			forecolor		0.8 0 0 1
 			dvartest		"com_expectedhunkusage"
 			hidedvar		{ "0" }
 		}
 
-		// Back2Uo loading image
+		// "Map Loading ..." text
 		itemDef
 		{
 			name			"back2uo_loading"
@@ -54,8 +54,6 @@
 			rect			368 430 160 80
 			style			WINDOW_STYLE_SHADER
 			background		"gfx/custom/back2uo_loading.tga"
-			dvartest		"com_expectedhunkusage"
-			hidedvar		{ "0" }
 		}
 	}
 }

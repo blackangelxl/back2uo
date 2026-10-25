@@ -1,0 +1,33 @@
+iwmap 4
+// entity 0
+{
+"classname" "worldspawn"
+}
+// entity 1
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 67 1 32 ) ( -68 1 32 ) ( -68 -4 32 ) nodraw 64 64 0 49 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 -4 124 ) ( -68 1 124 ) ( 67 1 124 ) nodraw 64 64 0 49 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 -1 124 ) ( 67 -1 124 ) ( 67 -1 29 ) v_rusty_fence01 -68.000259 95.000061 0 -28.945332 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 67 1 124 ) ( -68 1 124 ) ( -68 1 29 ) v_rusty_fence01 -68.000259 95.000061 0 -28.945332 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 1 124 ) ( -68 -4 124 ) ( -68 -4 29 ) nodraw 64 64 -49 -61 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -49 119 ) ( 0 -49 124 ) ( 0 -17 124 ) nodraw 64 64 -49 -61 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}
+// entity 2
+{
+"classname" "func_group"
+// brush 0
+{
+  contents detail;
+ ( 0 3 30 ) ( -68 3 30 ) ( -68 -2 30 ) v_drain03 64 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 -5 32 ) ( -68 0 32 ) ( 0 0 32 ) v_drain03 64 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 -2 32 ) ( 0 -2 32 ) ( 0 -2 31 ) v_drain03 64 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 -3 32 ) ( 0 2 32 ) ( 0 2 31 ) v_drain03 64 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 0 2 33 ) ( -68 2 33 ) ( -68 2 32 ) v_drain03 64 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( -68 2 32 ) ( -68 -3 32 ) ( -68 -3 31 ) v_drain03 64 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+}
+}

@@ -1,0 +1,8 @@
+{
+"basepath" ".."
+"mapspath" "..\\map_source"
+"entitypath" ".\\cod2.def"
+"autosave" "autosave.map"
+"game" ""
+"basegame" ""
+}

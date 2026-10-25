@@ -1,34 +1,36 @@
-		// Background image
+		// Shared frame for the connect screen, whose menu rect is -128 0 896 480.
+		// Same layout as bars_blank.menu, every x is shifted by +128 to make up for the menu offset.
+
+		// Background image (metal bars top and bottom, transparent in between)
 		itemDef
 		{
 			name			"background"
 			decoration
 			visible			1
-//			rect			0 0 896 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
 			rect			128 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
 			style			WINDOW_STYLE_SHADER
 			background		"gfx/custom/back2uo_menubackground.tga"
 		}
 
-		// Lines
+		// Lines (wider than the screen so they reach both edges at every aspect ratio)
 		itemDef
 		{
-			name			"background_top_bar"
-			style			WINDOW_STYLE_FILLED
-			rect			-128 64 896 1
-			backcolor		.65 .65 .65 1
-			visible			1
+			name			"background_top_line"
 			decoration
+			visible			1
+			rect			0 64 896 1 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			style			WINDOW_STYLE_FILLED
+			backcolor		.65 .65 .65 1
 		}
 
 		itemDef
 		{
-			name			"background_bottom_bar"
-			style			WINDOW_STYLE_FILLED
-			rect			-128 415 896 1
-			backcolor		.65 .65 .65 1
-			visible			1
+			name			"background_bottom_line"
 			decoration
+			visible			1
+			rect			0 415 896 1 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			style			WINDOW_STYLE_FILLED
+			backcolor		.65 .65 .65 1
 		}
 
 		// Back2Uo logo
@@ -37,28 +39,7 @@
 			name			"back2uo_logo"
 			decoration
 			visible			1
-			rect			566 -12 205 103	// 603 3 160 80
+			rect			566 -12 205 103
 			style			WINDOW_STYLE_SHADER
 			background		"gfx/custom/back2uo_logo.tga"
 		}
-
-		// Black bars
-//		itemDef
-//		{
-//			name			"background_top_bar"
-//			style			WINDOW_STYLE_FILLED
-//			rect			0 0 896 64 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
-//			backcolor		0 0 0 1
-//			visible			1
-//			decoration
-//		}
-//
-//		itemDef
-//		{
-//			name			"background_bottom_bar"
-//			style			WINDOW_STYLE_FILLED
-//			rect			0 416 896 64 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
-//			backcolor		0 0 0 1
-//			visible			1
-//			decoration
-//		}
