@@ -687,7 +687,12 @@ Called from back2uo\_back2uo_player.gsc.
 */
 addTestClients()
 {
-	if(!game["back2uo_testbots_enable"]) return;
+	// Some custom maps (mp_dawnville_cl) call this from their main(), before the
+	// gametype has precached its status icons. Connecting a bot then is a script runtime
+	// error, so wait until the gametype init of this frame has run.
+	waittillframeend;
+
+	if(!isdefined(game["back2uo_testbots_enable"]) || !game["back2uo_testbots_enable"]) return;
 
 	// Bots were already added earlier on this map
 	if(isdefined(game["botsaktiv"])) return;
