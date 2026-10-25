@@ -38,6 +38,8 @@ back2uo/                          fs_game folder contents
     back2uo/bots/waypoints/       generated waypoint scripts per map (tools/wp2gsc.py)
     maps/mp/gametypes/*.gsc       stock gametypes with Back2Uo hooks ("Back2Uo:" comments)
     maps/mp/mp_*_fx.gsc           stock map FX scripts, adapted
+  z_svr_back2uo_2.1_libcod/       -> z_svr_back2uo_2.1_libcod.iwd  zk_libcod function wrappers
+                                     (replace the stock fallback stub, see Install)
   z_back2uo_2.1_client/           -> z_back2uo_2.1_client.iwd   menus, images, FX, weapons, sounds
   localized_english_iw15/         -> localized_english_iw15.iwd English strings and voice sounds
   localized_german_iw15/          -> localized_german_iw15.iwd  German strings and voice sounds
@@ -62,7 +64,7 @@ python tools/build.py
 python tools/build.py --no-minify
 ```
 
-Output: `dist/back2uo/` with the four `.iwd` archives and the config files.
+Output: `dist/back2uo/` with the five `.iwd` archives and the config files.
 
 The bot waypoint scripts in `back2uo/z_svr_back2uo_2.1/back2uo/bots/waypoints/` are generated.
 After changing the sources in `tools/waypoints_mbot/` (one `<mapname>_tdm.wp` per map), run
@@ -99,6 +101,11 @@ set g_logsync "1"
 set logfile "1"
 set g_log "back2uo_mod.log"
 ```
+
+Server without [zk_libcod](https://github.com/ibuddieat/zk_libcod): delete `z_svr_back2uo_2.1_libcod.iwd`,
+otherwise the scripts do not compile. The mod then uses its fallbacks
+(`_back2uo_libcod_fallback.gsc`): the sprint swaps to the `_sprint` weapon instead of raising
+the player's speed, and test bots stand still.
 
 Keep both `localized_*_iw15.iwd` files on the server, so English and German clients get text and sounds in their language.
 Clients download the mod through auto-download (`sv_allowDownload`). Optionally, players without auto-download are kicked (`back2uo_autodownload`).
