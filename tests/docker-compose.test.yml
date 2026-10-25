@@ -1,6 +1,8 @@
 # Back2Uo test server, started by tests/run_tests.py.
 #
 # B2U_GAMETYPE and B2U_MAP choose the gametype and map (defaults: tdm, mp_toujane).
+# B2U_WPGEN=1 generates bot waypoints instead of running the tests (tools/wpgen.py),
+# B2U_WPGEN_GRID sets their spacing, B2U_TESTBOTS=0 turns the test bots off.
 services:
   cod2_test_server:
     # Same server build as server/docker-compose.yml: CoD2 1.3 with zk_libcod
@@ -25,6 +27,9 @@ services:
         "+set", "sv_cheats", "0",
         "+set", "sv_punkbuster", "0",
         "+exec", "server_test.cfg",
+        "+set", "back2uo_wpgen", "${B2U_WPGEN:-0}",
+        "+set", "back2uo_wpgen_grid", "${B2U_WPGEN_GRID:-128}",
+        "+set", "back2uo_testbots_aktiv", "${B2U_TESTBOTS:-1}",
         "+set", "g_gametype", "${B2U_GAMETYPE:-tdm}",
         "+map", "${B2U_MAP:-mp_toujane}"
       ]
