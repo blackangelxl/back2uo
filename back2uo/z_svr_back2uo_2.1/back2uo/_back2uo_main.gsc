@@ -472,6 +472,11 @@ back2uo_main()
 
 	level.back2uo_nosprint_msg = &"BACK2UOMOD_NOSPRINT_TAST";
 
+	// --- Bullet drop ---
+
+	// Bullet gravity for every player's shots (zk_libcod enableBulletDrop, needs g_bulletDrop 1)
+	level.back2uo_bulletdrop = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_bulletdrop", 1, 0, 1, "int");
+
 	// --- Weapon system ---
 
 	game["back2uo_weaponsystem_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weaponsetup_aktiv", 1, 0, 1);

@@ -228,6 +228,46 @@ back2uo_libcod_ismantling()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();
 }
 
+/*
+=============
+back2uo_libcod_getinactivitytime
+
+Returns the engine's inactivity timestamp (client->inactivityTime). It changes only when the
+player moves or presses one of a few buttons, so a changed value means activity. The engine
+updates it only with g_inactivity != 0 and not for spectators; with g_inactivity 0 this
+returns undefined (as the fallback does).
+Called on: self = player
+=============
+*/
+back2uo_libcod_getinactivitytime()
+{
+	if(back2uo_libcod_active() && getcvarint("g_inactivity") != 0) return self getInactivityTime();
+
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getinactivitytime();
+}
+
+// --- Bullets ---
+
+/*
+=============
+back2uo_libcod_setbulletdrop
+
+Turns bullet gravity on or off for the player's shots. The engine's bullet gravity system only
+runs with g_bulletDrop 1 (zk_libcod.cfg, travel time limit g_bulletDropMaxTime); with
+g_bulletDrop 0 nothing is called (as the fallback does).
+Called on: self = player
+=============
+*/
+back2uo_libcod_setbulletdrop(on)
+{
+	if(back2uo_libcod_active() && getcvarint("g_bulletDrop") != 0)
+	{
+		if(on) self enableBulletDrop();
+		else self disableBulletDrop();
+	}
+	else self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_setbulletdrop(on);
+}
+
 // --- Bot input ---
 
 /*

@@ -98,6 +98,18 @@ back2uo_libcod_ismantling()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();
 }
 
+back2uo_libcod_getinactivitytime()
+{
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getinactivitytime();
+}
+
+// --- Bullets ---
+
+back2uo_libcod_setbulletdrop(on)
+{
+	self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_setbulletdrop(on);
+}
+
 // --- Bot input ---
 
 back2uo_libcod_setwalkdir(dir)
