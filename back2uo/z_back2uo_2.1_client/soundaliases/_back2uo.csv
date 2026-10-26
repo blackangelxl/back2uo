@@ -54,14 +54,14 @@ spitfire_flying_short,2,vehicles/mrk_plane_flyby_spitfire5.wav,0.6,0.8,,,,5000,8
 spitfire_flying_short,3,vehicles/mrk_plane_flyby_spitfire6.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
 
 #Airplane Flying - Stuka Long Sound
-stuka_flying_long,1,vehicles/stuka_planeby1.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
-stuka_flying_long,2,vehicles/stuka_planeby2.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
-stuka_flying_long,3,vehicles/stuka_planeby3b.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
+stuka_flying_long,1,vehicles/stuka_planeby1.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
+stuka_flying_long,2,vehicles/stuka_planeby2.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
+stuka_flying_long,3,vehicles/stuka_planeby3b.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
 
 #Airplane Flying - Stuka Short Sound
-stuka_flying_short,1,vehicles/mrk_plane_flyby_stuka3.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
-stuka_flying_short,2,vehicles/mrk_plane_flyby_stuka4.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
-stuka_flying_short,3,vehicles/mrk_plane_flyby_stuka5.wav,0.6,0.9,,1,1,5000,8000,local,streamed,looping
+stuka_flying_short,1,vehicles/mrk_plane_flyby_stuka3.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
+stuka_flying_short,2,vehicles/mrk_plane_flyby_stuka4.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
+stuka_flying_short,3,vehicles/mrk_plane_flyby_stuka5.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
 
 #Flak
 flak_explosion,,explosions/explo_distant02.wav,0.4,0.6,,,,10000,,auto,streamed

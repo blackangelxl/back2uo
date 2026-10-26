@@ -13,8 +13,8 @@
 		  strafing, and finally a new route.
 		- maps without waypoints: walk straight and turn away from walls
 	Bots only use the bot input functions of zk_libcod (setWalkDir, setWalkValues, setBotStance,
-	fireWeapon, reloadWeapon, setAim) and setPlayerAngles, so they move by the same rules as
-	players.
+	fireWeapon, reloadWeapon, setAim, via _back2uo_libcod.gsc) and setPlayerAngles, so they move
+	by the same rules as players. Without zk_libcod the AI does not start.
 
 	Skill (cvar back2uo_testbots_skill -> level.back2uo_testbots_skill), see bot_skill():
 		1 easy, 2 normal, 3 hard: reaction time, aim error and turn speed.
@@ -37,6 +37,9 @@ back2uo_bot_spawned()
 	self endon("killed_player");
 	self endon("spawned");
 	level endon("intermission");
+
+	// Bot input needs zk_libcod; without it the bot just stands at its spawn.
+	if(!back2uo\_back2uo_libcod::back2uo_libcod_active()) return;
 
 	bot_init();
 
@@ -136,13 +139,13 @@ Lets go of every button and stops moving.
 */
 bot_release()
 {
-	self fireWeapon(false);
-	self reloadWeapon(false);
-	self meleeWeapon(false);
-	self setAim(false);
-	self setLean("none");
-	self setWalkDir("none");
-	self setBotStance("stand");
+	self back2uo\_back2uo_libcod::back2uo_libcod_fireweapon(false);
+	self back2uo\_back2uo_libcod::back2uo_libcod_reloadweapon(false);
+	self back2uo\_back2uo_libcod::back2uo_libcod_meleeweapon(false);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setaim(false);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setlean("none");
+	self back2uo\_back2uo_libcod::back2uo_libcod_setwalkdir("none");
+	self back2uo\_back2uo_libcod::back2uo_libcod_setbotstance("stand");
 }
 
 /*
@@ -193,7 +196,7 @@ bot_find_enemy()
 	if(gettime() < self.b2ubot.nextscan) return;
 	self.b2ubot.nextscan = gettime() + 250;
 
-	eye = self getVieworigin();
+	eye = self back2uo\_back2uo_libcod::back2uo_libcod_getvieworigin();
 	forward = anglestoforward(self getPlayerAngles());
 	teambased = getcvar("g_gametype") != "dm";
 
@@ -248,7 +251,7 @@ bot_find_enemy()
 
 		bot_fire(false);
 		bot_zoom(false);
-		self setWalkValues(0, 0);
+		self back2uo\_back2uo_libcod::back2uo_libcod_setwalkvalues(0, 0);
 	}
 }
 
@@ -262,7 +265,7 @@ Params: player - target player
 */
 bot_aimpoint(player)
 {
-	return player getVieworigin() - (0, 0, 10);
+	return player back2uo\_back2uo_libcod::back2uo_libcod_getvieworigin() - (0, 0, 10);
 }
 
 /*
@@ -282,12 +285,12 @@ bot_combat()
 		self.b2ubot.enemy = undefined;
 		bot_fire(false);
 		bot_zoom(false);
-		self setWalkValues(0, 0);
+		self back2uo\_back2uo_libcod::back2uo_libcod_setwalkvalues(0, 0);
 		return;
 	}
 
 	skill = self.b2ubot.skill;
-	eye = self getVieworigin();
+	eye = self back2uo\_back2uo_libcod::back2uo_libcod_getvieworigin();
 	target = bot_aimpoint(enemy);
 	dist = distance(eye, target);
 	seen = gettime() - self.b2ubot.enemysince;
@@ -314,18 +317,18 @@ bot_combat()
 	bot_zoom(kind == "sniper" || (kind != "auto" && kind != "shotgun" && dist > 1200));
 
 	// Reload an empty clip; wait for the reload to finish
-	if(self getCurrentWeaponClipAmmo() == 0 && !self isOnLadder())
+	if(self back2uo\_back2uo_libcod::back2uo_libcod_getcurrentweaponclipammo() == 0 && !self back2uo\_back2uo_libcod::back2uo_libcod_isonladder())
 	{
 		bot_fire(false);
 
 		if(!self.b2ubot.reloading)
 		{
-			self reloadWeapon(true);
+			self back2uo\_back2uo_libcod::back2uo_libcod_reloadweapon(true);
 			self.b2ubot.reloading = true;
 		}
-		else if(!self isReloading())
+		else if(!self back2uo\_back2uo_libcod::back2uo_libcod_isreloading())
 		{
-			self reloadWeapon(false);
+			self back2uo\_back2uo_libcod::back2uo_libcod_reloadweapon(false);
 			self.b2ubot.reloading = false;
 		}
 	}
@@ -333,7 +336,7 @@ bot_combat()
 	{
 		if(self.b2ubot.reloading)
 		{
-			self reloadWeapon(false);
+			self back2uo\_back2uo_libcod::back2uo_libcod_reloadweapon(false);
 			self.b2ubot.reloading = false;
 		}
 
@@ -353,7 +356,7 @@ bot_combat()
 	if(kind == "shotgun" && dist > 250) forwardmove = 127;
 	if(kind == "sniper") self.b2ubot.strafe = 0;
 
-	self setWalkValues(forwardmove, self.b2ubot.strafe);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setwalkvalues(forwardmove, self.b2ubot.strafe);
 }
 
 /*
@@ -369,7 +372,7 @@ bot_fire(on)
 {
 	if(!on)
 	{
-		if(self.b2ubot.firing) self fireWeapon(false);
+		if(self.b2ubot.firing) self back2uo\_back2uo_libcod::back2uo_libcod_fireweapon(false);
 		self.b2ubot.firing = false;
 		return;
 	}
@@ -378,7 +381,7 @@ bot_fire(on)
 
 	if(kind == "auto")
 	{
-		if(!self.b2ubot.firing) self fireWeapon(true);
+		if(!self.b2ubot.firing) self back2uo\_back2uo_libcod::back2uo_libcod_fireweapon(true);
 		self.b2ubot.firing = true;
 		return;
 	}
@@ -388,14 +391,14 @@ bot_fire(on)
 	{
 		if(gettime() - self.b2ubot.shotstart >= 100)
 		{
-			self fireWeapon(false);
+			self back2uo\_back2uo_libcod::back2uo_libcod_fireweapon(false);
 			self.b2ubot.firing = false;
 			self.b2ubot.nextshot = gettime() + bot_weaponinterval(kind);
 		}
 	}
 	else if(gettime() >= self.b2ubot.nextshot)
 	{
-		self fireWeapon(true);
+		self back2uo\_back2uo_libcod::back2uo_libcod_fireweapon(true);
 		self.b2ubot.firing = true;
 		self.b2ubot.shotstart = gettime();
 	}
@@ -413,7 +416,7 @@ bot_zoom(on)
 {
 	if(self.b2ubot.aiming == on) return;
 
-	self setAim(on);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setaim(on);
 	self.b2ubot.aiming = on;
 }
 
@@ -546,7 +549,7 @@ bot_navigate()
 
 	delta = nodepos - self.origin;
 	flatdist = length((delta[0], delta[1], 0));
-	onladder = self isOnLadder();
+	onladder = self back2uo\_back2uo_libcod::back2uo_libcod_isonladder();
 
 	// Reached: close enough on the ground plane and roughly at the same height (ladders: by height)
 	reached = flatdist < 24 && bot_abs(delta[2]) < 72;
@@ -590,7 +593,7 @@ bot_navigate()
 		self.b2ubot.jumped = true;
 		self thread bot_jump();
 	}
-	else if(edgetype & level.back2uo_wpbit["mantle"] && self canMantle() && !self isMantling())
+	else if(edgetype & level.back2uo_wpbit["mantle"] && self back2uo\_back2uo_libcod::back2uo_libcod_canmantle() && !self back2uo\_back2uo_libcod::back2uo_libcod_ismantling())
 	{
 		self thread bot_jump();
 	}
@@ -780,8 +783,8 @@ bot_walk(on)
 {
 	if(gettime() < self.b2ubot.unstuckuntil) return;
 
-	if(on) self setWalkDir("forward");
-	else self setWalkDir("none");
+	if(on) self back2uo\_back2uo_libcod::back2uo_libcod_setwalkdir("forward");
+	else self back2uo\_back2uo_libcod::back2uo_libcod_setwalkdir("none");
 
 	self.b2ubot.walking = on;
 }
@@ -798,9 +801,9 @@ bot_jump()
 {
 	self endon("disconnect");
 
-	self setBotStance("jump");
+	self back2uo\_back2uo_libcod::back2uo_libcod_setbotstance("jump");
 	wait .1;
-	self setBotStance(self.b2ubot.stance);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setbotstance(self.b2ubot.stance);
 }
 
 /*
@@ -818,12 +821,12 @@ bot_sidestep()
 
 	self.b2ubot.unstuckuntil = gettime() + 500;
 
-	if(randomint(2)) self setWalkDir("left");
-	else self setWalkDir("right");
+	if(randomint(2)) self back2uo\_back2uo_libcod::back2uo_libcod_setwalkdir("left");
+	else self back2uo\_back2uo_libcod::back2uo_libcod_setwalkdir("right");
 
 	wait .5;
 
-	self setWalkDir("none");
+	self back2uo\_back2uo_libcod::back2uo_libcod_setwalkdir("none");
 }
 
 /*
@@ -838,7 +841,7 @@ bot_set_stance(stance)
 {
 	if(self.b2ubot.stance == stance) return;
 
-	self setBotStance(stance);
+	self back2uo\_back2uo_libcod::back2uo_libcod_setbotstance(stance);
 	self.b2ubot.stance = stance;
 }
 

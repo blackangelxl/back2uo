@@ -708,7 +708,7 @@ addTestClients()
 	{
 		num = ents[i] getEntityNumber();
 
-		if(num < maxclients && ents[i] isBot())
+		if(num < maxclients && ents[i] back2uo\_back2uo_libcod::back2uo_libcod_isbot())
 		{
 			kick(num);
 			kicked = true;
