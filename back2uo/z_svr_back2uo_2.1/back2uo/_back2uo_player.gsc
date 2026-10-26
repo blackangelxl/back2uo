@@ -85,7 +85,7 @@ back2uo_player_connect()
 	// CoD2 client cvar settings pushed to the player.
 	back2uo\_back2uo_cod2set::back2uo_clientset_init();
 
-	back2uo\_back2uo_cvars::back2uo_favorite_menu();
+	thread back2uo\_back2uo_cvars::back2uo_favorite_menu();
 
 	thread back2uo\antiplay\_back2uo_afk::back2uo_antiplay_afk();
 
