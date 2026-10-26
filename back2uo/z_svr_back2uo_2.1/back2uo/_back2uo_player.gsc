@@ -229,6 +229,9 @@ back2uo_player_spawn()
 
 	thread back2uo\_back2uo_sprint::back2uo_sprintsystem_main();
 
+	// Bullet gravity on or off (back2uo_bulletdrop), set on every spawn.
+	self back2uo\_back2uo_libcod::back2uo_libcod_setbulletdrop(level.back2uo_bulletdrop);
+
 	// SD only: weather above the player until the main weather loop takes over.
 	thread back2uo\weatherfx\_back2uo_weather::back2uo_weather_startup();
 
