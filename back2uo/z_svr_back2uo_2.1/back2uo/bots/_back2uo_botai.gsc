@@ -6,15 +6,16 @@
 		- look for the nearest visible enemy (4 times a second, field of view 120 degrees,
 		  all around within 300 units)
 		- enemy seen: turn to it, wait the reaction time, fire with an aim error that shrinks
-		  while the bot keeps the enemy in sight; strafe, reload, sniper rifles zoom in
+		  while the bot keeps the enemy in sight; strafe, reload, sniper rifles zoom in;
+		  melee an enemy within reach instead of shooting
 		- no enemy: follow a waypoint path (back2uo\bots\_back2uo_waypoints.gsc) to a random
 		  goal, or to where the last enemy was seen. Jumps, mantles and ladders follow the
 		  edge types of the waypoints. A bot that does not move gets unstuck by jumping,
 		  strafing, and finally a new route.
 		- maps without waypoints: walk straight and turn away from walls
 	Bots only use the bot input functions of zk_libcod (setWalkDir, setWalkValues, setBotStance,
-	fireWeapon, reloadWeapon, setAim, via _back2uo_libcod.gsc) and setPlayerAngles, so they move
-	by the same rules as players. Without zk_libcod the AI does not start.
+	fireWeapon, reloadWeapon, meleeWeapon, setAim, via _back2uo_libcod.gsc) and setPlayerAngles,
+	so they move by the same rules as players. Without zk_libcod the AI does not start.
 
 	Skill (cvar back2uo_testbots_skill -> level.back2uo_testbots_skill), see bot_skill():
 		1 easy, 2 normal, 3 hard: reaction time, aim error and turn speed.
@@ -109,6 +110,9 @@ bot_init()
 	self.b2ubot.nextshot = 0;
 	self.b2ubot.shotstart = 0;
 	self.b2ubot.reloading = false;
+	self.b2ubot.meleeing = false;
+	self.b2ubot.meleestart = 0;
+	self.b2ubot.nextmelee = 0;
 	self.b2ubot.aiming = false;
 	self.b2ubot.strafe = 0;
 	self.b2ubot.nextstrafe = 0;
@@ -250,6 +254,7 @@ bot_find_enemy()
 		self.b2ubot.path = undefined;
 
 		bot_fire(false);
+		bot_melee(false);
 		bot_zoom(false);
 		self back2uo\_back2uo_libcod::back2uo_libcod_setwalkvalues(0, 0);
 	}
@@ -273,7 +278,7 @@ bot_aimpoint(player)
 bot_combat
 
 Fights the current enemy: aim with the skill's turn speed and aim error, fire after the
-reaction time, reload when the clip is empty, strafe.
+reaction time, reload when the clip is empty, melee an enemy within reach, strafe.
 =============
 */
 bot_combat()
@@ -284,6 +289,7 @@ bot_combat()
 	{
 		self.b2ubot.enemy = undefined;
 		bot_fire(false);
+		bot_melee(false);
 		bot_zoom(false);
 		self back2uo\_back2uo_libcod::back2uo_libcod_setwalkvalues(0, 0);
 		return;
@@ -316,8 +322,22 @@ bot_combat()
 	// Snipers zoom in, rifles only at range
 	bot_zoom(kind == "sniper" || (kind != "auto" && kind != "shotgun" && dist > 1200));
 
+	// Melee an enemy within reach instead of shooting or reloading
+	melee = bot_inmeleerange(dist, offaim);
+	bot_melee(melee);
+
+	if(melee)
+	{
+		bot_fire(false);
+
+		if(self.b2ubot.reloading)
+		{
+			self back2uo\_back2uo_libcod::back2uo_libcod_reloadweapon(false);
+			self.b2ubot.reloading = false;
+		}
+	}
 	// Reload an empty clip; wait for the reload to finish
-	if(self back2uo\_back2uo_libcod::back2uo_libcod_getcurrentweaponclipammo() == 0 && !self back2uo\_back2uo_libcod::back2uo_libcod_isonladder())
+	else if(self back2uo\_back2uo_libcod::back2uo_libcod_getcurrentweaponclipammo() == 0 && !self back2uo\_back2uo_libcod::back2uo_libcod_isonladder())
 	{
 		bot_fire(false);
 
@@ -401,6 +421,48 @@ bot_fire(on)
 		self back2uo\_back2uo_libcod::back2uo_libcod_fireweapon(true);
 		self.b2ubot.firing = true;
 		self.b2ubot.shotstart = gettime();
+	}
+}
+
+/*
+=============
+bot_inmeleerange
+
+Returns true when the enemy is within melee reach (player_meleeRange is 64 units) and the
+bot faces it.
+Params: dist - distance from the bot's eye to the aim point
+        offaim - degrees between the view and the aim point
+=============
+*/
+bot_inmeleerange(dist, offaim)
+{
+	return dist < 64 && offaim < 30;
+}
+
+/*
+=============
+bot_melee
+
+Presses melee for 100 ms, then releases it until the swing is over (one swing per second).
+Releasing takes effect at once.
+Params: on - true to melee
+=============
+*/
+bot_melee(on)
+{
+	if(self.b2ubot.meleeing)
+	{
+		if(on && gettime() - self.b2ubot.meleestart < 100) return;
+
+		self back2uo\_back2uo_libcod::back2uo_libcod_meleeweapon(false);
+		self.b2ubot.meleeing = false;
+		self.b2ubot.nextmelee = self.b2ubot.meleestart + 1000;
+	}
+	else if(on && gettime() >= self.b2ubot.nextmelee)
+	{
+		self back2uo\_back2uo_libcod::back2uo_libcod_meleeweapon(true);
+		self.b2ubot.meleeing = true;
+		self.b2ubot.meleestart = gettime();
 	}
 }
 
