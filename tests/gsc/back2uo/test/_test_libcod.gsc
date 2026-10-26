@@ -56,4 +56,19 @@ test_fallbacks()
 	s.pers = [];
 	s.pers["bots_nosprint"] = "noallow";
 	back2uo\test\_assert::assert_eq("fallback isbot test client", s back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_isbot(), true);
+
+	back2uo\test\_assert::assert_true("fallback inactivity undefined", !isdefined(s back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getinactivitytime()));
+
+	// g_inactivity 0: the engine does not update the value, the wrapper must not read it
+	saved = back2uo\test\_assert::cvar_save("g_inactivity");
+	setcvar("g_inactivity", "0");
+	back2uo\test\_assert::assert_true("inactivity undefined with g_inactivity 0", !isdefined(s back2uo\_back2uo_libcod::back2uo_libcod_getinactivitytime()));
+	back2uo\test\_assert::cvar_restore("g_inactivity", saved);
+
+	// g_bulletDrop 0: the wrapper must not call enableBulletDrop (it would fail on a struct)
+	saved = back2uo\test\_assert::cvar_save("g_bulletDrop");
+	setcvar("g_bulletDrop", "0");
+	s back2uo\_back2uo_libcod::back2uo_libcod_setbulletdrop(true);
+	back2uo\test\_assert::assert_true("bulletdrop skipped with g_bulletDrop 0", true);
+	back2uo\test\_assert::cvar_restore("g_bulletDrop", saved);
 }
