@@ -835,8 +835,14 @@ TestClient(team)
 		break;
 	}
 
-	// Give the bot a name that matches its nationality
-	self back2uo\_back2uo_libcod::back2uo_libcod_renameclient(back2uo\bots\_back2uo_botnames::back2uo_botname_get(team_name));
+	// Give the bot a name that matches the nationality of the team it joined (game["allies"] /
+	// game["axis"]), not of its weapon: a ppsh on an american map must not get a russian name
+	if(isdefined(self.pers["team"]) && (self.pers["team"] == "allies" || self.pers["team"] == "axis"))
+		name_team = self.pers["team"];
+	else
+		name_team = team;
+
+	self back2uo\_back2uo_libcod::back2uo_libcod_renameclient(back2uo\bots\_back2uo_botnames::back2uo_botname_get(game[name_team]));
 
 	// Allied weapons fall back to the team's shotgun; German / unknown weapons are requested directly
 	if(team_name != game["axis"])
