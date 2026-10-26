@@ -126,6 +126,20 @@ back2uo_libcod_isbot()
 
 /*
 =============
+back2uo_libcod_renameclient
+
+Changes the client's name (bot names from bots\_back2uo_botnames.gsc).
+Called on: self = player or bot
+=============
+*/
+back2uo_libcod_renameclient(name)
+{
+	if(back2uo_libcod_active()) self renameClient(name);
+	else self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_renameclient(name);
+}
+
+/*
+=============
 back2uo_libcod_getvieworigin
 
 Returns the player's eye position.

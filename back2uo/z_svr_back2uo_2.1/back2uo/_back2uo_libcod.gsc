@@ -63,6 +63,11 @@ back2uo_libcod_isbot()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_isbot();
 }
 
+back2uo_libcod_renameclient(name)
+{
+	self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_renameclient(name);
+}
+
 back2uo_libcod_getvieworigin()
 {
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getvieworigin();

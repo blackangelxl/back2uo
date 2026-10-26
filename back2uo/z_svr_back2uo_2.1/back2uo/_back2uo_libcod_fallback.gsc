@@ -90,6 +90,18 @@ back2uo_libcod_fallback_isbot()
 
 /*
 =============
+back2uo_libcod_fallback_renameclient
+
+renameClient: names cannot be changed without zk_libcod, bots keep their default name (bot0, ...).
+Called on: self = player or bot
+=============
+*/
+back2uo_libcod_fallback_renameclient(name)
+{
+}
+
+/*
+=============
 back2uo_libcod_fallback_getvieworigin
 
 Returns the eye position (stock getEye()).

@@ -835,6 +835,9 @@ TestClient(team)
 		break;
 	}
 
+	// Give the bot a name that matches its nationality
+	self back2uo\_back2uo_libcod::back2uo_libcod_renameclient(back2uo\bots\_back2uo_botnames::back2uo_botname_get(team_name));
+
 	// Allied weapons fall back to the team's shotgun; German / unknown weapons are requested directly
 	if(team_name != game["axis"])
 	{
