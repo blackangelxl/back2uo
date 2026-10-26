@@ -12,8 +12,10 @@
 =============
 back2uo_antiplay_afk
 
-AFK monitor. Counts about one tick per second while a living player moves less than 20 units,
-stands upright and presses no attack/melee/use button. At level.back2uo_antiplay_afk_limit
+AFK monitor. Counts about one tick per second while a living player stands upright, presses
+no attack/melee/use button and shows no activity: with zk_libcod and g_inactivity != 0 the
+engine's inactivity time (getInactivityTime) did not change, otherwise he moved less than
+20 units. At level.back2uo_antiplay_afk_limit
 the player gets a warning, 10 ticks later he is moved to spectator by writing his entity
 number to g_switchspec (handled by back2uo_switchspec).
 Called on: self = player (threaded on connect)
@@ -49,15 +51,29 @@ back2uo_antiplay_afk()
 			//self iprintln(&"BACK2UOMOD_AFK_TIME", self.back2uo_afk_time);
 
 			posi_type = back2uo\_back2uo_cvars::back2uo_player_stance();
+			inactivity = self back2uo\_back2uo_libcod::back2uo_libcod_getinactivitytime();
 			// Blocks for 1 second
 			self_org = back2uo\_back2uo_cvars::back2uo_player_origin();
 
-			// Movement, crouch/prone or a button press resets the counter
-			if(self_org > radius || posi_type == "crouch" || posi_type == "prone" || self attackButtonPressed() || self meleeButtonPressed() || self useButtonPressed())
+			// zk_libcod with g_inactivity: the engine's inactivity time changed = player input.
+			// Otherwise movement of at least radius units counts as activity.
+			if(isdefined(inactivity))
+			{
+				check = "inactivity";
+				moved = (self back2uo\_back2uo_libcod::back2uo_libcod_getinactivitytime() != inactivity);
+			}
+			else
+			{
+				check = "move";
+				moved = (self_org >= radius);
+			}
+
+			// Activity, crouch/prone or a button press resets the counter
+			if(moved || posi_type == "crouch" || posi_type == "prone" || self attackButtonPressed() || self meleeButtonPressed() || self useButtonPressed())
 			{
 				self.back2uo_afk_time = 0;
 			}
-			else if(self_org < radius)
+			else
 			{
 				self.back2uo_afk_time++;
 			}
@@ -70,7 +86,7 @@ back2uo_antiplay_afk()
 				{
 					moved = "none";
 					if(isdefined(self_org)) moved = int(self_org);
-					back2uo\_back2uo_cvars::back2uo_logevent("afk", "warn", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " idle=" + self.back2uo_afk_time + " limit=" + level.back2uo_antiplay_afk_limit + " move_limit=" + (level.back2uo_antiplay_afk_limit + 10) + " moved=" + moved + " radius=" + radius + " stance=" + posi_type + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+					back2uo\_back2uo_cvars::back2uo_logevent("afk", "warn", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " idle=" + self.back2uo_afk_time + " limit=" + level.back2uo_antiplay_afk_limit + " move_limit=" + (level.back2uo_antiplay_afk_limit + 10) + " moved=" + moved + " radius=" + radius + " check=" + check + " stance=" + posi_type + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 				}
 			}
 			else if(self.back2uo_afk_time >= level.back2uo_antiplay_afk_limit + 10)
@@ -79,7 +95,7 @@ back2uo_antiplay_afk()
 				{
 					moved = "none";
 					if(isdefined(self_org)) moved = int(self_org);
-					back2uo\_back2uo_cvars::back2uo_logevent("afk", "request_spec", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " idle=" + self.back2uo_afk_time + " limit=" + level.back2uo_antiplay_afk_limit + " moved=" + moved + " radius=" + radius + " stance=" + posi_type + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+					back2uo\_back2uo_cvars::back2uo_logevent("afk", "request_spec", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " idle=" + self.back2uo_afk_time + " limit=" + level.back2uo_antiplay_afk_limit + " moved=" + moved + " radius=" + radius + " check=" + check + " stance=" + posi_type + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
 				}
 
 				// Request the move to spectator; back2uo_switchspec() polls this cvar

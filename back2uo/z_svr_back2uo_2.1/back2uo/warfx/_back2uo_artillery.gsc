@@ -98,10 +98,10 @@ back2uo_artilleryfx_binousing()
 {
 	back2uo\_back2uo_cvars::back2uo_logprint("Artillery Fx Binocular Using", "Run");
 
-	// Kill any older instance of this thread first, then register the endon after the
-	// short wait so this thread does not end on its own notify.
-	self notify("binocular_exit");
-	wait(0.1);
+	// Only one instance per player. Own notify: a fake "binocular_exit" would also fire
+	// the binocular HUD clear thread and remove the distance/artillery display.
+	self notify("back2uo_artbinousing_start");
+	self endon("back2uo_artbinousing_start");
 	self endon("binocular_exit");
 
 	self endon("back2uo_killplayerthreads");
@@ -428,11 +428,34 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	thread back2uo_artillery_damage(trace["position"], self, callerteam);
 
-	// Strong screen shake (scale 0.8, radius 3000). randomfloatrange(0, 2) is always 0, so length is 0.5.
-	length = 0.5 + randomfloatrange(0, 2);
-	earthquake(0.8, length, trace["position"], 2500);
+	thread back2uo_artillery_earthquake(trace["position"]);
 
 	artillery delete();
+}
+
+/*
+=============
+back2uo_artillery_earthquake
+
+Screen shake for one shell impact, layered like a real detonation (1 unit ~ 1 inch):
+- blast jolt: short and hard, only close to the impact (~30 m)
+- ground tremor: weaker but longer rolling shake that is still felt far away (~100 m)
+- aftershock: faint settling rumble after the debris comes down
+earthquake() fades the scale linearly towards the radius edge and over the duration.
+Params: position - impact position
+=============
+*/
+back2uo_artillery_earthquake(position)
+{
+	// Blast jolt from the pressure wave.
+	earthquake(0.7, randomfloatrange(0.3, 0.5), position, 1200);
+
+	// Ground tremor through the soil.
+	earthquake(0.3, randomfloatrange(1.2, 1.8), position, 4000);
+
+	// Debris and settling ground.
+	wait randomfloatrange(0.4, 0.7);
+	earthquake(0.15, randomfloatrange(1.0, 1.5), position, 2000);
 }
 
 /*

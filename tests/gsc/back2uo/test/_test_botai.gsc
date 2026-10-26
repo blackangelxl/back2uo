@@ -46,7 +46,7 @@ run()
 =============
 test_helpers
 
-Angle, clamp and weapon helpers.
+Angle, clamp, weapon and melee helpers.
 =============
 */
 test_helpers()
@@ -65,6 +65,9 @@ test_helpers()
 	back2uo\test\_assert::assert_eq("axis shotgun is shotgun", back2uo\bots\_back2uo_botai::bot_weaponkind("shotgun_mp_axis"), "shotgun");
 	back2uo\test\_assert::assert_eq("unknown weapon is semi", back2uo\bots\_back2uo_botai::bot_weaponkind("b2utest_mp"), "semi");
 	back2uo\test\_assert::assert_eq("bolt interval", back2uo\bots\_back2uo_botai::bot_weaponinterval("bolt"), 1300);
+	back2uo\test\_assert::assert_eq("melee within reach", back2uo\bots\_back2uo_botai::bot_inmeleerange(50, 10), true);
+	back2uo\test\_assert::assert_eq("no melee out of reach", back2uo\bots\_back2uo_botai::bot_inmeleerange(80, 10), false);
+	back2uo\test\_assert::assert_eq("no melee facing away", back2uo\bots\_back2uo_botai::bot_inmeleerange(50, 45), false);
 }
 
 /*

@@ -27,6 +27,9 @@ back2uo_favorite_menu()
 		return;
 	}
 
+	// The waits below can outlive the player (disconnect during connect)
+	self endon("disconnect");
+
 	if(isdefined(level.favorite_menu) && level.favorite_menu == 1)
 	{
 		server_name = getcvar("sv_hostname");

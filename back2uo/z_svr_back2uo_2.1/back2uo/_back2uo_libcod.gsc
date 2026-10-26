@@ -63,6 +63,11 @@ back2uo_libcod_isbot()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_isbot();
 }
 
+back2uo_libcod_renameclient(name)
+{
+	self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_renameclient(name);
+}
+
 back2uo_libcod_getvieworigin()
 {
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getvieworigin();
@@ -91,6 +96,18 @@ back2uo_libcod_canmantle()
 back2uo_libcod_ismantling()
 {
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();
+}
+
+back2uo_libcod_getinactivitytime()
+{
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getinactivitytime();
+}
+
+// --- Bullets ---
+
+back2uo_libcod_setbulletdrop(on)
+{
+	self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_setbulletdrop(on);
 }
 
 // --- Bot input ---

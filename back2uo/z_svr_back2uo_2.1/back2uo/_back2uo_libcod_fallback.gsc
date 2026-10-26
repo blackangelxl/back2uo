@@ -90,6 +90,18 @@ back2uo_libcod_fallback_isbot()
 
 /*
 =============
+back2uo_libcod_fallback_renameclient
+
+renameClient: names cannot be changed without zk_libcod, bots keep their default name (bot0, ...).
+Called on: self = player or bot
+=============
+*/
+back2uo_libcod_fallback_renameclient(name)
+{
+}
+
+/*
+=============
 back2uo_libcod_fallback_getvieworigin
 
 Returns the eye position (stock getEye()).
@@ -130,6 +142,34 @@ Called on: self = player
 back2uo_libcod_fallback_false()
 {
 	return false;
+}
+
+/*
+=============
+back2uo_libcod_fallback_getinactivitytime
+
+Returns undefined: not readable without zk_libcod (or with g_inactivity 0). The AFK monitor
+then measures the movement instead (antiplay\_back2uo_afk.gsc).
+Called on: self = player
+=============
+*/
+back2uo_libcod_fallback_getinactivitytime()
+{
+	return undefined;
+}
+
+// --- Bullets ---
+
+/*
+=============
+back2uo_libcod_fallback_setbulletdrop
+
+No-op: stock bullets fly straight, without zk_libcod (or with g_bulletDrop 0).
+Called on: self = player
+=============
+*/
+back2uo_libcod_fallback_setbulletdrop(on)
+{
 }
 
 // --- Bot input ---

@@ -37,6 +37,7 @@ precachefx()
  level._effect["funnel_smoke"] = loadfx ("fx/smoke/vehicle_steam.efx");
  level._effect["building_fire"] = loadfx ("fx/fire/building_fire_med.efx");
  level._effect["fogbank_small_duhoc"] = loadfx ("fx/misc/fogbank_small_duhoc.efx");
+ level._effect["flak_explosion"] = loadfx ("fx/explosions/flak88_explosion.efx");
 }
 
 playfx()
