@@ -61,6 +61,7 @@ run()
 		back2uo\test\_test_maprotation::run();
 		back2uo\test\_test_waypoints::run();
 		back2uo\test\_test_botai::run();
+		back2uo\test\_test_botnames::run();
 	}
 
 	game["back2uo_test_done"] = true;
