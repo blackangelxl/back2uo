@@ -63,6 +63,21 @@ back2uo_libcod_fallback_aimbuttonpressed()
 
 /*
 =============
+back2uo_libcod_fallback_forwardbuttonpressed
+
+Keys are not readable without zk_libcod. Returns self.back2uo_moving_forward, set every
+0.1 seconds by _back2uo_sprint::back2uo_sprintsystem_ismoving from the movement direction
+compared with the view direction.
+Called on: self = player
+=============
+*/
+back2uo_libcod_fallback_forwardbuttonpressed()
+{
+	return (isdefined(self.back2uo_moving_forward) && self.back2uo_moving_forward);
+}
+
+/*
+=============
 back2uo_libcod_fallback_isusingbinoculars
 
 Returns self.back2uo_bino_up, set on "binocular_enter" / "binocular_exit" in

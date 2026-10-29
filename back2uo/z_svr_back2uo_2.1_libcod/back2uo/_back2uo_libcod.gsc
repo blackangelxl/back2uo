@@ -96,6 +96,21 @@ back2uo_libcod_aimbuttonpressed()
 
 /*
 =============
+back2uo_libcod_forwardbuttonpressed
+
+Returns true while the player holds the forward key.
+Called on: self = player
+=============
+*/
+back2uo_libcod_forwardbuttonpressed()
+{
+	if(back2uo_libcod_active()) return self forwardButtonPressed();
+
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_forwardbuttonpressed();
+}
+
+/*
+=============
 back2uo_libcod_isusingbinoculars
 
 Returns true while the player looks through the binoculars.

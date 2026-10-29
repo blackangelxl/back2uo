@@ -331,7 +331,8 @@ back2uo_sprintsystem_ismoving
 
 Sets self.pers["is_moving"] every 0.1 seconds. It becomes true when Use is held and the
 player moved more than 10 units in the last 0.1 seconds, and false when Use is released.
-While Use stays held, the last value is kept.
+While Use stays held, the last value is kept. Also sets self.back2uo_moving_forward for the
+forward-key fallback (back2uo_libcod_fallback_forwardbuttonpressed).
 Called on: self = player
 =============
 */
@@ -358,6 +359,18 @@ back2uo_sprintsystem_ismoving()
 			{
 				// Units moved in 0.1 seconds.
 				playerspeed = distance(firstpos, self.origin);
+
+				// Forward-key fallback without zk_libcod: horizontal movement within about 45 degrees
+				// of the view direction counts as moving forward.
+				self.back2uo_moving_forward = false;
+
+				if(playerspeed > 10)
+				{
+					move = (self.origin[0] - firstpos[0], self.origin[1] - firstpos[1], 0);
+					viewangles = self getPlayerAngles();
+
+					if(vectordot(vectornormalize(move), anglestoforward((0, viewangles[1], 0))) > 0.7) self.back2uo_moving_forward = true;
+				}
 
 				if(self useButtonPressed() && playerspeed > 10)
 				{
