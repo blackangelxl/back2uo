@@ -256,9 +256,6 @@ back2uo_player_spawn()
 
 	thread back2uo\hud\_back2uo_teamscore::back2uo_teamscore_update();
 
-	// Development test hook (melee double tap), only with game["back2uo_development_enable"].
-	thread back2uo\_back2uo_cvars::back2uo_fx_run();
-
 	back2uo\_back2uo_cvars::back2uo_clear_triggerhud_elements();
 
 	back2uo\_back2uo_cvars::back2uo_hud_elements_draw();
