@@ -159,16 +159,19 @@ Main weather loop. Plays the rain/snow effect above every living player, spread 
 at most 5 effect spawns per pass. Players below the map's middle height get the effect
 at middle height (so it is not spawned above roofs/ceilings of lower areas), players above
 it get it at the map ceiling. Pass frequency scales with level.back2uo_weatherfx_strength.
+Ends on level notify "back2uo_weather_stop" (admin command, see _back2uo_admin.gsc).
 Called on: level
+Params: force - optional, true = run even if this map did not roll weather (admin command)
 =============
 */
-back2uo_weatherdraw()
+back2uo_weatherdraw(force)
 {
-	if(!game["back2uo_weatherfx_enable"] || !isdefined(game["weather_allow"])) return;
+	if(!game["back2uo_weatherfx_enable"] || (!isdefined(game["weather_allow"]) && !isdefined(force))) return;
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Weather Draw", "Run");
 
 	level endon("back2uo_killthreads");
+	level endon("back2uo_weather_stop");
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 

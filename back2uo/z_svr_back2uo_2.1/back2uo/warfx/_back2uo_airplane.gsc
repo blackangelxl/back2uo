@@ -42,14 +42,16 @@ back2uo_airplanefx_control()
 back2uo_airplanefx_play
 
 Starts one squadron fly-over across the map center at map ceiling height, in one of the
-directions 0, 90 or 180 degrees, plus a matching flak barrage. Plane count is
-level.back2uo_airplanes_count, or 3-5 if that is 0. Skipped on maps that are too small
+directions 0, 90 or 180 degrees, plus a matching flak barrage. Plane count is count if
+given (admin command), otherwise random up to level.back2uo_airplanes_count, or 2-5 if that is 0.
+Skipped on maps that are too small
 (level.back2uo_airplanedimo_allow == 0, set in tools\_back2uo_dimension.gsc).
 Skipped while another fly-over is still running (level.back2uo_airplanefx_running).
 Called on: level
+Params: count - optional, exact plane count 1-6 (from _back2uo_admin.gsc)
 =============
 */
-back2uo_airplanefx_play()
+back2uo_airplanefx_play(count)
 {
 	if(!game["back2uo_airplanesfx_enable"]) return;
 
@@ -92,8 +94,9 @@ back2uo_airplanefx_play()
 	airplane_endpoint = [];
 	airplane_extra = [];
 
-	// 0 = random plane count.
-	if(level.back2uo_airplanes_count == 0) airplane_count = randomintrange(2, 6);
+	// Fixed count from the admin command, else 0 = random plane count.
+	if(isdefined(count)) airplane_count = count;
+	else if(level.back2uo_airplanes_count == 0) airplane_count = randomintrange(2, 6);
 	else airplane_count = randomintrange(1, level.back2uo_airplanes_count);
 
 	airplane_flak_fire = randomintrange(1, 5);

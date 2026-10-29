@@ -160,7 +160,7 @@ back2uo_switchspec()
 						player.leaving_team = player.pers["team"];
 						player suicide();
 
-						back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_strike_used_up();
+						player back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_strike_used_up();
 
 						// Announce the move to all players
 						thread back2uo\_back2uo_cvars::back2uo_playeraction_msg(&"BACK2UOMOD_PLAYER_SPECTATOR", player.name);

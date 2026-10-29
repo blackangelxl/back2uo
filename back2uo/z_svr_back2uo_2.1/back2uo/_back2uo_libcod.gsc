@@ -53,6 +53,11 @@ back2uo_libcod_aimbuttonpressed()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_aimbuttonpressed();
 }
 
+back2uo_libcod_forwardbuttonpressed()
+{
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_forwardbuttonpressed();
+}
+
 back2uo_libcod_isusingbinoculars()
 {
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_isusingbinoculars();

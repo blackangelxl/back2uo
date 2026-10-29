@@ -1439,18 +1439,19 @@ updateGametypeCvars()
 				if(!isdefined(level.clock))
 				{
 					level.clock = newHudElem();
-					level.clock.horzAlign = "left";
 					level.clock.vertAlign = "top";
 
 					// Back2Uo: same clock position as in startGame().
 					if(game["back2uo_enable"])
 					{
-						level.clock.x = 298;
+						level.clock.horzAlign = "center";
+						level.clock.x = -23;
 						level.clock.y = 445;
 						level.clock.alpha = 0.7;
 					}
 					else
 					{
+						level.clock.horzAlign = "left";
 						level.clock.x = 8;
 						level.clock.y = 2;
 					}
