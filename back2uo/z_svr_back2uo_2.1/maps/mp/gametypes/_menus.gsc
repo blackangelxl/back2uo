@@ -151,6 +151,10 @@ onMenuResponse()
 		// Disabled: debug print of every menu response.
 		//iprintln("^6", response);
 
+		// Back2Uo: admin console commands (/openscriptmenu -1 b2u_artillery:<password>), see _back2uo_admin.gsc.
+		if(game["back2uo_enable"] && self back2uo\_back2uo_admin::back2uo_admin_menuresponse(response))
+			continue;
+
 		// "back" steps one menu back: team menu -> ingame menu, weapon menu -> team menu.
 		if(response == "back")
 		{
