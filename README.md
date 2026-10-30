@@ -43,7 +43,7 @@ back2uo/                          fs_game folder contents
   z_back2uo_2.1_client/           -> z_back2uo_2.1_client.iwd   menus, images, FX, weapons, sounds
   localized_english_iw15/         -> localized_english_iw15.iwd English strings and voice sounds
   localized_german_iw15/          -> localized_german_iw15.iwd  German strings and voice sounds
-docs/                             original v2.1 ReadMe and Index (Word), code review notes
+docs/en/, docs/de/                v2.1 ReadMe (setup and settings) and Index (changelog), English and German
 tests/                            GSC tests on a docker CoD2 server (see tests/README.md)
   gsc/                            -> z_svr_back2uo_2.1_test.iwd test runner and suites
   run_tests.py                    builds, starts the server, reads the results
@@ -99,7 +99,7 @@ Required settings in your server config:
 set com_hunkMegs "512"
 set g_logsync "1"
 set logfile "1"
-set g_log "back2uo_mod.log"
+set g_log "games_mp.log"
 ```
 
 Server without [zk_libcod](https://github.com/ibuddieat/zk_libcod): delete `z_svr_back2uo_2.1_libcod.iwd`,
@@ -127,8 +127,6 @@ All options are in [`back2uo/back2uomod.cfg`](back2uo/back2uomod.cfg). Each cvar
 - **Red compass dots for enemy fire are hidden** on purpose by `materials/compassping_enemyfiring` in the client archive. Remove that file to bring them back.
 - **Custom maps** with their own scripts or many models can conflict with the mod or hit `G_ModelIndex: overflow`.
 - **Weapon damage scaling** does not always apply to mounted turrets (engine limitation).
-
-Suspected script bugs found during the code cleanup are listed in [docs/code-review-notes.md](docs/code-review-notes.md).
 
 ## Links
 
