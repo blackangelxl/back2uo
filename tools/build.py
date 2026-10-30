@@ -11,7 +11,7 @@ indentation, blank lines and redundant whitespace are dropped. Developer blocks
 keeps the line numbers in script errors matching the sources.
 
 Pass --test to build the test server instead: the output goes to dist-test/back2uo/
-and adds zz_back2uo_test.iwd (the GSC test runner from tests/gsc/, which overrides the
+and adds z_svr_back2uo_2.1_test.iwd (the GSC test runner from tests/gsc/, which overrides the
 release stub back2uo/_back2uo_test.gsc) and tests/server_test.cfg. See tests/README.md.
 
 Usage:
@@ -28,8 +28,9 @@ DIST = os.path.join(ROOT, "dist", "back2uo")
 TEST_SRC = os.path.join(ROOT, "tests", "gsc")
 TEST_CFG = os.path.join(ROOT, "tests", "server_test.cfg")
 TEST_DIST = os.path.join(ROOT, "dist-test", "back2uo")
-# Sorts after z_svr_back2uo_2.1.iwd, so its files override the release files
-TEST_IWD = "zz_back2uo_test.iwd"
+# CoD2 searches .iwd files in reverse order of their upper-cased names ("_" > "Z" > "."), so this
+# name comes before z_svr_back2uo_2.1.iwd and its files override the release files
+TEST_IWD = "z_svr_back2uo_2.1_test.iwd"
 
 # "." counts as a word char so "wait .05" does not become "wait.05"
 WORD_CHARS = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.")
