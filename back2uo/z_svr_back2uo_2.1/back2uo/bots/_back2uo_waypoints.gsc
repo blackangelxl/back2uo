@@ -188,7 +188,8 @@ back2uo_wp_closest(origin)
 back2uo_wp_path
 
 A* search. Returns the node ids from start to goal (both included), or undefined if the
-goal cannot be reached. Waits one frame per 250 expanded nodes, so callers must allow waits.
+goal cannot be reached. Waits one frame per 500 work units (heap pops plus links checked),
+so callers must allow waits.
 Params: start - start node id
 		goal - goal node id
 =============
@@ -210,11 +211,20 @@ back2uo_wp_path(start, goal)
 
 	cost[start] = 0;
 	heap_push(open, start, distance(level.back2uo_wp_origin[start], goalpos));
-	steps = 0;
+	work = 0;
 
 	while(open.n)
 	{
+		// Budget by work done, not nodes expanded: dense graphs and stale heap entries
+		// otherwise trip the engine's infinite loop check
+		if(work >= 500)
+		{
+			work = 0;
+			wait .05;
+		}
+
 		current = heap_pop(open);
+		work++;
 
 		if(current == goal)
 		{
@@ -253,8 +263,7 @@ back2uo_wp_path(start, goal)
 			}
 		}
 
-		steps++;
-		if(steps % 250 == 0) wait .05;
+		work += links.size;
 	}
 
 	return undefined;
