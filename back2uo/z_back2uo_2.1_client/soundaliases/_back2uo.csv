@@ -75,13 +75,13 @@ mortarlaunch_incoming2,2,explosions/cannon_sequence_hvy2_filt.wav,1,1,,,,,,auto,
 mortarlaunch_incoming3,2,explosions/cannon_sequence_hvy3_filt.wav,1,1,,,,,,auto,loaded
 
 #Mortar Fall Incoming
-moerser_fallincome1,,explosions/incoming01.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,loaded
-moerser_fallincome2,,explosions/incoming03.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,loaded
+moerser_fallincome1,,explosions/incoming01.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
+moerser_fallincome2,,explosions/incoming03.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
 
 #Mortar Explosion
-moerser_explod1,,explosions/mortar_dirt01.wav,0.7,0.8,explosion,,,1000,6000,auto,loaded
-moerser_explod2,,explosions/mortar_dirt02.wav,0.7,0.8,explosion,,,1000,6000,auto,loaded
-moerser_explod3,,explosions/mortar_dirt03.wav,0.7,0.8,explosion,,,1000,6000,auto,loaded
+moerser_explod1,,explosions/mortar_dirt01.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
+moerser_explod2,,explosions/mortar_dirt02.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
+moerser_explod3,,explosions/mortar_dirt03.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
 
 #Artillery Ready
 artillery_US_ready,,back2uo/us_arty_gtg.mp3,1,1,,,,,,voice,streamed
@@ -92,8 +92,8 @@ artillery_GE_ready,,back2uo/ge_arty_gtg.mp3,1,1,,,,,,voice,streamed
 #Artillery Order
 artillery_allies_targetfalse,,voiceovers/uk/artillery/artillery_ba1_04_t1.wav,1,1,,,,,,voice,loaded
 artillery_allies_targettrue,,voiceovers/uk/artillery/artillery_ba1_14_t1.wav,1,1,,,,,,voice,loaded
-artillery_axis_targetfalse,,voiceovers/us/artillery/artillery_ar1_sc01_03_t2_R.wav,1,1,,,,,,voice,loaded
-artillery_axis_targettrue,,voiceovers/us/artillery/artillery_ar1_sc01_14_t4_R.wav,1,1,,,,,,voice,loaded
+artillery_axis_targetfalse,,voiceovers/us/artillery/artillery_ar1_sc01_03_t2_R.wav,1,1,,,,,,voice,streamed
+artillery_axis_targettrue,,voiceovers/us/artillery/artillery_ar1_sc01_14_t4_R.wav,1,1,,,,,,voice,streamed
 
 #Artillery Launch
 artillery_launch1,,explosions/cannon_sequence_hvy1_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,loaded
@@ -106,9 +106,9 @@ artillery_fallincome2,,explosions/artillery_incoming04.wav,0.7,0.8,explosion,0.9
 artillery_fallincome3,,explosions/artillery_incoming05.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,loaded
 
 #Artillery Explosion
-artillery_explod1,,explosions/mrk_building_big_explod_1b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,loaded,,0.5
-artillery_explod2,,explosions/mrk_building_big_explod_2b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,loaded,,0.5
-artillery_explod3,,explosions/mrk_building_big_explod_3b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,loaded,,0.5
+artillery_explod1,,explosions/mrk_building_big_explod_1b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
+artillery_explod2,,explosions/mrk_building_big_explod_2b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
+artillery_explod3,,explosions/mrk_building_big_explod_3b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
 
 ###################
 ## Player Sounds ##
