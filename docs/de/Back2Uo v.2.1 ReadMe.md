@@ -81,7 +81,7 @@ Die Mod nutzt [zk_libcod](https://github.com/ibuddieat/zk_libcod), wenn es auf d
 
 ```
 set com_hunkMegs "512"
-set g_logsync "1"    // 0 = direktes Schreiben, 1 = gepuffert
+set g_logsync "2"    // 0 = kein Log, 1 = gepuffert, 2 = fortlaufend, 3 = anhängen
 set logfile "1"
 set g_log "games_mp.log"
 

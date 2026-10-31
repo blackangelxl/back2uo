@@ -81,7 +81,7 @@ The mod uses [zk_libcod](https://github.com/ibuddieat/zk_libcod) if it is instal
 
 ```
 set com_hunkMegs "512"
-set g_logsync "1"    // 0 = direct write, 1 = buffered
+set g_logsync "2"    // 0 = no log, 1 = buffered, 2 = continuous, 3 = append
 set logfile "1"
 set g_log "games_mp.log"
 
