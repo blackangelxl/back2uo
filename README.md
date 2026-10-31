@@ -137,6 +137,8 @@ All options are in [`back2uo/back2uomod.cfg`](back2uo/back2uomod.cfg). Each cvar
 - https://www.ibuddie.at/libcod/index.html Improved script documentation
 - https://github.com/bgauduch/call-of-duty-2-docker-server Call of Duty 2 server meets docker
 - https://nawaftahir.github.io/cod2-xmodel-gallery/ Call of Duty 2  Stock Asset Library
+- https://nawaftahir.github.io/cod2-iwi-gallery/ Call of Duty 2 · Stock Texture Library
+- https://github.com/nawaftahir/vscode-cod-gsc Extension for VS Code for GSC scripts used in Call of Duty games (CoD GSC)
 - https://github.com/7894752/cod2map New 64-bit Map compiler version
 
 ## Credits
