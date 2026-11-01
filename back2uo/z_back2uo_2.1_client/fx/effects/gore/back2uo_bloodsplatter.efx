@@ -2,7 +2,7 @@ Particle
 {
   name				      back2uo_bloodline
 	flags				      useAlpha impactFX
-	count				      4 8 	
+	count				      2 4 	
 	delay 			    	15
 	life				      900 1100
 	radius				    2 4
@@ -585,7 +585,7 @@ Particle
 Particle
 {
   name				            back2uo_bloodcol
-  flags				            useAlpha useRandomRotationDelta useRandomVelocity impactFX
+  flags				            useAlpha useRandomRotationDelta useRandomVelocity
 	spawnFlags			        frustumCull
 	nonUniformScale		      1
 	count				            4 8
@@ -856,8 +856,4 @@ Particle
 	  gfx/gore/back2uo_bloodsquirt.tga
 	]
 
-	impactfx
-	[
-		fx/effects/gore/back2uo_bloodsplash3
-	]
 }
