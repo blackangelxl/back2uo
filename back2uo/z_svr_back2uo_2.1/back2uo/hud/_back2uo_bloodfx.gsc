@@ -43,7 +43,7 @@ back2uo_view_bloodfx()
 		self.back2uo_bloodyscreen.y = bs2;
 		self.back2uo_bloodyscreen.color = (1,1,1);
 		self.back2uo_bloodyscreen.alpha = 1;
-		self.back2uo_bloodyscreen.archived = true;
+		self.back2uo_bloodyscreen.archived = false;
 		self.back2uo_bloodyscreen SetShader("gfx/gore/back2uo_hud_blood_hit1.tga", 100 + bs3 , 100 + bs3);
 	}
 
@@ -59,7 +59,7 @@ back2uo_view_bloodfx()
 		self.back2uo_bloodyscreen1.y = bs2a;
 		self.back2uo_bloodyscreen1.color = (1,1,1);
 		self.back2uo_bloodyscreen1.alpha = 1;
-		self.back2uo_bloodyscreen1.archived = true;
+		self.back2uo_bloodyscreen1.archived = false;
 		self.back2uo_bloodyscreen1 SetShader("gfx/gore/back2uo_hud_blood_hit2.tga", 100 + bs3a , 100 + bs3a);
 	}
 
@@ -75,7 +75,7 @@ back2uo_view_bloodfx()
 		self.back2uo_bloodyscreen2.y = bs2b;
 		self.back2uo_bloodyscreen2.color = (1,1,1);
 		self.back2uo_bloodyscreen2.alpha = 1;
-		self.back2uo_bloodyscreen2.archived = true;
+		self.back2uo_bloodyscreen2.archived = false;
 		self.back2uo_bloodyscreen2 SetShader("gfx/gore/back2uo_hud_blood_hit1.tga", 100 + bs3b , 100 + bs3b);
 	}
 
@@ -91,7 +91,7 @@ back2uo_view_bloodfx()
 		self.back2uo_bloodyscreen3.y = bs2c;
 		self.back2uo_bloodyscreen3.color = (1,1,1);
 		self.back2uo_bloodyscreen3.alpha = 1;
-		self.back2uo_bloodyscreen3.archived = true;
+		self.back2uo_bloodyscreen3.archived = false;
 		self.back2uo_bloodyscreen3 SetShader("gfx/gore/back2uo_hud_blood_hit2.tga", 100 + bs3c , 100 + bs3c);
 	}
 

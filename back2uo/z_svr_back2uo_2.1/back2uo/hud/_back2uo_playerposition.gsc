@@ -26,7 +26,7 @@ back2uo_playerposition_draw()
 	if(!isDefined(self.playerposition_crouch))
 	{
 		self.playerposition_crouch = newClientHudElem(self);
-		self.playerposition_crouch.x = 105; // was 108
+		self.playerposition_crouch.x = 107; // was 105
 		self.playerposition_crouch.y = 415; // was 422
 		self.playerposition_crouch.horzAlign = "left";
 		self.playerposition_crouch.vertAlign = "top";
@@ -38,7 +38,7 @@ back2uo_playerposition_draw()
 	if(!isDefined(self.playerposition_prone))
 	{
 		self.playerposition_prone = newClientHudElem(self);
-		self.playerposition_prone.x = 105; // was 108
+		self.playerposition_prone.x = 107; // was 105
 		self.playerposition_prone.y = 415; // was 422
 		self.playerposition_prone.horzAlign = "left";
 		self.playerposition_prone.vertAlign = "top";
@@ -50,7 +50,7 @@ back2uo_playerposition_draw()
 	if(!isDefined(self.playerposition_stand))
 	{
 		self.playerposition_stand = newClientHudElem(self);
-		self.playerposition_stand.x = 105; // was 108
+		self.playerposition_stand.x = 107; // was 105
 		self.playerposition_stand.y = 415; // was 422
 		self.playerposition_stand.horzAlign = "left";
 		self.playerposition_stand.vertAlign = "top";
@@ -62,7 +62,7 @@ back2uo_playerposition_draw()
 	if(!isDefined(self.playerposition_sprint))
 	{
 		self.playerposition_sprint = newClientHudElem(self);
-		self.playerposition_sprint.x = 105; // was 108
+		self.playerposition_sprint.x = 107; // was 105
 		self.playerposition_sprint.y = 415; // was 422
 		self.playerposition_sprint.horzAlign = "left";
 		self.playerposition_sprint.vertAlign = "top";
@@ -71,20 +71,20 @@ back2uo_playerposition_draw()
 		self.playerposition_sprint setShader("gfx/custom/back2uo_hud_stance_sprint.tga", 45, 45); // was 40, 40
 	}
 
-	// Sprint stamina bar: starts full and light gray, shrinks from right to left and turns red
-	// as stamina is used (same colors as the health bar).
+	// Sprint stamina bar: starts full and green, shrinks from right to left and fades
+	// over yellow to red as stamina is used.
 	if(!isDefined(self.playerposition_sprintcross))
 	{
 		self.playerposition_sprintcross = newClientHudElem(self);
-		self.playerposition_sprintcross.x = 110;
-		self.playerposition_sprintcross.y = 450;
+		self.playerposition_sprintcross.x = 109;
+		self.playerposition_sprintcross.y = 453;
 		self.playerposition_sprintcross.horzAlign = "left";
 		self.playerposition_sprintcross.vertAlign = "top";
-		self.playerposition_sprintcross.color = (0.8, 0.8, 0.8);
-		self.playerposition_sprintcross.alpha = 0.4;
+		self.playerposition_sprintcross.color = (0.3, 0.8, 0.3);
+		self.playerposition_sprintcross.alpha = 0.7;
 		self.playerposition_sprintcross.sort = 3;
 		self.playerposition_sprintcross.archived = true;
-		self.playerposition_sprintcross setShader("white", 36, 5);
+		self.playerposition_sprintcross setShader("white", 40, 3);
 	}
 }
 
@@ -188,16 +188,20 @@ back2uo_playerposition_sprint()
 	self endon("disconnect");
 	self endon("killed_player");
 
-	breath_timeon = 1;
-	breath_timeoff = 1;
 	sprint_waiton = 0.2;
 	sprint_waitoff = 1;
 	sprint_length = level.back2uo_sprint_length / 35;
 	sprint_rehatime =  level.back2uo_sprint_rehatime / 35;
+	// Bar animation time = time of one bar step, so each step ends when the next one starts
+	// and the bar moves at a constant speed (regeneration step: sprint_rehatime + loop wait 0.1).
+	bar_timeon = sprint_length;
+	bar_timeoff = sprint_rehatime + 0.1;
 	self.hud_sprint_height = 1;
 	self.pers["breathing"] = false;
 	self.sprint_breathingout = 0;
 	self.sprint_stop = undefined;
+	// Set when the stamina ran out; blocks sprinting (_back2uo_sprint.gsc) until the bar is full again.
+	self.sprint_exhausted = false;
 
 	for(;;)
 	{
@@ -230,21 +234,27 @@ back2uo_playerposition_sprint()
 			}
 		}
 
-		// Sprinting: grow the bar one step per sprint_length seconds up to 36.
-		while(self.pers["sprinting"] && self usebuttonpressed())
+		// Sprinting: grow the bar one step per sprint_length seconds up to 36. Stamina is only
+		// used while Use and the forward key are held (no drain while strafing or backing up).
+		while(self.pers["sprinting"] && self usebuttonpressed() && self back2uo\_back2uo_libcod::back2uo_libcod_forwardbuttonpressed())
 		{
 			self.sprint_stop = undefined;
-
-			self back2uo_playerposition_sprintbar(breath_timeon);
 
 			if(self.hud_sprint_height < 36)
 			{
 				self.hud_sprint_height++;
 
 				// Stamina bar just ran full
-				if(self.hud_sprint_height == 36) back2uo\_back2uo_cvars::back2uo_logevent("playerposition", "exhausted", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+				if(self.hud_sprint_height == 36)
+				{
+					self.sprint_exhausted = true;
+
+					back2uo\_back2uo_cvars::back2uo_logevent("playerposition", "exhausted", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(self.origin));
+				}
 			}
 			else self.pers["breathing"] = true;
+
+			self back2uo_playerposition_sprintbar(bar_timeon);
 
 			wait sprint_length;
 		}
@@ -262,9 +272,12 @@ back2uo_playerposition_sprint()
 			// Only regenerate while the sprint key is released or the player stands still.
 			if(!self usebuttonpressed() || self.pers["is_moving"] == false)
 			{
-				self back2uo_playerposition_sprintbar(breath_timeoff);
-
 				if(self.hud_sprint_height >= 2) self.hud_sprint_height = self.hud_sprint_height - 1;
+
+				// Fully regenerated: sprinting is possible again after an exhaustion.
+				if(self.hud_sprint_height < 2) self.sprint_exhausted = false;
+
+				self back2uo_playerposition_sprintbar(bar_timeoff);
 
 				wait sprint_rehatime;
 			}
@@ -279,9 +292,9 @@ back2uo_playerposition_sprint()
 back2uo_playerposition_sprintbar
 
 Scales and recolors the sprint stamina bar from self.hud_sprint_height. The bar shows the
-remaining stamina: 36 px wide and light gray when rested (height 1), 1 px wide and red when
+remaining stamina: 44 px wide and green when rested (height 1), 1 px wide and red when
 exhausted (height 36). It is anchored left, so it shrinks from right to left.
-Colors use the health bar formula (red = 0.8, green and blue = 0.8 * stamina).
+Colors blend green -> yellow (half stamina) -> red.
 Called on: self = player
 Params: time - scale time in seconds
 =============
@@ -290,11 +303,23 @@ back2uo_playerposition_sprintbar(time)
 {
 	if(!isdefined(self.playerposition_sprintcross)) return;
 
-	// Remaining stamina from 1 (rested) to 0 (exhausted).
-	stamina = (36 - self.hud_sprint_height) / 35;
+	// Remaining stamina from 1 (rested) to 0 (exhausted). Height 36 would give a negative
+	// value and a 0 px bar, so clamp it.
+	stamina = (35 - self.hud_sprint_height) / 34;
+	if(stamina < 0) stamina = 0;
 
-	self.playerposition_sprintcross scaleOverTime(time, 37 - self.hud_sprint_height, 5);
-	self.playerposition_sprintcross.color = (0.8, 0.8 * stamina, 0.8 * stamina);
+	self.playerposition_sprintcross scaleOverTime(time, int(1 + stamina * 40 + 0.5), 3);
+	// Green (0.3, 0.8, 0.3) -> yellow (0.9, 0.8, 0.2) -> red (0.9, 0.15, 0.1).
+	if(stamina > 0.5)
+	{
+		f = (stamina - 0.5) * 2;
+		self.playerposition_sprintcross.color = (0.9 - 0.6 * f, 0.8, 0.2 + 0.1 * f);
+	}
+	else
+	{
+		f = stamina * 2;
+		self.playerposition_sprintcross.color = (0.9, 0.15 + 0.65 * f, 0.1 + 0.1 * f);
+	}
 }
 
 /*

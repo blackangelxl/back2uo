@@ -26,8 +26,8 @@ name,sequence,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max
 ####################
 
 #Ambiente Rain / Wind
-amb_rain,1,amb_emitters/amb_rain_foliage.wav,0.2,0.3,,,,,,local,streamed,looping
-amb_wind,1,amb_emitters/emt_corner_wind_1.wav,0.2,0.4,,,,,,local,streamed,looping
+amb_rain,1,amb_emitters/amb_rain_foliage.wav,0.2,0.3,,,,,,local,loaded,looping
+amb_wind,1,amb_emitters/emt_corner_wind_1.wav,0.2,0.4,,,,,,local,loaded,looping
 
 #Thunder
 elm_thunder,1,amb_elements/elm_thunder1b.wav,1,1,,,,5000,10000,auto,streamed

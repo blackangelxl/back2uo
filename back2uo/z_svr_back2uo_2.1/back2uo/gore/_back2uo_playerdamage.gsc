@@ -10,11 +10,10 @@
 =============
 back2uo_playerdamage_blood
 
-Plays blood splatter on the bone that matches the hit location. More damage
-plays the effect more often (1x up to 45, 2x up to 90, 3x above).
+Plays blood splatter once on the bone that matches the hit location.
 Called on: self = damaged player
 Params: sHitLoc - engine hit location string (e.g. "head", "left_arm_lower")
-		iDamage - damage dealt (defaults to 40)
+		iDamage - damage dealt, only used for the event log
 		attacker - attacking entity, only used for the development debug print
 =============
 */
@@ -119,8 +118,6 @@ back2uo_playerdamage_blood(sHitLoc, iDamage, attacker)
 	damage_raw = "none";
 	if(isdefined(iDamage)) damage_raw = iDamage;
 
-	if(!isdefined(iDamage)) iDamage = 40;
-
 	// No blood for spectators.
 	if(self.pers["team"] == "spectator" || self.sessionstate == "spectator")
 	{
@@ -133,36 +130,14 @@ back2uo_playerdamage_blood(sHitLoc, iDamage, attacker)
 		hitloc = "none";
 		if(isdefined(sHitLoc)) hitloc = sHitLoc;
 
-		// Same thresholds as the effect calls below
-		splatter = 1;
-		if(iDamage > 45 && iDamage <= 90) splatter = 2;
-		else if(iDamage > 90) splatter = 3;
-
 		dist = "none";
 		if(isdefined(attacker) && isdefined(attacker.origin) && isdefined(self.origin)) dist = int(distance(attacker.origin, self.origin));
 
-		back2uo\_back2uo_cvars::back2uo_logevent("damage", "blood", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " " + back2uo_playerdamage_logattacker(attacker) + " hitloc=" + hitloc + " bone=" + hitposi + " damage=" + damage_raw + " splatter=" + splatter + " dist=" + dist);
+		back2uo\_back2uo_cvars::back2uo_logevent("damage", "blood", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " " + back2uo_playerdamage_logattacker(attacker) + " hitloc=" + hitloc + " bone=" + hitposi + " damage=" + damage_raw + " dist=" + dist);
 	}
 
-	if(iDamage <= 45)
-	{
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-	}
-	else if(iDamage > 45 && iDamage <= 90)
-	{
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-	}
-	else if(iDamage > 90)
-	{
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-	}
-	else
-	{
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
-	}
+	// Only one effect per hit: every effect spawns ground decals, several in one frame cause hitches.
+	playfxontag(level.back2uo_effect["body_bloodsplatter"], self, hitposi);
 
 	// Development mode: print the bone that was hit to the attacker.
 	if (game["back2uo_development_enable"] && isPlayer(attacker))
