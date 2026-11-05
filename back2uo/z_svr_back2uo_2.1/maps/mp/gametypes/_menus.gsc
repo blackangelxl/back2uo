@@ -73,7 +73,7 @@ init()
 			game["menu_serverinfos"] = "serverinfos_mod_" + getCvar("g_gametype");
 			precacheMenu(game["menu_serverinfos"]);
 
-			// Info menu shown on join: stock one, or the mod's version if back2uo_serverinfo_aktiv is set.
+			// Info menu shown on join: stock one, or the mod's version if back2uo_serverinfo_active is set.
 			game["menu_serverinfo"] = "serverinfo_" + getCvar("g_gametype");
 
 			if(game["back2uo_serverinfo_join"])

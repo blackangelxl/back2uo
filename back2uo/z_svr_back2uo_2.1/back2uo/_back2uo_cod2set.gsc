@@ -45,7 +45,7 @@ back2uo_clientset_init()
 	self setClientCvar("back2uo_ui_weaponpickup_object", 0);
 
 	// Blood effects (0 = off, 1 = on, default 1).
-	game["back2uo_blood"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_blood", 1, 0, 1);
+	game["back2uo_blood"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_blood_active", 1, 0, 1);
 	self setClientCvar("cg_blood", game["back2uo_blood"]);
 
 	// Crosshair (0 = off, 1 = on, default 1).
@@ -90,7 +90,7 @@ back2uo_clientset_init()
 	self setClientCvar("back2uo_ui_compassenemyfiring", game["back2uo_compassreddots"]);
 
 	// Server message display in the mod menu.
-	game["back2uo_servermsg"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_servermsg_aktiv", 1, 0, 1);
+	game["back2uo_servermsg"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_servermsg_active", 1, 0, 1);
 	self setClientCvar("back2uo_ui_servermsg", game["back2uo_servermsg"]);
 
 	// Copies the configured host name to the client's sv_hostname.

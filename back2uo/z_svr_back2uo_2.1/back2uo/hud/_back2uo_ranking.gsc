@@ -45,7 +45,7 @@ back2uo_ranking_draw()
 back2uo_ranking_update
 
 Every 0.5 seconds maps the player's score to a rank (1 to 5, plus extra ranks every
-level.back2uo_ranking_lvextra points above level 5 when back2uo_rankextra_aktiv is set).
+level.back2uo_ranking_lvextra points above level 5 when back2uo_rankextra_active is set).
 On a rank change it plays a sound, prints a message and pulses the rank icon.
 Called on: self = player
 =============
@@ -101,7 +101,7 @@ back2uo_ranking_update()
 			// Extra ranks: one rank up every back2uo_ranking_lvextra points above level 5.
 			// Calculated from the score, so the rank follows the score up and down.
 			new_rank = 5;
-			if(level.back2uo_rankextra_aktiv == 1) new_rank += int((player_score - level.back2uo_ranking_level5) / level.back2uo_ranking_lvextra);
+			if(level.back2uo_rankextra_active == 1) new_rank += int((player_score - level.back2uo_ranking_level5) / level.back2uo_ranking_lvextra);
 
 			back2uo_ranking_level(new_rank);
 

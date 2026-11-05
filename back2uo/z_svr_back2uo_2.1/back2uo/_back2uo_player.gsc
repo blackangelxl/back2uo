@@ -63,7 +63,7 @@ back2uo_start_gametype()
 	// Limit the number of snipers and shotguns per team.
 	thread back2uo\_back2uo_weaponsystem::back2uo_snipershotgun_limiter();
 
-	// Test bots (back2uo_testbots_aktiv), see _teams.gsc. Their waypoints load in the background.
+	// Test bots (back2uo_testbots_active), see _teams.gsc. Their waypoints load in the background.
 	if(game["back2uo_testbots_enable"]) thread back2uo\bots\_back2uo_waypoints::back2uo_waypoints_load();
 
 	thread maps\mp\gametypes\_teams::addTestClients();

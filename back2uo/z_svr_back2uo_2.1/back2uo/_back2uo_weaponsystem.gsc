@@ -147,7 +147,7 @@ back2uo_weapon_optimizer()
 	level.back2uo_weaponstrength["frag_grenade_german_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_german", 100, 1, 100, "int");
 	level.back2uo_weaponstrength["frag_grenade_russian_mp"] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weaponstr_frag_russian", 100, 1, 100, "int");
 
-	// Special frag grenades (back2uo_spezial_grenade) use the same cvars as the normal ones.
+	// Special frag grenades (back2uo_spezial_grenade_active) use the same cvars as the normal ones.
 	nations[0] = "american";
 	nations[1] = "british";
 	nations[2] = "german";

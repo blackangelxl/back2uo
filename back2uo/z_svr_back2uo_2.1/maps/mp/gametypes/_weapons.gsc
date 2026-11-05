@@ -761,7 +761,7 @@ Called on: player
 */
 giveGrenades()
 {
-	// Back2Uo: special frag variant ( back2uo_spezial_grenade: 1 = cookable | 2 = cookable + 85% throw range ).
+	// Back2Uo: special frag variant ( back2uo_spezial_grenade_active: 1 = cookable | 2 = cookable + 85% throw range ).
 	if(game["back2uo_specialgrenade_enable"])
 	{
 		level.back2uo_specialgranade = "_special" + game["back2uo_specialgrenade_enable"];
@@ -771,7 +771,7 @@ giveGrenades()
 		level.back2uo_specialgranade = "";
 	}
 
-	// Back2Uo: special smoke variant ( back2uo_spezial_smoke: 1 = 85% throw range ).
+	// Back2Uo: special smoke variant ( back2uo_spezial_smoke_active: 1 = 85% throw range ).
 	if(game["back2uo_specialsmoke_enable"])
 	{
 		level.back2uo_specialsmoke = "_special" + game["back2uo_specialsmoke_enable"];
@@ -828,7 +828,7 @@ giveGrenades()
 	if(getcvarint("scr_allow_fraggrenades"))
 	{
 		// Back2Uo: fixed frag count from the grenade setup instead of the per-weapon stock count.
-		if(game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_aktiv)
+		if(game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_active)
 		{
 			fraggrenadecount = level.back2uo_granaten_use;
 		}
@@ -847,7 +847,7 @@ giveGrenades()
 	if(getcvarint("scr_allow_smokegrenades"))
 	{
 		// Back2Uo: fixed smoke count from the grenade setup instead of the per-weapon stock count.
-		if(game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_aktiv)
+		if(game["back2uo_weaponsystem_enable"] && level.back2uo_smoke_grana_active)
 		{
 			smokegrenadecount = level.back2uo_smoke_use;
 		}
@@ -895,7 +895,7 @@ dropWeapon(current)
 	// Back2Uo: end an active sprint first so the real weapon, not the _sprint variant, is dropped.
 	if(game["back2uo_enable"] && !isdefined(self.pers["bots_nosprint"]))
 	{
-		// pers["sprinting"] only exists while the sprint system is on (back2uo_sprint_aktiv)
+		// pers["sprinting"] only exists while the sprint system is on (back2uo_sprint_active)
 		if(isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
 		{
 			back2uo\_back2uo_sprint::back2uo_sprintsystem_stop();
@@ -1340,7 +1340,7 @@ Returns: grenade ammo count
 getFragGrenadeCount(team)
 {
 	// Back2Uo: count the active special variant of the given team's nation.
-	if(game["back2uo_enable"] && level.back2uo_smoke_grana_aktiv == 1)
+	if(game["back2uo_enable"] && level.back2uo_smoke_grana_active == 1)
 	{
 		if(!isdefined(team)) team = self.pers["team"];
 
@@ -1388,7 +1388,7 @@ Returns: smoke grenade ammo count
 getSmokeGrenadeCount(team)
 {
 	// Back2Uo: count the active special variant of the given team's nation.
-	if(game["back2uo_enable"] && level.back2uo_smoke_grana_aktiv == 1)
+	if(game["back2uo_enable"] && level.back2uo_smoke_grana_active == 1)
 	{
 		if(!isdefined(team)) team = self.pers["team"];
 

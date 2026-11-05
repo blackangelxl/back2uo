@@ -63,7 +63,7 @@ Called on: self = player (threaded on spawn)
 */
 back2uo_grana_smoke_checker()
 {
-	if(!level.back2uo_smoke_grana_aktiv) return;
+	if(!level.back2uo_smoke_grana_active) return;
 
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
@@ -336,16 +336,16 @@ back2uo_setconfig(wert, wertdefault, min, max, offvalue)
 =============
 back2uo_getstatus
 
-Reads the mod master switch back2uo_status (default 1). Unlike back2uo_setconfig() it
-never resets the cvar, so back2uo_status 0 keeps the mod disabled across rounds.
+Reads the mod master switch back2uo_status_active (default 1). Unlike back2uo_setconfig() it
+never resets the cvar, so back2uo_status_active 0 keeps the mod disabled across rounds.
 Returns: 1 if the mod is enabled, otherwise 0
 =============
 */
 back2uo_getstatus()
 {
-	if(getcvar("back2uo_status") == "") setCvar("back2uo_status", 1);
+	if(getcvar("back2uo_status_active") == "") setCvar("back2uo_status_active", 1);
 
-	if(getCvarInt("back2uo_status") != 0) return 1;
+	if(getCvarInt("back2uo_status_active") != 0) return 1;
 
 	return 0;
 }
