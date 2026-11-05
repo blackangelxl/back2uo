@@ -86,9 +86,9 @@ back2uo_airplanefx_play(count)
 	map_y = level.back2uo_mapdimo_centery;
 	map_z = level.back2uo_mapdimo_zMax - randomFloat(30);
 
-	// Heading 0, 90 or 180 degrees. Type 0/2 = Stuka, 1 = Spitfire (see back2uo_airplanefx_draw).
+	// Heading 90 or 180 degrees. Type 0 = Condor, 1 = Spitfire, 2 = Stuka (see back2uo_airplanefx_draw).
 	airplane_angles = 90 * randomintrange(1, 3);
-	airplane_type = randomint(2);
+	airplane_type = randomint(3);
 
 	airplane_startpoint = [];
 	airplane_endpoint = [];
@@ -231,7 +231,7 @@ back2uo_airplanefx_draw
 Spawns one airplane model with a looping engine sound, flies it from start to end point,
 wobbles it (back2uo_airplane_rotate) and lets it be hit by flak (back2uo_airplane_flakimpact).
 The model is deleted when it reaches the end point.
-Params: airplane_type - 0/2 = Stuka (axis), otherwise Spitfire (allies)
+Params: airplane_type - 0 = Condor, 1 = Spitfire, otherwise Stuka
 		airplane_startpoint, airplane_endpoint - flight path
 		airplane_angles - yaw of the model in degrees
 =============
