@@ -113,7 +113,7 @@ Clients download the mod through auto-download (`sv_allowDownload`). Optionally,
 ## Configuration
 
 All options are in [`back2uo/back2uomod.cfg`](back2uo/back2uomod.cfg). Each cvar has an inline comment with values and default.
-`set back2uo_status "0"` disables the whole mod.
+`set back2uo_status_active "0"` disables the whole mod.
 
 ## Development notes
 

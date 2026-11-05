@@ -37,15 +37,7 @@ back2uo_grenadepickup(grenadetype, object, origin, team, name)
 		{
 			grenade_count = other getammocount(grenadetype);
 
-			// Per-player grenade limit for this team's grenade type
-			if(team == "allies")
-			{
-				grenade_countmax = other.back2uo_granaten_allow_allies;
-			}
-			else
-			{
-				grenade_countmax = other.back2uo_granaten_allow_axis;
-			}
+			grenade_countmax = other back2uo_grenadepickup_limit(grenadetype, team);
 
 			if(distance(other.origin, origin) < 60 && grenade_count < grenade_countmax)
 			{
@@ -73,6 +65,31 @@ back2uo_grenadepickup(grenadetype, object, origin, team, name)
 	}
 
 	if(isdefined(trigger)) trigger delete();
+}
+
+/*
+=============
+back2uo_grenadepickup_limit
+
+Returns the player's pickup limit for a grenade: the smoke allowance for smoke grenades
+(weapon names start with "smoke_"), otherwise the frag allowance, each for the given team.
+Called on: self = player
+Params: grenadetype - grenade weapon name
+		team - team of the grenade type ("allies" or "axis")
+=============
+*/
+back2uo_grenadepickup_limit(grenadetype, team)
+{
+	if(grenadetype[0] == "s")
+	{
+		if(team == "allies") return self.back2uo_smoke_allow_allies;
+
+		return self.back2uo_smoke_allow_axis;
+	}
+
+	if(team == "allies") return self.back2uo_granaten_allow_allies;
+
+	return self.back2uo_granaten_allow_axis;
 }
 
 /*

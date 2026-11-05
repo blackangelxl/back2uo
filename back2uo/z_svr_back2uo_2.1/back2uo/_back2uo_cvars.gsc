@@ -63,17 +63,18 @@ Called on: self = player (threaded on spawn)
 */
 back2uo_grana_smoke_checker()
 {
+	// Set before the active check: the grenade pickup reads these even with the checker off.
+	self.back2uo_granaten_allow_allies = level.back2uo_granaten_allow;
+	self.back2uo_granaten_allow_axis = level.back2uo_granaten_allow;
+	self.back2uo_smoke_allow_allies = level.back2uo_smoke_allow;
+	self.back2uo_smoke_allow_axis = level.back2uo_smoke_allow;
+
 	if(!level.back2uo_smoke_grana_active) return;
 
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 	self endon("killed_player");
-
-	self.back2uo_granaten_allow_allies = level.back2uo_granaten_allow;
-	self.back2uo_granaten_allow_axis = level.back2uo_granaten_allow;
-	self.back2uo_smoke_allow_allies = level.back2uo_smoke_allow;
-	self.back2uo_smoke_allow_axis = level.back2uo_smoke_allow;
 
 	for(;;)
 	{
