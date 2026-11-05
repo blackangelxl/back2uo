@@ -706,13 +706,14 @@ back2uo_clear_triggerhud_elements()
 =============
 back2uo_hud_elements_draw
 
-Shows the compass needle in the client UI (client cvar back2uo_ui_compasszeiger).
+Shows the compass needle in the client UI (client cvar back2uo_ui_compassneedle)
+if it is enabled with back2uo_compassneedle, see back2uo_clientset_init.
 Called on: self = player
 =============
 */
 back2uo_hud_elements_draw()
 {
-	self setClientCvar("back2uo_ui_compasszeiger", 1);
+	self setClientCvar("back2uo_ui_compassneedle", game["back2uo_compassneedle"]);
 }
 
 /*
@@ -725,5 +726,5 @@ Called on: self = player
 */
 back2uo_hud_elements_clear()
 {
-	self setClientCvar("back2uo_ui_compasszeiger", 0);
+	self setClientCvar("back2uo_ui_compassneedle", 0);
 }

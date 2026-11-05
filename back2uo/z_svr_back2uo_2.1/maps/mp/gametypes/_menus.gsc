@@ -79,17 +79,18 @@ init()
 			if(game["back2uo_serverinfo_join"])
 			{
 				game["menu_serverinfo"] = "serverinfo_mod_" + getCvar("g_gametype");
+				precacheMenu(game["menu_serverinfo"]);
 			}
 		}
 		else
 		{
 			game["menu_serverinfo"] = "serverinfo_" + getCvar("g_gametype");
+			precacheMenu(game["menu_serverinfo"]);
 		}
 
 		game["menu_callvote"] = "callvote";
 		game["menu_muteplayer"] = "muteplayer";
 
-		precacheMenu(game["menu_serverinfo"]);
 		precacheMenu(game["menu_callvote"]);
 		precacheMenu(game["menu_muteplayer"]);
 	}

@@ -38,11 +38,19 @@ back2uo_clientset_init()
 	// Clears the weapon pickup message cvar used by the mod menu.
 	self setClientCvar("back2uo_weaponpickup_msg", " ");
 
-	// UI flags for the mod's HUD menu elements (compass needle, medic and weapon pickup icons).
-	self setClientCvar("back2uo_ui_compasszeiger", 1);
+	// Compass needle in the mod's HUD menu (0 = off, 1 = on, default 1).
+	game["back2uo_compassneedle"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_compassneedle", 1, 0, 1);
+	self setClientCvar("back2uo_ui_compassneedle", game["back2uo_compassneedle"]);
+
+	// UI flags for the mod's HUD menu elements (medic and weapon pickup icons).
 	self setClientCvar("back2uo_ui_medicicon", 0);
 	self setClientCvar("back2uo_ui_weaponpickup", 0);
 	self setClientCvar("back2uo_ui_weaponpickup_object", 0);
+
+	// UI flags for the serverinfos menu: hide the action info of disabled features, and the whole box if both are off.
+	self setClientCvar("back2uo_ui_sprint", game["back2uo_sprint_enable"]);
+	self setClientCvar("back2uo_ui_artillery", game["back2uo_artilleryfx_enable"]);
+	self setClientCvar("back2uo_ui_actioninfo", game["back2uo_sprint_enable"] || game["back2uo_artilleryfx_enable"]);
 
 	// Blood effects (0 = off, 1 = on, default 1).
 	game["back2uo_blood"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_blood_active", 1, 0, 1);
@@ -126,5 +134,5 @@ back2uo_clientset_init()
 	// Applies only after the next game restart and stays in the player's config, also on other servers.
 	self setClientCvar("com_hunkmegs", "512");
 
-	back2uo\_back2uo_cvars::back2uo_logevent("clientset", "set", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " blood=" + game["back2uo_blood"] + " crosshair=" + game["back2uo_drawcrosshair"] + " crosshairnames=" + game["back2uo_drawcrosshairnames"] + " redcrosshair=" + game["back2uo_crosshairenemycolor"] + " compasssize=" + game["back2uo_hudcompasssize"] + " compassfiring=" + game["back2uo_compassreddots"] + " clientsettings=" + game["back2uo_client_settings"]);
+	back2uo\_back2uo_cvars::back2uo_logevent("clientset", "set", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " blood=" + game["back2uo_blood"] + " crosshair=" + game["back2uo_drawcrosshair"] + " crosshairnames=" + game["back2uo_drawcrosshairnames"] + " redcrosshair=" + game["back2uo_crosshairenemycolor"] + " compasssize=" + game["back2uo_hudcompasssize"] + " compassfiring=" + game["back2uo_compassreddots"] + " compassneedle=" + game["back2uo_compassneedle"] + " clientsettings=" + game["back2uo_client_settings"]);
 }
