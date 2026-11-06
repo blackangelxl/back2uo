@@ -77,10 +77,10 @@ init()
 			game["menu_serverinfo"] = "serverinfo_" + getCvar("g_gametype");
 
 			if(game["back2uo_serverinfo_join"])
-			{
 				game["menu_serverinfo"] = "serverinfo_mod_" + getCvar("g_gametype");
-				precacheMenu(game["menu_serverinfo"]);
-			}
+
+			// Precache whichever one was picked: the gametypes open it on every connect.
+			precacheMenu(game["menu_serverinfo"]);
 		}
 		else
 		{
@@ -222,6 +222,8 @@ onMenuResponse()
 			case "changeweapon":
 				self closeMenu();
 				self closeInGameMenu();
+				// Back2Uo: the team may have changed without the team menu (auto balance).
+				self maps\mp\gametypes\_weapons::back2uo_updateteamshotgun();
 				if(self.pers["team"] == "allies")
 					self openMenu(game["menu_weapon_allies"]);
 				else if(self.pers["team"] == "axis")
@@ -289,6 +291,9 @@ onMenuResponse()
 				self [[level.spectator]]();
 				break;
 			}
+
+			// Back2Uo: ui_allow_shotgun depends on the team that was just joined.
+			self maps\mp\gametypes\_weapons::back2uo_updateteamshotgun();
 		}
 		else if(menu == game["menu_weapon_allies"] || menu == game["menu_weapon_axis"])
 		{

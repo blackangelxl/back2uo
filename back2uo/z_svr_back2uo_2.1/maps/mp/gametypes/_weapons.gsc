@@ -1509,6 +1509,9 @@ Returns: the weapon name, or "restricted" if it is not allowed or unknown
 */
 restrictWeaponByServerCvars(response)
 {
+	// Back2Uo: the stock weapon menus send "shotgun_mp", the mod only has one shotgun per team.
+	if(response == "shotgun_mp") response = back2uo_teamshotgun(self.pers["team"]);
+
 	switch(response)
 	{
 	// American
@@ -2057,6 +2060,46 @@ updateAllowedSingleClient(weaponname)
 	if(allow && back2uo_weaponlimit_full(weaponname)) allow = 0;
 
 	self setClientCvar(level.weapons[weaponname].client_allowcvar, allow);
+
+	// Back2Uo: the stock weapon menus (weapon system off) only know ui_allow_shotgun and hide the
+	// shotgun without it. It follows the shotgun of the player's own team.
+	if(isdefined(self.pers["team"]) && weaponname == back2uo_teamshotgun(self.pers["team"]))
+		self setClientCvar("ui_allow_shotgun", allow);
+}
+
+/*
+=============
+back2uo_teamshotgun
+
+Back2Uo: the mod's shotgun of a team (stock CoD2 has one shotgun_mp for both teams).
+Params: team - "allies" or "axis"
+Returns: the weapon name, or "none" for any other team
+=============
+*/
+back2uo_teamshotgun(team)
+{
+	if(team == "allies") return "shotgun_mp_allies";
+	if(team == "axis") return "shotgun_mp_axis";
+
+	return "none";
+}
+
+/*
+=============
+back2uo_updateteamshotgun
+
+Back2Uo: sends the shotgun allow cvars of the player's current team, so ui_allow_shotgun
+is right when the weapon menu opens after a team change.
+Called on: player
+=============
+*/
+back2uo_updateteamshotgun()
+{
+	if(!isdefined(self.pers["team"])) return;
+
+	weaponname = back2uo_teamshotgun(self.pers["team"]);
+
+	if(weaponname != "none") self updateAllowedSingleClient(weaponname);
 }
 
 /*
