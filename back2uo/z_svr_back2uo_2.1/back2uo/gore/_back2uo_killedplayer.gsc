@@ -11,7 +11,9 @@
 back2uo_killedplayer_blood
 
 Turns the cloned corpse into a tagged "deadplayer" entity and plays a short
-burst of blood splatter on it, followed by a blood pool under the pelvis.
+burst of blood splatter at its position, followed by a blood pool.
+Uses playfx at the origin and not playfxontag: a failed tag lookup on the corpse
+("no model.") crashes the server while it formats the error message.
 Called on: self = killed player
 Params: body - corpse entity returned by ClonePlayer()
 		selfteam - team of the killed player
@@ -35,9 +37,6 @@ back2uo_killedplayer_blood(body, selfteam, attackerteam)
 	w = 0.8;
 
 	// Give the corpse the player's model and tag it so back2uo_deadbody_gore() can find it.
-	// setmodel rebuilds the skeleton only on the next frame: a playfxontag in the same frame
-	// fails the tag lookup ("no model.") and crashes the server while formatting the error,
-	// so the effects below wait one frame first.
 	if(isdefined(self.model) && self.model != "") body setmodel(self.model);
 	body.targetname = "deadplayer";
 
@@ -57,22 +56,19 @@ back2uo_killedplayer_blood(body, selfteam, attackerteam)
 		back2uo\_back2uo_cvars::back2uo_logevent("killed", "blood", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " victimteam=" + victimteam + " attackerteam=" + attteam + " splatter=" + time + " pool_delay=" + w + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(body.origin));
 	}
 
-	// Let the corpse skeleton build before looking up its tags.
-	wait 0.05;
-
 	for(x=0; x < time; x++)
 	{
-		// The corpse may already be removed (body queue, map end) or have no model.
-		if(!isdefined(body) || !isdefined(body.model) || body.model == "") return;
+		// The corpse may already be removed (body queue, map end).
+		if(!isdefined(body)) return;
 
-		playfxontag(level.back2uo_effect["body_bloodsplatter"], body, "pelvis");
+		playfx(level.back2uo_effect["body_bloodsplatter"], body.origin);
 
 		wait 0.10;
 	}
 
 	wait w;
 
-	if(!isdefined(body) || !isdefined(body.model) || body.model == "") return;
+	if(!isdefined(body)) return;
 
-	playfxontag(level.back2uo_effect["body_bloodpool"], body, "pelvis");
+	playfx(level.back2uo_effect["body_bloodpool"], body.origin);
 }
