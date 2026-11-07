@@ -123,6 +123,8 @@ back2uo_weather_startup()
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 
+	is_rain = false;
+
 	if(game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark")
 	{
 		if(!game["back2uo_snowfx_enable"] || !isdefined(game["weather_allow"])) return;
@@ -134,6 +136,7 @@ back2uo_weather_startup()
 		if(!game["back2uo_rainfx_enable"] || !isdefined(game["weather_allow"])) return;
 
 		back2uo_weathertyp = level.back2uo_effect["rain"];
+		is_rain = true;
 	}
 
 	// Cleared by back2uo_weatherdraw.
@@ -143,8 +146,11 @@ back2uo_weather_startup()
 	{
 		if(isdefined(self.origin) && isdefined(back2uo_weathertyp))
 		{
-			// Fixed height of 600 units above the world origin plane.
-			playfx(back2uo_weathertyp, (self.origin[0], self.origin[1], 600));
+			// Snow: fixed height of 600 units above the world origin plane.
+			startup_z = 600;
+			if(is_rain) startup_z = back2uo_rain_height(self.origin);
+
+			playfx(back2uo_weathertyp, (self.origin[0], self.origin[1], startup_z));
 		}
 
 		wait 0.5;
@@ -153,12 +159,52 @@ back2uo_weather_startup()
 
 /*
 =============
+back2uo_rain_height
+
+Height for the rain effect above a player. The drops of fx/back2uo/rain.efx only live 800 ms
+and fade out after about 600 ms, so they must start close enough to be seen at the player.
+A height derived from the map bounds fails on maps with a high sky (mp_dawnville_cl: 1850+
+units above every spawnpoint), so this traces up from the player instead:
+- open sky: 600 units above the player, but below the sky
+- roof: at least 128 units above the roof, so the drops land on it and stay out of the building
+Needs no map bounds, so it also works before back2uo_mapdimension has finished.
+Surface "default" is the sky (see back2uo_getpositarget).
+Params: pos - player origin
+Returns: z of the effect
+=============
+*/
+back2uo_rain_height(pos)
+{
+	rain_z = pos[2] + 600;
+
+	trace = bulletTrace(pos + (0, 0, 60), pos + (0, 0, 80000), false, undefined);
+	if(trace["fraction"] == 1) return rain_z;
+
+	hit_z = trace["position"][2];
+
+	if(trace["surfacetype"] == "default")
+	{
+		if(rain_z > hit_z - 8) rain_z = hit_z - 8;
+		return rain_z;
+	}
+
+	if(rain_z < hit_z + 128) rain_z = hit_z + 128;
+
+	// A roof close to the sky: stay inside the map (bounds are unset during the first seconds).
+	if(isdefined(level.back2uo_mapdimo_zMax) && rain_z > level.back2uo_mapdimo_zMax - 8) rain_z = level.back2uo_mapdimo_zMax - 8;
+
+	return rain_z;
+}
+
+/*
+=============
 back2uo_weatherdraw
 
 Main weather loop. Plays the rain/snow effect above every living player, spread over
-at most 5 effect spawns per pass. Players below the map's middle height get the effect
-at middle height (so it is not spawned above roofs/ceilings of lower areas), players above
-it get it at the map ceiling. Pass frequency scales with level.back2uo_weatherfx_strength.
+at most 5 effect spawns per pass. Rain height comes from back2uo_rain_height. Snow: players
+below the map's middle height get the effect at middle height (so it is not spawned above
+roofs/ceilings of lower areas), players above it get it at the map ceiling.
+Pass frequency scales with level.back2uo_weatherfx_strength.
 Ends on level notify "back2uo_weather_stop" (admin command, see _back2uo_admin.gsc).
 Called on: level
 Params: force - optional, true = run even if this map did not roll weather (admin command)
@@ -178,13 +224,21 @@ back2uo_weatherdraw(force)
 	// "drops" = the effect chosen in back2uo_weathercontrol (rain or snow).
 	level.back2uo_effect["drops"] = level.back2uo_effect[level.back2uo_weatherart];
 
-	if(!isdefined(level.back2uo_mapdimo_zMax) || !isdefined(level.back2uo_mapdimo_centerz))
+	is_rain = (level.back2uo_weatherart == "rain");
+	middlezpos = 0;
+	maxzpos = 0;
+
+	// Snow is placed by the map bounds, rain by back2uo_rain_height.
+	if(!is_rain)
 	{
-		back2uo\_back2uo_cvars::back2uo_logevent("weather", "skip", "reason=nodimension type=" + level.back2uo_weatherart);
-		return;
+		if(!isdefined(level.back2uo_mapdimo_zMax) || !isdefined(level.back2uo_mapdimo_centerz))
+		{
+			back2uo\_back2uo_cvars::back2uo_logevent("weather", "skip", "reason=nodimension type=" + level.back2uo_weatherart);
+			return;
+		}
+		middlezpos = level.back2uo_mapdimo_centerz;
+		maxzpos = level.back2uo_mapdimo_zMax;
 	}
-	middlezpos = level.back2uo_mapdimo_centerz;
-	maxzpos = level.back2uo_mapdimo_zMax;
 
 	while(1)
 	{
@@ -206,7 +260,11 @@ back2uo_weatherdraw(force)
 					{
 						if(isdefined(level.back2uo_effect["drops"]))
 						{
-							if(player.origin[2] < middlezpos)
+							if(is_rain)
+							{
+								playfx(level.back2uo_effect["drops"], (player.origin[0], player.origin[1], back2uo_rain_height(player.origin)));
+							}
+							else if(player.origin[2] < middlezpos)
 							{
 								playfx(level.back2uo_effect["drops"], (player.origin[0], player.origin[1], middlezpos));
 							}
