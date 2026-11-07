@@ -27,6 +27,11 @@ Called on: level
 */
 init()
 {
+	// Back2Uo: the *_sprint variants are only used by the weapon-swap sprint. With zk_libcod the
+	// sprint runs in speed mode (setSpeed), so they are only precached without zk_libcod or with
+	// back2uo_sprint_mode 0. _back2uo_sprint.gsc reads this flag before a weapon swap.
+	level.back2uo_sprint_weapons = (!back2uo\_back2uo_libcod::back2uo_libcod_active() || (isdefined(level.back2uo_sprint_mode) && level.back2uo_sprint_mode == 0));
+
 	// Back2Uo: weapon class limit active ( back2uo_weapons_allow 1 -> 4 ); precache only that class.
 	if(game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0)
 	{
@@ -43,16 +48,19 @@ init()
 			precacheItem("sten_mp");
 			precacheItem("thompson_mp");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("bar_mp_sprint");
-			precacheItem("bren_mp_sprint");
-			precacheItem("greasegun_mp_sprint");
-			precacheItem("mp40_mp_sprint");
-			precacheItem("mp44_mp_sprint");
-			precacheItem("ppsh_mp_sprint");
-			precacheItem("PPS42_mp_sprint");
-			precacheItem("sten_mp_sprint");
-			precacheItem("thompson_mp_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("bar_mp_sprint");
+				precacheItem("bren_mp_sprint");
+				precacheItem("greasegun_mp_sprint");
+				precacheItem("mp40_mp_sprint");
+				precacheItem("mp44_mp_sprint");
+				precacheItem("ppsh_mp_sprint");
+				precacheItem("PPS42_mp_sprint");
+				precacheItem("sten_mp_sprint");
+				precacheItem("thompson_mp_sprint");
+			}
 		}
 		else if(level.back2uo_weapon_limit == 2) // Only Rifle Weapon
 		{
@@ -65,14 +73,17 @@ init()
 			precacheItem("mosin_nagant_mp");
 			precacheItem("SVT40_mp");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("enfield_mp_sprint");
-			precacheItem("g43_mp_sprint");
-			precacheItem("kar98k_mp_sprint");
-			precacheItem("m1carbine_mp_sprint");
-			precacheItem("m1garand_mp_sprint");
-			precacheItem("mosin_nagant_mp_sprint");
-			precacheItem("SVT40_mp_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("enfield_mp_sprint");
+				precacheItem("g43_mp_sprint");
+				precacheItem("kar98k_mp_sprint");
+				precacheItem("m1carbine_mp_sprint");
+				precacheItem("m1garand_mp_sprint");
+				precacheItem("mosin_nagant_mp_sprint");
+				precacheItem("SVT40_mp_sprint");
+			}
 		}
 		else if(level.back2uo_weapon_limit == 3) // Only Sniper Weapon
 		{
@@ -82,11 +93,14 @@ init()
 			precacheItem("mosin_nagant_sniper_mp");
 			precacheItem("springfield_mp");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("enfield_scope_mp_sprint");
-			precacheItem("kar98k_sniper_mp_sprint");
-			precacheItem("mosin_nagant_sniper_mp_sprint");
-			precacheItem("springfield_mp_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("enfield_scope_mp_sprint");
+				precacheItem("kar98k_sniper_mp_sprint");
+				precacheItem("mosin_nagant_sniper_mp_sprint");
+				precacheItem("springfield_mp_sprint");
+			}
 		}
 
 		// Grenades: only the German set is precached in class-limit mode.
@@ -105,11 +119,14 @@ init()
 			precacheItem("TT30_mp");
 			precacheItem("luger_mp");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("colt_mp_sprint");
-			precacheItem("webley_mp_sprint");
-			precacheItem("TT30_mp_sprint");
-			precacheItem("luger_mp_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("colt_mp_sprint");
+				precacheItem("webley_mp_sprint");
+				precacheItem("TT30_mp_sprint");
+				precacheItem("luger_mp_sprint");
+			}
 		}
 	}
 	else
@@ -135,15 +152,18 @@ init()
 			precacheItem("greasegun_mp");
 			precacheItem("shotgun_mp_allies");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("colt_mp_sprint");
-			precacheItem("m1carbine_mp_sprint");
-			precacheItem("m1garand_mp_sprint");
-			precacheItem("thompson_mp_sprint");
-			precacheItem("bar_mp_sprint");
-			precacheItem("springfield_mp_sprint");
-			precacheItem("greasegun_mp_sprint");
-			precacheItem("shotgun_mp_allies_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("colt_mp_sprint");
+				precacheItem("m1carbine_mp_sprint");
+				precacheItem("m1garand_mp_sprint");
+				precacheItem("thompson_mp_sprint");
+				precacheItem("bar_mp_sprint");
+				precacheItem("springfield_mp_sprint");
+				precacheItem("greasegun_mp_sprint");
+				precacheItem("shotgun_mp_allies_sprint");
+			}
 
 			// Disabled: unused weapons.
 			//precacheItem("30cal_mp");
@@ -168,15 +188,18 @@ init()
 			precacheItem("thompson_mp");
 			precacheItem("shotgun_mp_allies");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("webley_mp_sprint");
-			precacheItem("enfield_mp_sprint");
-			precacheItem("sten_mp_sprint");
-			precacheItem("bren_mp_sprint");
-			precacheItem("enfield_scope_mp_sprint");
-			precacheItem("m1garand_mp_sprint");
-			precacheItem("thompson_mp_sprint");
-			precacheItem("shotgun_mp_allies_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("webley_mp_sprint");
+				precacheItem("enfield_mp_sprint");
+				precacheItem("sten_mp_sprint");
+				precacheItem("bren_mp_sprint");
+				precacheItem("enfield_scope_mp_sprint");
+				precacheItem("m1garand_mp_sprint");
+				precacheItem("thompson_mp_sprint");
+				precacheItem("shotgun_mp_allies_sprint");
+			}
 
 			// Disabled: unused weapons.
 			//precacheItem("30cal_mp");
@@ -200,14 +223,17 @@ init()
 			precacheItem("mosin_nagant_sniper_mp");
 			precacheItem("shotgun_mp_allies");
 
-			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-			precacheItem("TT30_mp_sprint");
-			precacheItem("mosin_nagant_mp_sprint");
-			precacheItem("SVT40_mp_sprint");
-			precacheItem("PPS42_mp_sprint");
-			precacheItem("ppsh_mp_sprint");
-			precacheItem("mosin_nagant_sniper_mp_sprint");
-			precacheItem("shotgun_mp_allies_sprint");
+			// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+			if(level.back2uo_sprint_weapons)
+			{
+				precacheItem("TT30_mp_sprint");
+				precacheItem("mosin_nagant_mp_sprint");
+				precacheItem("SVT40_mp_sprint");
+				precacheItem("PPS42_mp_sprint");
+				precacheItem("ppsh_mp_sprint");
+				precacheItem("mosin_nagant_sniper_mp_sprint");
+				precacheItem("shotgun_mp_allies_sprint");
+			}
 
 			// Disabled: unused weapons.
 			//precacheItem("dp28_mp");
@@ -231,14 +257,17 @@ init()
 		precacheItem("kar98k_sniper_mp");
 		precacheItem("shotgun_mp_axis");
 
-		// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc)
-		precacheItem("luger_mp_sprint");
-		precacheItem("kar98k_mp_sprint");
-		precacheItem("g43_mp_sprint");
-		precacheItem("mp40_mp_sprint");
-		precacheItem("mp44_mp_sprint");
-		precacheItem("kar98k_sniper_mp_sprint");
-		precacheItem("shotgun_mp_axis_sprint");
+		// *_sprint variants, swapped in by the sprint system (_back2uo_sprint.gsc), only without zk_libcod
+		if(level.back2uo_sprint_weapons)
+		{
+			precacheItem("luger_mp_sprint");
+			precacheItem("kar98k_mp_sprint");
+			precacheItem("g43_mp_sprint");
+			precacheItem("mp40_mp_sprint");
+			precacheItem("mp44_mp_sprint");
+			precacheItem("kar98k_sniper_mp_sprint");
+			precacheItem("shotgun_mp_axis_sprint");
+		}
 	}
 
 	// Back2Uo: optional extra weapons and binoculars.
@@ -248,7 +277,7 @@ init()
 		if(level.back2uo_g43sniper_allow)
 		{
 			precacheItem("g43_sniper_mp");
-			precacheItem("g43_sniper_mp_sprint");
+			if(level.back2uo_sprint_weapons) precacheItem("g43_sniper_mp_sprint");
 		}
 
 		// Back2Uo: Panzerschreck ( back2uo_rocketlancher_on ).
@@ -256,10 +285,10 @@ init()
 		{
 			precacheItem("panzerschreck_mp");
 		}
-
-		// Back2Uo: binoculars ( back2uo_binocular_allow ).
-		if(level.back2uo_binocular_allow) precacheItem("binoculars_mp");
 	}
+
+	// Back2Uo: binoculars ( back2uo_binocular_allow ).
+	if(level.back2uo_binocular_allow) precacheItem("binoculars_mp");
 
 	// All weapons that have an allow cvar.
 	level.weaponnames = [];
@@ -870,13 +899,14 @@ giveGrenades()
 =============
 giveBinoculars
 
-Only takes the binoculars away; nothing here gives them to the player.
+Does nothing. The binoculars key works for every player as soon as "binoculars_mp" is
+precached (back2uo_binocular_allow, see init above); giveWeapon/takeWeapon only change the
+inventory entry and have no effect on the key. Kept because all gametypes call it.
 Called on: player
 =============
 */
 giveBinoculars()
 {
-	self takeWeapon("binoculars_mp");
 }
 
 /*

@@ -269,8 +269,8 @@ back2uo_ranking_level(ranking_lv)
 back2uo_ranking_give
 
 Gives the rewards for reaching a rank: extra primary/secondary ammo, frag and smoke
-grenades (up to the grenade limits), removes the binoculars at the configured rank and
-grants an artillery strike from back2uo_artillery_onrank on.
+grenades (up to the grenade limits) and grants an artillery strike from
+back2uo_artillery_onrank on.
 Called on: self = player
 Params: ranking_lv - reached rank
 		sek_ammo - extra secondary (pistol) ammo
@@ -374,17 +374,6 @@ back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
 	if(level.back2uo_rankingmsg == 1 && (rank_extras_b == 1 || rank_extras_b == 2)) self iprintln(&"BACK2UOMOD_RANKING_GRA");
 
 	back2uo\_back2uo_cvars::back2uo_logevent("ranking", "reward", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score + " pri=" + pri_ammo + " sek=" + sek_ammo + " frag=" + log_frag + " smoke=" + log_smoke);
-
-	// Binoculars are taken away from the configured rank on.
-	if(level.back2uo_binocular_allow)
-	{
-		if(level.back2uo_binocular_onrank <= ranking_lv)
-		{
-			self takeWeapon("binoculars_mp");
-
-			back2uo\_back2uo_cvars::back2uo_logevent("ranking", "binotake", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv);
-		}
-	}
 
 	// Artillery strike from the configured rank on, once per rank (back2uo_artillery_onrang 0 = none).
 	if(game["back2uo_artilleryfx_enable"])

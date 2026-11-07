@@ -96,9 +96,8 @@ back2uo_main()
 	level.back2uo_rankextra_active = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_overlv_active", 1, 0, 1, "int");
 	level.back2uo_ranking_lvextra = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_lv_points", 10, 1, 100, "int");
 
-	// Rank at which binoculars / artillery are unlocked; +1 converts the cvar rank to the internal level.
+	// Rank at which artillery is unlocked; +1 converts the cvar rank to the internal level.
 	// back2uo_artillery_onrang 0 (or below) = no artillery, stored as 0.
-	level.back2uo_binocular_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_binocular_onrang", 1, 1, 4, "int");
 	level.back2uo_artillery_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_onrang", 3, 0, 4, "int");
 	if(level.back2uo_artillery_onrank > 0) level.back2uo_artillery_onrank++;
 	else level.back2uo_artillery_onrank = 0;

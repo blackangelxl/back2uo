@@ -7,7 +7,9 @@
 	- "weapon" (fallback): swaps the current primary weapon for its "<weapon>_sprint" variant
 	  (a sprint-pose weapon) and restores the original weapon with its ammo when the sprint ends.
 	  Used when back2uo_sprint_mode is 0, or for the rest of the map once the engine did not
-	  apply the speed (level.back2uo_sprint_speedfail).
+	  apply the speed (level.back2uo_sprint_speedfail). The *_sprint variants are only precached
+	  without zk_libcod or with back2uo_sprint_mode 0 (level.back2uo_sprint_weapons, _weapons.gsc);
+	  otherwise a speed fail ends the sprint instead of swapping the weapon.
 	Stamina is tracked as self.hud_sprint_height
 	(fatigue bar drawn and recovered in hud\_back2uo_playerposition.gsc); sprinting is blocked above 34/35
 	and, after an exhaustion (self.sprint_exhausted), until the bar is full again.
@@ -245,6 +247,16 @@ back2uo_sprintsystem_run()
 			}
 			else
 			{
+				// The *_sprint variants are not precached with zk_libcod (_weapons.gsc init), so
+				// no weapon-swap fallback after a speed fail; swapping in an unprecached weapon fails.
+				// break (not return), so the cleanup after the loop resets pers["sprinting"].
+				if(!level.back2uo_sprint_weapons)
+				{
+					self back2uo_sprintsystem_logskip("nosprintvariant", normal_weapon);
+					stop_reason = "nosprintvariant";
+					break;
+				}
+
 				// Weapon mode: save weapon and ammo of the slot holding the current weapon.
 				self back2uo_sprintsystem_inslot(normal_weapon);
 
