@@ -209,7 +209,6 @@ back2uo_libcod_fallback_botinput()
 back2uo_libcod_fallback_getmicroseconds
 
 Returns undefined: stock CoD2 has no real clock for scripts (gettime() is game time).
-The profiler (tools\_back2uo_profiler.gsc) then stays off.
 =============
 */
 back2uo_libcod_fallback_getmicroseconds()
