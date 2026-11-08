@@ -231,8 +231,8 @@ back2uo_main()
 	game["back2uo_falldamage_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_falldamage_active", 1, 0, 1);
 
 	// Fall heights in units for minimum and lethal fall damage
-	level.back2uo_falldamage_min = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_min", 225, 1, 1000, "int");
-	level.back2uo_falldamage_max = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_max", 355, 1, 1000, "int");
+	level.back2uo_falldamage_min = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_min", 156, 1, 1000, "int");
+	level.back2uo_falldamage_max = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_max", 380, 1, 1000, "int");
 
 	// Overrides the engine fall damage cvars
 	if(game["back2uo_falldamage_enable"])
