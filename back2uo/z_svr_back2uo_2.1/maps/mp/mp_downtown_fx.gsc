@@ -6,7 +6,7 @@
 	before the gametype starts. It precaches and starts the map's looping effects.
 	This map has no switchable effect groups.
 	The stock snow effects only run with the mod off; Back2Uo draws its own snow (weatherfx\_back2uo_weather.gsc).
-	With the mod off (back2uo_status 0) the map behaves like stock.
+	With the mod off (back2uo_status_active 0) the map behaves like stock.
 */
 
 /*
@@ -24,7 +24,7 @@ main()
 	// on this map; all maps at once would exceed the script variable limit. See tools/wp2gsc.py.
 	level.back2uo_wp_mapscript = back2uo\bots\waypoints\_wp_mp_downtown::load;
 
-	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status is read here.
+	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status_active is read here.
 	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 
 	precacheFX();

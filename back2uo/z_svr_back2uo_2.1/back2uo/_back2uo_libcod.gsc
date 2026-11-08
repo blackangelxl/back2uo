@@ -156,3 +156,10 @@ back2uo_libcod_meleeweapon(on)
 {
 	self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_botinput();
 }
+
+// --- Time ---
+
+back2uo_libcod_getmicroseconds()
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getmicroseconds();
+}

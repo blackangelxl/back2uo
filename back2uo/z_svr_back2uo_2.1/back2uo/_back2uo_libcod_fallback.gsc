@@ -201,3 +201,17 @@ Called on: self = bot
 back2uo_libcod_fallback_botinput()
 {
 }
+
+// --- Time ---
+
+/*
+=============
+back2uo_libcod_fallback_getmicroseconds
+
+Returns undefined: stock CoD2 has no real clock for scripts (gettime() is game time).
+=============
+*/
+back2uo_libcod_fallback_getmicroseconds()
+{
+	return undefined;
+}

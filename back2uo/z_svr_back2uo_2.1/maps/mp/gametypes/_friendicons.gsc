@@ -4,7 +4,7 @@
 	Shows a head icon above every living team player that only the own team can see.
 	init() is threaded by the team gametypes (tdm, sd, ctf, hq). Back2Uo replaces the stock
 	scr_drawfriend switch with game["back2uo_friendicon_enable"] (cvar back2uo_friendicon) and,
-	when the ranking system is on (game["back2uo_ranking_enable"] and back2uo_teamrankheadicons),
+	when the ranking system is on (game["back2uo_ranking_enable"] and back2uo_teamrankheadicons_active),
 	shows the player's ranking icon self.pers["back2uo_head_ranking_pic"] instead of the national icon.
 	The per-player ranking icon is set in back2uo\hud\_back2uo_ranking.gsc.
 	Stock CoD2 script, modified for Back2Uo. Mod changes are marked with 'Back2Uo:' comments.

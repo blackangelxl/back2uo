@@ -63,17 +63,18 @@ Called on: self = player (threaded on spawn)
 */
 back2uo_grana_smoke_checker()
 {
-	if(!level.back2uo_smoke_grana_aktiv) return;
+	// Set before the active check: the grenade pickup reads these even with the checker off.
+	self.back2uo_granaten_allow_allies = level.back2uo_granaten_allow;
+	self.back2uo_granaten_allow_axis = level.back2uo_granaten_allow;
+	self.back2uo_smoke_allow_allies = level.back2uo_smoke_allow;
+	self.back2uo_smoke_allow_axis = level.back2uo_smoke_allow;
+
+	if(!level.back2uo_smoke_grana_active) return;
 
 	level endon("back2uo_killthreads");
 	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
 	self endon("killed_player");
-
-	self.back2uo_granaten_allow_allies = level.back2uo_granaten_allow;
-	self.back2uo_granaten_allow_axis = level.back2uo_granaten_allow;
-	self.back2uo_smoke_allow_allies = level.back2uo_smoke_allow;
-	self.back2uo_smoke_allow_axis = level.back2uo_smoke_allow;
 
 	for(;;)
 	{
@@ -336,16 +337,16 @@ back2uo_setconfig(wert, wertdefault, min, max, offvalue)
 =============
 back2uo_getstatus
 
-Reads the mod master switch back2uo_status (default 1). Unlike back2uo_setconfig() it
-never resets the cvar, so back2uo_status 0 keeps the mod disabled across rounds.
+Reads the mod master switch back2uo_status_active (default 1). Unlike back2uo_setconfig() it
+never resets the cvar, so back2uo_status_active 0 keeps the mod disabled across rounds.
 Returns: 1 if the mod is enabled, otherwise 0
 =============
 */
 back2uo_getstatus()
 {
-	if(getcvar("back2uo_status") == "") setCvar("back2uo_status", 1);
+	if(getcvar("back2uo_status_active") == "") setCvar("back2uo_status_active", 1);
 
-	if(getCvarInt("back2uo_status") != 0) return 1;
+	if(getCvarInt("back2uo_status_active") != 0) return 1;
 
 	return 0;
 }
@@ -705,13 +706,14 @@ back2uo_clear_triggerhud_elements()
 =============
 back2uo_hud_elements_draw
 
-Shows the compass needle in the client UI (client cvar back2uo_ui_compasszeiger).
+Shows the compass needle in the client UI (client cvar back2uo_ui_compassneedle)
+if it is enabled with back2uo_compassneedle, see back2uo_clientset_init.
 Called on: self = player
 =============
 */
 back2uo_hud_elements_draw()
 {
-	self setClientCvar("back2uo_ui_compasszeiger", 1);
+	self setClientCvar("back2uo_ui_compassneedle", game["back2uo_compassneedle"]);
 }
 
 /*
@@ -724,5 +726,5 @@ Called on: self = player
 */
 back2uo_hud_elements_clear()
 {
-	self setClientCvar("back2uo_ui_compasszeiger", 0);
+	self setClientCvar("back2uo_ui_compassneedle", 0);
 }

@@ -6,7 +6,7 @@
 	runs when a map script does. A player inside a cylinder is killed, or with the Back2Uo
 	settings only damaged.
 	Cvars: back2uo_killtrigger (1 = kill), back2uo_killtrigger_damage (1 = small radius damage
-	instead). Both are read only when the mod is enabled (back2uo_status).
+	instead). Both are read only when the mod is enabled (back2uo_status_active).
 	Stock CoD2 script, modified for Back2Uo. Mod changes are marked with 'Back2Uo:' comments.
 */
 

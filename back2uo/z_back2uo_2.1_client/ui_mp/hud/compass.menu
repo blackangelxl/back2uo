@@ -72,7 +72,7 @@
 			forecolor		1 1 1 0.7
 			visible			1
 			decoration
-			dvartest		"back2uo_ui_compasszeiger"
+			dvartest		"back2uo_ui_compassneedle"
 			showDvar		{ "1" }
 		}
 	}

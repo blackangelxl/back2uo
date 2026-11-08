@@ -70,9 +70,9 @@ flak_explosion,,explosions/explo_distant02.wav,0.4,0.6,,,,10000,,auto,streamed
 airplane_explosion,,explosions/plane_explode2_rl_mono2.wav,1,1,explosion,,,5000,10000,auto,streamed
 
 #Mortar Launch
-mortarlaunch_incoming1,2,explosions/cannon_sequence_hvy1_filt.wav,1,1,,,,,,auto,streamed
-mortarlaunch_incoming2,2,explosions/cannon_sequence_hvy2_filt.wav,1,1,,,,,,auto,streamed
-mortarlaunch_incoming3,2,explosions/cannon_sequence_hvy3_filt.wav,1,1,,,,,,auto,streamed
+mortarlaunch_incoming1,2,explosions/cannon_sequence_hvy1_filt.wav,1,1,,,,,,auto,loaded
+mortarlaunch_incoming2,2,explosions/cannon_sequence_hvy2_filt.wav,1,1,,,,,,auto,loaded
+mortarlaunch_incoming3,2,explosions/cannon_sequence_hvy3_filt.wav,1,1,,,,,,auto,loaded
 
 #Mortar Fall Incoming
 moerser_fallincome1,,explosions/incoming01.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
@@ -83,6 +83,20 @@ moerser_explod1,,explosions/mortar_dirt01.wav,0.7,0.8,explosion,,,1000,6000,auto
 moerser_explod2,,explosions/mortar_dirt02.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
 moerser_explod3,,explosions/mortar_dirt03.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
 
+####################
+## Ranking Sounds ##
+####################
+
+#Ranking
+ranking_up,,back2uo/ranking_up.mp3,0.7,0.85,,,,,,local,streamed
+ranking_down,,back2uo/ranking_down.mp3,0.7,0.85,,,,,,local,streamed
+
+#Commando Artillery
+US_attack_artillery,,back2uo/us_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+UK_attack_artillery,,back2uo/uk_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+RU_attack_artillery,,back2uo/ru_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+GE_attack_artillery,,back2uo/ge_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+
 #Artillery Ready
 artillery_US_ready,,back2uo/us_arty_gtg.mp3,1,1,,,,,,voice,streamed
 artillery_UK_ready,,back2uo/uk_arty_gtg.mp3,1,1,,,,,,voice,streamed
@@ -90,20 +104,20 @@ artillery_RU_ready,,back2uo/ru_arty_gtg.mp3,1,1,,,,,,voice,streamed
 artillery_GE_ready,,back2uo/ge_arty_gtg.mp3,1,1,,,,,,voice,streamed
 
 #Artillery Order
-artillery_allies_targetfalse,,voiceovers/uk/artillery/artillery_ba1_04_t1.wav,1,1,,,,,,voice,streamed
-artillery_allies_targettrue,,voiceovers/uk/artillery/artillery_ba1_14_t1.wav,1,1,,,,,,voice,streamed
-artillery_axis_targetfalse,,voiceovers/us/artillery/artillery_ar1_sc01_03_t2_R.wav,1,1,,,,,,voice,streamed
-artillery_axis_targettrue,,voiceovers/us/artillery/artillery_ar1_sc01_14_t4_R.wav,1,1,,,,,,voice,streamed
+artillery_allies_targetfalse,,back2uo/allies_arty_target_invalid.mp3,1,1,,,,,,voice,streamed
+artillery_allies_targettrue,,back2uo/allies_arty_target_confirmed.mp3,1,1,,,,,,voice,streamed
+artillery_axis_targetfalse,,back2uo/axis_arty_target_invalid.mp3,1,1,,,,,,voice,streamed
+artillery_axis_targettrue,,back2uo/axis_arty_target_confirmed.mp3,1,1,,,,,,voice,streamed
 
 #Artillery Launch
-artillery_launch1,,explosions/cannon_sequence_hvy1_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,streamed
-artillery_launch2,,explosions/cannon_sequence_hvy2_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,streamed
-artillery_launch3,,explosions/cannon_sequence_hvy3_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,streamed
+artillery_launch1,,explosions/cannon_sequence_hvy1_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,loaded
+artillery_launch2,,explosions/cannon_sequence_hvy2_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,loaded
+artillery_launch3,,explosions/cannon_sequence_hvy3_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,loaded
 
 #Artillery Fall Incoming
-artillery_fallincome1,,explosions/artillery_incoming03.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,streamed
-artillery_fallincome2,,explosions/artillery_incoming04.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,streamed
-artillery_fallincome3,,explosions/artillery_incoming05.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,streamed
+artillery_fallincome1,,explosions/artillery_incoming03.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,loaded
+artillery_fallincome2,,explosions/artillery_incoming04.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,loaded
+artillery_fallincome3,,explosions/artillery_incoming05.wav,0.7,0.8,explosion,0.9,0.9,2000,5000,auto,loaded
 
 #Artillery Explosion
 artillery_explod1,,explosions/mrk_building_big_explod_1b.wav,1,1,explosion,0.9,0.9,3000,6000,auto,streamed,,0.5
@@ -116,10 +130,6 @@ artillery_explod3,,explosions/mrk_building_big_explod_3b.wav,1,1,explosion,0.9,0
 
 #Breathing
 sprint_breathing,,back2uo/sprint_breathing.mp3,0.60,0.60,,,,120,700,body,streamed
-
-#Ranking
-ranking_up,,back2uo/ranking_up.mp3,0.7,0.85,,,,,,local,streamed
-ranking_down,,back2uo/ranking_down.mp3,0.7,0.85,,,,,,local,streamed
 
 ####################
 ## Warning Sounds ##
@@ -431,16 +441,9 @@ Taunt_US_3_5,,battlechatter/us/3/US_3_inform_killfirm_infantry_07.wav,0.85,0.85,
 Taunt_US_3_6,,battlechatter/us/3/US_3_response_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
 Taunt_US_3_7,,battlechatter/us/3/US_3_response_killfirm_infantry_04b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
 
-
 #####################
 ## Commando Sounds ##
 #####################
-
-#Commando Artillery
-US_attack_artillery,,back2uo/us_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
-UK_attack_artillery,,back2uo/uk_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
-RU_attack_artillery,,back2uo/ru_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
-GE_attack_artillery,,back2uo/ge_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
 
 #Commando Panzerfaust
 US_attack_panzerfaust,,back2uo/us_bazooka.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed

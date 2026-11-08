@@ -289,6 +289,8 @@
 		 rect			    364 299 402 92
 		 backcolor		1 1 1 0.2
 		 visible			1
+		 dvartest		"back2uo_ui_actioninfo"
+		 showDvar		{ "1" }
 		 decoration
 	  }   	  
 	
@@ -299,6 +301,8 @@
 		 rect			    365 300 400 90
 		 backcolor		0 0 0 0.5
 		 visible			1
+		 dvartest		"back2uo_ui_actioninfo"
+		 showDvar		{ "1" }
 		 decoration
 	  }	
 	  
@@ -313,6 +317,8 @@
 			textscale		.26
 			textalign		ITEM_ALIGN_LEFT
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			dvartest		"back2uo_ui_actioninfo"
+			showDvar		{ "1" }
 			decoration
 	  }		  
   
@@ -324,6 +330,8 @@
 		 rect			    370 312 40 40 
 	 	 style			  WINDOW_STYLE_SHADER
 		 background   "gfx/custom/back2uo_actioninfo_sprint.tga"	
+		 dvartest		"back2uo_ui_sprint"
+		 showDvar		{ "1" }
 		 decoration
 	  }  
   
@@ -338,6 +346,8 @@
 			textscale		.20
 			textalign		ITEM_ALIGN_LEFT
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			dvartest		"back2uo_ui_sprint"
+			showDvar		{ "1" }
 			decoration
 		}  
     
@@ -349,6 +359,8 @@
 		 rect			    370 350 40 40 
 	 	 style			  WINDOW_STYLE_SHADER
 		 background   "gfx/custom/back2uo_actioninfo_artillery.tga"	
+		 dvartest		"back2uo_ui_artillery"
+		 showDvar		{ "1" }
 		 decoration
 	  }      	
 		
@@ -363,6 +375,8 @@
 			textscale		.20
 			textalign		ITEM_ALIGN_LEFT
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			dvartest		"back2uo_ui_artillery"
+			showDvar		{ "1" }
 			decoration
 		} 		
 				

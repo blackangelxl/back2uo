@@ -11,9 +11,10 @@
 =============
 back2uo_hudfx_draw
 
-Creates the small FX status icons next to the stance icon: weather (snow, rain,
+Creates the small FX status icons below the stance icon: weather (snow, rain,
 thunder or none), impact (mortar or none) and air (airplanes, flak or none).
-Icons are placed left to right, 15 pixels apart.
+Icons are 13x13, placed left to right, 16 pixels apart. The row of three spans the
+45 pixel width of the stance icon (x 107 to 152).
 Called on: self = player
 =============
 */
@@ -27,21 +28,21 @@ back2uo_hudfx_draw()
 
 	back2uo_hudfx_clear();
 
-	// Start position of the first icon; each icon moves 15 px to the right.
-	level.hudfx_x = 93;
-	level.hudfx_y = 465;
+	// Start position before the first icon; each icon moves 16 px to the right.
+	level.hudfx_x = 90;
+	level.hudfx_y = 461;
 
 	// Weather icon
 	if(!isDefined(self.hud_weatherfx))
 	{
-		level.hudfx_x = level.hudfx_x + 15;
+		level.hudfx_x = level.hudfx_x + 16;
 
 		self.hud_weatherfx = newClientHudElem(self);
 		self.hud_weatherfx.x = level.hudfx_x;
 		self.hud_weatherfx.y = level.hudfx_y;
 		self.hud_weatherfx.horzAlign = "left";
 		self.hud_weatherfx.vertAlign = "top";
-		self.hud_weatherfx.alpha = 0.6;
+		self.hud_weatherfx.alpha = 0.9;
 		self.hud_weatherfx.sort = 1;
 		self.hud_weatherfx.archived = true;
 
@@ -50,51 +51,51 @@ back2uo_hudfx_draw()
 			// Snow on winter maps, rain without thunder, or thunder.
 			if(game["back2uo_snowfx_enable"] && game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark")
 			{
-				self.hud_weatherfx setShader("gfx/custom/back2uo_hud_snowfx.tga", 10, 10);
+				self.hud_weatherfx setShader("gfx/custom/back2uo_hud_snowfx.tga", 16, 16);
 			}
 			else if(game["back2uo_rainfx_enable"] && !game["back2uo_thunderfx_enable"] && game["german_soldiertype"] != "winterlight" && game["german_soldiertype"] != "winterdark")
 			{
-				self.hud_weatherfx setShader("gfx/custom/back2uo_hud_rainfx.tga", 10, 10);
+				self.hud_weatherfx setShader("gfx/custom/back2uo_hud_rainfx.tga", 16, 16);
 			}
 			else if(game["back2uo_thunderfx_enable"])
 			{
-				self.hud_weatherfx setShader("gfx/custom/back2uo_hud_thunderfx.tga", 10, 10);
+				self.hud_weatherfx setShader("gfx/custom/back2uo_hud_thunderfx.tga", 16, 16);
 			}
 		}
 		else
 		{
-			self.hud_weatherfx setShader("gfx/custom/back2uo_hud_noweatherfx.tga", 10, 10);
+			self.hud_weatherfx setShader("gfx/custom/back2uo_hud_noweatherfx.tga", 16, 16);
 		}
 	}
 
 	// Impact icon (mortar), only with war FX enabled
 	if(!isDefined(self.hud_impactfx) && game["back2uo_warfx_enable"])
 	{
-		level.hudfx_x = level.hudfx_x + 15;
+		level.hudfx_x = level.hudfx_x + 16;
 
 		self.hud_impactfx = newClientHudElem(self);
 		self.hud_impactfx.x = level.hudfx_x;
 		self.hud_impactfx.y = level.hudfx_y;
 		self.hud_impactfx.horzAlign = "left";
 		self.hud_impactfx.vertAlign = "top";
-		self.hud_impactfx.alpha = 0.6;
+		self.hud_impactfx.alpha = 0.7;
 		self.hud_impactfx.sort = 1;
 		self.hud_impactfx.archived = true;
 
 		if(game["back2uo_mortarfx_enable"])
 		{
-			self.hud_impactfx setShader("gfx/custom/back2uo_hud_mortarfx.tga", 10, 10);
+			self.hud_impactfx setShader("gfx/custom/back2uo_hud_mortarfx.tga", 16, 16);
 		}
 		else
 		{
-			self.hud_impactfx setShader("gfx/custom/back2uo_hud_nomortarfx.tga", 10, 10);
+			self.hud_impactfx setShader("gfx/custom/back2uo_hud_nomortarfx.tga", 16, 16);
 		}
 	}
 
 	// Air icon (airplanes or flak), only with war FX enabled
 	if(!isDefined(self.hud_airfx) && game["back2uo_warfx_enable"])
 	{
-		level.hudfx_x = level.hudfx_x + 15;
+		level.hudfx_x = level.hudfx_x + 16;
 
 		self.hud_airfx = newClientHudElem(self);
 		self.hud_airfx.x = level.hudfx_x;
@@ -102,27 +103,27 @@ back2uo_hudfx_draw()
 		self.hud_airfx.horzAlign = "left";
 		self.hud_airfx.vertAlign = "top";
 		self.hud_airfx.sort = 1;
-		self.hud_airfx.alpha = 0.6;
+		self.hud_airfx.alpha = 0.7;
 		self.hud_airfx.archived = true;
 
 		if(isdefined(level.back2uo_airplanedimo_allow) && level.back2uo_airplanedimo_allow == 1)
 		{
 			if(game["back2uo_airplanesfx_enable"] && !game["back2uo_flakfx_enable"])
 			{
-				self.hud_airfx setShader("gfx/custom/back2uo_hud_airplanefx.tga", 10, 10);
+				self.hud_airfx setShader("gfx/custom/back2uo_hud_airplanefx.tga", 16, 16);
 			}
 			else if(game["back2uo_flakfx_enable"])
 			{
-				self.hud_airfx setShader("gfx/custom/back2uo_hud_flakfx.tga", 10, 10);
+				self.hud_airfx setShader("gfx/custom/back2uo_hud_flakfx.tga", 16, 16);
 			}
 			else
 			{
-				self.hud_airfx setShader("gfx/custom/back2uo_hud_noplanefx.tga", 10, 10);
+				self.hud_airfx setShader("gfx/custom/back2uo_hud_noplanefx.tga", 16, 16);
 			}
 		}
 		else
 		{
-			self.hud_airfx setShader("gfx/custom/back2uo_hud_noplanefx.tga", 10, 10);
+			self.hud_airfx setShader("gfx/custom/back2uo_hud_noplanefx.tga", 16, 16);
 		}
 	}
 
@@ -171,17 +172,17 @@ back2uo_hudfx_update()
 		// Artillery strike available: show the artillery icon instead of the mortar icon.
 		if(game["back2uo_artilleryfx_enable"] && isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
 		{
-			if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_artilleryfx.tga", 10, 10);
+			if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_artilleryfx.tga", 16, 16);
 		}
 		else
 		{
 			if(game["back2uo_mortarfx_enable"])
 			{
-				if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_mortarfx.tga", 10, 10);
+				if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_mortarfx.tga", 16, 16);
 			}
 			else
 			{
-				if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_nomortarfx.tga", 10, 10);
+				if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_nomortarfx.tga", 16, 16);
 			}
 		}
 

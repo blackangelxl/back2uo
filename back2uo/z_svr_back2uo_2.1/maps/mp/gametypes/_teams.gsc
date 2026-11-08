@@ -5,7 +5,7 @@
 	models for game["allies"] / game["axis"], keeps the ui_allow_join* client cvars up to date
 	and runs the auto team balance (scr_teambalance; per round in sd, every minute otherwise).
 	Uses level.teambalance, level.teamlimit, level.maxclients and self.pers["teamTime"].
-	Back2Uo adds addTestClients() / TestClient() for test bots (back2uo_testbots_aktiv,
+	Back2Uo adds addTestClients() / TestClient() for test bots (back2uo_testbots_active,
 	back2uo_testbots), started from back2uo\_back2uo_player.gsc.
 	Stock CoD2 script, modified for Back2Uo. Mod changes are marked with 'Back2Uo:' comments.
 */
@@ -677,7 +677,7 @@ CountPlayers()
 =============
 addTestClients
 
-Back2Uo: adds back2uo_testbots test clients (bots) when back2uo_testbots_aktiv is on.
+Back2Uo: adds back2uo_testbots test clients (bots) when back2uo_testbots_active is on.
 Bots alternate between allies and axis. game["botsaktiv"] makes sure this happens only
 once per map (game[] survives round restarts).
 Bots of the previous map are kicked first: after a map change the server sends no new

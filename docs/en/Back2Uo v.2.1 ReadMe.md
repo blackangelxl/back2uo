@@ -105,7 +105,7 @@ has an inline comment with the allowed values and the default value.
 **Back2Uo Mod Setup:**
 
 - Here you can activate or deactivate the Mod with all its functions and settings
-  (`back2uo_status`).
+  (`back2uo_status_active`).
 
 **Debug:**
 
@@ -134,7 +134,7 @@ has an inline comment with the allowed values and the default value.
 
 **Test Bots:**
 
-- Test bots for testing the mod, e.g. on a LAN or a test server (`back2uo_testbots_aktiv`,
+- Test bots for testing the mod, e.g. on a LAN or a test server (`back2uo_testbots_active`,
   `back2uo_testbots`).
 - The bots walk the stock maps and Dawnville Classic along waypoints, climb, jump
   and fight like players, including melee attacks.
@@ -165,7 +165,7 @@ cg_hudDamageIconTime    -> "2000"
 cg_hudDamageIconWidth   -> "128"
 cg_hudObjectiveMaxRange -> "2048"
 cg_hudObjectiveMinAlpha -> "1"
-cg_hudObjectiveMinHeigth -> "-70"
+cg_hudObjectiveMinHeight -> "-70"
 cg_thirdperson          -> "0"
 fx_sort                 -> "1"
 ```

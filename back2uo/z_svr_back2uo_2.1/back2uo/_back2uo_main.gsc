@@ -7,7 +7,7 @@
 	settings as serverinfo cvars for the client menus.
 	back2uo_precached() is threaded right after it (only if game["back2uo_enable"]) and
 	precaches strings, shaders, models and items once per map (guarded by game[]).
-	Master switch: cvar back2uo_status -> game["back2uo_enable"].
+	Master switch: cvar back2uo_status_active -> game["back2uo_enable"].
 */
 
 /*
@@ -45,7 +45,10 @@ back2uo_main()
 
 	// --- Blood splatter ---
 
-	game["back2uo_bloodsplater_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_blood", 1, 0, 1);
+	// Screen blood: back2uo_blood_active (cg_blood, see _back2uo_cod2set.gsc) off disables it too.
+	game["back2uo_bloodsplater_enable"] = 0;
+	if(back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_blood_active", 1, 0, 1))
+		game["back2uo_bloodsplater_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_bloodscreen_active", 1, 0, 1);
 
 	level.back2uo_blood_pools = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_blood_pools", 1, 0, 1, "float");
 	level.back2uo_blood_spatter = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_bloodsplatter", 1, 0, 1, "float");
@@ -60,7 +63,7 @@ back2uo_main()
 
 	// --- HUD effect icons (weather / air / impact status) ---
 
-	game["back2uo_hudfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudfx_aktiv", 1, 0, 1);
+	game["back2uo_hudfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hudfx_active", 1, 0, 1);
 
 	// --- Player stance icon ---
 
@@ -74,11 +77,11 @@ back2uo_main()
 
 	// --- Player ranking ---
 
-	game["back2uo_ranking_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_playerranking", 1, 0, 1);
+	game["back2uo_ranking_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_playerranking_active", 1, 0, 1);
 
 	// Rank display options: HUD icon, team head icons, scoreboard status icon, sound, message
-	level.back2uo_hudrankingdraw = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_hudrankingdraw", 1, 0, 1, "int");
-	level.back2uo_teamrankheadicons = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_teamrankheadicons", 1, 0, 1, "int");
+	level.back2uo_hudrankingdraw = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_hudrankingdraw_active", 1, 0, 1, "int");
+	level.back2uo_teamrankheadicons = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_teamrankheadicons_active", 1, 0, 1, "int");
 	level.back2uo_rankingscorelist = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rankingscorelist", 1, 0, 1, "int");
 	level.back2uo_rankingsound = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rankingsound", 1, 0, 1, "int");
 	level.back2uo_rankingmsg = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rankingmsg", 1, 0, 1, "int");
@@ -90,12 +93,11 @@ back2uo_main()
 	level.back2uo_ranking_level5 = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_ranking_level4", 40, 1, 100, "int");
 
 	// Extra bounty after the highest rank, every back2uo_rang_lv_points points
-	level.back2uo_rankextra_aktiv = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_overlv_aktiv", 1, 0, 1, "int");
+	level.back2uo_rankextra_active = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_overlv_active", 1, 0, 1, "int");
 	level.back2uo_ranking_lvextra = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_lv_points", 10, 1, 100, "int");
 
-	// Rank at which binoculars / artillery are unlocked; +1 converts the cvar rank to the internal level.
+	// Rank at which artillery is unlocked; +1 converts the cvar rank to the internal level.
 	// back2uo_artillery_onrang 0 (or below) = no artillery, stored as 0.
-	level.back2uo_binocular_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_binocular_onrang", 1, 1, 4, "int");
 	level.back2uo_artillery_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_onrang", 3, 0, 4, "int");
 	if(level.back2uo_artillery_onrank > 0) level.back2uo_artillery_onrank++;
 	else level.back2uo_artillery_onrank = 0;
@@ -103,30 +105,53 @@ back2uo_main()
 	// No rank icons in the CTF scoreboard
 	if(getcvar("g_gametype") == "ctf") level.back2uo_rankingscorelist = 0;
 
-	// Rank rewards on spawn (grenades, smokes, primary/secondary ammo); same cvar/level offset as above
-	level.back2uo_rang2_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getgranade", 1, 0, 10, "int");
-	level.back2uo_rang2_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsmoke", 0, 0, 10, "int");
-	level.back2uo_rang2_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getpriammo", 0, 0, 999, "int");
-	level.back2uo_rang2_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsekammo", 10, 0, 999, "int");
+	// Rank loadout on spawn (United Offensive style), index = rank 1 -> 5; ranks above 5 use rank 5.
+	def_primags = [];
+	def_pistolmags = [];
+	def_frags = [];
+	def_smokes = [];
+	// 1 Private,
+	def_primags[1] = 3;
+	def_pistolmags[1] = 1;
+	def_frags[1] = 1;
+	def_smokes[1] = 1;
+	// 2 Rifleman
+	def_primags[2] = 3;
+	def_pistolmags[2] = 2;
+	def_frags[2] = 2;
+	def_smokes[2] = 1;
+	// 3 Squad Leader
+	def_primags[3] = 4;
+	def_pistolmags[3] = 3;
+	def_frags[3] = 2;
+	def_smokes[3] = 2;
+	// 4 Section Sergeant
+	def_primags[4] = 5;
+	def_pistolmags[4] = 3;
+	def_frags[4] = 2;
+	def_smokes[4] = 2;
+	// 5 Platoon Sergeant
+	def_primags[5] = 5;
+	def_pistolmags[5] = 3;
+	def_frags[5] = 3;
+	def_smokes[5] = 2;
 
-	level.back2uo_rang3_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getgranade", 1, 0, 10, "int");
-	level.back2uo_rang3_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsmoke", 0, 0, 10, "int");
-	level.back2uo_rang3_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getpriammo", 10, 0, 999, "int");
-	level.back2uo_rang3_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsekammo", 10, 0, 999, "int");
+	level.back2uo_rank_primags = [];
+	level.back2uo_rank_pistolmags = [];
+	level.back2uo_rank_frags = [];
+	level.back2uo_rank_smokes = [];
 
-	level.back2uo_rang4_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getgranade", 2, 0, 10, "int");
-	level.back2uo_rang4_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsmoke", 1, 0, 10, "int");
-	level.back2uo_rang4_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getpriammo", 20, 0, 999, "int");
-	level.back2uo_rang4_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsekammo", 20, 0, 999, "int");
-
-	level.back2uo_rang5_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getgranade", 2, 0, 10, "int");
-	level.back2uo_rang5_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsmoke", 1, 0, 10, "int");
-	level.back2uo_rang5_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getpriammo", 30, 0, 999, "int");
-	level.back2uo_rang5_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsekammo", 30, 0, 999, "int");
+	for(i = 1; i <= 5; i++)
+	{
+		level.back2uo_rank_primags[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_primags", def_primags[i], 1, 10, "int");
+		level.back2uo_rank_pistolmags[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_pistolmags", def_pistolmags[i], 0, 10, "int");
+		level.back2uo_rank_frags[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_frags", def_frags[i], 0, 5, "int");
+		level.back2uo_rank_smokes[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_smokes", def_smokes[i], 0, 5, "int");
+	}
 
 	// --- Player points (rank points) ---
 
-	game["back2uo_playerpoints_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_points_system", 1, 0, 1);
+	game["back2uo_playerpoints_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_points_system_active", 1, 0, 1);
 
 	// Point penalties for suicide and team kill
 	level.back2uo_selfkill_mpoints = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mpoints_suicide", 1, 0, 10, "int");
@@ -192,22 +217,22 @@ back2uo_main()
 
 	// --- Server information on join ---
 
-	game["back2uo_serverinfo_join"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_serverinfo_aktiv", 1, 0, 1);
+	game["back2uo_serverinfo_join"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_serverinfo_active", 1, 0, 1);
 
 	// --- Special equipment (special frag / smoke grenade variants) ---
 
 	// Max 2: more than one special grenade mode
-	game["back2uo_specialgrenade_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_spezial_grenade", 1, 0, 2);
+	game["back2uo_specialgrenade_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_spezial_grenade_active", 1, 0, 2);
 
-	game["back2uo_specialsmoke_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_spezial_smoke", 1, 0, 1);
+	game["back2uo_specialsmoke_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_spezial_smoke_active", 1, 0, 1);
 
 	// --- Fall damage ---
 
-	game["back2uo_falldamage_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_falldamage_aktiv", 1, 0, 1);
+	game["back2uo_falldamage_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_falldamage_active", 1, 0, 1);
 
 	// Fall heights in units for minimum and lethal fall damage
-	level.back2uo_falldamage_min = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_min", 225, 1, 1000, "int");
-	level.back2uo_falldamage_max = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_max", 355, 1, 1000, "int");
+	level.back2uo_falldamage_min = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_min", 156, 1, 1000, "int");
+	level.back2uo_falldamage_max = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_falldamage_max", 380, 1, 1000, "int");
 
 	// Overrides the engine fall damage cvars
 	if(game["back2uo_falldamage_enable"])
@@ -218,7 +243,7 @@ back2uo_main()
 
 	// --- Next map message ---
 
-	game["back2uo_mapmsg_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_mapmsg_aktiv", 1, 0, 1);
+	game["back2uo_mapmsg_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_mapmsg_active", 1, 0, 1);
 
 	level.back2uo_mapmsg_maptype	= back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mapmsg_maptype", 2, 1, 2, "int");
 	level.back2uo_mapmsg_delay	= back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mapmsg_delay", 60, 1, 1440, "int");
@@ -230,18 +255,18 @@ back2uo_main()
 
 	// --- Server text ---
 
-	game["back2uo_servertext_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_servertext_aktiv", 0, 0, 1);
+	game["back2uo_servertext_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_servertext_active", 0, 0, 1);
 
 	// --- Clan messages (cvar list back2uo_clanm_0, _1, ...) ---
 
-	game["back2uo_clanm_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_clanm_aktiv", 1, 0, 1);
+	game["back2uo_clanm_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_clanm_active", 1, 0, 1);
 
 	level.back2uo_clanmrepeatwait = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_clanm_repeatwait", 30, 1, 120, "float");
 	game["back2uo_clanmsg"] = back2uo\_back2uo_cvars::back2uo_getarray("back2uo_clanm");
 
 	// --- Welcome messages (cvar list back2uo_wellm_0, _1, ...) ---
 
-	game["back2uo_wellm_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_wellm_aktiv", 1, 0, 1);
+	game["back2uo_wellm_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_wellm_active", 1, 0, 1);
 
 	game["back2uo_wellmsg"] = back2uo\_back2uo_cvars::back2uo_getarray("back2uo_wellm");
 
@@ -252,10 +277,10 @@ back2uo_main()
 	// --- Pain / death / taunt / grenade sounds (see _back2uo_sounds.gsc) ---
 
 	// Chance values 0..100, 0 = off
-	level.back2uo_painsound_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_painsound_aktiv", 30 ,0, 100, "int");
-	level.back2uo_deathsound_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_deathsound_aktiv", 60 ,0, 100, "int");
-	level.back2uo_tauntsounds_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_tauntsounds_aktiv", 40, 0, 100, "int");
-	level.back2uo_nadesounds_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_nadesounds_aktiv", 25, 0, 100, "int");
+	level.back2uo_painsound_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_painsound_active", 30 ,0, 100, "int");
+	level.back2uo_deathsound_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_deathsound_active", 60 ,0, 100, "int");
+	level.back2uo_tauntsounds_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_tauntsounds_active", 40, 0, 100, "int");
+	level.back2uo_nadesounds_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_nadesounds_active", 25, 0, 100, "int");
 
 	// Number of recorded voices per nationality (pain/death sound variants).
 	// Always set: pain/death sounds use it even when taunts are off.
@@ -266,7 +291,7 @@ back2uo_main()
 
 	// --- Hit location and distance messages ---
 
-	game["back2uo_hit_distance_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hit_distance_aktiv", 1, 0, 1);
+	game["back2uo_hit_distance_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_hit_distance_active", 1, 0, 1);
 
 	// --- Health packs (see objects\_back2uo_healthpacks.gsc) ---
 
@@ -293,14 +318,14 @@ back2uo_main()
 
 	// --- Anti AFK (see antiplay\_back2uo_afk.gsc) ---
 
-	game["back2uo_antiplay_afk_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_afk_aktiv", 1, 0, 1);
+	game["back2uo_antiplay_afk_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_afk_active", 1, 0, 1);
 
 	// Seconds without activity before the warning
 	level.back2uo_antiplay_afk_limit = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_antiplay_afk_lmd", 100, 0, 230, "int");
 
 	// --- Anti camper ---
 
-	game["back2uo_antiplay_cmp_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_cmp_aktiv", 0, 0, 1);
+	game["back2uo_antiplay_cmp_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_cmp_active", 0, 0, 1);
 
 	// Allowed camping time (s), compass marking time (s), radius (units) that counts as camping
 	level.back2uo_antiplay_cmp_timer = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_antiplay_cmp_lmd", 60, 0, 120, "int");
@@ -309,7 +334,7 @@ back2uo_main()
 
 	// --- Spawn protection ---
 
-	game["back2uo_antiplay_sp_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_sp_aktiv", 1, 0, 1);
+	game["back2uo_antiplay_sp_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_antiplay_sp_active", 1, 0, 1);
 
 	// Protection time (s), message to the attacker, end protection on movement/action
 	level.back2uo_antiplay_sp_time = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_antiplay_sp_lmd", 5, 1, 60, "int");
@@ -324,13 +349,13 @@ back2uo_main()
 
 	// --- War effects (see the warfx\ scripts) ---
 
-	game["back2uo_warfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_warfx_aktiv", 1, 0, 1);
+	game["back2uo_warfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_warfx_active", 1, 0, 1);
 
 	level.back2uo_warfx_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_warfx_random", 40 ,1, 100, "int");
 
 	// --- Airplanes ---
 
-	game["back2uo_airplanesfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_airplanes_aktiv", 1, 0, 1);
+	game["back2uo_airplanesfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_airplanes_active", 1, 0, 1);
 
 	level.back2uo_airplanes_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_airplanes_max_count", 0, 0, 6, "int");
 	level.back2uo_airplanes_crash = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_airplanes_crash", 0, 0, 1, "int");
@@ -343,7 +368,7 @@ back2uo_main()
 
 	// --- Flak effects ---
 
-	game["back2uo_flakfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_flaksfx_aktiv", 1, 0, 1);
+	game["back2uo_flakfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_flaksfx_active", 1, 0, 1);
 
 	level.back2uo_effect["flak_smoke"] = loadfx("fx/explosions/flak_puff.efx");
 	level.back2uo_effect["flak_flash"] = loadfx("fx/explosions/default_explosion.efx");
@@ -351,7 +376,7 @@ back2uo_main()
 
 	// --- Ambient anti-air tracers ---
 
-	game["back2uo_ambtracerfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_ambtracer_aktiv", 1, 0, 1);
+	game["back2uo_ambtracerfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_ambtracer_active", 1, 0, 1);
 
 	level.back2uo_ambtracer_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_ambtracer_max_count", 0, 0, 8, "int");
 
@@ -359,7 +384,7 @@ back2uo_main()
 
 	// --- Mortar effects ---
 
-	game["back2uo_mortarfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_mortar_aktiv", 1, 0, 1);
+	game["back2uo_mortarfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_mortar_active", 1, 0, 1);
 
 	level.back2uo_mortar_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_max_count", 0, 0, 16, "int");
 	level.back2uo_mortar_alert = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_mortar_alert", 0, 0, 1, "int");
@@ -378,7 +403,7 @@ back2uo_main()
 
 	// --- Artillery effects ---
 
-	game["back2uo_artilleryfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_artillery_aktiv", 1, 0, 1);
+	game["back2uo_artilleryfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_artillery_active", 1, 0, 1);
 
 	// danger = danger-close warning when the target is nearer than this (units), 0 = off
 	level.back2uo_artillery_count = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_max_count", 0, 0, 10, "int");
@@ -399,32 +424,32 @@ back2uo_main()
 
 	// --- Weather effects (see the weatherfx\ scripts) ---
 
-	game["back2uo_weatherfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weatherfx_aktiv", 1, 0, 1);
+	game["back2uo_weatherfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weatherfx_active", 1, 0, 1);
 
 	level.back2uo_weatherfx_random = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weatherfx_random", 20 ,1, 100, "int");
 	level.back2uo_weatherfx_strength = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weatherfx_str", 30 ,1, 100, "int");
 
 	// --- Cold breath ---
 
-	game["back2uo_coldbreath_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_coldbreath_aktiv", 1, 0, 1);
+	game["back2uo_coldbreath_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_coldbreath_active", 1, 0, 1);
 
 	level.back2uo_breathfx = loadfx("fx/misc/cold_breath.efx");
 
 	// --- Rain ---
 
-	game["back2uo_rainfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_rainfx_aktiv", 1, 0, 1);
+	game["back2uo_rainfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_rainfx_active", 1, 0, 1);
 
 	level.back2uo_effect["rain"]	= loadfx ("fx/back2uo/rain.efx");
 
 	// --- Snow ---
 
-	game["back2uo_snowfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_snowfx_aktiv", 1, 0, 1);
+	game["back2uo_snowfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_snowfx_active", 1, 0, 1);
 
 	level.back2uo_effect["snow"]	= loadfx ("fx/back2uo/snow.efx");
 
 	// --- Thunder ---
 
-	game["back2uo_thunderfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_thunderfx_aktiv", 1, 0, 1);
+	game["back2uo_thunderfx_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_thunderfx_active", 1, 0, 1);
 
 	level.back2uo_effect["lightning"] = loadfx ("fx/misc/lightning.efx");
 	level.back2uo_effect["thunder_flash"] = loadfx("fx/back2uo/thunder_flash.efx");
@@ -435,14 +460,14 @@ back2uo_main()
 
 	// --- Test bots ---
 
-	game["back2uo_testbots_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_testbots_aktiv", 0, 0, 1);
+	game["back2uo_testbots_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_testbots_active", 0, 0, 1);
 
 	// Bot skill 1-3: reaction time, aim error and turn speed, see back2uo\bots\_back2uo_botai.gsc
 	level.back2uo_testbots_skill = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_testbots_skill", 2, 1, 3, "int");
 
 	// --- Sniper and shotgun limits (players per team) ---
 
-	game["back2uo_weaponlimit_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weapons_lmd_aktiv", 1, 0, 1);
+	game["back2uo_weaponlimit_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weapons_lmd_active", 1, 0, 1);
 
 	// Sniper rifles
 	level.back2uo_kar98sniper_limit = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_kar98sniper_lmd", 1, 1, 10, "int");
@@ -456,10 +481,10 @@ back2uo_main()
 
 	// --- Sprint ---
 
-	game["back2uo_sprint_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_sprint_aktiv", 1, 0, 1);
+	game["back2uo_sprint_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_sprint_active", 1, 0, 1);
 
 	// Sprint length and recovery time in seconds; read as "int", so a cvar value like 2.5 is truncated
-	level.back2uo_sprint_onhud = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_onhud", 1, 0, 1, "int");
+	level.back2uo_sprint_onhud = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_onhud_active", 1, 0, 1, "int");
 	level.back2uo_sprint_length = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_length", 2.5, 1, 15, "int");
 	level.back2uo_sprint_rehatime = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_rehatime", 4, 1, 15, "int");
 	level.back2uo_sprint_infomsg = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_infomsg", 1, 0, 1, "int");
@@ -479,7 +504,7 @@ back2uo_main()
 
 	// --- Weapon system ---
 
-	game["back2uo_weaponsystem_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weaponsetup_aktiv", 1, 0, 1);
+	game["back2uo_weaponsystem_enable"] = back2uo\_back2uo_cvars::back2uo_setconfig("back2uo_weaponsetup_active", 1, 0, 1);
 
 	// Allowed weapon class (0 = all), pistol/turret/binocular/shotgun availability
 	level.back2uo_weapon_limit = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_weapons_allow", 0, 0, 4, "float");
@@ -494,11 +519,15 @@ back2uo_main()
 	level.back2uo_g43sniper_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_g43sniper_on", 0, 0, 1, "float");
 
 	// Grenade setup: limits checked by _back2uo_cvars::back2uo_grana_smoke_checker, counts given on spawn
-	level.back2uo_smoke_grana_aktiv = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_grana_aktiv", 1, 0, 1, "int");
+	level.back2uo_smoke_grana_active = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_grana_active", 1, 0, 1, "int");
 	level.back2uo_granaten_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_frag_allow", 3 ,1, 5, "int");
 	level.back2uo_granaten_use = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_frag_use", 1, 0, 5, "int");
-	level.back2uo_smoke_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_allow", 1, 1, 5, "int");
+	level.back2uo_smoke_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_allow", 2, 1, 5, "int");
 	level.back2uo_smoke_use = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_use", 0, 0, 5, "int");
+
+	// The spawn count can never be above the allowed count (otherwise the checker cuts it right after the spawn).
+	if(level.back2uo_granaten_use > level.back2uo_granaten_allow) level.back2uo_granaten_use = level.back2uo_granaten_allow;
+	if(level.back2uo_smoke_use > level.back2uo_smoke_allow) level.back2uo_smoke_use = level.back2uo_smoke_allow;
 
 	// --- CoD2 game settings ---
 	// The 5th setconfig parameter is the stock value used while the mod is disabled.

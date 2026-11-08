@@ -396,3 +396,21 @@ back2uo_libcod_meleeweapon(on)
 	if(back2uo_libcod_active()) self meleeWeapon(on);
 	else self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_botinput();
 }
+
+// --- Time ---
+
+/*
+=============
+back2uo_libcod_getmicroseconds
+
+Returns the real (wall clock) time in microseconds, masked to 31 bits by zk_libcod (wraps
+about every 35 minutes; add 2^31 to a negative difference). Unlike gettime(), which is
+game time, it also advances while a server frame takes longer than planned.
+=============
+*/
+back2uo_libcod_getmicroseconds()
+{
+	if(back2uo_libcod_active()) return getMicroseconds();
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getmicroseconds();
+}

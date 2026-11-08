@@ -6,7 +6,7 @@
 	before the gametype starts. It precaches and starts the map's looping effects.
 	Back2Uo lets the server switch effect groups off (e.g. to save client FPS):
 	back2uo_ambientdustfx (stored in level.<cvar>).
-	With the mod off (back2uo_status 0) the map behaves like stock.
+	With the mod off (back2uo_status_active 0) the map behaves like stock.
 */
 
 /*
@@ -24,7 +24,7 @@ main()
 	// on this map; all maps at once would exceed the script variable limit. See tools/wp2gsc.py.
 	level.back2uo_wp_mapscript = back2uo\bots\waypoints\_wp_mp_matmata::load;
 
-	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status is read here.
+	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status_active is read here.
 	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 
 	// Back2Uo: per-group effect switches (back2uo_getcvardef also honours _<gametype> / _<mapname> overrides).
