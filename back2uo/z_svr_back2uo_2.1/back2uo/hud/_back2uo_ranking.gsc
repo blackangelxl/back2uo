@@ -1,10 +1,15 @@
 /*
-	Back2Uo v2.1 - Rank icon, rank up/down handling and rank rewards (ammo, grenades, artillery).
+	Back2Uo v2.1 - Rank icon, rank up/down handling, rank loadout (ammo, grenades) and artillery.
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
 	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
 	"disconnect" or "killed_player".
+
+	Like in United Offensive the rank sets the loadout of the next life: on every spawn the
+	player gets the magazines and grenades of his current rank (back2uo_rank<n>_* cvars).
+	A rank change during a life only changes icon, sound and message; the new loadout comes
+	with the next spawn. Artillery is still granted right on reaching the rank.
 */
 
 /*
@@ -42,11 +47,37 @@ back2uo_ranking_draw()
 
 /*
 =============
+back2uo_ranking_getrank
+
+Maps a score to a rank: 1 to 5, plus extra ranks every level.back2uo_ranking_lvextra
+points above level 5 when back2uo_rankextra_active is set.
+Params: score - player score
+Returns: rank number (1 or higher)
+=============
+*/
+back2uo_ranking_getrank(score)
+{
+	if(score >= level.back2uo_ranking_level5)
+	{
+		rank = 5;
+		if(level.back2uo_rankextra_active == 1) rank += int((score - level.back2uo_ranking_level5) / level.back2uo_ranking_lvextra);
+		return rank;
+	}
+
+	if(score >= level.back2uo_ranking_level4) return 4;
+	if(score >= level.back2uo_ranking_level3) return 3;
+	if(score >= level.back2uo_ranking_level2) return 2;
+
+	return 1;
+}
+
+/*
+=============
 back2uo_ranking_update
 
-Every 0.5 seconds maps the player's score to a rank (1 to 5, plus extra ranks every
-level.back2uo_ranking_lvextra points above level 5 when back2uo_rankextra_active is set).
-On a rank change it plays a sound, prints a message and pulses the rank icon.
+Runs once per life (threaded on spawn). Sets the rank from the score, gives the loadout
+of that rank, then every 0.5 seconds follows the score: on a rank change it plays a sound,
+prints a message, pulses the rank icon and (rank up) grants artillery.
 Called on: self = player
 =============
 */
@@ -60,9 +91,13 @@ back2uo_ranking_update()
 	self endon("disconnect");
 	self endon("killed_player");
 
-	if(!isdefined(self.pers["back2uo_ranking"])) self.pers["back2uo_ranking"] = 1;
+	// Rank at spawn: the loadout of this life. Runs before the first wait, so it is done
+	// before the gametype stores the spawn ammo (back2uo_weaponspawn_*slotammo).
+	self.pers["back2uo_ranking"] = back2uo_ranking_getrank(self.score);
+	self.pers["back2uo_ranking_new"] = self.pers["back2uo_ranking"];
 
-	self.back2uo_rank_give = undefined;
+	back2uo_ranking_level(self.pers["back2uo_ranking"]);
+	back2uo_ranking_loadout(self.pers["back2uo_ranking"]);
 
 	// Player still owns an unused artillery strike (from an earlier life): restart the binocular target selection.
 	if(game["back2uo_artilleryfx_enable"] && isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
@@ -72,48 +107,17 @@ back2uo_ranking_update()
 		thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_binowaituse();
 	}
 
+	// Rank may have been reached while dead (e.g. a kill by a grenade thrown before dying).
+	back2uo_ranking_artillery(self.pers["back2uo_ranking"]);
+
 	for(;;)
 	{
 		// Remember the previous rank to detect rank changes below.
 		player_score = self.score;
 		self.pers["back2uo_ranking_new"] = self.pers["back2uo_ranking"];
+		self.pers["back2uo_ranking"] = back2uo_ranking_getrank(player_score);
 
-		if(player_score >= level.back2uo_ranking_level2 && player_score < level.back2uo_ranking_level3)
-		{
-			back2uo_ranking_level(2);
-
-			self.pers["back2uo_ranking"] = 2;
-		}
-		else if(player_score >= level.back2uo_ranking_level3 && player_score < level.back2uo_ranking_level4)
-		{
-			back2uo_ranking_level(3);
-
-			self.pers["back2uo_ranking"] = 3;
-		}
-		else if(player_score >= level.back2uo_ranking_level4 && player_score < level.back2uo_ranking_level5)
-		{
-			back2uo_ranking_level(4);
-
-			self.pers["back2uo_ranking"] = 4;
-		}
-		else if(player_score >= level.back2uo_ranking_level5)
-		{
-			// Extra ranks: one rank up every back2uo_ranking_lvextra points above level 5.
-			// Calculated from the score, so the rank follows the score up and down.
-			new_rank = 5;
-			if(level.back2uo_rankextra_active == 1) new_rank += int((player_score - level.back2uo_ranking_level5) / level.back2uo_ranking_lvextra);
-
-			back2uo_ranking_level(new_rank);
-
-			self.pers["back2uo_ranking"] = new_rank;
-		}
-		else
-		{
-			// Below level 2: also on a rank down, so the rank 2 rewards come again on the next rank up
-			self.pers["back2uo_ranking"] = 1;
-
-			back2uo_ranking_level(1);
-		}
+		back2uo_ranking_level(self.pers["back2uo_ranking"]);
 
 		// Teammates see the rank as head icon (team gametypes only).
 		if(isdefined(self.headicon) && level.back2uo_teamrankheadicons == 1 && getCvar("g_gametype") != "dm")
@@ -124,28 +128,31 @@ back2uo_ranking_update()
 		// Rank changed
 		if(self.pers["back2uo_ranking"] != self.pers["back2uo_ranking_new"])
 		{
+			rank_up = (self.pers["back2uo_ranking"] > self.pers["back2uo_ranking_new"]);
+
 			if(back2uo\_back2uo_cvars::back2uo_logactive())
 			{
 				rank_event = "rankdown";
-				if(self.pers["back2uo_ranking"] > self.pers["back2uo_ranking_new"]) rank_event = "rankup";
+				if(rank_up) rank_event = "rankup";
 
 				back2uo\_back2uo_cvars::back2uo_logevent("ranking", rank_event, back2uo\_back2uo_cvars::back2uo_logplayer(self) + " old=" + self.pers["back2uo_ranking_new"] + " rank=" + self.pers["back2uo_ranking"] + " score=" + player_score + " deaths=" + self.deaths);
 			}
 
+			self.back2uo_art_rank = undefined;
+
+			// Rank up: artillery right away; ammo and grenades of the new rank come with the next spawn.
+			if(rank_up) back2uo_ranking_artillery(self.pers["back2uo_ranking"]);
+
 			if(self.pers["back2uo_ranking"] <= 5)
 			{
-				// Rank up: sound and message; allow the rewards of the next rank.
-				if(self.pers["back2uo_ranking"] > self.pers["back2uo_ranking_new"])
+				if(rank_up)
 				{
 					if(level.back2uo_rankingsound == 1) back2uo\_back2uo_sounds::back2uo_soundonplayer("ranking_up", self);
 
 					if(level.back2uo_rankingmsg == 1) self iprintln(&"BACK2UOMOD_RANKING_UP");
-
-					self.back2uo_rank_give = undefined;
 				}
 				else
 				{
-					// Rank down: sound and message only.
 					if(level.back2uo_rankingsound == 1) back2uo\_back2uo_sounds::back2uo_soundonplayer("ranking_down", self);
 
 					if(level.back2uo_rankingmsg == 1) self iprintln(&"BACK2UOMOD_RANKING_DOWN");
@@ -183,12 +190,6 @@ back2uo_ranking_update()
 					self.hud_ranking_lv setShader(self.back2uo_ranking_pic, 24, 24);
 				}
 			}
-			else
-			{
-				self.back2uo_rank_give = undefined;
-			}
-
-			self.back2uo_art_rank = undefined;
 		}
 		else
 		{
@@ -206,11 +207,10 @@ back2uo_ranking_update()
 =============
 back2uo_ranking_level
 
-Sets the rank icons (HUD, scoreboard, head icon) for the given rank and hands out the
-rank rewards once per rank (self.back2uo_rank_give). Ranks above 5 use the level 5 icons
-and rewards.
+Sets the rank icons (HUD, scoreboard, head icon) for the given rank. Ranks above 5 use
+the level 5 icons.
 Called on: self = player
-Params: ranking_lv - rank number used for the icon file names
+Params: ranking_lv - rank number
 =============
 */
 back2uo_ranking_level(ranking_lv)
@@ -222,192 +222,144 @@ back2uo_ranking_level(ranking_lv)
 	self.pers["back2uo_score_ranking_pic"] = "gfx/custom/back2uo_ranking_lv" + ranking_lv + ".tga";
 	self.pers["back2uo_head_ranking_pic"] = "gfx/hud/hud@back2uo_ranking_head_lv" + ranking_lv + ".tga";
 
-	// Hand out rank rewards once per rank (reset on rank up in back2uo_ranking_update).
-	if(self.pers["back2uo_ranking"] == 1)
-	{
-		self.pers["back2uo_artillery_go"] = false;
-	}
-	else if(self.pers["back2uo_ranking"] == 2)
-	{
-		if(isdefined(self.back2uo_rank_give)) return;
-		self.back2uo_rank_give = true;
-
-		back2uo_ranking_give(2, level.back2uo_rang2_getsekammo,level.back2uo_rang2_getpriammo,level.back2uo_rang2_getgranade,level.back2uo_rang2_getsmoke);
-	}
-	else if(self.pers["back2uo_ranking"] == 3)
-	{
-		if(isdefined(self.back2uo_rank_give)) return;
-		self.back2uo_rank_give = true;
-
-		back2uo_ranking_give(3, level.back2uo_rang3_getsekammo,level.back2uo_rang3_getpriammo,level.back2uo_rang3_getgranade,level.back2uo_rang3_getsmoke);
-	}
-	else if(self.pers["back2uo_ranking"] == 4)
-	{
-		if(isdefined(self.back2uo_rank_give)) return;
-		self.back2uo_rank_give = true;
-
-		back2uo_ranking_give(4, level.back2uo_rang4_getsekammo,level.back2uo_rang4_getpriammo,level.back2uo_rang4_getgranade,level.back2uo_rang4_getsmoke);
-	}
-	else if(self.pers["back2uo_ranking"] == 5)
-	{
-		if(isdefined(self.back2uo_rank_give)) return;
-		self.back2uo_rank_give = true;
-
-		back2uo_ranking_give(5, level.back2uo_rang5_getsekammo,level.back2uo_rang5_getpriammo,level.back2uo_rang5_getgranade,level.back2uo_rang5_getsmoke);
-	}
-	else if(self.pers["back2uo_ranking"] >= 6)
-	{
-		if(isdefined(self.back2uo_rank_give)) return;
-		self.back2uo_rank_give = true;
-
-		back2uo_ranking_give(self.pers["back2uo_ranking"], level.back2uo_rang5_getsekammo,level.back2uo_rang5_getpriammo,level.back2uo_rang5_getgranade,level.back2uo_rang5_getsmoke);
-	}
+	if(ranking_lv == 1) self.pers["back2uo_artillery_go"] = false;
 }
 
 /*
 =============
-back2uo_ranking_give
+back2uo_ranking_loadout
 
-Gives the rewards for reaching a rank: extra primary/secondary ammo, frag and smoke
-grenades (up to the grenade limits) and grants an artillery strike from
-back2uo_artillery_onrank on.
+Gives the loadout of the rank (United Offensive style), called once on spawn after the
+gametype has handed out the weapons: magazines of the primary weapon and the pistol
+(including the loaded one) and frag / smoke grenades of the own nation. The grenade counts
+are cut to back2uo_frag_allow / back2uo_smoke_allow when the grenade setup
+(back2uo_smoke_grana_active) is on. Ranks above 5 get the rank 5 loadout.
 Called on: self = player
-Params: ranking_lv - reached rank
-		sek_ammo - extra secondary (pistol) ammo
-		pri_ammo - extra primary ammo
-		granat - extra frag grenades
-		smoke - extra smoke grenades
+Params: ranking_lv - current rank
 =============
 */
-back2uo_ranking_give(ranking_lv, sek_ammo,pri_ammo,granat,smoke)
+back2uo_ranking_loadout(ranking_lv)
 {
-	back2uo\_back2uo_cvars::back2uo_logprint("Hud Ranking", "Give");
+	back2uo\_back2uo_cvars::back2uo_logprint("Hud Ranking", "Loadout");
 
-	rank_extras_a = 0;
-	rank_extras_b = 0;
+	if(ranking_lv > 5) ranking_lv = 5;
+	if(ranking_lv < 1) ranking_lv = 1;
 
-	// Only for the log: grenades actually given
-	log_frag = 0;
-	log_smoke = 0;
+	pri_mags = level.back2uo_rank_primags[ranking_lv];
+	sek_mags = level.back2uo_rank_pistolmags[ranking_lv];
+	frag = level.back2uo_rank_frags[ranking_lv];
+	smoke = level.back2uo_rank_smokes[ranking_lv];
 
-	// Primary weapon ammo
-	if(pri_ammo > 0)
+	pri_ammo = back2uo_ranking_setmags("primary", pri_mags);
+	sek_ammo = back2uo_ranking_setmags("primaryb", sek_mags);
+
+	// Frag grenades
+	if(!getcvarint("scr_allow_fraggrenades")) frag = 0;
+	if(level.back2uo_smoke_grana_active && frag > level.back2uo_granaten_allow) frag = level.back2uo_granaten_allow;
+
+	granadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("granade");
+	if(frag > 0)
 	{
-		mgammo = self getWeaponSlotClipAmmo("primary");
-		mgresammo = self getWeaponSlotAmmo("primary");
-		mgend_ammo = mgammo + mgresammo + pri_ammo;
-		self setWeaponSlotAmmo("primary", mgend_ammo);
-
-		mg_maxammo = self getWeaponSlotAmmo("primary");
-
-		if(mgend_ammo >= mg_maxammo) rank_extras_a++;
+		self giveWeapon(granadetype);
+		self setWeaponClipAmmo(granadetype, frag);
+		self switchtooffhand(granadetype);
+	}
+	else
+	{
+		self takeWeapon(granadetype);
 	}
 
-	// Secondary (pistol) ammo
-	if(sek_ammo > 0)
-	{
-		pistelammo = self getWeaponSlotClipAmmo("primaryb");
-		pistelresammo = self getWeaponSlotAmmo("primaryb");
-		pistelend_ammo = pistelammo + pistelresammo + sek_ammo;
-		self setWeaponSlotAmmo("primaryb", pistelend_ammo);
+	// Smoke grenades
+	if(!getcvarint("scr_allow_smokegrenades")) smoke = 0;
+	if(level.back2uo_smoke_grana_active && smoke > level.back2uo_smoke_allow) smoke = level.back2uo_smoke_allow;
 
-		pistel_maxammo = self getWeaponSlotAmmo("primaryb");
-
-		if(pistelend_ammo >= pistel_maxammo) rank_extras_a++;
-	}
-
-	// Message if any ammo was given (rank_extras_a is 1 or 2).
-	if(level.back2uo_rankingmsg == 1 && (rank_extras_a == 1 || rank_extras_a == 2)) self iprintln(&"BACK2UOMOD_RANKING_MUN");
-
-	// Frag grenades, only up to the level.back2uo_granaten_allow limit.
-	if(granat > 0)
-	{
-		// Count grenades of both nationalities (the player may carry either type).
-		grenadetype1 = "frag_grenade_" + game["allies"] + "_mp" + level.back2uo_specialgranade;
-		grenadetype2 = "frag_grenade_" + game["axis"] + "_mp" + level.back2uo_specialgranade;
-		count1 = self getammocount(grenadetype1);
-		count2 = self getammocount(grenadetype2);
-
-		granadecount = count1 + count2;
-		granadeend_count = granadecount + granat;
-
-		if(granadeend_count <= level.back2uo_granaten_allow)
-		{
-			granadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("granade");
-
-			// granadeend_count also counts picked-up enemy grenades, so only add to the own type
-			owncount = self getammocount(granadetype);
-
-			self giveWeapon(granadetype);
-			self setWeaponClipAmmo(granadetype, owncount + granat);
-			rank_extras_b++;
-			log_frag = granat;
-		}
-	}
-
-	// Smoke grenades, only up to the level.back2uo_smoke_allow limit.
+	smokegrenadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("smoke");
 	if(smoke > 0)
 	{
-		grenadetype1 = "smoke_grenade_" + game["allies"] + "_mp" + level.back2uo_specialsmoke;
-		grenadetype2 = "smoke_grenade_" + game["axis"] + "_mp" + level.back2uo_specialsmoke;
-		count1 = self getammocount(grenadetype1);
-		count2 = self getammocount(grenadetype2);
-
-		smokecount = count1 + count2;
-		smokeend_count = smokecount + smoke;
-
-		if(smokeend_count <= level.back2uo_smoke_allow)
-		{
-			smokegrenadetype = self back2uo\tools\_back2uo_names::back2uo_getgranade_type("smoke");
-
-			// Same as for frags: only add to the own smoke type
-			owncount = self getammocount(smokegrenadetype);
-
-			self giveWeapon(smokegrenadetype);
-			self setWeaponClipAmmo(smokegrenadetype, owncount + smoke);
-			rank_extras_b++;
-			log_smoke = smoke;
-		}
+		self giveWeapon(smokegrenadetype);
+		self setWeaponClipAmmo(smokegrenadetype, smoke);
 	}
-
-	// Message if any grenade was given.
-	if(level.back2uo_rankingmsg == 1 && (rank_extras_b == 1 || rank_extras_b == 2)) self iprintln(&"BACK2UOMOD_RANKING_GRA");
-
-	back2uo\_back2uo_cvars::back2uo_logevent("ranking", "reward", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score + " pri=" + pri_ammo + " sek=" + sek_ammo + " frag=" + log_frag + " smoke=" + log_smoke);
-
-	// Artillery strike from the configured rank on, once per rank (back2uo_artillery_onrang 0 = none).
-	if(game["back2uo_artilleryfx_enable"])
+	else
 	{
-		if(level.back2uo_artillery_onrank > 0 && level.back2uo_artillery_onrank <= ranking_lv)
-		{
-			// Called directly (no thread), so the return value is available.
-			art_rank_check = back2uo_ranking_artillery_check(ranking_lv);
-
-			if(art_rank_check == 1)
-			{
-				back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=given");
-				return;
-			}
-
-			if(isdefined(self.back2uo_art_rank))
-			{
-				back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=rankflag");
-				return;
-			}
-			self.back2uo_art_rank = true;
-
-			// Player still has an unused strike.
-			if(isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
-			{
-				back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=unused");
-				return;
-			}
-
-			back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artgrant", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score);
-
-			thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
-		}
+		self takeWeapon(smokegrenadetype);
 	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("ranking", "loadout", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score + " primags=" + pri_mags + " pri=" + pri_ammo + " sekmags=" + sek_mags + " sek=" + sek_ammo + " frag=" + frag + " smoke=" + smoke);
+}
+
+/*
+=============
+back2uo_ranking_setmags
+
+Sets the ammo of a weapon slot to a number of magazines: one loaded plus (mags - 1) in
+the reserve. Uses the clip ammo right after the spawn as magazine size (the gametype
+fills the clip). The engine clamps the reserve to the weapon's maximum.
+Called on: self = player
+Params: slot - "primary" or "primaryb"
+		mags - magazines including the loaded one (0 = empty weapon)
+Returns: total ammo (clip + reserve) after the change, 0 for an empty slot
+=============
+*/
+back2uo_ranking_setmags(slot, mags)
+{
+	if(self getWeaponSlotWeapon(slot) == "none") return 0;
+
+	clipsize = self getWeaponSlotClipAmmo(slot);
+	if(clipsize <= 0) return 0;
+
+	if(mags <= 0)
+	{
+		self setWeaponSlotClipAmmo(slot, 0);
+		self setWeaponSlotAmmo(slot, 0);
+		return 0;
+	}
+
+	self setWeaponSlotAmmo(slot, (mags - 1) * clipsize);
+
+	return self getWeaponSlotClipAmmo(slot) + self getWeaponSlotAmmo(slot);
+}
+
+/*
+=============
+back2uo_ranking_artillery
+
+Grants an artillery strike from the configured rank on, once per rank and map
+(back2uo_artillery_onrang 0 = none). Nothing if the player still owns an unused strike.
+Called on: self = player
+Params: ranking_lv - reached rank
+=============
+*/
+back2uo_ranking_artillery(ranking_lv)
+{
+	if(!game["back2uo_artilleryfx_enable"]) return;
+	if(level.back2uo_artillery_onrank <= 0 || level.back2uo_artillery_onrank > ranking_lv) return;
+
+	// Called directly (no thread), so the return value is available.
+	art_rank_check = back2uo_ranking_artillery_check(ranking_lv);
+
+	if(art_rank_check == 1)
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=given");
+		return;
+	}
+
+	if(isdefined(self.back2uo_art_rank))
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=rankflag");
+		return;
+	}
+	self.back2uo_art_rank = true;
+
+	// Player still has an unused strike.
+	if(isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
+	{
+		back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artskip", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " reason=unused");
+		return;
+	}
+
+	back2uo\_back2uo_cvars::back2uo_logevent("ranking", "artgrant", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " score=" + self.score);
+
+	thread back2uo\warfx\_back2uo_artillery::back2uo_artilleryfx_control();
 }
 
 /*

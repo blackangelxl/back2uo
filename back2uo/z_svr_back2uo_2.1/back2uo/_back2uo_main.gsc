@@ -105,26 +105,49 @@ back2uo_main()
 	// No rank icons in the CTF scoreboard
 	if(getcvar("g_gametype") == "ctf") level.back2uo_rankingscorelist = 0;
 
-	// Rank rewards on spawn (grenades, smokes, primary/secondary ammo); same cvar/level offset as above
-	level.back2uo_rang2_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getgranade", 1, 0, 10, "int");
-	level.back2uo_rang2_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsmoke", 0, 0, 10, "int");
-	level.back2uo_rang2_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getpriammo", 0, 0, 999, "int");
-	level.back2uo_rang2_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang1_getsekammo", 10, 0, 999, "int");
+	// Rank loadout on spawn (United Offensive style), index = rank 1 -> 5; ranks above 5 use rank 5.
+	def_primags = [];
+	def_pistolmags = [];
+	def_frags = [];
+	def_smokes = [];
+	// 1 Private,
+	def_primags[1] = 3;
+	def_pistolmags[1] = 1;
+	def_frags[1] = 1;
+	def_smokes[1] = 1;
+	// 2 Rifleman
+	def_primags[2] = 3;
+	def_pistolmags[2] = 2;
+	def_frags[2] = 2;
+	def_smokes[2] = 1;
+	// 3 Squad Leader
+	def_primags[3] = 4;
+	def_pistolmags[3] = 3;
+	def_frags[3] = 2;
+	def_smokes[3] = 2;
+	// 4 Section Sergeant
+	def_primags[4] = 5;
+	def_pistolmags[4] = 3;
+	def_frags[4] = 2;
+	def_smokes[4] = 2;
+	// 5 Platoon Sergeant
+	def_primags[5] = 5;
+	def_pistolmags[5] = 3;
+	def_frags[5] = 3;
+	def_smokes[5] = 2;
 
-	level.back2uo_rang3_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getgranade", 1, 0, 10, "int");
-	level.back2uo_rang3_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsmoke", 0, 0, 10, "int");
-	level.back2uo_rang3_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getpriammo", 10, 0, 999, "int");
-	level.back2uo_rang3_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang2_getsekammo", 10, 0, 999, "int");
+	level.back2uo_rank_primags = [];
+	level.back2uo_rank_pistolmags = [];
+	level.back2uo_rank_frags = [];
+	level.back2uo_rank_smokes = [];
 
-	level.back2uo_rang4_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getgranade", 2, 0, 10, "int");
-	level.back2uo_rang4_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsmoke", 1, 0, 10, "int");
-	level.back2uo_rang4_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getpriammo", 20, 0, 999, "int");
-	level.back2uo_rang4_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang3_getsekammo", 20, 0, 999, "int");
-
-	level.back2uo_rang5_getgranade = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getgranade", 2, 0, 10, "int");
-	level.back2uo_rang5_getsmoke = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsmoke", 1, 0, 10, "int");
-	level.back2uo_rang5_getpriammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getpriammo", 30, 0, 999, "int");
-	level.back2uo_rang5_getsekammo = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang4_getsekammo", 30, 0, 999, "int");
+	for(i = 1; i <= 5; i++)
+	{
+		level.back2uo_rank_primags[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_primags", def_primags[i], 1, 10, "int");
+		level.back2uo_rank_pistolmags[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_pistolmags", def_pistolmags[i], 0, 10, "int");
+		level.back2uo_rank_frags[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_frags", def_frags[i], 0, 5, "int");
+		level.back2uo_rank_smokes[i] = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rank" + i + "_smokes", def_smokes[i], 0, 5, "int");
+	}
 
 	// --- Player points (rank points) ---
 
@@ -499,8 +522,12 @@ back2uo_main()
 	level.back2uo_smoke_grana_active = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_grana_active", 1, 0, 1, "int");
 	level.back2uo_granaten_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_frag_allow", 3 ,1, 5, "int");
 	level.back2uo_granaten_use = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_frag_use", 1, 0, 5, "int");
-	level.back2uo_smoke_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_allow", 1, 1, 5, "int");
+	level.back2uo_smoke_allow = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_allow", 2, 1, 5, "int");
 	level.back2uo_smoke_use = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_smoke_use", 0, 0, 5, "int");
+
+	// The spawn count can never be above the allowed count (otherwise the checker cuts it right after the spawn).
+	if(level.back2uo_granaten_use > level.back2uo_granaten_allow) level.back2uo_granaten_use = level.back2uo_granaten_allow;
+	if(level.back2uo_smoke_use > level.back2uo_smoke_allow) level.back2uo_smoke_use = level.back2uo_smoke_allow;
 
 	// --- CoD2 game settings ---
 	// The 5th setconfig parameter is the stock value used while the mod is disabled.
