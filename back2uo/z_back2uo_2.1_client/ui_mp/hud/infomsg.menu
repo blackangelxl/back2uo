@@ -1,17 +1,22 @@
-	// HUD OBJECTS
+	// HUD OBJECTS (screen center)
+	// Anchored to the horizontal screen center so the elements stay centered and keep
+	// their aspect on 4:3 and widescreen (16:9 e.g. WQHD 2560x1440, 16:10) resolutions.
+	// x is relative to the center (x = 0 equals x = 320 on the 640x480 virtual screen),
+	// y is unchanged from the top. The matching script HUD texts
+	// (_back2uo_binocular.gsc, _back2uo_weaponpickup.gsc) use horzAlign "center" too.
 	menuDef
 	{
 		name			"infomsg"
 		fullScreen		MENU_FALSE
 		visible			MENU_TRUE
-		rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+		rect			0 0 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
 
 		// Binocular distance
 		itemDef
 		{
 			name			"object_artillery_name"
 			visible			1
-			rect			320 392 0 0
+			rect			0 392 0 0
 			forecolor		1 1 1 0.8
 			text			"@BACK2UOMOD_BINOCULAR_DISTANCE"
 			textfont		UI_FONT_NORMAL
@@ -27,7 +32,7 @@
 		{
 			name			"object_artillery_meters"
 			visible			1
-			rect			343 392 0 0
+			rect			23 392 0 0
 			forecolor		1 1 1 0.8
 			text			"@BACK2UOMOD_BINOCULAR_METERS"
 			textfont		UI_FONT_NORMAL
@@ -43,7 +48,7 @@
 		{
 			name			"object_artillery_unknown"
 			visible			1
-			rect			335 392 0 0
+			rect			15 392 0 0
 			forecolor		1 1 1 0.8
 			text			"@BACK2UOMOD_BINOCULAR_UNKNOWN"
 			textfont		UI_FONT_NORMAL
@@ -60,7 +65,7 @@
 		{
 			name			"object_artillery_icon"
 			style			WINDOW_STYLE_SHADER
-			rect			415 282 40 40
+			rect			95 282 40 40
 			background		"artillery"
 			forecolor		1 1 1 0.8
 			visible			1
@@ -69,12 +74,25 @@
 			showDvar		{ "1" }
 		}
 
+		#include "ui_mp/hud/weaponpickup.menu"
+	}
+
+	// HUD OBJECTS (bottom right, next to the health bar)
+	// Anchored to the bottom right corner like the health bar (_back2uo_healthbar.gsc),
+	// equals x = 535, y = 437 on the 640x480 virtual screen.
+	menuDef
+	{
+		name			"infomsg_medic"
+		fullScreen		MENU_FALSE
+		visible			MENU_TRUE
+		rect			0 0 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+
 		// Medic icon
 		itemDef
 		{
 			name			"objectpickup_medicicon"
 			style			WINDOW_STYLE_SHADER
-			rect			535 437 20 20
+			rect			-105 -43 20 20
 			background		"gfx/hud/hud@back2uo_medicicon.tga"
 			forecolor		1 1 1 1
 			visible			1
@@ -82,6 +100,4 @@
 			dvartest		"back2uo_ui_medicicon"
 			showDvar		{ "1" }
 		}
-
-		#include "ui_mp/hud/weaponpickup.menu"
 	}

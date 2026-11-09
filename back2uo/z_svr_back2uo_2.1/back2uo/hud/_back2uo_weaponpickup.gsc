@@ -25,10 +25,15 @@ back2uo_weaponpickup_hud_draw()
 	if(!isdefined(self.back2uo_weaponpickup))
 	{
 		self.back2uo_weaponpickup = newClientHudElem(self);
+		// Anchored to the screen center like the weapon icon in ui_mp/hud/weaponpickup.menu,
+		// so text and icon stay together on 4:3 and widescreen (16:9 e.g. WQHD, 16:10).
+		// x = 55 equals x = 375 on the 640x480 virtual screen.
+		self.back2uo_weaponpickup.horzAlign = "center";
+		self.back2uo_weaponpickup.vertAlign = "top";
 		self.back2uo_weaponpickup.alignX = "right";
 		self.back2uo_weaponpickup.alignY = "top";
 		self.back2uo_weaponpickup.fontScale = 0.9;
-		self.back2uo_weaponpickup.x = 375;
+		self.back2uo_weaponpickup.x = 55;
 		self.back2uo_weaponpickup.y = 345;
 		self.back2uo_weaponpickup.alpha = 0;
 		self.back2uo_weaponpickup setText(level.back2uo_weaponpickup);

@@ -1780,20 +1780,23 @@ createHudIcon()
 	self.hud_flag = newClientHudElem(self);
 
 	// Back2Uo: flag icon at the top right instead of the stock top left position.
+	// horzAlign "right" keeps it in the corner on 4:3 and widescreen (16:9 e.g. WQHD, 16:10);
+	// x = -28 equals x = 612 on the 640x480 virtual screen.
 	if(game["back2uo_enable"])
 	{
-		self.hud_flag.x = 612;
+		self.hud_flag.horzAlign = "right";
+		self.hud_flag.x = -28;
 		self.hud_flag.y = 44;
 	}
 	else
 	{
+		self.hud_flag.horzAlign = "left";
 		self.hud_flag.x = 30;
 		self.hud_flag.y = 95;
 	}
 
 	self.hud_flag.alignX = "center";
 	self.hud_flag.alignY = "middle";
-	self.hud_flag.horzAlign = "left";
 	self.hud_flag.vertAlign = "top";
 	self.hud_flag.alpha = 0;
 
@@ -1801,18 +1804,19 @@ createHudIcon()
 
 	if(game["back2uo_enable"])
 	{
-		self.hud_flagflash.x = 612;
+		self.hud_flagflash.horzAlign = "right";
+		self.hud_flagflash.x = -28;
 		self.hud_flagflash.y = 44;
 	}
 	else
 	{
+		self.hud_flagflash.horzAlign = "left";
 		self.hud_flagflash.x = 30;
 		self.hud_flagflash.y = 95;
 	}
 
 	self.hud_flagflash.alignX = "center";
 	self.hud_flagflash.alignY = "middle";
-	self.hud_flagflash.horzAlign = "left";
 	self.hud_flagflash.vertAlign = "top";
 	self.hud_flagflash.alpha = 0;
 	self.hud_flagflash.sort = 1;

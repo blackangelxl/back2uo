@@ -29,7 +29,7 @@ back2uo_hudfx_draw()
 	back2uo_hudfx_clear();
 
 	// Start position before the first icon; each icon moves 16 px to the right.
-	level.hudfx_x = 90;
+	level.hudfx_x = 89;
 	level.hudfx_y = 461;
 
 	// Weather icon

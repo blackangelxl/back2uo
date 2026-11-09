@@ -2,6 +2,8 @@
 		// Same layout as bars_blank.menu, every x is shifted by +128 to make up for the menu offset.
 
 		// Background image (metal bars top and bottom, transparent in between)
+		// Texture is 2048x1024 made for 16:9 (e.g. WQHD 2560x1440): round screws and an even
+		// diamond pattern there; source: material/src/hud/back2uo_menubackground.png
 		itemDef
 		{
 			name			"background"
