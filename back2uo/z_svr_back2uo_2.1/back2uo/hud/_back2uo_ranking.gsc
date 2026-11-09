@@ -32,7 +32,7 @@ back2uo_ranking_draw()
 		if(level.back2uo_hudrankingdraw != 1) return;
 
 		self.hud_ranking_lv = newClientHudElem(self);
-		self.hud_ranking_lv.x = 117;
+		self.hud_ranking_lv.x = 118;
 		self.hud_ranking_lv.y = 390;
 		self.hud_ranking_lv.horzAlign = "left";
 		self.hud_ranking_lv.vertAlign = "top";
