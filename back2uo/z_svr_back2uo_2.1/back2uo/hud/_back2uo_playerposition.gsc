@@ -200,7 +200,7 @@ back2uo_playerposition_sprint()
 	self.pers["breathing"] = false;
 	self.sprint_breathingout = 0;
 	self.sprint_stop = undefined;
-	// Set when the stamina ran out; blocks sprinting (_back2uo_sprint.gsc) until the bar is full again.
+	// Set when the stamina ran out; blocks sprinting (_back2uo_sprint.gsc) until the bar is back at about 80%.
 	self.sprint_exhausted = false;
 
 	for(;;)
@@ -274,8 +274,9 @@ back2uo_playerposition_sprint()
 			{
 				if(self.hud_sprint_height >= 2) self.hud_sprint_height = self.hud_sprint_height - 1;
 
-				// Fully regenerated: sprinting is possible again after an exhaustion.
-				if(self.hud_sprint_height < 2) self.sprint_exhausted = false;
+				// Regenerated to about 80% (height 7 = 82% stamina, bar light green):
+				// sprinting is possible again after an exhaustion.
+				if(self.hud_sprint_height <= 7) self.sprint_exhausted = false;
 
 				self back2uo_playerposition_sprintbar(bar_timeoff);
 

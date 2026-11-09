@@ -12,7 +12,7 @@
 	  otherwise a speed fail ends the sprint instead of swapping the weapon.
 	Stamina is tracked as self.hud_sprint_height
 	(fatigue bar drawn and recovered in hud\_back2uo_playerposition.gsc); sprinting is blocked above 34/35
-	and, after an exhaustion (self.sprint_exhausted), until the bar is full again.
+	and, after an exhaustion (self.sprint_exhausted), until the bar is back at about 80%.
 	Entry point: back2uo_sprintsystem_main(), threaded per player from
 	_back2uo_player::back2uo_player_spawn. Switch: game["back2uo_sprint_enable"].
 	Player state: self.pers["sprinting"], ["sprint_mode"], ["is_moving"], ["sprint_slot"], ["pri_*"] / ["pri_b_*"] saved
@@ -69,7 +69,7 @@ back2uo_sprintsystem_main()
 		}
 
 		// Disabled condition: && !self.pers["breathing"]
-		// After an exhaustion (self.sprint_exhausted) sprinting waits until the bar is full again.
+		// After an exhaustion (self.sprint_exhausted) sprinting waits until the bar is back at about 80%.
 		if(self usebuttonpressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !(isdefined(self.sprint_exhausted) && self.sprint_exhausted) && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
 		{
 			// Returns at once if a sprint is already running.
