@@ -235,8 +235,8 @@ back2uo_playerposition_sprint()
 		}
 
 		// Sprinting: grow the bar one step per sprint_length seconds up to 36. Stamina is only
-		// used while Use and the forward key are held (no drain while strafing or backing up).
-		while(self.pers["sprinting"] && self usebuttonpressed() && self back2uo\_back2uo_libcod::back2uo_libcod_forwardbuttonpressed())
+		// used while the sprint key and the forward key are held (no drain while strafing or backing up).
+		while(self.pers["sprinting"] && self back2uo\_back2uo_sprint::back2uo_sprintsystem_keypressed() && self back2uo\_back2uo_libcod::back2uo_libcod_forwardbuttonpressed())
 		{
 			self.sprint_stop = undefined;
 
@@ -270,7 +270,7 @@ back2uo_playerposition_sprint()
 			}
 
 			// Only regenerate while the sprint key is released or the player stands still.
-			if(!self usebuttonpressed() || self.pers["is_moving"] == false)
+			if(!self back2uo\_back2uo_sprint::back2uo_sprintsystem_keypressed() || self.pers["is_moving"] == false)
 			{
 				if(self.hud_sprint_height >= 2) self.hud_sprint_height = self.hud_sprint_height - 1;
 

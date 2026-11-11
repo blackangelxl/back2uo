@@ -494,6 +494,9 @@ back2uo_main()
 	level.back2uo_sprint_mode = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_mode", 1, 0, 1, "int");
 	// Factor on g_speed in speed mode; 1.6 matches moveSpeedScale of the "_sprint" weapons
 	level.back2uo_sprint_speedscale = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_speedscale", 1.6, 1, 3, "float");
+	// Sprint key: 1 = "Hold Breath" key (+holdbreath, needs zk_libcod, otherwise Use);
+	// 0 = Use key.
+	level.back2uo_sprint_key = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_sprint_key", 1, 0, 1, "int");
 
 	level.back2uo_nosprint_msg = &"BACK2UOMOD_NOSPRINT_TAST";
 

@@ -39,7 +39,7 @@ back2uo_sprinttast_msg()
 		positype = back2uo\_back2uo_cvars::back2uo_player_stance();
 
 		// Only warn when the sprint key is pressed while moving.
-		if(isPlayer(self) && self useButtonPressed() && self.pers["is_moving"])
+		if(isPlayer(self) && self back2uo\_back2uo_sprint::back2uo_sprintsystem_keypressed() && self.pers["is_moving"])
 		{
 			// Sprint not possible: wrong weapon, not standing, busy or just picked up a weapon.
 			if(self getcurrentweapon() == "panzerschreck_mp" || (positype != "stand" && positype != "sprint") || self.back2uo_playerdo != "none" || self.pers["weapon_pickupsprintwait"] == true)

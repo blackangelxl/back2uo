@@ -397,6 +397,23 @@ back2uo_libcod_meleeweapon(on)
 	else self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_botinput();
 }
 
+// --- Buttons ---
+
+/*
+=============
+back2uo_libcod_holdbreathbuttonpressed
+
+Returns true while the player holds the "Hold Breath" key (+holdbreath); false without zk_libcod.
+Called on: self = player
+=============
+*/
+back2uo_libcod_holdbreathbuttonpressed()
+{
+	if(back2uo_libcod_active()) return self holdBreathButtonPressed();
+
+	return false;
+}
+
 // --- Time ---
 
 /*

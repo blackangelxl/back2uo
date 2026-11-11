@@ -157,6 +157,13 @@ back2uo_libcod_meleeweapon(on)
 	self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_botinput();
 }
 
+// --- Buttons ---
+
+back2uo_libcod_holdbreathbuttonpressed()
+{
+	return false;
+}
+
 // --- Time ---
 
 back2uo_libcod_getmicroseconds()

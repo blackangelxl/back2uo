@@ -48,7 +48,11 @@ back2uo_clientset_init()
 	self setClientCvar("back2uo_ui_weaponpickup_object", 0);
 
 	// UI flags for the serverinfos menu: hide the action info of disabled features, and the whole box if both are off.
-	self setClientCvar("back2uo_ui_sprint", game["back2uo_sprint_enable"]);
+	// back2uo_ui_sprint: 0 = sprint off, 1 = Use key, 2 = Hold Breath key (back2uo_sprint_key 1 with
+	// zk_libcod, see back2uo\_back2uo_sprint::back2uo_sprintsystem_keypressed).
+	ui_sprint = game["back2uo_sprint_enable"];
+	if(ui_sprint && isdefined(level.back2uo_sprint_key) && level.back2uo_sprint_key == 1 && back2uo\_back2uo_libcod::back2uo_libcod_active()) ui_sprint = 2;
+	self setClientCvar("back2uo_ui_sprint", ui_sprint);
 	self setClientCvar("back2uo_ui_artillery", game["back2uo_artilleryfx_enable"]);
 	self setClientCvar("back2uo_ui_actioninfo", game["back2uo_sprint_enable"] || game["back2uo_artilleryfx_enable"]);
 

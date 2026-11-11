@@ -299,7 +299,7 @@
 	 	 style			  WINDOW_STYLE_SHADER
 		 background   "gfx/custom/back2uo_actioninfo_sprint.tga"	
 		 dvartest		"back2uo_ui_sprint"
-		 showDvar		{ "1" }
+		 showDvar		{ "1" ; "2" }
 		 decoration
 	  }  
   
@@ -316,6 +316,22 @@
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
 			dvartest		"back2uo_ui_sprint"
 			showDvar		{ "1" }
+			decoration
+		}
+
+		// Sprinten Anleitung (Atem anhalten)
+		itemDef
+		{
+			visible			1
+			origin			ORIGIN_BACK2UO_ANLEITUNG1
+			forecolor		1 1 1 1
+			text			  "@MENU_BACK2UO_ACTIONINFO_SPRINT_HOLDBREATH"
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalign		ITEM_ALIGN_LEFT
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			dvartest		"back2uo_ui_sprint"
+			showDvar		{ "2" }
 			decoration
 		}  
     

@@ -1,7 +1,8 @@
 /*
 	Back2Uo v2.1 - Sprint system.
 
-	Players sprint by holding the Use key while running. Two sprint modes (back2uo_sprint_mode):
+	Players sprint by holding the sprint key while running: with zk_libcod and back2uo_sprint_key 1
+	the "Hold Breath" key (+holdbreath), otherwise the Use key (see back2uo_sprintsystem_keypressed). Two sprint modes (back2uo_sprint_mode):
 	- "speed" (primary): raises the player's speed with zk_libcod setSpeed and holds the weapon
 	  down (setHoldingWeaponDown), so it cannot fire while sprinting.
 	- "weapon" (fallback): swaps the current primary weapon for its "<weapon>_sprint" variant
@@ -70,7 +71,7 @@ back2uo_sprintsystem_main()
 
 		// Disabled condition: && !self.pers["breathing"]
 		// After an exhaustion (self.sprint_exhausted) sprinting waits until the bar is back at about 80%.
-		if(self usebuttonpressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !(isdefined(self.sprint_exhausted) && self.sprint_exhausted) && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
+		if(self back2uo_sprintsystem_keypressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !(isdefined(self.sprint_exhausted) && self.sprint_exhausted) && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
 		{
 			// Returns at once if a sprint is already running.
 			self thread back2uo_sprintsystem_run();
@@ -114,7 +115,7 @@ back2uo_sprintsystem_run()
 	stop_reason = "release";
 	sprint_start = undefined;
 
-	while(isalive(self) && self useButtonPressed() && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars())
+	while(isalive(self) && self back2uo_sprintsystem_keypressed() && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars())
 	{
 		positype = back2uo\_back2uo_cvars::back2uo_player_stance();
 
@@ -171,7 +172,8 @@ back2uo_sprintsystem_run()
 		}
 
 		// Tells the weapon pickup code that Use is held for sprinting, not for a pickup.
-		self.pers["usebutton_holdpress"] = true;
+		// Not needed when sprinting with Hold Breath, Use stays free for pickups then.
+		if(self useButtonPressed()) self.pers["usebutton_holdpress"] = true;
 
 		normal_weapon = self getcurrentweapon();
 
@@ -386,11 +388,13 @@ back2uo_sprintsystem_ismoving()
 					if(vectordot(vectornormalize(move), anglestoforward((0, viewangles[1], 0))) > 0.7) self.back2uo_moving_forward = true;
 				}
 
-				if(self useButtonPressed() && playerspeed > 10)
+				sprintkey = self back2uo_sprintsystem_keypressed();
+
+				if(sprintkey && playerspeed > 10)
 				{
 					self.pers["is_moving"] = true;
 				}
-				else if(!self useButtonPressed())
+				else if(!sprintkey)
 				{
 					self.pers["is_moving"] = false;
 				}
@@ -531,4 +535,23 @@ back2uo_sprintsystem_speedstop()
 {
 	self back2uo\_back2uo_libcod::back2uo_libcod_setspeed(0);
 	self back2uo\_back2uo_libcod::back2uo_libcod_setholdingweapondown(false);
+}
+
+/*
+=============
+back2uo_sprintsystem_keypressed
+
+Returns true while the player holds the sprint key: with back2uo_sprint_key 1 the "Hold Breath"
+key (bind <key> "+holdbreath"; zk_libcod holdBreathButtonPressed), only outside the weapon zoom,
+where it steadies the aim. With back2uo_sprint_key 0, or without zk_libcod (no Hold Breath
+query), the Use key.
+Called on: self = player
+=============
+*/
+back2uo_sprintsystem_keypressed()
+{
+	if(level.back2uo_sprint_key == 1 && back2uo\_back2uo_libcod::back2uo_libcod_active())
+		return (self back2uo\_back2uo_libcod::back2uo_libcod_holdbreathbuttonpressed() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed());
+
+	return self useButtonPressed();
 }
