@@ -398,6 +398,10 @@ set back2uo_clanm_1                "Nachricht 2"
 **Zusätzliche Infos:**
 
 - Gesprintet wird durch Halten der 'Benutzen'-Taste, standardmäßig 'F'.
+- Sprinttaste (`back2uo_sprint_key`): Bei "1" wird nur mit der Taste für 'Atem anhalten'
+  gesprintet, z. B. in der Konsole `bind ALT "+holdbreath"`; 'Benutzen' bleibt dann frei zum
+  Aufheben von Waffen. Beim Zielen hält die Taste wie gewohnt den Atem an. Bei "0", oder
+  ohne zk_libcod, wird mit 'Benutzen' gesprintet.
 - Sprinten ist nur in Bewegung möglich. Nicht, wenn ein Spieler das Fernglas oder ein
   Geschütz benutzt, sitzt, auf einer Leiter ist, liegt oder hockt oder eine Bombe legt /
   entschärft.
