@@ -40,39 +40,48 @@ back2uo_painsound_play(hitloc, attacker)
 		}
 	}
 
-	// Random range per hit zone; a smaller range means the cvar threshold is passed more often.
-	randomnr = 50;
+	// Sum of two rolls (triangular distribution); play only if it stays at or below the cvar value.
+	randomnr = back2uo_goresound_range(hitloc);
+	if(int(randomInt(randomnr) + randomInt(randomnr)) > level.back2uo_painsound_random) return;
 
-	if(!isdefined(hitloc)) hitloc = "nothing";
+	back2uo_play_goresounds("generic_pain");
+}
+
+/*
+=============
+back2uo_goresound_range
+
+Random range per hit zone for pain/death sounds. A smaller range means the cvar threshold
+is passed more often, so head and torso hits trigger the sound more often than limb hits.
+Params: hitloc - hit location string (may be undefined)
+Returns: 30 (head/torso), 40 (upper limbs) or 50 (everything else)
+=============
+*/
+back2uo_goresound_range(hitloc)
+{
+	if(!isdefined(hitloc)) return 50;
 
 	switch(hitloc)
 	{
 	// Heavy hit
+	case "helmet":
 	case "head":
 	case "neck":
 	case "torso_upper":
 	case "torso_lower":
-		randomnr = 30;
-		break;
+		return 30;
 
 	// Medium hit
 	case "left_leg_upper":
 	case "right_leg_upper":
 	case "left_arm_upper":
 	case "right_arm_upper":
-		randomnr = 40;
-		break;
+		return 40;
 
 	// Light hit
 	default:
-		randomnr = 50;
-		break;
+		return 50;
 	}
-
-	// Sum of two rolls (triangular distribution); play only if it stays at or below the cvar value.
-	if(level.back2uo_painsound_random > 0 && int(randomInt(randomnr) + randomInt(randomnr)) > level.back2uo_painsound_random) return;
-
-	back2uo_play_goresounds("generic_pain");
 }
 
 /*
@@ -91,36 +100,8 @@ back2uo_deathsound_play(hitloc)
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Death Sound", "Run");
 
-	// Random range per hit zone; a smaller range means the cvar threshold is passed more often.
-	randomnr = 50;
-
-	if(!isdefined(hitloc)) hitloc = "nothing";
-
-	switch(hitloc)
-	{
-	// Heavy hit
-	case "head":
-	case "neck":
-	case "torso_upper":
-	case "torso_lower":
-		randomnr = 30;
-		break;
-
-	// Medium hit
-	case "left_leg_upper":
-	case "right_leg_upper":
-	case "left_arm_upper":
-	case "right_arm_upper":
-		randomnr = 40;
-		break;
-
-	// Light hit
-	default:
-		randomnr = 50;
-		break;
-	}
-
-	if(level.back2uo_deathsound_random > 0 && int(randomInt(randomnr) + randomInt(randomnr)) > level.back2uo_deathsound_random) return;
+	randomnr = back2uo_goresound_range(hitloc);
+	if(int(randomInt(randomnr) + randomInt(randomnr)) > level.back2uo_deathsound_random) return;
 
 	back2uo_play_goresounds("generic_death");
 }
@@ -130,8 +111,9 @@ back2uo_deathsound_play(hitloc)
 back2uo_play_goresounds
 
 Plays a random voice variant of a pain/death sound at the player. The alias is built as
-<sound>_<nationality>_<n>, where n is below level.back2uo_voices[nationality].
-Allies use game["allies"] (american/british/russian), axis always use "german".
+<sound>_<nationality>_<n> with n = 1..level.back2uo_voices[nationality] (the stock
+aliases are numbered from 1). Allies use game["allies"] (american/british/russian),
+axis always use "german".
 Called on: self = player
 Params: sound - alias prefix, e.g. "generic_pain" or "generic_death"
 =============
@@ -142,11 +124,11 @@ back2uo_play_goresounds(sound)
 	{
 		if(self.pers["team"] == "allies")
 		{
-			special_sound = sound + "_" + game["allies"] + "_" + randomInt(level.back2uo_voices[game["allies"]]);
+			special_sound = sound + "_" + game["allies"] + "_" + (randomInt(level.back2uo_voices[game["allies"]]) + 1);
 		}
 		else
 		{
-			special_sound = sound + "_german_" + randomInt(level.back2uo_voices["german"]);
+			special_sound = sound + "_german_" + (randomInt(level.back2uo_voices["german"]) + 1);
 		}
 
 		if(isdefined(special_sound)) self playSound(special_sound);
@@ -157,7 +139,7 @@ back2uo_play_goresounds(sound)
 =============
 back2uo_hit_taunts
 
-Decides whether the attacker shouts a taunt after a hit. Only hits on helmet, neck,
+Decides whether the attacker shouts a taunt after a hit. Only hits on head, helmet, neck,
 upper torso or upper arms by an enemy player (any other player in DM) qualify.
 Called on: self = victim
 Params: eAttacker - attacking entity
@@ -174,28 +156,22 @@ back2uo_hit_taunts(eAttacker, sHitLoc)
 
 	if(!isdefined(sHitLoc)) sHitLoc = "torso_upper";
 
-	if(isplayer(eAttacker) && eAttacker != self)
+	if(!isplayer(eAttacker) || eAttacker == self) return;
+
+	// Team gametypes: no taunts for friendly fire
+	if(getcvar("g_gametype") != "dm" && self.pers["team"] == eAttacker.pers["team"]) return;
+
+	// Head and upper body area
+	switch(sHitLoc)
 	{
-		if(getcvar("g_gametype") == "dm")
-		{
-			// Head and upper body area
-			if(sHitLoc == "helmet" || sHitLoc == "neck" || sHitLoc == "torso_upper" || sHitLoc == "left_arm_upper" || sHitLoc == "right_arm_upper")
-			{
-				back2uo_tauntsounds(eAttacker);
-			}
-		}
-		else
-		{
-			// Team gametypes: no taunts for friendly fire
-			if(self.pers["team"] != eAttacker.pers["team"])
-			{
-				// Head and upper body area
-				if(sHitLoc == "helmet" || sHitLoc == "neck" || sHitLoc == "torso_upper" || sHitLoc == "left_arm_upper" || sHitLoc == "right_arm_upper")
-				{
-					back2uo_tauntsounds(eAttacker);
-				}
-			}
-		}
+	case "head":
+	case "helmet":
+	case "neck":
+	case "torso_upper":
+	case "left_arm_upper":
+	case "right_arm_upper":
+		eAttacker thread back2uo_tauntsounds();
+		break;
 	}
 }
 
@@ -204,99 +180,35 @@ back2uo_hit_taunts(eAttacker, sHitLoc)
 back2uo_tauntsounds
 
 Randomly plays a taunt in the attacker's nationality at the attacker's position, half a second
-after the hit. self.pers["tauntsound_onplayer"] blocks overlapping taunts for about 2.5 seconds.
-Called on: self = victim
-Params: eAttacker - attacking player (taunt voice and sound position)
+after the hit. The alias "Taunt_<land>" has one variant per recorded line (ElevenLabs, see
+tools/elevenlabs_sprueche.py); the engine picks one at random.
+self.back2uo_taunting blocks a second taunt of the same attacker (e.g. a double kill) until
+the longest line (~4.7 s) is over. It is a plain entity field, not pers, so it cannot get
+stuck across rounds; the thread runs on the attacker, so it ends if the attacker leaves.
+Called on: self = attacking player (taunt voice and sound position)
 =============
 */
-back2uo_tauntsounds(eAttacker)
+back2uo_tauntsounds()
 {
 	if(int(randomInt(50) + randomInt(50)) > level.back2uo_tauntsounds_random) return;
 
+	// Only one taunt at a time per attacker
+	if(isdefined(self.back2uo_taunting)) return;
+	self.back2uo_taunting = true;
+
 	back2uo\_back2uo_cvars::back2uo_logprint("Taunt Sounds", "Run");
 
-	// Only one taunt at a time per victim
-	if(isdefined(self.pers["tauntsound_onplayer"])) return;
-	self.pers["tauntsound_onplayer"] = true;
-
 	// Nation code: GE, US, UK or RU
-	land = back2uo\tools\_back2uo_names::back2uo_teams(eAttacker);
-
-	// The attacker shouts: his voice variant, set in _back2uo_player.gsc (randomint(4) = 0..3)
-	if(isdefined(eAttacker.pers["taunt_person"])) person = eAttacker.pers["taunt_person"];
-	else person = randomint(4);
-
-	// Disabled: old alias format without random line number
-	//sound = "Taunt_" + land + "_" + person;
-	sound = back2uo_tauntsounds_string(land, person);
+	land = back2uo\tools\_back2uo_names::back2uo_teams(self);
 
 	wait 0.5;
 
-	self thread back2uo_soundonplayerorigin(sound, eAttacker);
+	self thread back2uo_soundonplayerorigin("Taunt_" + land, self);
 
-	// Lock time before the next taunt can play
-	wait 2;
+	// Lock time before the next taunt can play (longest line is about 4.7 seconds)
+	wait 4.5;
 
-	self.pers["tauntsound_onplayer"] = undefined;
-}
-
-/*
-=============
-back2uo_tauntsounds_string
-
-Builds the taunt alias "Taunt_<land>_<person>_<n>" with a random line number n. The
-upper bound of n is the number of recorded lines for that voice in soundaliases/_back2uo.csv.
-Params: land - nation code (GE, RU, UK, US)
-		person - voice variant 0..3
-Returns: the sound alias, or "" if land/person do not match
-=============
-*/
-back2uo_tauntsounds_string(land, person)
-{
-	// Recorded lines per voice 0..3
-	lines = [];
-
-	switch(land)
-	{
-	// German
-	case "GE":
-		lines[0] = 12;
-		lines[1] = 10;
-		lines[2] = 8;
-		lines[3] = 7;
-		break;
-
-	// Russian
-	case "RU":
-		lines[0] = 6;
-		lines[1] = 7;
-		lines[2] = 7;
-		lines[3] = 8;
-		break;
-
-	// British
-	case "UK":
-		lines[0] = 7;
-		lines[1] = 7;
-		lines[2] = 9;
-		lines[3] = 8;
-		break;
-
-	// American
-	case "US":
-		lines[0] = 8;
-		lines[1] = 6;
-		lines[2] = 8;
-		lines[3] = 8;
-		break;
-
-	default:
-		return "";
-	}
-
-	if(!isdefined(person) || !isdefined(lines[person])) return "";
-
-	return "Taunt_" + land + "_" + person + "_" + randomint(lines[person]);
+	self.back2uo_taunting = undefined;
 }
 
 /*
@@ -356,7 +268,7 @@ back2uo_grenade_tauntsounds()
 
 	land = back2uo\tools\_back2uo_names::back2uo_teams(self);
 
-	// Same voice variant (0..3) as the player's taunts
+	// Voice variant (0..3) picked on spawn in _back2uo_player.gsc
 	if(isdefined(self.pers["taunt_person"])) person = self.pers["taunt_person"];
 	else person = randomint(4);
 
@@ -384,7 +296,8 @@ back2uo_soundonplayerorigin(sound, person)
 
 	if(!isdefined(sound) || sound == "") return;
 
-	if(!isdefined(person.origin) && person.sessionstate != "playing") return;
+	// The player may have left in the meantime (taunts are delayed by half a second)
+	if(!isdefined(person) || !isdefined(person.origin)) return;
 
 	soundorg = spawn("script_model", (person.origin));
 	soundorg.origin = person.origin;

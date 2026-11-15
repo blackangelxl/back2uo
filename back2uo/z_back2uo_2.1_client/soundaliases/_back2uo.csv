@@ -283,163 +283,109 @@ GE_3_inform_incoming_mortar,3,battlechatter/ge/3/GE_3_inform_incoming_mortar_03.
 ## Taunt Sounds ##
 ##################
 
-#GE Taunts 0
-Taunt_GE_0_0,,battlechatter/ge/0/GE_0_response_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_1,,battlechatter/ge/0/GE_0_inform_attacking_grenade_uk_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_2,,battlechatter/ge/0/GE_0_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_3,,battlechatter/ge/0/GE_0_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_4,,battlechatter/ge/0/GE_0_inform_killconfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_5,,battlechatter/ge/0/GE_0_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_6,,battlechatter/ge/0/GE_0_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_7,,battlechatter/ge/0/GE_0_order_action_boost_11.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_8,,battlechatter/ge/0/GE_0_reaction_surprise_ambush_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_9,,battlechatter/ge/0/GE_0_response_killconfirm_armor_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_10,,battlechatter/ge/0/GE_0_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_0_11,,battlechatter/ge/0/GE_0_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+#GE Taunts
+Taunt_GE,1,back2uo/taunt/ge_spruch_01.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,2,back2uo/taunt/ge_spruch_02.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,3,back2uo/taunt/ge_spruch_03.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,4,back2uo/taunt/ge_spruch_04.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,5,back2uo/taunt/ge_spruch_05.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,6,back2uo/taunt/ge_spruch_06.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,7,back2uo/taunt/ge_spruch_07.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,8,back2uo/taunt/ge_spruch_08.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,9,back2uo/taunt/ge_spruch_09.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,10,back2uo/taunt/ge_spruch_10.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,11,back2uo/taunt/ge_spruch_11.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,12,back2uo/taunt/ge_spruch_12.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,13,back2uo/taunt/ge_spruch_13.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,14,back2uo/taunt/ge_spruch_14.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,15,back2uo/taunt/ge_spruch_15.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,16,back2uo/taunt/ge_spruch_16.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,17,back2uo/taunt/ge_spruch_17.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,18,back2uo/taunt/ge_spruch_18.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,19,back2uo/taunt/ge_spruch_19.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,20,back2uo/taunt/ge_spruch_20.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,21,back2uo/taunt/ge_spruch_21.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,22,back2uo/taunt/ge_spruch_22.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,23,back2uo/taunt/ge_spruch_23.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_GE,24,back2uo/taunt/ge_spruch_24.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
 
-#GE Taunts 1
-Taunt_GE_1_0,,battlechatter/ge/1/GE_4_response_killconfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_1,,battlechatter/ge/1/GE_4_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_2,,battlechatter/ge/1/GE_4_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_3,,battlechatter/ge/1/GE_4_inform_killconfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_4,,battlechatter/ge/1/GE_4_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_5,,battlechatter/ge/1/GE_4_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_6,,battlechatter/ge/1/GE_4_order_action_boost_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_7,,battlechatter/ge/1/GE_4_response_killconfirm_armor_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_8,,battlechatter/ge/1/GE_4_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_1_9,,battlechatter/ge/1/GE_4_response_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+#RU Taunts
+Taunt_RU,1,back2uo/taunt/ru_spruch_01.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,2,back2uo/taunt/ru_spruch_02.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,3,back2uo/taunt/ru_spruch_03.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,4,back2uo/taunt/ru_spruch_04.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,5,back2uo/taunt/ru_spruch_05.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,6,back2uo/taunt/ru_spruch_06.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,7,back2uo/taunt/ru_spruch_07.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,8,back2uo/taunt/ru_spruch_08.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,9,back2uo/taunt/ru_spruch_09.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,10,back2uo/taunt/ru_spruch_10.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,11,back2uo/taunt/ru_spruch_11.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,12,back2uo/taunt/ru_spruch_12.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,13,back2uo/taunt/ru_spruch_13.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,14,back2uo/taunt/ru_spruch_14.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,15,back2uo/taunt/ru_spruch_15.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,16,back2uo/taunt/ru_spruch_16.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,17,back2uo/taunt/ru_spruch_17.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,18,back2uo/taunt/ru_spruch_18.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,19,back2uo/taunt/ru_spruch_19.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,20,back2uo/taunt/ru_spruch_20.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,21,back2uo/taunt/ru_spruch_21.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,22,back2uo/taunt/ru_spruch_22.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,23,back2uo/taunt/ru_spruch_23.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_RU,24,back2uo/taunt/ru_spruch_24.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
 
-#GE Taunts 2
-Taunt_GE_2_0,,battlechatter/ge/2/GE_2_response_killconfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_1,,battlechatter/ge/2/GE_2_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_2,,battlechatter/ge/2/GE_2_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_3,,battlechatter/ge/2/GE_2_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_4,,battlechatter/ge/2/GE_2_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_5,,battlechatter/ge/2/GE_2_order_action_boost_11.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_6,,battlechatter/ge/2/GE_2_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_2_7,,battlechatter/ge/2/GE_2_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+#UK Taunts
+Taunt_UK,1,back2uo/taunt/uk_spruch_01.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,2,back2uo/taunt/uk_spruch_02.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,3,back2uo/taunt/uk_spruch_03.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,4,back2uo/taunt/uk_spruch_04.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,5,back2uo/taunt/uk_spruch_05.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,6,back2uo/taunt/uk_spruch_06.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,7,back2uo/taunt/uk_spruch_07.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,8,back2uo/taunt/uk_spruch_08.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,9,back2uo/taunt/uk_spruch_09.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,10,back2uo/taunt/uk_spruch_10.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,11,back2uo/taunt/uk_spruch_11.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,12,back2uo/taunt/uk_spruch_12.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,13,back2uo/taunt/uk_spruch_13.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,14,back2uo/taunt/uk_spruch_14.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,15,back2uo/taunt/uk_spruch_15.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,16,back2uo/taunt/uk_spruch_16.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,17,back2uo/taunt/uk_spruch_17.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,18,back2uo/taunt/uk_spruch_18.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,19,back2uo/taunt/uk_spruch_19.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,20,back2uo/taunt/uk_spruch_20.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,21,back2uo/taunt/uk_spruch_21.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,22,back2uo/taunt/uk_spruch_22.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,23,back2uo/taunt/uk_spruch_23.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_UK,24,back2uo/taunt/uk_spruch_24.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
 
-#GE Taunts 3
-Taunt_GE_3_0,,battlechatter/ge/3/GE_3_response_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_3_1,,battlechatter/ge/3/GE_3_inform_killconfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_3_2,,battlechatter/ge/3/GE_3_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_3_3,,battlechatter/ge/3/GE_3_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_3_4,,battlechatter/ge/3/GE_3_response_killconfirm_armor_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_3_5,,battlechatter/ge/3/GE_3_response_killconfirm_armor_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_GE_3_6,,battlechatter/ge/3/GE_3_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#RU Taunt 0
-Taunt_RU_0_0,,battlechatter/ru/0/RU_4_response_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_0_1,,battlechatter/ru/0/RU_4_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_0_2,,battlechatter/ru/0/RU_4_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_0_3,,battlechatter/ru/0/RU_4_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_0_4,,battlechatter/ru/0/RU_4_inform_killconfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_0_5,,battlechatter/ru/0/RU_4_inform_killconfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#RU Taunt 1
-Taunt_RU_1_0,,battlechatter/ru/1/RU_1_response_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_1_1,,battlechatter/ru/1/RU_1_inform_attacking_grenade_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_1_2,,battlechatter/ru/1/RU_1_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_1_3,,battlechatter/ru/1/RU_1_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_1_4,,battlechatter/ru/1/RU_1_inform_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_1_5,,battlechatter/ru/1/RU_1_inform_killfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_1_6,,battlechatter/ru/1/RU_1_response_killconfirm_armor_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#RU Taunt 2
-Taunt_RU_2_0,,battlechatter/ru/vsk/RU_vsk_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_2_1,,battlechatter/ru/vsk/RU_vsk_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_2_2,,battlechatter/ru/vsk/RU_vsk_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_2_3,,battlechatter/ru/vsk/RU_vsk_inform_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_2_4,,battlechatter/ru/vsk/RU_vsk_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_2_5,,battlechatter/ru/vsk/RU_vsk_response_killconfirm_armor_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_2_6,,battlechatter/ru/vsk/RU_vsk_response_killfirm_infantry_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#RU Taunt 3
-Taunt_RU_3_0,,battlechatter/ru/3/RU_3_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_1,,battlechatter/ru/3/RU_3_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_2,,battlechatter/ru/3/RU_3_inform_killconfirm_generic_02.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_3,,battlechatter/ru/3/RU_3_inform_killconfirm_generic_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_4,,battlechatter/ru/3/RU_3_inform_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_5,,battlechatter/ru/3/RU_3_inform_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_6,,battlechatter/ru/3/RU_3_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_RU_3_7,,battlechatter/ru/3/RU_3_response_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#UK Taunt 0
-Taunt_UK_0_0,,battlechatter/UK/0/uk_0_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_0_1,,battlechatter/UK/0/uk_0_inform_killconfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_0_2,,battlechatter/UK/0/uk_0_inform_killconfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_0_3,,battlechatter/UK/0/uk_0_inform_killconfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_0_4,,battlechatter/UK/0/uk_0_inform_killconfirm_infantry_07b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_0_5,,battlechatter/UK/0/UK_0_response_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_0_6,,battlechatter/UK/0/UK_0_response_killconfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#UK Taunt 1
-Taunt_UK_1_0,,battlechatter/UK/1/UK_1_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_1_1,,battlechatter/UK/1/UK_1_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_1_2,,battlechatter/UK/1/UK_1_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_1_3,,battlechatter/UK/1/UK_1_inform_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_1_4,,battlechatter/UK/1/UK_1_inform_killconfirm_infantry_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_1_5,,battlechatter/UK/1/UK_1_response_killconfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_1_6,,battlechatter/UK/1/UK_1_response_killconfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#UK Taunt 2
-Taunt_UK_2_0,,battlechatter/UK/mcg/UK_mcg_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_1,,battlechatter/UK/2/UK_2_inform_killconfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_2,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_3,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_generic_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_4,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_5,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_6,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_7,,battlechatter/UK/mcg/UK_mcg_inform_killconfirm_inf_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_2_8,,battlechatter/UK/mcg/UK_mcg_response_killconfirm_inf_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#UK Taunt 3
-Taunt_UK_3_0,,battlechatter/UK/3/UK_3_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_1,,battlechatter/UK/3/UK_3_inform_killfirm_generic_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_2,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_3,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_03b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_4,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_06b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_5,,battlechatter/UK/3/UK_3_inform_killfirm_infantry_07b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_6,,battlechatter/UK/3/UK_3_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_UK_3_7,,battlechatter/UK/3/UK_3_response_killfirm_infantry_04.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#US Taunt 0
-Taunt_US_0_0,,battlechatter/us/0/US_0_taunt_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_1,,battlechatter/us/0/US_0_inform_killfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_2,,battlechatter/us/0/US_0_inform_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_3,,battlechatter/us/0/US_0_inform_killfirm_infantry_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_4,,battlechatter/us/0/US_0_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_5,,battlechatter/us/0/US_0_inform_killfirm_infantry_06b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_6,,battlechatter/us/0/US_0_inform_killfirm_infantry_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_0_7,,battlechatter/us/0/US_0_response_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#US Taunt 1
-Taunt_US_1_0,,battlechatter/us/1/US_1_inform_killfirm_infantry_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_1_1,,battlechatter/us/1/US_1_inform_killfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_1_2,,battlechatter/us/1/US_1_inform_killfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_1_3,,battlechatter/us/1/US_1_inform_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_1_4,,battlechatter/us/1/US_1_inform_killfirm_infantry_03b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_1_5,,battlechatter/us/1/US_1_inform_killfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#US Taunt 2
-Taunt_US_2_0,,battlechatter/us/2/US_2_taunt_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_1,,battlechatter/us/2/US_2_inform_killfirm_generic_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_2,,battlechatter/us/2/US_2_inform_killfirm_infantry_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_3,,battlechatter/us/2/US_2_inform_killfirm_infantry_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_4,,battlechatter/us/2/US_2_inform_killfirm_infantry_05.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_5,,battlechatter/us/2/US_2_inform_killfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_6,,battlechatter/us/2/US_2_inform_killfirm_infantry_08.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_2_7,,battlechatter/us/2/US_2_response_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-
-#US Taunt 3
-Taunt_US_3_0,,battlechatter/us/3/US_3_taunt_01.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_1,,battlechatter/us/3/US_3_inform_killfirm_generic_03.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_2,,battlechatter/us/3/US_3_inform_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_3,,battlechatter/us/3/US_3_inform_killfirm_infantry_02b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_4,,battlechatter/us/3/US_3_inform_killfirm_infantry_06.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_5,,battlechatter/us/3/US_3_inform_killfirm_infantry_07.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_6,,battlechatter/us/3/US_3_response_killfirm_infantry_01b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
-Taunt_US_3_7,,battlechatter/us/3/US_3_response_killfirm_infantry_04b.wav,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+#US Taunts
+Taunt_US,1,back2uo/taunt/us_spruch_01.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,2,back2uo/taunt/us_spruch_02.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,3,back2uo/taunt/us_spruch_03.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,4,back2uo/taunt/us_spruch_04.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,5,back2uo/taunt/us_spruch_05.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,6,back2uo/taunt/us_spruch_06.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,7,back2uo/taunt/us_spruch_07.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,8,back2uo/taunt/us_spruch_08.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,9,back2uo/taunt/us_spruch_09.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,10,back2uo/taunt/us_spruch_10.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,11,back2uo/taunt/us_spruch_11.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,12,back2uo/taunt/us_spruch_12.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,13,back2uo/taunt/us_spruch_13.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,14,back2uo/taunt/us_spruch_14.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,15,back2uo/taunt/us_spruch_15.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,16,back2uo/taunt/us_spruch_16.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,17,back2uo/taunt/us_spruch_17.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,18,back2uo/taunt/us_spruch_18.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,19,back2uo/taunt/us_spruch_19.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,20,back2uo/taunt/us_spruch_20.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,21,back2uo/taunt/us_spruch_21.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,22,back2uo/taunt/us_spruch_22.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,23,back2uo/taunt/us_spruch_23.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
+Taunt_US,24,back2uo/taunt/us_spruch_24.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed,,,0.7
 
 #####################
 ## Commando Sounds ##

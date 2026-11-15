@@ -182,7 +182,7 @@ back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDi
 =============
 back2uo_player_spawn
 
-Per-spawn setup: picks a taunt voice, clears leftovers from the last life, then starts
+Per-spawn setup: picks a grenade-shout voice, clears leftovers from the last life, then starts
 all HUD elements (health bar, position, ranking, scores, weapon pickup), unlimited pistol
 ammo, grenade/smoke checks, the sprint system, startup weather, welcome message, spawn
 protection, cold breath, grenade throw sounds and the development test hook.
@@ -193,7 +193,7 @@ back2uo_player_spawn()
 {
 	if(!game["back2uo_enable"]) return;
 
-	// Voice set (0-3, see soundaliases/_back2uo.csv) used for this player's taunts.
+	// Voice set (0-3) for this player's grenade shouts (<land>_<n>_inform_attacker_grenade).
 	self.pers["taunt_person"] = randomint(4);
 
 	// Clean up from the previous life.
