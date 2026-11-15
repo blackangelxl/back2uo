@@ -44,30 +44,30 @@ elm_thunderin,2,amb_elements/elm_thunder_y04.wav,1,1,,,,5000,10000,auto,streamed
 ################
 
 #Airplane Flying - Spitfire Long Sound
-spitfire_flying_long,1,vehicles/stuka_planeby1.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
-spitfire_flying_long,2,vehicles/stuka_planeby2.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
-spitfire_flying_long,3,vehicles/stuka_planeby3b.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
+spitfire_flying_long,1,back2uo/stuka_planeby1.wav,0.6,0.8,,,,5000,8000,auto,loaded,looping
+spitfire_flying_long,2,back2uo/stuka_planeby2.wav,0.6,0.8,,,,5000,8000,auto,loaded,looping
+spitfire_flying_long,3,back2uo/stuka_planeby3b.wav,0.6,0.8,,,,5000,8000,auto,loaded,looping
 
 #Airplane Flying - Spitfire Short Sound
-spitfire_flying_short,1,vehicles/mrk_plane_flyby_spitfire4.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
-spitfire_flying_short,2,vehicles/mrk_plane_flyby_spitfire5.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
-spitfire_flying_short,3,vehicles/mrk_plane_flyby_spitfire6.wav,0.6,0.8,,,,5000,8000,auto,streamed,looping
+spitfire_flying_short,1,back2uo/mrk_plane_flyby_spitfire4.wav,0.6,0.8,,,,5000,8000,auto,loaded,looping
+spitfire_flying_short,2,back2uo/mrk_plane_flyby_spitfire5.wav,0.6,0.8,,,,5000,8000,auto,loaded,looping
+spitfire_flying_short,3,back2uo/mrk_plane_flyby_spitfire6.wav,0.6,0.8,,,,5000,8000,auto,loaded,looping
 
 #Airplane Flying - Stuka Long Sound
-stuka_flying_long,1,vehicles/stuka_planeby1.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
-stuka_flying_long,2,vehicles/stuka_planeby2.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
-stuka_flying_long,3,vehicles/stuka_planeby3b.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
+stuka_flying_long,1,back2uo/stuka_planeby1.wav,0.6,0.9,,1,1,5000,8000,auto,loaded,looping
+stuka_flying_long,2,back2uo/stuka_planeby2.wav,0.6,0.9,,1,1,5000,8000,auto,loaded,looping
+stuka_flying_long,3,back2uo/stuka_planeby3b.wav,0.6,0.9,,1,1,5000,8000,auto,loaded,looping
 
 #Airplane Flying - Stuka Short Sound
-stuka_flying_short,1,vehicles/mrk_plane_flyby_stuka3.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
-stuka_flying_short,2,vehicles/mrk_plane_flyby_stuka4.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
-stuka_flying_short,3,vehicles/mrk_plane_flyby_stuka5.wav,0.6,0.9,,1,1,5000,8000,auto,streamed,looping
+stuka_flying_short,1,back2uo/mrk_plane_flyby_stuka3.wav,0.6,0.9,,1,1,5000,8000,auto,loaded,looping
+stuka_flying_short,2,back2uo/mrk_plane_flyby_stuka4.wav,0.6,0.9,,1,1,5000,8000,auto,loaded,looping
+stuka_flying_short,3,back2uo/mrk_plane_flyby_stuka5.wav,0.6,0.9,,1,1,5000,8000,auto,loaded,looping
 
 #Flak
-flak_explosion,,explosions/explo_distant02.wav,0.4,0.6,,,,10000,,auto,streamed
+flak_explosion,,back2uo/explo_distant02.wav,0.4,0.6,,,,10000,,auto,loaded
 
 #Airplane Explosion
-airplane_explosion,,explosions/plane_explode2_rl_mono2.wav,1,1,explosion,,,5000,10000,auto,streamed
+airplane_explosion,,back2uo/plane_explode2_rl_mono2.wav,1,1,explosion,,,5000,10000,auto,loaded
 
 #Mortar Launch
 mortarlaunch_incoming1,2,explosions/cannon_sequence_hvy1_filt.wav,1,1,,,,,,auto,loaded
@@ -75,39 +75,39 @@ mortarlaunch_incoming2,2,explosions/cannon_sequence_hvy2_filt.wav,1,1,,,,,,auto,
 mortarlaunch_incoming3,2,explosions/cannon_sequence_hvy3_filt.wav,1,1,,,,,,auto,loaded
 
 #Mortar Fall Incoming
-moerser_fallincome1,,explosions/incoming01.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
-moerser_fallincome2,,explosions/incoming03.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,streamed
+moerser_fallincome1,,back2uo/incoming01.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,loaded
+moerser_fallincome2,,back2uo/incoming03.wav,0.4,0.6,explosion,0.7,0.9,1000,5000,auto,loaded
 
 #Mortar Explosion
-moerser_explod1,,explosions/mortar_dirt01.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
-moerser_explod2,,explosions/mortar_dirt02.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
-moerser_explod3,,explosions/mortar_dirt03.wav,0.7,0.8,explosion,,,1000,6000,auto,streamed
+moerser_explod1,,back2uo/mortar_dirt01.wav,0.7,0.8,explosion,,,1000,6000,auto,loaded
+moerser_explod2,,back2uo/mortar_dirt02.wav,0.7,0.8,explosion,,,1000,6000,auto,loaded
+moerser_explod3,,back2uo/mortar_dirt03.wav,0.7,0.8,explosion,,,1000,6000,auto,loaded
 
 ####################
 ## Ranking Sounds ##
 ####################
 
 #Ranking
-ranking_up,,back2uo/ranking_up.mp3,0.7,0.85,,,,,,local,streamed
-ranking_down,,back2uo/ranking_down.mp3,0.7,0.85,,,,,,local,streamed
+ranking_up,,back2uo/ranking_up.mp3,0.7,0.85,,,,,,local,loaded
+ranking_down,,back2uo/ranking_down.mp3,0.7,0.85,,,,,,local,loaded
 
 #Commando Artillery
-US_attack_artillery,,back2uo/us_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
-UK_attack_artillery,,back2uo/uk_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
-RU_attack_artillery,,back2uo/ru_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
-GE_attack_artillery,,back2uo/ge_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,streamed
+US_attack_artillery,,back2uo/us_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,loaded
+UK_attack_artillery,,back2uo/uk_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,loaded
+RU_attack_artillery,,back2uo/ru_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,loaded
+GE_attack_artillery,,back2uo/ge_need_arty_support.mp3,0.85,0.85,chatterax,,,120,2800,voice,loaded
 
 #Artillery Ready
-artillery_US_ready,,back2uo/us_arty_gtg.mp3,1,1,,,,,,voice,streamed
-artillery_UK_ready,,back2uo/uk_arty_gtg.mp3,1,1,,,,,,voice,streamed
-artillery_RU_ready,,back2uo/ru_arty_gtg.mp3,1,1,,,,,,voice,streamed
-artillery_GE_ready,,back2uo/ge_arty_gtg.mp3,1,1,,,,,,voice,streamed
+artillery_US_ready,,back2uo/us_arty_gtg.mp3,1,1,,,,,,voice,loaded
+artillery_UK_ready,,back2uo/uk_arty_gtg.mp3,1,1,,,,,,voice,loaded
+artillery_RU_ready,,back2uo/ru_arty_gtg.mp3,1,1,,,,,,voice,loaded
+artillery_GE_ready,,back2uo/ge_arty_gtg.mp3,1,1,,,,,,voice,loaded
 
 #Artillery Order
-artillery_allies_targetfalse,,back2uo/allies_arty_target_invalid.mp3,1,1,,,,,,voice,streamed
-artillery_allies_targettrue,,back2uo/allies_arty_target_confirmed.mp3,1,1,,,,,,voice,streamed
-artillery_axis_targetfalse,,back2uo/axis_arty_target_invalid.mp3,1,1,,,,,,voice,streamed
-artillery_axis_targettrue,,back2uo/axis_arty_target_confirmed.mp3,1,1,,,,,,voice,streamed
+artillery_allies_targetfalse,,back2uo/allies_arty_target_invalid.mp3,1,1,,,,,,voice,loaded
+artillery_allies_targettrue,,back2uo/allies_arty_target_confirmed.mp3,1,1,,,,,,voice,loaded
+artillery_axis_targetfalse,,back2uo/axis_arty_target_invalid.mp3,1,1,,,,,,voice,loaded
+artillery_axis_targettrue,,back2uo/axis_arty_target_confirmed.mp3,1,1,,,,,,voice,loaded
 
 #Artillery Launch
 artillery_launch1,,explosions/cannon_sequence_hvy1_filt.wav,0.6,0.9,,1,1.2,1,15000,auto,loaded
@@ -129,7 +129,7 @@ artillery_explod3,,explosions/mrk_building_big_explod_3b.wav,1,1,explosion,0.9,0
 ###################
 
 #Breathing
-sprint_breathing,,back2uo/sprint_breathing.mp3,0.60,0.60,,,,120,700,body,streamed
+sprint_breathing,,back2uo/sprint_breathing.mp3,0.60,0.60,,,,120,700,body,loaded
 
 ####################
 ## Warning Sounds ##

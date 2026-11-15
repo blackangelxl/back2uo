@@ -6,31 +6,10 @@
 		visible			MENU_TRUE
 		rect			-25 -143 COMPASS_SIZE COMPASS_SIZE HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
 
+		// Layers bottom to top: card (rotating), needle, head, glas, pointers; built by tools/compass2iwi.py
 		itemDef
 		{
-			name			"compassback"
-			rect			0 0 COMPASS_SIZE COMPASS_SIZE
-			forecolor		1.0 1.0 1.0 1.0
-			background		"gfx/hud/hud@compassback.tga"
-			ownerdraw		CG_PLAYER_COMPASS_BACK
-			visible			MENU_TRUE
-			decoration
-		}
-
-		itemDef
-		{
-			name			"compasshighlight"
-			rect			0 0 COMPASS_SIZE COMPASS_SIZE
-			forecolor		1.0 1.0 1.0 1.0
-			background		"gfx/hud/hud@compasshighlight.tga"
-			ownerdraw		CG_PLAYER_COMPASS_BACK
-			visible			MENU_TRUE
-			decoration
-		}
-
-		itemDef
-		{
-			name			"compassface"
+			name			"compassface"	// card
 			rect			0 0 COMPASS_SIZE COMPASS_SIZE
 			forecolor		1.0 1.0 1.0 1.0
 			background		"gfx/hud/hud@compassface.tga"
@@ -39,7 +18,46 @@
 			decoration
 		}
 
-		// Objective pointers
+		// Needle and its head (off with back2uo_compassneedle 0)
+		itemDef
+		{
+			name			"compassneedle"
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/custom/back2uo_compass_needle.tga"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible			MENU_TRUE
+			decoration
+			dvartest		"back2uo_ui_compassneedle"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"compasshead"
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/custom/back2uo_compass_head.tga"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible			MENU_TRUE
+			decoration
+			dvartest		"back2uo_ui_compassneedle"
+			showDvar		{ "1" }
+		}
+
+		// Glass over card and needle
+		itemDef
+		{
+			name			"compassglas"
+			rect			0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor		1.0 1.0 1.0 1.0
+			background		"gfx/custom/back2uo_compass_glas.tga"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible			MENU_TRUE
+			decoration
+		}
+
+		// Objective pointers (top layer, above the glass)
 		itemDef
 		{
 			name			"compasspointers"
@@ -59,20 +77,6 @@
 			forecolor		1.0 1.0 1.0 1.0
 			ownerdraw		CG_PLAYER_COMPASS_FRIENDS
 			dvartest		"back2uo_ui_compassenemyfiring"
-			showDvar		{ "1" }
-		}
-
-		// Compass needle (was 36 386 in the fullscreen "infomsg" menu)
-		itemDef
-		{
-			name			"object_compasszeiger"
-			style			WINDOW_STYLE_SHADER
-			rect			61 49 37 37
-			background		"gfx/hud/hud@back2uo_compasszeiger.tga"
-			forecolor		1 1 1 0.7
-			visible			1
-			decoration
-			dvartest		"back2uo_ui_compassneedle"
 			showDvar		{ "1" }
 		}
 	}

@@ -2617,19 +2617,22 @@ showPlayerBombTimer()
 	{
 		self.bombtimer = newClientHudElem(self);
 
-		// Back2Uo: place the stopwatch in the top right corner (640x480 virtual screen)
+		// Back2Uo: place the stopwatch in the top right corner. horzAlign "right" keeps it in
+		// the corner on 4:3 and widescreen (16:9 e.g. WQHD, 16:10); x = -69 equals x = 571
+		// on the 640x480 virtual screen.
 		if(game["back2uo_enable"])
 		{
-			self.bombtimer.x = 571;
+			self.bombtimer.horzAlign = "right";
+			self.bombtimer.x = -69;
 			self.bombtimer.y = 21;
 		}
 		else
 		{
+			self.bombtimer.horzAlign = "left";
 			self.bombtimer.x = 6;
 			self.bombtimer.y = 76;
 		}
 
-		self.bombtimer.horzAlign = "left";
 		self.bombtimer.vertAlign = "top";
 		// Stopwatch shader, 48x48; the needle runs from timeleft down over a full level.bombtimer dial
 		self.bombtimer setClock(timeleft, level.bombtimer, "hudStopwatch", 48, 48);

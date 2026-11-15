@@ -108,10 +108,15 @@ back2uo_binocular_distance_draw()
 		if(!isdefined(self.back2uo_artlength))
 		{
 			self.back2uo_artlength = newClientHudElem( self );
+			// Anchored to the screen center like the distance label in ui_mp/hud/infomsg.menu,
+			// so value and label stay together on 4:3 and widescreen (16:9 e.g. WQHD, 16:10).
+			// x = 20 equals x = 340 on the 640x480 virtual screen.
+			self.back2uo_artlength.horzAlign = "center";
+			self.back2uo_artlength.vertAlign = "top";
 			self.back2uo_artlength.alignX = "right";
 			self.back2uo_artlength.alignY = "top";
 			self.back2uo_artlength.fontScale = 1;
-			self.back2uo_artlength.x = 340;
+			self.back2uo_artlength.x = 20;
 			self.back2uo_artlength.y = 380;
 			self.back2uo_artlength.sort = 5;
 			self.back2uo_artlength.alpha = 0.7;
@@ -121,10 +126,13 @@ back2uo_binocular_distance_draw()
 	if(!isdefined(self.back2uo_artuseing))
 	{
 		self.back2uo_artuseing = newClientHudElem( self );
+		// Screen center on all aspect ratios (x = 0 equals x = 320 on the 640x480 virtual screen).
+		self.back2uo_artuseing.horzAlign = "center";
+		self.back2uo_artuseing.vertAlign = "top";
 		self.back2uo_artuseing.alignX = "center";
 		self.back2uo_artuseing.alignY = "top";
 		self.back2uo_artuseing.fontScale = 0.8;
-		self.back2uo_artuseing.x = 320;
+		self.back2uo_artuseing.x = 0;
 		self.back2uo_artuseing.y = 305;
 		self.back2uo_artuseing.sort = 5;
 		self.back2uo_artuseing.alpha = 0;

@@ -2465,6 +2465,9 @@ LANG_ENGLISH		    "^3Game Instructions"
 REFERENCE			      BACK2UO_ACTIONINFO_SPRINT
 LANG_ENGLISH		    "Around to Sprint,\nyou run into a direction and hold pressed USE KEY!" 
 
+REFERENCE			      BACK2UO_ACTIONINFO_SPRINT_HOLDBREATH
+LANG_ENGLISH		    "Around to Sprint,\nyou run into a direction and hold pressed HOLD BREATH KEY!"
+
 REFERENCE			      BACK2UO_ACTIONINFO_ARTILLERY
 LANG_ENGLISH		    "Around to fire the Artillery,\nselect your Binocular and pressed USE KEY to\nconfirm the position!"
 

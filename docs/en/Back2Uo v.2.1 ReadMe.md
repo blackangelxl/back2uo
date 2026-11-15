@@ -400,6 +400,9 @@ set back2uo_clanm_1                "Message 2"
 **Additional Info:**
 
 - Sprinting is activated by holding the 'Use' key, default 'F'.
+- Sprint key (`back2uo_sprint_key`): with "1" only the 'Hold Breath' key sprints, e.g.
+  `bind ALT "+holdbreath"` in the console; 'Use' then stays free for weapon pickups. While
+  aiming the key still holds the breath as usual. With "0", or without zk_libcod, 'Use' sprints.
 - Sprinting is only possible when moving. Not when a player uses binoculars, a turret,
   sits, is on a ladder, is prone or crouches, or plants / defuses a bomb.
 - As with COD UO, after sprinting for the full limit the player becomes tired and

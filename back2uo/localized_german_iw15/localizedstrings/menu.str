@@ -3278,6 +3278,10 @@ REFERENCE			      BACK2UO_ACTIONINFO_SPRINT
 LANG_ENGLISH		    "Around to Sprint,\nyou run into a direction and hold pressed USE KEY!"
 LANG_GERMAN         "Um zu Sprinten,\nlaufen Sie in eine Richtung und\nhalten Sie BENUTZEN TASTE gedrückt!" 
 
+REFERENCE			      BACK2UO_ACTIONINFO_SPRINT_HOLDBREATH
+LANG_ENGLISH		    "Around to Sprint,\nyou run into a direction and hold pressed HOLD BREATH KEY!"
+LANG_GERMAN         "Um zu Sprinten,\nlaufen Sie in eine Richtung und\nhalten Sie ATEM ANHALTEN TASTE gedrückt!"
+
 REFERENCE			      BACK2UO_ACTIONINFO_ARTILLERY
 LANG_ENGLISH		    "Around to fire the Artillery,\nselect your Binocular and pressed USE KEY to\nconfirm the position!"
 LANG_GERMAN         "Um die Artillerie abzufeuern,\nwählen Sie Ihr Binocular aus und drücken Sie\nBENUTZEN TASTE um die Position zu bestätigen!" 

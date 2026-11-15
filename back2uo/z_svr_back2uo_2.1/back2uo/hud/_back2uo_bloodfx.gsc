@@ -32,11 +32,15 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen))
 	{
-		// Random position (x 0-495, y 0-335) and random size 100-198 px.
-		bs1 = RandomIntRange(1, 496);
+		// Random position (x -300..300 from the screen center, y 0-335) and random size 100-198 px.
+		// horzAlign "center" spreads the splatters around the middle on 4:3 and widescreen
+		// (16:9 e.g. WQHD, 16:10) instead of only the left part of a wide screen.
+		bs1 = RandomIntRange(-300, 301);
 		bs2 = RandomIntRange(1, 336);
 		bs3 = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen = newClientHudElem(self);
+		self.back2uo_bloodyscreen.horzAlign = "center";
+		self.back2uo_bloodyscreen.vertAlign = "top";
 		self.back2uo_bloodyscreen.alignX = "center";
 		self.back2uo_bloodyscreen.alignY = "top";
 		self.back2uo_bloodyscreen.x = bs1;
@@ -49,10 +53,12 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen1))
 	{
-		bs1a = RandomIntRange(1, 496);
+		bs1a = RandomIntRange(-300, 301);
 		bs2a = RandomIntRange(1, 336);
 		bs3a = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen1 = newClientHudElem(self);
+		self.back2uo_bloodyscreen1.horzAlign = "center";
+		self.back2uo_bloodyscreen1.vertAlign = "top";
 		self.back2uo_bloodyscreen1.alignX = "center";
 		self.back2uo_bloodyscreen1.alignY = "top";
 		self.back2uo_bloodyscreen1.x = bs1a;
@@ -65,10 +71,12 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen2))
 	{
-		bs1b = RandomIntRange(1, 496);
+		bs1b = RandomIntRange(-300, 301);
 		bs2b = RandomIntRange(1, 336);
 		bs3b = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen2 = newClientHudElem(self);
+		self.back2uo_bloodyscreen2.horzAlign = "center";
+		self.back2uo_bloodyscreen2.vertAlign = "top";
 		self.back2uo_bloodyscreen2.alignX = "center";
 		self.back2uo_bloodyscreen2.alignY = "top";
 		self.back2uo_bloodyscreen2.x = bs1b;
@@ -81,10 +89,12 @@ back2uo_view_bloodfx()
 
 	if(!isDefined(self.back2uo_bloodyscreen3))
 	{
-		bs1c = RandomIntRange(1, 496);
+		bs1c = RandomIntRange(-300, 301);
 		bs2c = RandomIntRange(1, 336);
 		bs3c = RandomIntRange(1, 100);
 		self.back2uo_bloodyscreen3 = newClientHudElem(self);
+		self.back2uo_bloodyscreen3.horzAlign = "center";
+		self.back2uo_bloodyscreen3.vertAlign = "top";
 		self.back2uo_bloodyscreen3.alignX = "center";
 		self.back2uo_bloodyscreen3.alignY = "middle";
 		self.back2uo_bloodyscreen3.x = bs1c;

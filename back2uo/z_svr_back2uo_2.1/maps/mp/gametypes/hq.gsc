@@ -1729,20 +1729,23 @@ hq_radio_think(radio)
 							players[i].radioicon[0] = newClientHudElem(players[i]);
 
 							// Back2Uo: radio icon at the top right (same spot as the mod's bomb timer icon).
+							// horzAlign "right" keeps it in the corner on 4:3 and widescreen
+							// (16:9 e.g. WQHD, 16:10); x = -28 equals x = 612 on the 640x480 virtual screen.
 							if(game["back2uo_enable"])
 							{
-								players[i].radioicon[0].x = 612;
+								players[i].radioicon[0].horzAlign = "right";
+								players[i].radioicon[0].x = -28;
 								players[i].radioicon[0].y = 44;
 							}
 							else
 							{
+								players[i].radioicon[0].horzAlign = "left";
 								players[i].radioicon[0].x = 30;
 								players[i].radioicon[0].y = 95;
 							}
 
 							players[i].radioicon[0].alignX = "center";
 							players[i].radioicon[0].alignY = "middle";
-							players[i].radioicon[0].horzAlign = "left";
 							players[i].radioicon[0].vertAlign = "top";
 							players[i].radioicon[0] setShader("field_radio", 40, 32);
 						}
