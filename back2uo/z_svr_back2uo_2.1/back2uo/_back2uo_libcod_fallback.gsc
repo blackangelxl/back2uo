@@ -215,3 +215,88 @@ back2uo_libcod_fallback_getmicroseconds()
 {
 	return undefined;
 }
+
+// --- Players in range ---
+
+/*
+=============
+back2uo_libcod_fallback_teamid
+
+Returns the engine's team number of a team name: 0 free ("none", also dm), 1 axis,
+2 allies, 3 spectator. getPlayersByViewOriginInRange filters by these numbers.
+Params: name - "axis", "allies", "spectator" or "none"
+=============
+*/
+back2uo_libcod_fallback_teamid(name)
+{
+	switch(name)
+	{
+	case "axis":
+		return 1;
+	case "allies":
+		return 2;
+	case "spectator":
+		return 3;
+	}
+
+	return 0;
+}
+
+/*
+=============
+back2uo_libcod_fallback_getplayersbyvieworigininrange
+
+getPlayersByViewOriginInRange with stock functions: the living players in play whose eye
+position (getEye()) is within sqrt(maxdistsq) of origin, in entity order.
+Params: origin - world position
+		maxdistsq - squared distance; undefined = no limit
+		team - team number (see back2uo_libcod_fallback_teamid); undefined = every team
+Returns: array of players
+=============
+*/
+back2uo_libcod_fallback_getplayersbyvieworigininrange(origin, maxdistsq, team)
+{
+	result = [];
+	players = getentarray("player", "classname");
+
+	for(i = 0; i < players.size; i++)
+	{
+		player = players[i];
+
+		if(!isdefined(player.sessionstate) || player.sessionstate != "playing" || !isAlive(player)) continue;
+		if(isdefined(team) && back2uo_libcod_fallback_teamid(player.sessionteam) != team) continue;
+		if(isdefined(maxdistsq) && distancesquared(origin, player getEye()) > maxdistsq) continue;
+
+		result[result.size] = player;
+	}
+
+	return result;
+}
+
+// --- Path finding graph ---
+
+/*
+=============
+back2uo_libcod_fallback_graphcreate
+
+Returns undefined: the graph functions need the cod2-server extra module of zk_libcod.
+bots\_back2uo_waypoints.gsc then keeps its script search (A*, nearest node scan).
+=============
+*/
+back2uo_libcod_fallback_graphcreate()
+{
+	return undefined;
+}
+
+/*
+=============
+back2uo_libcod_fallback_graph
+
+graphAddNode, graphAddEdge, graphFindPath, graphFindClosestNode, graphGetAllNodes: never
+reached without a graph (back2uo_libcod_fallback_graphcreate returns undefined). Returns undefined.
+=============
+*/
+back2uo_libcod_fallback_graph()
+{
+	return undefined;
+}

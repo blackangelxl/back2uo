@@ -374,6 +374,38 @@ back2uo_pistel_ammo_slot(slot, ammo)
 
 /*
 =============
+back2uo_weaponlimit_get
+
+Returns how many players may carry a weapon at the same time (cvars back2uo_*_lmd), or
+undefined if the weapon has no limit or the limits are off (back2uo_weapons_lmd_active 0).
+Params: weapon - weapon name
+=============
+*/
+back2uo_weaponlimit_get(weapon)
+{
+	if(!isdefined(game["back2uo_weaponlimit_enable"]) || !game["back2uo_weaponlimit_enable"]) return undefined;
+
+	switch(weapon)
+	{
+	case "springfield_mp":
+		return level.back2uo_springfield_limit;
+	case "mosin_nagant_sniper_mp":
+		return level.back2uo_nagantsniper_limit;
+	case "enfield_scope_mp":
+		return level.back2uo_enfieldsniper_limit;
+	case "kar98k_sniper_mp":
+		return level.back2uo_kar98sniper_limit;
+	case "shotgun_mp_allies":
+		return level.back2uo_shotgun_allies_limit;
+	case "shotgun_mp_axis":
+		return level.back2uo_shotgun_axis_limit;
+	}
+
+	return undefined;
+}
+
+/*
+=============
 back2uo_snipershotgun_limiter
 
 With back2uo_weaponlimit_enable on, counts every 0.5 seconds how many team players have
@@ -394,12 +426,16 @@ back2uo_snipershotgun_limiter()
 	level endon("back2uo_killthreads");
 
 	// Limited weapons and their limit (players per weapon)
-	names[0] = "springfield_mp";			limits[0] = level.back2uo_springfield_limit;
-	names[1] = "mosin_nagant_sniper_mp";	limits[1] = level.back2uo_nagantsniper_limit;
-	names[2] = "enfield_scope_mp";			limits[2] = level.back2uo_enfieldsniper_limit;
-	names[3] = "kar98k_sniper_mp";			limits[3] = level.back2uo_kar98sniper_limit;
-	names[4] = "shotgun_mp_allies";			limits[4] = level.back2uo_shotgun_allies_limit;
-	names[5] = "shotgun_mp_axis";			limits[5] = level.back2uo_shotgun_axis_limit;
+	names[0] = "springfield_mp";
+	names[1] = "mosin_nagant_sniper_mp";
+	names[2] = "enfield_scope_mp";
+	names[3] = "kar98k_sniper_mp";
+	names[4] = "shotgun_mp_allies";
+	names[5] = "shotgun_mp_axis";
+
+	limits = [];
+	for(n = 0; n < names.size; n++)
+		limits[n] = back2uo_weaponlimit_get(names[n]);
 
 	level.back2uo_weaponlimit_full = [];
 

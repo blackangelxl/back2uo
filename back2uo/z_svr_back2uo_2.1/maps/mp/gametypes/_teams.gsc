@@ -743,8 +743,9 @@ addTestClients()
 TestClient
 
 Back2Uo: drives a test bot through the menus. Waits until the bot is initialized, joins
-the given team, then picks a random allowed primary weapon from level.weaponnames and sends
-the weapon menu response. Bots are excluded from the mod's sprint via pers["bots_nosprint"].
+the given team, then picks a random weapon of the team it really joined (the team menu can
+change it, e.g. "auto team only") with TestClient_weapons and sends it to the team's weapon
+menu. Bots are excluded from the mod's sprint via pers["bots_nosprint"].
 Called on: player (test client)
 Params: team - "allies" or "axis"
 =============
@@ -758,120 +759,192 @@ TestClient(team)
 	self notify("menuresponse", game["menu_team"], team);
 	wait 0.5;
 
-	// Build the list of weapons a bot may use: no grenades, binoculars or pistols, only allowed weapons
-	level.botsweapon = [];
-	z = 0;
+	// The team the bot is on now; the requested one only if the menu has not answered yet
+	if(self.pers["team"] == "allies" || self.pers["team"] == "axis")
+		team = self.pers["team"];
 
-	for(i = 0; i < level.weaponnames.size; i++)
+	// Give the bot a name that matches the nationality of its team (game["allies"] / game["axis"])
+	self back2uo\_back2uo_libcod::back2uo_libcod_renameclient(back2uo\bots\_back2uo_botnames::back2uo_botname_get(game[team]));
+
+	weapons = self TestClient_weapons(team);
+
+	if(weapons.size)
 	{
-		weaponname = level.weaponnames[i];
-
-		if(weaponname != "fraggrenade" && weaponname != "smokegrenade" && weaponname != "binoculars_mp")
-		{
-			if(weaponname != "colt_mp" && weaponname != "webley_mp" && weaponname != "luger_mp" && weaponname != "TT30_mp")
-			{
-				if(level.weapons[weaponname].allow == 1)
-				{
-					level.botsweapon[z] = weaponname;
-					z++;
-				}
-			}
-		}
-	}
-
-	botsweapon = level.botsweapon[randomInt(level.botsweapon.size)];
-
-	// Map the chosen weapon to its team and nationality (this overwrites the team parameter)
-	switch(botsweapon)
-	{
-	// American
-	case "m1carbine_mp":
-	case "m1garand_mp":
-	case "thompson_mp":
-	case "bar_mp":
-	case "springfield_mp":
-	case "greasegun_mp":
-		team = "allies";
-		team_name = "american";
-		break;
-
-	// British
-	case "webley_mp":
-	case "enfield_mp":
-	case "sten_mp":
-	case "bren_mp":
-	case "enfield_scope_mp":
-		team = "allies";
-		team_name = "british";
-		break;
-
-	// Russian
-	case "TT30_mp":
-	case "mosin_nagant_mp":
-	case "SVT40_mp":
-	case "PPS42_mp":
-	case "ppsh_mp":
-	case "mosin_nagant_sniper_mp":
-		team = "allies";
-		team_name = "russian";
-		break;
-
-	// German
-	case "luger_mp":
-	case "kar98k_mp":
-	case "g43_mp":
-	case "mp40_mp":
-	case "mp44_mp":
-	case "kar98k_sniper_mp":
-	case "shotgun_mp_axis":
-		team = "axis";
-		team_name = game["axis"];
-		break;
-
-	// Unknown weapon: keep the team, treat it like a German weapon
-	default:
-		team = team;
-		team_name = game["axis"];
-		break;
-	}
-
-	// Give the bot a name that matches the nationality of the team it joined (game["allies"] /
-	// game["axis"]), not of its weapon: a ppsh on an american map must not get a russian name
-	if(isdefined(self.pers["team"]) && (self.pers["team"] == "allies" || self.pers["team"] == "axis"))
-		name_team = self.pers["team"];
-	else
-		name_team = team;
-
-	self back2uo\_back2uo_libcod::back2uo_libcod_renameclient(back2uo\bots\_back2uo_botnames::back2uo_botname_get(game[name_team]));
-
-	// Allied weapons fall back to the team's shotgun; German / unknown weapons are requested directly
-	if(team_name != game["axis"])
-	{
-		if(team == "allies")
-		{
-			self notify("menuresponse", game["menu_weapon_allies"], "shotgun_mp_allies");
-		}
-		else if(team == "axis")
-		{
-			self notify("menuresponse", game["menu_weapon_axis"], "shotgun_mp_axis");
-		}
+		botsweapon = weapons[randomInt(weapons.size)];
 	}
 	else
 	{
-		if(team == "allies")
-		{
-			self notify("menuresponse", game["menu_weapon_allies"], botsweapon);
-		}
-		else if(team == "axis")
-		{
-			self notify("menuresponse", game["menu_weapon_axis"], botsweapon);
-		}
+		// Nothing allowed or every weapon at its limit: the team's shotgun, as before
+		botsweapon = maps\mp\gametypes\_weapons::back2uo_teamshotgun(team);
+		back2uo\_back2uo_cvars::back2uo_logevent("bot", "weapon_fallback", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " weapon=" + botsweapon);
 	}
+
+	// Counted by TestClient_weaponcount of the other bots until the menu has set pers["weapon"]
+	self.back2uo_botweapon = botsweapon;
+
+	self notify("menuresponse", game["menu_weapon_" + team], botsweapon);
 
 	// Log the chosen weapon to the server log
-	if(botsweapon == "") botsweapon = "undefined";
 	logPrint("Bot Weapon: ", botsweapon, "\n");
+	back2uo\_back2uo_cvars::back2uo_logevent("bot", "weapon", back2uo\_back2uo_cvars::back2uo_logplayer(self) + " weapon=" + botsweapon + " choices=" + weapons.size);
 
 	// Tells the mod's sprint and HUD code to skip this bot
 	self.pers["bots_nosprint"] = "noallow";
+}
+
+/*
+=============
+TestClient_weapons
+
+Back2Uo: returns the weapons a bot of a team may take, the same the player's weapon menu offers:
+- weapons of the team's nation (allies: game["allies"], axis: german) plus the optional G43
+  sniper and Panzerschreck; with a weapon class (back2uo_weapons_allow 1 - 4) the class
+  weapons of every nation, as in the shared weapons_only_* menus
+- only the team's own shotgun; no grenades or binoculars; pistols only in the pistol class
+- allowed by restrictWeaponByServerCvars (scr_allow_*, class, limit already marked full)
+- below the sniper/shotgun limit, counting the weapons other players and bots have chosen.
+  The limiter only counts every 0.5 seconds, so bots that join together would pass it.
+Called on: player (test client)
+Params: team - "allies" or "axis"
+Returns: array of weapon names, may be empty
+=============
+*/
+TestClient_weapons(team)
+{
+	classmode = game["back2uo_weaponsystem_enable"] && level.back2uo_weapon_limit != 0;
+	pistolmode = classmode && level.back2uo_weapon_limit == 4;
+
+	if(team == "axis") nation = "german";
+	else nation = game["allies"];
+
+	teamshotgun = maps\mp\gametypes\_weapons::back2uo_teamshotgun(team);
+	list = [];
+
+	for(i = 0; i < level.weaponnames.size; i++)
+	{
+		weapon = level.weaponnames[i];
+
+		if(weapon == "fraggrenade" || weapon == "smokegrenade" || weapon == "binoculars_mp") continue;
+		if(maps\mp\gametypes\_weapons::isPistol(weapon) != pistolmode) continue;
+
+		if(weapon == "shotgun_mp_allies" || weapon == "shotgun_mp_axis")
+		{
+			if(weapon != teamshotgun) continue;
+		}
+		else if(!classmode && !TestClient_nationweapon(weapon, nation)) continue;
+
+		if(self maps\mp\gametypes\_weapons::restrictWeaponByServerCvars(weapon) == "restricted") continue;
+
+		limit = back2uo\_back2uo_weaponsystem::back2uo_weaponlimit_get(weapon);
+		if(isdefined(limit) && TestClient_weaponcount(weapon) >= limit) continue;
+
+		list[list.size] = weapon;
+	}
+
+	return list;
+}
+
+/*
+=============
+TestClient_nationweapon
+
+Back2Uo: true if the weapon menu of a nation offers the weapon (the stock weapon menus; the
+British menu also has the M1 Garand and Thompson). The optional G43 sniper and Panzerschreck
+are in every nation's menu. Shotguns are handled by the caller.
+Params: weapon - weapon name
+		nation - "american", "british", "russian" or "german"
+=============
+*/
+TestClient_nationweapon(weapon, nation)
+{
+	if(weapon == "g43_sniper_mp" || weapon == "panzerschreck_mp") return true;
+
+	switch(nation)
+	{
+	case "american":
+		switch(weapon)
+		{
+		case "m1carbine_mp":
+		case "m1garand_mp":
+		case "thompson_mp":
+		case "bar_mp":
+		case "springfield_mp":
+		case "greasegun_mp":
+		case "colt_mp":
+			return true;
+		}
+		return false;
+
+	case "british":
+		switch(weapon)
+		{
+		case "enfield_mp":
+		case "sten_mp":
+		case "bren_mp":
+		case "enfield_scope_mp":
+		case "m1garand_mp":
+		case "thompson_mp":
+		case "webley_mp":
+			return true;
+		}
+		return false;
+
+	case "russian":
+		switch(weapon)
+		{
+		case "mosin_nagant_mp":
+		case "SVT40_mp":
+		case "PPS42_mp":
+		case "ppsh_mp":
+		case "mosin_nagant_sniper_mp":
+		case "TT30_mp":
+			return true;
+		}
+		return false;
+
+	case "german":
+		switch(weapon)
+		{
+		case "kar98k_mp":
+		case "g43_mp":
+		case "mp40_mp":
+		case "mp44_mp":
+		case "kar98k_sniper_mp":
+		case "luger_mp":
+			return true;
+		}
+		return false;
+	}
+
+	return false;
+}
+
+/*
+=============
+TestClient_weaponcount
+
+Back2Uo: number of other players that carry or have just chosen a weapon: pers["weapon"],
+or self.back2uo_botweapon of a bot whose weapon menu response is not handled yet.
+Called on: player (test client)
+Params: weapon - weapon name
+=============
+*/
+TestClient_weaponcount(weapon)
+{
+	count = 0;
+	players = getentarray("player", "classname");
+
+	for(i = 0; i < players.size; i++)
+	{
+		player = players[i];
+		if(player == self) continue;
+
+		chosen = undefined;
+		if(isdefined(player.pers["weapon"])) chosen = player.pers["weapon"];
+		else if(isdefined(player.back2uo_botweapon)) chosen = player.back2uo_botweapon;
+
+		if(isdefined(chosen) && chosen == weapon) count++;
+	}
+
+	return count;
 }

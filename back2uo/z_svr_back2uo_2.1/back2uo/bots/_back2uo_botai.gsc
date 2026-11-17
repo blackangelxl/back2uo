@@ -193,6 +193,9 @@ bot_find_enemy
 Every 250 ms: picks the nearest living enemy the bot can see. The current enemy stays
 selected while it is visible, even outside the field of view. When the enemy is lost, its
 last position is kept as the next goal.
+The living players of the enemy team within 4000 units come from
+back2uo_libcod_getplayersbyvieworigininrange (C++ with zk_libcod, else a script loop); field
+of view and sight are checked here, the sight trace only for a new nearest candidate.
 =============
 */
 bot_find_enemy()
@@ -202,19 +205,17 @@ bot_find_enemy()
 
 	eye = self back2uo\_back2uo_libcod::back2uo_libcod_getvieworigin();
 	forward = anglestoforward(self getPlayerAngles());
-	teambased = getcvar("g_gametype") != "dm";
 
 	best = undefined;
 	bestdist = 4000 * 4000;
 
-	players = getentarray("player", "classname");
+	players = back2uo\_back2uo_libcod::back2uo_libcod_getplayersbyvieworigininrange(eye, bestdist, bot_enemy_teamid());
 
 	for(i = 0; i < players.size; i++)
 	{
 		player = players[i];
 
-		if(player == self || !isdefined(player.sessionstate) || player.sessionstate != "playing") continue;
-		if(teambased && isdefined(player.pers["team"]) && player.pers["team"] == self.pers["team"]) continue;
+		if(player == self) continue;
 
 		target = bot_aimpoint(player);
 		dist = distancesquared(eye, target);
@@ -258,6 +259,24 @@ bot_find_enemy()
 		bot_zoom(false);
 		self back2uo\_back2uo_libcod::back2uo_libcod_setwalkvalues(0, 0);
 	}
+}
+
+/*
+=============
+bot_enemy_teamid
+
+Returns the team number of the bot's enemies for back2uo_libcod_getplayersbyvieworigininrange:
+the other team in team gametypes, undefined (every team) in dm or without a team.
+=============
+*/
+bot_enemy_teamid()
+{
+	if(getcvar("g_gametype") == "dm" || !isdefined(self.pers["team"])) return undefined;
+
+	if(self.pers["team"] == "axis") return back2uo\_back2uo_libcod::back2uo_libcod_teamid("allies");
+	if(self.pers["team"] == "allies") return back2uo\_back2uo_libcod::back2uo_libcod_teamid("axis");
+
+	return undefined;
 }
 
 /*
@@ -724,8 +743,12 @@ bot_start_node()
 	best = undefined;
 	bestdist = 1000 * 1000;
 
-	for(i = 0; i < level.back2uo_wp_count; i++)
+	// Only the nodes within 1000 units (C++ with zk_libcod, else a script loop)
+	ids = back2uo\bots\_back2uo_waypoints::back2uo_wp_inrange(self.origin, bestdist);
+
+	for(n = 0; n < ids.size; n++)
 	{
+		i = ids[n];
 		dist = distancesquared(self.origin, level.back2uo_wp_origin[i]);
 
 		if(dist >= bestdist) continue;

@@ -9,6 +9,11 @@
 	server with zk_libcod. Without zk_libcod, leave z_svr_back2uo_2.1_libcod.iwd out; the stub
 	then runs the fallbacks of back2uo\_back2uo_libcod_fallback.gsc. They are also used here
 	when the "libcod" dvar of zk_libcod is missing.
+
+	Some functions come from extra modules compiled into zk_libcod by server/Dockerfile, so this
+	file needs that build: setBinocularsBlocked (server/extra/back2uo_binoculars.cpp), and the
+	graph* functions and getPlayersByViewOriginInRange of the cod2-server extra module
+	(github.com/rutkowski-tomasz/cod2-server, server/extra).
 */
 
 /*
@@ -448,4 +453,155 @@ back2uo_libcod_getmicroseconds()
 	if(back2uo_libcod_active()) return getMicroseconds();
 
 	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getmicroseconds();
+}
+
+// --- Players in range ---
+
+/*
+=============
+back2uo_libcod_teamid
+
+Returns the engine's team number of a team name (0 free, 1 axis, 2 allies, 3 spectator),
+as back2uo_libcod_getplayersbyvieworigininrange expects it.
+Params: name - "axis", "allies", "spectator" or "none"
+=============
+*/
+back2uo_libcod_teamid(name)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_teamid(name);
+}
+
+/*
+=============
+back2uo_libcod_getplayersbyvieworigininrange
+
+Returns the living players in play whose view origin is within sqrt(maxdistsq) of origin,
+in no particular order. Needs the cod2-server extra module (getPlayersByViewOriginInRange,
+filters in C++); without zk_libcod a script loop does the same.
+Params: origin - world position
+		maxdistsq - squared distance; undefined = no limit
+		team - team number (back2uo_libcod_teamid); undefined = every team
+Returns: array of players
+=============
+*/
+back2uo_libcod_getplayersbyvieworigininrange(origin, maxdistsq, team)
+{
+	if(back2uo_libcod_active()) return getPlayersByViewOriginInRange(origin, maxdistsq, team);
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getplayersbyvieworigininrange(origin, maxdistsq, team);
+}
+
+// --- Path finding graph ---
+//
+// A* graph of the cod2-server extra module (server/extra/gsc_graph.cpp). Graphs live in the
+// server, not in the script: graphCreate(false, ...) graphs are deleted on the next map load,
+// but survive a round restart (map_restart), so graphcreate removes all graphs first.
+// The other functions must only be called with a graph id from back2uo_libcod_graphcreate and
+// valid node ids: on bad arguments zk_libcod raises a script error.
+
+/*
+=============
+back2uo_libcod_graphcreate
+
+Removes all graphs of the server and creates an empty one for this map. Back2Uo is the only
+user of the graph functions.
+Params: nodecount - expected number of nodes (memory reserve, not a limit)
+Returns: graph id, or undefined without zk_libcod (callers then use their script fallback)
+=============
+*/
+back2uo_libcod_graphcreate(nodecount)
+{
+	if(!back2uo_libcod_active()) return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graphcreate();
+
+	graphRemoveAll();
+
+	return graphCreate(false, nodecount);
+}
+
+/*
+=============
+back2uo_libcod_graphaddnode
+
+Adds a node with a given id.
+Params: graph - graph id
+		id - node id (must be new)
+		origin - position
+		type - type bits
+Returns: node id
+=============
+*/
+back2uo_libcod_graphaddnode(graph, id, origin, type)
+{
+	if(back2uo_libcod_active()) return graphAddNode(graph, origin, type, id);
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+/*
+=============
+back2uo_libcod_graphaddedge
+
+Adds a directed edge; its cost is the 3D distance between the two nodes.
+Params: graph - graph id
+		from, to - node ids (must exist, differ, and have no edge yet)
+		type - type bits
+Returns: true
+=============
+*/
+back2uo_libcod_graphaddedge(graph, from, to, type)
+{
+	if(back2uo_libcod_active()) return graphAddEdge(graph, from, to, type);
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+/*
+=============
+back2uo_libcod_graphfindpath
+
+A* search in C++ (cost = sum of the edge lengths, estimate = 3D distance to the goal).
+Params: graph - graph id with at least two nodes
+		start, goal - node ids
+Returns: node ids from start to goal (both included; start == goal gives [start]),
+		or undefined if the goal cannot be reached
+=============
+*/
+back2uo_libcod_graphfindpath(graph, start, goal)
+{
+	if(back2uo_libcod_active()) return graphFindPath(graph, start, goal);
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+/*
+=============
+back2uo_libcod_graphclosestnode
+
+Returns the id of the node nearest to a position (the lowest id on a tie).
+Params: graph - graph id with at least one node
+		origin - world position
+=============
+*/
+back2uo_libcod_graphclosestnode(graph, origin)
+{
+	if(back2uo_libcod_active()) return graphFindClosestNode(graph, origin);
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+/*
+=============
+back2uo_libcod_graphnodesinrange
+
+Returns the ids of the nodes within sqrt(maxdistsq) of a position, in id order.
+Params: graph - graph id
+		origin - world position
+		maxdistsq - squared distance
+=============
+*/
+back2uo_libcod_graphnodesinrange(graph, origin, maxdistsq)
+{
+	if(back2uo_libcod_active()) return graphGetAllNodes(graph, origin, maxdistsq);
+
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
 }
