@@ -699,6 +699,11 @@ addTestClients()
 
 	game["botsaktiv"] = true;
 
+	// Test clients added in the first frames after the map start hang: libcod does not see
+	// them as connected and they never move. Until the trace cache (tools/tcgen.py) the map
+	// dimension traces delayed this call by several seconds by chance; now wait on purpose.
+	wait 5;
+
 	// The old bots have no "player" classname yet, so search all client entities
 	ents = getentarray();
 	maxclients = getCvarInt("sv_maxclients");

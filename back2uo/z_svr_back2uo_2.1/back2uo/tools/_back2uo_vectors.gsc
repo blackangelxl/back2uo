@@ -49,6 +49,7 @@ back2uo_airplane_vectorpos
 Computes the start and end point of an airplane fly-over: from startpos (+ offset)
 it traces 50000 units backwards and forwards along the yaw angle and stops at map
 geometry, so the plane enters and leaves at the map edges.
+Taken from the trace cache when the map has one (see back2uo_tc_airplane).
 Params: startpos - center position of the flight path
 		angle - flight yaw in degrees
 		airplane_extras - offset vector added to startpos (formation position)
@@ -56,6 +57,23 @@ Returns: array [0] = start point, [1] = end point
 =============
 */
 back2uo_airplane_vectorpos(startpos, angle, airplane_extras)
+{
+	stenpos = back2uo\tools\_back2uo_tracecache::back2uo_tc_airplane(startpos + airplane_extras, angle);
+	if(isdefined(stenpos)) return stenpos;
+
+	return back2uo_airplane_vectorpos_trace(startpos, angle, airplane_extras);
+}
+
+/*
+=============
+back2uo_airplane_vectorpos_trace
+
+back2uo_airplane_vectorpos without the cache: always traces. Also used by the trace
+cache generator (tests/gsc/back2uo/test/_tcgen.gsc).
+Params/Returns: as back2uo_airplane_vectorpos
+=============
+*/
+back2uo_airplane_vectorpos_trace(startpos, angle, airplane_extras)
 {
 	startpos = startpos + airplane_extras;
 	forwardvector = anglestoforward((0,angle,0));

@@ -28,6 +28,9 @@ back2uo_start_gametype()
 	// right away and back2uo_mapdimension() below takes several seconds.
 	back2uo\_back2uo_weaponsystem::back2uo_weapon_optimizer();
 
+	// Trace cache of the map (map bounds, airplane paths); no waits.
+	back2uo\tools\_back2uo_tracecache::back2uo_tc_load();
+
 	// Bounding boxes of the map and of the player spawn area; must run before the FX below.
 	back2uo\tools\_back2uo_dimension::back2uo_playerdimension();
 	back2uo\tools\_back2uo_dimension::back2uo_mapdimension();
