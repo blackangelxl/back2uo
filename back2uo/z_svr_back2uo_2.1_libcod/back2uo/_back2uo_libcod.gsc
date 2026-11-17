@@ -397,6 +397,24 @@ back2uo_libcod_meleeweapon(on)
 	else self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_botinput();
 }
 
+// --- Binoculars ---
+
+/*
+=============
+back2uo_libcod_setbinocularsblocked
+
+Blocks (true) or allows (false) the binocular key of the player. Needs the Back2Uo extra
+module of zk_libcod (server/extra/back2uo_binoculars.cpp); while blocked the engine never
+sees the key and the player gets the notify "binoculars_blocked" once per key press.
+Without zk_libcod nothing happens (takeWeapon does not affect the binocular key in CoD2).
+Called on: self = player
+=============
+*/
+back2uo_libcod_setbinocularsblocked(on)
+{
+	if(back2uo_libcod_active()) self setBinocularsBlocked(on);
+}
+
 // --- Buttons ---
 
 /*

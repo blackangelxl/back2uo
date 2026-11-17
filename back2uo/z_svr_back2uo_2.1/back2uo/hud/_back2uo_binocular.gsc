@@ -79,6 +79,117 @@ back2uo_binocular_control()
 
 /*
 =============
+back2uo_binocular_rankcheck
+
+Locks the binocular key until it is unlocked (zk_libcod setBinocularsBlocked). Unlocked on a
+spawn with rank back2uo_binocular_onrang reached, or right away when an artillery strike is
+granted (the target is marked with the binoculars); once unlocked it stays unlocked
+(self.pers, also after a rank down or a used strike). Calls zk_libcod only when the state
+changes; the lock is reset by zk_libcod on every connect. Also updates the HUD icon.
+Called on: self = player (from hud\_back2uo_ranking.gsc on spawn and every rank tick)
+Params: ranking_lv - current rank
+		spawn - true for the call on spawn (rank unlock only there)
+=============
+*/
+back2uo_binocular_rankcheck(ranking_lv, spawn)
+{
+	blocked = self back2uo_binocular_rankblocked(ranking_lv, spawn);
+
+	self back2uo_binocular_icon_update(blocked);
+
+	if(isdefined(self.back2uo_bino_blocked) && self.back2uo_bino_blocked == blocked) return;
+
+	// The first call per connect only needs zk_libcod when locking (connect already unlocked).
+	first = !isdefined(self.back2uo_bino_blocked);
+	self.back2uo_bino_blocked = blocked;
+
+	if(first && !blocked) return;
+
+	self back2uo\_back2uo_libcod::back2uo_libcod_setbinocularsblocked(blocked);
+
+	if(back2uo\_back2uo_cvars::back2uo_logactive())
+	{
+		bino_event = "unlock";
+		if(blocked) bino_event = "lock";
+
+		back2uo\_back2uo_cvars::back2uo_logevent("binocular", bino_event, back2uo\_back2uo_cvars::back2uo_logplayer(self) + " rank=" + ranking_lv + " onrank=" + level.back2uo_binocular_onrank);
+	}
+}
+
+/*
+=============
+back2uo_binocular_icon_update
+
+Binocular icon above the frag / smoke icons with a count like the grenades, drawn by the
+client menu ui_mp/hud/offhand.menu (same font and position as the grenade count) through the
+client cvar back2uo_ui_binocular: "1" = usable, "0" = locked, "" = no icon. Without zk_libcod
+the key cannot be locked, so it is always "1". No icon when binoculars are not allowed.
+Sends the cvar only when the value changes.
+Called on: self = player
+Params: blocked - lock state from back2uo_binocular_rankblocked
+=============
+*/
+back2uo_binocular_icon_update(blocked)
+{
+	value = "1";
+	if(!level.back2uo_binocular_allow) value = "";
+	else if(blocked && back2uo\_back2uo_libcod::back2uo_libcod_active()) value = "0";
+
+	back2uo_binocular_icon_set(value);
+}
+
+/*
+=============
+back2uo_binocular_icon_clear
+
+Hides the binocular icon and count (death, disconnect).
+Called on: self = player
+=============
+*/
+back2uo_binocular_icon_clear()
+{
+	back2uo_binocular_icon_set("");
+}
+
+back2uo_binocular_icon_set(value)
+{
+	if(isdefined(self.back2uo_ui_binocular) && self.back2uo_ui_binocular == value) return;
+
+	self.back2uo_ui_binocular = value;
+	self setClientCvar("back2uo_ui_binocular", value);
+}
+
+/*
+=============
+back2uo_binocular_rankblocked
+
+Returns true when the binoculars must be locked: binoculars allowed, back2uo_binocular_onrang
+set and not yet unlocked. Unlocks (self.pers["back2uo_bino_unlocked"], stays until map end)
+on a spawn with the rank reached, or when the player owns an artillery strike.
+Called on: self = player
+Params: ranking_lv - current rank
+		spawn - true on spawn: only then does reaching the rank unlock
+=============
+*/
+back2uo_binocular_rankblocked(ranking_lv, spawn)
+{
+	if(!level.back2uo_binocular_allow) return false;
+	if(level.back2uo_binocular_onrank <= 0) return false;
+	if(isdefined(self.pers["back2uo_bino_unlocked"])) return false;
+
+	unlock = (spawn && ranking_lv >= level.back2uo_binocular_onrank);
+
+	// The artillery target is marked with the binoculars.
+	if(game["back2uo_artilleryfx_enable"] && isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true) unlock = true;
+
+	if(!unlock) return true;
+
+	self.pers["back2uo_bino_unlocked"] = true;
+	return false;
+}
+
+/*
+=============
 back2uo_binocular_distance_draw
 
 While looking through the binoculars, shows the distance in meters to the aimed point

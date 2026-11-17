@@ -164,6 +164,13 @@ back2uo_libcod_holdbreathbuttonpressed()
 	return false;
 }
 
+// --- Binoculars ---
+
+// Without zk_libcod the binocular key cannot be blocked (takeWeapon does not affect it).
+back2uo_libcod_setbinocularsblocked(on)
+{
+}
+
 // --- Time ---
 
 back2uo_libcod_getmicroseconds()

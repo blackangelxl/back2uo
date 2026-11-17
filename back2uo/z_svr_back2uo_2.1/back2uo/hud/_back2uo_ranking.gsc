@@ -110,6 +110,9 @@ back2uo_ranking_update()
 	// Rank may have been reached while dead (e.g. a kill by a grenade thrown before dying).
 	back2uo_ranking_artillery(self.pers["back2uo_ranking"]);
 
+	// Binocular key lock (zk_libcod): the rank unlocks only here on spawn.
+	back2uo\hud\_back2uo_binocular::back2uo_binocular_rankcheck(self.pers["back2uo_ranking"], true);
+
 	for(;;)
 	{
 		// Remember the previous rank to detect rank changes below.
@@ -118,6 +121,10 @@ back2uo_ranking_update()
 		self.pers["back2uo_ranking"] = back2uo_ranking_getrank(player_score);
 
 		back2uo_ranking_level(self.pers["back2uo_ranking"]);
+
+		// Every tick: a granted artillery strike unlocks the binoculars right away (a rank up
+		// only on the next spawn); zk_libcod is only called when the lock state changes.
+		back2uo\hud\_back2uo_binocular::back2uo_binocular_rankcheck(self.pers["back2uo_ranking"], false);
 
 		// Teammates see the rank as head icon (team gametypes only).
 		if(isdefined(self.headicon) && level.back2uo_teamrankheadicons == 1 && getCvar("g_gametype") != "dm")
@@ -394,6 +401,8 @@ Called on: self = player
 */
 back2uo_ranking_clear()
 {
+	back2uo\hud\_back2uo_binocular::back2uo_binocular_icon_clear();
+
 	if(!game["back2uo_ranking_enable"]) return;
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Hud Ranking", "Clear");
