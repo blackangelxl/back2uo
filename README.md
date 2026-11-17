@@ -107,6 +107,12 @@ otherwise the scripts do not compile. The mod then uses its fallbacks
 (`_back2uo_libcod_fallback.gsc`): the sprint swaps to the `_sprint` weapon instead of raising
 the player's speed, and test bots stand still.
 
+`z_svr_back2uo_2.1_libcod.iwd` also needs the extra modules that [`server/Dockerfile`](server/Dockerfile)
+compiles into zk_libcod: `setBinocularsBlocked` (`server/extra/`) and, from
+[cod2-server](https://github.com/rutkowski-tomasz/cod2-server/tree/master/server/extra), the
+`graph*` path finding (bot paths and nearest waypoint in C++) and `getPlayersByViewOriginInRange`
+(bot enemy search). With plain zk_libcod it does not compile either.
+
 Keep both `localized_*_iw15.iwd` files on the server, so English and German clients get text and sounds in their language.
 Clients download the mod through auto-download (`sv_allowDownload`). Optionally, players without auto-download are kicked (`back2uo_autodownload`).
 
@@ -140,6 +146,8 @@ All options are in [`back2uo/back2uomod.cfg`](back2uo/back2uomod.cfg). Each cvar
 - https://nawaftahir.github.io/cod2-iwi-gallery/ Call of Duty 2 · Stock Texture Library
 - https://github.com/nawaftahir/vscode-cod-gsc Extension for VS Code for GSC scripts used in Call of Duty games (CoD GSC)
 - https://github.com/7894752/cod2map New 64-bit Map compiler version
+- https://github.com/rutkowski-tomasz/cod2-server Call of Duty 2 server: libcod additions on top of zk_libcod, Docker image and Terraform infrastructure.
+- https://github.com/rutkowski-tomasz/cod2-server/tree/master/server/extra zk_libcod extension
 - https://github.com/rutkowski-tomasz/cod2-server/tree/master/tools cod 2 model, fx, map & menu viewer and more
 
 ## Credits
