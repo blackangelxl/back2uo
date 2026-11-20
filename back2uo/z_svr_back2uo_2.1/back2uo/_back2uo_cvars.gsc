@@ -144,31 +144,20 @@ back2uo_grana_smoke_checker()
 =============
 back2uo_player_stance
 
-Estimates the player's stance with two short horizontal traces through the player model
-(at 60 and 40 units height). If the trace at a height hits nothing, the body is lower than
-that height. CoD2 has no script function to read the stance directly.
+Returns the player's stance: zk_libcod getStance(), without zk_libcod estimated with two
+traces through the player model (back2uo_libcod_fallback_getstance). Standing while a sprint
+runs counts as "sprint".
 Called on: self = player
 Returns: "stand", "sprint" (self.pers["sprinting"]), "crouch" or "prone"
 =============
 */
 back2uo_player_stance()
 {
-	pos_type = "stand";
+	pos_type = self back2uo\_back2uo_libcod::back2uo_libcod_getstance();
 
-	if(isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
+	if(pos_type == "stand" && isdefined(self.pers["sprinting"]) && self.pers["sprinting"] == true)
 	{
 		pos_type = "sprint";
-	}
-
-	if(isdefined(self.origin))
-	{
-		// 20 unit traces across the player, character hits enabled
-		pose_crouch = bulletTrace( self.origin + ( 10, 0, 60 ), self.origin + ( -10, 0, 60 ), true, undefined );
-		pose_prone = bulletTrace( self.origin + ( 10, 0, 40 ), self.origin + ( -10, 0, 40 ), true, undefined );
-
-		// fraction 1 = trace hit nothing
-		if(pose_crouch["fraction"] == 1) pos_type = "crouch";
-		if(pose_prone["fraction"] == 1) pos_type = "prone";
 	}
 
 	return pos_type;

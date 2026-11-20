@@ -95,6 +95,11 @@ back2uo_libcod_isonladder()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();
 }
 
+back2uo_libcod_getstance()
+{
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getstance();
+}
+
 back2uo_libcod_canmantle()
 {
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();

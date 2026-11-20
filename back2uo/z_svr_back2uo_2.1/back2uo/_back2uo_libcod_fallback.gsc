@@ -161,6 +161,35 @@ back2uo_libcod_fallback_false()
 
 /*
 =============
+back2uo_libcod_fallback_getstance
+
+Estimates the stance with two short horizontal traces through the player model (at 60 and
+40 units height). If the trace at a height hits nothing, the body is lower than that height.
+Costs two bulletTrace calls; zk_libcod getStance() reads the stance directly.
+Called on: self = player
+Returns: "stand", "crouch" or "prone"
+=============
+*/
+back2uo_libcod_fallback_getstance()
+{
+	pos_type = "stand";
+
+	if(isdefined(self.origin))
+	{
+		// 20 unit traces across the player, character hits enabled
+		pose_crouch = bulletTrace( self.origin + ( 10, 0, 60 ), self.origin + ( -10, 0, 60 ), true, undefined );
+		pose_prone = bulletTrace( self.origin + ( 10, 0, 40 ), self.origin + ( -10, 0, 40 ), true, undefined );
+
+		// fraction 1 = trace hit nothing
+		if(pose_crouch["fraction"] == 1) pos_type = "crouch";
+		if(pose_prone["fraction"] == 1) pos_type = "prone";
+	}
+
+	return pos_type;
+}
+
+/*
+=============
 back2uo_libcod_fallback_getinactivitytime
 
 Returns undefined: not readable without zk_libcod (or with g_inactivity 0). The AFK monitor

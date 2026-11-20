@@ -220,6 +220,22 @@ back2uo_libcod_isonladder()
 
 /*
 =============
+back2uo_libcod_getstance
+
+Returns the player's stance: "stand", "crouch" or "prone". Replaces two bulletTrace calls of
+the fallback; called every frame by the sprint system and the stance HUD.
+Called on: self = player
+=============
+*/
+back2uo_libcod_getstance()
+{
+	if(back2uo_libcod_active()) return self getStance();
+
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getstance();
+}
+
+/*
+=============
 back2uo_libcod_canmantle
 
 Returns true when the player can mantle over the obstacle in front.
