@@ -19,6 +19,10 @@
 	wie beim Loslassen der Taste gesenkt. takeWeapon("binoculars_mp") wirkt in CoD2 nicht auf die
 	Taste, darum geht es nur hier.
 
+	Fernglas beim Nachladen: Die Engine ignoriert die Taste während eines Reloads. Bei nicht
+	gesperrten Spielern bricht ein neuer Tastendruck das Nachladen ab (wie ein Waffenwechsel),
+	damit das Fernglas sofort hochkommt.
+
 	Die Sperre wird bei jedem Connect (auch nach Mapwechsel) und beim Disconnect zurückgesetzt.
 
 	Belegt die schwachen Hooks extra_SV_ClientThink_Before, extra_Scr_PlayerConnect_After,
@@ -109,26 +113,50 @@ void extra_SV_ClientThink_Before(client_t *client, usercmd_t *ucmd)
 {
 	int id = client - svs.clients;
 
-	if ( id < 0 || id >= MAX_CLIENTS || !b2u_binoBlocked[id] )
+	if ( id < 0 || id >= MAX_CLIENTS )
 		return;
 
 	qboolean pressed = ( ucmd->buttons & KEY_MASK_BINOCULARS ) ? qtrue : qfalse;
-
-	if ( pressed )
-	{
-		ucmd->buttons &= ~KEY_MASK_BINOCULARS;
-
-		// Einmal pro Tastendruck melden, damit GSC einen Hinweis zeigen kann
-		if ( !b2u_binoPressed[id] && b2u_str_binoculars_blocked )
-		{
-			gentity_t *ent = &g_entities[id];
-
-			if ( ent->client )
-				Scr_Notify(ent, b2u_str_binoculars_blocked, 0);
-		}
-	}
+	qboolean newPress = ( pressed && !b2u_binoPressed[id] ) ? qtrue : qfalse;
 
 	b2u_binoPressed[id] = pressed;
+
+	if ( b2u_binoBlocked[id] )
+	{
+		if ( pressed )
+		{
+			ucmd->buttons &= ~KEY_MASK_BINOCULARS;
+
+			// Einmal pro Tastendruck melden, damit GSC einen Hinweis zeigen kann
+			if ( newPress && b2u_str_binoculars_blocked )
+			{
+				gentity_t *ent = &g_entities[id];
+
+				if ( ent->client )
+					Scr_Notify(ent, b2u_str_binoculars_blocked, 0);
+			}
+		}
+
+		return;
+	}
+
+	// Die Engine (PM_Weapon) ignoriert die Fernglas-Taste waehrend des Nachladens, Waffenwechsel
+	// und Melee brechen das Nachladen dagegen ab. Darum wird das Nachladen beim Druecken der Taste
+	// hier genauso abgebrochen (Bereich wie isReloading()), damit PM_Weapon im selben Frame das
+	// Fernglas anhebt. Nur auf die Druckflanke, damit eine gehaltene Taste nicht jedes neue
+	// Nachladen sofort wieder abbricht. Bereits nachgeladene Schrotpatronen bleiben erhalten,
+	// das Magazin wird wie beim Waffenwechsel nicht aufgefuellt.
+	if ( !newPress )
+		return;
+
+	playerState_t *ps = SV_GameClientNum(id);
+
+	if ( ps->weaponstate >= WEAPON_RELOADING && ps->weaponstate <= WEAPON_RELOAD_END )
+	{
+		ps->weaponstate = WEAPON_READY;
+		ps->weaponTime = 0;
+		ps->weaponDelay = 0;
+	}
 }
 
 #endif
