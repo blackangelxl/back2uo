@@ -107,29 +107,40 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 	trigger = spawn("trigger_radius", origin, 0, 100, 100);
 	name = "Medium";
 
+	// Players that target this pack (other.medi_origin == origin) after the last pass.
+	targets = [];
+
 	// Runs until the pack is picked up or removed by back2uo_healthclear().
 	// Every player in the trigger is handled each pass (a trigger waittill only returns one player).
 	while(isdefined(object))
 	{
 		wait 0.1;
 
-		players = getentarray("player", "classname");
+		// Only players near the pack: zk_libcod filters in C++, without it a script loop.
+		// 200 units around the eye cover the whole trigger cylinder (radius 100, height 100).
+		players = back2uo\_back2uo_libcod::back2uo_libcod_getplayersbyvieworigininrange(origin, 200 * 200, undefined);
+		touching = [];
 
 		for(i = 0; i < players.size; i++)
 		{
-			other = players[i];
+			if(players[i] istouching(trigger) && players[i].sessionstate == "playing") touching[touching.size] = players[i];
+		}
 
-			if(!(other istouching(trigger)) || other.sessionstate != "playing")
+		// Left the trigger, died, spectating or disconnected: release this pack.
+		for(i = 0; i < targets.size; i++)
+		{
+			if(isdefined(targets[i]) && back2uo\_back2uo_weaponsystem::back2uo_pickup_istarget(targets[i].medi_origin, origin) && !back2uo\_back2uo_weaponsystem::back2uo_pickup_inlist(touching, targets[i]))
 			{
-				// Left the trigger, died or spectating: release this pack
-				if(isdefined(other.medi_origin) && other.medi_origin == origin)
-				{
-					other setClientCvar("back2uo_ui_medicicon", 0);
-					other.medi_origin = undefined;
-				}
-
-				continue;
+				targets[i] setClientCvar("back2uo_ui_medicicon", 0);
+				targets[i].medi_origin = undefined;
 			}
+		}
+
+		targets = [];
+
+		for(i = 0; i < touching.size; i++)
+		{
+			other = touching[i];
 
 			// Player is already near a different pack: ignore this one. A pack out of reach
 			// (or already gone) is released, otherwise the lock would stay for the rest of the map.
@@ -146,6 +157,7 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 				other setClientCvar("back2uo_ui_medicicon", 1);
 
 				other.medi_origin = origin;
+				targets[targets.size] = other;
 			}
 			else
 			{
@@ -165,22 +177,24 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 
 				if(other.health > other.maxhealth) other.health = other.maxhealth;
 
+				other back2uo\_back2uo_events::back2uo_event_health_changed();
+
 				back2uo\_back2uo_cvars::back2uo_logevent("healthpack", "pickup", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " size=" + meditype + " heal=" + (other.health - health_before) + " healvol=" + medihealth_vol + " before=" + health_before + " after=" + other.health + " max=" + other.maxhealth + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
 
 				// Small pack sound is local to the player, larger ones are heard by others too
 				if(meditype == 1)
 				{
-					other playLocalSound("health_pickup_small");
+					other back2uo\_back2uo_sounds::back2uo_playlocalsound("health_pickup_small");
 					name = &"BACK2UOMOD_HEALTHPACK_SMALL";
 				}
 				else if(meditype == 2)
 				{
-					other playSound("health_pickup_medium");
+					other back2uo\_back2uo_sounds::back2uo_playsound("health_pickup_medium");
 					name = &"BACK2UOMOD_HEALTHPACK_MEDIUM";
 				}
 				else
 				{
-					other playSound("health_pickup_large");
+					other back2uo\_back2uo_sounds::back2uo_playsound("health_pickup_large");
 					name = &"BACK2UOMOD_HEALTHPACK_LARGE";
 				}
 
@@ -200,15 +214,13 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 		}
 	}
 
-	// Pack is gone: release every player that still targets it and remove the trigger
-	players = getentarray("player", "classname");
-
-	for(i = 0; i < players.size; i++)
+	// Pack is gone (expired): release every player that still targets it and remove the trigger
+	for(i = 0; i < targets.size; i++)
 	{
-		if(isdefined(players[i].medi_origin) && players[i].medi_origin == origin)
+		if(isdefined(targets[i]) && back2uo\_back2uo_weaponsystem::back2uo_pickup_istarget(targets[i].medi_origin, origin))
 		{
-			players[i] setClientCvar("back2uo_ui_medicicon", 0);
-			players[i].medi_origin = undefined;
+			targets[i] setClientCvar("back2uo_ui_medicicon", 0);
+			targets[i].medi_origin = undefined;
 		}
 	}
 

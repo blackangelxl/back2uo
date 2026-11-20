@@ -96,11 +96,14 @@ back2uo_main()
 	level.back2uo_rankextra_active = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_overlv_active", 1, 0, 1, "int");
 	level.back2uo_ranking_lvextra = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_rang_lv_points", 10, 1, 100, "int");
 
-	// Rank at which artillery is unlocked; +1 converts the cvar rank to the internal level.
-	// back2uo_artillery_onrang 0 (or below) = no artillery, stored as 0.
-	level.back2uo_artillery_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_onrang", 3, 0, 4, "int");
-	if(level.back2uo_artillery_onrank > 0) level.back2uo_artillery_onrank++;
-	else level.back2uo_artillery_onrank = 0;
+	// Rank from which artillery is granted (0 = no artillery). Same rank numbers as the rank
+	// icons, back2uo_rank<n>_* loadouts and back2uo_binocular_onrang (1 Private -> 5 Platoon Sergeant).
+	level.back2uo_artillery_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_artillery_onrang", 5, 0, 5, "int");
+
+	// Rank from which the binoculars can be raised (0 = always). Same rank numbers as the rank
+	// icons and the back2uo_rank<n>_* loadouts. Below it the key is blocked by zk_libcod
+	// (setBinocularsBlocked, server/extra/back2uo_binoculars.cpp); without zk_libcod no lock.
+	level.back2uo_binocular_onrank = back2uo\_back2uo_cvars::back2uo_getcvardef("back2uo_binocular_onrang", 4, 0, 5, "int");
 
 	// No rank icons in the CTF scoreboard
 	if(getcvar("g_gametype") == "ctf") level.back2uo_rankingscorelist = 0;

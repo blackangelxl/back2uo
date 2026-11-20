@@ -7,6 +7,8 @@
 	back2uo\_back2uo_libcod_fallback.gsc:
 	- sprint: weapon swap instead of speed mode (_back2uo_sprint.gsc)
 	- test bots: stand at their spawn, the bot AI does not start (bots\_back2uo_botai.gsc)
+	- waypoints: path search and nearest node in script (bots\_back2uo_waypoints.gsc)
+	- players in range: loop over all players with getEye()
 */
 
 /*
@@ -93,6 +95,16 @@ back2uo_libcod_isonladder()
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();
 }
 
+back2uo_libcod_getvelocity()
+{
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getvelocity();
+}
+
+back2uo_libcod_getstance()
+{
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getstance();
+}
+
 back2uo_libcod_canmantle()
 {
 	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_false();
@@ -164,9 +176,60 @@ back2uo_libcod_holdbreathbuttonpressed()
 	return false;
 }
 
+// --- Binoculars ---
+
+// Without zk_libcod the binocular key cannot be blocked (takeWeapon does not affect it).
+back2uo_libcod_setbinocularsblocked(on)
+{
+}
+
 // --- Time ---
 
 back2uo_libcod_getmicroseconds()
 {
 	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getmicroseconds();
+}
+
+// --- Players in range ---
+
+back2uo_libcod_teamid(name)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_teamid(name);
+}
+
+back2uo_libcod_getplayersbyvieworigininrange(origin, maxdistsq, team)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getplayersbyvieworigininrange(origin, maxdistsq, team);
+}
+
+// --- Path finding graph ---
+
+back2uo_libcod_graphcreate(nodecount)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graphcreate();
+}
+
+back2uo_libcod_graphaddnode(graph, id, origin, type)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+back2uo_libcod_graphaddedge(graph, from, to, type)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+back2uo_libcod_graphfindpath(graph, start, goal)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+back2uo_libcod_graphclosestnode(graph, origin)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
+}
+
+back2uo_libcod_graphnodesinrange(graph, origin, maxdistsq)
+{
+	return back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_graph();
 }

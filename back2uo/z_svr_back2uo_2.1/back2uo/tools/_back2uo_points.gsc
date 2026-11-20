@@ -83,6 +83,7 @@ back2uo_playerpoints_system(wert)
 	// pers["score"] survives rounds; score is the scoreboard value.
 	self.pers["score"] = self.pers["score"] + bonus;
 	self.score = self.pers["score"];
+	self notify("update_playerhud_score");
 
 	if(bonus != 0)
 	{
@@ -111,6 +112,7 @@ back2uo_givepoints_toplayer(team, points)
 		{
 			player.pers["score"] = player.pers["score"] + points;
 			player.score = player.pers["score"];
+			player notify("update_playerhud_score");
 
 			if(points != 0)
 			{
@@ -145,6 +147,8 @@ back2uo_losepoints_ofplayer(points)
 		{
 			self.score = self.score - points;
 		}
+
+		self notify("update_playerhud_score");
 
 		// Note: the message always says "suicide", also for teamkills.
 		if(points != 0)

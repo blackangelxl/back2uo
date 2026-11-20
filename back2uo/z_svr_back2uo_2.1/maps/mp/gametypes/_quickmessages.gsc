@@ -837,13 +837,13 @@ quicktaunts(response)
 				break;
 
 			case "7":
-				soundalias = "US_thanks1";
+				soundalias = "US_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKSYOU2";
 				//saytext = "Thank you very much!";
 				break;
 
 			case "8":
-				soundalias = "US_thanks2";
+				soundalias = "US_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKS2";
 				//saytext = "Thanks!";
 				break;
@@ -896,13 +896,13 @@ quicktaunts(response)
 				break;
 
 			case "7":
-				soundalias = "UK_thanks1";
+				soundalias = "UK_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKSYOU2";
 				//saytext = "Thank you very much!";
 				break;
 
 			case "8":
-				soundalias = "UK_thanks2";
+				soundalias = "UK_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKS2";
 				//saytext = "Thanks!";
 				break;
@@ -956,13 +956,13 @@ quicktaunts(response)
 				break;
 
 			case "7":
-				soundalias = "RU_thanks1";
+				soundalias = "RU_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKSYOU2";
 				//saytext = "Thank you very much!";
 				break;
 
 			case "8":
-				soundalias = "RU_thanks2";
+				soundalias = "RU_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKS2";
 				//saytext = "Thanks!";
 				break;
@@ -1022,13 +1022,13 @@ quicktaunts(response)
 				break;
 
 			case "7":
-				soundalias = "GE_thanks1";
+				soundalias = "GE_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKSYOU2";
 				//saytext = "Thank you very much!";
 				break;
 
 			case "8":
-				soundalias = "GE_thanks2";
+				soundalias = "GE_thanks";
 				saytext = &"QUICKMESSAGE_BACK2UO_THANKS2";
 				//saytext = "Thanks!";
 				break;

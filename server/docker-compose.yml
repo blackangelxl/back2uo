@@ -1,48 +1,42 @@
 services:
   cod2_server:
-    # You can chose a different server version, see available image tags:
-    # https://hub.docker.com/r/bgauduch/cod2server/tags
-    #
+
     build:
       context: .
       dockerfile: Dockerfile
-    image: bgauduch/cod2server:8.1.1-1_3_nodelay_va_loc-ibuddieat
-    restart: unless-stopped
+      args:
+        TOMASZ_VERSION: "0.35"
+    image: back2uo-cod2-server:local
+    container_name: cod2-server
+    restart: always
     ports:
-      - "20500:20500/udp"
-      - "20510:20510/udp"
-      - "28961:28960/tcp"
-      - "28961:28960/udp"
-    # Mount required game files
+      - 28970:28970
+      - 28970:28970/udp
     volumes:
-      - cod2_main:/home/cod2/main:ro
-      - back2uo:/home/cod2/back2uo:ro
-    # Configure server parameters
-    command:
-      [
-        "+set", "fs_game", "back2uo",
-        "+set", "dedicated", "1",
-        "+set", "loc_language", "2",
-        "+set", "net_port", "28960",
-        "+set", "net_ip", "0.0.0.0",
-        "+set", "sv_cheats", "0",
-        "+set", "sv_punkbuster", "0",
-        "+exec", "cod2server.cfg"
-      ]
-    # Allow server shell interaction
+      - back2uo:/cod2/back2uo:ro
+      - cod2_main:/cod2/main:ro
+      #- cod2_library:/cod2/library:ro
+    environment:
+      PARAMS_BEFORE: "+exec cod2server.cfg"
+      COD2_SET_fs_homepath: "/cod2/home"
+      COD2_SET_fs_library: "library"
+      COD2_SET_fs_game: "back2uo"
+      COD2_SET_loc_language: 2
+      COD2_SET_dedicated: 1
+      COD2_SET_net_ip: "0.0.0.0"
+      COD2_SET_net_port: 28970
     stdin_open: true
     tty: true
-    deploy:
-      resources:
-        limits:
-          cpus: '2.0'
-          memory: 1G
-        reservations:
-          cpus: '0.5'
-          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "10"
 
 volumes:
+  back2uo:
+    external: true
   cod2_main:
     external: true
-  back2uo:
+  cod2_library:
     external: true

@@ -14,6 +14,10 @@ main()
  // limit. See tools/wp2gsc.py.
  level.back2uo_wp_mapscript = back2uo\bots\waypoints\_wp_mp_dawnville_cl::load;
 
+	// Back2Uo: trace cache of the map (tools/tcgen.py). Referenced only here, so the engine
+	// compiles only this map's cache.
+	level.back2uo_tc_mapscript = back2uo\tracecache\_tc_mp_dawnville_cl::load;
+
  // Weiterleitung - Precache Fx
  precachefx();
 

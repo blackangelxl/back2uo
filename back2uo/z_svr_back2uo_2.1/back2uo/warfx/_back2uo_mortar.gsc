@@ -9,8 +9,8 @@
 =============
 back2uo_mortarfx_control
 
-Polls level.back2uo_mortarfx_allow every 0.1 seconds. When set, starts one mortar
-barrage and clears the flag again.
+Waits for the level event "back2uo_warfx_mortar" (sent by _back2uo_warfx.gsc) and starts
+one mortar barrage per event.
 Called on: level
 =============
 */
@@ -20,20 +20,13 @@ back2uo_mortarfx_control()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Mortar Fx Control", "Run");
 
-	if(!isdefined(level.back2uo_mortarfx_allow)) level.back2uo_mortarfx_allow = false;
-
 	level endon("back2uo_killthreads");
 
 	for(;;)
 	{
-		if(level.back2uo_mortarfx_allow)
-		{
-			thread back2uo_mortarfx_play();
+		level waittill("back2uo_warfx_mortar");
 
-			level.back2uo_mortarfx_allow = false;
-		}
-
-		wait 0.1;
+		thread back2uo_mortarfx_play();
 	}
 }
 
@@ -173,14 +166,8 @@ back2uo_mortar_draw(wert)
 
 	wait 0.05;
 
-	// Incoming whistle. randomint(2) only picks index 0 or 1.
-	soundfx_moerfall[0] = "moerser_fallincome1";
-	soundfx_moerfall[1] = "moerser_fallincome2";
-	soundfx_moerfall[2] = "moerser_fallincome1";
-
-	random_fallsound = randomint(2);
-
-	mortar playsound(soundfx_moerfall[random_fallsound]);
+	// Incoming whistle; the sound alias picks one of its variants (soundaliases/_back2uo.csv).
+	mortar back2uo\_back2uo_sounds::back2uo_playsound("moerser_fallincome");
 
 	// Let the whistle play before the shell becomes visible.
 	wait 1;
@@ -202,14 +189,8 @@ back2uo_mortar_draw(wert)
 	// Impact effect for the surface type.
 	playfx(level.back2uo_effect["mortar_" + mortarfx], trace["position"]);
 
-	// Random explosion sound.
-	soundfx_moerexplo[0] = "moerser_explod1";
-	soundfx_moerexplo[1] = "moerser_explod2";
-	soundfx_moerexplo[2] = "moerser_explod3";
-
-	moerexplo_efx = randomInt(soundfx_moerexplo.size);
-
-	mortar playsound(soundfx_moerexplo[moerexplo_efx]);
+	// Explosion sound; the sound alias picks one of its variants (soundaliases/_back2uo.csv).
+	mortar back2uo\_back2uo_sounds::back2uo_playsound("moerser_explod");
 
 	mortar hide();
 

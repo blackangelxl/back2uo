@@ -40,9 +40,8 @@ back2uo_sprintsystem_main()
 	if(isdefined(self.pers["bots_nosprint"])) return;
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	self.pers["sprinting"] = false;
 	self.pers["sprint_mode"] = "";
@@ -54,27 +53,39 @@ back2uo_sprintsystem_main()
 
 	if(!isdefined(self.pers["weapon_pickupsprintwait"])) self.pers["weapon_pickupsprintwait"] = false;
 
-	self thread back2uo_sprintsystem_ismoving();
+	// zk_libcod: the move state comes from getVelocity() in this loop (no extra thread, no
+	// 0.1 s sampling delay); without it a thread measures the position change.
+	self.pers["is_moving"] = false;
+	use_velocity = isdefined(self back2uo\_back2uo_libcod::back2uo_libcod_getvelocity());
+
+	if(!use_velocity) self thread back2uo_sprintsystem_ismoving();
 
 	for(;;)
 	{
-		positype = back2uo\_back2uo_cvars::back2uo_player_stance();
-
 		// After a weapon pickup (Use key) block sprinting for 1 second, so the
 		// same key press does not also start a sprint.
 		if(self.pers["weapon_pickupsprintwait"] == true)
 		{
+			// No move state update during the wait: no sprint can start or run.
+			if(use_velocity) self.pers["is_moving"] = false;
+
 			wait 1;
 
 			self.pers["weapon_pickupsprintwait"] = false;
 		}
 
+		if(use_velocity) self back2uo_sprintsystem_movestate();
+
 		// Disabled condition: && !self.pers["breathing"]
 		// After an exhaustion (self.sprint_exhausted) sprinting waits until the bar is back at about 80%.
-		if(self back2uo_sprintsystem_keypressed() && self.pers["is_moving"] && (positype == "stand" || positype == "sprint") && self.hud_sprint_height < 34 && !(isdefined(self.sprint_exhausted) && self.sprint_exhausted) && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
+		// The key comes first: the rest is only checked while the sprint key is held, the
+		// stance last (without zk_libcod it costs two traces).
+		if(self back2uo_sprintsystem_keypressed() && self.pers["is_moving"] && self.hud_sprint_height < 34 && !(isdefined(self.sprint_exhausted) && self.sprint_exhausted) && !self back2uo\_back2uo_libcod::back2uo_libcod_isusingbinoculars() && !self back2uo\_back2uo_libcod::back2uo_libcod_aimbuttonpressed() && self.pers["weapon_pickupsprintwait"] == false && self.back2uo_playerdo == "none")
 		{
+			positype = back2uo\_back2uo_cvars::back2uo_player_stance();
+
 			// Returns at once if a sprint is already running.
-			self thread back2uo_sprintsystem_run();
+			if(positype == "stand" || positype == "sprint") self thread back2uo_sprintsystem_run();
 		}
 
 		wait 0.05;
@@ -100,9 +111,8 @@ back2uo_sprintsystem_run()
 	// No trace call here: this is threaded every frame while Use is held
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	if(self.pers["sprinting"] == true) return;
 
@@ -343,9 +353,35 @@ back2uo_sprintsystem_logskip(reason, weapon)
 
 /*
 =============
+back2uo_sprintsystem_movestate
+
+zk_libcod version of back2uo_sprintsystem_ismoving, called every frame from the sprint loop
+instead of a thread: sets self.pers["is_moving"] from getVelocity(), without the 0.1 second
+sampling delay. Same rules: true while the sprint key is held and the player moves faster than
+100 units per second (10 units per 0.1 seconds), false when the key is released, unchanged
+while the key is held at a lower speed. back2uo_moving_forward is not needed with zk_libcod
+(forwardButtonPressed reads the key).
+Called on: self = player
+=============
+*/
+back2uo_sprintsystem_movestate()
+{
+	if(!self back2uo_sprintsystem_keypressed())
+	{
+		self.pers["is_moving"] = false;
+		return;
+	}
+
+	velocity = self back2uo\_back2uo_libcod::back2uo_libcod_getvelocity();
+
+	if(isdefined(velocity) && length(velocity) > 100) self.pers["is_moving"] = true;
+}
+
+/*
+=============
 back2uo_sprintsystem_ismoving
 
-Sets self.pers["is_moving"] every 0.1 seconds. It becomes true when Use is held and the
+Without zk_libcod (see back2uo_sprintsystem_movestate): sets self.pers["is_moving"] every 0.1 seconds. It becomes true when Use is held and the
 player moved more than 10 units in the last 0.1 seconds, and false when Use is released.
 While Use stays held, the last value is kept. Also sets self.back2uo_moving_forward for the
 forward-key fallback (back2uo_libcod_fallback_forwardbuttonpressed).
@@ -357,9 +393,8 @@ back2uo_sprintsystem_ismoving()
 	back2uo\_back2uo_cvars::back2uo_logprint("Sprint is Moving", "Run");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	self.pers["is_moving"] = false;
 
@@ -371,7 +406,14 @@ back2uo_sprintsystem_ismoving()
 
 			wait 0.1;
 
-			if(isPlayer(self))
+			// Sprint key not held: not moving for the sprint system, skip the vector math
+			// (back2uo_moving_forward is only read while the key is held).
+			if(isPlayer(self) && !self back2uo_sprintsystem_keypressed())
+			{
+				self.pers["is_moving"] = false;
+				self.back2uo_moving_forward = false;
+			}
+			else if(isPlayer(self))
 			{
 				// Units moved in 0.1 seconds.
 				playerspeed = distance(firstpos, self.origin);

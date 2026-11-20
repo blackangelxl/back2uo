@@ -26,9 +26,8 @@ back2uo_coldbreath_draw()
 	back2uo\_back2uo_cvars::back2uo_logprint("Cold Breath Draw", "Run");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	if(game["german_soldiertype"] == "winterlight" || game["german_soldiertype"] == "winterdark")
 	{

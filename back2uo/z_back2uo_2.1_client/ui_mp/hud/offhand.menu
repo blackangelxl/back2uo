@@ -58,6 +58,40 @@
 			decoration
 		}
 
+		// Back2Uo binocular icon + count, one row above the frag icon (same step as frag -> smoke).
+		// Client cvar back2uo_ui_binocular set by the server: "1" usable, "0" locked, "" hidden.
+		// Icon: images/back2uo_hud_binocular.iwi (material gfx/custom/back2uo_hud_binocular.tga).
+		itemDef
+		{
+			name			"back2uo_binocularicon"
+			rect			-23 -120 20 20
+			forecolor		1.0 1.0 1.0 1.0
+			style			WINDOW_STYLE_SHADER
+			background		"gfx/custom/back2uo_hud_binocular.tga"
+			visible			MENU_TRUE
+			decoration
+			dvartest		"back2uo_ui_binocular"
+			showDvar		{ "0" ; "1" }
+		}
+
+		// binocular count, same rect offset, font and scale as the grenade ammo
+		// No text: the item shows the value of its dvar ("1" / "0").
+		itemDef
+		{
+			name			"back2uo_binocularcount"
+			type			ITEM_TYPE_TEXT
+			rect			-39 -105 25 25
+			textscale		.4
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textfont		UI_FONT_DEFAULT
+			forecolor		1.0 1.0 1.0 1.0
+			visible			MENU_TRUE
+			decoration
+			dvar			"back2uo_ui_binocular"
+			dvartest		"back2uo_ui_binocular"
+			showDvar		{ "0" ; "1" }
+		}
+
 		// offhand frag name
 //		itemDef
 //		{

@@ -24,6 +24,9 @@ back2uo/z_back2uo_2.1_client/materials/*   -text
 *.py    text eol=lf
 *.md    text eol=lf
 
+# Patches are applied with git apply inside the Linux server image (server/Dockerfile)
+*.patch text eol=lf
+
 # MeatBot waypoint sources: keep byte for byte, some files hold corrupt binary tails
 *.wp    -text
 *.WP    -text

@@ -24,6 +24,10 @@ main()
 	// on this map; all maps at once would exceed the script variable limit. See tools/wp2gsc.py.
 	level.back2uo_wp_mapscript = back2uo\bots\waypoints\_wp_mp_burgundy::load;
 
+	// Back2Uo: trace cache of the map (tools/tcgen.py). Referenced only here, so the engine
+	// compiles only this map's cache.
+	level.back2uo_tc_mapscript = back2uo\tracecache\_tc_mp_burgundy::load;
+
 	// Back2Uo: read the mod on/off switch. This runs before the mod's main script, so back2uo_status_active is read here.
 	game["back2uo_enable"] = back2uo\_back2uo_cvars::back2uo_getstatus();
 

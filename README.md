@@ -36,6 +36,7 @@ back2uo/                          fs_game folder contents
     back2uo/_back2uo_*.gsc        the mod itself (entry: _back2uo_main.gsc)
     back2uo/bots/                 bot AI (_back2uo_botai.gsc), waypoint loader and path finding (A*)
     back2uo/bots/waypoints/       generated waypoint scripts per map (tools/wp2gsc.py)
+    back2uo/tracecache/           generated trace cache per map (tools/tcgen.py)
     maps/mp/gametypes/*.gsc       stock gametypes with Back2Uo hooks ("Back2Uo:" comments)
     maps/mp/mp_*_fx.gsc           stock map FX scripts, adapted
   z_svr_back2uo_2.1_libcod/       -> z_svr_back2uo_2.1_libcod.iwd  zk_libcod function wrappers
@@ -52,6 +53,7 @@ tools/
   gscfmt.py                       formats GSC files (tabs, CRLF)
   gsclex.py                       checks that an edit changed only comments/whitespace
   wp2gsc.py                       converts MeatBot waypoints (.wp) into GSC waypoint scripts
+  tcgen.py                        traces the maps on the docker server and writes the trace cache
   waypoints_mbot/                 MeatBot waypoint sources for the stock maps
 ```
 
@@ -69,6 +71,14 @@ Output: `dist/back2uo/` with the five `.iwd` archives and the config files.
 The bot waypoint scripts in `back2uo/z_svr_back2uo_2.1/back2uo/bots/waypoints/` are generated.
 After changing the sources in `tools/waypoints_mbot/` (one `<mapname>_tdm.wp` per map), run
 `python tools/wp2gsc.py`. The layout is described at the top of [tools/wp2gsc.py](tools/wp2gsc.py).
+
+The trace cache scripts in `back2uo/z_svr_back2uo_2.1/back2uo/tracecache/` are generated too:
+the map bounds and the airplane fly-over paths, traced once on the Docker test server instead
+of for 9-25 seconds after every map and round start. After changing a map, its entities or the
+airplane formations, run `python tools/tcgen.py [<mapname> ...]` (all maps without names).
+Maps without a cache file still work; they trace at run time and keep the bounds in cvars.
+Details at the top of [tools/tcgen.py](tools/tcgen.py) and
+`back2uo/z_svr_back2uo_2.1/back2uo/tools/_back2uo_tracecache.gsc`.
 
 ## Tests
 
@@ -107,6 +117,12 @@ otherwise the scripts do not compile. The mod then uses its fallbacks
 (`_back2uo_libcod_fallback.gsc`): the sprint swaps to the `_sprint` weapon instead of raising
 the player's speed, and test bots stand still.
 
+`z_svr_back2uo_2.1_libcod.iwd` also needs the extra modules that [`server/Dockerfile`](server/Dockerfile)
+compiles into zk_libcod: `setBinocularsBlocked` (`server/extra/`) and, from
+[cod2-server](https://github.com/rutkowski-tomasz/cod2-server/tree/master/server/extra), the
+`graph*` path finding (bot paths and nearest waypoint in C++) and `getPlayersByViewOriginInRange`
+(bot enemy search). With plain zk_libcod it does not compile either.
+
 Keep both `localized_*_iw15.iwd` files on the server, so English and German clients get text and sounds in their language.
 Clients download the mod through auto-download (`sv_allowDownload`). Optionally, players without auto-download are kicked (`back2uo_autodownload`).
 
@@ -140,6 +156,9 @@ All options are in [`back2uo/back2uomod.cfg`](back2uo/back2uomod.cfg). Each cvar
 - https://nawaftahir.github.io/cod2-iwi-gallery/ Call of Duty 2 · Stock Texture Library
 - https://github.com/nawaftahir/vscode-cod-gsc Extension for VS Code for GSC scripts used in Call of Duty games (CoD GSC)
 - https://github.com/7894752/cod2map New 64-bit Map compiler version
+- https://github.com/rutkowski-tomasz/cod2-server Call of Duty 2 server: libcod additions on top of zk_libcod, Docker image and Terraform infrastructure.
+- https://github.com/rutkowski-tomasz/cod2-server/tree/master/server/extra zk_libcod extension
+- https://github.com/rutkowski-tomasz/cod2-server/tree/master/tools cod 2 model, fx, map & menu viewer and more
 
 ## Credits
 

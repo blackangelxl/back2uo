@@ -9,8 +9,8 @@
 =============
 back2uo_ambtracerfx_control
 
-Polls level.back2uo_ambtracerfx_allow every 0.1 seconds. When set, starts one
-ambient tracer wave and clears the flag again.
+Waits for the level event "back2uo_warfx_tracer" (sent by _back2uo_warfx.gsc) and starts one
+ambient tracer wave per event.
 Called on: level
 =============
 */
@@ -18,22 +18,15 @@ back2uo_ambtracerfx_control()
 {
 	if(!game["back2uo_warfx_enable"] || !game["back2uo_ambtracerfx_enable"]) return;
 
-	if(!isdefined(level.back2uo_ambtracerfx_allow)) level.back2uo_ambtracerfx_allow = false;
-
 	back2uo\_back2uo_cvars::back2uo_logprint("Ambtrace Fx Control", "Run");
 
 	level endon("back2uo_killthreads");
 
 	for(;;)
 	{
-		if(level.back2uo_ambtracerfx_allow)
-		{
-			thread back2uo_ambtracerfx_play();
+		level waittill("back2uo_warfx_tracer");
 
-			level.back2uo_ambtracerfx_allow = false;
-		}
-
-		wait 0.1;
+		thread back2uo_ambtracerfx_play();
 	}
 }
 

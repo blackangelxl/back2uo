@@ -161,6 +161,49 @@ back2uo_libcod_fallback_false()
 
 /*
 =============
+back2uo_libcod_fallback_getvelocity
+
+Returns undefined: the velocity is not readable without zk_libcod. The sprint system then
+measures the position change in a thread (_back2uo_sprint::back2uo_sprintsystem_ismoving).
+Called on: self = player
+=============
+*/
+back2uo_libcod_fallback_getvelocity()
+{
+	return undefined;
+}
+
+/*
+=============
+back2uo_libcod_fallback_getstance
+
+Estimates the stance with two short horizontal traces through the player model (at 60 and
+40 units height). If the trace at a height hits nothing, the body is lower than that height.
+Costs two bulletTrace calls; zk_libcod getStance() reads the stance directly.
+Called on: self = player
+Returns: "stand", "crouch" or "prone"
+=============
+*/
+back2uo_libcod_fallback_getstance()
+{
+	pos_type = "stand";
+
+	if(isdefined(self.origin))
+	{
+		// 20 unit traces across the player, character hits enabled
+		pose_crouch = bulletTrace( self.origin + ( 10, 0, 60 ), self.origin + ( -10, 0, 60 ), true, undefined );
+		pose_prone = bulletTrace( self.origin + ( 10, 0, 40 ), self.origin + ( -10, 0, 40 ), true, undefined );
+
+		// fraction 1 = trace hit nothing
+		if(pose_crouch["fraction"] == 1) pos_type = "crouch";
+		if(pose_prone["fraction"] == 1) pos_type = "prone";
+	}
+
+	return pos_type;
+}
+
+/*
+=============
 back2uo_libcod_fallback_getinactivitytime
 
 Returns undefined: not readable without zk_libcod (or with g_inactivity 0). The AFK monitor
@@ -212,6 +255,91 @@ Returns undefined: stock CoD2 has no real clock for scripts (gettime() is game t
 =============
 */
 back2uo_libcod_fallback_getmicroseconds()
+{
+	return undefined;
+}
+
+// --- Players in range ---
+
+/*
+=============
+back2uo_libcod_fallback_teamid
+
+Returns the engine's team number of a team name: 0 free ("none", also dm), 1 axis,
+2 allies, 3 spectator. getPlayersByViewOriginInRange filters by these numbers.
+Params: name - "axis", "allies", "spectator" or "none"
+=============
+*/
+back2uo_libcod_fallback_teamid(name)
+{
+	switch(name)
+	{
+	case "axis":
+		return 1;
+	case "allies":
+		return 2;
+	case "spectator":
+		return 3;
+	}
+
+	return 0;
+}
+
+/*
+=============
+back2uo_libcod_fallback_getplayersbyvieworigininrange
+
+getPlayersByViewOriginInRange with stock functions: the living players in play whose eye
+position (getEye()) is within sqrt(maxdistsq) of origin, in entity order.
+Params: origin - world position
+		maxdistsq - squared distance; undefined = no limit
+		team - team number (see back2uo_libcod_fallback_teamid); undefined = every team
+Returns: array of players
+=============
+*/
+back2uo_libcod_fallback_getplayersbyvieworigininrange(origin, maxdistsq, team)
+{
+	result = [];
+	players = getentarray("player", "classname");
+
+	for(i = 0; i < players.size; i++)
+	{
+		player = players[i];
+
+		if(!isdefined(player.sessionstate) || player.sessionstate != "playing" || !isAlive(player)) continue;
+		if(isdefined(team) && back2uo_libcod_fallback_teamid(player.sessionteam) != team) continue;
+		if(isdefined(maxdistsq) && distancesquared(origin, player getEye()) > maxdistsq) continue;
+
+		result[result.size] = player;
+	}
+
+	return result;
+}
+
+// --- Path finding graph ---
+
+/*
+=============
+back2uo_libcod_fallback_graphcreate
+
+Returns undefined: the graph functions need the cod2-server extra module of zk_libcod.
+bots\_back2uo_waypoints.gsc then keeps its script search (A*, nearest node scan).
+=============
+*/
+back2uo_libcod_fallback_graphcreate()
+{
+	return undefined;
+}
+
+/*
+=============
+back2uo_libcod_fallback_graph
+
+graphAddNode, graphAddEdge, graphFindPath, graphFindClosestNode, graphGetAllNodes: never
+reached without a graph (back2uo_libcod_fallback_graphcreate returns undefined). Returns undefined.
+=============
+*/
+back2uo_libcod_fallback_graph()
 {
 	return undefined;
 }

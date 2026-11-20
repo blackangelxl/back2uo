@@ -1,0 +1,30 @@
+diff --git a/code/extra/nl.hpp b/code/extra/nl.hpp
+index cd89814..bfb6eb7 100644
+--- a/code/extra/nl.hpp
++++ b/code/extra/nl.hpp
+@@ -51,6 +51,10 @@ void gsc_sounds_takeplayedsounds();
+ void gsc_sounds_getloopsounds();
+ void gsc_sounds_getambientsound();
+ 
++// Back2Uo (server/extra/back2uo_binoculars.cpp)
++void gsc_back2uo_setbinocularsblocked(scr_entref_t ref);
++void gsc_back2uo_isbinocularsblocked(scr_entref_t ref);
++
+ void gsc_utils_collapsecolors();
+ void gsc_utils_stripcolors();
+ void gsc_utils_sha256();
+diff --git a/code/extra/nl_functions.cpp b/code/extra/nl_functions.cpp
+index 43b010e..c648c44 100644
+--- a/code/extra/nl_functions.cpp
++++ b/code/extra/nl_functions.cpp
+@@ -72,6 +72,10 @@ static scr_method_t methods[] =
+ 	{"playSound", gsc_sounds_playsound, 0},
+ 	{"playSoundAsMaster", gsc_sounds_playsoundasmaster, 0},
+ 	{"playLocalSound", gsc_sounds_playlocalsound, 0},
++
++	// Back2Uo (server/extra/back2uo_binoculars.cpp)
++	{"setBinocularsBlocked", gsc_back2uo_setbinocularsblocked, 0},
++	{"isBinocularsBlocked", gsc_back2uo_isbinocularsblocked, 0},
+ 	{NULL, NULL, 0}
+ };
+ 

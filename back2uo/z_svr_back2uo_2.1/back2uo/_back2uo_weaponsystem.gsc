@@ -355,9 +355,8 @@ back2uo_pistel_ammo_slot(slot, ammo)
 	back2uo\_back2uo_cvars::back2uo_logprint("Weapon Pistol Ammo in Slot", "Run");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{
@@ -370,6 +369,38 @@ back2uo_pistel_ammo_slot(slot, ammo)
 
 		wait 0.1;
 	}
+}
+
+/*
+=============
+back2uo_weaponlimit_get
+
+Returns how many players may carry a weapon at the same time (cvars back2uo_*_lmd), or
+undefined if the weapon has no limit or the limits are off (back2uo_weapons_lmd_active 0).
+Params: weapon - weapon name
+=============
+*/
+back2uo_weaponlimit_get(weapon)
+{
+	if(!isdefined(game["back2uo_weaponlimit_enable"]) || !game["back2uo_weaponlimit_enable"]) return undefined;
+
+	switch(weapon)
+	{
+	case "springfield_mp":
+		return level.back2uo_springfield_limit;
+	case "mosin_nagant_sniper_mp":
+		return level.back2uo_nagantsniper_limit;
+	case "enfield_scope_mp":
+		return level.back2uo_enfieldsniper_limit;
+	case "kar98k_sniper_mp":
+		return level.back2uo_kar98sniper_limit;
+	case "shotgun_mp_allies":
+		return level.back2uo_shotgun_allies_limit;
+	case "shotgun_mp_axis":
+		return level.back2uo_shotgun_axis_limit;
+	}
+
+	return undefined;
 }
 
 /*
@@ -394,12 +425,16 @@ back2uo_snipershotgun_limiter()
 	level endon("back2uo_killthreads");
 
 	// Limited weapons and their limit (players per weapon)
-	names[0] = "springfield_mp";			limits[0] = level.back2uo_springfield_limit;
-	names[1] = "mosin_nagant_sniper_mp";	limits[1] = level.back2uo_nagantsniper_limit;
-	names[2] = "enfield_scope_mp";			limits[2] = level.back2uo_enfieldsniper_limit;
-	names[3] = "kar98k_sniper_mp";			limits[3] = level.back2uo_kar98sniper_limit;
-	names[4] = "shotgun_mp_allies";			limits[4] = level.back2uo_shotgun_allies_limit;
-	names[5] = "shotgun_mp_axis";			limits[5] = level.back2uo_shotgun_axis_limit;
+	names[0] = "springfield_mp";
+	names[1] = "mosin_nagant_sniper_mp";
+	names[2] = "enfield_scope_mp";
+	names[3] = "kar98k_sniper_mp";
+	names[4] = "shotgun_mp_allies";
+	names[5] = "shotgun_mp_axis";
+
+	limits = [];
+	for(n = 0; n < names.size; n++)
+		limits[n] = back2uo_weaponlimit_get(names[n]);
 
 	level.back2uo_weaponlimit_full = [];
 
@@ -487,44 +522,93 @@ back2uo_weaponpickup(weapon, clipammo, slotammo, object, origin, slotmaxammo, cu
 	// trigger_radius: spawnflags 0, radius 100, height 100.
 	trigger = spawn("trigger_radius", origin, 0, 100, 100);
 
+	// Players that target this weapon (other.weapon_origin == origin) after the last pass.
+	targets = [];
+
 	// Every player in the trigger is handled each pass (a trigger waittill only returns one player).
 	while(isdefined(object))
 	{
 		wait 0.1;
 
-		players = getentarray("player", "classname");
+		// Only players near the weapon: zk_libcod filters in C++, without it a script loop.
+		// 200 units around the eye cover the whole trigger cylinder (radius 100, height 100).
+		players = back2uo\_back2uo_libcod::back2uo_libcod_getplayersbyvieworigininrange(origin, 200 * 200, undefined);
+		touching = [];
 
 		for(i = 0; i < players.size; i++)
 		{
 			other = players[i];
 
-			if(other istouching(trigger) && other.sessionstate == "playing")
+			if(!(other istouching(trigger)) || other.sessionstate != "playing") continue;
+
+			touching[touching.size] = other;
+
+			if(back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, slotmaxammo, currentslot, weaponinfo))
 			{
-				if(back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, slotmaxammo, currentslot, weaponinfo))
-				{
-					// Picked up: ends this thread.
-					if(isdefined(object)) object delete();
-					break;
-				}
+				// Picked up: ends this thread.
+				if(isdefined(object)) object delete();
+				break;
 			}
-			else if(isdefined(other.weapon_origin) && other.weapon_origin == origin)
-			{
-				// Left the trigger, died or spectating: release this weapon as pickup target.
-				other back2uo_weaponpickup_release();
-			}
+		}
+
+		// Left the trigger, died, spectating or disconnected: release this weapon as pickup target.
+		for(i = 0; i < targets.size; i++)
+		{
+			if(isdefined(targets[i]) && back2uo_pickup_istarget(targets[i].weapon_origin, origin) && !back2uo_pickup_inlist(touching, targets[i]))
+				targets[i] back2uo_weaponpickup_release();
+		}
+
+		targets = [];
+
+		for(i = 0; i < touching.size; i++)
+		{
+			if(back2uo_pickup_istarget(touching[i].weapon_origin, origin)) targets[targets.size] = touching[i];
 		}
 	}
 
 	// Weapon is gone: release every player that still targets it.
-	players = getentarray("player", "classname");
-
-	for(i = 0; i < players.size; i++)
+	for(i = 0; i < targets.size; i++)
 	{
-		if(isdefined(players[i].weapon_origin) && players[i].weapon_origin == origin)
-			players[i] back2uo_weaponpickup_release();
+		if(isdefined(targets[i]) && back2uo_pickup_istarget(targets[i].weapon_origin, origin))
+			targets[i] back2uo_weaponpickup_release();
 	}
 
 	if(isdefined(trigger)) trigger delete();
+}
+
+/*
+=============
+back2uo_pickup_istarget
+
+Returns true if a player's pickup target is the pickup at origin. Callers check
+isdefined(player) first (a disconnected player); the entity of a disconnected player can be
+reused by a new one, which has no target yet.
+Params: target - the player's pickup target origin (weapon_origin / medi_origin)
+		origin - origin of the pickup
+=============
+*/
+back2uo_pickup_istarget(target, origin)
+{
+	return (isdefined(target) && target == origin);
+}
+
+/*
+=============
+back2uo_pickup_inlist
+
+Returns true if the player is in the list.
+Params: list - array of players
+		player - player entity
+=============
+*/
+back2uo_pickup_inlist(list, player)
+{
+	for(i = 0; i < list.size; i++)
+	{
+		if(list[i] == player) return true;
+	}
+
+	return false;
 }
 
 /*
@@ -670,7 +754,7 @@ back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, s
 
 				other switchToWeapon(weapon);
 
-				other playSound("weap_pickup");
+				other back2uo\_back2uo_sounds::back2uo_playsound("weap_pickup");
 
 				other back2uo_weaponpickup_release();
 
@@ -716,7 +800,7 @@ back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, s
 
 			back2uo\_back2uo_cvars::back2uo_logevent("weapon", "ammo", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " weapon=" + weapon + " slot=" + slot + " before=" + other.pers["weaponpickup_ammo"] + " added=" + slotammo + " clipbefore=" + other.pers["weaponpickup_clipammo"] + " clipadded=" + clipammo + " max=" + weapon_maxslotammo);
 
-			other playSound("weap_ammo_pickup");
+			other back2uo\_back2uo_sounds::back2uo_playsound("weap_ammo_pickup");
 
 			other iprintln(&"GAME_PICKUP_AMMO", weaponinfo[2]);
 

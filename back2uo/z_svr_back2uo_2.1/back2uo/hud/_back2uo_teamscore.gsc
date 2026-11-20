@@ -3,8 +3,8 @@
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
-	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
-	"disconnect" or "killed_player".
+	Update threads end on level "back2uo_killthreads" and player "disconnect" or
+	"back2uo_life_end" (see _back2uo_events.gsc).
 */
 
 /*
@@ -227,14 +227,13 @@ back2uo_teamscore_update()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Team Score", "Update");
 
-	// Only one update loop per player; spectators get no "killed_player", so every switch
-	// to spectator would otherwise start one more loop.
+	// Only one update loop per player, even if a "back2uo_life_end" was missed (the loop is
+	// started on spawn and on every switch to spectator).
 	self notify("back2uo_teamscore_update");
 	self endon("back2uo_teamscore_update");
 
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{

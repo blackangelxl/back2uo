@@ -3,8 +3,8 @@
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
-	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
-	"disconnect" or "killed_player".
+	Update threads end on level "back2uo_killthreads" and player "disconnect" or
+	"back2uo_life_end" (see _back2uo_events.gsc).
 */
 
 /*
@@ -103,9 +103,8 @@ back2uo_playerposition_update()
 	back2uo\_back2uo_cvars::back2uo_logprint("Player Position", "Update");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	self thread back2uo_playerposition_sprint();
 	self thread back2uo_playerposition_sprintsound();
@@ -184,9 +183,8 @@ back2uo_playerposition_sprint()
 	back2uo\_back2uo_cvars::back2uo_logprint("Player Position Sprint", "Run");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	sprint_waiton = 0.2;
 	sprint_waitoff = 1;
@@ -341,9 +339,8 @@ back2uo_playerposition_sprintsound()
 	back2uo\_back2uo_cvars::back2uo_logprint("Player Position Sprintsound", "Run");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{

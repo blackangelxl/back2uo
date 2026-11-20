@@ -9,8 +9,8 @@
 =============
 back2uo_airplanefx_control
 
-Polls level.back2uo_airplanefx_allow every 0.1 seconds. When set, starts one
-airplane fly-over and clears the flag again.
+Waits for the level event "back2uo_warfx_airplane" (sent by _back2uo_warfx.gsc) and starts
+one airplane fly-over per event.
 Called on: level
 =============
 */
@@ -18,22 +18,15 @@ back2uo_airplanefx_control()
 {
 	if(!game["back2uo_warfx_enable"] || !game["back2uo_airplanesfx_enable"]) return;
 
-	if(!isdefined(level.back2uo_airplanefx_allow)) level.back2uo_airplanefx_allow = false;
-
 	back2uo\_back2uo_cvars::back2uo_logprint("Airplane Fx Control", "Run");
 
 	level endon("back2uo_killthreads");
 
 	for(;;)
 	{
-		if(level.back2uo_airplanefx_allow)
-		{
-			thread back2uo_airplanefx_play();
+		level waittill("back2uo_warfx_airplane");
 
-			level.back2uo_airplanefx_allow = false;
-		}
-
-		wait 0.1;
+		thread back2uo_airplanefx_play();
 	}
 }
 
@@ -273,9 +266,9 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	airplane.sound.origin = airplane_startpoint;
 	airplane.sound linkto(airplane);
 	if (airplane_flytime > 3 ) {
-		airplane.sound playloopsound(airplane_sound);
+		airplane.sound back2uo\_back2uo_sounds::back2uo_playloopsound(airplane_sound);
 	} else {
-		airplane.sound playloopsound(airplane_sound2);
+		airplane.sound back2uo\_back2uo_sounds::back2uo_playloopsound(airplane_sound2);
 	}
 
 	airplane show();
