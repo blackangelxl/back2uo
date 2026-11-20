@@ -161,6 +161,20 @@ back2uo_libcod_fallback_false()
 
 /*
 =============
+back2uo_libcod_fallback_getvelocity
+
+Returns undefined: the velocity is not readable without zk_libcod. The sprint system then
+measures the position change in a thread (_back2uo_sprint::back2uo_sprintsystem_ismoving).
+Called on: self = player
+=============
+*/
+back2uo_libcod_fallback_getvelocity()
+{
+	return undefined;
+}
+
+/*
+=============
 back2uo_libcod_fallback_getstance
 
 Estimates the stance with two short horizontal traces through the player model (at 60 and

@@ -522,44 +522,93 @@ back2uo_weaponpickup(weapon, clipammo, slotammo, object, origin, slotmaxammo, cu
 	// trigger_radius: spawnflags 0, radius 100, height 100.
 	trigger = spawn("trigger_radius", origin, 0, 100, 100);
 
+	// Players that target this weapon (other.weapon_origin == origin) after the last pass.
+	targets = [];
+
 	// Every player in the trigger is handled each pass (a trigger waittill only returns one player).
 	while(isdefined(object))
 	{
 		wait 0.1;
 
-		players = getentarray("player", "classname");
+		// Only players near the weapon: zk_libcod filters in C++, without it a script loop.
+		// 200 units around the eye cover the whole trigger cylinder (radius 100, height 100).
+		players = back2uo\_back2uo_libcod::back2uo_libcod_getplayersbyvieworigininrange(origin, 200 * 200, undefined);
+		touching = [];
 
 		for(i = 0; i < players.size; i++)
 		{
 			other = players[i];
 
-			if(other istouching(trigger) && other.sessionstate == "playing")
+			if(!(other istouching(trigger)) || other.sessionstate != "playing") continue;
+
+			touching[touching.size] = other;
+
+			if(back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, slotmaxammo, currentslot, weaponinfo))
 			{
-				if(back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, slotmaxammo, currentslot, weaponinfo))
-				{
-					// Picked up: ends this thread.
-					if(isdefined(object)) object delete();
-					break;
-				}
+				// Picked up: ends this thread.
+				if(isdefined(object)) object delete();
+				break;
 			}
-			else if(isdefined(other.weapon_origin) && other.weapon_origin == origin)
-			{
-				// Left the trigger, died or spectating: release this weapon as pickup target.
-				other back2uo_weaponpickup_release();
-			}
+		}
+
+		// Left the trigger, died, spectating or disconnected: release this weapon as pickup target.
+		for(i = 0; i < targets.size; i++)
+		{
+			if(isdefined(targets[i]) && back2uo_pickup_istarget(targets[i].weapon_origin, origin) && !back2uo_pickup_inlist(touching, targets[i]))
+				targets[i] back2uo_weaponpickup_release();
+		}
+
+		targets = [];
+
+		for(i = 0; i < touching.size; i++)
+		{
+			if(back2uo_pickup_istarget(touching[i].weapon_origin, origin)) targets[targets.size] = touching[i];
 		}
 	}
 
 	// Weapon is gone: release every player that still targets it.
-	players = getentarray("player", "classname");
-
-	for(i = 0; i < players.size; i++)
+	for(i = 0; i < targets.size; i++)
 	{
-		if(isdefined(players[i].weapon_origin) && players[i].weapon_origin == origin)
-			players[i] back2uo_weaponpickup_release();
+		if(isdefined(targets[i]) && back2uo_pickup_istarget(targets[i].weapon_origin, origin))
+			targets[i] back2uo_weaponpickup_release();
 	}
 
 	if(isdefined(trigger)) trigger delete();
+}
+
+/*
+=============
+back2uo_pickup_istarget
+
+Returns true if a player's pickup target is the pickup at origin. Callers check
+isdefined(player) first (a disconnected player); the entity of a disconnected player can be
+reused by a new one, which has no target yet.
+Params: target - the player's pickup target origin (weapon_origin / medi_origin)
+		origin - origin of the pickup
+=============
+*/
+back2uo_pickup_istarget(target, origin)
+{
+	return (isdefined(target) && target == origin);
+}
+
+/*
+=============
+back2uo_pickup_inlist
+
+Returns true if the player is in the list.
+Params: list - array of players
+		player - player entity
+=============
+*/
+back2uo_pickup_inlist(list, player)
+{
+	for(i = 0; i < list.size; i++)
+	{
+		if(list[i] == player) return true;
+	}
+
+	return false;
 }
 
 /*

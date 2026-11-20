@@ -220,6 +220,21 @@ back2uo_libcod_isonladder()
 
 /*
 =============
+back2uo_libcod_getvelocity
+
+Returns the player's velocity vector in units per second, or undefined without zk_libcod.
+Called on: self = player
+=============
+*/
+back2uo_libcod_getvelocity()
+{
+	if(back2uo_libcod_active()) return self getVelocity();
+
+	return self back2uo\_back2uo_libcod_fallback::back2uo_libcod_fallback_getvelocity();
+}
+
+/*
+=============
 back2uo_libcod_getstance
 
 Returns the player's stance: "stand", "crouch" or "prone". Replaces two bulletTrace calls of

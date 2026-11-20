@@ -53,7 +53,12 @@ back2uo_sprintsystem_main()
 
 	if(!isdefined(self.pers["weapon_pickupsprintwait"])) self.pers["weapon_pickupsprintwait"] = false;
 
-	self thread back2uo_sprintsystem_ismoving();
+	// zk_libcod: the move state comes from getVelocity() in this loop (no extra thread, no
+	// 0.1 s sampling delay); without it a thread measures the position change.
+	self.pers["is_moving"] = false;
+	use_velocity = isdefined(self back2uo\_back2uo_libcod::back2uo_libcod_getvelocity());
+
+	if(!use_velocity) self thread back2uo_sprintsystem_ismoving();
 
 	for(;;)
 	{
@@ -61,10 +66,15 @@ back2uo_sprintsystem_main()
 		// same key press does not also start a sprint.
 		if(self.pers["weapon_pickupsprintwait"] == true)
 		{
+			// No move state update during the wait: no sprint can start or run.
+			if(use_velocity) self.pers["is_moving"] = false;
+
 			wait 1;
 
 			self.pers["weapon_pickupsprintwait"] = false;
 		}
+
+		if(use_velocity) self back2uo_sprintsystem_movestate();
 
 		// Disabled condition: && !self.pers["breathing"]
 		// After an exhaustion (self.sprint_exhausted) sprinting waits until the bar is back at about 80%.
@@ -343,9 +353,35 @@ back2uo_sprintsystem_logskip(reason, weapon)
 
 /*
 =============
+back2uo_sprintsystem_movestate
+
+zk_libcod version of back2uo_sprintsystem_ismoving, called every frame from the sprint loop
+instead of a thread: sets self.pers["is_moving"] from getVelocity(), without the 0.1 second
+sampling delay. Same rules: true while the sprint key is held and the player moves faster than
+100 units per second (10 units per 0.1 seconds), false when the key is released, unchanged
+while the key is held at a lower speed. back2uo_moving_forward is not needed with zk_libcod
+(forwardButtonPressed reads the key).
+Called on: self = player
+=============
+*/
+back2uo_sprintsystem_movestate()
+{
+	if(!self back2uo_sprintsystem_keypressed())
+	{
+		self.pers["is_moving"] = false;
+		return;
+	}
+
+	velocity = self back2uo\_back2uo_libcod::back2uo_libcod_getvelocity();
+
+	if(isdefined(velocity) && length(velocity) > 100) self.pers["is_moving"] = true;
+}
+
+/*
+=============
 back2uo_sprintsystem_ismoving
 
-Sets self.pers["is_moving"] every 0.1 seconds. It becomes true when Use is held and the
+Without zk_libcod (see back2uo_sprintsystem_movestate): sets self.pers["is_moving"] every 0.1 seconds. It becomes true when Use is held and the
 player moved more than 10 units in the last 0.1 seconds, and false when Use is released.
 While Use stays held, the last value is kept. Also sets self.back2uo_moving_forward for the
 forward-key fallback (back2uo_libcod_fallback_forwardbuttonpressed).
