@@ -266,9 +266,9 @@ back2uo_airplanefx_draw(airplane_type, airplane_startpoint, airplane_endpoint, a
 	airplane.sound.origin = airplane_startpoint;
 	airplane.sound linkto(airplane);
 	if (airplane_flytime > 3 ) {
-		airplane.sound playloopsound(airplane_sound);
+		airplane.sound back2uo\_back2uo_sounds::back2uo_playloopsound(airplane_sound);
 	} else {
-		airplane.sound playloopsound(airplane_sound2);
+		airplane.sound back2uo\_back2uo_sounds::back2uo_playloopsound(airplane_sound2);
 	}
 
 	airplane show();

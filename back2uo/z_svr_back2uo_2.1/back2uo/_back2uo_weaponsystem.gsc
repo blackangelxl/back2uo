@@ -754,7 +754,7 @@ back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, s
 
 				other switchToWeapon(weapon);
 
-				other playSound("weap_pickup");
+				other back2uo\_back2uo_sounds::back2uo_playsound("weap_pickup");
 
 				other back2uo_weaponpickup_release();
 
@@ -800,7 +800,7 @@ back2uo_weaponpickup_player(other, weapon, clipammo, slotammo, object, origin, s
 
 			back2uo\_back2uo_cvars::back2uo_logevent("weapon", "ammo", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " weapon=" + weapon + " slot=" + slot + " before=" + other.pers["weaponpickup_ammo"] + " added=" + slotammo + " clipbefore=" + other.pers["weaponpickup_clipammo"] + " clipadded=" + clipammo + " max=" + weapon_maxslotammo);
 
-			other playSound("weap_ammo_pickup");
+			other back2uo\_back2uo_sounds::back2uo_playsound("weap_ammo_pickup");
 
 			other iprintln(&"GAME_PICKUP_AMMO", weaponinfo[2]);
 

@@ -184,17 +184,17 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 				// Small pack sound is local to the player, larger ones are heard by others too
 				if(meditype == 1)
 				{
-					other playLocalSound("health_pickup_small");
+					other back2uo\_back2uo_sounds::back2uo_playlocalsound("health_pickup_small");
 					name = &"BACK2UOMOD_HEALTHPACK_SMALL";
 				}
 				else if(meditype == 2)
 				{
-					other playSound("health_pickup_medium");
+					other back2uo\_back2uo_sounds::back2uo_playsound("health_pickup_medium");
 					name = &"BACK2UOMOD_HEALTHPACK_MEDIUM";
 				}
 				else
 				{
-					other playSound("health_pickup_large");
+					other back2uo\_back2uo_sounds::back2uo_playsound("health_pickup_large");
 					name = &"BACK2UOMOD_HEALTHPACK_LARGE";
 				}
 

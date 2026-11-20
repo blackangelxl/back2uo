@@ -5,6 +5,10 @@
 	back2uo_grenade_isthrowing() is threaded per player on spawn and watches the frag count.
 	The generic helpers (soundonplayer, soundonplayers, soundonplayerorigin) are used by
 	the hud\, warfx\ and weatherfx\ scripts.
+	Every sound of the mod goes through back2uo_playsound / back2uo_playlocalsound /
+	back2uo_playloopsound (or the helpers below): one place for all mod sounds.
+	The mod's own sound files (sound/back2uo/, including the war FX copies in sound/back2uo/warfx/)
+	are type "loaded" in soundaliases/_back2uo.csv (checked by tools/build.py).
 	Cvars (via level.): back2uo_painsound_random, back2uo_deathsound_random,
 	back2uo_tauntsounds_random, back2uo_nadesounds_random (0 = off, higher = more frequent).
 	Uses level.back2uo_voices[nationality] (voice count per nation) and game["allies"].
@@ -131,7 +135,7 @@ back2uo_play_goresounds(sound)
 			special_sound = sound + "_german_" + (randomInt(level.back2uo_voices["german"]) + 1);
 		}
 
-		if(isdefined(special_sound)) self playSound(special_sound);
+		if(isdefined(special_sound)) self back2uo_playsound(special_sound);
 	}
 }
 
@@ -319,7 +323,7 @@ Params: sound - sound alias
 */
 back2uo_soundonplayer(sound, person)
 {
-	if(isdefined(person)) person playLocalSound(sound);
+	if(isdefined(person)) person back2uo_playlocalsound(sound);
 }
 
 /*
@@ -363,7 +367,7 @@ back2uo_soundambiente(sound)
 			{
 				ambient = spawn("script_model", (0, 0, 1));
 				ambient.origin = players[i].origin;
-				ambient playloopsound(sound + "1");
+				ambient back2uo_playloopsound(sound + "1");
 
 				players[i].back2uo_ambientsound = true;
 			}
@@ -371,4 +375,46 @@ back2uo_soundambiente(sound)
 
 		wait 0.1;
 	}
+}
+
+/*
+=============
+back2uo_playsound
+
+playSound on self.
+Called on: self = entity that plays the sound
+Params: sound - sound alias
+=============
+*/
+back2uo_playsound(sound)
+{
+	self playSound(sound);
+}
+
+/*
+=============
+back2uo_playlocalsound
+
+playLocalSound on self (only this player hears it).
+Called on: self = player
+Params: sound - sound alias
+=============
+*/
+back2uo_playlocalsound(sound)
+{
+	self playLocalSound(sound);
+}
+
+/*
+=============
+back2uo_playloopsound
+
+playLoopSound on self.
+Called on: self = entity that plays the sound
+Params: sound - sound alias
+=============
+*/
+back2uo_playloopsound(sound)
+{
+	self playLoopSound(sound);
 }

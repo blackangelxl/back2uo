@@ -258,13 +258,6 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, callerteam)
 	// Salvo counter.
 	art_wait = 0;
 
-	// Random launch sound.
-	soundfx_artlaun[0] = "artillery_launch1";
-	soundfx_artlaun[1] = "artillery_launch2";
-	soundfx_artlaun[2] = "artillery_launch3";
-
-	artlaun_efx = randomInt(soundfx_artlaun.size);
-
 	// Log only: shells dropped in this strike.
 	art_shells = 0;
 	art_starttime = getTime();
@@ -273,7 +266,8 @@ back2uo_artilleryfx_play(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	wait (4 + randomfloatrange(1, 2));
 
-	self thread back2uo\_back2uo_sounds::back2uo_soundonplayers(soundfx_artlaun[artlaun_efx]);
+	// Launch sound; the sound alias picks one of its variants (soundaliases/_back2uo.csv).
+	self thread back2uo\_back2uo_sounds::back2uo_soundonplayers("artillery_launch");
 
 	// Shell flight time before the first impacts.
 	wait 4 + randomfloatrange(1, 4);
@@ -389,14 +383,8 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 
 	wait 0.05;
 
-	// Random incoming whistle.
-	soundfx_artincom[0] = "artillery_fallincome1";
-	soundfx_artincom[1] = "artillery_fallincome2";
-	soundfx_artincom[2] = "artillery_fallincome3";
-
-	artincom_efx = randomInt(soundfx_artincom.size);
-
-	artillery playsound(soundfx_artincom[artincom_efx]);
+	// Incoming whistle; the sound alias picks one of its variants (soundaliases/_back2uo.csv).
+	artillery back2uo\_back2uo_sounds::back2uo_playsound("artillery_fallincome");
 
 	wait 0.3;
 
@@ -416,14 +404,8 @@ back2uo_artillery_draw(binopositarget, selftarget_x, selftarget_y, callerteam)
 	// Impact effect for the surface type.
 	playfx(level.back2uo_effect["artillery_" + artilleryfx], trace["position"]);
 
-	// Random explosion sound.
-	soundfx_artexplo[0] = "artillery_explod1";
-	soundfx_artexplo[1] = "artillery_explod2";
-	soundfx_artexplo[2] = "artillery_explod3";
-
-	artexplo_efx = randomInt(soundfx_artexplo.size);
-
-	artillery playsound(soundfx_artexplo[artexplo_efx]);
+	// Explosion sound; the sound alias picks one of its variants (soundaliases/_back2uo.csv).
+	artillery back2uo\_back2uo_sounds::back2uo_playsound("artillery_explod");
 
 	artillery hide();
 

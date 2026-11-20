@@ -50,7 +50,7 @@ back2uo_grenadepickup(grenadetype, object, origin, team, name)
 
 				back2uo\_back2uo_cvars::back2uo_logevent("grenadepickup", "pickup", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " weapon=" + grenadetype + " grenadeteam=" + team + " count=" + grenade_count + " max=" + grenade_countmax + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
 
-				other playSound("weap_ammo_pickup");
+				other back2uo\_back2uo_sounds::back2uo_playsound("weap_ammo_pickup");
 
 				// Pickup message
 				other iprintln(&"GAME_PICKUP_CLIPONLY_AMMO", name);
