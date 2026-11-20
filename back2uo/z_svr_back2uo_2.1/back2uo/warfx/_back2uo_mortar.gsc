@@ -9,8 +9,8 @@
 =============
 back2uo_mortarfx_control
 
-Polls level.back2uo_mortarfx_allow every 0.1 seconds. When set, starts one mortar
-barrage and clears the flag again.
+Waits for the level event "back2uo_warfx_mortar" (sent by _back2uo_warfx.gsc) and starts
+one mortar barrage per event.
 Called on: level
 =============
 */
@@ -20,20 +20,13 @@ back2uo_mortarfx_control()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Mortar Fx Control", "Run");
 
-	if(!isdefined(level.back2uo_mortarfx_allow)) level.back2uo_mortarfx_allow = false;
-
 	level endon("back2uo_killthreads");
 
 	for(;;)
 	{
-		if(level.back2uo_mortarfx_allow)
-		{
-			thread back2uo_mortarfx_play();
+		level waittill("back2uo_warfx_mortar");
 
-			level.back2uo_mortarfx_allow = false;
-		}
-
-		wait 0.1;
+		thread back2uo_mortarfx_play();
 	}
 }
 

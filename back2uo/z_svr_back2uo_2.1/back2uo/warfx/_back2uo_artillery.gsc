@@ -28,6 +28,7 @@ back2uo_artilleryfx_control()
 	// Persistent flag: the strike is still available after death/respawn
 	// (hud\_back2uo_ranking.gsc restarts back2uo_artilleryfx_binowaituse when it is set).
 	self.pers["artillery_save"] = true;
+	back2uo\_back2uo_events::back2uo_event_artillery_changed();
 
 	// Only one active artillery grant per player.
 	if(!isdefined(self.back2uo_artillery_go)) self.back2uo_artillery_go = false;
@@ -226,6 +227,8 @@ back2uo_artilleryfx_strike_used_up()
 
 	self.pers["artillery_save"] = undefined;
 	self.back2uo_artillery_go = false;
+
+	back2uo\_back2uo_events::back2uo_event_artillery_changed();
 }
 
 /*
@@ -562,6 +565,7 @@ back2uo_artillery_damage(endposition, attacker, callerteam)
 
 			// Direct damage call, bypassing the gametype Callback_PlayerDamage.
 			victim finishPlayerDamage(victim, attacker, int(iDamage), 1, "MOD_EXPLOSIVE", "artillery_mp", undefined, undefined, "none", victim.psOffsetTime);
+			victim back2uo\_back2uo_events::back2uo_event_health_changed();
 			victim thread maps\mp\gametypes\_damagefeedback::updateDamageFeedback();
 			victim thread back2uo_artillery_shellshockOnDamage(iDamage);
 			victim playrumble("damage_heavy");

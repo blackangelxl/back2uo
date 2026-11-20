@@ -355,9 +355,8 @@ back2uo_pistel_ammo_slot(slot, ammo)
 	back2uo\_back2uo_cvars::back2uo_logprint("Weapon Pistol Ammo in Slot", "Run");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{

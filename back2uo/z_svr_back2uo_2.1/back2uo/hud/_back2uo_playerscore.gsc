@@ -3,8 +3,7 @@
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
-	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
-	"disconnect" or "killed_player".
+	The update thread ends on player "disconnect" or "back2uo_life_end".
 */
 
 /*
@@ -92,7 +91,8 @@ back2uo_playerscore_draw()
 =============
 back2uo_playerscore_update
 
-Copies the player's score into the DM score panel every 0.1 seconds.
+Copies the player's score into the DM score panel on spawn and on every
+"update_playerhud_score" (sent by dm.gsc and tools\_back2uo_points.gsc after a score change).
 Called on: self = player
 =============
 */
@@ -102,16 +102,19 @@ back2uo_playerscore_update()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Player Score", "Update");
 
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{
 		if(isDefined(self.hud_playerscore))
 			self.hud_playerscore setValue(self.score);
 
-		wait 0.1;
+		self waittill("update_playerhud_score");
+
+		// A notify can come before the last score change of the frame (suicide: the
+		// back2uo_losepoints_ofplayer notify comes before the "score--" in dm.gsc).
+		waittillframeend;
 	}
 }
 

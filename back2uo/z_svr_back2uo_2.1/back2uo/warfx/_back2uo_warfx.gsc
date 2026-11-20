@@ -2,8 +2,8 @@
 	Back2Uo v2.1 - War effects entry point: random triggers for tracers, mortars and airplanes.
 
 	back2uo_warfx_random() is called from _back2uo_player::back2uo_start_gametype and starts
-	level threads that randomly raise the level.back2uo_*fx_allow flags polled by the
-	*_control() loops in the other warfx scripts.
+	level threads that randomly send the level events "back2uo_warfx_tracer" / "_mortar" /
+	"_airplane" (see _back2uo_events.gsc), handled by the *_control() loops in the other warfx scripts.
 	Split from the former _back2uo_warfx.gsc. All loops end on level notify "back2uo_killthreads".
 */
 
@@ -38,7 +38,7 @@ back2uo_warfx_random()
 back2uo_warfx_ambtrace_random
 
 Every 10-19 seconds rolls a random number and, if it is below level.back2uo_warfx_random
-(cvar back2uo_warfx_random, 1-100), allows one ambient tracer wave.
+(cvar back2uo_warfx_random, 1-100), sends "back2uo_warfx_tracer" (one ambient tracer wave).
 Called on: level
 =============
 */
@@ -57,7 +57,7 @@ back2uo_warfx_ambtrace_random()
 		{
 			back2uo\_back2uo_cvars::back2uo_logevent("warfx", "allow", "fx=tracer roll=" + roll + " chance=" + level.back2uo_warfx_random);
 
-			level.back2uo_ambtracerfx_allow = true;
+			back2uo\_back2uo_events::back2uo_event_warfx("tracer");
 		}
 
 		wait (10 + randomfloatrange(1, 10));
@@ -69,7 +69,7 @@ back2uo_warfx_ambtrace_random()
 back2uo_warfx_mortar_random
 
 Every 20-49 seconds rolls against level.back2uo_warfx_random and, on success,
-allows one mortar barrage (picked up by back2uo_mortarfx_control).
+sends "back2uo_warfx_mortar" (one mortar barrage, see back2uo_mortarfx_control).
 Called on: level
 =============
 */
@@ -87,7 +87,7 @@ back2uo_warfx_mortar_random()
 		{
 			back2uo\_back2uo_cvars::back2uo_logevent("warfx", "allow", "fx=mortar roll=" + roll + " chance=" + level.back2uo_warfx_random);
 
-			level.back2uo_mortarfx_allow = true;
+			back2uo\_back2uo_events::back2uo_event_warfx("mortar");
 		}
 
 		wait (20 + randomfloatrange(1, 30));
@@ -99,7 +99,7 @@ back2uo_warfx_mortar_random()
 back2uo_warfx_airplane_random
 
 Every 10-39 seconds rolls against level.back2uo_warfx_random and, on success,
-allows one airplane fly-over (picked up by back2uo_airplanefx_control).
+sends "back2uo_warfx_airplane" (one airplane fly-over, see back2uo_airplanefx_control).
 Called on: level
 =============
 */
@@ -117,7 +117,7 @@ back2uo_warfx_airplane_random()
 		{
 			back2uo\_back2uo_cvars::back2uo_logevent("warfx", "allow", "fx=airplane roll=" + roll + " chance=" + level.back2uo_warfx_random);
 
-			level.back2uo_airplanefx_allow = true;
+			back2uo\_back2uo_events::back2uo_event_warfx("airplane");
 		}
 
 		wait (10 + randomfloatrange(1, 30));

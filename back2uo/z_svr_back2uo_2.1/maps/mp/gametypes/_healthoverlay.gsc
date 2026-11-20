@@ -234,6 +234,9 @@ playerHealthRegen()
 			// setnormalhealth takes a 0..1 fraction of max health.
 			player setnormalhealth (newHealth);
 			oldhealth = player.health;
+
+			// Back2Uo: health bar redraw.
+			if(game["back2uo_enable"]) player back2uo\_back2uo_events::back2uo_event_health_changed();
 			continue;
 		}
 

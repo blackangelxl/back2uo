@@ -165,6 +165,8 @@ back2uo_healththink(medihealth_vol, meditype, object, origin)
 
 				if(other.health > other.maxhealth) other.health = other.maxhealth;
 
+				other back2uo\_back2uo_events::back2uo_event_health_changed();
+
 				back2uo\_back2uo_cvars::back2uo_logevent("healthpack", "pickup", back2uo\_back2uo_cvars::back2uo_logplayer(other) + " size=" + meditype + " heal=" + (other.health - health_before) + " healvol=" + medihealth_vol + " before=" + health_before + " after=" + other.health + " max=" + other.maxhealth + " pos=" + back2uo\_back2uo_cvars::back2uo_logvec(origin));
 
 				// Small pack sound is local to the player, larger ones are heard by others too

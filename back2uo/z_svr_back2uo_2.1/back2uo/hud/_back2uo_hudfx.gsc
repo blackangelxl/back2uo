@@ -3,8 +3,8 @@
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
-	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
-	"disconnect" or "killed_player".
+	Update threads end on level "back2uo_killthreads" and player "disconnect" or
+	"back2uo_life_end".
 */
 
 /*
@@ -149,8 +149,9 @@ back2uo_hudfx_draw()
 =============
 back2uo_hudfx_update
 
-Every 0.1 seconds switches the impact icon to the artillery icon while the player
-owns an artillery strike (self.pers["artillery_save"]), otherwise back to mortar/none.
+Sets the impact icon: the artillery icon while the player owns an artillery strike
+(self.pers["artillery_save"]), otherwise mortar/none. Redraws on the player event
+"back2uo_artillery_changed" (see _back2uo_events.gsc), no polling.
 Called on: self = player
 =============
 */
@@ -163,13 +164,13 @@ back2uo_hudfx_update()
 	back2uo\_back2uo_cvars::back2uo_logprint("Hud Fx Icons", "Update");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{
 		// Artillery strike available: show the artillery icon instead of the mortar icon.
+		// game[] switches are fixed for the map, so only the artillery state can change.
 		if(game["back2uo_artilleryfx_enable"] && isdefined(self.pers["artillery_save"]) && self.pers["artillery_save"] == true)
 		{
 			if(isDefined(self.hud_impactfx)) self.hud_impactfx setShader("gfx/custom/back2uo_hud_artilleryfx.tga", 16, 16);
@@ -186,7 +187,8 @@ back2uo_hudfx_update()
 			}
 		}
 
-		wait 0.1;
+		// Redraw only when the artillery strike is granted or used up.
+		self waittill("back2uo_artillery_changed");
 	}
 }
 

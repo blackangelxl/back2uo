@@ -72,9 +72,8 @@ back2uo_grana_smoke_checker()
 	if(!level.back2uo_smoke_grana_active) return;
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	for(;;)
 	{

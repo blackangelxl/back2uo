@@ -7,7 +7,8 @@
 	war FX, sprint, anti-camper/AFK, gore, sounds, weapon system.
 	All hooks are no-ops when game["back2uo_enable"] is off.
 	Notifies: level "back2uo_killthreads" (map end) and player "back2uo_killplayerthreads"
-	(disconnect) end the mod's long-running threads.
+	(disconnect) end the mod's long-running threads. Player "back2uo_life_end" (death, spawn,
+	spectator, disconnect; see _back2uo_events.gsc) ends the per-life loops.
 */
 
 /*
@@ -39,7 +40,15 @@ back2uo_start_gametype()
 
 	back2uo\tools\_back2uo_maprotation::back2uo_getmaprotation_control();
 
-	// Random triggers for mortars, tracers and airplanes.
+	// War FX listeners first: they wait for the level events "back2uo_warfx_*" and a notify
+	// is lost if nobody waits for it yet (the random triggers roll right away).
+	thread back2uo\warfx\_back2uo_mortar::back2uo_mortarfx_control();
+
+	thread back2uo\warfx\_back2uo_ambtracer::back2uo_ambtracerfx_control();
+
+	thread back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_control();
+
+	// Random triggers for mortars, tracers and airplanes (send the events above).
 	back2uo\warfx\_back2uo_warfx::back2uo_warfx_random();
 
 	// Roll whether this map gets weather, then start rain/snow.
@@ -51,13 +60,6 @@ back2uo_start_gametype()
 	thread back2uo\_back2uo_weaponsystem::back2uo_weapon_limitiert();
 
 	thread back2uo\weatherfx\_back2uo_thunder::back2uo_thunder_draw();
-
-	// War FX control loops (react to the flags set by back2uo_warfx_random).
-	thread back2uo\warfx\_back2uo_mortar::back2uo_mortarfx_control();
-
-	thread back2uo\warfx\_back2uo_ambtracer::back2uo_ambtracerfx_control();
-
-	thread back2uo\warfx\_back2uo_airplane::back2uo_airplanefx_control();
 
 	thread back2uo\antiplay\_back2uo_afk::back2uo_switchspec();
 
@@ -114,6 +116,8 @@ back2uo_player_disconnect()
 	// The compass marker of a camper would stay on the compass after the disconnect
 	back2uo\antiplay\_back2uo_camper::back2uo_antiplay_camper_remove2();
 
+	back2uo\_back2uo_events::back2uo_event_life_end();
+
 	self notify("back2uo_killplayerthreads");
 }
 
@@ -131,6 +135,9 @@ Params: same as the gametype Callback_PlayerDamage (eInflictor, eAttacker, iDama
 back2uo_player_damage(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, sWeapon, vPoint, vDir, sHitLoc, psOffsetTime)
 {
 	if(!game["back2uo_enable"]) return;
+
+	// Health bar redraw (the health drops after this hook, in finishPlayerDamage).
+	back2uo\_back2uo_events::back2uo_event_health_changed();
 
 	thread back2uo\_back2uo_sounds::back2uo_painsound_play(sHitLoc, eAttacker);
 
@@ -159,6 +166,9 @@ Params: same as the gametype Callback_PlayerKilled (eInflictor, attacker, iDamag
 back2uo_player_killed(eInflictor, attacker, iDamage, sMeansOfDeath, sWeapon, vDir, sHitLoc, psOffsetTime, deathAnimDuration)
 {
 	if(!game["back2uo_enable"]) return;
+
+	// End the loops of this life (HUD updates, sprint, ...) before the death handling.
+	back2uo\_back2uo_events::back2uo_event_life_end();
 
 	back2uo\antiplay\_back2uo_camper::back2uo_antiplay_camper_remove2();
 
@@ -195,6 +205,9 @@ Called on: self = player
 back2uo_player_spawn()
 {
 	if(!game["back2uo_enable"]) return;
+
+	// A new life: end leftover loops of the previous one, so every loop runs only once.
+	back2uo\_back2uo_events::back2uo_event_life_end();
 
 	// Voice set (0-3) for this player's grenade shouts (<land>_<n>_inform_attacker_grenade).
 	self.pers["taunt_person"] = randomint(4);
@@ -279,6 +292,9 @@ Called on: self = player
 back2uo_player_spectator()
 {
 	if(!game["back2uo_enable"]) return;
+
+	// End the loops of the last life; the spectator team score loop below starts a new one.
+	back2uo\_back2uo_events::back2uo_event_life_end();
 
 	thread back2uo\hud\_back2uo_teamscore::back2uo_teamscore_draw();
 

@@ -3,8 +3,8 @@
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
-	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
-	"disconnect" or "killed_player".
+	Update threads end on level "back2uo_killthreads" and player "disconnect" or
+	"back2uo_life_end" (see _back2uo_events.gsc).
 */
 
 /*
@@ -118,8 +118,10 @@ back2uo_healthbar_spawn_prot(time, wert)
 =============
 back2uo_healthbar_update
 
-Polls the player's health every 0.05 seconds and rescales and recolors the health
-bar when it changed. The bar goes from green (full) to red (low).
+Rescales and recolors the health bar when the health changed. The bar goes from green
+(full) to red (low). Wakes on the player event "back2uo_health_changed" (see
+_back2uo_events.gsc), which back2uo_healthbar_heartbeat also sends every 0.5 seconds for
+health changes without event (e.g. friendly fire reflected to the attacker).
 Called on: self = player
 =============
 */
@@ -130,21 +132,28 @@ back2uo_healthbar_update()
 	back2uo\_back2uo_cvars::back2uo_logprint("Healthbar", "Update");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	balkenWidth = 128;
+	health_status1 = self.health;
+
+	self thread back2uo_healthbar_heartbeat();
 
 	for(;;)
 	{
-		// Sample health twice, 0.05 s apart, and only redraw on change.
-		health_status1 = self.health;
-		wait .05;
+		self waittill("back2uo_health_changed");
+
+		// The damage hook sends the event before finishPlayerDamage of the same frame.
+		waittillframeend;
+
+		// Only redraw on change.
 		health_status2 = self.health;
 
 		if(health_status2 != health_status1)
 		{
+			health_status1 = health_status2;
+
 			balkenWidth = Int(health_status2 * 1.28);
 
 			// Health 0 or less: remove the bar.
@@ -161,6 +170,29 @@ back2uo_healthbar_update()
 				self.healthbar_gruen.color = (1.0-(self.health/100.0), (self.health/100.0)-0.4, 0);
 			}
 		}
+	}
+}
+
+/*
+=============
+back2uo_healthbar_heartbeat
+
+Sends "back2uo_health_changed" every 0.5 seconds: fallback for health changes that send no
+event. Runs as long as back2uo_healthbar_update (same endons).
+Called on: self = player
+=============
+*/
+back2uo_healthbar_heartbeat()
+{
+	level endon("back2uo_killthreads");
+	self endon("disconnect");
+	self endon("back2uo_life_end");
+
+	for(;;)
+	{
+		wait 0.5;
+
+		back2uo\_back2uo_events::back2uo_event_health_changed();
 	}
 }
 
@@ -184,9 +216,8 @@ back2uo_healthbar_glow()
 	self endon("back2uo_healthbar_glow");
 
 	level endon("back2uo_killthreads");
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	// Log only the first drop below 50 health until health is back to 50 or more.
 	if(isdefined(self.health) && self.health > 0 && self.health < 50 && !isdefined(self.back2uo_log_lowhealth))

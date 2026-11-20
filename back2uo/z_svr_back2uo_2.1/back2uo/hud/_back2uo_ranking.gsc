@@ -3,8 +3,8 @@
 
 	Part of the per-player HUD (split from the former _back2uo_hudfx.gsc). Called from
 	_back2uo_player.gsc on spawn, damage and death.
-	Update threads end on level "back2uo_killthreads" and player "back2uo_killplayerthreads",
-	"disconnect" or "killed_player".
+	Update threads end on level "back2uo_killthreads" and player "disconnect" or
+	"back2uo_life_end" (see _back2uo_events.gsc).
 
 	Like in United Offensive the rank sets the loadout of the next life: on every spawn the
 	player gets the magazines and grenades of his current rank (back2uo_rank<n>_* cvars).
@@ -87,9 +87,8 @@ back2uo_ranking_update()
 
 	back2uo\_back2uo_cvars::back2uo_logprint("Hud Ranking", "Update");
 
-	self endon("back2uo_killplayerthreads");
 	self endon("disconnect");
-	self endon("killed_player");
+	self endon("back2uo_life_end");
 
 	// Rank at spawn: the loadout of this life. Runs before the first wait, so it is done
 	// before the gametype stores the spawn ammo (back2uo_weaponspawn_*slotammo).
