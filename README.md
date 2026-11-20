@@ -36,6 +36,7 @@ back2uo/                          fs_game folder contents
     back2uo/_back2uo_*.gsc        the mod itself (entry: _back2uo_main.gsc)
     back2uo/bots/                 bot AI (_back2uo_botai.gsc), waypoint loader and path finding (A*)
     back2uo/bots/waypoints/       generated waypoint scripts per map (tools/wp2gsc.py)
+    back2uo/tracecache/           generated trace cache per map (tools/tcgen.py)
     maps/mp/gametypes/*.gsc       stock gametypes with Back2Uo hooks ("Back2Uo:" comments)
     maps/mp/mp_*_fx.gsc           stock map FX scripts, adapted
   z_svr_back2uo_2.1_libcod/       -> z_svr_back2uo_2.1_libcod.iwd  zk_libcod function wrappers
@@ -52,6 +53,7 @@ tools/
   gscfmt.py                       formats GSC files (tabs, CRLF)
   gsclex.py                       checks that an edit changed only comments/whitespace
   wp2gsc.py                       converts MeatBot waypoints (.wp) into GSC waypoint scripts
+  tcgen.py                        traces the maps on the docker server and writes the trace cache
   waypoints_mbot/                 MeatBot waypoint sources for the stock maps
 ```
 
@@ -69,6 +71,14 @@ Output: `dist/back2uo/` with the five `.iwd` archives and the config files.
 The bot waypoint scripts in `back2uo/z_svr_back2uo_2.1/back2uo/bots/waypoints/` are generated.
 After changing the sources in `tools/waypoints_mbot/` (one `<mapname>_tdm.wp` per map), run
 `python tools/wp2gsc.py`. The layout is described at the top of [tools/wp2gsc.py](tools/wp2gsc.py).
+
+The trace cache scripts in `back2uo/z_svr_back2uo_2.1/back2uo/tracecache/` are generated too:
+the map bounds and the airplane fly-over paths, traced once on the Docker test server instead
+of for 9-25 seconds after every map and round start. After changing a map, its entities or the
+airplane formations, run `python tools/tcgen.py [<mapname> ...]` (all maps without names).
+Maps without a cache file still work; they trace at run time and keep the bounds in cvars.
+Details at the top of [tools/tcgen.py](tools/tcgen.py) and
+`back2uo/z_svr_back2uo_2.1/back2uo/tools/_back2uo_tracecache.gsc`.
 
 ## Tests
 
